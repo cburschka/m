@@ -68,21 +68,69 @@
 
 \begin_body
 
-\begin_layout Standard
+\begin_layout Enumerate
 Sei 
-\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\begin_inset Formula $\sigma$
 \end_inset
 
- eine FO
-\begin_inset Formula $\left[\sigma\right]$
+ eine relationale Signatur.
+\end_layout
+
+\begin_layout Enumerate
+Sei 
+\begin_inset Formula $\varphi$
 \end_inset
 
--Formel, o.B.d.A.
+ eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+\end_layout
+
+\begin_layout Enumerate
+O.B.d.A.
+ sei 
+\begin_inset Formula $\varphi$
+\end_inset
+
  in Pränex-Normalform:
 \begin_inset Formula 
 \[
-\varphi\left(\bar{x}\right)=Q_{1}y_{1}\cdots
+\varphi\left(\bar{x}\right)\coloneqq Q_{1}y_{1}\cdots Q_{k}y_{k}\psi\left(\bar{x},\bar{y}\right)
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Sei 
+\begin_inset Formula $\psi$
+\end_inset
+
+ o.b.d.A.
+ in Negationsnormalform.
+ Für jede Abbildung 
+\begin_inset Formula $\beta:\bar{x}\bar{y}\rightarrow U$
+\end_inset
+
+ sei 
+\begin_inset Formula $\mathcal{C}^{\beta}\left(\psi\right)$
+\end_inset
+
+ der Schaltkreis, der wie folgt aus 
+\begin_inset Formula $\psi$
+\end_inset
+
+ entsteht:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{C}^{\beta}\left(\bigwedge_{i=1}^{m}\psi_{i}\right) & = & \bigwedge_{i=1}^{m}\mathcal{C}^{\beta}\left(\psi_{i}\right)\\
+\mathcal{C}^{\beta}\left(\bigvee_{i=1}^{m}\psi_{i}\right) & = & \bigvee_{i=1}^{m}\mathcal{C}^{\beta}\left(\psi_{i}\right)\\
+\mathcal{C}^{\beta}\left(\neg\psi_{i}\right) & = & \bigvee_{i=1}^{m}\mathcal{C}^{\beta}\left(\psi_{i}\right)
+\end{eqnarray*}
 
 \end_inset
 
