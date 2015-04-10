@@ -1,0 +1,626 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Subsection*
+Schaltkreise
+\end_layout
+
+\begin_layout Paragraph*
+Basis 
+\end_layout
+
+\begin_layout Standard
+Eine Basis 
+\begin_inset Formula $\mathbb{B}$
+\end_inset
+
+ besteht aus beliebigen Funktionen 
+\begin_inset Formula $\phi:\mathbb{N}\times\mathbb{N}\rightarrow\left\{ 0,1\right\} $
+\end_inset
+
+.
+ Ein Gatter von Typ 
+\begin_inset Formula $\phi$
+\end_inset
+
+ hat den Wert 
+\begin_inset Formula $\phi\left(n,m\right)$
+\end_inset
+
+, wenn es genau 
+\begin_inset Formula $n$
+\end_inset
+
+ Vorgänger besitzt, von denen 
+\begin_inset Formula $m$
+\end_inset
+
+ den Wert 
+\begin_inset Formula $1$
+\end_inset
+
+ haben.
+\begin_inset Newline newline
+\end_inset
+
+Zum Beispiel entsprechen UND und ODER den folgenden Funktionen: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\wedge\left(n,m\right) & \coloneqq & \begin{cases}
+1 & \mathrm{falls}\,n=m\\
+0 & \mathrm{sonst}
+\end{cases}\\
+\vee\left(n,m\right) & \coloneqq & \begin{cases}
+1 & \mathrm{falls}\,m>0\\
+0 & \mathrm{sonst}
+\end{cases}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph
+Schaltkreis
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $\mathbb{B}$
+\end_inset
+
+ eine Basis und 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ eine relationale Signatur.
+ Ein 
+\begin_inset Formula $\left(\mathbb{B},\sigma\right)$
+\end_inset
+
+-Schaltkreis 
+\begin_inset Formula $\mathcal{C}\coloneqq\left(V,E,\Sigma,\Omega,U\right)$
+\end_inset
+
+ mit einer Stelligkeit 
+\begin_inset Formula $\mathrm{ar}\left(C\right)\coloneqq m$
+\end_inset
+
+ besteht aus den folgenden Komponenten: 
+\end_layout
+
+\begin_layout Enumerate
+Ein azyklischer Graph 
+\begin_inset Formula $\left(V,E\right)$
+\end_inset
+
+,
+\end_layout
+
+\begin_layout Enumerate
+eine Gattermarkierung 
+\begin_inset Formula $\Sigma:V\rightarrow\mathbb{B}\cup\left\{ \mathbf{0},\mathbf{1}\right\} \cup\left\{ R\bar{x},\neg R\bar{x}\mid R\in\sigma,\bar{x}\in U^{\mathrm{ar}\left(R\right)}\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+eine Ausgabefunktion 
+\begin_inset Formula $\Omega:U^{m}\rightarrow V$
+\end_inset
+
+ und 
+\end_layout
+
+\begin_layout Enumerate
+ein Universum 
+\begin_inset Formula $U\coloneqq\left\{ 1,\cdots,n\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Paragraph
+Auswertung
+\end_layout
+
+\begin_layout Standard
+Der Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ wird über einer 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ mit dem Universum 
+\begin_inset Formula $U$
+\end_inset
+
+ ausgewertet.
+ Die Auswertung ist eine Abbildung 
+\begin_inset Formula $\alpha:V\rightarrow\left\{ 0,1\right\} $
+\end_inset
+
+, die jedem Gatter den Wert 
+\begin_inset Formula $0$
+\end_inset
+
+ oder 
+\begin_inset Formula $1$
+\end_inset
+
+ zuweist, und ist rekursiv wie folgt definiert:
+\end_layout
+
+\begin_layout Enumerate
+Falls das Eingangsgatter 
+\begin_inset Formula $v$
+\end_inset
+
+ mit einem Literal 
+\begin_inset Formula $\Sigma\left(v\right)=R\bar{x}$
+\end_inset
+
+ markiert ist, so ist 
+\begin_inset Formula $\alpha\left(v\right)=1$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\bar{x}\in R^{\mathfrak{A}}$
+\end_inset
+
+, und sonst 
+\begin_inset Formula $0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Für ein negiertes Literal 
+\begin_inset Formula $\Sigma\left(v\right)=\neg R\bar{x}$
+\end_inset
+
+ ist 
+\begin_inset Formula $\alpha\left(v\right)=1$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\bar{x}\notin R^{\mathfrak{A}}$
+\end_inset
+
+, und sonst 
+\begin_inset Formula $0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Für ein inneres Gatter mit 
+\begin_inset Formula $\Sigma\left(v\right)=\phi\in\mathbb{B}$
+\end_inset
+
+ ist 
+\begin_inset Formula $\alpha\left(v\right)=\phi\left(i,j\right)$
+\end_inset
+
+, wobei 
+\begin_inset Formula $i$
+\end_inset
+
+ der Eingangsgrad von 
+\begin_inset Formula $v$
+\end_inset
+
+ und 
+\begin_inset Formula $j=\sum_{\left(u,v\right)\in E}\alpha\left(u\right)$
+\end_inset
+
+ die Anzahl der mit 1 belegten Vorgänger ist.
+\end_layout
+
+\begin_layout Standard
+Ein Tupel 
+\begin_inset Formula $\bar{x}\in U^{m}$
+\end_inset
+
+ erfüllt den Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ (d.h.
+ 
+\begin_inset Formula $\bar{x}\in\mathcal{C}\left(\mathfrak{A}\right)$
+\end_inset
+
+) genau dann wenn das Gatter 
+\begin_inset Formula $v=\Omega\left(\bar{x}\right)$
+\end_inset
+
+ den Wert 
+\begin_inset Formula $\alpha\left(v\right)=1$
+\end_inset
+
+ hat.
+\end_layout
+
+\begin_layout Paragraph*
+Ordnungsinvarianz
+\end_layout
+
+\begin_layout Standard
+Für eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ mit beliebigem Universum 
+\begin_inset Formula $A$
+\end_inset
+
+ der Größe 
+\begin_inset Formula $\left|A\right|=\left|U\right|$
+\end_inset
+
+ und eine Bijektion 
+\begin_inset Formula $\pi:A\rightarrow U$
+\end_inset
+
+ sei 
+\begin_inset Formula $\pi\left(\mathfrak{A}\right)$
+\end_inset
+
+ die isomorphe Struktur mit dem Universum 
+\begin_inset Formula $U$
+\end_inset
+
+.
+ Ein Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ ist ordnungsinvariant genau dann wenn für alle Tupel 
+\begin_inset Formula $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$
+\end_inset
+
+ und alle Bijektionen 
+\begin_inset Formula $\pi,\pi':A\rightarrow U$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\[
+\pi\left(\bar{a}\right)\in\mathcal{C}\left(\pi\left(\mathfrak{A}\right)\right)\Leftrightarrow\pi'\left(\bar{a}\right)\in\mathcal{C}\left(\pi\left(\mathfrak{A}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Paragraph*
+Symmetrie
+\end_layout
+
+\begin_layout Standard
+Ein Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ ist symmetrisch, wenn für jede Permutation der Universums 
+\begin_inset Formula $\pi:U\rightarrow U$
+\end_inset
+
+ ein Automorphismus 
+\begin_inset Formula $\pi':V\rightarrow V$
+\end_inset
+
+ des Graphen 
+\begin_inset Formula $\left(V,E\right)$
+\end_inset
+
+ existiert, so dass:
+\end_layout
+
+\begin_layout Enumerate
+Für alle Eingangsgatter 
+\begin_inset Formula $v$
+\end_inset
+
+ mit 
+\begin_inset Formula $\Sigma\left(v\right)=R\bar{x}$
+\end_inset
+
+ bzw.
+ 
+\begin_inset Formula $\Sigma\left(v\right)=\neg R\bar{x}$
+\end_inset
+
+ gilt
+\begin_inset Formula $\Sigma\left(\pi'\left(v\right)\right)=R\pi\left(\bar{x}\right)$
+\end_inset
+
+ bzw.
+ 
+\begin_inset Formula $\Sigma\left(\pi'\left(v\right)\right)=\neg R\pi\left(\bar{x}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Für jedes Tupel 
+\begin_inset Formula $\bar{x}\in U$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\Omega\left(\pi\left(\bar{x}\right)\right)=\pi'\left(\Omega\left(x\right)\right)$
+\end_inset
+
+.operi
+\end_layout
+
+\begin_layout Subsection*
+Formel zu Schaltkreis
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ eine relationale Signatur, und sei 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\end_inset
+
+ eine 
+\begin_inset Formula $m$
+\end_inset
+
+-stellige 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+ S
+\end_layout
+
+\begin_layout Enumerate
+Sei 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ o.B.d.A.
+ in Pränex-Normalform:
+\begin_inset Formula 
+\[
+\varphi\left(\bar{x}\right)\coloneqq Q_{1}y_{1}\cdots Q_{k}y_{k}\psi\left(\bar{x},\bar{y}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Sei 
+\begin_inset Formula $\psi$
+\end_inset
+
+ o.b.d.A.
+ in Negationsnormalform.
+ Sei 
+\begin_inset Formula $\mathcal{C}_{n}\left(\psi\right)=\left(V,E,\Sigma,\Omega,U\right)$
+\end_inset
+
+ ein Schaltkreis mit Stelligkeit 
+\begin_inset Formula $m+k$
+\end_inset
+
+, der wie folgt aus 
+\begin_inset Formula $\psi$
+\end_inset
+
+ entsteht: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{C}_{n}\left(\bigwedge_{i=1}^{m}\psi_{i}\right) & = & \bigwedge_{i=1}^{m}\mathcal{C}_{\psi_{i}}\\
+\mathcal{C}_{n}\left(\bigvee_{i=1}^{m}\psi_{i}\right) & = & \bigvee_{i=1}^{m}\mathcal{C}_{\psi_{i}}
+\end{eqnarray*}
+
+\end_inset
+
+Hierbei werde für 
+\begin_inset Formula $\phi\in\left\{ \vee,\wedge\right\} $
+\end_inset
+
+ und eine Menge von Schaltkreisen 
+\begin_inset Formula $X$
+\end_inset
+
+ der Schaltkreis 
+\begin_inset Formula $\phi\left(X\right)$
+\end_inset
+
+ aus der disjunkten Vereinigung von 
+\begin_inset Formula $X$
+\end_inset
+
+ konstruiert, in dem für jedes Tupel 
+\begin_inset Formula $\bar{z}\in U^{m+k}$
+\end_inset
+
+ ein Gatter 
+\begin_inset Formula $\Omega^{\phi\left(X\right)}\left(\bar{z}\right)=v$
+\end_inset
+
+ mit der Markierung 
+\begin_inset Formula $\Sigma^{\phi\left(X\right)}\left(v\right)=\phi$
+\end_inset
+
+ und den Eingängen 
+\begin_inset Formula $\left\{ \Omega^{C}\left(\bar{x}\right)\mid C\in X\right\} $
+\end_inset
+
+ eingefügt wird.
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Ein Schaltkreis mit einem einzigen Literal 
+\begin_inset Formula $R\bar{z}$
+\end_inset
+
+ bzw.
+ 
+\begin_inset Formula $\neg R\bar{z}$
+\end_inset
+
+ besteht aus 
+\begin_inset Formula $U^{m+k}$
+\end_inset
+
+ isolierten Knoten, wobei für jede Belegung 
+\begin_inset Formula $\beta\in\mathrm{Abb}\left(\bar{x}\bar{y},U\right)$
+\end_inset
+
+ das Ausgangsgatter 
+\begin_inset Formula $\Omega\left(\beta\left(\bar{x}\bar{y}\right)\right)=v$
+\end_inset
+
+ mit dem Eingang 
+\begin_inset Formula $\Sigma\left(v\right)=R\beta\left(\bar{z}\right)$
+\end_inset
+
+ bzw.
+ 
+\begin_inset Formula $\Sigma\left(v\right)=\neg R\beta\left(\bar{z}\right)$
+\end_inset
+
+ markiert ist.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Für eine Formel 
+\begin_inset Formula $\varphi'\left(\bar{x}\right)\coloneqq Qy_{1}\cdots Qy_{k}\varphi''\left(\bar{x},y_{i},\cdots,y_{k}\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $Q\in\left\{ \exists,\forall\right\} $
+\end_inset
+
+ werde der Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{\varphi'}^{n}$
+\end_inset
+
+ aus 
+\begin_inset Formula $\mathcal{C}_{\varphi''}^{n}$
+\end_inset
+
+ konstruiert, in dem für jedes Tupel 
+\begin_inset Formula $\bar{x}\in U^{m}$
+\end_inset
+
+ ein Gatter 
+\begin_inset Formula $\Omega^{\phi\left(X\right)}\left(\bar{x}\right)=v$
+\end_inset
+
+ mit der Markierung 
+\begin_inset Formula $\Sigma^{\phi\left(X\right)}\left(v\right)=\begin{cases}
+\vee & \mbox{falls \ensuremath{Q=\exists}}\\
+\wedge & \mbox{sonst}
+\end{cases}$
+\end_inset
+
+ und den Eingängen 
+\begin_inset Formula $\left\{ \Omega^{C}\left(\bar{x}\bar{y}\right)\mid\bar{y}\in U^{k}\right\} $
+\end_inset
+
+ eingefügt wird.
+\end_layout
+
+\end_body
+\end_document
