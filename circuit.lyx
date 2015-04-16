@@ -212,7 +212,7 @@ Der Schaltkreis
 
  ausgewertet.
  Die Auswertung ist eine Abbildung 
-\begin_inset Formula $\alpha:V\rightarrow\left\{ 0,1\right\} $
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]:V\rightarrow\left\{ 0,1\right\} $
 \end_inset
 
 , die jedem Gatter den Wert 
@@ -236,7 +236,7 @@ Falls das Eingangsgatter
 \end_inset
 
  markiert ist, so ist 
-\begin_inset Formula $\alpha\left(v\right)=1$
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(v\right)=1$
 \end_inset
 
  genau dann wenn 
@@ -256,7 +256,7 @@ Für ein negiertes Literal
 \end_inset
 
  ist 
-\begin_inset Formula $\alpha\left(v\right)=1$
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(v\right)=1$
 \end_inset
 
  genau dann wenn 
@@ -276,7 +276,7 @@ Für ein inneres Gatter mit
 \end_inset
 
  ist 
-\begin_inset Formula $\alpha\left(v\right)=\phi\left(i,j\right)$
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(v\right)=\phi\left(i,j\right)$
 \end_inset
 
 , wobei 
@@ -288,7 +288,7 @@ Für ein inneres Gatter mit
 \end_inset
 
  und 
-\begin_inset Formula $j=\sum_{\left(u,v\right)\in E}\alpha\left(u\right)$
+\begin_inset Formula $j=\sum_{\left(u,v\right)\in E}\mathcal{C}\left[\mathfrak{A}\right]\left(u\right)$
 \end_inset
 
  die Anzahl der mit 1 belegten Vorgänger ist.
@@ -303,24 +303,24 @@ Ein Tupel
 \begin_inset Formula $\mathcal{C}$
 \end_inset
 
- (d.h.
- 
-\begin_inset Formula $\bar{x}\in\mathcal{C}\left(\mathfrak{A}\right)$
-\end_inset
-
-) genau dann wenn das Gatter 
-\begin_inset Formula $v=\Omega\left(\bar{x}\right)$
+ genau dann wenn das Gatter 
+\begin_inset Formula $\Omega\left(\bar{x}\right)$
 \end_inset
 
  den Wert 
-\begin_inset Formula $\alpha\left(v\right)=1$
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{x}\right)\right)=1$
 \end_inset
 
  hat.
+ Dafür führen wir die abgekürzte Notation 
+\begin_inset Formula $\bar{x}\in\mathcal{C}\left[\mathfrak{A}\right]$
+\end_inset
+
+ ein.
 \end_layout
 
 \begin_layout Paragraph*
-Ordnungsinvarianz
+Invarianz
 \end_layout
 
 \begin_layout Standard
@@ -340,15 +340,15 @@ Für eine
 \begin_inset Formula $\left|A\right|=\left|U\right|$
 \end_inset
 
- und eine Bijektion 
+ sei 
 \begin_inset Formula $\pi:A\rightarrow U$
 \end_inset
 
- sei 
-\begin_inset Formula $\pi\left(\mathfrak{A}\right)$
+ eine Bijektion und 
+\begin_inset Formula $\pi\mathfrak{A}$
 \end_inset
 
- die isomorphe Struktur mit dem Universum 
+ die entsprechende isomorphe Struktur mit Universum 
 \begin_inset Formula $U$
 \end_inset
 
@@ -357,18 +357,18 @@ Für eine
 \begin_inset Formula $\mathcal{C}$
 \end_inset
 
- ist ordnungsinvariant genau dann wenn für alle Tupel 
+ ist invariant genau dann wenn für alle Tupel 
 \begin_inset Formula $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$
 \end_inset
 
  und alle Bijektionen 
-\begin_inset Formula $\pi,\pi':A\rightarrow U$
+\begin_inset Formula $\pi_{1},\pi_{2}:A\rightarrow U$
 \end_inset
 
  gilt:
 \begin_inset Formula 
 \[
-\pi\left(\bar{a}\right)\in\mathcal{C}\left(\pi\left(\mathfrak{A}\right)\right)\Leftrightarrow\pi'\left(\bar{a}\right)\in\mathcal{C}\left(\pi\left(\mathfrak{A}\right)\right)
+\pi_{1}\bar{a}\in\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\Leftrightarrow\pi{}_{2}\bar{a}\in\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]
 \]
 
 \end_inset
