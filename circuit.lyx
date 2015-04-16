@@ -3,7 +3,13 @@
 \begin_document
 \begin_header
 \textclass article
+\begin_preamble
+\usepackage{tikz}
+\end_preamble
 \use_default_options true
+\begin_modules
+theorems-ams
+\end_modules
 \maintain_unincluded_children false
 \language english
 \language_package default
@@ -24,7 +30,9 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
+\float_placement H
 \paperfontsize default
+\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -178,7 +186,15 @@ eine Ausgabefunktion
 \begin_inset Formula $\Omega:U^{m}\rightarrow V$
 \end_inset
 
- und 
+ (für 
+\begin_inset Formula $m=0$
+\end_inset
+
+ ist 
+\begin_inset Formula $\Omega\left(\left\langle \right\rangle \right)\in V$
+\end_inset
+
+ eine Konstante) und 
 \end_layout
 
 \begin_layout Enumerate
@@ -313,10 +329,29 @@ Ein Tupel
 
  hat.
  Dafür führen wir die abgekürzte Notation 
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(\bar{x}\right)=1$
+\end_inset
+
+ bzw.
+ 
 \begin_inset Formula $\bar{x}\in\mathcal{C}\left[\mathfrak{A}\right]$
 \end_inset
 
  ein.
+ Für 
+\begin_inset Formula $\mathrm{ar}\left(\mathcal{C}\right)=0$
+\end_inset
+
+ schreiben wir 
+\begin_inset Formula $\mathfrak{A}\models\mathcal{C}$
+\end_inset
+
+ bzw.
+ 
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]=1$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Paragraph*
@@ -368,7 +403,7 @@ Für eine
  gilt:
 \begin_inset Formula 
 \[
-\pi_{1}\bar{a}\in\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\Leftrightarrow\pi{}_{2}\bar{a}\in\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]
+\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\pi_{1}\bar{a}\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\pi{}_{2}\bar{a}\right)
 \]
 
 \end_inset
@@ -390,14 +425,22 @@ Ein Schaltkreis
 \end_inset
 
  ein Automorphismus 
-\begin_inset Formula $\pi':V\rightarrow V$
+\begin_inset Formula $\hat{\pi}:V\rightarrow V$
 \end_inset
 
  des Graphen 
 \begin_inset Formula $\left(V,E\right)$
 \end_inset
 
- existiert, so dass:
+ existiert, der den Funktionen 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ und 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ entspricht:
 \end_layout
 
 \begin_layout Enumerate
@@ -415,15 +458,23 @@ Für alle Eingangsgatter
 \end_inset
 
  gilt
-\begin_inset Formula $\Sigma\left(\pi'\left(v\right)\right)=R\pi\left(\bar{x}\right)$
+\begin_inset Formula $\Sigma\left(\hat{\pi}v\right)=R\,\pi\bar{x}$
 \end_inset
 
  bzw.
  
-\begin_inset Formula $\Sigma\left(\pi'\left(v\right)\right)=\neg R\pi\left(\bar{x}\right)$
+\begin_inset Formula $\Sigma\left(\hat{\pi}v\right)=\neg R\,\pi\bar{x}$
 \end_inset
 
 
+\end_layout
+
+\begin_layout Enumerate
+Für alle übrigen Gatter gilt 
+\begin_inset Formula $\Sigma\left(v\right)=\Sigma\left(\hat{\pi}v\right)$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -432,10 +483,299 @@ Für jedes Tupel
 \end_inset
 
  gilt 
-\begin_inset Formula $\Omega\left(\pi\left(\bar{x}\right)\right)=\pi'\left(\Omega\left(x\right)\right)$
+\begin_inset Formula $\Omega\left(\pi\bar{x}\right)=\hat{\pi}\Omega\left(x\right)$
 \end_inset
 
-.operi
+.
+\end_layout
+
+\begin_layout Lemma*
+Die Symmetrie ist hinreichend aber nicht notwendig für die Invarianz.
+\end_layout
+
+\begin_layout Proof
+Seien 
+\begin_inset Formula $\pi_{1}$
+\end_inset
+
+ und 
+\begin_inset Formula $\pi_{2}$
+\end_inset
+
+ zwei Bijektionen von 
+\begin_inset Formula $A$
+\end_inset
+
+ auf 
+\begin_inset Formula $U$
+\end_inset
+
+.
+ Sei 
+\begin_inset Formula $\tau\coloneqq\pi_{1}\pi_{2}^{-1}$
+\end_inset
+
+ eine Permutation von 
+\begin_inset Formula $U$
+\end_inset
+
+, so dass 
+\begin_inset Formula $\pi_{1}=\tau\pi_{2}$
+\end_inset
+
+.
+ Sei 
+\begin_inset Formula $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$
+\end_inset
+
+ ein beliebiges Tupel.
+\end_layout
+
+\begin_layout Proof
+Für jedes Eingangsgatter 
+\begin_inset Formula $u$
+\end_inset
+
+ des Schaltkreises mit 
+\begin_inset Formula $\Sigma\left(u\right)=R\bar{x}$
+\end_inset
+
+ gilt offensichtlich: 
+\begin_inset Formula $\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(u\right)=\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(u\right)=1$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\bar{x}\in\tau\pi_{2}R^{\mathfrak{A}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Per Voraussetzung existiert der Automorphismus 
+\begin_inset Formula $\hat{\tau}$
+\end_inset
+
+ auf dem Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+, so dass 
+\begin_inset Formula $\Omega\left(\tau\bar{x}\right)=\hat{\tau}\Omega\left(\bar{x}\right)$
+\end_inset
+
+, und 
+\begin_inset Formula $\Sigma\left(\hat{\tau}u\right)=R\tau\bar{x}$
+\end_inset
+
+ für 
+\begin_inset Formula $\Sigma\left(u\right)=R\bar{x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Demnach gilt 
+\begin_inset Formula $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}u\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(u\right)$
+\end_inset
+
+ für alle Eingangsgatter 
+\begin_inset Formula $u$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Durch den Automorphismus kann induktiv bewiesen werden, dass dies auch für
+ alle übrigen Gatter gilt.
+ (Sind die Vorgänger und die Beschriftung eines Gatters gleich, so ist auch
+ die Auswertung gleich.)
+\end_layout
+
+\begin_layout Proof
+Nun gilt 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right) & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\tau\pi_{2}\bar{a}\right)\right)\\
+ & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}\Omega\left(\pi_{2}\bar{a}\right)\right)\\
+ & = & \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\pi_{2}\bar{a}\right)\right)
+\end{eqnarray*}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Proof
+Sei ein Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ mit 
+\begin_inset Formula $U=\left\{ 1,2\right\} $
+\end_inset
+
+ und 
+\begin_inset Formula $\mathrm{ar}\left(\mathcal{C}\right)=0$
+\end_inset
+
+ wie folgt:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{every node}=[circle, draw=black]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (C) {$
+\backslash
+wedge$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [above left of=C,node distance=6em] (B1) {$
+\backslash
+wedge$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [above left of=B1,node distance=6em] (A1) {$E(1,2)$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=A1,node distance=5.5em] (A2) {$E(1,1)$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=B1,node distance=5.5em] (A3) {$E(2,2)$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=A3,node distance=5.5em] (A4) {$E(2,1)$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path [->] (A1) edge (B1) (A2) edge (B1) (A3) edge (C) (A4) edge (C)
+\end_layout
+
+\begin_layout Plain Layout
+
+			(B1) edge (C);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Schaltkreis
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der Schaltkreis ist offensichtlich invariant, da er genau den Isomorphietyp
+ 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ akzeptiert.
+ Er ist aber nicht symmetrisch, da die Permutation 
+\begin_inset Formula $\left(1,2\right)\mapsto\left(2,1\right)$
+\end_inset
+
+ keinen Automorphismus induziert.
 \end_layout
 
 \begin_layout Subsection*
