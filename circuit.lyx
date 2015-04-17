@@ -85,15 +85,20 @@ Basis
 \end_layout
 
 \begin_layout Standard
-Eine Basis 
+Eine boolesche Basis 
 \begin_inset Formula $\mathbb{B}$
 \end_inset
 
- besteht aus beliebigen Funktionen 
+ besteht aus beliebigen symmetrischen Funktionen 
+\begin_inset Formula $\phi:\left\{ 0,1\right\} ^{*}\rightarrow\left\{ 0,1\right\} $
+\end_inset
+
+, die o.b.d.A.
+ als 
 \begin_inset Formula $\phi:\mathbb{N}\times\mathbb{N}\rightarrow\left\{ 0,1\right\} $
 \end_inset
 
-.
+ abgekürzt werden.
  Ein Gatter von Typ 
 \begin_inset Formula $\phi$
 \end_inset
@@ -490,11 +495,25 @@ Für jedes Tupel
 \end_layout
 
 \begin_layout Lemma*
-Die Symmetrie ist hinreichend aber nicht notwendig für die Invarianz.
+Die Symmetrie ist eine hinreichende, aber nicht notwendige, Bedingung für
+ die Invarianz eines Schaltkreises.
 \end_layout
 
 \begin_layout Proof
-Seien 
+Sei 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ ein symmetrischer Schaltkreis, und 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ eine beliebige Struktur mit 
+\begin_inset Formula $\left|A\right|=\left|U\right|$
+\end_inset
+
+.
+ Seien 
 \begin_inset Formula $\pi_{1}$
 \end_inset
 
@@ -502,7 +521,7 @@ Seien
 \begin_inset Formula $\pi_{2}$
 \end_inset
 
- zwei Bijektionen von 
+ zwei beliebige Bijektionen von 
 \begin_inset Formula $A$
 \end_inset
 
@@ -511,8 +530,20 @@ Seien
 \end_inset
 
 .
- Sei 
-\begin_inset Formula $\tau\coloneqq\pi_{1}\pi_{2}^{-1}$
+ Es ist zu zeigen, dass 
+\begin_inset Formula $\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\pi_{1}\bar{a}\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\pi_{2}\bar{a}\right)$
+\end_inset
+
+ für alle 
+\begin_inset Formula $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$
+\end_inset
+
+ gilt.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\tau\coloneqq\pi_{1}\cdot\pi_{2}^{-1}$
 \end_inset
 
  eine Permutation von 
@@ -524,39 +555,18 @@ Seien
 \end_inset
 
 .
- Sei 
-\begin_inset Formula $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$
-\end_inset
-
- ein beliebiges Tupel.
 \end_layout
 
 \begin_layout Proof
-Für jedes Eingangsgatter 
-\begin_inset Formula $u$
+Per Voraussetzung induziert 
+\begin_inset Formula $\tau$
 \end_inset
 
- des Schaltkreises mit 
-\begin_inset Formula $\Sigma\left(u\right)=R\bar{x}$
-\end_inset
-
- gilt offensichtlich: 
-\begin_inset Formula $\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(u\right)=\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(u\right)=1$
-\end_inset
-
- genau dann wenn 
-\begin_inset Formula $\bar{x}\in\tau\pi_{2}R^{\mathfrak{A}}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Proof
-Per Voraussetzung existiert der Automorphismus 
+ den Automorphismus 
 \begin_inset Formula $\hat{\tau}$
 \end_inset
 
- auf dem Schaltkreis 
+ auf 
 \begin_inset Formula $\mathcal{C}$
 \end_inset
 
@@ -564,38 +574,147 @@ Per Voraussetzung existiert der Automorphismus
 \begin_inset Formula $\Omega\left(\tau\bar{x}\right)=\hat{\tau}\Omega\left(\bar{x}\right)$
 \end_inset
 
-, und 
-\begin_inset Formula $\Sigma\left(\hat{\tau}u\right)=R\tau\bar{x}$
+ für alle 
+\begin_inset Formula $\bar{x}\in U^{\mathrm{ar}\left(\mathcal{C}\right)}$
 \end_inset
 
- für 
-\begin_inset Formula $\Sigma\left(u\right)=R\bar{x}$
+, und 
+\begin_inset Formula $\Sigma\left(\hat{\tau}v\right)=\tau\Sigma\left(v\right)$
+\end_inset
+
+ für alle Eingangsgatter.
+\end_layout
+
+\begin_layout Proof
+Per Induktion über die Tiefe
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Die maximale Länge eines Weges von einem Eingangsgatter zum Gatter 
+\begin_inset Formula $v$
 \end_inset
 
 .
 \end_layout
 
-\begin_layout Proof
-Demnach gilt 
+\end_inset
+
+ wird gezeigt, dass 
 \begin_inset Formula $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}u\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(u\right)$
 \end_inset
 
- für alle Eingangsgatter 
-\begin_inset Formula $u$
+ für alle Gatter 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ gilt.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Induktionsanfang
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $n=0$
+\end_inset
+
+: Sei 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ ein Eingangsgatter mit 
+\begin_inset Formula $\Sigma\left(u\right)=R\bar{x}$
+\end_inset
+
+; so gilt 
+\begin_inset Formula $\Sigma\left(\hat{\tau}v\right)=R\tau\bar{x}$
+\end_inset
+
+.
+ Offensichtlich gilt 
+\begin_inset Formula $\tau\bar{x}\in\tau\pi_{2}R^{\mathfrak{A}}$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\bar{x}\in\pi_{2}R^{\mathfrak{A}}$
+\end_inset
+
+.
+ Es folgt 
+\begin_inset Formula $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}v\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(v\right)$
 \end_inset
 
 .
 \end_layout
 
+\begin_layout Description
+Induktionsschritt
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $n\mapsto n+1$
+\end_inset
+
+: 
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Annahme: Für alle Gatter 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ mit Tiefe 
+\begin_inset Formula $\leqslant n$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}u\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(u\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+So folgt für jedes Gatter mit Tiefe 
+\begin_inset Formula $n+1$
+\end_inset
+
+: Die Beschriftungen 
+\begin_inset Formula $\Sigma\left(\hat{\tau}u\right)=\Sigma\left(u\right)=\phi$
+\end_inset
+
+ sind gleich, und für alle Vorgänger 
+\begin_inset Formula $u\in V$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}u\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(u\right)$
+\end_inset
+
+.
+ Daher folgt 
+\begin_inset Formula $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}v\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(u\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_deeper
 \begin_layout Proof
-Durch den Automorphismus kann induktiv bewiesen werden, dass dies auch für
- alle übrigen Gatter gilt.
- (Sind die Vorgänger und die Beschriftung eines Gatters gleich, so ist auch
- die Auswertung gleich.)
+Schließlich folgt für jedes beliebige Tupel 
+\begin_inset Formula $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Proof
-Nun gilt 
 \begin_inset Formula 
 \begin{eqnarray*}
 \mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right) & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\tau\pi_{2}\bar{a}\right)\right)\\
