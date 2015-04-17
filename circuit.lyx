@@ -11,7 +11,7 @@
 theorems-ams
 \end_modules
 \maintain_unincluded_children false
-\language english
+\language ngerman
 \language_package default
 \inputencoding auto
 \fontencoding global
@@ -63,7 +63,7 @@ theorems-ams
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\quotes_language english
+\quotes_language german
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -76,12 +76,149 @@ theorems-ams
 
 \begin_body
 
-\begin_layout Subsection*
+\begin_layout Section
+Grundlagen
+\end_layout
+
+\begin_layout Subsection
+Fixpunktlogik
+\end_layout
+
+\begin_layout Definition
+Die Logik 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+ ist rekursiv wie folgt definiert:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Für jedes Relationssymbol 
+\begin_inset Formula $R\in\sigma$
+\end_inset
+
+ und jedes Tupel 
+\begin_inset Formula $\bar{x}\in Var^{\mathrm{ar}\left(R\right)}$
+\end_inset
+
+ ist 
+\begin_inset Formula $R\bar{x}\in\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+, und 
+\begin_inset Formula $\left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right)=1$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\beta\bar{x}\in R^{\mathfrak{A}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Für zwei Formeln 
+\begin_inset Formula $\psi_{1},\psi_{2}\in\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+ und 
+\begin_inset Formula $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
+\end_inset
+
+ sei auch 
+\begin_inset Formula $\left(\psi_{1}\gamma\psi_{2}\right)\in\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+, und 
+\begin_inset Formula $\left\llbracket \left(\psi_{1}\gamma\psi_{2}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)$
+\end_inset
+
+ sei entsprechend den Booleschen Junktoren definiert.
+\end_layout
+
+\begin_layout Itemize
+Für jede Formel 
+\begin_inset Formula $\psi\in\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+ sei 
+\begin_inset Formula $\neg\psi\in\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+, und 
+\begin_inset Formula $\left\llbracket \neg\psi\right\rrbracket \left(\mathfrak{A},\beta\right)=1-\left\llbracket \psi\right\rrbracket \left(\mathfrak{A},\beta\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Für jeden Quantor 
+\begin_inset Formula $Q\in\left\{ \exists,\forall\right\} $
+\end_inset
+
+, jede Variable 
+\begin_inset Formula $x\in Var$
+\end_inset
+
+ und jede Formel 
+\begin_inset Formula $\psi\in\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+ sei 
+\begin_inset Formula $Qx\psi\in\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+.
+ Es gelte 
+\begin_inset Formula $\left\llbracket \exists x\psi\right\rrbracket \left(\mathfrak{A},\beta\right)=1$
+\end_inset
+
+ genau dann wenn ein 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ existiert, so dass 
+\begin_inset Formula $\left\llbracket \psi\right\rrbracket \left(\mathfrak{A},\beta\frac{a}{x}\right)=1$
+\end_inset
+
+, und es gelte 
+\begin_inset Formula $\left\llbracket \forall x\psi\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket \neg\exists x\neg\psi\right\rrbracket \left(\mathfrak{A},\beta\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Für ein beliebiges Relationssymbol 
+\begin_inset Formula $R'\notin\sigma$
+\end_inset
+
+ und jede Formel 
+\begin_inset Formula $\psi\in\mathrm{FP}\left[\sigma\cup\left\{ R'\right\} \right]$
+\end_inset
+
+ sei 
+\begin_inset Formula $\mathrm{ifp}_{R'}\left[\psi\right]\left(\bar{x}\right)\in\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+, und es gelte [...] 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
 Schaltkreise
 \end_layout
 
-\begin_layout Paragraph*
-Basis 
+\begin_layout Definition
+
+\series bold
+Basis:
+\series default
+ 
 \end_layout
 
 \begin_layout Standard
@@ -141,7 +278,9 @@ Zum Beispiel entsprechen UND und ODER den folgenden Funktionen:
 
 \end_layout
 
-\begin_layout Paragraph
+\begin_layout Definition
+
+\series bold
 Schaltkreis
 \end_layout
 
@@ -210,8 +349,10 @@ ein Universum
 .
 \end_layout
 
-\begin_layout Paragraph
-Auswertung
+\begin_layout Definition
+
+\series bold
+Auswertung von Schaltkreisen
 \end_layout
 
 \begin_layout Standard
@@ -359,7 +500,13 @@ Ein Tupel
 .
 \end_layout
 
-\begin_layout Paragraph*
+\begin_layout Subsection
+Eigenschaften von Schaltkreisen
+\end_layout
+
+\begin_layout Definition
+
+\series bold
 Invarianz
 \end_layout
 
@@ -397,7 +544,11 @@ Für eine
 \begin_inset Formula $\mathcal{C}$
 \end_inset
 
- ist invariant genau dann wenn für alle Tupel 
+ ist 
+\series bold
+invariant
+\series default
+ genau dann wenn für alle Tupel 
 \begin_inset Formula $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$
 \end_inset
 
@@ -413,10 +564,24 @@ Für eine
 
 \end_inset
 
+Für invariante Schaltkreise bezeichne 
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]$
+\end_inset
 
+ die Auswertung 
+\begin_inset Formula $\mathcal{C}\left[\pi\mathfrak{A}\right]$
+\end_inset
+
+ mit einer beliebigen Abbildung 
+\begin_inset Formula $\pi:A\rightarrow U$
+\end_inset
+
+.
 \end_layout
 
-\begin_layout Paragraph*
+\begin_layout Definition
+
+\series bold
 Symmetrie
 \end_layout
 
@@ -425,7 +590,11 @@ Ein Schaltkreis
 \begin_inset Formula $\mathcal{C}$
 \end_inset
 
- ist symmetrisch, wenn für jede Permutation der Universums 
+ ist 
+\series bold
+symmetrisch
+\series default
+, wenn für jede Permutation der Universums 
 \begin_inset Formula $\pi:U\rightarrow U$
 \end_inset
 
@@ -494,9 +663,9 @@ Für jedes Tupel
 .
 \end_layout
 
-\begin_layout Lemma*
-Die Symmetrie ist eine hinreichende, aber nicht notwendige, Bedingung für
- die Invarianz eines Schaltkreises.
+\begin_layout Lemma
+Symmetrie ist eine hinreichende, aber nicht notwendige, Bedingung für die
+ Invarianz eines Schaltkreises.
 \end_layout
 
 \begin_layout Proof
@@ -897,8 +1066,174 @@ Der Schaltkreis ist offensichtlich invariant, da er genau den Isomorphietyp
  keinen Automorphismus induziert.
 \end_layout
 
+\begin_layout Subsection
+Graph-Anfragen
+\end_layout
+
+\begin_layout Definition
+Eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\series bold
+-Anfrage
+\series default
+ 
+\begin_inset Formula $q$
+\end_inset
+
+ sei eine Abbildung jeder 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ auf eine 
+\begin_inset Formula $k$
+\end_inset
+
+-stellige Relation 
+\begin_inset Formula $q\left(\mathfrak{A}\right)\subseteq A^{k}$
+\end_inset
+
+.
+ Eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\series bold
+-Eigenschaft
+\series default
+ 
+\begin_inset Formula $S$
+\end_inset
+
+ sei eine Klasse von 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen und entspreche einer 
+\begin_inset Formula $0$
+\end_inset
+
+-stelligen Anfrage 
+\begin_inset Formula $q_{S}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathfrak{A}\in S\Leftrightarrow q\left(\mathfrak{A}\right)=\left\{ \left\langle \right\rangle \right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Jede 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage ist invariant bezüglich Isomorphie; für je zwei isomorphe Strukturen
+ 
+\begin_inset Formula $\mathfrak{A}=\pi\mathfrak{B}$
+\end_inset
+
+ gelte 
+\begin_inset Formula $q\left(\mathfrak{A}\right)=\pi q\left(\mathfrak{B}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+Eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreis-Familie 
+\begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ sei eine Sequenz von Schaltkreisen mit der gleichen Stelligkeit 
+\begin_inset Formula $\mathrm{ar}\left(\mathcal{C}_{n}\right)=k$
+\end_inset
+
+ und den Universen 
+\begin_inset Formula $U^{\mathcal{C}_{n}}=\left\{ 1,\cdots,n\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Eine invariante 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreis-Familie 
+\begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ 
+\series bold
+berechne
+\series default
+ eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\mathcal{C}_{\left|A\right|}\left[\mathfrak{A}\right]=q\left(\mathfrak{A}\right)$
+\end_inset
+
+ für jede 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ gilt.
+\end_layout
+
+\begin_layout Section
+Logische Charakterisierung von Schaltkreisen
+\end_layout
+
 \begin_layout Subsection*
 Formel zu Schaltkreis
+\end_layout
+
+\begin_layout Lemma
+Jede 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\end_inset
+
+ definiert eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+, die von einer 
 \end_layout
 
 \begin_layout Standard
