@@ -1,0 +1,897 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Enumerate
+Eine Teilmenge des Universums 
+\begin_inset Formula $X\subseteq U$
+\end_inset
+
+ 
+\emph on
+stützt
+\emph default
+ ein Gatter 
+\begin_inset Formula $g\in V$
+\end_inset
+
+ des symmetrischen Schaltkreises 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ gdw.
+ jede Permutation 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ auf 
+\begin_inset Formula $U$
+\end_inset
+
+ mit 
+\begin_inset Formula $\forall_{x\in X}\sigma x=x$
+\end_inset
+
+ einen Automorphismus 
+\begin_inset Formula $\hat{\sigma}$
+\end_inset
+
+ des Schaltkreises mit 
+\begin_inset Formula $\hat{\sigma}g=g$
+\end_inset
+
+ induziert.
+\end_layout
+
+\begin_layout Enumerate
+Sei 
+\begin_inset Formula $\mathrm{Part}_{U}\coloneqq\left\{ \mathcal{P}\subseteq2^{U}\mid\bigcup\mathcal{P}=U,\,\sum_{P\in\mathcal{P}}\#P=\#U\right\} $
+\end_inset
+
+ die Menge aller disjunkten, vollständigen Partitionen von 
+\begin_inset Formula $U$
+\end_inset
+
+.
+ Z.B.
+ ist 
+\begin_inset Formula 
+\[
+\mathrm{Part}_{\left\{ 1,2,3\right\} }=\left\{ \left\{ \left\{ 1,2,3\right\} \right\} ,\left\{ \left\{ 1,2\right\} ,\left\{ 3\right\} \right\} ,\left\{ \left\{ 1,3\right\} ,\left\{ 2\right\} \right\} ,\left\{ \left\{ 1\right\} ,\left\{ 2,3\right\} \right\} ,\left\{ \left\{ 1\right\} ,\left\{ 2\right\} ,\left\{ 3\right\} \right\} \right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Die Teilmengen 
+\begin_inset Formula $X\in\mathcal{P}\subseteq2^{U}$
+\end_inset
+
+ seien die 
+\emph on
+Teile
+\emph default
+ der Partition 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Die Äquivalenzrelation
+\begin_inset Formula $\sim_{\mathcal{P}}\coloneqq\left\{ \left(u_{1},u_{2}\right)\in P^{2}\mid P\in\mathcal{P}\right\} $
+\end_inset
+
+ enthalte alle Paare, die im gleichen Teil liegen.
+\end_layout
+
+\begin_layout Enumerate
+Auf 
+\begin_inset Formula $\mathrm{Part}_{U}$
+\end_inset
+
+ existiert eine partielle Ordnung 
+\begin_inset Formula $\preceq$
+\end_inset
+
+, wobei 
+\begin_inset Formula $\mathcal{P}_{1}\preceq\mathcal{P}_{2}$
+\end_inset
+
+ gdw.
+ jeder Teil 
+\begin_inset Formula $X\in\mathcal{P}_{1}$
+\end_inset
+
+ die Untermenge eines Teils 
+\begin_inset Formula $Y\in\mathcal{P}_{2}$
+\end_inset
+
+ ist.
+ Für zwei verschiedene Partitionen 
+\begin_inset Formula $\mathcal{P}_{1}\preceq\mathcal{P}_{2}$
+\end_inset
+
+ sei 
+\begin_inset Formula $\mathcal{P}_{1}$
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+feiner
+\begin_inset Quotes erd
+\end_inset
+
+ als 
+\begin_inset Formula $\mathcal{P}_{2}$
+\end_inset
+
+, bzw.
+ 
+\begin_inset Formula $\mathcal{P}_{2}$
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+gröber
+\begin_inset Quotes erd
+\end_inset
+
+ als 
+\begin_inset Formula $\mathcal{P}_{1}$
+\end_inset
+
+.
+ Offensichtlich ist 
+\begin_inset Formula $\mathcal{P}_{1}\preceq\mathcal{P}_{2}$
+\end_inset
+
+ gleichbedeutend mit 
+\begin_inset Formula $\sim_{\mathcal{P}_{1}}\subseteq\sim_{\mathcal{P}_{2}}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Das Minimum bzgl.
+ 
+\begin_inset Formula $\preceq$
+\end_inset
+
+ ist die feinste Partition 
+\begin_inset Formula $\left\{ \left\{ u\right\} \mid u\in U\right\} $
+\end_inset
+
+ mit 
+\begin_inset Formula $\sim_{\min\mathrm{Part}_{U}}=\left\{ \left(u,u\right)\mid u\in U\right\} $
+\end_inset
+
+; das Maximum ist die gröbste Partition 
+\begin_inset Formula $\left\{ U\right\} $
+\end_inset
+
+ mit 
+\begin_inset Formula $\sim_{\left\{ U\right\} }=U^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Zwei Partitionen 
+\begin_inset Formula $\mathcal{P}_{1},\mathcal{P}_{2}$
+\end_inset
+
+ besitzen eine eindeutig definierte feinste gemeinsame Superpartition 
+\begin_inset Formula $\min_{\preceq}\left\{ \mathcal{P}_{3}\in\mathrm{Part}\left(U\right)\mid\mathcal{P}_{1},\mathcal{P}_{2}\preceq\mathcal{P}_{3}\right\} $
+\end_inset
+
+.
+ Diese Partition 
+\begin_inset Formula $\mathcal{E}:\mathrm{Part}{}_{U}^{2}\rightarrow\mathrm{Part}_{U}$
+\end_inset
+
+ besteht aus den Äquivalenzklassen des transitiven Abschlusses 
+\begin_inset Formula $\left(\sim_{\mathcal{P}_{1}}\cup\sim_{\mathcal{P}_{2}}\right)^{+}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Sei 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\coloneqq\left\{ \sigma\in\mathrm{Sym}_{U}\mid\forall_{X\in\mathcal{P}}\sigma X=X\right\} $
+\end_inset
+
+ die Menge der Permutationen innerhalb der Teile einer Partition.
+\end_layout
+
+\begin_layout Enumerate
+Eine Partition 
+\begin_inset Formula $\mathcal{P}\in\mathrm{Part}_{U}$
+\end_inset
+
+ 
+\emph on
+stützt
+\emph default
+ eine Teilgruppe von Permutationen 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ gdw.
+ 
+\begin_inset Formula $G$
+\end_inset
+
+ eine Obermenge von 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+\end_inset
+
+ ist.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Insbesondere wird 
+\begin_inset Formula $\mathrm{Sym}_{U}$
+\end_inset
+
+ trivialerweise von jeder Partition gestützt, 
+\end_layout
+
+\begin_layout Enumerate
+während 
+\begin_inset Formula $\left\{ \mathbf{id}\right\} $
+\end_inset
+
+ nur von der feinsten Partition
+\begin_inset Formula $\min\left(\mathrm{Part}\left(U\right)\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)=\left\{ \mathbf{id}\right\} $
+\end_inset
+
+ gestützt wird.
+ 
+\end_layout
+
+\begin_layout Enumerate
+Die feinste Partition 
+\begin_inset Formula $\min\mathrm{Part}_{U}$
+\end_inset
+
+ stützt alle Teilgruppen von 
+\begin_inset Formula $\mathrm{Sym}_{U}$
+\end_inset
+
+, 
+\end_layout
+
+\begin_layout Enumerate
+während die gröbste Partition 
+\begin_inset Formula $\max\mathrm{Part}_{U}$
+\end_inset
+
+ keine echte Teilgruppe von 
+\begin_inset Formula $\mathrm{Sym}_{U}$
+\end_inset
+
+ stützt.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Wenn zwei Partitionen 
+\begin_inset Formula $\mathcal{P}_{1},\mathcal{P}_{2}\in\mathrm{Part}_{U}$
+\end_inset
+
+ eine Gruppe 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ stützen, so tut es auch 
+\begin_inset Formula $\mathcal{E}\left(\mathcal{P}_{1},\mathcal{P}_{2}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Beweis: Schreibe 
+\begin_inset Formula $\sigma\in\mathrm{Stab}_{U}\left(\mathcal{E}\left(\mathcal{P}_{1},\mathcal{P}_{2}\right)\right)$
+\end_inset
+
+ als Folge von Vertauschungen 
+\begin_inset Formula $\sigma=\sigma_{1}\cdots\sigma_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Für jedes vertauschte Paar 
+\begin_inset Formula $\sigma_{i}=\left(uv\right)$
+\end_inset
+
+ ist offensichtlich 
+\bar under
+
+\begin_inset Formula $u\sim_{\mathcal{E}\left(\mathcal{P}_{1},\mathcal{P}_{2}\right)}v$
+\end_inset
+
+
+\bar default
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\sim_{\mathcal{E}\left(\mathcal{P}_{1},\mathcal{P}_{2}\right)}$
+\end_inset
+
+ ist per Definition der transitive Abschluss von 
+\begin_inset Formula $\sim_{\mathcal{P}_{1}}\cup\sim_{\mathcal{P}_{2}}$
+\end_inset
+
+.
+ Also gilt 
+\begin_inset Formula $u\left(\sim_{\mathcal{P}_{1}}w_{2i}\sim_{\mathcal{P}_{2}}w_{2i+1}\right)_{1\leqslant2i+1\leqslant n}$
+\end_inset
+
+mit 
+\begin_inset Formula $w_{n}=v$
+\end_inset
+
+ oder 
+\begin_inset Formula $w_{n}\sim_{\mathcal{P}_{1}}v$
+\end_inset
+
+.
+ Ersetze 
+\begin_inset Formula $\left(uv\right)$
+\end_inset
+
+ durch 
+\begin_inset Formula $\left(uw_{1}\right)\left(w_{2i}w_{2i+1}\right)_{1\leqslant2i+1\leqslant n}\left(w_{2i+1}v\right)\left(w_{2i}w_{2i+1}\right)_{1\leqslant2i+1\leqslant n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Also besteht 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ aus einer Folge von Permutationen 
+\begin_inset Formula $\sigma_{1}\cdots\sigma_{2}\in\mathrm{Stab}_{U}\left(\mathcal{P}_{1}\right)\cup\mathrm{Stab}_{U}\left(\mathcal{P}_{2}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Per Definition ist 
+\begin_inset Formula $G\supseteq\mathrm{Stab}_{U}\left(\mathcal{P}_{1}\right)\cup\mathrm{Stab}_{U}\left(\mathcal{P}_{2}\right)$
+\end_inset
+
+.
+ Durch die Abgeschlossenheit von 
+\begin_inset Formula $G$
+\end_inset
+
+ folgt 
+\begin_inset Formula $\sigma\in G$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Daraus folgt die Existenz einer eindeutigen gröbsten stützenden Partition
+ von 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\min\mathrm{Part}_{U}$
+\end_inset
+
+ stützt jede Gruppe.
+\end_layout
+
+\begin_layout Enumerate
+Wenn zwei verschiedene gröbste Teilgruppen 
+\begin_inset Formula $\mathcal{P}_{1}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{P}_{2}$
+\end_inset
+
+ die Gruppe stützen, so tut es auch 
+\begin_inset Formula $\mathcal{E}\left(\mathcal{P}_{1},\mathcal{P}_{2}\right)$
+\end_inset
+
+, was gröber als 
+\begin_inset Formula $\mathcal{P}_{1}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{P}_{2}$
+\end_inset
+
+ ist.
+ 
+\begin_inset Formula $\lightning$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Wenn 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ die Gruppe 
+\begin_inset Formula $G$
+\end_inset
+
+ stützt, dann stützt 
+\begin_inset Formula $\sigma\mathcal{P}$
+\end_inset
+
+ die Gruppe 
+\begin_inset Formula $\sigma G\sigma^{-1}$
+\end_inset
+
+.
+ Es gilt 
+\begin_inset Formula $\sigma\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\sigma G\sigma^{-1}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Section*
+Beweis von Lemma 19
+\end_layout
+
+\begin_layout Enumerate
+Für 
+\begin_inset Formula $0\leqslant\epsilon<1$
+\end_inset
+
+ und 
+\begin_inset Formula $n\geqslant\exp\frac{4}{\epsilon}$
+\end_inset
+
+ und eine Partition 
+\begin_inset Formula $\mathcal{P}\in\mathrm{Part}_{\left[n\right]}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\#\mathcal{P}=k$
+\end_inset
+
+ und
+\begin_inset Formula 
+\[
+n\leqslant s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\leqslant2^{n^{1-\epsilon}}
+\]
+
+\end_inset
+
+gilt: 
+\begin_inset Formula $\min\left\{ k,n-k\right\} \leqslant\frac{8}{\epsilon}\frac{\log s}{\log n}$
+\end_inset
+
+.
+ (
+\begin_inset Quotes eld
+\end_inset
+
+Wenn der Nebengruppen-Index des Set-Stabilisators hinreichend klein ist
+ (bzw.
+ die Stabilisatorengruppe mindestens 
+\begin_inset Formula $\frac{1}{2^{n-\epsilon}}$
+\end_inset
+
+ von 
+\begin_inset Formula $\mathrm{Sym}_{U}$
+\end_inset
+
+ ausmacht), dann ist es entweder eine sehr grobe oder eine sehr feine Partition
+ (bzw.
+ 
+\begin_inset Quotes eld
+\end_inset
+
+logarithmisch durch den Nebengruppen-Index mal 
+\begin_inset Formula $\frac{1}{\epsilon}$
+\end_inset
+
+ beschränkt.
+\begin_inset Quotes erd
+\end_inset
+
+).
+ Intuitiv gilt: Damit der Set-Stabilisator groß wird, muss entweder jeder
+ Teil der Partition groß sein, oder eine große Anzahl gleicher Teile existieren.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Es gilt
+\begin_inset Formula $\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|\leqslant k!\prod_{P\in\mathcal{P}}\#P!$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Seien 
+\begin_inset Formula $P_{1},\cdots,P_{k}\in\mathcal{P}$
+\end_inset
+
+ die nach aufsteigender Größe geordneten Teile von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+, und seien 
+\begin_inset Formula $p_{1}\leqslant\cdots\leqslant p_{k}$
+\end_inset
+
+ ihre Größen (
+\begin_inset Formula $\sum_{i=1}^{k}p_{i}=n$
+\end_inset
+
+); so folgt 
+\begin_inset Formula $\left|\mathrm{Stab}_{U}\left\{ P\right\} \right|\leqslant k!\prod_{i=1}^{k}p_{i}!$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Für zwei beliebige 
+\begin_inset Formula $p_{i},p_{j}$
+\end_inset
+
+ mit 
+\begin_inset Formula $i\leqslant j$
+\end_inset
+
+ gilt 
+\begin_inset Formula $p_{i}\leqslant p_{j}$
+\end_inset
+
+ und daher 
+\begin_inset Formula $\frac{p_{j}+1}{p_{i}}\geqslant1$
+\end_inset
+
+.
+ Es folgt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\left|\mathrm{Stab}_{U}\left\{ P\right\} \right| & \leqslant & k!\prod_{i=1}^{k}p_{i}!\\
+ & = & k!p_{1}!\cdots p_{i}!\cdots p_{j}!\cdots p_{k}!\\
+ & \leqslant & \frac{p_{j}+1}{p_{i}}k!p_{1}!\cdots p_{i}!\cdots p_{j}!\cdots p_{k}!\\
+ & = & k!p_{1}!\cdots\left(p_{i}-1\right)!\cdots\left(p_{j}+1\right)!\cdots p_{k}!
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Durch wiederholte Anwendung folgt 
+\begin_inset Formula $\left|\mathrm{Stab}_{U}\left\{ P\right\} \right|\leqslant k!\prod_{i=1}^{k-1}1!\left(n-k+1\right)!=k!\left(n-k+1\right)!$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Nun gilt
+\begin_inset Formula 
+\begin{eqnarray*}
+s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|} & = & \frac{n!}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\\
+ & \geqslant & \frac{n!}{k!\left(n+1-k\right)!}\\
+ & = & \frac{1}{n+1}\frac{\left(n+1\right)!}{k!\left(n+1-k\right)!}\\
+ & = & \frac{1}{n+1}\binom{n+1}{k}\\
+ & \geqslant & \frac{1}{n+1}\binom{n}{k}\\
+ & = & \frac{1}{n+1}\binom{n}{\min\left\{ n,n-k\right\} }
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Es gilt 
+\begin_inset Formula $\binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}=\frac{\prod_{i=n-k+1}^{n}i}{\prod_{i=1}^{k}i}=\prod_{i=1}^{k}\frac{n-k+i}{i}$
+\end_inset
+
+, und 
+\begin_inset Formula $\left(n-k+1\right)>\frac{\left(n-k+2\right)}{2}>\cdots>\frac{n}{k}$
+\end_inset
+
+.
+ Daher folgt die untere Schranke 
+\begin_inset Formula $\binom{n}{k}\geqslant\left(\frac{n}{k}\right)^{k}$
+\end_inset
+
+.
+ Für 
+\begin_inset Formula $k'=\min\left\{ n,n-k\right\} $
+\end_inset
+
+ folgt:
+\begin_inset Formula 
+\[
+s\geqslant\frac{1}{n+1}\left(\frac{n}{k'}\right)^{k'}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Es folgt
+\begin_inset Formula 
+\begin{eqnarray*}
+\log s & \geqslant & k'\left(\log n-\log k'\right)-\log\left(n+1\right)\\
+\log s+\log\left(n+1\right) & \geqslant & k'\left(\log n-\log k'\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Weil 
+\begin_inset Formula $s\geqslant n$
+\end_inset
+
+ und 
+\begin_inset Formula $\log n\geqslant1$
+\end_inset
+
+, gilt: 
+\begin_inset Formula 
+\begin{eqnarray*}
+4\log s & \geqslant & \log s+3\log s\\
+ & \geqslant & \log s+3\log n\\
+ & \geqslant & \log s+\log\left(n+1\right)\geqslant k'\left(\log n-\log k'\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Weil 
+\begin_inset Formula $\frac{n}{k'}\geqslant2$
+\end_inset
+
+, gilt:
+\begin_inset Formula 
+\begin{eqnarray*}
+4\log s & \geqslant & k'\left(\log n-\log k'\right)\\
+ & \geqslant & k'
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Aus der Bedingung 
+\begin_inset Formula $s\leqslant2^{n^{1-\epsilon}}$
+\end_inset
+
+ folgt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\log k' & \leqslant & \log\log s+2\\
+ & \leqslant & \log\log2^{n^{1-\epsilon}}+2\\
+ & = & \log n^{1-\epsilon}+2\\
+ & = & \left(1-\epsilon\right)\log n+2
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Schließlich folgt:
+\begin_inset Formula 
+\begin{eqnarray*}
+4\log s & \geqslant & k'\left(\log n-\log k'\right)\\
+ & \geqslant & k'\left(\log n-\left(1-\epsilon\right)\log n-2\right)\\
+ & \geqslant & k'\left(\epsilon\log n-2\right)\\
+ & \geqslant & k'\frac{\epsilon\log n}{2}\\
+\frac{8\log s}{\epsilon\log n} & \geqslant & k'
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Insbesondere muss eine Partition, die höchstens 
+\begin_inset Formula $\frac{n}{2}$
+\end_inset
+
+ Teile enthält (und einen kleinen Nebengruppen-Index 
+\begin_inset Formula $\left[\mathrm{Sym}_{U}:\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right]\leqslant2^{n^{1-\epsilon}}$
+\end_inset
+
+ hat) einen sehr großen Teil enthalten (alle Elemente bis auf 
+\begin_inset Formula $\frac{33}{\epsilon}\cdot\frac{\log s}{\log n}$
+\end_inset
+
+).
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Sei 
+\begin_inset Formula $S$
+\end_inset
+
+ die Summe aller Teile außer dem größten: 
+\begin_inset Formula $S=\sum_{i=1}^{k-1}p_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Alle Teile außer dem größten können wie vorhin umverteilt werden, um 
+\begin_inset Formula $\ell\leqslant\frac{S-\left(k-1\right)}{\left(p_{k-1}-1\right)}$
+\end_inset
+
+ zweitgrößte Teile und 
+\begin_inset Formula $\ell-k+1$
+\end_inset
+
+ Einsen zu erzeugen, wobei der Wert der Fakultät im Nenner ansteigt.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+s & = & \frac{n!}{\left|\mathrm{Stab}_{U}\left\{ P\right\} \right|}\geqslant\frac{1}{k!}\cdot\frac{n!}{\prod_{i=1}^{k}p_{i}}\\
+ & \geqslant & \frac{1}{k!}\frac{n!}{1!\cdots1!p_{k-1}!\cdots p_{k-1}!p_{i}}\\
+ & \geqslant & \frac{1}{k!}\frac{n!}{\left(p_{k-1}\right)^{\ell}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Sei 
+\begin_inset Formula $C$
+\end_inset
+
+ ein symmetrischer Schaltkreis über 
+\begin_inset Formula $\left|U\right|=n$
+\end_inset
+
+ mit 
+\begin_inset Formula $s=\max_{C}\left|\mathrm{Orb}\left(g\right)\right|\leqslant2^{n^{1-\epsilon}}$
+\end_inset
+
+; so ist die maximale SP eines Gatters höchstens 
+\begin_inset Formula $\frac{33}{\epsilon}\frac{\log s}{\log n}$
+\end_inset
+
+.
+ (der Orbit eines Gatters entspricht dem Nebengruppen-Index des Stabilisators
+ dieses Gatters.)
+\end_layout
+
+\end_deeper
+\end_body
+\end_document

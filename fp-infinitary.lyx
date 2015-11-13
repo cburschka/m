@@ -1,0 +1,125 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 480
+\begin_document
+\begin_header
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\varphi\left(x,y\right) & \coloneqq & \left[\mathrm{lfp}_{R\left(v\right)}\left(v=x\vee\exists u\left(R\left(u\right)\wedge E\left(u,v\right)\right)\right)\right]\left(y\right)\\
+\varphi\left(x,y,n\right) & \coloneqq & \left[\mathrm{lfp}_{R\left(v,m'\right)}\left(\left(v=x\wedge m'=\mathbf{1}\right)\vee\exists u\exists m\left(R\left(u,m\right)\wedge E\left(u,v\right)\wedge\mathbf{succ}\left(m,m'\right)\right)\right)\right]\left(y,n\right)\\
+\\
+\varphi\left(x,y\right) & \coloneqq & \left[\mathrm{lfp}_{R\,v}\left(v=x\vee\exists u\left(R\,u\wedge E\,uv\right)\right)\right]\,y\\
+\varphi\left(x,y,n\right) & \coloneqq & \left[\mathrm{lfp}_{R\,vn}\left(v=x\vee\exists u\exists m\left(R\,um\wedge E\,uv\right)\right)\right]\,yn
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+IM Invariant majority circuits
+\end_layout
+
+\begin_layout Itemize
+SM Symmetric majority circuits
+\end_layout
+
+\begin_layout Itemize
+IB Invariant Boolean circuits
+\end_layout
+
+\begin_layout Itemize
+SB Symmetric Boolean circuits
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+SB\underset{\mathcal{P}}{\subsetneq}SM\underset{\mathcal{P}}{\subsetneq}IB\subseteq IM
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\varphi\left(x,y\right) & \coloneqq & \left[\mathrm{ifp}_{R\left(v\right)}\left(\overbrace{v=x\vee\exists u\left(R\left(u\right)\wedge E\left(u,v\right)\right)}\right)\right]\left(y\right)\\
+\varphi_{1}\left(x,y\right) & \coloneqq & \left.\left(v=x\vee FALSE\right)\right|_{v=y}\\
+\varphi_{2}\left(x,y\right) & \coloneqq & \left.\left(v=x\vee\exists u\left(\overbrace{\left.\left(v=x\right)\right|_{v=u}\vee FALSE}^{R^{1}\left(u\right)}\wedge E\left(u,v\right)\right)\right)\right|_{v=y}\\
+\varphi_{3}\left(x,y\right) & \coloneqq & \left.\left(v=x\vee\exists u\left(\overbrace{\left.\left(v=x\right)\right|_{v=u}\vee\exists u\left(\overbrace{\left.\left(v=x\right)\right|_{v=u}\vee FALSE}^{R^{1}\left(u\right)}\wedge E\left(u,v\right)\right)}^{R^{2}\left(u\right)}\wedge E\left(u,v\right)\right)\right)\right|_{v=y}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
