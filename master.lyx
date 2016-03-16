@@ -1,0 +1,4051 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{tikz}
+\end_preamble
+\use_default_options true
+\begin_modules
+theorems-ams
+\end_modules
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language german
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+Grundlagen
+\end_layout
+
+\begin_layout Subsection
+Relationale Strukturen
+\end_layout
+
+\begin_layout Definition
+Eine relationale Signatur 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ sei eine endliche Menge von Relationssymbolen 
+\begin_inset Formula $\left\{ R_{1},\cdots,R_{k}\right\} $
+\end_inset
+
+.
+ Jedes Symbol 
+\begin_inset Formula $R\in\sigma$
+\end_inset
+
+ habe eine feste Stelligkeit 
+\begin_inset Formula $\mathrm{ar}\left(R\right)\in\mathbb{N}_{\geqslant1}$
+\end_inset
+
+; gelegentlich wird die Stelligkeit kompakt mit 
+\begin_inset Formula $\nicefrac{R}{\mathrm{ar}\left(R\right)}\in\sigma$
+\end_inset
+
+ notiert.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+Eine endliche 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ besteht aus einem endlichen Universum 
+\begin_inset Formula $A\neq\emptyset$
+\end_inset
+
+ und einer Interpretation 
+\begin_inset Formula $R^{\mathfrak{A}}\subseteq A^{\mathrm{ar}\left(R\right)}$
+\end_inset
+
+ für jedes Relationssymbol 
+\begin_inset Formula $R\in\sigma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula $\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Sei 
+\begin_inset Formula $\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ die Menge aller endlichen 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen.
+\end_layout
+
+\begin_layout Enumerate
+Sei 
+\begin_inset Formula $\mathbf{FIN}_{<}\left(\sigma\right)$
+\end_inset
+
+ die Menge der 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen über einem geordneten Universum 
+\begin_inset Formula $U=\left\{ 1,\cdots,n\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Für 
+\begin_inset Formula $n>0$
+\end_inset
+
+ sei 
+\begin_inset Formula $\mathbf{FIN}_{n}\left(\sigma\right)$
+\end_inset
+
+ die Menge aller 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen mit einem Universum der Größe 
+\begin_inset Formula $\left|A\right|=n$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Fixpunktlogik
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $\mathbf{var}$
+\end_inset
+
+ die Menge aller logischen Variablen.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+Die relationale Fixpunktlogik 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Entsprechend den Regeln der Logik 
+\begin_inset Formula $\mbox{FO}\left[\sigma\right]$
+\end_inset
+
+ ist 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+ rekursiv wie folgt definiert:
+\end_layout
+
+\begin_deeper
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+B1 Für jedes Relationssymbol 
+\begin_inset Formula $\nicefrac{R}{k}\in\sigma$
+\end_inset
+
+ und jedes Tupel 
+\begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
+\end_inset
+
+ ist 
+\begin_inset Formula $R\bar{x}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+B2 Für zwei Variablen 
+\begin_inset Formula $x,y\in\mathbf{var}$
+\end_inset
+
+ ist 
+\begin_inset Formula $x=y$
+\end_inset
+
+ eine 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+ (Bei Mehrdeutigkeit wird das Symbol als 
+\begin_inset Formula $\dot{=}$
+\end_inset
+
+ geschrieben, zum Beispiel bei 
+\begin_inset Formula $\varphi=x\dot{=}y$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+R1 Für 
+\begin_inset Formula $k$
+\end_inset
+
+ 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+-Formeln 
+\begin_inset Formula $\varphi_{1},\cdots,\varphi_{k}$
+\end_inset
+
+ und einen Junktor 
+\begin_inset Formula $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
+\end_inset
+
+ sei auch 
+\begin_inset Formula $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)$
+\end_inset
+
+ eine 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+R2 Für jede 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ sei 
+\begin_inset Formula $\neg\varphi$
+\end_inset
+
+ eine 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+-Formel, und 
+\begin_inset Formula $\left\llbracket \neg\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+R3 Für jeden Quantor 
+\begin_inset Formula $Q\in\left\{ \exists,\forall\right\} $
+\end_inset
+
+, jede Variable 
+\begin_inset Formula $x\in Var$
+\end_inset
+
+ und jede 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ sei 
+\begin_inset Formula $Qx\varphi$
+\end_inset
+
+ eine 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+\end_layout
+
+\begin_layout Standard
+Zusätzlich wird der inflationäre Fixpunkt-Operator definiert:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+R4 Für jedes Relationssymbol 
+\begin_inset Formula $\nicefrac{R}{k}\notin\sigma$
+\end_inset
+
+, jede 
+\begin_inset Formula $k$
+\end_inset
+
+-stellige 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\cup\left\{ R\right\} \right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\end_inset
+
+ und ein Tupel 
+\begin_inset Formula $\bar{y}\in\mathbf{var}^{k}$
+\end_inset
+
+ ist 
+\begin_inset Formula $\left[\mathrm{ifp}_{R,\bar{x}}\varphi\right]\left(\bar{y}\right)$
+\end_inset
+
+ eine 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+\end_layout
+
+\end_deeper
+\begin_layout Example*
+Die folgende Formel 
+\begin_inset Formula $\varphi\left(u,v\right)$
+\end_inset
+
+ ist erfüllt, wenn 
+\begin_inset Formula $u$
+\end_inset
+
+ und 
+\begin_inset Formula $v$
+\end_inset
+
+ durch einen Weg beliebiger Länge verbunden sind: 
+\begin_inset Formula 
+\[
+\varphi\left(u,v\right)\coloneqq\left[\mathrm{ifp}_{R,\left(x,y\right)}\,x=y\vee\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\right]\left(u,v\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Die Semantik der Fixpunktlogik ist rekursiv wie folgt definiert:
+\end_layout
+
+\begin_deeper
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+B1 Für 
+\begin_inset Formula $\nicefrac{R}{k}\in\sigma$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
+\end_inset
+
+ ist 
+\begin_inset Formula $\left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right)=1$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\beta\bar{x}\in R^{\mathfrak{A}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+B2 Für 
+\begin_inset Formula $x,y\in\mathbf{var}$
+\end_inset
+
+ ist 
+\begin_inset Formula $\left\llbracket x=y\right\rrbracket \left(\mathfrak{A},\beta\right)=1$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\beta x=\beta y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+R1 Für zwei 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+-Formeln 
+\begin_inset Formula $\varphi_{1}$
+\end_inset
+
+ und 
+\begin_inset Formula $\varphi_{2}$
+\end_inset
+
+ und einen Junktor 
+\begin_inset Formula $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
+\end_inset
+
+ ist 
+\begin_inset Formula $\left\llbracket \left(\varphi_{1}\gamma\varphi_{2}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)$
+\end_inset
+
+ entsprechend den booleschen Junktoren definiert.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+R2 Für eine 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ ist 
+\begin_inset Formula $\left\llbracket \neg\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+R3 Für eine 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ und 
+\begin_inset Formula $x\in\mathbf{var}$
+\end_inset
+
+ gelte:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\left\llbracket \exists x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1$
+\end_inset
+
+ genau dann wenn ein 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ existiert, so dass 
+\begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta,x\mapsto a\right)=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\left\llbracket \forall x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket \neg\exists x\neg\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+R4 
+\begin_inset Formula $\nicefrac{R}{k}\in\sigma$
+\end_inset
+
+, 
+\begin_inset Formula $\varphi\left(\bar{x}\right)\in\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{x},\bar{y}\in\mathbf{var}^{k}$
+\end_inset
+
+ gelte: 
+\begin_inset Formula $\left\llbracket \left[\mathrm{ifp}_{R,\bar{x}}\varphi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)=1$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\beta\bar{y}\in R^{*}$
+\end_inset
+
+, wobei 
+\begin_inset Formula $R^{*}$
+\end_inset
+
+ der Fixpunkt der folgenden Sequenz 
+\begin_inset Formula $\left(R^{i}\right)_{i\geqslant0}$
+\end_inset
+
+ ist: 
+\begin_inset Formula 
+\begin{eqnarray*}
+R^{\left(0\right)} & = & \emptyset\\
+R^{\left(m+1\right)} & = & R^{\left(m\right)}\cup\left\{ \bar{a}\in A^{k}\mid a\models\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},R^{\left(m\right)}\right)\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+(Offensichtlich wird ein solcher Fixpunkt nach höchstens 
+\begin_inset Formula $\left|A\right|^{k}$
+\end_inset
+
+ Iterationen erreicht.)
+\end_layout
+
+\end_deeper
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+Die 
+\series bold
+Stelligkeit 
+\series default
+einer logischen Formel bezeichne die Anzahl der frei darin vorkommenden
+ Variablen: 
+\begin_inset Formula $\mathrm{ar}\left(\varphi\right)\coloneqq\#\mathrm{frei}\left(\varphi\right)$
+\end_inset
+
+.
+ Eine 
+\begin_inset Formula $k$
+\end_inset
+
+-stellige Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ notieren wir auch durch 
+\begin_inset Formula $\varphi\left(\bar{z}\right)$
+\end_inset
+
+, wobei 
+\begin_inset Formula $\bar{z}\in\mathbf{var}^{k}$
+\end_inset
+
+ die Variablen 
+\begin_inset Formula $\mathrm{frei}\left(\varphi\right)$
+\end_inset
+
+ in einer festen (von der Formel unabhängigen) Reihenfolge enthält.
+\end_layout
+
+\begin_layout Definition
+Es stehe 
+\begin_inset Formula $\left\llbracket \varphi\left(\bar{x}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)$
+\end_inset
+
+ abgekürzt für 
+\begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)$
+\end_inset
+
+ mit der Belegung 
+\begin_inset Formula $\beta\left(x_{i}\right)\coloneqq a_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Schaltkreise
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Basis:
+\series default
+ 
+\end_layout
+
+\begin_layout Standard
+Eine boolesche Basis 
+\begin_inset Formula $\mathbb{B}$
+\end_inset
+
+ besteht aus beliebigen symmetrischen Funktionen 
+\begin_inset Formula $\phi:\left\{ 0,1\right\} ^{*}\rightarrow\left\{ 0,1\right\} $
+\end_inset
+
+, die hier als 
+\begin_inset Formula $\phi:\mathbb{N}\times\mathbb{N}\rightarrow\left\{ 0,1\right\} $
+\end_inset
+
+ abgekürzt werden.
+ Ein Gate vom Typ 
+\begin_inset Formula $\phi$
+\end_inset
+
+ hat den Wert 
+\begin_inset Formula $\phi\left(m,n\right)$
+\end_inset
+
+, wenn genau 
+\begin_inset Formula $m$
+\end_inset
+
+ seiner Vorgänger den Wert 
+\begin_inset Formula $0$
+\end_inset
+
+ und 
+\begin_inset Formula $n$
+\end_inset
+
+ den Wert 
+\begin_inset Formula $1$
+\end_inset
+
+ haben.
+\begin_inset Newline newline
+\end_inset
+
+Als Beispiel seien die folgenden booleschen Funktionen gegeben: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\wedge\left(m,n\right) & \coloneqq & \begin{cases}
+1 & \mathrm{falls}\,m=0\\
+0 & \mathrm{sonst}
+\end{cases}\\
+\vee\left(m,n\right) & \coloneqq & \begin{cases}
+1 & \mathrm{falls}\,n>0\\
+0 & \mathrm{sonst}
+\end{cases}\\
+\mathrm{MAJ}\left(m,n\right) & \coloneqq & \begin{cases}
+1 & \mathrm{falls}\,m\leqslant n\\
+0 & \mathrm{sonst}
+\end{cases}\\
+\mathrm{XOR}\left(m,n\right) & \coloneqq & \begin{cases}
+1 & \mathrm{falls}\,n\in2\mathbb{N}+1\\
+0 & \mathrm{sonst}
+\end{cases}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Schaltkreis
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $\mathbb{B}$
+\end_inset
+
+ eine boolesche Basis und 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ eine relationale Signatur.
+ Ein 
+\begin_inset Formula $\left(\mathbb{B},\sigma\right)$
+\end_inset
+
+-Schaltkreis 
+\begin_inset Formula $\mathcal{C}\coloneqq\left(V,E,\Sigma,\Omega,U\right)$
+\end_inset
+
+ mit der Stelligkeit 
+\begin_inset Formula $m\coloneqq\mathrm{ar}\left(C\right)$
+\end_inset
+
+ besteht aus den folgenden Komponenten: 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Ein azyklischer Graph 
+\begin_inset Formula $\left(V,E\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+eine Gatemarkierung 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\Sigma:V & \rightarrow & \mathbb{B}\\
+ & \cup & \left\{ \mathbf{0},\mathbf{1},\neg\right\} \\
+ & \cup & \left\{ R\bar{x}\mid R\in\sigma,\bar{x}\in U^{\mathrm{ar}\left(R\right)}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+eine Ausgabefunktion 
+\begin_inset Formula $\Omega:U^{m}\rightarrow V$
+\end_inset
+
+ (bei 
+\begin_inset Formula $m=0$
+\end_inset
+
+ ist 
+\begin_inset Formula $\Omega\left(\left\langle \right\rangle \right)\in V$
+\end_inset
+
+ eine Konstante) und 
+\end_layout
+
+\begin_layout Enumerate
+ein geordnetes Universum 
+\begin_inset Formula $U\coloneqq\left\{ 1,\cdots,n\right\} $
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Definition
+Hierbei haben alle mit 
+\begin_inset Formula $\phi\in\mathbb{B}$
+\end_inset
+
+ markierten Gates 
+\series bold
+mindestens
+\series default
+ 
+\series bold
+einen
+\series default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Alle hier betrachteten Schaltkreise haben einen unbeschränkten Fan-In.
+\end_layout
+
+\end_inset
+
+ Vorgänger, alle mit 
+\begin_inset Formula $R\bar{x}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{0}$
+\end_inset
+
+ oder 
+\begin_inset Formula $\mathbf{1}$
+\end_inset
+
+ markierten Gates 
+\series bold
+keinen 
+\series default
+Vorgänger, und alle mit 
+\begin_inset Formula $\neg$
+\end_inset
+
+ markierten Gates 
+\series bold
+genau einen 
+\series default
+Vorgänger.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Auswertung von Schaltkreisen
+\end_layout
+
+\begin_layout Definition
+Der Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ wird über einer geordneten 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}_{\leqslant}\left(\sigma\right)$
+\end_inset
+
+ mit dem Universum 
+\begin_inset Formula $U$
+\end_inset
+
+ ausgewertet.
+ Die Auswertung ist eine Abbildung 
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]:V\rightarrow\left\{ 0,1\right\} $
+\end_inset
+
+, die jedem Gate 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ den Wert 
+\begin_inset Formula $0$
+\end_inset
+
+ oder 
+\begin_inset Formula $1$
+\end_inset
+
+ zuweist, und ist rekursiv wie folgt definiert:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Falls das Eingangsgatter 
+\begin_inset Formula $v$
+\end_inset
+
+ mit einem Literal 
+\begin_inset Formula $\Sigma\left(v\right)=R\bar{x}$
+\end_inset
+
+ markiert ist, so ist 
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(v\right)=1$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\bar{x}\in R^{\mathfrak{A}}$
+\end_inset
+
+, und sonst 
+\begin_inset Formula $0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Für 
+\begin_inset Formula $\Sigma\left(v\right)=\mathbf{0}$
+\end_inset
+
+ beziehungsweise 
+\series bold
+
+\begin_inset Formula $\mathbf{1}$
+\end_inset
+
+ 
+\series default
+ist 
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(v\right)=0$
+\end_inset
+
+ beziehungsweise 
+\begin_inset Formula $1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Für ein inneres Gate 
+\begin_inset Formula $v$
+\end_inset
+
+ mit der Markierung 
+\begin_inset Formula $\Sigma\left(v\right)=\neg$
+\end_inset
+
+ und dem Vorgänger 
+\begin_inset Formula $u$
+\end_inset
+
+ ist 
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(v\right)=1-\mathcal{C}\left[\mathfrak{A}\right]\left(u\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Für ein inneres Gate mit der Markierung 
+\begin_inset Formula $\Sigma\left(v\right)=\phi\in\mathbb{B}$
+\end_inset
+
+ ist 
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(v\right)=\phi\left(i,j\right)$
+\end_inset
+
+, wobei 
+\begin_inset Formula $i=\#\left\{ \left(u,v\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(u\right)=0\right\} $
+\end_inset
+
+ und 
+\begin_inset Formula $j=\#\left\{ \left(u,v\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(u\right)=1\right\} $
+\end_inset
+
+ die Anzahlen der mit 0 beziehungsweise 1 belegten Vorgänger sind.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Für einen 
+\begin_inset Formula $k$
+\end_inset
+
+-stelligen Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ und ein Tupel 
+\begin_inset Formula $\bar{t}\in U^{k}$
+\end_inset
+
+ gelte 
+\begin_inset Formula $\bar{t}\models\mathcal{C}\left(\mathfrak{A}\right)$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=1$
+\end_inset
+
+ ist.
+\end_layout
+
+\begin_layout Subsection
+Eigenschaften von Schaltkreisen
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Invarianz
+\end_layout
+
+\begin_layout Definition
+Für eine endliche 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ mit beliebigem Universum 
+\begin_inset Formula $A$
+\end_inset
+
+ der Größe 
+\begin_inset Formula $\left|A\right|=\left|U\right|$
+\end_inset
+
+ sei 
+\begin_inset Formula $\pi:A\rightarrow U$
+\end_inset
+
+ eine Bijektion und 
+\begin_inset Formula $\pi\mathfrak{A}$
+\end_inset
+
+ die entsprechende geordnete Struktur mit Universum 
+\begin_inset Formula $U$
+\end_inset
+
+.
+ Ein Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ heiße 
+\series bold
+invariant
+\series default
+ genau dann für alle Tupel 
+\begin_inset Formula $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$
+\end_inset
+
+ und alle Bijektionen 
+\begin_inset Formula $\pi_{1},\pi_{2}:A\rightarrow U$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\[
+\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\pi{}_{2}\bar{a}\right)\right)
+\]
+
+\end_inset
+
+Für invariante Schaltkreise bezeichne 
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]$
+\end_inset
+
+ die Auswertung 
+\begin_inset Formula $\mathcal{C}\left[\pi\mathfrak{A}\right]$
+\end_inset
+
+ mit einer beliebigen Abbildung 
+\begin_inset Formula $\pi:A\rightarrow U$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Als Abkürzung schreiben wir 
+\begin_inset Formula $\bar{a}\models\mathcal{C}\left[\mathfrak{A}\right]$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{a}\right)\right)=1$
+\end_inset
+
+ ist.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Symmetrie
+\end_layout
+
+\begin_layout Standard
+Ein Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ heiße 
+\series bold
+symmetrisch
+\series default
+, wenn für jede Permutation der Universums 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+\end_inset
+
+ ein Automorphismus 
+\begin_inset Formula $\hat{\pi}:V\rightarrow V$
+\end_inset
+
+ des Graphen 
+\begin_inset Formula $\left(V,E\right)$
+\end_inset
+
+ existiert, der den Funktionen 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ und 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ treu ist:
+\end_layout
+
+\begin_layout Enumerate
+Für alle Eingangsgatter 
+\begin_inset Formula $v$
+\end_inset
+
+ mit 
+\begin_inset Formula $\Sigma\left(v\right)=R\bar{x}$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\Sigma\left(\hat{\pi}v\right)=R\,\pi\bar{x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Für alle übrigen Gatter gilt 
+\begin_inset Formula $\Sigma\left(v\right)=\Sigma\left(\hat{\pi}v\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Für jedes Tupel 
+\begin_inset Formula $\bar{x}\in U$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\Omega\left(\pi\bar{x}\right)=\hat{\pi}\Omega\left(x\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Falls dieser Automorphismus stets 
+\emph on
+eindeutig
+\emph default
+ ist, so wird im folgenden der von 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+\end_inset
+
+ induzierte Isomorphismus implizit als 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+ bezeichnet.
+\end_layout
+
+\begin_layout Lemma
+Symmetrie ist eine hinreichende, aber nicht notwendige, Bedingung für die
+ Invarianz eines Schaltkreises.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ ein symmetrischer Schaltkreis, und 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ eine beliebige Struktur mit 
+\begin_inset Formula $\left|A\right|=\left|U\right|$
+\end_inset
+
+.
+ Seien 
+\begin_inset Formula $\pi_{1}$
+\end_inset
+
+ und 
+\begin_inset Formula $\pi_{2}$
+\end_inset
+
+ zwei beliebige Bijektionen von 
+\begin_inset Formula $A$
+\end_inset
+
+ auf 
+\begin_inset Formula $U$
+\end_inset
+
+, und sei 
+\begin_inset Formula $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$
+\end_inset
+
+ ein beliebiges Tupel.
+ Es ist zu zeigen, dass: 
+\begin_inset Formula 
+\[
+\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\pi_{2}\bar{a}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\tau\coloneqq\pi_{1}\cdot\pi_{2}^{-1}$
+\end_inset
+
+ eine Permutation von 
+\begin_inset Formula $U$
+\end_inset
+
+, so dass 
+\begin_inset Formula $\pi_{1}=\tau\pi_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Per Voraussetzung induziert 
+\begin_inset Formula $\tau$
+\end_inset
+
+ einen Automorphismus 
+\begin_inset Formula $\hat{\tau}$
+\end_inset
+
+ auf 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\Omega\left(\tau\bar{x}\right)=\hat{\tau}\Omega\left(\bar{x}\right) &  & \mbox{für alle \ensuremath{\bar{x}\in U^{\mathrm{ar}\left(\mathcal{C}\right)}}}\\
+\Sigma\left(\hat{\tau}v\right)=\tau\Sigma\left(v\right) &  & \mbox{für alle Eingangsgatter}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Per Induktion über die Tiefe
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Die maximale Länge eines Weges von einem Eingangsgatter zum Gatter 
+\begin_inset Formula $v$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ wird gezeigt: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}v\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(v\right) &  & \mbox{für alle \ensuremath{v\in V}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Induktionsanfang
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $n=0$
+\end_inset
+
+: Sei 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ ein Eingangsgatter mit 
+\begin_inset Formula $\Sigma\left(u\right)=R\bar{x}$
+\end_inset
+
+.
+ Per Definition von 
+\begin_inset Formula $\tau$
+\end_inset
+
+ und 
+\begin_inset Formula $\hat{\tau}$
+\end_inset
+
+ gilt: 
+\begin_inset Formula 
+\begin{eqnarray*}
+ &  & \Sigma\left(\hat{\tau}v\right)=R\tau\bar{x}\\
+ &  & \tau\bar{x}\in\tau\pi_{2}R^{\mathfrak{A}}\,\mbox{g.d.w.}\,\bar{x}\in\pi_{2}R^{\mathfrak{A}}
+\end{eqnarray*}
+
+\end_inset
+
+Es folgt: 
+\begin_inset Formula 
+\[
+\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}v\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(v\right)
+\]
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Induktionsschritt
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $n\mapsto n+1$
+\end_inset
+
+: 
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Annahme: Für alle Gatter 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ mit Tiefe 
+\begin_inset Formula $\leqslant n$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}u\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(u\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+So gilt für jedes Gatter mit Tiefe 
+\begin_inset Formula $n+1$
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Enumerate
+Die Beschriftungen 
+\begin_inset Formula $\Sigma\left(\hat{\tau}u\right)=\Sigma\left(u\right)=\phi$
+\end_inset
+
+ sind gleich.
+\end_layout
+
+\begin_layout Enumerate
+Für alle Vorgänger 
+\begin_inset Formula $u\in V$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}u\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(u\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Es folgt 
+\begin_inset Formula $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}v\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(v\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Proof
+Schließlich gilt für jedes Tupel 
+\begin_inset Formula $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right) & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\tau\pi_{2}\bar{a}\right)\right)\\
+ & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}\Omega\left(\pi_{2}\bar{a}\right)\right)\\
+ & = & \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\pi_{2}\bar{a}\right)\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Damit ist der Schaltkreis invariant.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Proof
+Als Gegenbeispiel wird der folgende Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ mit 
+\begin_inset Formula $U=\left\{ 1,2\right\} $
+\end_inset
+
+ und 
+\begin_inset Formula $\mathrm{ar}\left(\mathcal{C}\right)=0$
+\end_inset
+
+ angeführt:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{every node}=[circle, draw=black]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (C) {$
+\backslash
+wedge$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [above left of=C,node distance=6em] (B1) {$
+\backslash
+wedge$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [above left of=B1,node distance=6em] (A1) {$E(1,2)$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=A1,node distance=5.5em] (A2) {$E(1,1)$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=B1,node distance=5.5em] (A3) {$E(2,2)$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=A3,node distance=5.5em] (A4) {$E(2,1)$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path [->] (A1) edge (B1) (A2) edge (B1) (A3) edge (C) (A4) edge (C)
+\end_layout
+
+\begin_layout Plain Layout
+
+			(B1) edge (C);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Schaltkreis
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der Schaltkreis ist invariant, da er genau den Isomorphietyp 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+ akzeptiert.
+ Er ist aber nicht symmetrisch, weil die Permutation 
+\begin_inset Formula $\left(1,2\right)\mapsto\left(2,1\right)$
+\end_inset
+
+ keinen Automorphismus induziert.
+\end_layout
+
+\begin_layout Subsection
+Graph-Anfragen
+\end_layout
+
+\begin_layout Definition
+Eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\series bold
+-Anfrage
+\series default
+ 
+\begin_inset Formula $q$
+\end_inset
+
+ sei eine Abbildung jeder endlichen 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ auf eine 
+\begin_inset Formula $k$
+\end_inset
+
+-stellige Relation 
+\begin_inset Formula $q\left(\mathfrak{A}\right)\subseteq A^{k}$
+\end_inset
+
+.
+ Eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\series bold
+-Eigenschaft
+\series default
+ 
+\begin_inset Formula $S\subseteq\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ sei eine Klasse von 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen und entspreche einer 0-stelligen Anfrage 
+\begin_inset Formula $q_{S}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathfrak{A}\in S\Leftrightarrow q\left(\mathfrak{A}\right)=\left\{ \left\langle \right\rangle \right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Per Definition sind alle 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfragen und 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Eigenschaften invariant bezüglich Graph-Isomorphismen.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+Eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreis-Familie 
+\begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ sei eine Sequenz von Schaltkreisen mit der gleichen Stelligkeit 
+\begin_inset Formula $\mathrm{ar}\left(\mathcal{C}_{n}\right)=k$
+\end_inset
+
+ und den Universen 
+\begin_inset Formula $U^{\mathcal{C}_{n}}=\left\{ 1,\cdots,n\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Eine invariante 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreis-Familie 
+\begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ 
+\series bold
+berechne
+\series default
+ eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $q\left(\mathfrak{A}\right)=\left\{ \bar{a}\in A^{m}\mid\bar{a}\models\mathcal{C}_{n}\left[\mathfrak{A}\right]\right\} $
+\end_inset
+
+ für jede 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ der Größe 
+\begin_inset Formula $n$
+\end_inset
+
+ gilt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beschreibung von Fixpunktlogik durch Schaltkreise
+\end_layout
+
+\begin_layout Subsection
+FO zu Schaltkreis-Familie
+\end_layout
+
+\begin_layout Lemma
+Jede 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ definiert eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+, die von einer symmetrischen Schaltkreis-Familie 
+\begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ berechnet wird.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ eine relationale Signatur, und sei 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ eine 
+\begin_inset Formula $m$
+\end_inset
+
+-stellige 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+\end_layout
+
+\begin_layout Proof
+Induktiv über den Aufbau von 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ wird der 
+\begin_inset Formula $m$
+\end_inset
+
+-stellige Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi\right)$
+\end_inset
+
+ über dem Universum 
+\begin_inset Formula $U\coloneqq\left[n\right]$
+\end_inset
+
+ definiert.
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=R\bar{y}$
+\end_inset
+
+, so bestehe 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi\right)$
+\end_inset
+
+ aus 
+\begin_inset Formula $n^{m}$
+\end_inset
+
+ isolierten Gates.
+ 
+\begin_inset Formula 
+\[
+\mathcal{C}_{n}\left(\varphi\right)\coloneqq\left(\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m}\right\} ,\emptyset,\Sigma,\Omega,U\right)
+\]
+
+\end_inset
+
+Für jedes Tupel 
+\begin_inset Formula $\bar{t}\in U^{m}$
+\end_inset
+
+ sei 
+\begin_inset Formula $\beta_{\bar{t}}\coloneqq\left(\bar{x}\mapsto\bar{t}\right)$
+\end_inset
+
+ die Abbildung der Variablen 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ auf das Tupel 
+\begin_inset Formula $\bar{t}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+\Omega\left(\bar{t}\right) & \coloneqq & v_{\bar{t}}\\
+\Sigma\left(v_{\bar{t}}\right) & \coloneqq & R\beta_{\bar{t}}\left(\bar{y}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=x\dot{=}x'$
+\end_inset
+
+, so bestehe 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi\right)$
+\end_inset
+
+ aus 
+\begin_inset Formula $n^{m}$
+\end_inset
+
+ isolierten Gates (hier 
+\begin_inset Formula $m\in\left\{ 1,2\right\} $
+\end_inset
+
+).
+\begin_inset Formula 
+\[
+\mathcal{C}_{n}\left(\varphi\right)\coloneqq\left(\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m}\right\} ,\emptyset,\Sigma,\Omega,U\right)
+\]
+
+\end_inset
+
+ Für jedes Tupel 
+\begin_inset Formula $\bar{t}\in U^{m}$
+\end_inset
+
+ sei 
+\begin_inset Formula $\beta_{\bar{t}}\coloneqq\left(\bar{x}\mapsto\bar{t}\right)$
+\end_inset
+
+ die entsprechende Belegung:
+\begin_inset Formula 
+\begin{eqnarray*}
+\Omega\left(\bar{t}\right) & \coloneqq & v_{\bar{t}}\\
+\Sigma\left(v_{\bar{t}}\right) & \coloneqq & \begin{cases}
+\mathbf{1} & \mathrm{falls}\,\beta\left(x\right)=\beta\left(x'\right)\\
+\mathbf{0} & \mathrm{sonst}
+\end{cases}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=\bigwedge_{i=1}^{\ell}\varphi_{i}\left(\bar{y_{i}}\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathrm{ar}\left(\varphi_{i}\right)=m_{i}$
+\end_inset
+
+, so bestehe 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi\right)$
+\end_inset
+
+ aus der disjunkten Vereinigung von 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi_{i}\right)$
+\end_inset
+
+ für 
+\begin_inset Formula $1\leqslant i\leqslant\ell$
+\end_inset
+
+ mit der folgenden Erweiterung.
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{C}_{n}\left(\varphi\right) & \coloneqq & \left(V,E,\Sigma,\Omega,U\right)\\
+\mathcal{C}_{n}\left(\varphi_{i}\right) & = & \left(V_{i},E_{i},\Sigma_{i},\Omega_{i},U\right)
+\end{eqnarray*}
+
+\end_inset
+
+Es werden neue Ausgänge für jedes 
+\begin_inset Formula $m$
+\end_inset
+
+-Tupel aus 
+\begin_inset Formula $U$
+\end_inset
+
+ hinzugefügt:
+\begin_inset Formula 
+\begin{eqnarray*}
+V & \coloneqq & \biguplus_{i=1}^{\ell}V_{i}\uplus\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m'}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+Die neuen Ausgänge werden entsprechend mit denen der Teilschaltkreise verknüpft,
+ wobei 
+\begin_inset Formula $\rho_{i}:U^{m}\rightarrow U^{m_{i}}$
+\end_inset
+
+ ein 
+\begin_inset Formula $m$
+\end_inset
+
+-Tupel 
+\begin_inset Formula $\bar{t}$
+\end_inset
+
+ wie folgt auf die in 
+\begin_inset Formula $\varphi_{i}$
+\end_inset
+
+ frei vorkommenden Variablen abbilde:
+\begin_inset Formula 
+\begin{eqnarray*}
+\rho_{i}\left(t_{1},\cdots,t_{m}\right) & = & \left(t_{\left(j_{1}\right)},\cdots,t_{\left(j_{\left(m_{i}\right)}\right)}\right)\\
+ &  & \mathrm{wobei}\,x_{\left(j_{k}\right)}=\left(\bar{y_{i}}\right)_{k}
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+E\coloneqq\biguplus_{i=1}^{\ell}E_{i}\uplus\left\{ \left(\Omega_{i}\left(\rho_{i}\bar{t}\right),v_{\bar{t}}\right)\mid1\leqslant i\leqslant\ell,\,\bar{t}\in U^{m}\right\} 
+\]
+
+\end_inset
+
+Die Gates werden entsprechend beschriftet:
+\begin_inset Formula 
+\begin{eqnarray*}
+\Sigma\left(v\right) & \coloneqq & \begin{cases}
+\Sigma_{i}\left(v\right) & \mathrm{für}\,v\in V_{i}\\
+\wedge & \mathrm{sonst}
+\end{cases}\\
+\Omega\left(\bar{t}\right) & \coloneqq & v_{\bar{t}}\,\,\mathrm{für\,alle\,\,}\bar{t}\in U^{m'}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=\bigvee_{i=1}^{\ell}\varphi_{i}$
+\end_inset
+
+, so sei der Schaltkreis analog zu Fall 2 mit 
+\begin_inset Formula $\Sigma\left(v_{\bar{t}}\right)=\vee$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=\neg\varphi'$
+\end_inset
+
+, so wird der Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi'\right)$
+\end_inset
+
+ wie folgt erweitert:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{C}_{n}\left(\varphi\right) & \coloneqq & \left(V,E,\Sigma,\Omega,U\right)\\
+\mathcal{C}_{n}\left(\varphi'\right) & = & \left(V',E',\Sigma',\Omega',U\right)
+\end{eqnarray*}
+
+\end_inset
+
+Für jedes Tupel 
+\begin_inset Formula $\bar{t}\in U^{m}$
+\end_inset
+
+ wird ein neuer negierter Ausgang 
+\begin_inset Formula $v_{\bar{t}}$
+\end_inset
+
+ eingefügt.
+ Die Ausgänge werden mit den Ausgängen von 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi'\right)$
+\end_inset
+
+ verknüpft.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+V & \coloneqq & V'\uplus\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
+E & \coloneqq & E'\uplus\left\{ \left(\Omega'\left(\bar{t}\right),v_{\bar{t}}\right)\mid\bar{t}\in U^{m}\right\} \\
+\Sigma\left(v\right) & \coloneqq & \begin{cases}
+\Sigma'\left(v\right) & \mathrm{für}\,v\in V'\\
+\neg & \mathrm{sonst}
+\end{cases}\\
+\Omega\left(\bar{t}\right) & \coloneqq & v_{\bar{t}}\,\mathrm{für}\,\bar{t}\in U^{m}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=\left(\varphi_{1}\rightarrow\varphi_{2}\right)$
+\end_inset
+
+, so sei der Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi\right)\coloneqq\mathcal{C}_{n}\left(\neg\varphi_{1}\vee\varphi_{2}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=\left(\varphi_{1}\left(\bar{y_{1}}\right)\leftrightarrow\varphi_{2}\left(\bar{y_{2}}\right)\right)$
+\end_inset
+
+, so bestehe 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi\right)$
+\end_inset
+
+ aus der disjunkten Vereinigung von 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi_{1}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi_{2}\right)$
+\end_inset
+
+ mit der folgenden Erweiterung:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{C}_{n}\left(\varphi\right) & \coloneqq & \left(V,E,\Sigma,\Omega,U\right)\\
+\mathcal{C}_{n}\left(\varphi_{i}\right) & \coloneqq & \left(V_{i},E_{i},\Sigma_{i},\Omega_{i},U\right)
+\end{eqnarray*}
+
+\end_inset
+
+Für jedes Tupel 
+\begin_inset Formula $\bar{t}\in U^{m}$
+\end_inset
+
+ werden fünf neue Gates eingefügt:
+\begin_inset Formula 
+\begin{eqnarray*}
+V & \coloneqq & V_{1}\uplus V_{2}\\
+ & \uplus & \left\{ a_{\bar{t}},b_{\bar{t}},c_{\bar{t}},d_{\bar{t}},v_{\bar{t}}\mid\bar{t}\in U^{m}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+Die Gates 
+\begin_inset Formula $a_{\bar{t}}$
+\end_inset
+
+ und 
+\begin_inset Formula $b_{\bar{t}}$
+\end_inset
+
+ negieren die Schaltkreise 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi_{1}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi_{2}\right)$
+\end_inset
+
+.
+ Die Gates 
+\begin_inset Formula $\bar{c}_{t}$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{d_{t}}$
+\end_inset
+
+ sind Konjunktionen von 
+\begin_inset Formula $\left(\varphi_{1}\wedge\varphi_{2}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\left(\neg\varphi_{1}\wedge\neg\varphi_{2}\right)$
+\end_inset
+
+.
+ Die Gates 
+\begin_inset Formula $v_{\bar{t}}$
+\end_inset
+
+ sind die Disjunktionen von 
+\begin_inset Formula $c_{\bar{t}}$
+\end_inset
+
+ und 
+\begin_inset Formula $d_{\bar{t}}$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+E & \coloneqq & E_{1}\uplus E_{2}\\
+ & \uplus & \left\{ \left(\Omega_{1}\left(\rho_{1}\bar{t}\right),a_{\bar{t}}\right),\left(\Omega_{2}\left(\rho_{2}\bar{t}\right),b_{\bar{t}}\right)\mid\bar{t}\in U^{m}\right\} \\
+ & \uplus & \left\{ \left(\Omega_{i}\left(\rho_{i}\bar{t}\right),c_{\bar{t}}\right)\mid i\in\left\{ 1,2\right\} ,\,\bar{t}\in U^{m}\right\} \\
+ & \uplus & \left\{ \left(a_{\bar{t}},d_{\bar{t}}\right),\left(b_{\bar{t}},d_{\bar{t}}\right)\mid\bar{t}\in U^{m}\right\} \\
+ & \uplus & \left\{ \left(c_{\bar{t}},v_{\bar{t}}\right),\left(d_{\bar{t}},v_{\bar{t}}\right)\mid\bar{t}\in U^{m}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+(Hierbei seien 
+\begin_inset Formula $\rho_{1}$
+\end_inset
+
+ und 
+\begin_inset Formula $\rho_{2}$
+\end_inset
+
+ analog zu Fall 3 definiert.)
+\begin_inset Formula 
+\begin{eqnarray*}
+\Sigma\left(v\right) & \coloneqq & \begin{cases}
+\neg & \mathrm{für}\,v\in\left\{ a_{\bar{t}},b_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
+\wedge & \mathrm{für}\,v\in\left\{ c_{\bar{t}},d_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
+\vee & \mathrm{für}\,v\in\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
+\Sigma_{i}\left(v\right) & \mathrm{für}\,v\in V_{i}
+\end{cases}
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Omega\left(\bar{t}\right)\coloneqq v_{\bar{t}}\,\,\mathrm{für\,alle}\,\,\bar{t}\in U^{m}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(x_{1},\cdots,x_{m}\right)=\exists x_{m+1}\cdots\exists x_{m+i}\varphi'\left(x_{1},\cdots,x_{m+i}\right)$
+\end_inset
+
+, so wird der Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi'\right)$
+\end_inset
+
+ wie folgt erweitert: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{C}_{n}\left(\varphi\right) & \coloneqq & \left(V,E,\Sigma,\Omega,U\right)\\
+\mathcal{C}_{n}\left(\varphi'\right) & \coloneqq & \left(V',E',\Sigma',\Omega',U\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Es werden neue Ausgänge für jedes Tupel 
+\begin_inset Formula $\bar{t}\in U^{m}$
+\end_inset
+
+ eingefügt:
+\begin_inset Formula 
+\begin{eqnarray*}
+V & \coloneqq & V'\uplus\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Jeder neue Ausgang 
+\begin_inset Formula $v_{\bar{t}}$
+\end_inset
+
+ wird mit den alten Ausgängen für alle 
+\begin_inset Formula $\left(m+i\right)$
+\end_inset
+
+-Tupel 
+\begin_inset Formula $\left(\bar{t},\bar{t}'\right)$
+\end_inset
+
+ verknüpft:
+\begin_inset Formula 
+\[
+E\coloneqq E'\uplus\left\{ \left(\Omega'\left(\bar{t},\bar{t}'\right),v_{\bar{t}}\right)\mid\bar{t}\in U^{m},\,\bar{t}'\in U^{i}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die neuen Ausgänge werden mit 
+\begin_inset Formula $\vee$
+\end_inset
+
+ markiert.
+\begin_inset Formula 
+\begin{eqnarray*}
+\Sigma\left(v\right) & \coloneqq & \begin{cases}
+\Sigma'\left(v\right) & \mathrm{für}\,v\in V'\\
+\vee & \mathrm{sonst}
+\end{cases}\\
+\Omega\left(\bar{t}\right) & \coloneqq & v_{\bar{t}}\,\mathrm{für\,alle}\,\bar{t}\in U^{m}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(x_{1},\cdots,x_{m}\right)=\forall x_{m+1}\cdots\forall x_{m+i}\varphi'\left(x_{1},\cdots,x_{m+i}\right)$
+\end_inset
+
+, so sei der Schaltkreis analog zu Fall 8 mit 
+\begin_inset Formula $\Sigma\left(v_{\bar{t}}\right)\coloneqq\wedge$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Der konstruierte Schaltkreis hat eine durch 
+\begin_inset Formula $3\left\Vert \varphi\right\Vert $
+\end_inset
+
+ beschränkte Tiefe und eine durch 
+\begin_inset Formula $5\left\Vert \varphi\right\Vert \cdot n^{\mathrm{var}\left(\varphi\right)}$
+\end_inset
+
+ beschränkte Größe hat.
+ Dies folgt direkt aus der Tatsache, dass jeder Induktionssschritt für eine
+ 
+\begin_inset Formula $m$
+\end_inset
+
+-stellige Teilformel die Tiefe um maximal 
+\begin_inset Formula $3$
+\end_inset
+
+ Kanten verlängert, und maximal 
+\begin_inset Formula $5n^{m}$
+\end_inset
+
+ Gates hinzufügt.
+ (Insbesondere erreicht nur Fall 7 diese Schranke.)
+\end_layout
+
+\begin_layout Subsubsection
+Symmetrie
+\end_layout
+
+\begin_layout Proposition*
+Jeder aus einer 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ konstruierte Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi\right)$
+\end_inset
+
+ ist symmetrisch.
+\end_layout
+
+\begin_layout Proof
+Induktiv über den Aufbau der Formel.
+ Sei dazu 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ eine 
+\begin_inset Formula $m$
+\end_inset
+
+-stellige 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel, und 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+\end_inset
+
+ eine beliebige Permutation.
+ Es wird ein induzierter Automorphismus 
+\begin_inset Formula $\hat{\pi}:V\rightarrow V$
+\end_inset
+
+ konstruiert, der die Anforderungen erfüllt.
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Für 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=R\bar{y}$
+\end_inset
+
+ sei 
+\begin_inset Formula $\hat{\pi}v_{\bar{t}}\coloneqq v_{\pi\bar{t}}$
+\end_inset
+
+ für alle Tupel 
+\begin_inset Formula $\bar{t}\in U^{m}$
+\end_inset
+
+.
+ Es gilt 
+\begin_inset Formula $\pi\beta_{\bar{t}}\left(\bar{y}\right)=\beta_{\pi\bar{t}}\left(\bar{y}\right)$
+\end_inset
+
+ und daher 
+\begin_inset Formula $\Sigma\left(\hat{\pi}v_{\bar{t}}\right)=\pi\Sigma\left(v_{\bar{t}}\right)$
+\end_inset
+
+, und es gilt 
+\begin_inset Formula $\Omega\left(\pi\bar{t}\right)=v_{\pi\bar{t}}=\hat{\pi}\Omega\left(\bar{t}\right)$
+\end_inset
+
+.
+ Da keine anderen Gates existieren, ist 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+ ein Automorphismus.
+\end_layout
+
+\begin_layout Case
+Für 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=x\dot{=}x'$
+\end_inset
+
+ sei 
+\begin_inset Formula $\hat{\pi}\left(v_{\bar{t}}\right)\coloneqq v_{\pi\bar{t}}$
+\end_inset
+
+.
+ Es gilt 
+\begin_inset Formula $\beta_{\bar{t}}\left(x\right)=\beta_{\bar{t}}\left(x'\right)$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\beta_{\pi\bar{t}}\left(x\right)=\beta_{\pi\bar{t}}\left(x\right)$
+\end_inset
+
+, und daher ist 
+\begin_inset Formula $\Sigma\left(\hat{\pi}v_{\bar{t}}\right)=\Sigma\left(v_{\pi\bar{t}}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Case
+Für 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=\bigwedge_{i=1}^{\ell}\varphi_{i}\left(\bar{y_{i}}\right)$
+\end_inset
+
+ existieren bereits die Automorphismen 
+\begin_inset Formula $\hat{\pi_{i}}$
+\end_inset
+
+ für jeden Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi_{i}\right)$
+\end_inset
+
+.
+ Der Automorphismus 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+ bilde deren disjunkte Vereinigung und erweitere ihn um die neuen Ausgänge:
+\begin_inset Formula 
+\[
+\mathcal{C}_{n}\left(\varphi_{i}\right)=\left(V_{i},E_{i},\Sigma_{i},\Omega_{i},U\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{\pi}\left(v\right)\coloneqq\begin{cases}
+\hat{\pi}_{i}\left(v\right) & \mathrm{für}\,v\in V_{i}\\
+v_{\pi\bar{t}} & \mathrm{für}\,v=v_{\bar{t}}
+\end{cases}
+\]
+
+\end_inset
+
+Für die Gates und Kanten der Schaltkreise 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi_{i}\right)$
+\end_inset
+
+ ist 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+ per Annahme bereits korrekt.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Für die neuen Kanten 
+\begin_inset Formula $\left(\Omega_{i}\left(\rho_{i}\bar{t}\right),v_{\bar{t}}\right)\in E$
+\end_inset
+
+ gilt nach Voraussetzung: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(\hat{\pi}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}v_{\bar{t}}\right) & = & \left(\hat{\pi}_{i}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}v_{\bar{t}}\right)\\
+ & = & \left(\Omega_{i}\left(\pi\rho_{i}\bar{t}\right),v_{\pi\bar{t}}\right)\\
+ & = & \left(\Omega_{i}\left(\rho_{i}\pi\bar{t}\right),v_{\pi\bar{t}}\right)\in E
+\end{eqnarray*}
+
+\end_inset
+
+(Die Abbildung 
+\begin_inset Formula $\rho_{i}:U^{m}\rightarrow U^{m_{i}}$
+\end_inset
+
+ ist ein Homomorphismus und kommutiert mit der Permutation 
+\begin_inset Formula $\pi$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Enumerate
+Es gilt 
+\begin_inset Formula $\Sigma\left(\hat{\pi}v_{\bar{t}}\right)=\Sigma\left(v_{\bar{t}}\right)=\vee$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Es gilt 
+\begin_inset Formula $\Omega\left(\pi\bar{t}\right)=v_{\pi\bar{t}}=\hat{\pi}v_{\bar{t}}=\hat{\pi}\Omega\left(\bar{t}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Case
+Der Fall 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=\bigvee_{i=1}^{\ell}\varphi_{i}\left(\bar{y_{i}}\right)$
+\end_inset
+
+ folgt analog zu Fall 3.
+\end_layout
+
+\begin_layout Case
+Für 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=\neg\varphi'$
+\end_inset
+
+ existiert bereits der Automorphismus 
+\begin_inset Formula $\hat{\pi'}$
+\end_inset
+
+.
+ Dieser wird wie folgt erweitert:
+\begin_inset Formula 
+\[
+\mathcal{C}_{n}\left(\varphi'\right)=\left(V',E',\Sigma',\Omega',U\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{\pi}\left(v\right)\coloneqq\begin{cases}
+\hat{\pi'}\left(v\right) & \mathrm{für}\,v\in V'\\
+v_{\pi\bar{t}} & \mathrm{für}\,v=v_{\bar{t}}
+\end{cases}
+\]
+
+\end_inset
+
+Die Korrektheit folgt analog zu Fall 3.
+\end_layout
+
+\begin_layout Case
+Der Fall 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=\left(\varphi_{1}\rightarrow\varphi_{2}\right)$
+\end_inset
+
+ folgt mit 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi\right)\coloneqq\mathcal{C}_{n}\left(\neg\varphi_{1}\vee\varphi_{2}\right)$
+\end_inset
+
+ direkt aus Fall 4 und Fall 5.
+ 
+\end_layout
+
+\begin_layout Case
+Für 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=\left(\varphi_{1}\leftrightarrow\varphi_{2}\right)$
+\end_inset
+
+ existieren per Annahme die Automorphismen 
+\begin_inset Formula $\hat{\pi_{i}}$
+\end_inset
+
+ für die Schaltkreise 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi_{i}\right)$
+\end_inset
+
+.
+ Diese werden wie folgt erweitert:
+\begin_inset Formula 
+\[
+\mathcal{C}_{n}\left(\varphi_{i}\right)=\left(V_{i},E_{i},\Sigma_{i},\Omega_{i},U\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{\pi}\left(v\right)\coloneqq\begin{cases}
+\hat{\pi_{i}}\left(v\right) & \mathrm{für}\,v\in V_{i}\\
+w_{\pi\bar{t}} & \mathrm{für}\,v=w_{\bar{t}}\,\mathrm{und}\,w\in\left\{ a,b,c,d,v\right\} 
+\end{cases}
+\]
+
+\end_inset
+
+Die Korrektheit folgt analog zu Fall 3.
+\end_layout
+
+\begin_layout Case
+Für 
+\begin_inset Formula $\varphi\left(x_{1},\cdots,x_{m}\right)=\exists x_{m+1}\cdots\exists x_{m+i}\varphi'\left(x_{1},\cdots,x_{m+i}\right)$
+\end_inset
+
+ existiert bereits der Automorphismus 
+\begin_inset Formula $\hat{\pi'}$
+\end_inset
+
+.
+ Dieser wird wie folgt erweitert:
+\begin_inset Formula 
+\[
+\mathcal{C}_{n}\left(\varphi'\right)=\left(V',E',\Sigma',\Omega',U\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{\pi}\left(v\right)\coloneqq\begin{cases}
+\hat{\pi'}\left(v\right) & \mathrm{für}\,v\in V'\\
+v_{\pi\bar{t}} & \mathrm{für}\,v=v_{\bar{t}}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Auf den Gates von 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi'\right)$
+\end_inset
+
+ ist 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+ per Annahme treu zu 
+\begin_inset Formula $\pi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Für die neuen Kanten 
+\begin_inset Formula $\left(\Omega'\left(\bar{t},\bar{t'}\right),v_{\bar{t}}\right)\in E$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\left(\hat{\pi}\Omega'\left(\bar{t},\bar{t'}\right),\hat{\pi}v_{\bar{t}}\right)=\left(\Omega'\left(\pi\bar{t},\pi\bar{t'}\right),v_{\pi\bar{t}}\right)\in E$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Es gilt 
+\begin_inset Formula $\hat{\pi}\Sigma\left(v_{\bar{t}}\right)=\Sigma\left(v_{\bar{t}}\right)=\vee$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Es gilt 
+\begin_inset Formula $\Omega\left(\pi\bar{t}\right)=v_{\pi\bar{t}}=\hat{\pi}v_{\bar{t}}=\hat{\pi}\Omega\left(\bar{t}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Case
+Der Fall 
+\begin_inset Formula $\varphi\left(x_{1},\cdots,x_{m}\right)=\exists x_{m+1}\cdots\exists x_{m+i}\varphi'\left(x_{1},\cdots,x_{m+i}\right)$
+\end_inset
+
+ folgt analog zu Fall 8.
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+FP zu FO-Familie
+\end_layout
+
+\begin_layout Standard
+Die Fixpunktlogik 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+ ist echt ausdruckstärker als die Logik 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+.
+ Trotzdem kann jede 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ durch eine Familie von 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formeln mit polynomieller Länge 
+\begin_inset Formula $n^{\left\Vert \varphi\right\Vert }$
+\end_inset
+
+ und einer konstant beschränkten Anzahl von Variablen
+\emph on
+ 
+\emph default
+definiert werden, von denen jede auf den Strukturen einer bestimmten Größe
+ äquivalent zu 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ ist.
+ Mit der oben beschriebenen Konstruktion kann dann eine Schaltkreisfamilie
+ erzeugt werden, die 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ berechnet.
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+Siehe: k-Variablen Fragment infinitäre Logik, u.a.
+ [LogKomp 2007].
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Durch die Einschränkung auf eine konstante Anzahl von Variablen ist die
+ Größe der Schaltkreisfamilie weiterhin polynomiell durch 
+\begin_inset Formula $n^{\left\Vert \varphi\right\Vert }$
+\end_inset
+
+ beschränkt, obwohl die FO-Formeln beliebig lang werden.
+\end_layout
+
+\begin_layout Definition
+Für zwei logische Formeln 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ und 
+\begin_inset Formula $\psi$
+\end_inset
+
+ bedeute 
+\begin_inset Formula $\varphi\equiv_{n}\psi$
+\end_inset
+
+, dass diese Formeln auf allen Strukturen 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}_{n}\left(\sigma\right)$
+\end_inset
+
+ äquivalent sind.
+\end_layout
+
+\begin_layout Lemma
+Für jede 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ mit 
+\begin_inset Formula $k$
+\end_inset
+
+ Variablen und jede Größe 
+\begin_inset Formula $n\in\mathbb{N}_{\geqslant1}$
+\end_inset
+
+ existiert eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi_{n}\equiv_{n}\varphi$
+\end_inset
+
+ mit höchstens 
+\begin_inset Formula $k+\left\Vert \varphi\right\Vert $
+\end_inset
+
+ Variablen.
+\end_layout
+
+\begin_layout Proof
+Induktiv über den Aufbau von 
+\begin_inset Formula $\varphi$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ von der Form 
+\begin_inset Formula $R\bar{x}$
+\end_inset
+
+ für 
+\begin_inset Formula $\nicefrac{R}{k}\in\sigma$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
+\end_inset
+
+ oder 
+\begin_inset Formula $x=y$
+\end_inset
+
+ für 
+\begin_inset Formula $x,y\in\mathbf{var}$
+\end_inset
+
+ ist, so ist 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ bereits eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi=\left(\psi\gamma\psi'\right)$
+\end_inset
+
+ für 
+\begin_inset Formula $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
+\end_inset
+
+ ist, so existieren per Induktionsannahme die Formeln 
+\begin_inset Formula $\psi_{n}\equiv_{n}\psi$
+\end_inset
+
+ und 
+\begin_inset Formula $\psi_{n}'\equiv_{n}\psi'$
+\end_inset
+
+; es folgt 
+\begin_inset Formula $\left(\psi_{n}\gamma\psi_{n}'\right)\equiv_{n}\varphi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi=Qx\psi$
+\end_inset
+
+ für 
+\begin_inset Formula $Q\in\left\{ \exists,\forall\right\} $
+\end_inset
+
+ und 
+\begin_inset Formula $x\in\mathbf{var}$
+\end_inset
+
+, so existiert per Annahme die auf Formel 
+\begin_inset Formula $\psi_{n}\equiv_{n}\psi$
+\end_inset
+
+; es folgt 
+\begin_inset Formula $Qx\psi_{n}\equiv_{n}\varphi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi=\left[\mathrm{ifp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
+\end_inset
+
+ für eine Relations-Variable 
+\begin_inset Formula $R\notin\sigma$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathrm{ar}\left(R\right)=m$
+\end_inset
+
+ und zwei Tupel 
+\begin_inset Formula $\bar{x},\bar{y}\in\mathbf{var}^{m}$
+\end_inset
+
+, so gilt:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Per Induktionsannahme existiert für jedes 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\psi_{n}$
+\end_inset
+
+, so dass 
+\begin_inset Formula $\psi_{n}\equiv_{n}\psi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $\varphi_{n}^{\left(n^{m}\right)}$
+\end_inset
+
+ wie folgt induktiv definiert.
+ Hierbei soll 
+\begin_inset Formula $\varphi_{n}^{\left(i\right)}$
+\end_inset
+
+ in einer Struktur 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ die Anfrage 
+\begin_inset Formula $q\left(\mathfrak{A}\right)=R^{\left(i\right)}$
+\end_inset
+
+ definieren.
+ 
+\begin_inset Formula $R^{\left(n^{m}\right)}$
+\end_inset
+
+ ist der Fixpunkt von 
+\begin_inset Formula $R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Sei 
+\begin_inset Formula $\varphi_{n}^{\left(0\right)}\left(\bar{x}\right)$
+\end_inset
+
+ die unerfüllbare Formel 
+\begin_inset Formula $\bot\coloneqq\neg x_{1}=x_{1}$
+\end_inset
+
+.
+ Per Definition ist 
+\begin_inset Formula $R^{\left(0\right)}=\emptyset$
+\end_inset
+
+, und 
+\begin_inset Formula $\varphi_{n}^{\left(0\right)}$
+\end_inset
+
+ definiert diese Anfrage.
+\end_layout
+
+\begin_layout Itemize
+Sei 
+\begin_inset Formula $\varphi_{n}^{\left(i+1\right)}\left(\bar{x}\right)$
+\end_inset
+
+ entsteht aus 
+\begin_inset Formula $\left(\psi_{n}\left(\bar{x}\right)\vee R\bar{x}\right)$
+\end_inset
+
+, in dem jede atomare Teilformel 
+\begin_inset Formula $R\bar{z}$
+\end_inset
+
+ durch die folgende Formel 
+\begin_inset Formula $\chi^{\left(n\right)}\left(\bar{z}\right)$
+\end_inset
+
+ ersetzt wird, wobei 
+\begin_inset Formula $\bar{u}\in\mathbf{var}^{k}$
+\end_inset
+
+ ein Tupel von Variablen sei, die nicht in 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ oder 
+\begin_inset Formula $\bar{z}$
+\end_inset
+
+ vorkommen:
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Hier stehe 
+\begin_inset Formula $\exists\bar{x}\psi$
+\end_inset
+
+ für 
+\begin_inset Formula $\exists x_{1}\cdots\exists x_{m}\psi$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{x}=\bar{y}$
+\end_inset
+
+ für 
+\begin_inset Formula $\bigwedge_{i=1}^{m}x_{i}=y_{i}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\chi^{\left(n\right)}\left(\bar{z}\right)\coloneqq\exists\bar{u}\left(\bar{u}=\bar{z}\exists\bar{x}\left(\bar{x}=\bar{u}\wedge\varphi_{n}^{\left(i\right)}\left(\bar{x}\right)\right)\right)
+\]
+
+\end_inset
+
+(Der Zwischenschritt über 
+\begin_inset Formula $\bar{u}$
+\end_inset
+
+ ist notwendig, weil 
+\begin_inset Formula $\bar{z}$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ zum Teil die gleichen Variablen enthalten können, und daher ihr Geltungsbereich
+ nicht überlappen darf.)
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Unter der Annahme, dass 
+\begin_inset Formula $\varphi_{n}^{\left(i\right)}\left(\bar{x}\right)$
+\end_inset
+
+ auf 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ die Anfrage 
+\begin_inset Formula $q\left(\mathfrak{A}\right)=R^{\left(i\right)}$
+\end_inset
+
+ definiert, definiert 
+\begin_inset Formula $\chi^{\left(n\right)}\left(\bar{z}\right)$
+\end_inset
+
+ die gleiche Anfrage (mit Umbenennung von 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ in 
+\begin_inset Formula $\bar{z}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Daher gilt 
+\begin_inset Formula $\bar{t}\models\left\llbracket \varphi_{n}^{\left(i+1\right)}\left(\bar{x}\right)\right\rrbracket \left(\mathfrak{A}\right)$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\bar{t}\models\left\llbracket \psi_{n}\right\rrbracket \left(\mathfrak{A},R^{\left(i\right)}\right)$
+\end_inset
+
+, und 
+\begin_inset Formula $\varphi_{n}^{\left(i+1\right)}$
+\end_inset
+
+ definiert die Anfrage 
+\begin_inset Formula $q\left(\mathfrak{A}\right)=R^{\left(i+1\right)}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Schließlich entsteht 
+\begin_inset Formula $\varphi_{n}\left(\bar{y}\right)$
+\end_inset
+
+ aus 
+\begin_inset Formula $\varphi_{n}^{\left(n^{m}\right)}\left(\bar{x}\right)$
+\end_inset
+
+, indem die freien Variablen 
+\begin_inset Formula $x_{1},\cdots,x_{m}$
+\end_inset
+
+ in 
+\begin_inset Formula $y_{1},\cdots,y_{m}$
+\end_inset
+
+ umbenannt werden.
+ Damit gilt 
+\begin_inset Formula $\varphi_{n}\equiv_{n}\varphi$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Proof
+Die so erzeugte Formel 
+\begin_inset Formula $\varphi_{n}$
+\end_inset
+
+ hat höchstens 
+\begin_inset Formula $k+\left\Vert \varphi\right\Vert $
+\end_inset
+
+ Variablen: Nur in Fall 4 werden 
+\begin_inset Formula $m$
+\end_inset
+
+ neue Variablen eingefügt, und für jeden solchen Induktionschritt enthält
+ 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ bereits ein Tupel 
+\begin_inset Formula $\bar{y}\in\mathbf{var}^{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Stabilisatoren und Träger
+\end_layout
+
+\begin_layout Subsection
+Partitionen
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $U$
+\end_inset
+
+ ein beliebiges Universum.
+\end_layout
+
+\begin_layout Definition
+Eine 
+\series bold
+Partition
+\series default
+ 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ von 
+\begin_inset Formula $U$
+\end_inset
+
+ sei eine Menge 
+\begin_inset Formula $\mathcal{P}=\left\{ P_{1},\cdots,P_{k}\right\} $
+\end_inset
+
+ von disjunkten nichtleeren Teilmengen 
+\begin_inset Formula $P_{i}\subseteq U$
+\end_inset
+
+, so dass 
+\begin_inset Formula $U=\biguplus_{i=1}^{k}P_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Die Partition 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ induziert eine Äquivalenzrelation 
+\begin_inset Formula $\sim_{\mathcal{P}}$
+\end_inset
+
+ auf 
+\begin_inset Formula $U$
+\end_inset
+
+, wobei 
+\begin_inset Formula $x\sim_{\mathcal{P}}y$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\left\{ x,y\right\} \subseteq P$
+\end_inset
+
+ für irgendein 
+\begin_inset Formula $P\in\mathcal{P}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+Die 
+\series bold
+Feinheit 
+\series default
+der Partitionen von 
+\begin_inset Formula $U$
+\end_inset
+
+ sei eine Relation 
+\begin_inset Formula $\preceq$
+\end_inset
+
+, so dass 
+\begin_inset Formula $\mathcal{P}\preceq\mathcal{P}'$
+\end_inset
+
+ (
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ ist feiner als 
+\begin_inset Formula $\mathcal{P}'$
+\end_inset
+
+
+\begin_inset Quotes grd
+\end_inset
+
+) genau dann wenn jede Element 
+\begin_inset Formula $P_{i}\in\mathcal{P}$
+\end_inset
+
+ Teilmenge einer Element 
+\begin_inset Formula $P'_{j}\in\mathcal{P}'$
+\end_inset
+
+ ist.
+\end_layout
+
+\begin_layout Definition
+Die Relation 
+\begin_inset Formula $\preceq$
+\end_inset
+
+ ist eine Halbordnung.
+ Daher bilden die Partitionen von 
+\begin_inset Formula $U$
+\end_inset
+
+ einen vollständigen Verband bezüglich den Infimum- und Supremum-Operationen
+ 
+\begin_inset Formula $\sqcap$
+\end_inset
+
+ und 
+\begin_inset Formula $\sqcup$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{A}\sqcap\mathcal{B} & \coloneqq & \max_{\preceq}\left\{ \mathcal{P}\mid\mathcal{P}\preceq\mathcal{A}\,\mathrm{und}\,\mathcal{P}\preceq\mathcal{B}\right\} \\
+\mathcal{A}\sqcup\mathcal{B} & \coloneqq & \min_{\preceq}\left\{ \mathcal{P}\mid\mathcal{A}\preceq\mathcal{P}\,\mathrm{und}\,\mathcal{B}\preceq\mathcal{P}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\mathcal{A}\sqcap\mathcal{B}=\left\{ A\cap B\mid\left(A,B\right)\in\mathcal{A}\times\mathcal{B},\,A\cap B\neq\emptyset\right\} $
+\end_inset
+
+ besteht aus den nichtleeren Schnittmengen von allen Elementen von 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{B}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\mathcal{A}\sqcup\mathcal{B}$
+\end_inset
+
+ besteht aus den Äquivalenzklassen der transitiven Hülle von 
+\begin_inset Formula $\sim_{\mathcal{A}}$
+\end_inset
+
+ und 
+\begin_inset Formula $\sim_{\mathcal{B}}$
+\end_inset
+
+, so dass 
+\begin_inset Formula $\sim_{\mathcal{A}\sqcup\mathcal{B}}=$
+\end_inset
+
+
+\begin_inset Formula $\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)^{*}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Definition
+Die feinste und gröbste Partition seien 
+\begin_inset Formula $\mathcal{P}_{\min}\left(U\right)\coloneqq\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{P}_{\max}\left(U\right)\coloneqq\left\{ U\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Stabilisatoren
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $x\in U$
+\end_inset
+
+.
+ Der 
+\series bold
+Stabilisator
+\series default
+ von 
+\begin_inset Formula $x$
+\end_inset
+
+ in 
+\begin_inset Formula $U$
+\end_inset
+
+ sei die Untergruppe 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(x\right)\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ mit 
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{U}\left(x\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi x=x\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+Die vorige Definition wird auf Mengen erweitert.
+ Sei 
+\begin_inset Formula $X\subseteq U$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Der 
+\series bold
+Punktstabilisator 
+\series default
+von 
+\begin_inset Formula $X$
+\end_inset
+
+ in 
+\begin_inset Formula $U$
+\end_inset
+
+ sei die Untergruppe 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ mit
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{U}\left(X\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi x=x\,\mathrm{für}\,\mathrm{alle}\,x\in X\right\} 
+\]
+
+\end_inset
+
+Diese Gruppe ist der Schnitt der Stabilisatoren der Elemente von 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{U}\left(X\right)=\bigcap_{x\in X}\mathrm{Stab}_{U}\left(x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Der 
+\series bold
+Mengenstabilisator
+\series default
+ von 
+\begin_inset Formula $X$
+\end_inset
+
+ in 
+\begin_inset Formula $U$
+\end_inset
+
+ sei die Untergruppe 
+\begin_inset Formula $\mathrm{Stab}_{U}\left\{ X\right\} \subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ mit
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{U}\left\{ X\right\} \coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi X=X\right\} 
+\]
+
+\end_inset
+
+Diese Gruppe ist das Erzeugnis der Vereinung des Punktstabilisators mit
+ den Permutationen 
+\begin_inset Formula $\mathrm{Sym}_{X}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{U}\left\{ X\right\} =\left\langle \mathrm{Stab}_{U}\left(X\right)\cup\mathrm{Sym}_{X}\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+Die vorige Definition wird auf Partititionierungen 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ von 
+\begin_inset Formula $U$
+\end_inset
+
+ erweitert:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Der Punktstabilisator
+\series bold
+ 
+\series default
+von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ in 
+\begin_inset Formula $U$
+\end_inset
+
+ sei die Untergruppe 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ mit
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{Stab}_{U}\left(\mathcal{P}\right) & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi P_{i}=P_{i}\,\mathrm{für}\,\mathrm{alle}\,P_{i}\in\mathcal{P}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+Dies ist der Schnitt der Mengenstabilisatoren der Elemente von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{U}\left(\mathcal{P}\right)=\bigcap_{P_{i}\in\mathcal{P}}\mathrm{Stab}_{U}\left\{ P_{i}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Der Mengenstabilisator von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ in 
+\begin_inset Formula $U$
+\end_inset
+
+ sei die Untergruppe 
+\begin_inset Formula $\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ mit
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi\mathcal{P}=\mathcal{P}\right\} 
+\]
+
+\end_inset
+
+Diese Gruppe ist das Erzeugnis der Vereinigung von 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+\end_inset
+
+ mit allen Permutationen von gleich-mächtigen Elemente.
+ Sei für 
+\begin_inset Formula $1\leqslant n\leqslant\left|U\right|$
+\end_inset
+
+ die Menge 
+\begin_inset Formula $\mathcal{P}_{\mid n}\coloneqq\left\{ P_{i}\in\mathcal{P}\mid\left|P_{i}\right|=n\right\} $
+\end_inset
+
+, dann gilt: 
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} =\left\langle \mathrm{Stab}_{U}\left(\mathcal{P}\right)\cup\bigcup_{n=1}^{\left|U\right|}\mathrm{Sym}_{\mathcal{P}_{\mid n}}\right\rangle 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Subsection
+Träger
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $G\subseteq\mathrm{\mathrm{Sym}}_{U}$
+\end_inset
+
+ eine Untergruppe und 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ eine Partititionierung von 
+\begin_inset Formula $U$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ 
+\series bold
+trägt 
+\series default
+
+\begin_inset Formula $G$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark*
+Wenn 
+\begin_inset Formula $G$
+\end_inset
+
+ von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ getragen wird, so wird 
+\begin_inset Formula $G$
+\end_inset
+
+ auch von allen feineren Elementen 
+\begin_inset Formula $\mathcal{P}'\preceq\mathcal{P}$
+\end_inset
+
+ getragen (und 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ wiederum trägt alle Obergruppen 
+\begin_inset Formula $G'\supseteq G$
+\end_inset
+
+).
+ Dies folgt direkt daraus, dass die Grobheit von Partitionen eine Teilmengenbezi
+ehung ihrer Stabilisatorgruppen induziert:
+\begin_inset Formula 
+\[
+\mathcal{P}'\preceq\mathcal{P}\,\,\Longrightarrow\,\,\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Stab}_{U}\left(\mathcal{P}'\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+Jede Gruppe 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ besitzt eine eindeutige gröbste tragende Partition.
+\end_layout
+
+\begin_layout Proof
+Jede Gruppe wird offensichtlich mindestens von 
+\begin_inset Formula $\mathcal{P}_{\min}\left(U\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}_{\min}\left(U\right)\right)=\left\{ \mathbf{id}\right\} $
+\end_inset
+
+ getragen.
+\end_layout
+
+\begin_layout Proof
+Angenommen, 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{P}'$
+\end_inset
+
+ seien zwei gröbste tragende Elementen von 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Sei nun 
+\begin_inset Formula $\mathcal{P}''\coloneqq\mathcal{P}\sqcup\mathcal{P}'$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Sei 
+\begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}''\right)$
+\end_inset
+
+ eine beliebige Permutation im Stabilisator von 
+\begin_inset Formula $\mathcal{P}''$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Wenn 
+\begin_inset Formula $\mathcal{P}''=\left\{ P_{1},\cdots,P_{k}\right\} $
+\end_inset
+
+, so existiert eine Folge von Permutationen 
+\begin_inset Formula $\pi_{1}\circ\cdots\circ\pi_{k}=\pi$
+\end_inset
+
+, so dass 
+\begin_inset Formula $\pi_{i}$
+\end_inset
+
+ nur Elemente von 
+\begin_inset Formula $P_{i}$
+\end_inset
+
+ miteinander vertauscht:
+\begin_inset Formula 
+\[
+\pi_{i}\left(x\right)=\begin{cases}
+y\in P_{i} & \mathrm{für}\,x\in P_{i}\\
+x & \mathrm{sonst}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Für jedes 
+\begin_inset Formula $\pi_{i}$
+\end_inset
+
+ existiert eine Folge von Transpositionen 
+\begin_inset Formula $\left(x_{i,1}y_{i,1}\right)\circ\cdots\circ\left(x_{i,m}y_{i,m}\right)=\pi_{i}$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\pi=\left(x_{1,1}y_{1,1}\right)\circ\cdots\circ\left(x_{k,m_{k}}y_{k,m_{k}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Für jede dieser Transpositionen 
+\begin_inset Formula $\left(xy\right)$
+\end_inset
+
+ gilt 
+\begin_inset Formula $x,y\in P_{i}$
+\end_inset
+
+.
+ Da 
+\begin_inset Formula $P_{i}\in\mathcal{P}\sqcup\mathcal{P}'$
+\end_inset
+
+ eine Äquivalenzklasse der transitiven Hülle von 
+\begin_inset Formula $\sim\coloneqq\left(\sim_{\mathcal{P}}\cup\sim_{\mathcal{P}'}\right)$
+\end_inset
+
+ ist, existiert eine Folge von Elementen 
+\begin_inset Formula $u_{1}\sim\cdots\sim u_{\ell}$
+\end_inset
+
+, so dass 
+\begin_inset Formula $x=u_{1}$
+\end_inset
+
+ und 
+\begin_inset Formula $y=u_{\ell}$
+\end_inset
+
+.
+ Es gilt 
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(xy\right) & = & \left(u_{1}u_{2}\right)\circ\cdots\circ\left(u_{\ell-1}u_{\ell}\right)\circ\left(u_{\ell-1}u_{\ell-2}\right)\circ\cdots\circ\left(u_{2}u_{1}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Es gilt 
+\begin_inset Formula $u_{j}\sim_{\mathcal{P}}u_{j+1}$
+\end_inset
+
+ oder 
+\begin_inset Formula $u_{j}\sim_{\mathcal{P}'}u_{j+1}$
+\end_inset
+
+.
+ Die Transposition 
+\begin_inset Formula $\left(u_{j}u_{j+1}\right)$
+\end_inset
+
+ ist somit entweder in 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$
+\end_inset
+
+ oder 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}'\right)\subseteq G$
+\end_inset
+
+ enthalten.
+\end_layout
+
+\begin_layout Enumerate
+Also ist 
+\begin_inset Formula $\pi$
+\end_inset
+
+ eine Folge von Permutationen in 
+\begin_inset Formula $G$
+\end_inset
+
+, und es folgt 
+\begin_inset Formula $\pi\in G$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Nun ist 
+\begin_inset Formula $\mathcal{P}\sqcup\mathcal{P}'$
+\end_inset
+
+ ebenfalls eine tragende Partition von 
+\begin_inset Formula $G$
+\end_inset
+
+, und 
+\begin_inset Formula $\mathcal{P},\mathcal{P}'\preceq\mathcal{P}\sqcup\mathcal{P}'$
+\end_inset
+
+.
+ Da 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{P}'$
+\end_inset
+
+ per Definition gröbste tragende Elementen von 
+\begin_inset Formula $G$
+\end_inset
+
+ sind, muss 
+\begin_inset Formula $\mathcal{P}=\mathcal{P}\sqcup\mathcal{P}'=\mathcal{P}'$
+\end_inset
+
+ gelten.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $\mathcal{C}=\left(V,E,\Sigma,\Omega,U\right)$
+\end_inset
+
+ ein rigider, symmetrische Schaltkreis über dem Universum 
+\begin_inset Formula $U$
+\end_inset
+
+.
+ Für ein Gate 
+\begin_inset Formula $v\in V$
+\end_inset
+
+ und eine Menge 
+\begin_inset Formula $X\subseteq U$
+\end_inset
+
+ gelte: 
+\begin_inset Formula $X$
+\end_inset
+
+ 
+\series bold
+trägt 
+\series default
+das Gate 
+\begin_inset Formula $v$
+\end_inset
+
+ genau dann wenn für alle Permutationen 
+\begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left(X\right)$
+\end_inset
+
+ gilt: 
+\begin_inset Formula $\hat{\pi}v=v$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark*
+Offensichtlich wird 
+\begin_inset Formula $v$
+\end_inset
+
+ auch von allen Obermengen 
+\begin_inset Formula $X'\supseteq X$
+\end_inset
+
+ getragen; insbesondere trägt 
+\begin_inset Formula $U$
+\end_inset
+
+ alle Gates des Schaltkreises, weil 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(U\right)=\left\{ \mathbf{id}\right\} $
+\end_inset
+
+ trivial ist.
+\end_layout
+
+\begin_layout Section
+Beschreibung von Symmetrischen Schaltkreis-Familien durch Fixpunktlogik
+\end_layout
+
+\end_body
+\end_document
