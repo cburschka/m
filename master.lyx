@@ -285,7 +285,7 @@ B2 Für zwei Variablen
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 R1 Für 
-\begin_inset Formula $k$
+\begin_inset Formula $k\geqslant2$
 \end_inset
 
  
@@ -300,7 +300,15 @@ R1 Für
 \begin_inset Formula $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
 \end_inset
 
- sei auch 
+ (mit 
+\begin_inset Formula $k=2$
+\end_inset
+
+ für 
+\begin_inset Formula $\gamma\in\left\{ \rightarrow,\leftrightarrow\right\} $
+\end_inset
+
+) sei auch 
 \begin_inset Formula $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)$
 \end_inset
 
@@ -472,24 +480,12 @@ B2 Für
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
-R1 Für zwei 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
-\end_inset
-
--Formeln 
-\begin_inset Formula $\varphi_{1}$
-\end_inset
-
- und 
-\begin_inset Formula $\varphi_{2}$
-\end_inset
-
- und einen Junktor 
+R1 Für 
 \begin_inset Formula $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
 \end_inset
 
  ist 
-\begin_inset Formula $\left\llbracket \left(\varphi_{1}\gamma\varphi_{2}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)$
+\begin_inset Formula $\left\llbracket \left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)$
 \end_inset
 
  entsprechend den booleschen Junktoren definiert.
@@ -592,11 +588,15 @@ R^{\left(m+1\right)} & = & R^{\left(m\right)}\cup\left\{ \bar{a}\in A^{k}\mid a\
 
 \end_inset
 
-(Offensichtlich wird ein solcher Fixpunkt nach höchstens 
+Da 
+\begin_inset Formula $R^{\left(i\right)}\subseteq R^{\left(i+1\right)}\subseteq A^{k}$
+\end_inset
+
+, wird ein solcher Fixpunkt nach höchstens 
 \begin_inset Formula $\left|A\right|^{k}$
 \end_inset
 
- Iterationen erreicht.)
+ Iterationen erreicht.
 \end_layout
 
 \end_deeper
@@ -915,60 +915,50 @@ Der Schaltkreis
 \end_layout
 
 \begin_deeper
-\begin_layout Enumerate
-Falls das Eingangsgatter 
-\begin_inset Formula $v$
-\end_inset
-
- mit einem Literal 
+\begin_layout Case
+Für 
 \begin_inset Formula $\Sigma\left(v\right)=R\bar{x}$
 \end_inset
 
- markiert ist, so ist 
-\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(v\right)=1$
+ gilt 
+\begin_inset Formula 
+\[
+\mathcal{C}\left[\mathfrak{A}\right]\left(v\right)\coloneqq\begin{cases}
+1 & \mathrm{falls}\,\bar{x}\in R^{\mathfrak{A}}\\
+0 & \mathrm{sonst}
+\end{cases}
+\]
+
 \end_inset
 
- genau dann wenn 
-\begin_inset Formula $\bar{x}\in R^{\mathfrak{A}}$
-\end_inset
 
-, und sonst 
-\begin_inset Formula $0$
-\end_inset
-
-.
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Case
 Für 
-\begin_inset Formula $\Sigma\left(v\right)=\mathbf{0}$
+\begin_inset Formula $\Sigma\left(v\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
 \end_inset
 
- beziehungsweise 
-\series bold
+ gilt
+\begin_inset Formula 
+\[
+\mathcal{C}\left[\mathfrak{A}\right]\left(v\right)\coloneqq\begin{cases}
+1 & \mathrm{falls}\,\Sigma\left(v\right)=\mathbf{1}\\
+0 & \mathrm{sonst}
+\end{cases}
+\]
 
-\begin_inset Formula $\mathbf{1}$
 \end_inset
 
- 
-\series default
-ist 
-\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(v\right)=0$
-\end_inset
 
- beziehungsweise 
-\begin_inset Formula $1$
-\end_inset
-
-.
 \end_layout
 
-\begin_layout Enumerate
-Für ein inneres Gate 
+\begin_layout Case
+Für ein Gate 
 \begin_inset Formula $v$
 \end_inset
 
- mit der Markierung 
+ mit 
 \begin_inset Formula $\Sigma\left(v\right)=\neg$
 \end_inset
 
@@ -976,31 +966,37 @@ Für ein inneres Gate
 \begin_inset Formula $u$
 \end_inset
 
- ist 
-\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(v\right)=1-\mathcal{C}\left[\mathfrak{A}\right]\left(u\right)$
+ gilt 
+\begin_inset Formula 
+\[
+\mathcal{C}\left[\mathfrak{A}\right]\left(v\right)\coloneqq1-\mathcal{C}\left[\mathfrak{A}\right]\left(u\right)
+\]
+
 \end_inset
 
-.
+
 \end_layout
 
-\begin_layout Enumerate
-Für ein inneres Gate mit der Markierung 
+\begin_layout Case
+Für ein Gate 
+\begin_inset Formula $v$
+\end_inset
+
+ mit 
 \begin_inset Formula $\Sigma\left(v\right)=\phi\in\mathbb{B}$
 \end_inset
 
- ist 
-\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(v\right)=\phi\left(i,j\right)$
+ gilt: 
+\begin_inset Formula 
+\begin{eqnarray*}
+j_{0} & \coloneqq & \#\left\{ \left(u,v\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(u\right)=0\right\} \\
+j_{1} & \coloneqq & \#\left\{ \left(u,v\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(u\right)=1\right\} \\
+\mathcal{C}\left[\mathfrak{A}\right]\left(v\right) & \coloneqq & \phi\left(j_{0},j_{1}\right)
+\end{eqnarray*}
+
 \end_inset
 
-, wobei 
-\begin_inset Formula $i=\#\left\{ \left(u,v\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(u\right)=0\right\} $
-\end_inset
 
- und 
-\begin_inset Formula $j=\#\left\{ \left(u,v\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(u\right)=1\right\} $
-\end_inset
-
- die Anzahlen der mit 0 beziehungsweise 1 belegten Vorgänger sind.
 \end_layout
 
 \end_deeper
@@ -1013,19 +1009,437 @@ Für einen
 \begin_inset Formula $\mathcal{C}$
 \end_inset
 
- und ein Tupel 
-\begin_inset Formula $\bar{t}\in U^{k}$
+ sei 
+\begin_inset Formula $\mathcal{C}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{t}\in U^{k}\mid\mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=1\right\} $
 \end_inset
 
- gelte 
-\begin_inset Formula $\bar{t}\models\mathcal{C}\left(\mathfrak{A}\right)$
+ die Menge der Tupel, deren Output-Gate den Wert 
+\begin_inset Formula $1$
 \end_inset
 
- genau dann wenn 
-\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=1$
+ annimmt.
+\end_layout
+
+\begin_layout Example*
+Sei 
+\begin_inset Formula $\mathcal{C}_{4}=\left(V,E,\Sigma,\Omega,\left[4\right]\right)$
 \end_inset
 
- ist.
+ ein 
+\begin_inset Formula $1$
+\end_inset
+
+-stelliger 
+\begin_inset Formula $\left(\mathbb{B}_{\mathrm{std}},\sigma_{\mathrm{graph}}\right)$
+\end_inset
+
+-Schaltkreis, der alle Knoten eines gerichteten Graphen findet, die Teil
+ eines einfachen Kreises der Länge 
+\begin_inset Formula $2$
+\end_inset
+
+ sind:
+\end_layout
+
+\begin_layout Example*
+\begin_inset Formula 
+\begin{eqnarray*}
+V & \coloneqq & \left\{ v_{i,j}\mid i,j\in\left[4\right],\,i\neq j\right\} \\
+ & \cup & \left\{ v_{\left\{ i,j\right\} }\mid\left\{ i,j\right\} \subseteq\left[4\right],\,i\neq j\right\} \\
+ & \cup & \left\{ v_{i}\mid i\in\left[4\right]\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+E & \coloneqq & \left\{ \left(v_{i,j},v_{\left\{ i,j\right\} }\right)\mid i,j\in\left[4\right],\,i\neq j\right\} \\
+ & \cup & \left\{ \left(v_{\left\{ i,j\right\} },v_{i}\right)\mid i,j\in\left[4\right],\,i\neq j\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Sigma\left(v\right)=\begin{cases}
+E\,i\,j & \mathrm{für}\,v=v_{i,j}\\
+\wedge & \mathrm{für}\,v=v_{\left\{ i,j\right\} }\\
+\vee & \mathrm{für}\,v=v_{i}
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Omega\left(i\right)\coloneqq v_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{every node}=[circle, draw=black,node distance=3em]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (E12) {$E 1 2$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E12] (E21) {$E 2 1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E21] (E13) {$E 1 3$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E13] (E31) {$E 3 1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E31] (E14) {$E 1 4$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E14] (E41) {$E 4 1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E41] (E23) {$E 2 3$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E23] (E32) {$E 3 2$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E32] (E24) {$E 2 4$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E24] (E42) {$E 4 2$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E42] (E34) {$E 3 4$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E34] (E43) {$E 4 3$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [below of=E41,node distance=7em] (14) {$
+\backslash
+wedge$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [left of=14,node distance=4em] (13) {$
+\backslash
+wedge$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [left of=13,node distance=4em] (12) {$
+\backslash
+wedge$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=14,node distance=4em] (23) {$
+\backslash
+wedge$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=23,node distance=4em] (24) {$
+\backslash
+wedge$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=24,node distance=4em] (34) {$
+\backslash
+wedge$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [below of=14,node distance=5em,label=below:$
+\backslash
+Omega
+\backslash
+left(2
+\backslash
+right)$] (2) {$
+\backslash
+vee$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [left of=2,label=below:$
+\backslash
+Omega
+\backslash
+left(1
+\backslash
+right)$] (1) {$
+\backslash
+vee$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=2,label=below:$
+\backslash
+Omega
+\backslash
+left(3
+\backslash
+right)$] (3) {$
+\backslash
+vee$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=3,label=below:$
+\backslash
+Omega
+\backslash
+left(4
+\backslash
+right)$] (4) {$
+\backslash
+vee$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path [->]
+\end_layout
+
+\begin_layout Plain Layout
+
+		(E12) edge (12) (E21) edge (12)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(E13) edge (13) (E31) edge (13)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(E14) edge (14) (E41) edge (14)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(E23) edge (23) (E32) edge (23)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(E24) edge (24) (E42) edge (24)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(E34) edge (34) (E43) edge (34)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		(12) edge (1) (12) edge (2)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(13) edge (1) (13) edge (3)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(14) edge (1) (14) edge (4)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(23) edge (2) (23) edge (3)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(24) edge (2) (24) edge (4)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(34) edge (3) (34) edge (4)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1640,7 +2054,7 @@ Der Schaltkreis ist invariant, da er genau den Isomorphietyp
 \end_layout
 
 \begin_layout Subsection
-Graph-Anfragen
+Schaltkreis-Familien
 \end_layout
 
 \begin_layout Definition
@@ -1721,7 +2135,11 @@ Eine
 \begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
 \end_inset
 
--Schaltkreis-Familie 
+-
+\series bold
+Schaltkreis-Familie
+\series default
+ 
 \begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
 \end_inset
 
@@ -1757,23 +2175,106 @@ berechne
 \begin_inset Formula $q$
 \end_inset
 
- genau dann wenn 
-\begin_inset Formula $q\left(\mathfrak{A}\right)=\left\{ \bar{a}\in A^{m}\mid\bar{a}\models\mathcal{C}_{n}\left[\mathfrak{A}\right]\right\} $
+ genau dann wenn für jedes 
+\begin_inset Formula $n\in\mathbb{N}$
 \end_inset
 
- für jede 
+ und jede 
 \begin_inset Formula $\sigma$
 \end_inset
 
--Struktur 
-\begin_inset Formula $\mathfrak{A}$
-\end_inset
-
- der Größe 
+-Struktur der Größe 
 \begin_inset Formula $n$
 \end_inset
 
- gilt.
+ gilt: 
+\begin_inset Formula 
+\[
+q\left(\mathfrak{A}\right)=\mathcal{C}_{n}\left(\mathfrak{A}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+P-Uniformität
+\end_layout
+
+\begin_layout Definition
+Für eine Zeitfunktion 
+\begin_inset Formula $T:\mathbb{N}\rightarrow\mathbb{N}$
+\end_inset
+
+ sei eine Schaltkreis-Familie 
+\begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ 
+\begin_inset Formula $T$
+\end_inset
+
+-
+\series bold
+uniform
+\series default
+, wenn eine deterministische Turingmaschine bei Eingabe von 
+\begin_inset Formula $n\geqslant n_{0}$
+\end_inset
+
+ eine Repräsentation von 
+\begin_inset Formula $\mathcal{C}_{n}$
+\end_inset
+
+ in höchstens 
+\begin_inset Formula $T\left(n\right)$
+\end_inset
+
+ Schritten berechnen kann.
+\end_layout
+
+\begin_layout Definition
+Für eine Klasse von Zeitfunktionen 
+\begin_inset Formula $\mathscr{F}\subseteq\mathrm{Abb}\left(\mathbb{N},\mathbb{N}\right)$
+\end_inset
+
+ sei sie 
+\begin_inset Formula $\mathscr{F}$
+\end_inset
+
+-uniform, wenn ein 
+\begin_inset Formula $T\in\mathscr{F}$
+\end_inset
+
+ existiert, so dass sie 
+\begin_inset Formula $T$
+\end_inset
+
+-uniform ist.
+ Insbesondere sei 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+ die Klasse aller polynomiell wachsenden Funktionen, und eine 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-uniforme Schaltkreis-Familie heiße kurz 
+\begin_inset Quotes gld
+\end_inset
+
+P-uniform
+\begin_inset Quotes grd
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -1808,7 +2309,11 @@ Jede
 \begin_inset Formula $q$
 \end_inset
 
-, die von einer symmetrischen Schaltkreis-Familie 
+, die von einer symmetrischen, 
+\begin_inset Formula $P$
+\end_inset
+
+-uniformen Schaltkreis-Familie 
 \begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
 \end_inset
 
@@ -1836,7 +2341,7 @@ Sei
 \end_layout
 
 \begin_layout Proof
-Induktiv über den Aufbau von 
+Per induktiver Konstruktion über den Aufbau von 
 \begin_inset Formula $\varphi$
 \end_inset
 
@@ -1845,7 +2350,7 @@ Induktiv über den Aufbau von
 \end_inset
 
 -stellige Schaltkreis 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi}$
 \end_inset
 
  über dem Universum 
@@ -1853,6 +2358,7 @@ Induktiv über den Aufbau von
 \end_inset
 
  definiert.
+ Die Konstruktion ist in Polynomialzeit berechenbar.
 \end_layout
 
 \begin_deeper
@@ -1862,7 +2368,7 @@ Falls
 \end_inset
 
 , so bestehe 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi}$
 \end_inset
 
  aus 
@@ -1873,7 +2379,7 @@ Falls
  
 \begin_inset Formula 
 \[
-\mathcal{C}_{n}\left(\varphi\right)\coloneqq\left(\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m}\right\} ,\emptyset,\Sigma,\Omega,U\right)
+\mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m}\right\} ,\emptyset,\Sigma,\Omega,U\right)
 \]
 
 \end_inset
@@ -1912,7 +2418,7 @@ Falls
 \end_inset
 
 , so bestehe 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi}$
 \end_inset
 
  aus 
@@ -1926,7 +2432,7 @@ Falls
 ).
 \begin_inset Formula 
 \[
-\mathcal{C}_{n}\left(\varphi\right)\coloneqq\left(\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m}\right\} ,\emptyset,\Sigma,\Omega,U\right)
+\mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m}\right\} ,\emptyset,\Sigma,\Omega,U\right)
 \]
 
 \end_inset
@@ -1964,11 +2470,11 @@ Falls
 \end_inset
 
 , so bestehe 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi}$
 \end_inset
 
  aus der disjunkten Vereinigung von 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi_{i}\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi_{i}}$
 \end_inset
 
  für 
@@ -1978,8 +2484,8 @@ Falls
  mit der folgenden Erweiterung.
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{C}_{n}\left(\varphi\right) & \coloneqq & \left(V,E,\Sigma,\Omega,U\right)\\
-\mathcal{C}_{n}\left(\varphi_{i}\right) & = & \left(V_{i},E_{i},\Sigma_{i},\Omega_{i},U\right)
+\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(V,E,\Sigma,\Omega,U\right)\\
+\mathcal{C}_{n}^{\varphi_{i}} & = & \left(V_{i},E_{i},\Sigma_{i},\Omega_{i},U\right)
 \end{eqnarray*}
 
 \end_inset
@@ -2067,14 +2573,14 @@ Falls
 \end_inset
 
 , so wird der Schaltkreis 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi'\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi'}$
 \end_inset
 
  wie folgt erweitert:
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{C}_{n}\left(\varphi\right) & \coloneqq & \left(V,E,\Sigma,\Omega,U\right)\\
-\mathcal{C}_{n}\left(\varphi'\right) & = & \left(V',E',\Sigma',\Omega',U\right)
+\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(V,E,\Sigma,\Omega,U\right)\\
+\mathcal{C}_{n}^{\varphi'} & = & \left(V',E',\Sigma',\Omega',U\right)
 \end{eqnarray*}
 
 \end_inset
@@ -2089,7 +2595,7 @@ Für jedes Tupel
 
  eingefügt.
  Die Ausgänge werden mit den Ausgängen von 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi'\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi'}$
 \end_inset
 
  verknüpft.
@@ -2116,7 +2622,7 @@ Falls
 \end_inset
 
 , so sei der Schaltkreis 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi\right)\coloneqq\mathcal{C}_{n}\left(\neg\varphi_{1}\vee\varphi_{2}\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi}\coloneqq\mathcal{C}_{n}^{\left(\neg\varphi_{1}\vee\varphi_{2}\right)}$
 \end_inset
 
 .
@@ -2128,22 +2634,22 @@ Falls
 \end_inset
 
 , so bestehe 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi}$
 \end_inset
 
  aus der disjunkten Vereinigung von 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi_{1}\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi_{1}}$
 \end_inset
 
  und 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi_{2}\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi_{2}}$
 \end_inset
 
  mit der folgenden Erweiterung:
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{C}_{n}\left(\varphi\right) & \coloneqq & \left(V,E,\Sigma,\Omega,U\right)\\
-\mathcal{C}_{n}\left(\varphi_{i}\right) & \coloneqq & \left(V_{i},E_{i},\Sigma_{i},\Omega_{i},U\right)
+\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(V,E,\Sigma,\Omega,U\right)\\
+\mathcal{C}_{n}^{\varphi_{i}} & \coloneqq & \left(V_{i},E_{i},\Sigma_{i},\Omega_{i},U\right)
 \end{eqnarray*}
 
 \end_inset
@@ -2170,11 +2676,11 @@ Die Gates
 \end_inset
 
  negieren die Schaltkreise 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi_{1}\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi_{1}}$
 \end_inset
 
  und 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi_{2}\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi_{2}}$
 \end_inset
 
 .
@@ -2258,14 +2764,14 @@ Falls
 \end_inset
 
 , so wird der Schaltkreis 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi'\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi'}$
 \end_inset
 
  wie folgt erweitert: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{C}_{n}\left(\varphi\right) & \coloneqq & \left(V,E,\Sigma,\Omega,U\right)\\
-\mathcal{C}_{n}\left(\varphi'\right) & \coloneqq & \left(V',E',\Sigma',\Omega',U\right)
+\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(V,E,\Sigma,\Omega,U\right)\\
+\mathcal{C}_{n}^{\varphi'} & \coloneqq & \left(V',E',\Sigma',\Omega',U\right)
 \end{eqnarray*}
 
 \end_inset
@@ -2389,7 +2895,7 @@ Jeder aus einer
 \end_inset
 
  konstruierte Schaltkreis 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi}$
 \end_inset
 
  ist symmetrisch.
@@ -2491,7 +2997,7 @@ Für
 \end_inset
 
  für jeden Schaltkreis 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi_{i}\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi_{i}}$
 \end_inset
 
 .
@@ -2502,7 +3008,7 @@ Für
  bilde deren disjunkte Vereinigung und erweitere ihn um die neuen Ausgänge:
 \begin_inset Formula 
 \[
-\mathcal{C}_{n}\left(\varphi_{i}\right)=\left(V_{i},E_{i},\Sigma_{i},\Omega_{i},U\right)
+\mathcal{C}_{n}^{\varphi_{i}}=\left(V_{i},E_{i},\Sigma_{i},\Omega_{i},U\right)
 \]
 
 \end_inset
@@ -2519,7 +3025,7 @@ v_{\pi\bar{t}} & \mathrm{für}\,v=v_{\bar{t}}
 \end_inset
 
 Für die Gates und Kanten der Schaltkreise 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi_{i}\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi_{i}}$
 \end_inset
 
  ist 
@@ -2594,7 +3100,7 @@ Für
  Dieser wird wie folgt erweitert:
 \begin_inset Formula 
 \[
-\mathcal{C}_{n}\left(\varphi'\right)=\left(V',E',\Sigma',\Omega',U\right)
+\mathcal{C}_{n}^{\varphi'}=\left(V',E',\Sigma',\Omega',U\right)
 \]
 
 \end_inset
@@ -2619,7 +3125,7 @@ Der Fall
 \end_inset
 
  folgt mit 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi\right)\coloneqq\mathcal{C}_{n}\left(\neg\varphi_{1}\vee\varphi_{2}\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi}\coloneqq\mathcal{C}_{n}^{\left(\neg\varphi_{1}\vee\varphi_{2}\right)}$
 \end_inset
 
  direkt aus Fall 4 und Fall 5.
@@ -2636,14 +3142,14 @@ Für
 \end_inset
 
  für die Schaltkreise 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi_{i}\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi_{i}}$
 \end_inset
 
 .
  Diese werden wie folgt erweitert:
 \begin_inset Formula 
 \[
-\mathcal{C}_{n}\left(\varphi_{i}\right)=\left(V_{i},E_{i},\Sigma_{i},\Omega_{i},U\right)
+\mathcal{C}_{n}^{\varphi_{i}}=\left(V_{i},E_{i},\Sigma_{i},\Omega_{i},U\right)
 \]
 
 \end_inset
@@ -2675,7 +3181,7 @@ Für
  Dieser wird wie folgt erweitert:
 \begin_inset Formula 
 \[
-\mathcal{C}_{n}\left(\varphi'\right)=\left(V',E',\Sigma',\Omega',U\right)
+\mathcal{C}_{n}^{\varphi'}=\left(V',E',\Sigma',\Omega',U\right)
 \]
 
 \end_inset
@@ -2697,7 +3203,7 @@ v_{\pi\bar{t}} & \mathrm{für}\,v=v_{\bar{t}}
 \begin_deeper
 \begin_layout Standard
 Auf den Gates von 
-\begin_inset Formula $\mathcal{C}_{n}\left(\varphi'\right)$
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi'}$
 \end_inset
 
  ist 
@@ -2779,12 +3285,16 @@ Die Fixpunktlogik
 \begin_inset Formula $n^{\left\Vert \varphi\right\Vert }$
 \end_inset
 
- und einer konstant beschränkten Anzahl von Variablen
+ und höchstens 
+\begin_inset Formula $2\left\Vert \varphi\right\Vert $
+\end_inset
+
+
 \emph on
  
 \emph default
-definiert werden, von denen jede auf den Strukturen einer bestimmten Größe
- äquivalent zu 
+Variablen definiert werden, von denen jede auf den Strukturen einer bestimmten
+ Größe äquivalent zu 
 \begin_inset Formula $\varphi$
 \end_inset
 
@@ -2806,12 +3316,20 @@ Siehe: k-Variablen Fragment infinitäre Logik, u.a.
 \end_inset
 
 
+\begin_inset Formula 
+\[
+\mathcal{C}_{n}^{\varphi}\coloneqq\mathcal{C}_{n}^{\varphi_{n}}\,\mathrm{für}\,n\in\mathbb{N}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Durch die Einschränkung auf eine konstante Anzahl von Variablen ist die
- Größe der Schaltkreisfamilie weiterhin polynomiell durch 
-\begin_inset Formula $n^{\left\Vert \varphi\right\Vert }$
+ Größe der Schaltkreisfamilie polynomiell durch 
+\begin_inset Formula $n^{2\left\Vert \varphi\right\Vert }$
 \end_inset
 
  beschränkt, obwohl die FO-Formeln beliebig lang werden.
@@ -2846,11 +3364,7 @@ Für jede
 \begin_inset Formula $\varphi$
 \end_inset
 
- mit 
-\begin_inset Formula $k$
-\end_inset
-
- Variablen und jede Größe 
+ und jede Größe 
 \begin_inset Formula $n\in\mathbb{N}_{\geqslant1}$
 \end_inset
 
@@ -2863,7 +3377,7 @@ Für jede
 \end_inset
 
  mit höchstens 
-\begin_inset Formula $k+\left\Vert \varphi\right\Vert $
+\begin_inset Formula $2\left\Vert \varphi\right\Vert $
 \end_inset
 
  Variablen.
@@ -3216,7 +3730,7 @@ Die so erzeugte Formel
 \end_inset
 
  hat höchstens 
-\begin_inset Formula $k+\left\Vert \varphi\right\Vert $
+\begin_inset Formula $\left|\mathrm{var}\left(\varphi\right)\right|+\left\Vert \varphi\right\Vert \leqslant2\left\Vert \varphi\right\Vert $
 \end_inset
 
  Variablen: Nur in Fall 4 werden 
@@ -3284,6 +3798,15 @@ Partition
 \end_inset
 
 .
+ Die Menge aller Partitionen von 
+\begin_inset Formula $U$
+\end_inset
+
+ sei 
+\begin_inset Formula $\mathrm{Part}_{U}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Definition
@@ -3312,6 +3835,36 @@ Die Partition
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Definition
+Die Permutationen aus 
+\begin_inset Formula $\mathrm{Sym}_{U}$
+\end_inset
+
+ werden auf natürliche Weise auf 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ erweitert.
+ 
+\begin_inset Formula $\pi\mathcal{P}$
+\end_inset
+
+ ist ebenfalls eine Partition von 
+\begin_inset Formula $U$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+\pi\mathcal{P} & \coloneqq & \left\{ \pi P_{i}\mid P_{i}\in\mathcal{P}\right\} \\
+ & \coloneqq & \left\{ \left\{ \pi x\mid x\in P_{i}\right\} \mid P_{i}\in\mathcal{P}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout --Separator--
@@ -3487,7 +4040,11 @@ Stabilisator
 \end_layout
 
 \begin_layout Definition
-Die vorige Definition wird auf Mengen erweitert.
+Die vorige Definition wird auf Teilmengen von 
+\begin_inset Formula $U$
+\end_inset
+
+ erweitert.
  Sei 
 \begin_inset Formula $X\subseteq U$
 \end_inset
@@ -3561,15 +4118,19 @@ Mengenstabilisator
 
 \end_inset
 
-Diese Gruppe ist das Erzeugnis der Vereinung des Punktstabilisators mit
- den Permutationen 
-\begin_inset Formula $\mathrm{Sym}_{X}$
+Diese Gruppe ist das Erzeugnis der Vereinung von 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(X\right)$
 \end_inset
 
-:
+ und 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(U\backslash X\right)$
+\end_inset
+
+.
+ 
 \begin_inset Formula 
 \[
-\mathrm{Stab}_{U}\left\{ X\right\} =\left\langle \mathrm{Stab}_{U}\left(X\right)\cup\mathrm{Sym}_{X}\right\rangle 
+\mathrm{Stab}_{U}\left\{ X\right\} =\left\langle \mathrm{Stab}_{U}\left(X\right)\cup\mathrm{Stab}_{U}\left(U\backslash X\right)\right\rangle 
 \]
 
 \end_inset
@@ -3583,7 +4144,7 @@ Diese Gruppe ist das Erzeugnis der Vereinung des Punktstabilisators mit
 \end_layout
 
 \begin_layout Definition
-Die vorige Definition wird auf Partititionierungen 
+Die vorige Definition wird auf Partititionen 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
@@ -3660,19 +4221,19 @@ Diese Gruppe ist das Erzeugnis der Vereinigung von
 \begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
 \end_inset
 
- mit allen Permutationen von gleich-mächtigen Elemente.
+ mit allen Permutationen von gleich-mächtigen Elementen der Partition.
  Sei für 
 \begin_inset Formula $1\leqslant n\leqslant\left|U\right|$
 \end_inset
 
  die Menge 
-\begin_inset Formula $\mathcal{P}_{\mid n}\coloneqq\left\{ P_{i}\in\mathcal{P}\mid\left|P_{i}\right|=n\right\} $
+\begin_inset Formula $\mathcal{P}_{\mid n}\coloneqq\left\{ P_{i}\in\mathcal{P}\mid\#P_{i}=n\right\} $
 \end_inset
 
 , dann gilt: 
 \begin_inset Formula 
 \[
-\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} =\left\langle \mathrm{Stab}_{U}\left(\mathcal{P}\right)\cup\bigcup_{n=1}^{\left|U\right|}\mathrm{Sym}_{\mathcal{P}_{\mid n}}\right\rangle 
+\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} =\left\langle \mathrm{Stab}_{U}\left(\mathcal{P}\right)\cup\bigcup_{i=1}^{\left|U\right|}\mathrm{Sym}_{\mathcal{P}_{\mid i}}\right\rangle 
 \]
 
 \end_inset
@@ -3694,7 +4255,7 @@ Sei
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
- eine Partititionierung von 
+ eine Partitition von 
 \begin_inset Formula $U$
 \end_inset
 
@@ -3703,9 +4264,13 @@ Sei
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
- 
+ ist ein 
 \series bold
-trägt 
+Träger
+\series default
+ von
+\series bold
+ 
 \series default
 
 \begin_inset Formula $G$
@@ -3756,63 +4321,62 @@ ehung ihrer Stabilisatorgruppen induziert:
 
 \end_layout
 
-\begin_layout Proposition
-Jede Gruppe 
-\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
-\end_inset
-
- besitzt eine eindeutige gröbste tragende Partition.
-\end_layout
-
-\begin_layout Proof
-Jede Gruppe wird offensichtlich mindestens von 
-\begin_inset Formula $\mathcal{P}_{\min}\left(U\right)$
-\end_inset
-
- mit 
-\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}_{\min}\left(U\right)\right)=\left\{ \mathbf{id}\right\} $
-\end_inset
-
- getragen.
-\end_layout
-
-\begin_layout Proof
-Angenommen, 
-\begin_inset Formula $\mathcal{P}$
+\begin_layout Lemma
+Die Träger-Eigenschaft ist unter den Operationen 
+\begin_inset Formula $\sqcap$
 \end_inset
 
  und 
-\begin_inset Formula $\mathcal{P}'$
+\begin_inset Formula $\sqcup$
 \end_inset
 
- seien zwei gröbste tragende Elementen von 
-\begin_inset Formula $G$
+ abgeschlossen.
+\end_layout
+
+\begin_layout Proof
+Seien 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{B}$
+\end_inset
+
+ Träger einer Gruppe 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
 \end_inset
 
 .
- Sei nun 
-\begin_inset Formula $\mathcal{P}''\coloneqq\mathcal{P}\sqcup\mathcal{P}'$
+\end_layout
+
+\begin_layout Proof
+Für 
+\begin_inset Formula $\sqcap$
 \end_inset
 
-.
+ ist der Beweis per 
+\begin_inset Formula $\mathcal{A}\sqcap\mathcal{B}\preceq\mathcal{A},\mathcal{B}$
+\end_inset
+
+ trivial.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\mathcal{P}\coloneqq\mathcal{A}\sqcup\mathcal{B}$
+\end_inset
+
+, und sei 
+\begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+\end_inset
+
+ beliebig:
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
-Sei 
-\begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}''\right)$
-\end_inset
-
- eine beliebige Permutation im Stabilisator von 
-\begin_inset Formula $\mathcal{P}''$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
 Wenn 
-\begin_inset Formula $\mathcal{P}''=\left\{ P_{1},\cdots,P_{k}\right\} $
+\begin_inset Formula $\mathcal{P}=\left\{ P_{1},\cdots,P_{k}\right\} $
 \end_inset
 
 , so existiert eine Folge von Permutationen 
@@ -3872,14 +4436,22 @@ Für jede dieser Transpositionen
 
 .
  Da 
-\begin_inset Formula $P_{i}\in\mathcal{P}\sqcup\mathcal{P}'$
+\begin_inset Formula $P_{i}\in\mathcal{A}\sqcup\mathcal{B}$
 \end_inset
 
  eine Äquivalenzklasse der transitiven Hülle von 
-\begin_inset Formula $\sim\coloneqq\left(\sim_{\mathcal{P}}\cup\sim_{\mathcal{P}'}\right)$
+\begin_inset Formula $\sim\coloneqq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)$
 \end_inset
 
- ist, existiert eine Folge von Elementen 
+ ist, existiert eine Folge von 
+\begin_inset Formula $\ell\leqslant\left|U\right|$
+\end_inset
+
+ Elementen 
+\begin_inset Formula $\bar{u}\in U^{\ell}$
+\end_inset
+
+ mit 
 \begin_inset Formula $u_{1}\sim\cdots\sim u_{\ell}$
 \end_inset
 
@@ -3905,11 +4477,11 @@ Für jede dieser Transpositionen
 
 \begin_layout Enumerate
 Es gilt 
-\begin_inset Formula $u_{j}\sim_{\mathcal{P}}u_{j+1}$
+\begin_inset Formula $u_{j}\sim_{\mathcal{A}}u_{j+1}$
 \end_inset
 
  oder 
-\begin_inset Formula $u_{j}\sim_{\mathcal{P}'}u_{j+1}$
+\begin_inset Formula $u_{j}\sim_{\mathcal{B}}u_{j+1}$
 \end_inset
 
 .
@@ -3918,11 +4490,11 @@ Es gilt
 \end_inset
 
  ist somit entweder in 
-\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{A}\right)\subseteq G$
 \end_inset
 
  oder 
-\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}'\right)\subseteq G$
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{B}\right)\subseteq G$
 \end_inset
 
  enthalten.
@@ -3945,12 +4517,49 @@ Also ist
 \end_layout
 
 \end_deeper
+\begin_layout Corollary*
+Jede Gruppe 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ besitzt eine eindeutigen gröbsten Träger.
+\end_layout
+
+\begin_layout Proof
+Jede Gruppe wird mindestens von 
+\begin_inset Formula $\mathcal{P}_{\min}\left(U\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}_{\min}\left(U\right)\right)=\left\{ \mathbf{id}\right\} \subseteq G$
+\end_inset
+
+ getragen.
+\end_layout
+
+\begin_layout Proof
+Angenommen, 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{P}'$
+\end_inset
+
+ seien zwei gröbste Träger von 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ 
+\end_layout
+
 \begin_layout Proof
 Nun ist 
 \begin_inset Formula $\mathcal{P}\sqcup\mathcal{P}'$
 \end_inset
 
- ebenfalls eine tragende Partition von 
+ ebenfalls ein Träger von 
 \begin_inset Formula $G$
 \end_inset
 
@@ -3959,7 +4568,10 @@ Nun ist
 \end_inset
 
 .
- Da 
+\end_layout
+
+\begin_layout Proof
+Da 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
@@ -3967,7 +4579,7 @@ Nun ist
 \begin_inset Formula $\mathcal{P}'$
 \end_inset
 
- per Definition gröbste tragende Elementen von 
+ aber per Definition gröbste Träger von 
 \begin_inset Formula $G$
 \end_inset
 
@@ -3978,8 +4590,819 @@ Nun ist
  gelten.
 \end_layout
 
-\begin_layout --Separator--
+\begin_layout Definition
+Für jede Gruppe 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+\end_inset
 
+ sei 
+\begin_inset Formula $\mathrm{SP}\left(G\right)$
+\end_inset
+
+ die gröbste tragende Partition von 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Wir betrachten nun die Konjugationsoperation auf 
+\begin_inset Formula $\mathrm{Sym}_{U}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+Wenn eine Partition 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ ein Träger einer Gruppe 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ ist, dann ist 
+\begin_inset Formula $\pi\mathcal{P}$
+\end_inset
+
+ ein Träger von 
+\begin_inset Formula $\pi G\pi^{-1}$
+\end_inset
+
+ für alle 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Seien 
+\begin_inset Formula $\vartheta\in\mathrm{Stab}_{U}\left(\pi\mathcal{P}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $P_{i}\in\mathcal{P}$
+\end_inset
+
+ beliebig.
+ Nun gilt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(\pi^{-1}\vartheta\pi\right)P_{i} & = & \pi^{-1}\left(\vartheta\left(\pi P_{i}\right)\right)\\
+ & = & \pi^{-1}\pi P_{i}\\
+ & = & P_{i}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Daraus folgt 
+\begin_inset Formula $\left(\pi^{-1}\vartheta\pi\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$
+\end_inset
+
+, und schließlich:
+\begin_inset Formula 
+\begin{eqnarray*}
+\vartheta & = & \left(\pi\pi^{-1}\right)\vartheta\left(\pi\pi^{-1}\right)\\
+ & = & \pi\left(\pi^{-1}\vartheta\pi\right)\pi^{-1}\\
+ & \in & \pi G\pi^{-1}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Damit trägt 
+\begin_inset Formula $\pi\mathcal{P}$
+\end_inset
+
+ die konjugierte Gruppe 
+\begin_inset Formula $\pi G\pi^{-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Corollary*
+Für jede Gruppe 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ und jede Permutation 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+\end_inset
+
+ ist 
+\begin_inset Formula $\pi\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\pi G\pi^{-1}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Es wurde gezeigt, dass 
+\begin_inset Formula $\pi\mathrm{SP}\left(G\right)$
+\end_inset
+
+ ein Träger von 
+\begin_inset Formula $\pi G\pi^{-1}$
+\end_inset
+
+ ist.
+ Es folgt:
+\begin_inset Formula 
+\[
+\pi\mathrm{SP}\left(G\right)\preceq\mathrm{SP}\left(\pi G\pi^{-1}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Umgekehrt ist auch 
+\begin_inset Formula $\pi^{-1}\mathrm{SP}\left(\pi G\pi^{-1}\right)$
+\end_inset
+
+ ein Träger von 
+\begin_inset Formula $\pi^{-1}\pi G\pi\pi^{-1}=G$
+\end_inset
+
+.
+ Es folgt:
+\begin_inset Formula 
+\[
+\pi^{-1}\mathrm{SP}\left(\pi G\pi^{-1}\right)\preceq\mathrm{SP}\left(G\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Die Relation 
+\begin_inset Formula $\preceq$
+\end_inset
+
+ bleibt unter Permutation beider Seiten erhalten:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{SP}\left(\pi G\pi^{-1}\right) & \preceq & \pi\mathrm{SP}\left(G\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Daher ist 
+\begin_inset Formula $\pi\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\pi G\pi^{-1}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+Jede Gruppe 
+\begin_inset Formula $G$
+\end_inset
+
+ ist Obermenge des Punkt- und Teilmenge des Mengenstabilisators von 
+\begin_inset Formula $\mathrm{SP}\left(G\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{U}\left(\mathrm{SP}\left(G\right)\right)\subseteq G\subseteq\mathrm{Stab}_{U}\left\{ \mathrm{SP}\left(G\right)\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Per Definition gilt bereits 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathrm{SP}\left(G\right)\right)\subseteq G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Sei nun 
+\begin_inset Formula $\pi\in G$
+\end_inset
+
+ beliebig.
+ Es gilt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\pi\mathrm{SP}\left(G\right) & = & \mathrm{SP}\left(\pi G\pi^{-1}\right)\\
+ & = & \mathrm{SP}\left(G\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Daher ist 
+\begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left\{ \mathrm{SP}\left(G\right)\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+Für 
+\begin_inset Formula $\epsilon\in\left[0,1\right[$
+\end_inset
+
+, jedes hinreichend große Universum 
+\begin_inset Formula $U$
+\end_inset
+
+ mit 
+\begin_inset Formula $n\coloneqq\left|U\right|\geqslant\exp\frac{4}{\epsilon}$
+\end_inset
+
+ und jede Partition 
+\begin_inset Formula $\mathcal{P}\in\mathrm{Part}_{U}$
+\end_inset
+
+ gilt:
+\end_layout
+
+\begin_layout Lemma
+Falls der Index des Mengenstabilisators von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ subexponentiell in 
+\begin_inset Formula $n$
+\end_inset
+
+ ist: 
+\begin_inset Formula 
+\[
+s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\leqslant2^{n^{1-\epsilon}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+Dann enthält 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ entweder 
+\begin_inset Formula $\mathcal{O}\left(n^{1-\epsilon}\right)$
+\end_inset
+
+ oder 
+\begin_inset Formula $n-\mathcal{O}\left(n^{1-\epsilon}\right)$
+\end_inset
+
+ viele Elemente:
+\begin_inset Formula 
+\[
+\min\left\{ \left|\mathcal{P}\right|,n-\left|\mathcal{P}\right|\right\} \leqslant\frac{8}{\epsilon}\frac{\log s}{\log n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Diese Beziehung ist an der Repräsentation des Mengenstabilisators als 
+\begin_inset Formula $\left\langle \mathrm{Stab}_{U}\left(\mathcal{P}\right)\cup\bigcup_{i=1}^{\left|U\right|}\mathrm{Sym}_{\mathcal{P}_{\mid i}}\right\rangle $
+\end_inset
+
+ erkennbar: Damit sein Index klein ist, muss die Gruppe selbst groß sein,
+ was entweder einen großen Punktstabilisator oder eine große Anzahl gleich-mächt
+iger Elemente von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ erfordert.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\epsilon\in\left[0,1\right[$
+\end_inset
+
+, 
+\begin_inset Formula $n\geqslant\exp\frac{4}{\epsilon}$
+\end_inset
+
+, und 
+\begin_inset Formula $U=\left\{ 1,\cdots,n\right\} $
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\mathcal{P}\in\mathrm{Part}_{U}$
+\end_inset
+
+ beliebig mit 
+\begin_inset Formula $k\coloneqq\left|\mathcal{P}\right|$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+n\leqslant s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\leqslant2^{n^{1-\epsilon}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Die Definition des Mengenstabilisators liefert eine kombinatorische Schranke
+ für dessen Größe: Jede Permutation 
+\begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} $
+\end_inset
+
+ besteht aus einer Permutation der 
+\begin_inset Formula $k$
+\end_inset
+
+ Elemente von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+, und einer Permutation 
+\begin_inset Formula $\pi_{i}\in\mathrm{Sym}_{P}$
+\end_inset
+
+ für jedes Element 
+\begin_inset Formula $P\in\mathcal{P}$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\[
+\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|\leqslant k!\prod_{P\in\mathcal{P}}\left|P\right|!
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Seien 
+\begin_inset Formula $P_{1},\cdots,P_{k}\in\mathcal{P}$
+\end_inset
+
+ die nach aufsteigender Größe geordneten Elemente von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+, und seien 
+\begin_inset Formula $p_{1}\leqslant\cdots\leqslant p_{k}$
+\end_inset
+
+ ihre Größen (
+\begin_inset Formula $\sum_{i=1}^{k}p_{i}=n$
+\end_inset
+
+).
+ 
+\begin_inset Formula 
+\[
+\left|\mathrm{Stab}_{U}\left\{ P\right\} \right|\leqslant k!\prod_{i=1}^{k}p_{i}!
+\]
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Für zwei beliebige 
+\begin_inset Formula $p_{i},p_{j}$
+\end_inset
+
+ mit 
+\begin_inset Formula $i\leqslant j$
+\end_inset
+
+ gilt 
+\begin_inset Formula $p_{i}\leqslant p_{j}$
+\end_inset
+
+ und daher 
+\begin_inset Formula $\frac{p_{j}+1}{p_{i}}\geqslant1$
+\end_inset
+
+.
+ Es folgt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\left|\mathrm{Stab}_{U}\left\{ P\right\} \right| & \leqslant & k!\prod_{i=1}^{k}p_{i}!\\
+ & = & k!p_{1}!\cdots p_{i}!\cdots p_{j}!\cdots p_{k}!\\
+ & \leqslant & \frac{p_{j}+1}{p_{i}}k!p_{1}!\cdots p_{i}!\cdots p_{j}!\cdots p_{k}!\\
+ & = & k!p_{1}!\cdots\left(p_{i}-1\right)!\cdots\left(p_{j}+1\right)!\cdots p_{k}!
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Durch wiederholte Anwendung folgt 
+\begin_inset Formula 
+\begin{eqnarray*}
+\left|\mathrm{Stab}_{U}\left\{ P\right\} \right| & \leqslant & k!\cdot\underset{k-1}{\underbrace{1!\cdots1!}}\cdot\left(n-\left(k-1\right)\right)!\\
+ & = & k!\left(n-k+1\right)!
+\end{eqnarray*}
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Nun ist 
+\begin_inset Formula $s$
+\end_inset
+
+ von unten durch einen Binomialkoeffizienten beschränkt:
+\begin_inset Formula 
+\begin{eqnarray*}
+s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|} & = & \frac{n!}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\\
+ & \geqslant & \frac{n!}{k!\left(n+1-k\right)!}\\
+ & = & \frac{1}{n+1}\frac{\left(n+1\right)!}{k!\left(n+1-k\right)!}\\
+ & = & \frac{1}{n+1}\binom{n+1}{k}\\
+ & \geqslant & \frac{1}{n+1}\binom{n}{k}\\
+ & = & \frac{1}{n+1}\binom{n}{\min\left\{ n,n-k\right\} }
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Für den Binomialkoeffizienten gibt es auch eine untere Schranke:
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+Quelle
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}=\frac{\prod_{i=n-k+1}^{n}i}{\prod_{i=1}^{k}i}=\prod_{i=1}^{k}\frac{n-k+i}{i}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left(n-k+1\right)>\frac{\left(n-k+2\right)}{2}>\cdots>\frac{n}{k}
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\binom{n}{k}\geqslant\left(\frac{n}{k}\right)^{k}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Daher ist 
+\begin_inset Formula $s$
+\end_inset
+
+ von unten beschränkt:
+\begin_inset Formula 
+\[
+s\geqslant\frac{1}{n+1}\left(\frac{n}{k'}\right)^{k'}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Es folgt
+\begin_inset Formula 
+\begin{eqnarray*}
+\log s & \geqslant & k'\left(\log n-\log k'\right)-\log\left(n+1\right)\\
+\log s+\log\left(n+1\right) & \geqslant & k'\left(\log n-\log k'\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Weil 
+\begin_inset Formula $s\geqslant n$
+\end_inset
+
+ und 
+\begin_inset Formula $\log n\geqslant1$
+\end_inset
+
+, folgt: 
+\begin_inset Formula 
+\begin{eqnarray*}
+4\log s & = & \log s+3\log s\\
+ & \geqslant & \log s+3\log n\\
+ & \geqslant & \log s+\log\left(n+1\right)\\
+ & \geqslant & k'\left(\log n-\log k'\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Weil 
+\begin_inset Formula $\frac{n}{k'}\geqslant2$
+\end_inset
+
+, gilt:
+\begin_inset Formula 
+\begin{eqnarray*}
+4\log s & \geqslant & k'\left(\log n-\log k'\right)\\
+ & \geqslant & k'
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Aus der Bedingung 
+\begin_inset Formula $s\leqslant2^{n^{1-\epsilon}}$
+\end_inset
+
+ folgt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\log k' & \leqslant & \log\log s+2\\
+ & \leqslant & \log\log2^{n^{1-\epsilon}}+2\\
+ & = & \log n^{1-\epsilon}+2\\
+ & = & \left(1-\epsilon\right)\log n+2
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Schließlich folgt:
+\begin_inset Formula 
+\begin{eqnarray*}
+4\log s & \geqslant & k'\left(\log n-\log k'\right)\\
+ & \geqslant & k'\left(\log n-\left(1-\epsilon\right)\log n-2\right)\\
+ & \geqslant & k'\left(\epsilon\log n-2\right)\\
+ & \geqslant & k'\frac{\epsilon\log n}{2}\\
+\frac{8\log s}{\epsilon\log n} & \geqslant & k'
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Eine Partition, die höchstens 
+\begin_inset Formula $\frac{n}{2}$
+\end_inset
+
+ Teile enthält (und daher einen kleinen Nebengruppen-Index 
+\begin_inset Formula $\left[\mathrm{Sym}_{U}:\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right]\leqslant2^{n^{1-\epsilon}}$
+\end_inset
+
+ hat) muss ein sehr großes Element enthalten.
+\end_layout
+
+\begin_layout Lemma
+Für 
+\begin_inset Formula $\epsilon\in\left[0,1\right[$
+\end_inset
+
+, jedes hinreichend große Universum 
+\begin_inset Formula $U$
+\end_inset
+
+ mit 
+\begin_inset Formula $n\coloneqq\left|U\right|\geqslant\exp\frac{8}{\epsilon^{2}}$
+\end_inset
+
+ und eine Partition 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ mit mit 
+\begin_inset Formula $\left|\mathcal{P}\right|\leqslant\frac{n}{2}$
+\end_inset
+
+ Elemente gilt:
+\end_layout
+
+\begin_layout Lemma
+Falls der Index des Mengenstabilisators von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ subexponentiell in 
+\begin_inset Formula $n$
+\end_inset
+
+ ist: 
+\begin_inset Formula 
+\[
+s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\leqslant2^{n^{1-\epsilon}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+Dann gilt für das mächtigste Element von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\max\left\{ \#P\mid P\in\mathcal{P}\right\} \geqslant n-\frac{33}{\epsilon}\cdot\frac{\log s}{\log n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Sei wieder 
+\begin_inset Formula $\mathcal{P}=\left\{ P_{1},\cdots,P_{k}\right\} $
+\end_inset
+
+ mit 
+\begin_inset Formula $p_{i}=\left|P_{i}\right|$
+\end_inset
+
+ und 
+\begin_inset Formula $p_{1}<\cdots<p_{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Die Umverteilung aus dem vorhergehenden Beweis wird wiederholt verwendet,
+ um jeweils das erste Element mit 
+\begin_inset Formula $p_{i}>1$
+\end_inset
+
+ zu Gunsten des letzten Elements mit 
+\begin_inset Formula $p_{j}<p_{k-1}$
+\end_inset
+
+ zu verkleinern.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right| & \leqslant & k!\prod_{P\in\mathcal{P}}\left|P\right|!\\
+ & = & k!p_{1}!\cdots p_{k}!\\
+ & \leqslant & k!\underset{k-\ell-1}{\underbrace{1!\cdots1!}}\underset{\ell}{\underbrace{p_{k-1}!\cdots p_{k-1}!}}p_{k}!
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Hierbei gilt:
+\begin_inset Formula 
+\[
+s\geqslant k-\ell-1+\ell p_{k-1}+p_{k}
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\[
+\ell
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula $\ell\leqslant\frac{s-p_{k}-\left(k-1\right)}{\left(p_{k-1}-1\right)}$
+\end_inset
+
+, Durch Umverteilung entstumverteilt werden, um zweitgrößte Teile und 
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $S$
+\end_inset
+
+ die Summe aller Teile außer dem größten: 
+\begin_inset Formula $S=\sum_{i=1}^{k-1}p_{i}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\ell-k+1$
+\end_inset
+
+ Einsen zu erzeugen, wobei der Wert der Fakultät im Nenner ansteigt.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+s & = & \frac{n!}{\left|\mathrm{Stab}_{U}\left\{ P\right\} \right|}\geqslant\frac{1}{k!}\cdot\frac{n!}{\prod_{i=1}^{k}p_{i}}\\
+ & \geqslant & \frac{1}{k!}\frac{n!}{1!\cdots1!p_{k-1}!\cdots p_{k-1}!p_{i}}\\
+ & \geqslant & \frac{1}{k!}\frac{n!}{\left(p_{k-1}\right)^{\ell}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Sei 
+\begin_inset Formula $C$
+\end_inset
+
+ ein symmetrischer Schaltkreis über 
+\begin_inset Formula $\left|U\right|=n$
+\end_inset
+
+ mit 
+\begin_inset Formula $s=\max_{C}\left|\mathrm{Orb}\left(g\right)\right|\leqslant2^{n^{1-\epsilon}}$
+\end_inset
+
+; so ist die maximale SP eines Gatters höchstens 
+\begin_inset Formula $\frac{33}{\epsilon}\frac{\log s}{\log n}$
+\end_inset
+
+.
+ (der Orbit eines Gatters entspricht dem Nebengruppen-Index des Stabilisators
+ dieses Gatters.)
+\end_layout
+
+\begin_layout Subsection
+Träger im Schaltkreis
 \end_layout
 
 \begin_layout Definition
@@ -3992,55 +5415,60 @@ Sei
 \end_inset
 
 .
- Für ein Gate 
-\begin_inset Formula $v\in V$
+ Der Stabilisator eines Gates 
+\begin_inset Formula $g\in V$
 \end_inset
 
- und eine Menge 
-\begin_inset Formula $X\subseteq U$
-\end_inset
-
- gelte: 
-\begin_inset Formula $X$
-\end_inset
-
- 
-\series bold
-trägt 
-\series default
-das Gate 
-\begin_inset Formula $v$
-\end_inset
-
- genau dann wenn für alle Permutationen 
-\begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left(X\right)$
-\end_inset
-
- gilt: 
-\begin_inset Formula $\hat{\pi}v=v$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Remark*
-Offensichtlich wird 
-\begin_inset Formula $v$
-\end_inset
-
- auch von allen Obermengen 
-\begin_inset Formula $X'\supseteq X$
-\end_inset
-
- getragen; insbesondere trägt 
+ sei die Gruppe aller Permutationen von 
 \begin_inset Formula $U$
 \end_inset
 
- alle Gates des Schaltkreises, weil 
-\begin_inset Formula $\mathrm{Stab}_{U}\left(U\right)=\left\{ \mathbf{id}\right\} $
+, deren induzierter Automorphismus 
+\begin_inset Formula $v$
 \end_inset
 
- trivial ist.
+ fixiert: 
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{\mathcal{C}}\left(v\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\hat{\pi}v=v\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Eine Partition 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ von 
+\begin_inset Formula $U$
+\end_inset
+
+ sei 
+\series bold
+Träger
+\series default
+ von 
+\begin_inset Formula $g$
+\end_inset
+
+, wenn sie ein Träger von 
+\begin_inset Formula $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
+\end_inset
+
+ ist.
+ Sei 
+\begin_inset Formula $\mathrm{SP}\left(g\right)$
+\end_inset
+
+ der gröbste Träger von 
+\begin_inset Formula $g$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Section
