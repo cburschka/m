@@ -77,6 +77,73 @@ theorems-ams
 \begin_body
 
 \begin_layout Section
+Einleitung
+\end_layout
+
+\begin_layout Standard
+Übersicht:
+\end_layout
+
+\begin_layout Enumerate
+FP < SBC (< P): Jede Fixpunktformel kann für 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathrm{poly\left(n\right)}$
+\end_inset
+
+ in eine FO-Formel auf 
+\begin_inset Formula $n$
+\end_inset
+
+-Graphen transformiert werden, aus der in 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+ ein Symmetrischer Boolescher Schaltkreis wird.
+ Daher ist FP auf P-uniforme SBC-Familien reduzierbar (und diese auf P).
+\end_layout
+
+\begin_layout Enumerate
+FP+C < SBC+MAJ ( < P): Majority gates erlauben zusätzlich, Zählquantoren
+ zu übersetzen.
+\end_layout
+
+\begin_layout Enumerate
+SBC < FP[<]: Jede P-uniforme 
+\begin_inset Formula $\left[\sigma\right]$
+\end_inset
+
+-Schaltkreisfamilie kann in eine 
+\begin_inset Formula $\mathrm{FP}\left[\sigma+<\right]$
+\end_inset
+
+-Formel überführt werden (weil der erzeugende P-Algorithmus per Immerman-Vardi
+ FP[<]-definierbar ist).
+ Hierbei ist zu beachten, dass die 
+\begin_inset Formula $<^{\mathfrak{A}}$
+\end_inset
+
+-Relation eine beliebige von 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ unabhängige lineare Ordnung ist.
+\end_layout
+
+\begin_layout Enumerate
+SBC+MAJ < FP+C: FP-Logik mit Zählquantoren kann zusätzlich Majority gates
+ beschreiben, und kommt ohne Ordnungsrelation aus.
+\end_layout
+
+\begin_layout Enumerate
+???/poly < FP+Arb? D.h.
+ Kann die Uniformität durch Advice-Prädikate ersetzt werden? (Bekannt: non-unifo
+rm AC0 < FO+Arb; uniform AC0 < FO+Bit.)
+\end_layout
+
+\begin_layout Section
 Grundlagen
 \end_layout
 
