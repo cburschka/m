@@ -90,7 +90,7 @@ Eine relationale Signatur
 \end_inset
 
  sei eine endliche Menge von Relationssymbolen 
-\begin_inset Formula $\left\{ R_{1},\cdots,R_{k}\right\} $
+\begin_inset Formula $\left\{ R_{1},\cdots,R_{m}\right\} $
 \end_inset
 
 .
@@ -102,8 +102,12 @@ Eine relationale Signatur
 \begin_inset Formula $\mathrm{ar}\left(R\right)\in\mathbb{N}_{\geqslant1}$
 \end_inset
 
-; gelegentlich wird die Stelligkeit kompakt mit 
-\begin_inset Formula $\nicefrac{R}{\mathrm{ar}\left(R\right)}\in\sigma$
+; gelegentlich wird die Stelligkeit 
+\begin_inset Formula $\mathrm{ar}\left(R\right)=k$
+\end_inset
+
+ kompakt mit 
+\begin_inset Formula $R/k\in\sigma$
 \end_inset
 
  notiert.
@@ -127,11 +131,11 @@ Eine endliche
 \end_inset
 
  und einer Interpretation 
-\begin_inset Formula $R^{\mathfrak{A}}\subseteq A^{\mathrm{ar}\left(R\right)}$
+\begin_inset Formula $R^{\mathfrak{A}}\subseteq A^{k}$
 \end_inset
 
  für jedes Relationssymbol 
-\begin_inset Formula $R\in\sigma$
+\begin_inset Formula $R/k\in\sigma$
 \end_inset
 
 .
@@ -149,34 +153,6 @@ Eine endliche
 \end_layout
 
 \begin_deeper
-\begin_layout Enumerate
-Sei 
-\begin_inset Formula $\mathbf{FIN}\left(\sigma\right)$
-\end_inset
-
- die Menge aller endlichen 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Strukturen.
-\end_layout
-
-\begin_layout Enumerate
-Sei 
-\begin_inset Formula $\mathbf{FIN}_{<}\left(\sigma\right)$
-\end_inset
-
- die Menge der 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Strukturen über einem geordneten Universum 
-\begin_inset Formula $U=\left\{ 1,\cdots,n\right\} $
-\end_inset
-
-.
-\end_layout
-
 \begin_layout Enumerate
 Für 
 \begin_inset Formula $n>0$
@@ -197,9 +173,37 @@ Für
 .
 \end_layout
 
+\begin_layout Enumerate
+Sei 
+\begin_inset Formula $\mathbf{FIN}\left(\sigma\right)\coloneqq\bigcup_{n\in\mathbb{N}_{\geqslant1}}\mathbf{FIN}_{n}\left(\sigma\right)$
+\end_inset
+
+ die Menge aller endlichen 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen.
+\end_layout
+
+\begin_layout Enumerate
+Sei 
+\begin_inset Formula $\mathbf{FIN}_{<}\left(\sigma\right)$
+\end_inset
+
+ die Menge der endlichen 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen über einem geordneten Universum 
+\begin_inset Formula $U=\left\{ 1,\cdots,n\right\} $
+\end_inset
+
+.
+\end_layout
+
 \end_deeper
 \begin_layout Subsection
-Fixpunktlogik
+FO-Logik
 \end_layout
 
 \begin_layout Definition
@@ -215,30 +219,17 @@ Sei
 \end_layout
 
 \begin_layout Definition
-Die relationale Fixpunktlogik 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+Die Syntax der relationalen FO-Logik 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
-
+ ist wie folgt definiert:
 \end_layout
 
-\begin_layout Definition
-Entsprechend den Regeln der Logik 
-\begin_inset Formula $\mbox{FO}\left[\sigma\right]$
-\end_inset
-
- ist 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
-\end_inset
-
- rekursiv wie folgt definiert:
-\end_layout
-
-\begin_deeper
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 B1 Für jedes Relationssymbol 
-\begin_inset Formula $\nicefrac{R}{k}\in\sigma$
+\begin_inset Formula $R/k\in\sigma$
 \end_inset
 
  und jedes Tupel 
@@ -250,7 +241,7 @@ B1 Für jedes Relationssymbol
 \end_inset
 
  eine 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
 -Formel.
@@ -267,7 +258,7 @@ B2 Für zwei Variablen
 \end_inset
 
  eine 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
 -Formel.
@@ -289,7 +280,7 @@ R1 Für
 \end_inset
 
  
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
 -Formeln 
@@ -313,7 +304,7 @@ R1 Für
 \end_inset
 
  eine 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
 -Formel.
@@ -322,7 +313,7 @@ R1 Für
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 R2 Für jede 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -334,7 +325,7 @@ R2 Für jede
 \end_inset
 
  eine 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
 -Formel, und 
@@ -351,11 +342,11 @@ R3 Für jeden Quantor
 \end_inset
 
 , jede Variable 
-\begin_inset Formula $x\in Var$
+\begin_inset Formula $x\in\mathbf{var}$
 \end_inset
 
  und jede 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -367,83 +358,49 @@ R3 Für jeden Quantor
 \end_inset
 
  eine 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
 -Formel.
 \end_layout
 
-\begin_layout Standard
-Zusätzlich wird der inflationäre Fixpunkt-Operator definiert:
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-R4 Für jedes Relationssymbol 
-\begin_inset Formula $\nicefrac{R}{k}\notin\sigma$
-\end_inset
-
-, jede 
-\begin_inset Formula $k$
-\end_inset
-
--stellige 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\cup\left\{ R\right\} \right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi\left(\bar{x}\right)$
-\end_inset
-
- und ein Tupel 
-\begin_inset Formula $\bar{y}\in\mathbf{var}^{k}$
-\end_inset
-
- ist 
-\begin_inset Formula $\left[\mathrm{ifp}_{R,\bar{x}}\varphi\right]\left(\bar{y}\right)$
-\end_inset
-
- eine 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
-\end_inset
-
--Formel.
-\end_layout
-
-\end_deeper
-\begin_layout Example*
-Die folgende Formel 
-\begin_inset Formula $\varphi\left(u,v\right)$
-\end_inset
-
- ist erfüllt, wenn 
-\begin_inset Formula $u$
-\end_inset
-
- und 
-\begin_inset Formula $v$
-\end_inset
-
- durch einen Weg beliebiger Länge verbunden sind: 
-\begin_inset Formula 
-\[
-\varphi\left(u,v\right)\coloneqq\left[\mathrm{ifp}_{R,\left(x,y\right)}\,x=y\vee\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\right]\left(u,v\right)
-\]
-
-\end_inset
-
+\begin_layout --Separator--
 
 \end_layout
 
 \begin_layout Definition
-Die Semantik der Fixpunktlogik ist rekursiv wie folgt definiert:
+Die Semantik von 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+ ist rekursiv wie folgt definiert.
+\end_layout
+
+\begin_layout Definition
+Hierbei sei 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ eine endliche 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur, und 
+\begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
+\end_inset
+
+ eine Belegung der freien Variablen von 
+\begin_inset Formula $\varphi$
+\end_inset
+
+.
 \end_layout
 
 \begin_deeper
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 B1 Für 
-\begin_inset Formula $\nicefrac{R}{k}\in\sigma$
+\begin_inset Formula $R/k\in\sigma$
 \end_inset
 
  und 
@@ -535,35 +492,140 @@ R3 Für eine
 \end_inset
 
  existiert, so dass 
-\begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta,x\mapsto a\right)=1$
+\begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta+\left(\begin{array}{c}
+x\\
+a
+\end{array}\right)\right)=1$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Itemize
-\begin_inset Formula $\left\llbracket \forall x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket \neg\exists x\neg\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)$
+\begin_inset Formula $\left\llbracket \forall x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1$
+\end_inset
+
+ genau dann wenn für alle 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ gilt, dass 
+\begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta+\left(\begin{array}{c}
+x\\
+a
+\end{array}\right)\right)=1$
 \end_inset
 
 .
 \end_layout
 
 \end_deeper
+\end_deeper
+\begin_layout Subsection
+Fixpunktlogik
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $\mathbf{var}_{2}$
+\end_inset
+
+ die Menge aller logischen Relationsvariablen.
+ Jede solche Variable 
+\begin_inset Formula $R\in\mathbf{var}_{2}$
+\end_inset
+
+ besitzt eine Stelligkeit 
+\begin_inset Formula $\mathrm{ar}\left(R\right)\in\mathbb{N}_{\geqslant1}$
+\end_inset
+
+; diese wird für 
+\begin_inset Formula $\mathrm{ar}\left(R\right)=k$
+\end_inset
+
+ auch durch 
+\begin_inset Formula $R/k\in\mathbf{var}_{2}$
+\end_inset
+
+ gekennzeichnet.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+Die Syntax der relationalen Fixpunktlogik 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+ erweitert die von 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+ um den folgenden inflationären
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Per [Gurevitch-Shelah] & [Kreutzer] ist IFP=LFP.
+\end_layout
+
+\end_inset
+
+ Fixpunkt-Operator.
+\end_layout
+
+\begin_deeper
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
-R4 
-\begin_inset Formula $\nicefrac{R}{k}\in\sigma$
+R4 Für jede Relationsvariable 
+\begin_inset Formula $R/k\in\mathbf{var}_{2}$
 \end_inset
 
-, 
-\begin_inset Formula $\varphi\left(\bar{x}\right)\in\mathrm{FP}\left[\sigma\right]$
+, jede 
+\begin_inset Formula $k$
 \end_inset
 
- und 
+-stellige 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\uplus\left\{ R\right\} \right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+, die Tupel 
 \begin_inset Formula $\bar{x},\bar{y}\in\mathbf{var}^{k}$
 \end_inset
 
- gelte: 
+ ist 
+\begin_inset Formula $\varphi'\coloneqq\left[\mathrm{ifp}_{R,\bar{x}}\varphi\right]\left(\bar{y}\right)$
+\end_inset
+
+ eine 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Der Operator bindet die Variablen 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+, so dass 
+\begin_inset Formula $\mathrm{frei}\left(\varphi'\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \cup\left\{ y_{1},\cdots,y_{k}\right\} $
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Für die Semantik gilt: 
 \begin_inset Formula $\left\llbracket \left[\mathrm{ifp}_{R,\bar{x}}\varphi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)=1$
 \end_inset
 
@@ -583,7 +645,10 @@ R4
 \begin_inset Formula 
 \begin{eqnarray*}
 R^{\left(0\right)} & = & \emptyset\\
-R^{\left(m+1\right)} & = & R^{\left(m\right)}\cup\left\{ \bar{a}\in A^{k}\mid a\models\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},R^{\left(m\right)}\right)\right\} 
+R^{\left(m+1\right)} & = & R^{\left(m\right)}\cup\left\{ \bar{a}\in A^{k}\mid a\models\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}+\left(\begin{array}{c}
+R\\
+R^{\left(m\right)}
+\end{array}\right),\beta\right)\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -600,6 +665,31 @@ Da
 \end_layout
 
 \end_deeper
+\begin_layout Example*
+Die folgende Formel 
+\begin_inset Formula $\varphi\left(u,v\right)$
+\end_inset
+
+ ist erfüllt, wenn 
+\begin_inset Formula $u$
+\end_inset
+
+ und 
+\begin_inset Formula $v$
+\end_inset
+
+ durch einen Weg beliebiger Länge verbunden sind: 
+\begin_inset Formula 
+\[
+\varphi\left(u,v\right)\coloneqq\left[\mathrm{ifp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout --Separator--
 
 \end_layout
@@ -611,7 +701,7 @@ Stelligkeit
 \series default
 einer logischen Formel bezeichne die Anzahl der frei darin vorkommenden
  Variablen: 
-\begin_inset Formula $\mathrm{ar}\left(\varphi\right)\coloneqq\#\mathrm{frei}\left(\varphi\right)$
+\begin_inset Formula $\mathrm{ar}\left(\varphi\right)\coloneqq\left|\mathrm{frei}\left(\varphi\right)\right|$
 \end_inset
 
 .
@@ -648,10 +738,31 @@ Es stehe
 \end_inset
 
  mit der Belegung 
-\begin_inset Formula $\beta\left(x_{i}\right)\coloneqq a_{i}$
+\begin_inset Formula $\beta\coloneqq\left(\begin{array}{c}
+x_{1}\\
+a_{1}
+\end{array}\cdots\begin{array}{c}
+x_{k}\\
+a_{k}
+\end{array}\right)$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Subsection
+Erweiterungen der Fixpunktlogik
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+FP+C
+\end_layout
+
+\begin_layout Definition
+Die Fixpunktlogik mit Zählquantoren fügt der Fixpunktlogik den folgenden
+ Zählquantor hinzu.
 \end_layout
 
 \begin_layout Subsection
@@ -666,7 +777,7 @@ Basis:
  
 \end_layout
 
-\begin_layout Standard
+\begin_layout Definition
 Eine boolesche Basis 
 \begin_inset Formula $\mathbb{B}$
 \end_inset
@@ -731,6 +842,14 @@ Als Beispiel seien die folgenden booleschen Funktionen gegeben:
 
 \end_inset
 
+Im folgenden stehe 
+\begin_inset Formula $\mathbb{B}_{\mathrm{std}}\coloneqq\left\{ \wedge,\vee\right\} $
+\end_inset
+
+ für die Basis mit boolescher Konjunktion und Disjunktion.
+\end_layout
+
+\begin_layout --Separator--
 
 \end_layout
 
@@ -755,7 +874,7 @@ Sei
 \end_inset
 
 -Schaltkreis 
-\begin_inset Formula $\mathcal{C}\coloneqq\left(V,E,\Sigma,\Omega,U\right)$
+\begin_inset Formula $\mathcal{C}\coloneqq\left(G,W,\Sigma,\Omega,U\right)$
 \end_inset
 
  mit der Stelligkeit 
@@ -767,11 +886,15 @@ Sei
 
 \begin_deeper
 \begin_layout Enumerate
-Ein azyklischer Graph 
-\begin_inset Formula $\left(V,E\right)$
+Ein azyklischer Graph mit den Knoten 
+\begin_inset Formula $G$
 \end_inset
 
+ und den Kanten 
+\begin_inset Formula $W\subseteq G\times G$
+\end_inset
 
+.
 \end_layout
 
 \begin_layout Enumerate
@@ -782,7 +905,7 @@ eine Gatemarkierung
  
 \begin_inset Formula 
 \begin{eqnarray*}
-\Sigma:V & \rightarrow & \mathbb{B}\\
+\Sigma:G & \rightarrow & \mathbb{B}\\
  & \cup & \left\{ \mathbf{0},\mathbf{1},\neg\right\} \\
  & \cup & \left\{ R\bar{x}\mid R\in\sigma,\bar{x}\in U^{\mathrm{ar}\left(R\right)}\right\} 
 \end{eqnarray*}
@@ -794,7 +917,7 @@ eine Gatemarkierung
 
 \begin_layout Enumerate
 eine Ausgabefunktion 
-\begin_inset Formula $\Omega:U^{m}\rightarrow V$
+\begin_inset Formula $\Omega:U^{m}\rightarrow G$
 \end_inset
 
  (bei 
@@ -802,7 +925,7 @@ eine Ausgabefunktion
 \end_inset
 
  ist 
-\begin_inset Formula $\Omega\left(\left\langle \right\rangle \right)\in V$
+\begin_inset Formula $\Omega\left(\left\langle \right\rangle \right)\in G$
 \end_inset
 
  eine Konstante) und 
@@ -879,7 +1002,7 @@ Auswertung von Schaltkreisen
 
 \begin_layout Definition
 Der Schaltkreis 
-\begin_inset Formula $\mathcal{C}$
+\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
 \end_inset
 
  wird über einer geordneten 
@@ -896,11 +1019,11 @@ Der Schaltkreis
 
  ausgewertet.
  Die Auswertung ist eine Abbildung 
-\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]:V\rightarrow\left\{ 0,1\right\} $
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]:G\rightarrow\left\{ 0,1\right\} $
 \end_inset
 
 , die jedem Gate 
-\begin_inset Formula $v\in V$
+\begin_inset Formula $g\in G$
 \end_inset
 
  den Wert 
@@ -917,13 +1040,13 @@ Der Schaltkreis
 \begin_deeper
 \begin_layout Case
 Für 
-\begin_inset Formula $\Sigma\left(v\right)=R\bar{x}$
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{x}$
 \end_inset
 
  gilt 
 \begin_inset Formula 
 \[
-\mathcal{C}\left[\mathfrak{A}\right]\left(v\right)\coloneqq\begin{cases}
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\coloneqq\begin{cases}
 1 & \mathrm{falls}\,\bar{x}\in R^{\mathfrak{A}}\\
 0 & \mathrm{sonst}
 \end{cases}
@@ -936,13 +1059,13 @@ Für
 
 \begin_layout Case
 Für 
-\begin_inset Formula $\Sigma\left(v\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
+\begin_inset Formula $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
 \end_inset
 
  gilt
 \begin_inset Formula 
 \[
-\mathcal{C}\left[\mathfrak{A}\right]\left(v\right)\coloneqq\begin{cases}
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\coloneqq\begin{cases}
 1 & \mathrm{falls}\,\Sigma\left(v\right)=\mathbf{1}\\
 0 & \mathrm{sonst}
 \end{cases}
@@ -959,7 +1082,7 @@ Für ein Gate
 \end_inset
 
  mit 
-\begin_inset Formula $\Sigma\left(v\right)=\neg$
+\begin_inset Formula $\Sigma\left(g\right)=\neg$
 \end_inset
 
  und dem Vorgänger 
@@ -983,15 +1106,15 @@ Für ein Gate
 \end_inset
 
  mit 
-\begin_inset Formula $\Sigma\left(v\right)=\phi\in\mathbb{B}$
+\begin_inset Formula $\Sigma\left(g\right)=\phi\in\mathbb{B}$
 \end_inset
 
  gilt: 
 \begin_inset Formula 
 \begin{eqnarray*}
-j_{0} & \coloneqq & \#\left\{ \left(u,v\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(u\right)=0\right\} \\
-j_{1} & \coloneqq & \#\left\{ \left(u,v\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(u\right)=1\right\} \\
-\mathcal{C}\left[\mathfrak{A}\right]\left(v\right) & \coloneqq & \phi\left(j_{0},j_{1}\right)
+j_{0} & \coloneqq & \#\left\{ \left(h,g\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)=0\right\} \\
+j_{1} & \coloneqq & \#\left\{ \left(h,g\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)=1\right\} \\
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \phi\left(j_{0},j_{1}\right)
 \end{eqnarray*}
 
 \end_inset
@@ -1022,7 +1145,7 @@ Für einen
 
 \begin_layout Example*
 Sei 
-\begin_inset Formula $\mathcal{C}_{4}=\left(V,E,\Sigma,\Omega,\left[4\right]\right)$
+\begin_inset Formula $\mathcal{C}_{4}=\left(G,W,\Sigma,\Omega,\left[4\right]\right)$
 \end_inset
 
  ein 
@@ -1030,7 +1153,7 @@ Sei
 \end_inset
 
 -stelliger 
-\begin_inset Formula $\left(\mathbb{B}_{\mathrm{std}},\sigma_{\mathrm{graph}}\right)$
+\begin_inset Formula $\left(\mathbb{B}_{\mathrm{std}},\left\{ E\right\} \right)$
 \end_inset
 
 -Schaltkreis, der alle Knoten eines gerichteten Graphen findet, die Teil
@@ -1044,9 +1167,9 @@ Sei
 \begin_layout Example*
 \begin_inset Formula 
 \begin{eqnarray*}
-V & \coloneqq & \left\{ v_{i,j}\mid i,j\in\left[4\right],\,i\neq j\right\} \\
- & \cup & \left\{ v_{\left\{ i,j\right\} }\mid\left\{ i,j\right\} \subseteq\left[4\right],\,i\neq j\right\} \\
- & \cup & \left\{ v_{i}\mid i\in\left[4\right]\right\} 
+G & \coloneqq & \left\{ g_{i,j}\mid i,j\in\left[4\right],\,i\neq j\right\} \\
+ & \cup & \left\{ g_{\left\{ i,j\right\} }\mid\left\{ i,j\right\} \subseteq\left[4\right],\,i\neq j\right\} \\
+ & \cup & \left\{ g_{i}\mid i\in\left[4\right]\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -1054,8 +1177,8 @@ V & \coloneqq & \left\{ v_{i,j}\mid i,j\in\left[4\right],\,i\neq j\right\} \\
 
 \begin_inset Formula 
 \begin{eqnarray*}
-E & \coloneqq & \left\{ \left(v_{i,j},v_{\left\{ i,j\right\} }\right)\mid i,j\in\left[4\right],\,i\neq j\right\} \\
- & \cup & \left\{ \left(v_{\left\{ i,j\right\} },v_{i}\right)\mid i,j\in\left[4\right],\,i\neq j\right\} 
+E & \coloneqq & \left\{ \left(g_{i,j},g_{\left\{ i,j\right\} }\right)\mid i,j\in\left[4\right],\,i\neq j\right\} \\
+ & \cup & \left\{ \left(g_{\left\{ i,j\right\} },g_{i}\right)\mid i,j\in\left[4\right],\,i\neq j\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -1063,10 +1186,10 @@ E & \coloneqq & \left\{ \left(v_{i,j},v_{\left\{ i,j\right\} }\right)\mid i,j\in
 
 \begin_inset Formula 
 \[
-\Sigma\left(v\right)=\begin{cases}
-E\,i\,j & \mathrm{für}\,v=v_{i,j}\\
-\wedge & \mathrm{für}\,v=v_{\left\{ i,j\right\} }\\
-\vee & \mathrm{für}\,v=v_{i}
+\Sigma\left(g\right)=\begin{cases}
+E\,i\,j & \mathrm{für}\,g=g_{i,j}\\
+\wedge & \mathrm{für}\,g=g_{\left\{ i,j\right\} }\\
+\vee & \mathrm{für}\,g=g_{i}
 \end{cases}
 \]
 
@@ -1075,7 +1198,7 @@ E\,i\,j & \mathrm{für}\,v=v_{i,j}\\
 
 \begin_inset Formula 
 \[
-\Omega\left(i\right)\coloneqq v_{i}
+\Omega\left(i\right)\coloneqq g_{i}
 \]
 
 \end_inset
@@ -1545,7 +1668,7 @@ Symmetrie
 
 \begin_layout Standard
 Ein Schaltkreis 
-\begin_inset Formula $\mathcal{C}$
+\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
 \end_inset
 
  heiße 
@@ -1557,11 +1680,11 @@ symmetrisch
 \end_inset
 
  ein Automorphismus 
-\begin_inset Formula $\hat{\pi}:V\rightarrow V$
+\begin_inset Formula $\hat{\pi}:G\rightarrow G$
 \end_inset
 
  des Graphen 
-\begin_inset Formula $\left(V,E\right)$
+\begin_inset Formula $\left(G,W\right)$
 \end_inset
 
  existiert, der den Funktionen 
@@ -1576,24 +1699,24 @@ symmetrisch
 \end_layout
 
 \begin_layout Enumerate
-Für alle Eingangsgatter 
-\begin_inset Formula $v$
+Für alle Gates 
+\begin_inset Formula $g$
 \end_inset
 
  mit 
-\begin_inset Formula $\Sigma\left(v\right)=R\bar{x}$
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{x}$
 \end_inset
 
  gilt 
-\begin_inset Formula $\Sigma\left(\hat{\pi}v\right)=R\,\pi\bar{x}$
+\begin_inset Formula $\Sigma\left(\hat{\pi}g\right)=R\,\pi\bar{x}$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Enumerate
-Für alle übrigen Gatter gilt 
-\begin_inset Formula $\Sigma\left(v\right)=\Sigma\left(\hat{\pi}v\right)$
+Für alle übrigen Gates gilt 
+\begin_inset Formula $\Sigma\left(g\right)=\Sigma\left(\hat{\pi}g\right)$
 \end_inset
 
 .
@@ -1612,15 +1735,19 @@ Für jedes Tupel
 \end_layout
 
 \begin_layout Standard
-Falls dieser Automorphismus stets 
-\emph on
-eindeutig
-\emph default
- ist, so wird im folgenden der von 
-\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+Falls jede Permutation von 
+\begin_inset Formula $U$
 \end_inset
 
- induzierte Isomorphismus implizit als 
+ genau einen
+\emph on
+ 
+\emph default
+Automorphismus induziert, so wird der von 
+\begin_inset Formula $\pi$
+\end_inset
+
+ induzierte Automorphismus im folgenden als 
 \begin_inset Formula $\hat{\pi}$
 \end_inset
 
@@ -1710,8 +1837,12 @@ Per Voraussetzung induziert
 : 
 \begin_inset Formula 
 \begin{eqnarray*}
-\Omega\left(\tau\bar{x}\right)=\hat{\tau}\Omega\left(\bar{x}\right) &  & \mbox{für alle \ensuremath{\bar{x}\in U^{\mathrm{ar}\left(\mathcal{C}\right)}}}\\
-\Sigma\left(\hat{\tau}v\right)=\tau\Sigma\left(v\right) &  & \mbox{für alle Eingangsgatter}
+\hat{\tau}\left(W\right) & = & W\\
+\Sigma\left(\hat{\tau}g\right) & = & \begin{cases}
+R\tau\bar{x} & \mathrm{für}\,\Sigma\left(g\right)=R\bar{x}\\
+\Sigma\left(g\right) & \mathrm{sonst}
+\end{cases}\\
+\Omega\left(\tau\bar{x}\right) & = & \hat{\tau}\Omega\left(\bar{x}\right)\,\mathrm{für\,alle}\,\bar{x}\in U^{\mathrm{ar}\left(\mathcal{C}\right)}
 \end{eqnarray*}
 
 \end_inset
@@ -1725,8 +1856,12 @@ Per Induktion über die Tiefe
 status open
 
 \begin_layout Plain Layout
-Die maximale Länge eines Weges von einem Eingangsgatter zum Gatter 
-\begin_inset Formula $v$
+Die Tiefe 
+\begin_inset Formula $T:G\rightarrow\mathbb{N}$
+\end_inset
+
+ sei die maximale Länge eines Weges von einer Quelle zum Gate 
+\begin_inset Formula $g$
 \end_inset
 
 .
@@ -1737,7 +1872,7 @@ Die maximale Länge eines Weges von einem Eingangsgatter zum Gatter
  wird gezeigt: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}v\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(v\right) &  & \mbox{für alle \ensuremath{v\in V}}
+\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right) &  & \mathrm{für\,alle}\,g\in G
 \end{eqnarray*}
 
 \end_inset
@@ -1756,11 +1891,11 @@ Induktionsanfang
 \end_inset
 
 : Sei 
-\begin_inset Formula $v\in V$
+\begin_inset Formula $g\in G$
 \end_inset
 
- ein Eingangsgatter mit 
-\begin_inset Formula $\Sigma\left(u\right)=R\bar{x}$
+ eine Quelle mit 
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{x}$
 \end_inset
 
 .
@@ -1772,11 +1907,18 @@ Induktionsanfang
 \begin_inset Formula $\hat{\tau}$
 \end_inset
 
- gilt: 
+ gilt:
+\begin_inset Formula 
+\[
+\Sigma\left(\hat{\tau}g\right)=R\tau\bar{x}
+\]
+
+\end_inset
+
+ 
 \begin_inset Formula 
 \begin{eqnarray*}
- &  & \Sigma\left(\hat{\tau}v\right)=R\tau\bar{x}\\
- &  & \tau\bar{x}\in\tau\pi_{2}R^{\mathfrak{A}}\,\mbox{g.d.w.}\,\bar{x}\in\pi_{2}R^{\mathfrak{A}}
+\tau\bar{x}\in\tau\pi_{2}R^{\mathfrak{A}} & \Longleftrightarrow & \bar{x}\in\pi_{2}R^{\mathfrak{A}}
 \end{eqnarray*}
 
 \end_inset
@@ -1784,7 +1926,7 @@ Induktionsanfang
 Es folgt: 
 \begin_inset Formula 
 \[
-\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}v\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(v\right)
+\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)
 \]
 
 \end_inset
@@ -1806,24 +1948,28 @@ Induktionsschritt
 
 \begin_deeper
 \begin_layout Description
-Annahme: Für alle Gatter 
-\begin_inset Formula $v\in V$
+Annahme: Für alle Gates 
+\begin_inset Formula $g\in G$
 \end_inset
 
  mit Tiefe 
-\begin_inset Formula $\leqslant n$
+\begin_inset Formula $T\left(g\right)\leqslant n$
 \end_inset
 
  gilt 
-\begin_inset Formula $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}u\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(u\right)$
+\begin_inset Formula $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Standard
-So gilt für jedes Gatter mit Tiefe 
-\begin_inset Formula $n+1$
+So gilt für jedes Gatter 
+\begin_inset Formula $g'\in G$
+\end_inset
+
+ mit 
+\begin_inset Formula $T\left(g'\right)=n+1$
 \end_inset
 
 : 
@@ -1831,19 +1977,18 @@ So gilt für jedes Gatter mit Tiefe
 
 \begin_layout Enumerate
 Die Beschriftungen 
-\begin_inset Formula $\Sigma\left(\hat{\tau}u\right)=\Sigma\left(u\right)=\phi$
+\begin_inset Formula $\Sigma\left(\hat{\tau}g'\right)=\Sigma\left(g'\right)=\phi$
 \end_inset
 
  sind gleich.
 \end_layout
 
 \begin_layout Enumerate
-Für alle Vorgänger 
-\begin_inset Formula $u\in V$
+\begin_inset Formula $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)$
 \end_inset
 
- gilt 
-\begin_inset Formula $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}u\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(u\right)$
+ für alle 
+\begin_inset Formula $\left(g,g'\right)\in W$
 \end_inset
 
 .
@@ -1851,7 +1996,7 @@ Für alle Vorgänger
 
 \begin_layout Standard
 Es folgt 
-\begin_inset Formula $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}v\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(v\right)$
+\begin_inset Formula $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g'\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g'\right)$
 \end_inset
 
 .
@@ -2046,11 +2191,14 @@ Der Schaltkreis ist invariant, da er genau den Isomorphietyp
 \end_inset
 
  akzeptiert.
- Er ist aber nicht symmetrisch, weil die Permutation 
-\begin_inset Formula $\left(1,2\right)\mapsto\left(2,1\right)$
+ Er ist aber nicht symmetrisch: Die Permutation 
+\begin_inset Formula $\left(\begin{array}{cc}
+1 & 2\\
+2 & 1
+\end{array}\right)$
 \end_inset
 
- keinen Automorphismus induziert.
+ induziert keinen Automorphismus.
 \end_layout
 
 \begin_layout Subsection
@@ -2266,7 +2414,7 @@ Für eine Klasse von Zeitfunktionen
 \begin_inset Formula $\mathrm{poly}\left(n\right)$
 \end_inset
 
--uniforme Schaltkreis-Familie heiße kurz 
+-uniforme Schaltkreis-Familie heiße 
 \begin_inset Quotes gld
 \end_inset
 
@@ -2314,7 +2462,7 @@ Jede
 \end_inset
 
 -uniformen Schaltkreis-Familie 
-\begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\begin_inset Formula $\left(\mathcal{C}_{n}^{\varphi}\right)_{n\in\mathbb{N}}$
 \end_inset
 
  berechnet wird.
@@ -2367,6 +2515,10 @@ Falls
 \begin_inset Formula $\varphi\left(\bar{x}\right)=R\bar{y}$
 \end_inset
 
+ für 
+\begin_inset Formula $R\in\sigma$
+\end_inset
+
 , so bestehe 
 \begin_inset Formula $\mathcal{C}_{n}^{\varphi}$
 \end_inset
@@ -2379,7 +2531,7 @@ Falls
  
 \begin_inset Formula 
 \[
-\mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m}\right\} ,\emptyset,\Sigma,\Omega,U\right)
+\mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ g_{\bar{t}}\mid\bar{t}\in U^{m}\right\} ,\emptyset,\Sigma,\Omega,U\right)
 \]
 
 \end_inset
@@ -2389,7 +2541,10 @@ Für jedes Tupel
 \end_inset
 
  sei 
-\begin_inset Formula $\beta_{\bar{t}}\coloneqq\left(\bar{x}\mapsto\bar{t}\right)$
+\begin_inset Formula $\beta_{\bar{t}}\coloneqq\left(\begin{array}{c}
+\bar{x}\\
+\bar{t}
+\end{array}\right)$
 \end_inset
 
  die Abbildung der Variablen 
@@ -2403,8 +2558,8 @@ Für jedes Tupel
 :
 \begin_inset Formula 
 \begin{eqnarray*}
-\Omega\left(\bar{t}\right) & \coloneqq & v_{\bar{t}}\\
-\Sigma\left(v_{\bar{t}}\right) & \coloneqq & R\beta_{\bar{t}}\left(\bar{y}\right)
+\Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}\\
+\Sigma\left(g_{\bar{t}}\right) & \coloneqq & R\beta_{\bar{t}}\left(\bar{y}\right)
 \end{eqnarray*}
 
 \end_inset
@@ -2432,7 +2587,7 @@ Falls
 ).
 \begin_inset Formula 
 \[
-\mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m}\right\} ,\emptyset,\Sigma,\Omega,U\right)
+\mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ g_{\bar{t}}\mid\bar{t}\in U^{m}\right\} ,\emptyset,\Sigma,\Omega,U\right)
 \]
 
 \end_inset
@@ -2442,14 +2597,17 @@ Falls
 \end_inset
 
  sei 
-\begin_inset Formula $\beta_{\bar{t}}\coloneqq\left(\bar{x}\mapsto\bar{t}\right)$
+\begin_inset Formula $\beta_{\bar{t}}\coloneqq\left(\begin{array}{c}
+\bar{x}\\
+\bar{t}
+\end{array}\right)$
 \end_inset
 
  die entsprechende Belegung:
 \begin_inset Formula 
 \begin{eqnarray*}
-\Omega\left(\bar{t}\right) & \coloneqq & v_{\bar{t}}\\
-\Sigma\left(v_{\bar{t}}\right) & \coloneqq & \begin{cases}
+\Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}\\
+\Sigma\left(g_{\bar{t}}\right) & \coloneqq & \begin{cases}
 \mathbf{1} & \mathrm{falls}\,\beta\left(x\right)=\beta\left(x'\right)\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}
@@ -2462,7 +2620,7 @@ Falls
 
 \begin_layout Case
 Falls 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=\bigwedge_{i=1}^{\ell}\varphi_{i}\left(\bar{y_{i}}\right)$
+\begin_inset Formula $\varphi\left(\bar{x}\right)=\varphi_{1}\wedge\cdots\wedge\varphi_{\ell}$
 \end_inset
 
  mit 
@@ -2484,8 +2642,8 @@ Falls
  mit der folgenden Erweiterung.
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(V,E,\Sigma,\Omega,U\right)\\
-\mathcal{C}_{n}^{\varphi_{i}} & = & \left(V_{i},E_{i},\Sigma_{i},\Omega_{i},U\right)
+\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)\\
+\mathcal{C}_{n}^{\varphi_{i}} & = & \left(G_{i},W_{i},\Sigma_{i},\Omega_{i},U\right)
 \end{eqnarray*}
 
 \end_inset
@@ -2501,7 +2659,7 @@ Es werden neue Ausgänge für jedes
  hinzugefügt:
 \begin_inset Formula 
 \begin{eqnarray*}
-V & \coloneqq & \biguplus_{i=1}^{\ell}V_{i}\uplus\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m'}\right\} 
+G & \coloneqq & \biguplus_{i=1}^{\ell}G_{i}\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{m'}\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -2520,10 +2678,14 @@ Die neuen Ausgänge werden entsprechend mit denen der Teilschaltkreise verknüpf
 \end_inset
 
  wie folgt auf die in 
-\begin_inset Formula $\varphi_{i}$
+\begin_inset Formula $\varphi_{i}\left(\bar{y_{i}}\right)$
 \end_inset
 
- frei vorkommenden Variablen abbilde:
+ frei vorkommenden Variablen 
+\begin_inset Formula $\bar{y_{i}}$
+\end_inset
+
+ abbilde:
 \begin_inset Formula 
 \begin{eqnarray*}
 \rho_{i}\left(t_{1},\cdots,t_{m}\right) & = & \left(t_{\left(j_{1}\right)},\cdots,t_{\left(j_{\left(m_{i}\right)}\right)}\right)\\
@@ -2535,7 +2697,7 @@ Die neuen Ausgänge werden entsprechend mit denen der Teilschaltkreise verknüpf
 
 \begin_inset Formula 
 \[
-E\coloneqq\biguplus_{i=1}^{\ell}E_{i}\uplus\left\{ \left(\Omega_{i}\left(\rho_{i}\bar{t}\right),v_{\bar{t}}\right)\mid1\leqslant i\leqslant\ell,\,\bar{t}\in U^{m}\right\} 
+W\coloneqq\biguplus_{i=1}^{\ell}W_{i}\uplus\left\{ \left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\mid1\leqslant i\leqslant\ell,\,\bar{t}\in U^{m}\right\} 
 \]
 
 \end_inset
@@ -2543,11 +2705,11 @@ E\coloneqq\biguplus_{i=1}^{\ell}E_{i}\uplus\left\{ \left(\Omega_{i}\left(\rho_{i
 Die Gates werden entsprechend beschriftet:
 \begin_inset Formula 
 \begin{eqnarray*}
-\Sigma\left(v\right) & \coloneqq & \begin{cases}
-\Sigma_{i}\left(v\right) & \mathrm{für}\,v\in V_{i}\\
+\Sigma\left(g\right) & \coloneqq & \begin{cases}
+\Sigma_{i}\left(g\right) & \mathrm{für}\,g\in G_{i}\\
 \wedge & \mathrm{sonst}
 \end{cases}\\
-\Omega\left(\bar{t}\right) & \coloneqq & v_{\bar{t}}\,\,\mathrm{für\,alle\,\,}\bar{t}\in U^{m'}
+\Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}\,\,\mathrm{für\,alle\,\,}\bar{t}\in U^{m'}
 \end{eqnarray*}
 
 \end_inset
@@ -2557,11 +2719,11 @@ Die Gates werden entsprechend beschriftet:
 
 \begin_layout Case
 Falls 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=\bigvee_{i=1}^{\ell}\varphi_{i}$
+\begin_inset Formula $\varphi\left(\bar{x}\right)=\varphi_{1}\vee\cdots\vee\varphi_{\ell}$
 \end_inset
 
 , so sei der Schaltkreis analog zu Fall 2 mit 
-\begin_inset Formula $\Sigma\left(v_{\bar{t}}\right)=\vee$
+\begin_inset Formula $\Sigma\left(g_{\bar{t}}\right)=\vee$
 \end_inset
 
 .
@@ -2579,8 +2741,8 @@ Falls
  wie folgt erweitert:
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(V,E,\Sigma,\Omega,U\right)\\
-\mathcal{C}_{n}^{\varphi'} & = & \left(V',E',\Sigma',\Omega',U\right)
+\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)\\
+\mathcal{C}_{n}^{\varphi'} & = & \left(G',W',\Sigma',\Omega',U\right)
 \end{eqnarray*}
 
 \end_inset
@@ -2602,10 +2764,10 @@ Für jedes Tupel
  
 \begin_inset Formula 
 \begin{eqnarray*}
-V & \coloneqq & V'\uplus\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
-E & \coloneqq & E'\uplus\left\{ \left(\Omega'\left(\bar{t}\right),v_{\bar{t}}\right)\mid\bar{t}\in U^{m}\right\} \\
-\Sigma\left(v\right) & \coloneqq & \begin{cases}
-\Sigma'\left(v\right) & \mathrm{für}\,v\in V'\\
+G & \coloneqq & G'\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
+W & \coloneqq & W'\uplus\left\{ \left(\Omega'\left(\bar{t}\right),g_{\bar{t}}\right)\mid\bar{t}\in U^{m}\right\} \\
+\Sigma\left(g\right) & \coloneqq & \begin{cases}
+\Sigma'\left(g\right) & \mathrm{für}\,g\in G'\\
 \neg & \mathrm{sonst}
 \end{cases}\\
 \Omega\left(\bar{t}\right) & \coloneqq & v_{\bar{t}}\,\mathrm{für}\,\bar{t}\in U^{m}
@@ -2648,8 +2810,8 @@ Falls
  mit der folgenden Erweiterung:
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(V,E,\Sigma,\Omega,U\right)\\
-\mathcal{C}_{n}^{\varphi_{i}} & \coloneqq & \left(V_{i},E_{i},\Sigma_{i},\Omega_{i},U\right)
+\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)\\
+\mathcal{C}_{n}^{\varphi_{i}} & \coloneqq & \left(G_{i},W_{i},\Sigma_{i},\Omega_{i},U\right)
 \end{eqnarray*}
 
 \end_inset
@@ -2661,8 +2823,8 @@ Für jedes Tupel
  werden fünf neue Gates eingefügt:
 \begin_inset Formula 
 \begin{eqnarray*}
-V & \coloneqq & V_{1}\uplus V_{2}\\
- & \uplus & \left\{ a_{\bar{t}},b_{\bar{t}},c_{\bar{t}},d_{\bar{t}},v_{\bar{t}}\mid\bar{t}\in U^{m}\right\} 
+G & \coloneqq & G_{1}\uplus G_{2}\\
+ & \uplus & \left\{ a_{\bar{t}},b_{\bar{t}},c_{\bar{t}},d_{\bar{t}},e_{\bar{t}}\mid\bar{t}\in U^{m}\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -2702,7 +2864,7 @@ Die Gates
 
 .
  Die Gates 
-\begin_inset Formula $v_{\bar{t}}$
+\begin_inset Formula $e_{\bar{t}}$
 \end_inset
 
  sind die Disjunktionen von 
@@ -2717,11 +2879,13 @@ Die Gates
  
 \begin_inset Formula 
 \begin{eqnarray*}
-E & \coloneqq & E_{1}\uplus E_{2}\\
- & \uplus & \left\{ \left(\Omega_{1}\left(\rho_{1}\bar{t}\right),a_{\bar{t}}\right),\left(\Omega_{2}\left(\rho_{2}\bar{t}\right),b_{\bar{t}}\right)\mid\bar{t}\in U^{m}\right\} \\
- & \uplus & \left\{ \left(\Omega_{i}\left(\rho_{i}\bar{t}\right),c_{\bar{t}}\right)\mid i\in\left\{ 1,2\right\} ,\,\bar{t}\in U^{m}\right\} \\
- & \uplus & \left\{ \left(a_{\bar{t}},d_{\bar{t}}\right),\left(b_{\bar{t}},d_{\bar{t}}\right)\mid\bar{t}\in U^{m}\right\} \\
- & \uplus & \left\{ \left(c_{\bar{t}},v_{\bar{t}}\right),\left(d_{\bar{t}},v_{\bar{t}}\right)\mid\bar{t}\in U^{m}\right\} 
+W & \coloneqq & W_{1}\uplus W_{2}\\
+ & \uplus & \left\{ \begin{array}{c}
+\left(\Omega_{1}\left(\rho_{1}\bar{t}\right),a_{\bar{t}}\right),\,\left(\Omega_{2}\left(\rho_{2}\bar{t}\right),b_{\bar{t}}\right),\\
+\left(\Omega_{1}\left(\rho_{1}\bar{t}\right),c_{\bar{t}}\right),\,\left(\Omega_{2}\left(\rho_{2}\bar{t}\right),c_{\bar{t}}\right),\\
+\left(a_{\bar{t}},d_{\bar{t}}\right),\,\left(b_{\bar{t}},d_{\bar{t}}\right),\\
+\left(c_{\bar{t}},e_{\bar{t}}\right),\,\left(d_{\bar{t}},e_{\bar{t}}\right)
+\end{array}\mid\bar{t}\in U^{m}\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -2737,11 +2901,11 @@ E & \coloneqq & E_{1}\uplus E_{2}\\
  analog zu Fall 3 definiert.)
 \begin_inset Formula 
 \begin{eqnarray*}
-\Sigma\left(v\right) & \coloneqq & \begin{cases}
-\neg & \mathrm{für}\,v\in\left\{ a_{\bar{t}},b_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
-\wedge & \mathrm{für}\,v\in\left\{ c_{\bar{t}},d_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
-\vee & \mathrm{für}\,v\in\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
-\Sigma_{i}\left(v\right) & \mathrm{für}\,v\in V_{i}
+\Sigma\left(g\right) & \coloneqq & \begin{cases}
+\neg & \mathrm{für}\,g\in\left\{ a_{\bar{t}},b_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
+\wedge & \mathrm{für}\,g\in\left\{ c_{\bar{t}},d_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
+\vee & \mathrm{für}\,g\in\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
+\Sigma_{i}\left(g\right) & \mathrm{für}\,g\in G_{i}
 \end{cases}
 \end{eqnarray*}
 
@@ -2750,7 +2914,7 @@ E & \coloneqq & E_{1}\uplus E_{2}\\
 
 \begin_inset Formula 
 \[
-\Omega\left(\bar{t}\right)\coloneqq v_{\bar{t}}\,\,\mathrm{für\,alle}\,\,\bar{t}\in U^{m}
+\Omega\left(\bar{t}\right)\coloneqq g_{\bar{t}}\,\,\mathrm{für\,alle}\,\,\bar{t}\in U^{m}
 \]
 
 \end_inset
@@ -2770,8 +2934,8 @@ Falls
  wie folgt erweitert: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(V,E,\Sigma,\Omega,U\right)\\
-\mathcal{C}_{n}^{\varphi'} & \coloneqq & \left(V',E',\Sigma',\Omega',U\right)
+\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)\\
+\mathcal{C}_{n}^{\varphi'} & \coloneqq & \left(G',W',\Sigma',\Omega',U\right)
 \end{eqnarray*}
 
 \end_inset
@@ -2788,7 +2952,7 @@ Es werden neue Ausgänge für jedes Tupel
  eingefügt:
 \begin_inset Formula 
 \begin{eqnarray*}
-V & \coloneqq & V'\uplus\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m}\right\} 
+G & \coloneqq & G'\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{m}\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -2798,7 +2962,7 @@ V & \coloneqq & V'\uplus\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m}\right\}
 
 \begin_layout Standard
 Jeder neue Ausgang 
-\begin_inset Formula $v_{\bar{t}}$
+\begin_inset Formula $g_{\bar{t}}$
 \end_inset
 
  wird mit den alten Ausgängen für alle 
@@ -2806,13 +2970,13 @@ Jeder neue Ausgang
 \end_inset
 
 -Tupel 
-\begin_inset Formula $\left(\bar{t},\bar{t}'\right)$
+\begin_inset Formula $\bar{t}\bar{t}'$
 \end_inset
 
  verknüpft:
 \begin_inset Formula 
 \[
-E\coloneqq E'\uplus\left\{ \left(\Omega'\left(\bar{t},\bar{t}'\right),v_{\bar{t}}\right)\mid\bar{t}\in U^{m},\,\bar{t}'\in U^{i}\right\} 
+W\coloneqq W'\uplus\left\{ \left(\Omega'\left(\bar{t}\bar{t}'\right),g_{\bar{t}}\right)\mid\bar{t}\in U^{m},\,\bar{t}'\in U^{i}\right\} 
 \]
 
 \end_inset
@@ -2828,8 +2992,8 @@ Die neuen Ausgänge werden mit
  markiert.
 \begin_inset Formula 
 \begin{eqnarray*}
-\Sigma\left(v\right) & \coloneqq & \begin{cases}
-\Sigma'\left(v\right) & \mathrm{für}\,v\in V'\\
+\Sigma\left(g\right) & \coloneqq & \begin{cases}
+\Sigma'\left(g\right) & \mathrm{für}\,g\in G'\\
 \vee & \mathrm{sonst}
 \end{cases}\\
 \Omega\left(\bar{t}\right) & \coloneqq & v_{\bar{t}}\,\mathrm{für\,alle}\,\bar{t}\in U^{m}
@@ -2921,7 +3085,7 @@ Induktiv über den Aufbau der Formel.
 
  eine beliebige Permutation.
  Es wird ein induzierter Automorphismus 
-\begin_inset Formula $\hat{\pi}:V\rightarrow V$
+\begin_inset Formula $\hat{\pi}:G\rightarrow G$
 \end_inset
 
  konstruiert, der die Anforderungen erfüllt.
@@ -2934,7 +3098,7 @@ Für
 \end_inset
 
  sei 
-\begin_inset Formula $\hat{\pi}v_{\bar{t}}\coloneqq v_{\pi\bar{t}}$
+\begin_inset Formula $\hat{\pi}g_{\bar{t}}\coloneqq g_{\pi\bar{t}}$
 \end_inset
 
  für alle Tupel 
@@ -2942,16 +3106,16 @@ Für
 \end_inset
 
 .
- Es gilt 
+ Per Definition ist 
 \begin_inset Formula $\pi\beta_{\bar{t}}\left(\bar{y}\right)=\beta_{\pi\bar{t}}\left(\bar{y}\right)$
 \end_inset
 
- und daher 
-\begin_inset Formula $\Sigma\left(\hat{\pi}v_{\bar{t}}\right)=\pi\Sigma\left(v_{\bar{t}}\right)$
+ und daher sind die Markierungen 
+\begin_inset Formula $\Sigma\left(\hat{\pi}g_{\bar{t}}\right)=\pi\Sigma\left(g_{\bar{t}}\right)$
 \end_inset
 
-, und es gilt 
-\begin_inset Formula $\Omega\left(\pi\bar{t}\right)=v_{\pi\bar{t}}=\hat{\pi}\Omega\left(\bar{t}\right)$
+ und 
+\begin_inset Formula $\Omega\left(\pi\bar{t}\right)=g_{\pi\bar{t}}=\hat{\pi}\Omega\left(\bar{t}\right)$
 \end_inset
 
 .
@@ -2968,7 +3132,7 @@ Für
 \end_inset
 
  sei 
-\begin_inset Formula $\hat{\pi}\left(v_{\bar{t}}\right)\coloneqq v_{\pi\bar{t}}$
+\begin_inset Formula $\hat{\pi}\left(g_{\bar{t}}\right)\coloneqq g_{\pi\bar{t}}$
 \end_inset
 
 .
@@ -2981,7 +3145,7 @@ Für
 \end_inset
 
 , und daher ist 
-\begin_inset Formula $\Sigma\left(\hat{\pi}v_{\bar{t}}\right)=\Sigma\left(v_{\pi\bar{t}}\right)$
+\begin_inset Formula $\Sigma\left(\hat{\pi}g_{\bar{t}}\right)=\Sigma\left(g_{\pi\bar{t}}\right)$
 \end_inset
 
 .
@@ -2989,7 +3153,7 @@ Für
 
 \begin_layout Case
 Für 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=\bigwedge_{i=1}^{\ell}\varphi_{i}\left(\bar{y_{i}}\right)$
+\begin_inset Formula $\varphi\left(\bar{x}\right)=\varphi_{1}\wedge\cdots\wedge\varphi_{\ell}$
 \end_inset
 
  existieren bereits die Automorphismen 
@@ -3005,10 +3169,10 @@ Für
 \begin_inset Formula $\hat{\pi}$
 \end_inset
 
- bilde deren disjunkte Vereinigung und erweitere ihn um die neuen Ausgänge:
+ erweitert diese:
 \begin_inset Formula 
 \[
-\mathcal{C}_{n}^{\varphi_{i}}=\left(V_{i},E_{i},\Sigma_{i},\Omega_{i},U\right)
+\mathcal{C}_{n}^{\varphi_{i}}=\left(G_{i},W_{i},\Sigma_{i},\Omega_{i},U\right)
 \]
 
 \end_inset
@@ -3016,9 +3180,9 @@ Für
 
 \begin_inset Formula 
 \[
-\hat{\pi}\left(v\right)\coloneqq\begin{cases}
-\hat{\pi}_{i}\left(v\right) & \mathrm{für}\,v\in V_{i}\\
-v_{\pi\bar{t}} & \mathrm{für}\,v=v_{\bar{t}}
+\hat{\pi}\left(g\right)\coloneqq\begin{cases}
+\hat{\pi}_{i}\left(g\right) & \mathrm{für}\,g\in G_{i}\\
+g_{\pi\bar{t}} & \mathrm{für}\,g=g_{\bar{t}}
 \end{cases}
 \]
 
@@ -3038,15 +3202,15 @@ Für die Gates und Kanten der Schaltkreise
 \begin_deeper
 \begin_layout Enumerate
 Für die neuen Kanten 
-\begin_inset Formula $\left(\Omega_{i}\left(\rho_{i}\bar{t}\right),v_{\bar{t}}\right)\in E$
+\begin_inset Formula $\left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\in W$
 \end_inset
 
  gilt nach Voraussetzung: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\left(\hat{\pi}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}v_{\bar{t}}\right) & = & \left(\hat{\pi}_{i}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}v_{\bar{t}}\right)\\
- & = & \left(\Omega_{i}\left(\pi\rho_{i}\bar{t}\right),v_{\pi\bar{t}}\right)\\
- & = & \left(\Omega_{i}\left(\rho_{i}\pi\bar{t}\right),v_{\pi\bar{t}}\right)\in E
+\left(\hat{\pi}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right) & = & \left(\hat{\pi}_{i}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\\
+ & = & \left(\Omega_{i}\left(\pi\rho_{i}\bar{t}\right),g_{\pi\bar{t}}\right)\\
+ & = & \left(\Omega_{i}\left(\rho_{i}\pi\bar{t}\right),g_{\pi\bar{t}}\right)\in W
 \end{eqnarray*}
 
 \end_inset
@@ -3064,7 +3228,7 @@ Für die neuen Kanten
 
 \begin_layout Enumerate
 Es gilt 
-\begin_inset Formula $\Sigma\left(\hat{\pi}v_{\bar{t}}\right)=\Sigma\left(v_{\bar{t}}\right)=\vee$
+\begin_inset Formula $\Sigma\left(\hat{\pi}g_{\bar{t}}\right)=\Sigma\left(g_{\bar{t}}\right)=\vee$
 \end_inset
 
 .
@@ -3072,7 +3236,7 @@ Es gilt
 
 \begin_layout Enumerate
 Es gilt 
-\begin_inset Formula $\Omega\left(\pi\bar{t}\right)=v_{\pi\bar{t}}=\hat{\pi}v_{\bar{t}}=\hat{\pi}\Omega\left(\bar{t}\right)$
+\begin_inset Formula $\Omega\left(\pi\bar{t}\right)=g_{\pi\bar{t}}=\hat{\pi}gv=\hat{\pi}\Omega\left(\bar{t}\right)$
 \end_inset
 
 .
@@ -3081,7 +3245,7 @@ Es gilt
 \end_deeper
 \begin_layout Case
 Der Fall 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=\bigvee_{i=1}^{\ell}\varphi_{i}\left(\bar{y_{i}}\right)$
+\begin_inset Formula $\varphi\left(\bar{x}\right)=\varphi_{1}\vee\cdots\vee\varphi_{\ell}$
 \end_inset
 
  folgt analog zu Fall 3.
@@ -3100,7 +3264,7 @@ Für
  Dieser wird wie folgt erweitert:
 \begin_inset Formula 
 \[
-\mathcal{C}_{n}^{\varphi'}=\left(V',E',\Sigma',\Omega',U\right)
+\mathcal{C}_{n}^{\varphi'}=\left(G',W',\Sigma',\Omega',U\right)
 \]
 
 \end_inset
@@ -3108,9 +3272,9 @@ Für
 
 \begin_inset Formula 
 \[
-\hat{\pi}\left(v\right)\coloneqq\begin{cases}
-\hat{\pi'}\left(v\right) & \mathrm{für}\,v\in V'\\
-v_{\pi\bar{t}} & \mathrm{für}\,v=v_{\bar{t}}
+\hat{\pi}\left(g\right)\coloneqq\begin{cases}
+\hat{\pi'}\left(g\right) & \mathrm{für}\,g\in G'\\
+g_{\pi\bar{t}} & \mathrm{für}\,g=g_{\bar{t}}
 \end{cases}
 \]
 
@@ -3149,7 +3313,7 @@ Für
  Diese werden wie folgt erweitert:
 \begin_inset Formula 
 \[
-\mathcal{C}_{n}^{\varphi_{i}}=\left(V_{i},E_{i},\Sigma_{i},\Omega_{i},U\right)
+\mathcal{C}_{n}^{\varphi_{i}}=\left(G_{i},W_{i},\Sigma_{i},\Omega_{i},U\right)
 \]
 
 \end_inset
@@ -3157,9 +3321,9 @@ Für
 
 \begin_inset Formula 
 \[
-\hat{\pi}\left(v\right)\coloneqq\begin{cases}
-\hat{\pi_{i}}\left(v\right) & \mathrm{für}\,v\in V_{i}\\
-w_{\pi\bar{t}} & \mathrm{für}\,v=w_{\bar{t}}\,\mathrm{und}\,w\in\left\{ a,b,c,d,v\right\} 
+\hat{\pi}\left(g\right)\coloneqq\begin{cases}
+\hat{\pi_{i}}\left(g\right) & \mathrm{für}\,g\in G_{i}\\
+g_{\pi\bar{t}} & \mathrm{für}\,g=g_{\bar{t}}\,\mathrm{und}\,g\in\left\{ a,b,c,d,e\right\} 
 \end{cases}
 \]
 
@@ -3181,7 +3345,7 @@ Für
  Dieser wird wie folgt erweitert:
 \begin_inset Formula 
 \[
-\mathcal{C}_{n}^{\varphi'}=\left(V',E',\Sigma',\Omega',U\right)
+\mathcal{C}_{n}^{\varphi'}=\left(G',W',\Sigma',\Omega',U\right)
 \]
 
 \end_inset
@@ -3189,9 +3353,9 @@ Für
 
 \begin_inset Formula 
 \[
-\hat{\pi}\left(v\right)\coloneqq\begin{cases}
-\hat{\pi'}\left(v\right) & \mathrm{für}\,v\in V'\\
-v_{\pi\bar{t}} & \mathrm{für}\,v=v_{\bar{t}}
+\hat{\pi}\left(g\right)\coloneqq\begin{cases}
+\hat{\pi'}\left(g\right) & \mathrm{für}\,g\in G'\\
+g_{\pi\bar{t}} & \mathrm{für}\,g=g_{\bar{t}}
 \end{cases}
 \]
 
@@ -3219,11 +3383,11 @@ Auf den Gates von
 
 \begin_layout Enumerate
 Für die neuen Kanten 
-\begin_inset Formula $\left(\Omega'\left(\bar{t},\bar{t'}\right),v_{\bar{t}}\right)\in E$
+\begin_inset Formula $\left(\Omega'\left(\bar{t},\bar{t'}\right),g_{\bar{t}}\right)\in W$
 \end_inset
 
  gilt 
-\begin_inset Formula $\left(\hat{\pi}\Omega'\left(\bar{t},\bar{t'}\right),\hat{\pi}v_{\bar{t}}\right)=\left(\Omega'\left(\pi\bar{t},\pi\bar{t'}\right),v_{\pi\bar{t}}\right)\in E$
+\begin_inset Formula $\left(\hat{\pi}\Omega'\left(\bar{t},\bar{t'}\right),\hat{\pi}g_{\bar{t}}\right)=\left(\Omega'\left(\pi\bar{t},\pi\bar{t'}\right),g_{\pi\bar{t}}\right)\in W$
 \end_inset
 
 .
@@ -3231,7 +3395,7 @@ Für die neuen Kanten
 
 \begin_layout Enumerate
 Es gilt 
-\begin_inset Formula $\hat{\pi}\Sigma\left(v_{\bar{t}}\right)=\Sigma\left(v_{\bar{t}}\right)=\vee$
+\begin_inset Formula $\hat{\pi}\Sigma\left(g_{\bar{t}}\right)=\Sigma\left(g_{\bar{t}}\right)=\vee$
 \end_inset
 
 .
@@ -3239,7 +3403,7 @@ Es gilt
 
 \begin_layout Enumerate
 Es gilt 
-\begin_inset Formula $\Omega\left(\pi\bar{t}\right)=v_{\pi\bar{t}}=\hat{\pi}v_{\bar{t}}=\hat{\pi}\Omega\left(\bar{t}\right)$
+\begin_inset Formula $\Omega\left(\pi\bar{t}\right)=g_{\pi\bar{t}}=\hat{\pi}g_{\bar{t}}=\hat{\pi}\Omega\left(\bar{t}\right)$
 \end_inset
 
 .
@@ -3268,7 +3432,17 @@ Die Fixpunktlogik
 \begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
-.
+; so ist beispielsweise die Erreichbarkeit über einen Pfad beliebiger Länge
+ nicht erststufig definierbar.
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+Quelle
+\end_layout
+
+\end_inset
+
  Trotzdem kann jede 
 \begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
 \end_inset
@@ -3402,7 +3576,7 @@ Falls
 \end_inset
 
  für 
-\begin_inset Formula $\nicefrac{R}{k}\in\sigma$
+\begin_inset Formula $R/k\in\sigma$
 \end_inset
 
  und 
@@ -4380,7 +4554,7 @@ Wenn
 \end_inset
 
 , so existiert eine Folge von Permutationen 
-\begin_inset Formula $\pi_{1}\circ\cdots\circ\pi_{k}=\pi$
+\begin_inset Formula $\pi_{1}\cdots\pi_{k}=\pi$
 \end_inset
 
 , so dass 
@@ -4411,13 +4585,13 @@ Für jedes
 \end_inset
 
  existiert eine Folge von Transpositionen 
-\begin_inset Formula $\left(x_{i,1}y_{i,1}\right)\circ\cdots\circ\left(x_{i,m}y_{i,m}\right)=\pi_{i}$
+\begin_inset Formula $\left(x_{i,1}y_{i,1}\right)\cdots\left(x_{i,m}y_{i,m}\right)=\pi_{i}$
 \end_inset
 
 .
 \begin_inset Formula 
 \[
-\pi=\left(x_{1,1}y_{1,1}\right)\circ\cdots\circ\left(x_{k,m_{k}}y_{k,m_{k}}\right)
+\pi=\left(x_{1,1}y_{1,1}\right)\cdots\left(x_{k,m_{k}}y_{k,m_{k}}\right)
 \]
 
 \end_inset
@@ -4467,7 +4641,7 @@ Für jede dieser Transpositionen
  Es gilt 
 \begin_inset Formula 
 \begin{eqnarray*}
-\left(xy\right) & = & \left(u_{1}u_{2}\right)\circ\cdots\circ\left(u_{\ell-1}u_{\ell}\right)\circ\left(u_{\ell-1}u_{\ell-2}\right)\circ\cdots\circ\left(u_{2}u_{1}\right)
+\left(xy\right) & = & \left(u_{1}u_{2}\right)\cdots\left(u_{\ell-1}u_{\ell}\right)\left(u_{\ell-1}u_{\ell-2}\right)\cdots\left(u_{2}u_{1}\right)
 \end{eqnarray*}
 
 \end_inset
@@ -4893,7 +5067,11 @@ Dann enthält
 
 \begin_layout Standard
 Diese Beziehung ist an der Repräsentation des Mengenstabilisators als 
-\begin_inset Formula $\left\langle \mathrm{Stab}_{U}\left(\mathcal{P}\right)\cup\bigcup_{i=1}^{\left|U\right|}\mathrm{Sym}_{\mathcal{P}_{\mid i}}\right\rangle $
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} =\left\langle \mathrm{Stab}_{U}\left(\mathcal{P}\right)\cup\bigcup_{i=1}^{\left|U\right|}\mathrm{Sym}_{\mathcal{P}_{\mid i}}\right\rangle 
+\]
+
 \end_inset
 
  erkennbar: Damit sein Index klein ist, muss die Gruppe selbst groß sein,
@@ -5407,7 +5585,7 @@ Träger im Schaltkreis
 
 \begin_layout Definition
 Sei 
-\begin_inset Formula $\mathcal{C}=\left(V,E,\Sigma,\Omega,U\right)$
+\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
 \end_inset
 
  ein rigider, symmetrische Schaltkreis über dem Universum 
@@ -5416,7 +5594,7 @@ Sei
 
 .
  Der Stabilisator eines Gates 
-\begin_inset Formula $g\in V$
+\begin_inset Formula $g\in G$
 \end_inset
 
  sei die Gruppe aller Permutationen von 
@@ -5430,7 +5608,7 @@ Sei
  fixiert: 
 \begin_inset Formula 
 \[
-\mathrm{Stab}_{\mathcal{C}}\left(v\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\hat{\pi}v=v\right\} 
+\mathrm{Stab}_{\mathcal{C}}\left(g\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\hat{\pi}g=g\right\} 
 \]
 
 \end_inset
