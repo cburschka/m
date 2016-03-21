@@ -154,7 +154,7 @@ Für zwei
 \begin_inset Formula $\left\llbracket \left(\varphi_{1}\gamma\varphi_{2}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)$
 \end_inset
 
- sei entsprechend den Booleschen Junktoren definiert.
+ sei entsprechend den booleschen Junktoren definiert.
 \end_layout
 
 \begin_layout Itemize
@@ -232,12 +232,12 @@ Zusätzlich wird der inflationäre Fixpunkt-Operator definiert:
 \end_layout
 
 \begin_layout Itemize
-Für ein beliebiges 
-\begin_inset Formula $k$
+Für jedes Relationssymbol 
+\begin_inset Formula $R\notin\sigma$
 \end_inset
 
--stelliges Relationssymbol 
-\begin_inset Formula $R\notin\sigma$
+ mit Stelligkeit 
+\begin_inset Formula $k\coloneqq\mathrm{ar}\left(R\right)$
 \end_inset
 
 , eine 
@@ -276,15 +276,23 @@ Zum Beispiel:
 \end_layout
 
 \begin_layout Standard
-Die Auswertung 
-\begin_inset Formula $\left\llbracket \left[\mathrm{ifp}_{R,\bar{x}}\varphi\right]\left(\bar{t}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)$
+Für die Auswertung gelte 
+\begin_inset Formula $\left\llbracket \left[\mathrm{ifp}_{R,\bar{x}}\varphi\right]\left(\bar{t}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)=1$
 \end_inset
 
- sei der Fixpunkt der folgenden Sequenz 
+ genau dann wenn 
+\begin_inset Formula $\beta\bar{t}\in R^{*}$
+\end_inset
+
+, wobei 
+\begin_inset Formula $R^{*}$
+\end_inset
+
+ der Fixpunkt der folgenden Sequenz 
 \begin_inset Formula $\left(R^{i}\right)_{i\geqslant0}$
 \end_inset
 
-:
+ ist:
 \end_layout
 
 \begin_layout Standard
@@ -333,20 +341,24 @@ Eine boolesche Basis
 \end_inset
 
  abgekürzt werden.
- Ein Gatter vom Typ 
+ Ein Gate vom Typ 
 \begin_inset Formula $\phi$
 \end_inset
 
  hat den Wert 
-\begin_inset Formula $\phi\left(n,m\right)$
+\begin_inset Formula $\phi\left(m,n\right)$
 \end_inset
 
-, wenn es genau 
-\begin_inset Formula $n$
-\end_inset
-
- Vorgänger besitzt, von denen 
+, wenn genau 
 \begin_inset Formula $m$
+\end_inset
+
+ seiner Vorgänger den Wert 
+\begin_inset Formula $0$
+\end_inset
+
+ und 
+\begin_inset Formula $n$
 \end_inset
 
  den Wert 
@@ -357,15 +369,19 @@ Eine boolesche Basis
 \begin_inset Newline newline
 \end_inset
 
-Zum Beispiel entsprechen UND und ODER den folgenden Funktionen: 
+Zum Beispiel entsprechen UND, ODER und MAJ den folgenden Funktionen: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\wedge\left(n,m\right) & \coloneqq & \begin{cases}
-1 & \mathrm{falls}\,n=m\\
+\wedge\left(m,n\right) & \coloneqq & \begin{cases}
+1 & \mathrm{falls}\,m=0\\
 0 & \mathrm{sonst}
 \end{cases}\\
-\vee\left(n,m\right) & \coloneqq & \begin{cases}
-1 & \mathrm{falls}\,m>0\\
+\vee\left(m,n\right) & \coloneqq & \begin{cases}
+1 & \mathrm{falls}\,n>0\\
+0 & \mathrm{sonst}
+\end{cases}\\
+\mathrm{MAJ}\left(m,n\right) & \coloneqq & \begin{cases}
+1 & \mathrm{falls}\,m<n\\
 0 & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
@@ -381,12 +397,12 @@ Zum Beispiel entsprechen UND und ODER den folgenden Funktionen:
 Schaltkreis
 \end_layout
 
-\begin_layout Standard
+\begin_layout Definition
 Sei 
 \begin_inset Formula $\mathbb{B}$
 \end_inset
 
- eine Basis und 
+ eine boolesche Basis und 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -399,24 +415,35 @@ Sei
 \begin_inset Formula $\mathcal{C}\coloneqq\left(V,E,\Sigma,\Omega,U\right)$
 \end_inset
 
- mit einer Stelligkeit 
-\begin_inset Formula $\mathrm{ar}\left(C\right)\coloneqq m$
+ mit der Stelligkeit 
+\begin_inset Formula $m\coloneqq\mathrm{ar}\left(C\right)$
 \end_inset
 
  besteht aus den folgenden Komponenten: 
 \end_layout
 
+\begin_deeper
 \begin_layout Enumerate
 Ein azyklischer Graph 
 \begin_inset Formula $\left(V,E\right)$
 \end_inset
 
-,
+
 \end_layout
 
 \begin_layout Enumerate
-eine Gattermarkierung 
-\begin_inset Formula $\Sigma:V\rightarrow\mathbb{B}\cup\left\{ \mathbf{0},\mathbf{1}\right\} \cup\left\{ R\bar{x},\neg R\bar{x}\mid R\in\sigma,\bar{x}\in U^{\mathrm{ar}\left(R\right)}\right\} $
+eine Gatemarkierung 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\Sigma:V & \rightarrow & \mathbb{B}\\
+ & \cup & \left\{ \mathbf{0},\mathbf{1}\right\} \\
+ & \cup & \left\{ R\bar{x},\neg R\bar{x}\mid R\in\sigma,\bar{x}\in U^{\mathrm{ar}\left(R\right)}\right\} 
+\end{eqnarray*}
+
 \end_inset
 
 
@@ -427,7 +454,7 @@ eine Ausgabefunktion
 \begin_inset Formula $\Omega:U^{m}\rightarrow V$
 \end_inset
 
- (für 
+ (bei 
 \begin_inset Formula $m=0$
 \end_inset
 
@@ -446,23 +473,28 @@ ein geordnetes Universum
 .
 \end_layout
 
+\end_deeper
+\begin_layout --Separator--
+
+\end_layout
+
 \begin_layout Definition
 
 \series bold
 Auswertung von Schaltkreisen
 \end_layout
 
-\begin_layout Standard
+\begin_layout Definition
 Der Schaltkreis 
 \begin_inset Formula $\mathcal{C}$
 \end_inset
 
- wird über einer 
+ wird über einer geordneten 
 \begin_inset Formula $\sigma$
 \end_inset
 
 -Struktur 
-\begin_inset Formula $\mathfrak{A}$
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}_{\leqslant}\left(\sigma\right)$
 \end_inset
 
  mit dem Universum 
@@ -489,6 +521,7 @@ Der Schaltkreis
  zuweist, und ist rekursiv wie folgt definiert:
 \end_layout
 
+\begin_deeper
 \begin_layout Enumerate
 Falls das Eingangsgatter 
 \begin_inset Formula $v$
@@ -534,6 +567,30 @@ Für ein negiertes Literal
 \end_layout
 
 \begin_layout Enumerate
+Für 
+\begin_inset Formula $\Sigma\left(v\right)=\mathbf{0}$
+\end_inset
+
+ beziehungsweise 
+\series bold
+
+\begin_inset Formula $\mathbf{1}$
+\end_inset
+
+ 
+\series default
+ist 
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(v\right)=0$
+\end_inset
+
+ beziehungsweise 
+\begin_inset Formula $1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
 Für ein inneres Gatter mit dem Symbol
 \begin_inset Formula $\Sigma\left(v\right)=\phi\in\mathbb{B}$
 \end_inset
@@ -543,59 +600,17 @@ Für ein inneres Gatter mit dem Symbol
 \end_inset
 
 , wobei 
-\begin_inset Formula $i$
-\end_inset
-
- der Eingangsgrad von 
-\begin_inset Formula $v$
+\begin_inset Formula $i=\#\left\{ \left(u,v\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(u\right)=0\right\} $
 \end_inset
 
  und 
-\begin_inset Formula $j=\sum_{\left(u,v\right)\in E}\mathcal{C}\left[\mathfrak{A}\right]\left(u\right)$
+\begin_inset Formula $j=\#\left\{ \left(u,v\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(u\right)=1\right\} $
 \end_inset
 
- die Anzahl der mit 1 belegten Vorgänger ist.
+ die Anzahl der mit 0 beziehungsweise 1 belegten Vorgänger sind.
 \end_layout
 
-\begin_layout Standard
-Ein Tupel 
-\begin_inset Formula $\bar{x}\in U^{m}$
-\end_inset
-
- erfüllt den Schaltkreis 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- genau dann wenn das Gatter 
-\begin_inset Formula $\Omega\left(\bar{x}\right)$
-\end_inset
-
- den Wert 
-\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{x}\right)\right)=1$
-\end_inset
-
- hat.
- Dafür führen wir die abgekürzte Notation 
-\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(\bar{x}\right)=1$
-\end_inset
-
- beziehungsweise 
-\begin_inset Formula $\bar{x}\in\mathcal{C}\left[\mathfrak{A}\right]$
-\end_inset
-
- ein.
- Für 0-stellige Schaltkreise schreiben wir 
-\begin_inset Formula $\mathfrak{A}\models\mathcal{C}$
-\end_inset
-
- bzw.
- 
-\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]=1$
-\end_inset
-
-.
-\end_layout
-
+\end_deeper
 \begin_layout Subsection
 Eigenschaften von Schaltkreisen
 \end_layout
@@ -606,13 +621,13 @@ Eigenschaften von Schaltkreisen
 Invarianz
 \end_layout
 
-\begin_layout Standard
-Für eine 
+\begin_layout Definition
+Für eine endliche 
 \begin_inset Formula $\sigma$
 \end_inset
 
 -Struktur 
-\begin_inset Formula $\mathfrak{A}$
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
 \end_inset
 
  mit beliebigem Universum 
@@ -631,7 +646,7 @@ Für eine
 \begin_inset Formula $\pi\mathfrak{A}$
 \end_inset
 
- die entsprechende isomorphe Struktur mit Universum 
+ die entsprechende geordnete Struktur mit Universum 
 \begin_inset Formula $U$
 \end_inset
 
@@ -640,7 +655,7 @@ Für eine
 \begin_inset Formula $\mathcal{C}$
 \end_inset
 
- ist 
+ heiße 
 \series bold
 invariant
 \series default
@@ -655,7 +670,7 @@ invariant
  gilt:
 \begin_inset Formula 
 \[
-\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\pi_{1}\bar{a}\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\pi{}_{2}\bar{a}\right)
+\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\pi{}_{2}\bar{a}\right)\right)
 \]
 
 \end_inset
@@ -676,6 +691,22 @@ Für invariante Schaltkreise bezeichne
 \end_layout
 
 \begin_layout Definition
+Als Abkürzung schreiben wir 
+\begin_inset Formula $\bar{a}\models\mathcal{C}\left[\mathfrak{A}\right]$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{a}\right)\right)=1$
+\end_inset
+
+ ist.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
 
 \series bold
 Symmetrie
@@ -686,7 +717,7 @@ Ein Schaltkreis
 \begin_inset Formula $\mathcal{C}$
 \end_inset
 
- ist 
+ heiße 
 \series bold
 symmetrisch
 \series default
@@ -722,17 +753,15 @@ Für alle Eingangsgatter
 \begin_inset Formula $\Sigma\left(v\right)=R\bar{x}$
 \end_inset
 
- bzw.
- 
+ beziehungsweise 
 \begin_inset Formula $\Sigma\left(v\right)=\neg R\bar{x}$
 \end_inset
 
- gilt
+ gilt 
 \begin_inset Formula $\Sigma\left(\hat{\pi}v\right)=R\,\pi\bar{x}$
 \end_inset
 
- bzw.
- 
+ beziehungsweise 
 \begin_inset Formula $\Sigma\left(\hat{\pi}v\right)=\neg R\,\pi\bar{x}$
 \end_inset
 
@@ -794,16 +823,20 @@ Sei
 \begin_inset Formula $U$
 \end_inset
 
-.
- Es ist zu zeigen, dass 
-\begin_inset Formula $\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\pi_{1}\bar{a}\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\pi_{2}\bar{a}\right)$
-\end_inset
-
- für alle 
+, und sei 
 \begin_inset Formula $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$
 \end_inset
 
- gilt.
+ ein beliebiges Tupel.
+ Es ist zu zeigen, dass: 
+\begin_inset Formula 
+\[
+\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\pi_{2}\bar{a}\right)\right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Proof
@@ -1198,12 +1231,12 @@ Eine
 \begin_inset Formula $q$
 \end_inset
 
- sei eine Abbildung jeder 
+ sei eine Abbildung jeder endlichen 
 \begin_inset Formula $\sigma$
 \end_inset
 
 -Struktur 
-\begin_inset Formula $\mathfrak{A}$
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
 \end_inset
 
  auf eine 
@@ -1224,7 +1257,7 @@ Eine
 -Eigenschaft
 \series default
  
-\begin_inset Formula $S$
+\begin_inset Formula $S\subseteq\mathbf{FIN}\left(\sigma\right)$
 \end_inset
 
  sei eine Klasse von 
@@ -1300,7 +1333,7 @@ berechne
 \end_inset
 
  genau dann wenn 
-\begin_inset Formula $\mathcal{C}_{\left|A\right|}\left[\mathfrak{A}\right]=q\left(\mathfrak{A}\right)$
+\begin_inset Formula $q\left(\mathfrak{A}\right)=\left\{ \bar{a}\in A^{m}\mid\bar{a}\models\mathcal{C}_{n}\left[\mathfrak{A}\right]\right\} $
 \end_inset
 
  für jede 
@@ -1311,6 +1344,10 @@ berechne
 \begin_inset Formula $\mathfrak{A}$
 \end_inset
 
+ der Größe 
+\begin_inset Formula $n$
+\end_inset
+
  gilt.
 \end_layout
 
@@ -1319,7 +1356,7 @@ Logische Charakterisierung von Schaltkreisen
 \end_layout
 
 \begin_layout Subsection*
-Formel zu Schaltkreis
+FO zu Schaltkreis
 \end_layout
 
 \begin_layout Lemma
@@ -1339,7 +1376,7 @@ Jede
 \begin_inset Formula $q$
 \end_inset
 
-, die von einer invarianten Schaltkreis-Familie 
+, die von einer symmetrischen Schaltkreis-Familie 
 \begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
 \end_inset
 
@@ -1352,7 +1389,7 @@ Sei
 \end_inset
 
  eine relationale Signatur, und sei 
-\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\begin_inset Formula $\varphi$
 \end_inset
 
  eine 
@@ -1372,10 +1409,14 @@ Sei
 \end_inset
 
  o.B.d.A.
- in Pränex-Normalform:
+ in Pränex-Normalform, und die darin vorkommenden Variablen durch 
+\begin_inset Formula $x_{1},\cdots,x_{m+k}=\bar{x}$
+\end_inset
+
+ benannt:
 \begin_inset Formula 
 \[
-\varphi\left(\bar{x}\right)\coloneqq Q_{1}y_{1}\cdots Q_{k}y_{k}\psi\left(\bar{x},\bar{y}\right)
+\varphi\left(x_{1},\cdots,x_{m}\right)\coloneqq Q_{1}x_{m+1}\cdots Q_{k}x_{m+k}\psi\left(\bar{x}\right)
 \]
 
 \end_inset
@@ -1391,7 +1432,7 @@ Sei
  o.b.d.A.
  in Negationsnormalform.
  Sei 
-\begin_inset Formula $\mathcal{C}_{n}\left(\psi\right)=\left(V,E,\Sigma,\Omega,U\right)$
+\begin_inset Formula $\mathcal{C}_{n}\left(\psi\right)$
 \end_inset
 
  ein Schaltkreis mit Stelligkeit 
@@ -1402,93 +1443,144 @@ Sei
 \begin_inset Formula $\psi$
 \end_inset
 
- entsteht: 
+ entsteht:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Falls 
+\begin_inset Formula $\psi'=\bigwedge_{i=1}^{\ell}\psi_{i}$
+\end_inset
+
+, so besteht 
+\begin_inset Formula $\mathcal{C}_{n}\left(\psi'\right)$
+\end_inset
+
+ aus der disjunkten Vereinigung von 
+\begin_inset Formula $\mathcal{C}_{n}\left(\psi_{i}\right)$
+\end_inset
+
+ für 
+\begin_inset Formula $1\leqslant i\leqslant\ell$
+\end_inset
+
+ mit der folgenden Erweiterung:
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{C}_{n}\left(\bigwedge_{i=1}^{m}\psi_{i}\right) & = & \bigwedge_{i=1}^{m}\mathcal{C}_{\psi_{i}}\\
-\mathcal{C}_{n}\left(\bigvee_{i=1}^{m}\psi_{i}\right) & = & \bigvee_{i=1}^{m}\mathcal{C}_{\psi_{i}}
+\mathcal{C}_{n}\left(\psi'\right) & \coloneqq & \left(V,E,\Sigma,\Omega,U\right)\\
+\mathcal{C}_{n}\left(\psi_{i}\right) & \coloneqq & \left(V_{i},E_{i},\Sigma_{i},\Omega_{i},U\right)
 \end{eqnarray*}
 
 \end_inset
 
-Hierbei werde für 
-\begin_inset Formula $\phi\in\left\{ \vee,\wedge\right\} $
+Den Gates der Teilschaltkreise werden neue Ausgänge für jedes 
+\begin_inset Formula $\left(m+k\right)$
 \end_inset
 
- und eine Menge von Schaltkreisen 
-\begin_inset Formula $X$
+-Tupel aus 
+\begin_inset Formula $U$
 \end_inset
 
- der Schaltkreis 
-\begin_inset Formula $\phi\left(X\right)$
+ hinzugefügt:
+\begin_inset Formula 
+\begin{eqnarray*}
+V & \coloneqq & \bigcup_{i=1}^{\ell}V_{i}\cup\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m+k}\right\} \\
+\Omega\left(\bar{t}\right) & \coloneqq & v_{\bar{t}}\,\mathrm{f.a.\,}\bar{t}\in U^{m+k}
+\end{eqnarray*}
+
 \end_inset
 
- aus der disjunkten Vereinigung von 
-\begin_inset Formula $X$
+Die neuen Ausgänge werden entsprechend mit denen der Teilschaltkreise verknüpft:
+\begin_inset Formula 
+\[
+E\coloneqq\bigcup_{i=1}^{\ell}E_{i}\cup\left\{ \left(\Omega_{i}\left(\bar{t}\right),v_{\bar{t}}\right)\mid1\leqslant i\leqslant\ell,\,\bar{t}\in U^{m+k}\right\} 
+\]
+
 \end_inset
 
- konstruiert, in dem für jedes Tupel 
-\begin_inset Formula $\bar{z}\in U^{m+k}$
-\end_inset
+Die Gates werden entsprechend beschriftet:
+\begin_inset Formula 
+\[
+\Sigma\left(v\right)=\begin{cases}
+\Sigma_{i}\left(v\right) & \mathrm{für}\,v\in V_{i}\\
+\wedge & \mathrm{für}\,v=v_{\bar{t}}
+\end{cases}
+\]
 
- ein Gatter 
-\begin_inset Formula $\Omega^{\phi\left(X\right)}\left(\bar{z}\right)=v$
-\end_inset
-
- mit der Markierung 
-\begin_inset Formula $\Sigma^{\phi\left(X\right)}\left(v\right)=\phi$
-\end_inset
-
- und den Eingängen 
-\begin_inset Formula $\left\{ \Omega^{C}\left(\bar{x}\right)\mid C\in X\right\} $
-\end_inset
-
- eingefügt wird.
- 
-\begin_inset Newline newline
 \end_inset
 
 
 \end_layout
 
 \begin_layout Enumerate
-Ein Schaltkreis mit einem einzigen Literal 
-\begin_inset Formula $R\bar{z}$
+Falls 
+\begin_inset Formula $\psi'=\bigvee_{i=1}^{\ell}\psi_{i}$
 \end_inset
 
- bzw.
- 
-\begin_inset Formula $\neg R\bar{z}$
+, so sei der Schaltkreis analog zu (a) mit 
+\begin_inset Formula $\Sigma\left(v_{\bar{t}}\right)=\vee$
 \end_inset
 
- besteht aus 
+.
+\end_layout
+
+\begin_layout Enumerate
+Falls 
+\begin_inset Formula $\psi'=R\bar{z}$
+\end_inset
+
+, so besteht 
+\begin_inset Formula $\mathcal{C}_{n}\left(\psi'\right)$
+\end_inset
+
+ aus 
 \begin_inset Formula $U^{m+k}$
 \end_inset
 
- isolierten Knoten, wobei für jede Belegung 
-\begin_inset Formula $\beta\in\mathrm{Abb}\left(\bar{x}\bar{y},U\right)$
+ isolierten Gates.
+ Für jedes Tupel 
+\begin_inset Formula $\bar{t}\in U^{m+k}$
 \end_inset
 
- das Ausgangsgatter 
-\begin_inset Formula $\Omega\left(\beta\left(\bar{x}\bar{y}\right)\right)=v$
+ sei 
+\begin_inset Formula $\beta_{\bar{t}}:\bar{x}\mapsto\bar{t}$
 \end_inset
 
- mit dem Eingang 
-\begin_inset Formula $\Sigma\left(v\right)=R\beta\left(\bar{z}\right)$
+ die Abbildung der Variablen 
+\begin_inset Formula $\bar{x}$
 \end_inset
 
- bzw.
- 
-\begin_inset Formula $\Sigma\left(v\right)=\neg R\beta\left(\bar{z}\right)$
+ auf das Tupel 
+\begin_inset Formula $\bar{t}$
 \end_inset
 
- markiert ist.
- 
+, und sei der Ausgang 
+\begin_inset Formula $\Omega\left(\bar{t}\right)=v_{\bar{t}}$
+\end_inset
+
+ als Eingang mit 
+\begin_inset Formula $\Sigma\left(v_{\bar{t}}\right)=R\beta_{\bar{t}}\left(\bar{z}\right)$
+\end_inset
+
+ markiert.
 \end_layout
 
 \begin_layout Enumerate
+Falls 
+\begin_inset Formula $\psi'=\neg R\bar{z}$
+\end_inset
+
+, so sei der Schaltkreis analog zu (c) mit 
+\begin_inset Formula $\Sigma\left(v_{\bar{t}}\right)=\neg R\beta_{\bar{t}}\left(\bar{z}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
 Für eine Formel 
-\begin_inset Formula $\varphi'\left(\bar{x}\right)\coloneqq Qy_{1}\cdots Qy_{k}\varphi''\left(\bar{x},y_{i},\cdots,y_{k}\right)$
+\begin_inset Formula $\varphi'\left(x_{1},\cdots,x_{m+i-1}\right)=Qx_{m+i}\cdots Qx_{m+j}\varphi''\left(x_{1},\cdots,x_{m+j}\right)$
 \end_inset
 
  mit 
@@ -1496,33 +1588,83 @@ Für eine Formel
 \end_inset
 
  werde der Schaltkreis 
-\begin_inset Formula $\mathcal{C}_{\varphi'}^{n}$
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi'\right)=\left(V',E',\Sigma',\Omega',U\right)$
 \end_inset
 
  aus 
-\begin_inset Formula $\mathcal{C}_{\varphi''}^{n}$
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi''\right)=\left(V'',E'',\Sigma'',\Omega'',U\right)$
 \end_inset
 
- konstruiert, in dem für jedes Tupel 
-\begin_inset Formula $\bar{x}\in U^{m}$
+ wie folgt konstruiert:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Es werden neue Ausgänge eingefügt:
+\begin_inset Formula 
+\begin{eqnarray*}
+V' & \coloneqq & V''\cup\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m+i-1}\right\} \\
+\Omega'\left(\bar{t}\right) & \coloneqq & v_{\bar{t}}\,f.a.\,\bar{t}\in U^{m+i-1}
+\end{eqnarray*}
+
 \end_inset
 
- ein Gatter 
-\begin_inset Formula $\Omega^{\phi\left(X\right)}\left(\bar{x}\right)=v$
+
+\end_layout
+
+\begin_layout Enumerate
+Jeder neue Ausgang 
+\begin_inset Formula $v_{\bar{t}}$
 \end_inset
 
- mit der Markierung 
-\begin_inset Formula $\Sigma^{\phi\left(X\right)}\left(v\right)=\begin{cases}
-\vee & \mbox{falls \ensuremath{Q=\exists}}\\
-\wedge & \mbox{sonst}
+ wird mit den alten Ausgängen für alle Tupel verknüpft, die mit 
+\begin_inset Formula $\bar{t}$
+\end_inset
+
+ anfangen:
+\begin_inset Formula 
+\[
+E'\coloneqq E''\cup\left\{ \left(\Omega''\left(\bar{t}\bar{t}'\right),v_{\bar{t}}\right)\mid\bar{t}\in U^{m+i-1},\,\bar{t}'\in U^{j-i}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Die neuen Ausgänge werden mit 
+\begin_inset Formula $\Sigma'\left(v_{\bar{t}}\right)=\begin{cases}
+\wedge & \mathrm{für}\,Q=\forall\\
+\vee & \mathrm{für}\,Q=\exists
 \end{cases}$
 \end_inset
 
- und den Eingängen 
-\begin_inset Formula $\left\{ \Omega^{C}\left(\bar{x}\bar{y}\right)\mid\bar{y}\in U^{k}\right\} $
+ markiert.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Durch wiederholte Anwendung der Regel (3) entsteht schließlich der Schaltkreis
+ 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi\right)$
 \end_inset
 
- eingefügt wird.
+.
+ Seine Tiefe ist beschränkt durch 
+\begin_inset Formula $\left\Vert \varphi\right\Vert $
+\end_inset
+
+; seine Größe ist beschränkt durch 
+\begin_inset Formula $\left\Vert \varphi\right\Vert \cdot n^{m+k}$
+\end_inset
+
+.
+ Es bleibt zu beweisen, dass der Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{n}\left(\varphi\right)$
+\end_inset
+
+ symmetrisch ist.
 \end_layout
 
 \end_body

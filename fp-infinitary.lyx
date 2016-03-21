@@ -1,5 +1,5 @@
-#LyX 2.2 created this file. For more info see http://www.lyx.org/
-\lyxformat 480
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
 \begin_document
 \begin_header
 \textclass article
@@ -112,8 +112,22 @@ SB\underset{\mathcal{P}}{\subsetneq}SM\underset{\mathcal{P}}{\subsetneq}IB\subse
 \begin{eqnarray*}
 \varphi\left(x,y\right) & \coloneqq & \left[\mathrm{ifp}_{R\left(v\right)}\left(\overbrace{v=x\vee\exists u\left(R\left(u\right)\wedge E\left(u,v\right)\right)}\right)\right]\left(y\right)\\
 \varphi_{1}\left(x,y\right) & \coloneqq & \left.\left(v=x\vee FALSE\right)\right|_{v=y}\\
+\varphi_{1}' & \coloneqq & \forall x\forall y\left(x=y\right)\\
 \varphi_{2}\left(x,y\right) & \coloneqq & \left.\left(v=x\vee\exists u\left(\overbrace{\left.\left(v=x\right)\right|_{v=u}\vee FALSE}^{R^{1}\left(u\right)}\wedge E\left(u,v\right)\right)\right)\right|_{v=y}\\
-\varphi_{3}\left(x,y\right) & \coloneqq & \left.\left(v=x\vee\exists u\left(\overbrace{\left.\left(v=x\right)\right|_{v=u}\vee\exists u\left(\overbrace{\left.\left(v=x\right)\right|_{v=u}\vee FALSE}^{R^{1}\left(u\right)}\wedge E\left(u,v\right)\right)}^{R^{2}\left(u\right)}\wedge E\left(u,v\right)\right)\right)\right|_{v=y}
+\varphi_{2}' & \coloneqq & \forall x\forall y\,\left(y=x\vee E\left(x,y\right)\right)\\
+\varphi_{3}\left(x,y\right) & \coloneqq & \left.\left(v=x\vee\exists u\left(\overbrace{\left.\left(v=x\right)\vee\exists u\left(\overbrace{\left.\left(v=x\right)\right|_{v=u}\vee FALSE}^{R^{1}\left(u\right)}\wedge E\left(u,v\right)\right)\right|_{v=u}}^{R^{2}\left(u\right)}\wedge E\left(u,v\right)\right)\right)\right|_{v=y}\\
+\\
+ &  & \left.\left(v'''=x\vee\exists u''\left(\overbrace{\left.\left(v''=x\right)\vee\exists u'\left(\overbrace{\left.\left(v'=x\right)\right|_{v'=u'}}^{R^{1}\left(u'\right)}\wedge E\left(u',v''\right)\right)\right|_{v''=u''}}^{R^{2}\left(u''\right)}\wedge E\left(u'',v'''\right)\right)\right)\right|_{v'''=y}\\
+ &  & \left(y=x\vee\exists u''\left(\overbrace{\left.\left(v''=x\right)\vee\exists u'\left(\overbrace{\left.\left(v'=x\right)\right|_{v'=u'}}^{R^{1}\left(u'\right)}\wedge E\left(u',v''\right)\right)\right|_{v''=u''}}^{R^{2}\left(u''\right)}\wedge E\left(u'',y\right)\right)\right)\\
+ &  & \left(y=x\vee\exists u''\left(\overbrace{\left.\left(u''=x\right)\vee\exists u'\left(\overbrace{\left.\left(v'=x\right)\right|_{v'=u'}}^{R^{1}\left(u'\right)}\wedge E\left(u',u''\right)\right)\right|}^{R^{2}\left(u''\right)}\wedge E\left(u'',y\right)\right)\right)\\
+ &  & \left(y=x\vee\exists u''\left(\overbrace{\left(\left(u''=x\right)\vee\exists u'\left(\left(u'=x\right)\wedge E\left(u',u''\right)\right)\right)}\wedge E\left(u'',y\right)\right)\right)\\
+ &  & \left(y=x\vee\exists u''\left(\overbrace{\left(\left(u''=x\right)\vee E\left(x,u''\right)\right)}\wedge E\left(u'',y\right)\right)\right)\\
+ &  & \left(x=y\vee\exists u''\left(\overbrace{\left(\left(x=u''\right)\vee E\left(x,u''\right)\right)}\wedge E\left(u'',y\right)\right)\right)\\
+ &  & \left(x=y\vee\exists u''\left(\overbrace{\left(\left(x=u''\wedge E\left(u'',y\right)\right)\vee\left(E\left(x,u''\right)\wedge E\left(u'',y\right)\right)\right)}\right)\right)\\
+ &  & \left(x=y\vee\overbrace{\left(\exists u''\left(x=u''\wedge E\left(u'',y\right)\right)\vee\exists u''\left(E\left(x,u''\right)\wedge E\left(u'',y\right)\right)\right)}\right)\\
+ & \equiv & x=y\vee E\left(x,y\right)\vee\exists u''\left(E\left(x,u''\right)\wedge E\left(u'',y\right)\right)\\
+\\
+\varphi_{3}' & \coloneqq & \forall x\forall y\left(x=y\vee E\left(x,y\right)\vee\exists u\left(E\left(x,u\right)\wedge E\left(u,y\right)\right)\right)
 \end{eqnarray*}
 
 \end_inset
