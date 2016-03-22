@@ -9,6 +9,7 @@
 \use_default_options true
 \begin_modules
 theorems-ams
+theorems-sec
 \end_modules
 \maintain_unincluded_children false
 \language ngerman
@@ -85,7 +86,15 @@ Einleitung
 \end_layout
 
 \begin_layout Enumerate
-FP < SBC (< P): Jede Fixpunktformel kann für 
+FP[<] 
+\begin_inset Formula $\subseteq$
+\end_inset
+
+ SBC (
+\begin_inset Formula $\subseteq$
+\end_inset
+
+ P): Jede Fixpunktformel mit Ordnungsprädikat kann für 
 \begin_inset Formula $n\in\mathbb{N}$
 \end_inset
 
@@ -106,12 +115,19 @@ FP < SBC (< P): Jede Fixpunktformel kann für
 \end_layout
 
 \begin_layout Enumerate
-FP+C < SBC+MAJ ( < P): Majority gates erlauben zusätzlich, Zählquantoren
- zu übersetzen.
+FP+C 
+\begin_inset Formula $\subseteq$
+\end_inset
+
+ SBC+MAJ ( < P): Majority gates erlauben zusätzlich Zählterme zu übersetzen.
 \end_layout
 
 \begin_layout Enumerate
-SBC < FP[<]: Jede P-uniforme 
+SBC 
+\begin_inset Formula $\subseteq$
+\end_inset
+
+ FP[<]: Jede P-uniforme 
 \begin_inset Formula $\left[\sigma\right]$
 \end_inset
 
@@ -133,14 +149,42 @@ SBC < FP[<]: Jede P-uniforme
 \end_layout
 
 \begin_layout Enumerate
-SBC+MAJ < FP+C: FP-Logik mit Zählquantoren kann zusätzlich Majority gates
- beschreiben, und kommt ohne Ordnungsrelation aus.
+SBC+MAJ 
+\begin_inset Formula $\subseteq$
+\end_inset
+
+ FP+C: FP-Logik mit Zähltermen kann zusätzlich Majority gates beschreiben.
 \end_layout
 
 \begin_layout Enumerate
-???/poly < FP+Arb? D.h.
- Kann die Uniformität durch Advice-Prädikate ersetzt werden? (Bekannt: non-unifo
-rm AC0 < FO+Arb; uniform AC0 < FO+Bit.)
+Nicht-uniformes SBC 
+\begin_inset Formula $\subseteq$
+\end_inset
+
+ FP+C+
+\begin_inset Formula $\Upsilon$
+\end_inset
+
+: (Vergleiche mit 
+\begin_inset Quotes gld
+\end_inset
+
+nicht uniformes AC0 = FO+
+\begin_inset Formula $\Upsilon$
+\end_inset
+
+
+\begin_inset Quotes grd
+\end_inset
+
+ aus [Anderson, van Melkebeek, Schweikardt, Segoufin].)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -148,33 +192,86 @@ Grundlagen
 \end_layout
 
 \begin_layout Subsection
-Relationale Strukturen
+Notationen
 \end_layout
 
 \begin_layout Definition
-Eine relationale Signatur 
-\begin_inset Formula $\sigma$
+
+\series bold
+Tupel
+\end_layout
+
+\begin_layout Definition
+Ein Tupel von Elementen einer Menge 
+\begin_inset Formula $U$
 \end_inset
 
- sei eine endliche Menge von Relationssymbolen 
-\begin_inset Formula $\left\{ R_{1},\cdots,R_{m}\right\} $
+ 
+\begin_inset Formula $\left(x_{1},\cdots,x_{n}\right)$
+\end_inset
+
+ wird durch 
+\begin_inset Formula $\bar{x}\in U^{n}$
+\end_inset
+
+ notiert, 
+\begin_inset Formula $\#\bar{x}=n$
+\end_inset
+
+ sei die Anzahl der Elemente des Tupels, und ein 
+\begin_inset Formula $n$
+\end_inset
+
+-stelliges Tupel heiße kurz 
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $n$
+\end_inset
+
+-Tupel
+\begin_inset Quotes grd
 \end_inset
 
 .
- Jedes Symbol 
-\begin_inset Formula $R\in\sigma$
+\end_layout
+
+\begin_layout Definition
+Für zwei Tupel 
+\begin_inset Formula $\bar{x},\bar{y}$
 \end_inset
 
- habe eine feste Stelligkeit 
-\begin_inset Formula $\mathrm{ar}\left(R\right)\in\mathbb{N}_{\geqslant1}$
+ mit 
+\begin_inset Formula $\#\bar{x}=m$
 \end_inset
 
-; gelegentlich wird die Stelligkeit 
-\begin_inset Formula $\mathrm{ar}\left(R\right)=k$
+ und 
+\begin_inset Formula $\#\bar{y}=n$
 \end_inset
 
- kompakt mit 
-\begin_inset Formula $R/k\in\sigma$
+ sei 
+\begin_inset Formula $\bar{x}\bar{y}$
+\end_inset
+
+ das 
+\begin_inset Formula $\left(m+n\right)$
+\end_inset
+
+-Tupel 
+\begin_inset Formula $\left(x_{1},\cdots,x_{m},y_{1},\cdots,y_{m}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Das 
+\begin_inset Formula $0$
+\end_inset
+
+-stellige Tupel wird durch 
+\begin_inset Formula $\left\langle \right\rangle $
 \end_inset
 
  notiert.
@@ -185,27 +282,261 @@ Eine relationale Signatur
 \end_layout
 
 \begin_layout Definition
-Eine endliche 
-\begin_inset Formula $\sigma$
+
+\series bold
+Abbildung
+\end_layout
+
+\begin_layout Definition
+Für eine Abbildung 
+\begin_inset Formula $\pi:A\rightarrow B$
 \end_inset
 
--Struktur 
-\begin_inset Formula $\mathfrak{A}$
+ und 
+\begin_inset Formula $a\in A$
 \end_inset
 
- besteht aus einem endlichen Universum 
-\begin_inset Formula $A\neq\emptyset$
+ wird 
+\begin_inset Formula $\pi\left(a\right)$
 \end_inset
 
- und einer Interpretation 
-\begin_inset Formula $R^{\mathfrak{A}}\subseteq A^{k}$
+ auch durch 
+\begin_inset Formula $\pi a$
 \end_inset
 
- für jedes Relationssymbol 
-\begin_inset Formula $R/k\in\sigma$
+ abgekürzt.
+\end_layout
+
+\begin_layout Definition
+Es sei 
+\begin_inset Formula $\mathbf{id}:A\rightarrow A$
+\end_inset
+
+ die Identität mit 
+\begin_inset Formula $\mathbf{id}\left(a\right)=a$
+\end_inset
+
+ für 
+\begin_inset Formula $a\in A$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Definition
+Jede Abbildung 
+\begin_inset Formula $\pi:A\rightarrow B$
+\end_inset
+
+ wird auf natürliche Weise auf Tupel, Teilmengen und Relationen von 
+\begin_inset Formula $A$
+\end_inset
+
+ erweitert:
+\begin_inset Formula 
+\begin{eqnarray*}
+\pi\left(x_{1},\cdots,x_{k}\right) & \coloneqq & \left(\pi x_{1},\cdots,\pi x_{n}\right)\\
+\pi\left\{ x_{1},\cdots,x_{n}\right\}  & \coloneqq & \left\{ \pi x_{1},\cdots,\pi x_{n}\right\} \\
+\pi\left\{ \bar{x_{1}},\cdots,\bar{x_{n}}\right\}  & \coloneqq & \left\{ \pi\bar{x_{1}},\cdots,\pi\bar{x_{n}}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Die Abbildung 
+\begin_inset Formula $\pi$
+\end_inset
+
+ wird extensional durch 
+\begin_inset Formula $\left(\begin{array}{c}
+a_{1}\\
+\pi a_{1}
+\end{array}\cdots\begin{array}{c}
+a_{n}\\
+\pi a_{n}
+\end{array}\right)$
+\end_inset
+
+ notiert.
+\end_layout
+
+\begin_layout Definition
+Für zwei Abbildungen 
+\begin_inset Formula $\pi_{1}:B\rightarrow C$
+\end_inset
+
+ und 
+\begin_inset Formula $\pi_{2}:A\rightarrow B$
+\end_inset
+
+ sei 
+\begin_inset Formula $\pi_{1}\circ\pi_{2}:A\rightarrow C$
+\end_inset
+
+ (kurz 
+\begin_inset Formula $\pi_{1}\pi_{2}$
+\end_inset
+
+) die folgende Abbildung: 
+\begin_inset Formula 
+\[
+\pi_{1}\pi_{2}\coloneqq\left(\begin{array}{c}
+u_{1}\\
+\pi_{1}\left(\pi_{2}\left(u_{1}\right)\right)
+\end{array}\cdots\begin{array}{c}
+u_{n}\\
+\pi_{1}\left(\pi_{2}\left(u_{n}\right)\right)
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Für zwei Abbildungen 
+\begin_inset Formula $\pi:A\rightarrow B$
+\end_inset
+
+ und 
+\begin_inset Formula $\pi':A'\rightarrow B'$
+\end_inset
+
+ mit disjunkten Definitionsbereichen sei 
+\begin_inset Formula $\pi\uplus\pi':A\cup A'\rightarrow B\cup B'$
+\end_inset
+
+ die folgende Abbildung:
+\begin_inset Formula 
+\[
+\pi\uplus\pi'\left(x\right)\coloneqq\begin{cases}
+\pi\left(x\right) & \mathrm{falls}\,x\in A\\
+\pi'\left(x\right) & \mathrm{falls}\,x\in A'
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Permutation
+\end_layout
+
+\begin_layout Definition
+Eine Permutation von 
+\begin_inset Formula $U$
+\end_inset
+
+ sei eine bijektive Abbildung 
+\begin_inset Formula $\pi:U\rightarrow U$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Die Menge aller Permutationen von 
+\begin_inset Formula $U$
+\end_inset
+
+ sei 
+\begin_inset Formula $\mathrm{Sym}_{U}$
+\end_inset
+
+; diese bildet eine Gruppe bezüglich der Verkettung 
+\begin_inset Formula $\circ:\mathrm{Sym}_{U}\times\mathrm{Sym}_{U}\rightarrow\mathrm{Sym}_{U}$
+\end_inset
+
+ und dem neutralen Element 
+\begin_inset Formula $\mathbf{id}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Es sei 
+\begin_inset Formula $\pi^{-1}$
+\end_inset
+
+ die inverse Abbildung mit 
+\begin_inset Formula $\pi^{-1}\pi=\pi\pi^{-1}=\mathbf{id}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Eine Transposition sei eine Permutation, die zwei Elemente 
+\begin_inset Formula $u_{i}$
+\end_inset
+
+ und 
+\begin_inset Formula $u_{j}$
+\end_inset
+
+ vertauscht und alle anderen Elemente fixiert.
+ Diese wird durch 
+\begin_inset Formula $\left(u_{i}u_{j}\right)$
+\end_inset
+
+ notiert.
+\end_layout
+
+\begin_layout Subsection
+Relationale Strukturen
+\end_layout
+
+\begin_layout Standard
+Wir betrachten Anfragen und Eigenschaften auf Graphen und allgemeinen relational
+en Strukturen.
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Relationale Signatur
+\end_layout
+
+\begin_layout Definition
+Eine relationale Signatur 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ ist eine endliche Menge von Relationssymbolen 
+\begin_inset Formula $\left\{ R_{1},\cdots,R_{m}\right\} $
+\end_inset
+
+.
+ Jedes Symbol 
+\begin_inset Formula $R\in\sigma$
+\end_inset
+
+ habe eine feste Stelligkeit 
+\begin_inset Formula $\mathrm{ar}\left(R\right)=k\in\mathbb{N}_{\geqslant1}$
+\end_inset
+
+; gegebenenfalls wird die Stelligkeit kompakt durch 
+\begin_inset Formula $R/k\in\sigma$
+\end_inset
+
+ beziehungsweise 
+\begin_inset Formula $\sigma=\left\{ R_{1}/k_{1},\cdots,R_{m}/k_{m}\right\} $
+\end_inset
+
+ notiert.
 \end_layout
 
 \begin_layout --Separator--
@@ -219,6 +550,30 @@ Eine endliche
 
 \end_layout
 
+\begin_layout Definition
+Eine endliche 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}=\left(A,\left(R^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
+\end_inset
+
+ besteht aus einem endlichen, nichtleeren Universum 
+\begin_inset Formula $A$
+\end_inset
+
+ und einer Interpretation 
+\begin_inset Formula $R^{\mathfrak{A}}\subseteq A^{k}$
+\end_inset
+
+ für jedes Symbol 
+\begin_inset Formula $R/k\in\sigma$
+\end_inset
+
+.
+\end_layout
+
 \begin_deeper
 \begin_layout Enumerate
 Für 
@@ -226,7 +581,7 @@ Für
 \end_inset
 
  sei 
-\begin_inset Formula $\mathbf{FIN}_{n}\left(\sigma\right)$
+\begin_inset Formula $\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 \end_inset
 
  die Menge aller 
@@ -242,7 +597,7 @@ Für
 
 \begin_layout Enumerate
 Sei 
-\begin_inset Formula $\mathbf{FIN}\left(\sigma\right)\coloneqq\bigcup_{n\in\mathbb{N}_{\geqslant1}}\mathbf{FIN}_{n}\left(\sigma\right)$
+\begin_inset Formula $\mathbf{FIN}\left(\sigma\right)\coloneqq\bigcup_{n\in\mathbb{N}_{\geqslant1}}\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 \end_inset
 
  die Menge aller endlichen 
@@ -258,19 +613,322 @@ Sei
 \end_inset
 
  die Menge der endlichen 
-\begin_inset Formula $\sigma$
+\begin_inset Formula $\sigma\cup\left\{ \leqslant/2\right\} $
 \end_inset
 
 -Strukturen über einem geordneten Universum 
-\begin_inset Formula $U=\left\{ 1,\cdots,n\right\} $
+\begin_inset Formula $U=\left\{ 1,\cdots,n\right\} \subseteq\mathbb{N}$
 \end_inset
 
 .
 \end_layout
 
 \end_deeper
-\begin_layout Subsection
-FO-Logik
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Isomorphismus
+\end_layout
+
+\begin_layout Definition
+Für zwei 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen 
+\begin_inset Formula $\mathfrak{A}=\left(A,\left(R^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{B}=\left(A,\left(R^{\mathfrak{B}}\right)_{R\in\sigma}\right)$
+\end_inset
+
+ sei eine bijektive Abbildung 
+\begin_inset Formula $\pi:A\rightarrow B$
+\end_inset
+
+ ein Isomorphismus, falls 
+\begin_inset Formula $\pi R^{\mathfrak{A}}=R^{\mathfrak{B}}$
+\end_inset
+
+ für alle Symbole 
+\begin_inset Formula $R\in\sigma$
+\end_inset
+
+ gilt.
+\end_layout
+
+\begin_layout Definition
+Der Isomorphismus wird kurz durch 
+\begin_inset Formula $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{B}$
+\end_inset
+
+ notiert.
+ Die Strukturen heißen isomorph (kurz 
+\begin_inset Formula $\mathfrak{A}\cong\mathfrak{B}$
+\end_inset
+
+), falls 
+\begin_inset Formula $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{B}$
+\end_inset
+
+ existiert.
+\end_layout
+
+\begin_layout Definition
+Die Abbildung 
+\begin_inset Formula $\pi$
+\end_inset
+
+ wird auf natürliche Weise auf Strukturen erweitert: 
+\begin_inset Formula 
+\[
+\pi\mathfrak{A}=\left(\pi A,\left(\pi R^{\mathfrak{A}}\right)_{R\in\sigma}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Ein Automorphismus 
+\begin_inset Formula $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{A}$
+\end_inset
+
+ sei ein Isomorphismus von 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ zu sich selbst.
+ Die Menge aller Automorphismen von 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ sei 
+\begin_inset Formula $\mathrm{Sym}_{\mathfrak{A}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Disjunkte Vereinigung
+\end_layout
+
+\begin_layout Definition
+Für eine 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ und eine 
+\begin_inset Formula $\sigma_{2}$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{B}$
+\end_inset
+
+ gilt:
+\end_layout
+
+\begin_layout Definition
+Wenn 
+\begin_inset Formula $\sigma_{1}\cap\sigma_{2}=\emptyset$
+\end_inset
+
+ und entweder 
+\begin_inset Formula $A=B$
+\end_inset
+
+ oder 
+\begin_inset Formula $A\cap B=\emptyset$
+\end_inset
+
+, so ist 
+\begin_inset Formula $\mathfrak{A}\uplus\mathfrak{B}$
+\end_inset
+
+ die folgende 
+\begin_inset Formula $\left(\sigma_{1}\cup\sigma_{2}\right)$
+\end_inset
+
+-Struktur:
+\begin_inset Formula 
+\[
+\mathfrak{A}\uplus\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\right)_{R\in\sigma_{1}},\left(R^{\mathfrak{B}}\right)_{R\in\sigma_{2}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Wenn 
+\begin_inset Formula $\sigma_{1}=\sigma_{2}=\sigma$
+\end_inset
+
+ und 
+\begin_inset Formula $A\cap B=\emptyset$
+\end_inset
+
+, so ist 
+\begin_inset Formula $\mathfrak{A}\uplus\mathfrak{B}$
+\end_inset
+
+ die folgende 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur:
+\begin_inset Formula 
+\[
+\mathfrak{A}\uplus\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\cup R^{\mathfrak{B}}\right)_{R\in\sigma}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Anfrage
+\end_layout
+
+\begin_layout Definition
+Eine 
+\begin_inset Formula $k$
+\end_inset
+
+-stellige 
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\series bold
+-Anfrage
+\series default
+ 
+\begin_inset Formula $q$
+\end_inset
+
+ sei eine Abbildung jeder endlichen 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ auf eine 
+\begin_inset Formula $k$
+\end_inset
+
+-stellige Relation 
+\begin_inset Formula $q\left(\mathfrak{A}\right)\subseteq A^{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\series bold
+-Eigenschaft
+\series default
+ 
+\begin_inset Formula $S\subseteq\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ sei eine Klasse von 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen und entspreche einer 0-stelligen Anfrage 
+\begin_inset Formula $q_{S}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+q_{S}\left(\mathfrak{A}\right) & = & \begin{cases}
+\left\langle \right\rangle  & \mathrm{falls}\,\mathfrak{A}\in S\\
+\emptyset & \mathrm{sonst}
+\end{cases}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Per Definition sind alle 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfragen und 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Eigenschaften invariant bezüglich Isomorphismen.
+ Für 
+\begin_inset Formula $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{B}$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\pi q\left(\mathfrak{A}\right)=q\left(\pi\mathfrak{B}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Logik
+\end_layout
+
+\begin_layout Standard
+Wir betrachten logische Sprachen auf endlichen Signaturen 
+\begin_inset Formula $\sigma$
+\end_inset
+
+, deren Ausdrücke auf endlichen 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen und vollständigen Belegungen ausgewertet werden.
 \end_layout
 
 \begin_layout Definition
@@ -281,482 +939,82 @@ Sei
  die Menge aller logischen Variablen.
 \end_layout
 
-\begin_layout --Separator--
+\begin_layout Definition
+Für einen Ausdruck 
+\begin_inset Formula $\omega$
+\end_inset
 
+ sei 
+\begin_inset Formula $\mathrm{var}\left(\omega\right)$
+\end_inset
+
+ die Menge der vorkommenden Variablen, und 
+\begin_inset Formula $\mathrm{frei}\left(\omega\right)\subseteq\mathrm{var}\left(\omega\right)$
+\end_inset
+
+ die Menge der freien Variablen.
 \end_layout
 
 \begin_layout Definition
-Die Syntax der relationalen FO-Logik 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+In einer Struktur 
+\begin_inset Formula $\mathfrak{A}$
 \end_inset
 
- ist wie folgt definiert:
+ sei 
+\begin_inset Formula $\beta:\mathrm{frei}\left(\omega\right)\rightarrow A$
+\end_inset
+
+ eine Abbildung der freien Variablen auf Elemente des Universums.
 \end_layout
 
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-B1 Für jedes Relationssymbol 
-\begin_inset Formula $R/k\in\sigma$
+\begin_layout Standard
+Die Auswertungsfunktion für eine Struktur 
+\begin_inset Formula $\mathfrak{A}$
 \end_inset
 
- und jedes Tupel 
-\begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
+ und eine Belegung 
+\begin_inset Formula $\beta$
 \end_inset
 
- ist 
-\begin_inset Formula $R\bar{x}$
+ wird durch 
+\begin_inset Formula $\left\llbracket \cdot\right\rrbracket \left(\mathfrak{A},\beta\right)$
 \end_inset
 
- eine 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
--Formel.
+ notiert.
 \end_layout
 
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-B2 Für zwei Variablen 
-\begin_inset Formula $x,y\in\mathbf{var}$
+\begin_layout Definition
+Eine Logik 
+\begin_inset Formula $\mathscr{L}\left[\sigma\right]$
 \end_inset
 
- ist 
-\begin_inset Formula $x=y$
+ besteht aus der Sprache der 
+\begin_inset Formula $\mathscr{L}\left[\sigma\right]$
 \end_inset
 
- eine 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+-Terme 
+\begin_inset Formula $t$
 \end_inset
 
--Formel.
- (Bei Mehrdeutigkeit wird das Symbol als 
-\begin_inset Formula $\dot{=}$
+, für die 
+\begin_inset Formula $\left\llbracket t\right\rrbracket \left(\mathfrak{A},\beta\right)\in A$
 \end_inset
 
- geschrieben, zum Beispiel bei 
-\begin_inset Formula $\varphi=x\dot{=}y$
-\end_inset
-
-.)
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-R1 Für 
-\begin_inset Formula $k\geqslant2$
-\end_inset
-
- 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+ ein Element des Universums ist, und den 
+\begin_inset Formula $\mathscr{L}\left[\sigma\right]$
 \end_inset
 
 -Formeln 
-\begin_inset Formula $\varphi_{1},\cdots,\varphi_{k}$
-\end_inset
-
- und einen Junktor 
-\begin_inset Formula $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
-\end_inset
-
- (mit 
-\begin_inset Formula $k=2$
-\end_inset
-
- für 
-\begin_inset Formula $\gamma\in\left\{ \rightarrow,\leftrightarrow\right\} $
-\end_inset
-
-) sei auch 
-\begin_inset Formula $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)$
-\end_inset
-
- eine 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
--Formel.
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-R2 Für jede 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
--Formel 
 \begin_inset Formula $\varphi$
 \end_inset
 
- sei 
-\begin_inset Formula $\neg\varphi$
+, für die 
+\begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\in\left\{ 0,1\right\} $
 \end_inset
 
- eine 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
--Formel, und 
-\begin_inset Formula $\left\llbracket \neg\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)$
-\end_inset
-
-.
+ ein Wahrheitswert ist.
 \end_layout
 
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-R3 Für jeden Quantor 
-\begin_inset Formula $Q\in\left\{ \exists,\forall\right\} $
-\end_inset
-
-, jede Variable 
-\begin_inset Formula $x\in\mathbf{var}$
-\end_inset
-
- und jede 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- sei 
-\begin_inset Formula $Qx\varphi$
-\end_inset
-
- eine 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
--Formel.
-\end_layout
-
-\begin_layout --Separator--
-
-\end_layout
-
-\begin_layout Definition
-Die Semantik von 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
- ist rekursiv wie folgt definiert.
-\end_layout
-
-\begin_layout Definition
-Hierbei sei 
-\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
-\end_inset
-
- eine endliche 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Struktur, und 
-\begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
-\end_inset
-
- eine Belegung der freien Variablen von 
-\begin_inset Formula $\varphi$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-B1 Für 
-\begin_inset Formula $R/k\in\sigma$
-\end_inset
-
- und 
-\begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
-\end_inset
-
- ist 
-\begin_inset Formula $\left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right)=1$
-\end_inset
-
- genau dann wenn 
-\begin_inset Formula $\beta\bar{x}\in R^{\mathfrak{A}}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-B2 Für 
-\begin_inset Formula $x,y\in\mathbf{var}$
-\end_inset
-
- ist 
-\begin_inset Formula $\left\llbracket x=y\right\rrbracket \left(\mathfrak{A},\beta\right)=1$
-\end_inset
-
- genau dann wenn 
-\begin_inset Formula $\beta x=\beta y$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-R1 Für 
-\begin_inset Formula $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
-\end_inset
-
- ist 
-\begin_inset Formula $\left\llbracket \left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)$
-\end_inset
-
- entsprechend den booleschen Junktoren definiert.
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-R2 Für eine 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- ist 
-\begin_inset Formula $\left\llbracket \neg\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-R3 Für eine 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- und 
-\begin_inset Formula $x\in\mathbf{var}$
-\end_inset
-
- gelte:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-\begin_inset Formula $\left\llbracket \exists x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1$
-\end_inset
-
- genau dann wenn ein 
-\begin_inset Formula $a\in A$
-\end_inset
-
- existiert, so dass 
-\begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta+\left(\begin{array}{c}
-x\\
-a
-\end{array}\right)\right)=1$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-\begin_inset Formula $\left\llbracket \forall x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1$
-\end_inset
-
- genau dann wenn für alle 
-\begin_inset Formula $a\in A$
-\end_inset
-
- gilt, dass 
-\begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta+\left(\begin{array}{c}
-x\\
-a
-\end{array}\right)\right)=1$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Subsection
-Fixpunktlogik
-\end_layout
-
-\begin_layout Definition
-Sei 
-\begin_inset Formula $\mathbf{var}_{2}$
-\end_inset
-
- die Menge aller logischen Relationsvariablen.
- Jede solche Variable 
-\begin_inset Formula $R\in\mathbf{var}_{2}$
-\end_inset
-
- besitzt eine Stelligkeit 
-\begin_inset Formula $\mathrm{ar}\left(R\right)\in\mathbb{N}_{\geqslant1}$
-\end_inset
-
-; diese wird für 
-\begin_inset Formula $\mathrm{ar}\left(R\right)=k$
-\end_inset
-
- auch durch 
-\begin_inset Formula $R/k\in\mathbf{var}_{2}$
-\end_inset
-
- gekennzeichnet.
-\end_layout
-
-\begin_layout --Separator--
-
-\end_layout
-
-\begin_layout Definition
-Die Syntax der relationalen Fixpunktlogik 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
-\end_inset
-
- erweitert die von 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
- um den folgenden inflationären
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Per [Gurevitch-Shelah] & [Kreutzer] ist IFP=LFP.
-\end_layout
-
-\end_inset
-
- Fixpunkt-Operator.
-\end_layout
-
-\begin_deeper
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-R4 Für jede Relationsvariable 
-\begin_inset Formula $R/k\in\mathbf{var}_{2}$
-\end_inset
-
-, jede 
-\begin_inset Formula $k$
-\end_inset
-
--stellige 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\uplus\left\{ R\right\} \right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
-, die Tupel 
-\begin_inset Formula $\bar{x},\bar{y}\in\mathbf{var}^{k}$
-\end_inset
-
- ist 
-\begin_inset Formula $\varphi'\coloneqq\left[\mathrm{ifp}_{R,\bar{x}}\varphi\right]\left(\bar{y}\right)$
-\end_inset
-
- eine 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
-\end_inset
-
--Formel.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Der Operator bindet die Variablen 
-\begin_inset Formula $\bar{x}$
-\end_inset
-
-, so dass 
-\begin_inset Formula $\mathrm{frei}\left(\varphi'\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \cup\left\{ y_{1},\cdots,y_{k}\right\} $
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-Für die Semantik gilt: 
-\begin_inset Formula $\left\llbracket \left[\mathrm{ifp}_{R,\bar{x}}\varphi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)=1$
-\end_inset
-
- genau dann wenn 
-\begin_inset Formula $\beta\bar{y}\in R^{*}$
-\end_inset
-
-, wobei 
-\begin_inset Formula $R^{*}$
-\end_inset
-
- der Fixpunkt der folgenden Sequenz 
-\begin_inset Formula $\left(R^{i}\right)_{i\geqslant0}$
-\end_inset
-
- ist: 
-\begin_inset Formula 
-\begin{eqnarray*}
-R^{\left(0\right)} & = & \emptyset\\
-R^{\left(m+1\right)} & = & R^{\left(m\right)}\cup\left\{ \bar{a}\in A^{k}\mid a\models\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}+\left(\begin{array}{c}
-R\\
-R^{\left(m\right)}
-\end{array}\right),\beta\right)\right\} 
-\end{eqnarray*}
-
-\end_inset
-
-Da 
-\begin_inset Formula $R^{\left(i\right)}\subseteq R^{\left(i+1\right)}\subseteq A^{k}$
-\end_inset
-
-, wird ein solcher Fixpunkt nach höchstens 
-\begin_inset Formula $\left|A\right|^{k}$
-\end_inset
-
- Iterationen erreicht.
-\end_layout
-
-\end_deeper
-\begin_layout Example*
-Die folgende Formel 
-\begin_inset Formula $\varphi\left(u,v\right)$
-\end_inset
-
- ist erfüllt, wenn 
-\begin_inset Formula $u$
-\end_inset
-
- und 
-\begin_inset Formula $v$
-\end_inset
-
- durch einen Weg beliebiger Länge verbunden sind: 
-\begin_inset Formula 
-\[
-\varphi\left(u,v\right)\coloneqq\left[\mathrm{ifp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
 \begin_layout --Separator--
 
 \end_layout
@@ -796,43 +1054,984 @@ einer logischen Formel bezeichne die Anzahl der frei darin vorkommenden
 \end_layout
 
 \begin_layout Definition
-Es stehe 
-\begin_inset Formula $\left\llbracket \varphi\left(\bar{x}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)$
+Wenn 
+\begin_inset Formula $\beta:\left\{ y_{1},\cdots,y_{m}\right\} \rightarrow A$
 \end_inset
 
- abgekürzt für 
-\begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)$
+ eine partielle Belegung von 
+\begin_inset Formula $\varphi$
 \end_inset
 
- mit der Belegung 
-\begin_inset Formula $\beta\coloneqq\left(\begin{array}{c}
-x_{1}\\
-a_{1}
-\end{array}\cdots\begin{array}{c}
-x_{k}\\
-a_{k}
-\end{array}\right)$
+ mit 
+\begin_inset Formula 
+\[
+\left\{ x_{1},\cdots,x_{k}\right\} =\mathrm{frei}\left(\varphi\right)\backslash\left\{ y_{1},\cdots,y_{m}\right\} 
+\]
+
+\end_inset
+
+ ist, und 
+\begin_inset Formula $\bar{a}\in A^{k}$
+\end_inset
+
+, so schreiben wir 
+\begin_inset Formula 
+\[
+\bar{a}\models\left\llbracket \varphi\left(\bar{x}\right)\right\rrbracket \left(\mathfrak{A},\beta'\right)
+\]
+
+\end_inset
+
+um auszudrücken: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\beta'\left(x\right) & \coloneqq & \begin{cases}
+a_{i} & \mathrm{für}\,x=x_{i}\\
+\beta\left(x\right) & \mathrm{sonst}
+\end{cases}\\
+\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta'\right) & = & 1
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Ein Satz sei eine 
+\begin_inset Formula $0$
+\end_inset
+
+-stellige Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+.
+ Wir schreiben kurz 
+\begin_inset Formula $\mathfrak{A}\models\varphi$
+\end_inset
+
+, falls für alle 
+\begin_inset Formula $\beta$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\left\langle \right\rangle  & \models & \left\llbracket \varphi\left(\left\langle \right\rangle \right)\right\rrbracket \left(\mathfrak{A},\beta\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+FO-Logik
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+Die Syntax der relationalen FO-Logik 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+ ist wie folgt definiert:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+T1 Für eine Variable 
+\begin_inset Formula $x\in\mathbf{var}$
+\end_inset
+
+ ist 
+\begin_inset Formula $x$
+\end_inset
+
+ ein 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Term.
+ 
+\begin_inset Formula 
+\[
+\mathrm{frei}\left(x\right)=\mathrm{var}\left(x\right)=\left\{ x\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+A1 Für ein Relationssymbol 
+\begin_inset Formula $R/k\in\sigma$
+\end_inset
+
+ und ein 
+\begin_inset Formula $k$
+\end_inset
+
+-Tupel von 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Termen 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ ist 
+\begin_inset Formula $R\bar{x}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{frei}\left(R\bar{x}\right)=\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(R\bar{x}\right)=\bigcup_{i=1}^{k}\mathrm{var}\left(x_{i}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+A2 Für zwei 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Terme 
+\begin_inset Formula $x_{1},x_{2}$
+\end_inset
+
+ ist 
+\begin_inset Formula $x_{1}=x_{2}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+ (Bei Mehrdeutigkeit wird das Symbol als 
+\begin_inset Formula $\dot{=}$
+\end_inset
+
+ geschrieben, zum Beispiel bei 
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $\varphi=x_{1}\dot{=}x_{2}$
+\end_inset
+
+.
+\begin_inset Quotes grd
+\end_inset
+
+)
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{frei}\left(x_{1}\dot{=}x_{2}\right)=\bigcup_{i=1}^{2}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(x_{1}\dot{=}x_{2}\right)=\bigcup_{i=1}^{2}\mathrm{var}\left(x_{i}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+R1 Für 
+\begin_inset Formula $k\geqslant2$
+\end_inset
+
+ 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formeln 
+\begin_inset Formula $\varphi_{1},\cdots,\varphi_{k}$
+\end_inset
+
+ und einen Junktor 
+\begin_inset Formula $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
+\end_inset
+
+ (mit 
+\begin_inset Formula $k=2$
+\end_inset
+
+ für 
+\begin_inset Formula $\gamma\in\left\{ \rightarrow,\leftrightarrow\right\} $
+\end_inset
+
+) ist auch 
+\begin_inset Formula $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)$
+\end_inset
+
+ eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{frei}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)=\bigcup_{i=1}^{k}\mathrm{frei}\left(\varphi_{i}\right) &  & \mathrm{var}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)=\bigcup_{i=1}^{k}\mathrm{var}\left(\varphi_{i}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+R2 Für eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ ist 
+\begin_inset Formula $\neg\varphi$
+\end_inset
+
+ eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{frei}\left(\neg\varphi\right)=\mathrm{frei}\left(\varphi\right) &  & \mathrm{var}\left(\neg\varphi\right)=\mathrm{var}\left(\varphi\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+R3 Für einen Quantor 
+\begin_inset Formula $Q\in\left\{ \exists,\forall\right\} $
+\end_inset
+
+, eine Variable 
+\begin_inset Formula $x\in\mathbf{var}$
+\end_inset
+
+ und eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ ist 
+\begin_inset Formula $Qx\varphi$
+\end_inset
+
+ eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{frei}\left(Qx\varphi\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(Qx\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+Die Semantik von 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+ ist rekursiv wie folgt definiert.
+\end_layout
+
+\begin_layout Definition
+Hierbei sei 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ eine endliche 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur, und 
+\begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
+\end_inset
+
+ eine Belegung der freien Variablen von 
+\begin_inset Formula $\varphi$
 \end_inset
 
 .
 \end_layout
 
+\begin_deeper
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+T1 Für eine Variable 
+\begin_inset Formula $x\in\mathbf{var}$
+\end_inset
+
+ ist 
+\begin_inset Formula $\left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)\in A$
+\end_inset
+
+ das Element 
+\begin_inset Formula $\beta x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+A1 Für 
+\begin_inset Formula $R/k\in\sigma$
+\end_inset
+
+ ist 
+\begin_inset Formula $\left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right)=1$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula 
+\[
+\left(\left\llbracket x_{1}\right\rrbracket \left(\mathfrak{A},\beta\right),\cdots,\left\llbracket x_{k}\right\rrbracket \left(\mathfrak{A},\beta\right)\right)\in R^{\mathfrak{A}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+A2 Für die 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Terme 
+\begin_inset Formula $x,y$
+\end_inset
+
+ ist 
+\begin_inset Formula $\left\llbracket x\dot{=}y\right\rrbracket \left(\mathfrak{A},\beta\right)=1$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket y\right\rrbracket \left(\mathfrak{A},\beta\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+R1 Für 
+\begin_inset Formula $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
+\end_inset
+
+ ist 
+\begin_inset Formula $\left\llbracket \varphi_{1}\gamma\cdots\gamma\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right)$
+\end_inset
+
+ entsprechend den booleschen Junktoren definiert.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+R2 Für eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ ist 
+\begin_inset Formula $\left\llbracket \neg\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+R3 Für eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ und 
+\begin_inset Formula $x\in\mathbf{var}$
+\end_inset
+
+ gelte:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\left\llbracket \exists x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1$
+\end_inset
+
+ genau dann wenn ein 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ existiert, so dass 
+\begin_inset Formula $a\models\left\llbracket \varphi\left(x\right)\right\rrbracket \left(\mathfrak{A},\beta_{\mid\mathrm{frei}\left(\varphi\right)}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\left\llbracket \forall x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket \neg\exists x\neg\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
 \begin_layout Subsection
-Erweiterungen der Fixpunktlogik
+Fixpunktlogik
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $\mathbf{var}_{2}$
+\end_inset
+
+ die Menge aller logischen Relationsvariablen.
+ Jede solche Variable 
+\begin_inset Formula $R\in\mathbf{var}_{2}$
+\end_inset
+
+ besitzt eine Stelligkeit 
+\begin_inset Formula $\mathrm{ar}\left(R\right)=k\in\mathbb{N}_{\geqslant1}$
+\end_inset
+
+; diese wird auch durch 
+\begin_inset Formula $R/k\in\mathbf{var}_{2}$
+\end_inset
+
+ notiert.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+Die Syntax der relationalen Fixpunktlogik 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+ erweitert die von 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+ um den folgenden inflationären
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Per [Gurevitch-Shelah] & [Kreutzer] ist IFP=LFP.
+\end_layout
+
+\end_inset
+
+ Fixpunkt-Operator.
+\end_layout
+
+\begin_deeper
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+R4 Für eine Relationsvariable 
+\begin_inset Formula $R/k\in\mathbf{var}_{2}\backslash\sigma$
+\end_inset
+
+, eine 
+\begin_inset Formula $k$
+\end_inset
+
+-stellige 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\cup\left\{ R\right\} \right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+, ein Tupel 
+\begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
+\end_inset
+
+ und ein 
+\begin_inset Formula $k$
+\end_inset
+
+-Tupel 
+\begin_inset Formula $\bar{y}$
+\end_inset
+
+ von 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+-Termen ist 
+\begin_inset Formula $\varphi'\coloneqq\left[\mathrm{ifp}_{R,\bar{x}}\varphi\right]\left(\bar{y}\right)$
+\end_inset
+
+ eine 
+\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{frei}\left(\left[\mathrm{ifp}_{R,\bar{x}}\varphi\right]\left(\bar{y}\right)\right) & = & \mathrm{frei}\left(\varphi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \cup\bigcup_{i=1}^{k}\mathrm{frei}\left(y_{i}\right)\\
+\mathrm{var}\left(\left[\mathrm{ifp}_{R,\bar{x}}\varphi\right]\left(\bar{y}\right)\right) & = & \mathrm{var}\left(\varphi\right)\cup\left\{ x_{1},\cdots,x_{k}\right\} \cup\bigcup_{i=1}^{k}\mathrm{frei}\left(y_{i}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Der Operator bindet die Variablen 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+, so dass 
+\begin_inset Formula $\mathrm{frei}\left(\varphi'\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \cup\left(\left\{ y_{1},\cdots,y_{k}\right\} \cap\mathbf{var}\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $\mathfrak{A}^{\left(i\right)}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\left\{ R/k\right\} $
+\end_inset
+
+-Struktur, und sei 
+\begin_inset Formula $R^{\left(i\right)}$
+\end_inset
+
+ wie folgt definiert: 
+\begin_inset Formula 
+\begin{eqnarray*}
+R^{\left(0\right)} & = & \emptyset\\
+\mathfrak{A}^{\left(i\right)} & = & \left(A,R^{\left(i\right)}\right)\\
+R^{\left(i+1\right)} & = & R^{\left(i\right)}\cup\left\{ \bar{a}\in A^{k}\mid\bar{a}\models\left\llbracket \varphi\left(\bar{x}\right)\right\rrbracket \left(\mathfrak{A}\uplus\mathfrak{A}^{\left(i\right)},\beta\right)\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nun gelte: 
+\begin_inset Formula 
+\[
+\left\llbracket \left[\mathrm{ifp}_{R,\bar{x}}\varphi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\begin{cases}
+1 & \mathrm{falls}\,\left\llbracket \bar{y}\right\rrbracket \left(\mathfrak{A},\beta\right)\in R^{\left(\infty\right)}\\
+0 & \mathrm{sonst}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $R^{\left(i\right)}\subseteq R^{\left(i+1\right)}\subseteq A^{k}$
+\end_inset
+
+, wird der Fixpunkt 
+\begin_inset Formula $R^{\left(\infty\right)}$
+\end_inset
+
+ nach höchstens 
+\begin_inset Formula $\left|A\right|^{k}$
+\end_inset
+
+ Iterationen erreicht.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Example*
+Die folgende Formel 
+\begin_inset Formula $\varphi\left(u,v\right)$
+\end_inset
+
+ ist erfüllt, wenn 
+\begin_inset Formula $u$
+\end_inset
+
+ und 
+\begin_inset Formula $v$
+\end_inset
+
+ durch einen Weg beliebiger Länge verbunden sind: 
+\begin_inset Formula 
+\[
+\varphi\left(u,v\right)\coloneqq\left[\mathrm{ifp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Subsection
+Logische Erweiterungen
+\end_layout
+
+\begin_layout Standard
+Die Orakelerweiterung fügt einer Logik eine Anzahl von Relationssymbolen
+ mit vordefinierter Interpretation hinzu.
+ Die Formeln werden dann auf der disjunkten Vereinigung einer endlichen
+ Struktur mit der Orakelstruktur ausgewertet.
 \end_layout
 
 \begin_layout Definition
 
 \series bold
-FP+C
+\begin_inset Formula $\Upsilon$
+\end_inset
+
+-Orakel, 
+\begin_inset Formula $\mathscr{L}+\Upsilon$
+\end_inset
+
+-Logik
 \end_layout
 
 \begin_layout Definition
-Die Fixpunktlogik mit Zählquantoren fügt der Fixpunktlogik den folgenden
- Zählquantor hinzu.
+Sei 
+\begin_inset Formula $\sigma_{\mathrm{arb}}$
+\end_inset
+
+ eine relationale Signatur.
+ Ein Orakel 
+\begin_inset Formula $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}\left(\sigma_{\mathrm{arb}}\uplus\left\{ \leqslant/2\right\} \right)$
+\end_inset
+
+ ist eine Funktion, die jeder natürlichen Zahl 
+\begin_inset Formula $n$
+\end_inset
+
+ eine Struktur 
+\begin_inset Formula $\Upsilon\left(n\right)$
+\end_inset
+
+ mit dem Universum 
+\begin_inset Formula $U=\left\{ 0,\cdots,n\right\} $
+\end_inset
+
+ zuweist, wobei 
+\begin_inset Formula $\leqslant^{\Upsilon\left(n\right)}$
+\end_inset
+
+ die natürliche Ordnung von 
+\begin_inset Formula $U$
+\end_inset
+
+ ist.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Definition
+Sei 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ eine relationale Signatur und 
+\begin_inset Formula $\mathscr{L}$
+\end_inset
+
+ eine Logik (zum Beispiel 
+\begin_inset Formula $\mathrm{FO}$
+\end_inset
+
+ oder 
+\begin_inset Formula $\mathrm{FP}$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Definition
+Die Syntax der 
+\begin_inset Formula $\mathscr{L}+\Upsilon$
+\end_inset
+
+-Logik ist die der Logik 
+\begin_inset Formula $\mathscr{L}\left[\sigma\uplus\sigma_{\mathrm{arb}}\uplus\left\{ \leqslant/2\right\} \right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Die Semantik ist wie folgt:
+\begin_inset Formula 
+\[
+\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)M=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\uplus\Upsilon\left(\left|A\right|\right),\beta\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Remark*
+[TODO] Insbesondere ist die arb-invariante FO-Arb-Logik
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+[siehe Locality from Circuit Lower Bounds]
+\end_layout
+
+\end_inset
+
+ gleichbedeutend mit 
+\begin_inset Formula $\mathrm{FO+\mathbf{ARB}}$
+\end_inset
+
+, wobei 
+\begin_inset Formula $\mathbf{ARB}\left(n\right)$
+\end_inset
+
+ jede Relation über den natürlichen Zahlen 
+\begin_inset Formula $\left\{ 0,\cdots,n\right\} $
+\end_inset
+
+ zulässt.
+ (Die Invarianz folgt hier aus der Definition der Relationen über dem separaten
+ Universum 
+\begin_inset Formula $\left\{ 0,\cdots,n\right\} $
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Zählerweiterung
+\end_layout
+
+\begin_layout Definition
+Die Zählerweiterung fügt einer Logik einen zusätzlichen Term zu, der die
+ erfüllenden Belegungen einer Formel zählt.
+\end_layout
+
+\begin_layout Definition
+Sei 
+\series bold
+
+\begin_inset Formula $\mathrm{\mathbf{ORD}}:\mathbb{N}\rightarrow\mathbf{FIN}\left(\left\{ \leqslant/2\right\} \right)$
+\end_inset
+
+
+\series default
+ eine Orakelfunktion, die für 
+\begin_inset Formula $n$
+\end_inset
+
+ die geordnete Struktur 
+\begin_inset Formula $\mathbf{ORD}\left(n\right)=\left(\left\{ 0,\cdots,n\right\} ,\leqslant\right)$
+\end_inset
+
+ ausgibt.
+ (Hier ist 
+\begin_inset Formula $\sigma_{\mathrm{arb}}\coloneqq\emptyset$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $\mathscr{L}$
+\end_inset
+
+ eine beliebige Logik.
+ Die 
+\begin_inset Formula $\mathscr{L}+C$
+\end_inset
+
+-Logik erweitert die 
+\begin_inset Formula $\mathscr{L}+\mathbf{ORD}$
+\end_inset
+
+-Logik um die folgende Regel:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+T2 Für eine 
+\begin_inset Formula $\mathscr{L}+C\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ und eine Variable 
+\begin_inset Formula $x\in\mathbf{var}$
+\end_inset
+
+ ist 
+\begin_inset Formula $\#_{x}\varphi$
+\end_inset
+
+ ein 
+\begin_inset Formula $\mathscr{L}+C\left[\sigma\right]$
+\end_inset
+
+-Term.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{frei}\left(\#_{x}\varphi\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(\#_{x}\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Auf einer endlichen Struktur 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}_{n}\left(\sigma\right)$
+\end_inset
+
+ mit einer Belegung 
+\begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A\uplus U$
+\end_inset
+
+ ist 
+\begin_inset Formula 
+\[
+\left\llbracket \#_{x}\varphi\right\rrbracket \coloneqq\#\left\{ a\in A\mid a\models\left\llbracket \varphi\left(x\right)\right\rrbracket \left(\mathfrak{A}\right)\right\} 
+\]
+
+\end_inset
+
+die Anzahl der Werte von 
+\begin_inset Formula $\beta\left(x\right)$
+\end_inset
+
+ in erfüllenden Belegungen 
+\begin_inset Formula $\beta$
+\end_inset
+
+ von 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ auf 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Remark*
+Diese Erweiterung erlaubt die Definition vieler arithmetischer Operatoren
+ durch Teilformeln, wie zum Beispiel die (positive) Differenz:
+\begin_inset Formula 
+\begin{eqnarray*}
+\left\llbracket \#_{z}\left(\neg z\leqslant x\wedge z\leqslant y\right)\right\rrbracket  & = & \max\left(y-x,\,0\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+Die Logik 
+\begin_inset Formula $\mathrm{FO}+C$
+\end_inset
+
+ kann ausdrücken, dass die Struktur eine gerade Größe hat:
+\begin_inset Formula 
+\[
+\varphi_{\mathrm{EVEN}}\coloneqq\exists y\,\left(y=\#_{z}\left(\neg z\leqslant y\wedge z\leqslant\#_{z}\,z=z\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Schaltkreise
 \end_layout
 
@@ -883,10 +2082,7 @@ Eine boolesche Basis
 \end_inset
 
  haben.
-\begin_inset Newline newline
-\end_inset
-
-Als Beispiel seien die folgenden booleschen Funktionen gegeben: 
+ Als Beispiel seien die folgenden booleschen Funktionen gegeben: 
 \begin_inset Formula 
 \begin{eqnarray*}
 \wedge\left(m,n\right) & \coloneqq & \begin{cases}
@@ -2272,75 +3468,6 @@ Der Schaltkreis ist invariant, da er genau den Isomorphietyp
 Schaltkreis-Familien
 \end_layout
 
-\begin_layout Definition
-Eine 
-\begin_inset Formula $\sigma$
-\end_inset
-
-
-\series bold
--Anfrage
-\series default
- 
-\begin_inset Formula $q$
-\end_inset
-
- sei eine Abbildung jeder endlichen 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Struktur 
-\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
-\end_inset
-
- auf eine 
-\begin_inset Formula $k$
-\end_inset
-
--stellige Relation 
-\begin_inset Formula $q\left(\mathfrak{A}\right)\subseteq A^{k}$
-\end_inset
-
-.
- Eine 
-\begin_inset Formula $\sigma$
-\end_inset
-
-
-\series bold
--Eigenschaft
-\series default
- 
-\begin_inset Formula $S\subseteq\mathbf{FIN}\left(\sigma\right)$
-\end_inset
-
- sei eine Klasse von 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Strukturen und entspreche einer 0-stelligen Anfrage 
-\begin_inset Formula $q_{S}$
-\end_inset
-
- mit 
-\begin_inset Formula $\mathfrak{A}\in S\Leftrightarrow q\left(\mathfrak{A}\right)=\left\{ \left\langle \right\rangle \right\} $
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Definition
-Per Definition sind alle 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Anfragen und 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Eigenschaften invariant bezüglich Graph-Isomorphismen.
-\end_layout
-
 \begin_layout --Separator--
 
 \end_layout
@@ -3614,14 +4741,18 @@ Für jede
 \end_inset
 
 -Formel 
-\begin_inset Formula $\varphi_{n}\equiv_{n}\varphi$
+\begin_inset Formula $\varphi_{n}$
 \end_inset
 
  mit höchstens 
 \begin_inset Formula $2\left\Vert \varphi\right\Vert $
 \end_inset
 
- Variablen.
+ Variablen, so dass 
+\begin_inset Formula $\varphi_{n}\equiv_{n}\varphi$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Proof
@@ -5718,6 +6849,62 @@ Träger
 
 \begin_layout Section
 Beschreibung von Symmetrischen Schaltkreis-Familien durch Fixpunktlogik
+\end_layout
+
+\begin_layout Itemize
+Eine P-uniforme 
+\begin_inset Formula $\left(\mathbb{B}_{\mathrm{std}},\sigma\right)$
+\end_inset
+
+-SBC-Familie 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ wird zu einer 
+\begin_inset Formula $\mathrm{FP+\mathbf{ORD}}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+\end_layout
+
+\begin_layout Itemize
+Eine P-uniforme 
+\begin_inset Formula $\left(\mathbb{B}_{\mathrm{maj}},\sigma\right)$
+\end_inset
+
+-SBC-Familie 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ wird zu einer 
+\begin_inset Formula $\mathrm{FP}+C\left[\sigma\right]$
+\end_inset
+
+-Formel.
+\end_layout
+
+\begin_layout Standard
+Nach dem Satz von Immerman-Vardi kann der Polynomialzeit-Algorithmus, der
+ 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ erzeugt, als Sequenz von 
+\begin_inset Formula $\mathrm{FP}\left[\leqslant\right]$
+\end_inset
+
+-Formeln ausgedrückt werden:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(\varphi_{G},\varphi_{W},\varphi_{\Omega},\varphi_{\mathbf{0}},\varphi_{\mathbf{1}},\varphi_{\neg},\varphi_{\phi}\,\phi\in\mathbb{B},\varphi_{\Lambda}\right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \end_body
