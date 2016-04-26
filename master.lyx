@@ -5709,6 +5709,12 @@ reference "lem:FO-Circuit"
 \end_layout
 
 \begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:fo-ord"
+
+\end_inset
+
 Jede 
 \begin_inset Formula $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$
 \end_inset
@@ -5729,7 +5735,11 @@ Jede
 \begin_inset Formula $P$
 \end_inset
 
--uniformen Schaltkreis-Familie 
+-uniformen 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
 \begin_inset Formula $\left(\ddot{\mathcal{C}_{n}^{\varphi}}\right)_{n\in\mathbb{N}}$
 \end_inset
 
@@ -5738,7 +5748,7 @@ Jede
 \end_inset
 
  und polynomieller Größe 
-\begin_inset Formula $\leqslant5n^{\mathrm{var}\left(\varphi\right)}$
+\begin_inset Formula $\leqslant5\cdot\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
 \end_inset
 
  berechnet wird.
@@ -5785,121 +5795,107 @@ Hierbei ist zu beachten, dass
 
 \begin_layout Proof
 Zur besseren Unterscheidung bezeichnen wir 
-\begin_inset Formula $\Upsilon\left(n\right)\coloneqq\left(\dot{U},\leqslant\right)$
+\begin_inset Formula $\Upsilon\left(n\right)\coloneqq\left(N,\leqslant\right)$
 \end_inset
 
 , und 
-\begin_inset Formula $\dot{U}\coloneqq\left\{ \dot{0},\cdots,\dot{n}\right\} $
+\begin_inset Formula $N\coloneqq\left\{ \dot{0},\cdots,\dot{n}\right\} $
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Proof
-Wir konstruieren zunächst den Schaltkreis 
+Wir konstruieren zunächst den 
+\begin_inset Formula $\left(\sigma\uplus\left\{ \dot{\leqslant}\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreis 
 \begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
 \end_inset
 
+ über 
+\begin_inset Formula $U=\left\{ 1,\cdots,2n+1\right\} $
+\end_inset
+
  entspreched dem vorhergehenden Beweis.
- Daraus wird der Schaltkreis 
-\begin_inset Formula $\dot{\mathcal{C}_{n}^{\varphi}}=\left(G,W,\dot{\Sigma},\dot{\Omega},U\uplus\dot{U}\right)$
-\end_inset
-
-, in dem die Elemente 
-\begin_inset Formula $\left\{ n+1,\cdots,2n+1\right\} $
-\end_inset
-
- auf 
-\begin_inset Formula $\left\{ \dot{0},\cdots,\dot{n}\right\} $
-\end_inset
-
- abgebildet werden.
 \end_layout
 
 \begin_layout Proof
-Anschließend wird der Schaltkreis zu 
-\begin_inset Formula $\ddot{\mathcal{C}_{n}}$
+Daraus wird der 
+\begin_inset Formula $\left(\sigma\uplus\left\{ \dot{\leqslant}\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
 \end_inset
 
-, indem alle Beschriftungen mit Elementen aus 
-\begin_inset Formula $\dot{U}$
+-Schaltkreis 
+\begin_inset Formula $\dot{\mathcal{C}_{2n+1}^{\varphi}}=\left(G,W,\dot{\Sigma},\dot{\Omega},\dot{U}\right)=\rho\mathcal{C}_{2n+1}^{\varphi}$
+\end_inset
+
+ über 
+\begin_inset Formula $\dot{U}=\left\{ 1,\cdots,n\right\} \uplus N$
+\end_inset
+
+, in dem das Universum durch 
+\begin_inset Formula $\rho:U\rightarrow\dot{U}$
+\end_inset
+
+ abgebildet wird: 
+\begin_inset Formula 
+\[
+\rho\coloneqq\left(\begin{array}{c}
+1\\
+1
+\end{array}\cdots\begin{array}{c}
+n\\
+n
+\end{array}\begin{array}{c}
+\begin{array}{c}
+n+1\\
+\dot{0}
+\end{array}\cdots\begin{array}{c}
+2n+1\\
+\dot{n}
+\end{array}\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Anschließend konstruieren wir den 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreis 
+\begin_inset Formula $\ddot{\mathcal{C}_{n}^{\varphi}}=\left(G,W,\ddot{\Sigma},\ddot{\Omega},\ddot{U}\right)$
+\end_inset
+
+ über 
+\begin_inset Formula $\ddot{U}=\left\{ 1,\cdots,n\right\} $
+\end_inset
+
+, indem alle Beschriftungen 
+\begin_inset Formula $\dot{\Sigma}\left(g\right)=R\bar{t}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\bar{t}\notin\ddot{U}^{k}$
 \end_inset
 
  durch 
-\begin_inset Formula $\mathbf{0}$
-\end_inset
-
- oder 
-\begin_inset Formula $\mathbf{1}$
+\begin_inset Formula $\ddot{\Sigma}\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
 \end_inset
 
  ersetzt werden, und die Ausgangsfunktion auf 
-\begin_inset Formula $\dot{\Omega}_{\mid U}=\ddot{\Omega}$
+\begin_inset Formula $\ddot{\Omega}=\dot{\Omega}_{\mid\ddot{U}}$
 \end_inset
 
  reduziert wird.
 \end_layout
 
 \begin_layout Proof
-Da die Permutation 
-\begin_inset Formula $\pi$
-\end_inset
-
- nur auf 
-\begin_inset Formula $U$
-\end_inset
-
- wirkt, werden die 
-\begin_inset Quotes gld
-\end_inset
-
-virtuellen
-\begin_inset Quotes grd
-\end_inset
-
- Elemente 
-\begin_inset Formula $\dot{U}$
-\end_inset
-
- nicht permutiert.
- Wir betrachten daher die Erweiterung 
-\begin_inset Formula $\dot{\pi}\coloneqq\pi\uplus\mathbf{id}_{\dot{U}}\subseteq\mathrm{Sym}_{U\cup\dot{U}}$
-\end_inset
-
-, die die Elemente von 
-\begin_inset Formula $\dot{U}$
-\end_inset
-
- auf sich selbst abbildet.
- Aus der Symmetrie des Schaltkreises 
-\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
-\end_inset
-
- bezüglich 
-\begin_inset Formula $\mathrm{Sym}_{\left\{ 1,\cdots,2n+1\right\} }$
-\end_inset
-
- folgt die Symmetrie von 
-\begin_inset Formula $\mathcal{C}_{n}^{\varphi}$
-\end_inset
-
- bezüglich 
-\begin_inset Formula $\mathrm{Sym}_{U\cup\dot{U}}$
-\end_inset
-
-, und daher die Symmetrie von 
-\begin_inset Formula $\ddot{\mathcal{C}_{n}^{\varphi}}$
-\end_inset
-
- bezüglich 
-\begin_inset Formula $\mathrm{Sym}_{U}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Proof
-Es werden hier nur die Fälle betrachtet, die Input-Gates erzeugen:
+Es werden hier nur die Fälle betrachtet, die neue Input-Gates erzeugen:
 \end_layout
 
 \begin_deeper
@@ -5916,8 +5912,8 @@ Für
 \begin_inset Formula 
 \begin{eqnarray*}
 \dot{\Sigma}\left(g_{\bar{t}}\right) & \coloneqq & R\beta_{\bar{t}}\left(\bar{y}\right)\\
-\Sigma\left(g_{\bar{t}}\right) & \coloneqq & \begin{cases}
-R\beta_{\bar{t}}\left(\bar{y}\right) & \mathrm{falls}\,\bar{t}\in U^{k}\\
+\ddot{\Sigma}\left(g_{\bar{t}}\right) & \coloneqq & \begin{cases}
+R\beta_{\bar{t}}\left(\bar{y}\right) & \mathrm{falls}\,\bar{t}\in\ddot{U}^{k}\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
@@ -5937,14 +5933,18 @@ Für
 \end_inset
 
 ) sei die Beschriftung 
-\begin_inset Formula $\Sigma$
+\begin_inset Formula $\ddot{\Sigma}$
 \end_inset
 
  identisch zu 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ und 
 \begin_inset Formula $\dot{\Sigma}$
 \end_inset
 
-, da beide alle Input-Gates mit 
+, da alle Input-Gates bereits mit 
 \begin_inset Formula $\mathbf{0}$
 \end_inset
 
@@ -5952,10 +5952,10 @@ Für
 \begin_inset Formula $\mathbf{1}$
 \end_inset
 
- beschriftet.
+ beschriftet sind.
 \begin_inset Formula 
 \begin{eqnarray*}
-\Sigma\left(g_{\bar{t}}\right) & \coloneqq & \begin{cases}
+\ddot{\Sigma}\left(g_{\bar{t}}\right) & \coloneqq & \begin{cases}
 \mathbf{1} & \mathrm{falls}\,\beta_{\bar{t}}y_{1}=\beta_{\bar{t}}y_{2}\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}
@@ -5968,7 +5968,7 @@ Für
 
 \begin_layout Case
 Für 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=y_{1}\leqslant y_{2}$
+\begin_inset Formula $\varphi\left(\bar{x}\right)=y_{1}\dot{\leqslant}y_{2}$
 \end_inset
 
  (mit 
@@ -5978,8 +5978,8 @@ Für
 ) sei die Beschriftung wie folgt:
 \begin_inset Formula 
 \begin{eqnarray*}
-\Sigma\left(g_{\bar{t}}\right) & \coloneqq & \begin{cases}
-\mathbf{1} & \mathrm{falls}\,\bar{t}\in\dot{U},\,\beta_{\bar{t}}y_{1}\leqslant\beta_{\bar{t}}y_{2}\\
+\ddot{\Sigma}\left(g_{\bar{t}}\right) & \coloneqq & \begin{cases}
+\mathbf{1} & \mathrm{falls}\,\bar{t}\in N^{k},\,\beta_{\bar{t}}y_{1}\leqslant\beta_{\bar{t}}y_{2}\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
@@ -5990,6 +5990,277 @@ Für
 \end_layout
 
 \end_deeper
+\begin_layout Proof
+Sei nun 
+\begin_inset Formula $\ddot{\pi}\in\mathrm{Sym}_{\ddot{U}}$
+\end_inset
+
+ eine beliebige Permutation.
+\end_layout
+
+\begin_layout Proof
+Wir betrachten die Erweiterung 
+\begin_inset Formula $\dot{\pi}\coloneqq\ddot{\pi}\uplus\mathbf{id}_{N}$
+\end_inset
+
+, die die Elemente von 
+\begin_inset Formula $N$
+\end_inset
+
+ auf sich selbst abbildet.
+ Offensichtlich ist 
+\begin_inset Formula $\dot{\pi}\in\mathrm{Sym}_{\dot{U}}$
+\end_inset
+
+ eine Permutation von 
+\begin_inset Formula $\dot{U}=\left(\ddot{U}\uplus N\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Entsprechend ist 
+\begin_inset Formula $\pi\coloneqq\rho^{-1}\dot{\pi}\in\mathrm{Sym}_{U}$
+\end_inset
+
+ eine Permutation von 
+\begin_inset Formula $U=\left\{ 1,\cdots,2n+1\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Aus der Symmetrie des Schaltkreises 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
+\end_inset
+
+ bezüglich 
+\begin_inset Formula $\mathrm{Sym}_{U}$
+\end_inset
+
+ folgt die Existenz eines induzierten Automorphismus 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+ für den Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
+\end_inset
+
+.
+ Wegen der Bijektivität von 
+\begin_inset Formula $\rho$
+\end_inset
+
+ wird 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+ auch in 
+\begin_inset Formula $\rho\mathcal{C}_{2n+1}^{\varphi}=\dot{\mathcal{C}_{2n+1}^{\varphi}}$
+\end_inset
+
+ durch 
+\begin_inset Formula $\dot{\pi}$
+\end_inset
+
+ induziert.
+\end_layout
+
+\begin_layout Proof
+Schließlich ist 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+ auch in 
+\begin_inset Formula $\ddot{\mathcal{C}_{n}^{\varphi}}$
+\end_inset
+
+ ein durch 
+\begin_inset Formula $\ddot{\pi}$
+\end_inset
+
+ induzierter Automorphismus, wozu nur die Funktion 
+\begin_inset Formula $\ddot{\Sigma}$
+\end_inset
+
+ betrachtet werden muss (für 
+\begin_inset Formula $\ddot{\Omega}$
+\end_inset
+
+ folgt es aus der Abgeschlossenheit von 
+\begin_inset Formula $\ddot{U}$
+\end_inset
+
+ unter 
+\begin_inset Formula $\ddot{\pi}$
+\end_inset
+
+):
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Für 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=R\bar{y}$
+\end_inset
+
+ mit 
+\begin_inset Formula $R\in\sigma$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\[
+\ddot{\Sigma}\left(\hat{\pi}g_{\bar{t}}\right)=\ddot{\Sigma}\left(g_{\ddot{\pi}\bar{t}}\right)=\begin{cases}
+\mathbf{1} & \mathrm{falls}\,\ddot{\pi}\bar{t},\bar{t}\in\ddot{U}^{k}\\
+\mathbf{0} & \mathrm{sonst}
+\end{cases}=\ddot{\Sigma}\left(g_{\bar{t}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Für 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=y_{1}\dot{=}y_{2}$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\ddot{\Sigma}\left(\hat{\pi}g_{\bar{t}}\right)=\ddot{\Sigma}\left(g_{\ddot{\pi}\bar{t}}\right) & \coloneqq & \begin{cases}
+\mathbf{1} & \mathrm{falls}\,\ddot{\pi}\beta_{\bar{t}}y_{1}=\ddot{\pi}\beta_{\bar{t}}y_{2}\\
+\mathbf{0} & \mathrm{sonst}
+\end{cases}=\ddot{\Sigma}\left(g_{\bar{t}}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Für 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=y_{1}\dot{\leqslant}y_{2}$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\[
+\ddot{\Sigma}\left(\hat{\pi}g_{\bar{t}}\right)=\ddot{\Sigma}\left(g_{\ddot{\pi}\bar{t}}\right)\coloneqq\begin{cases}
+\mathbf{1} & \mathrm{falls}\,\bar{t}\in N^{k},\,\beta_{\bar{t}}y_{1}\leqslant\beta_{\bar{t}}y_{2}\\
+\mathbf{0} & \mathrm{sonst}
+\end{cases}=\ddot{\Sigma}\left(g_{\bar{t}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Damit ist 
+\begin_inset Formula $\ddot{\mathcal{C}}$
+\end_inset
+
+ eine symmetrische, 
+\begin_inset Formula $P$
+\end_inset
+
+-uniforme Schaltkreisfamilie in 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+, die die Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ berechnet.
+\end_layout
+
+\begin_layout Subsection
+Zählterme
+\end_layout
+
+\begin_layout Standard
+Wir betrachten die Logik 
+\begin_inset Formula $\mathrm{FO}+C$
+\end_inset
+
+, und weisen nach, dass die vorhergehende Konstruktion aus Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:fo-ord"
+
+\end_inset
+
+ angepasst werden kann, indem Majority-Gates hinzugefügt werden.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:fo-c"
+
+\end_inset
+
+Jede 
+\begin_inset Formula $\left(\mathrm{FO}+C\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ definiert eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+, die von einer symmetrischen, 
+\begin_inset Formula $P$
+\end_inset
+
+-uniformen 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\left(\ddot{\mathcal{C}_{n}^{\varphi}}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ mit konstanter Tiefe 
+\begin_inset Formula $\leqslant\left\Vert \varphi\right\Vert $
+\end_inset
+
+ und polynomieller Größe 
+\begin_inset Formula $\leqslant5\cdot\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
+\end_inset
+
+ berechnet wird.
+\end_layout
+
+\begin_layout Proof
+Wir betrachten nur den Zählterm und fügen der Konstruktion einen neuen Fall
+ hinzu:
+\end_layout
+
+\begin_layout Proof
+Ist 
+\begin_inset Formula $R$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Fixpunktlogik
 \end_layout
