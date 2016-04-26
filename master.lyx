@@ -6249,13 +6249,171 @@ Jede
 \end_layout
 
 \begin_layout Proof
-Wir betrachten nur den Zählterm und fügen der Konstruktion einen neuen Fall
- hinzu:
+Zunächst wird die Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ in eine Normalform 
+\begin_inset Formula $\hat{\varphi}$
+\end_inset
+
+ gebracht, in der jeder Zählterm in einer Teilformel der Form 
+\begin_inset Formula $\exists x\left(x\dot{=}\#x\psi\wedge\psi'\right)$
+\end_inset
+
+ steht.
 \end_layout
 
 \begin_layout Proof
-Ist 
-\begin_inset Formula $R$
+Wir betrachten für diese Konstruktion die 
+\begin_inset Quotes gld
+\end_inset
+
+pseudo-atomaren
+\begin_inset Quotes grd
+\end_inset
+
+ 
+\begin_inset Formula $k$
+\end_inset
+
+-stellige Formeln 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\end_inset
+
+ der Form 
+\begin_inset Formula $R\bar{y}$
+\end_inset
+
+, 
+\begin_inset Formula $y_{1}\dot{=}y_{2}$
+\end_inset
+
+ oder 
+\begin_inset Formula $y_{1}\dot{\leqslant}y_{2}$
+\end_inset
+
+, wobei 
+\begin_inset Formula $\bar{y}$
+\end_inset
+
+ Zählterme der Form 
+\begin_inset Formula $y_{i}=\#z\psi\left(\bar{z}\right)$
+\end_inset
+
+ enthält.
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=R\bar{y}$
+\end_inset
+
+ mit 
+\begin_inset Formula $R/m\in\sigma$
+\end_inset
+
+, und 
+\begin_inset Formula $\bar{y}$
+\end_inset
+
+ enthält mindestens einen Zählterm 
+\begin_inset Formula $y_{i}$
+\end_inset
+
+, so ist die Formel offensichtlich unerfüllbar, da 
+\begin_inset Formula $\left\llbracket y_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\notin A$
+\end_inset
+
+ und 
+\begin_inset Formula $R^{\mathfrak{A}}\subseteq A^{m}$
+\end_inset
+
+.
+ Wir ersetzen 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ durch einen trivialen Satz 
+\begin_inset Formula $\hat{\varphi}\coloneqq\neg\exists x\,x\dot{=}x$
+\end_inset
+
+ ohne Zählterme.
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=y_{1}\dot{=}y_{2}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Falls 
+\begin_inset Formula $y_{1}=\#z\psi$
+\end_inset
+
+, so sei 
+\begin_inset Formula $z'\in\mathbf{var}\backslash\mathrm{frei}\left(\varphi\right)$
+\end_inset
+
+ eine neue Variable:
+\begin_inset Formula 
+\begin{eqnarray*}
+\hat{\varphi} & \coloneqq & \exists z'\left(z'\dot{=}\#z\hat{\psi}\wedge\hat{\varphi'}\right)\\
+\varphi' & \coloneqq & z'\dot{=}y_{2}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $y_{1}\in\mathbf{var}$
+\end_inset
+
+ und 
+\begin_inset Formula $y_{2}=\#z\psi$
+\end_inset
+
+, so vertausche die Operanden und gehe analog vor:
+\begin_inset Formula 
+\begin{eqnarray*}
+\hat{\varphi} & \coloneqq & \exists z'\left(z'\dot{=}\#z\hat{\psi}\wedge\hat{\varphi'}\right)\\
+\varphi' & \coloneqq & y_{1}\dot{=}z'
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=y_{1}\dot{\leqslant}y_{2}$
+\end_inset
+
+, so gehe analog zu Fall 2 vor, wobei 
+\begin_inset Formula $\varphi'=z'\dot{\leqslant}y_{2}$
+\end_inset
+
+ beziehungsweise 
+\begin_inset Formula $\varphi'=y_{1}\dot{\leqslant}z'$
+\end_inset
+
+ sei.
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Nun wird der Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
 \end_inset
 
 
