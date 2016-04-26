@@ -5,6 +5,7 @@
 \textclass article
 \begin_preamble
 \usepackage{tikz}
+\usepackage{hyperref}
 \end_preamble
 \use_default_options true
 \begin_modules
@@ -1145,6 +1146,38 @@ Eine Logik
 \end_layout
 
 \begin_layout Definition
+Wenn 
+\begin_inset Formula $\mathrm{frei}\left(\varphi\right)=\left\{ x_{1},\cdots,x_{k}\right\} $
+\end_inset
+
+ und 
+\begin_inset Formula $x_{1}<\cdots<x_{k}$
+\end_inset
+
+ in der Ordnung von 
+\begin_inset Formula $\mathbf{var}$
+\end_inset
+
+, so bezeichnen wir das Tupel 
+\begin_inset Formula $\bar{x}=x_{1}\cdots x_{k}$
+\end_inset
+
+ als das 
+\series bold
+Argument 
+\series default
+von 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ (auch notiert durch 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Definition
 Die 
 \series bold
 Stelligkeit 
@@ -1152,23 +1185,6 @@ Stelligkeit
 einer logischen Formel bezeichne die Anzahl der frei darin vorkommenden
  Variablen: 
 \begin_inset Formula $\mathrm{ar}\left(\varphi\right)\coloneqq\left|\mathrm{frei}\left(\varphi\right)\right|=k$
-\end_inset
-
-.
- Wir schreiben 
-\begin_inset Formula $\varphi\left(\bar{x}\right)$
-\end_inset
-
-, um auszudrücken, dass 
-\begin_inset Formula $\left\{ x_{1},\cdots,x_{k}\right\} =\mathrm{frei}\left(\varphi\right)$
-\end_inset
-
-, und 
-\begin_inset Formula $x_{1}<\cdots<x_{k}$
-\end_inset
-
- in der Ordnung von 
-\begin_inset Formula $\mathbf{var}$
 \end_inset
 
 .
@@ -1196,11 +1212,19 @@ Für ein Tupel
 \end_inset
 
  schreiben wir 
-\begin_inset Formula $\varphi\left(\bar{a}\right)$
+\begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)$
 \end_inset
 
  anstelle von 
-\begin_inset Formula $\varphi^{\beta}$
+\begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)$
+\end_inset
+
+, beziehungsweise 
+\begin_inset Formula $\mathfrak{A}\models\varphi\left(\bar{a}\right)$
+\end_inset
+
+ anstelle von 
+\begin_inset Formula $\mathfrak{A}\models\varphi^{\beta}$
 \end_inset
 
  mit 
@@ -1211,14 +1235,6 @@ a_{1}
 x_{k}\\
 a_{k}
 \end{array}\right)$
-\end_inset
-
-, beziehungsweise 
-\begin_inset Formula $\left\llbracket \varphi\left(\bar{a}\right)\right\rrbracket \left(\mathfrak{A}\right)$
-\end_inset
-
- anstelle von 
-\begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)$
 \end_inset
 
 .
@@ -3749,8 +3765,31 @@ Der Schaltkreis ist invariant, da er genau den Isomorphietyp
  induziert keinen Automorphismus.
 \end_layout
 
+\begin_layout Definition
+Die 
+\series bold
+disjunkte Vereinigung 
+\series default
+von zwei Schaltkreisen über dem gleichen Universum 
+\begin_inset Formula $U$
+\end_inset
+
+ ist wie folgt definiert:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{C}_{1} & = & \left(G_{1},W_{1},\Sigma_{1},\Omega_{1},U\right)\\
+\mathcal{C}_{2} & = & \left(G_{2},W_{2},\Sigma_{2},\Omega_{2},U\right)\\
+\mathcal{C}_{1}\uplus\mathcal{C}_{2} & = & \left(G_{1}\uplus G_{2},W_{1}\uplus W_{2},\Sigma_{1}\uplus\Sigma_{2},\emptyset,U\right)
+\end{eqnarray*}
+
+\end_inset
+
+(Hier ist zu beachten, dass der disjunkt vereinigte Schaltkreis zunächst
+ keine Auswertungsfunktion besitzt; diese wird separat neu definiert.)
+\end_layout
+
 \begin_layout Subsection
-Schaltkreisfamilien
+Eigenschaften von Schaltkreisfamilien
 \end_layout
 
 \begin_layout Definition
@@ -6258,7 +6297,11 @@ Zunächst wird die Formel
 \end_inset
 
  gebracht, in der jeder Zählterm in einer Teilformel der Form 
-\begin_inset Formula $\exists x\left(x\dot{=}\#x\psi\wedge\psi'\right)$
+\begin_inset Formula $x'\leqslant\#x\psi$
+\end_inset
+
+ oder 
+\begin_inset Formula $\#x\psi\leqslant x'$
 \end_inset
 
  steht.
@@ -6298,7 +6341,7 @@ pseudo-atomaren
 \end_inset
 
  Zählterme der Form 
-\begin_inset Formula $y_{i}=\#z\psi\left(\bar{z}\right)$
+\begin_inset Formula $y_{i}=\#_{z}\psi\left(\bar{z}\right)$
 \end_inset
 
  enthält.
@@ -6344,7 +6387,7 @@ Falls
 
 \begin_layout Case
 Falls 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=y_{1}\dot{=}y_{2}$
+\begin_inset Formula $\varphi\left(\bar{x}\right)=y_{1}\dot{\leqslant}y_{2}$
 \end_inset
 
 :
@@ -6353,39 +6396,38 @@ Falls
 \begin_deeper
 \begin_layout Case
 Falls 
-\begin_inset Formula $y_{1}=\#z\psi$
+\begin_inset Formula $y_{1}\in\mathbf{var}$
+\end_inset
+
+ oder 
+\begin_inset Formula $y_{2}\in\mathbf{var}$
+\end_inset
+
+, so liegt bereits die Normalform vor.
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $y_{1}=\#z_{1}\psi_{1}$
+\end_inset
+
+ und 
+\begin_inset Formula $y_{2}=\#z_{2}\psi_{2}$
 \end_inset
 
 , so sei 
 \begin_inset Formula $z'\in\mathbf{var}\backslash\mathrm{frei}\left(\varphi\right)$
 \end_inset
 
- eine neue Variable:
+ eine neue Variable (o.B.d.A.
+ mit 
+\begin_inset Formula $z'>\max\left(\mathrm{frei}\left(\varphi\right)\right)$
+\end_inset
+
+):
 \begin_inset Formula 
 \begin{eqnarray*}
-\hat{\varphi} & \coloneqq & \exists z'\left(z'\dot{=}\#z\hat{\psi}\wedge\hat{\varphi'}\right)\\
-\varphi' & \coloneqq & z'\dot{=}y_{2}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Case
-Falls 
-\begin_inset Formula $y_{1}\in\mathbf{var}$
-\end_inset
-
- und 
-\begin_inset Formula $y_{2}=\#z\psi$
-\end_inset
-
-, so vertausche die Operanden und gehe analog vor:
-\begin_inset Formula 
-\begin{eqnarray*}
-\hat{\varphi} & \coloneqq & \exists z'\left(z'\dot{=}\#z\hat{\psi}\wedge\hat{\varphi'}\right)\\
-\varphi' & \coloneqq & y_{1}\dot{=}z'
+\hat{\varphi} & \coloneqq & \exists z'\left(\#z_{1}\hat{\psi_{1}}\dot{\leqslant}z'\,\wedge\,z'\dot{\leqslant}\#z_{2}\hat{\psi_{2}}\right)
 \end{eqnarray*}
 
 \end_inset
@@ -6396,27 +6438,472 @@ Falls
 \end_deeper
 \begin_layout Case
 Falls 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=y_{1}\dot{\leqslant}y_{2}$
+\begin_inset Formula $\varphi\left(\bar{x}\right)=y_{1}\dot{=}y_{2}$
 \end_inset
 
-, so gehe analog zu Fall 2 vor, wobei 
-\begin_inset Formula $\varphi'=z'\dot{\leqslant}y_{2}$
+, so schreiben wir 
+\begin_inset Formula $\varphi$
 \end_inset
 
- beziehungsweise 
-\begin_inset Formula $\varphi'=y_{1}\dot{\leqslant}z'$
+ zu 
+\begin_inset Formula $\left(y_{1}\dot{\leqslant}y_{2}\,\wedge\,y_{2}\dot{\leqslant}y_{1}\right)$
 \end_inset
 
- sei.
+ um und fahren mit Fall 2 fort.
 \end_layout
 
 \end_deeper
 \begin_layout Proof
 Nun wird der Schaltkreis 
-\begin_inset Formula $\mathcal{C}$
+\begin_inset Formula $\dot{\mathcal{C}_{2n+1}^{\varphi}}$
+\end_inset
+
+ über dem Universum 
+\begin_inset Formula $\dot{U}=\left\{ 1,\cdots,n,\dot{0},\cdots,\dot{n}\right\} $
+\end_inset
+
+ wie folgt erzeugt:
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=x_{i}\dot{\leqslant}\#z_{j}\psi\left(\bar{z}\right)$
+\end_inset
+
+, so wird der Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\psi}$
+\end_inset
+
+ wie folgt erweitert:
+\begin_inset Formula 
+\begin{eqnarray*}
+\dot{\mathcal{C}_{2n+1}^{\psi}} & = & \left(G',W',\Sigma',\Omega',\dot{U}\right)\\
+\dot{\mathcal{C}_{2n+1}^{\varphi}} & = & \left(G,W,\Sigma,\Omega,\dot{U}\right)
+\end{eqnarray*}
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+G & = & G'\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in\dot{U}^{k}\right\} \\
+ &  & \uplus\left\{ 0_{i},1_{i}\mid1\leqslant i\leqslant n\right\} \\
+W & = & W'\uplus W_{\mathrm{maj}}\uplus W_{\mathrm{pad}}
+\end{eqnarray*}
+
 \end_inset
 
 
+\begin_inset Formula 
+\begin{eqnarray*}
+\Sigma\left(g\right) & = & \begin{cases}
+\Sigma'\left(g\right) & \mathrm{falls}\,g\in G'\\
+\mathbf{0} & \mathrm{falls}\,g=0_{i}\\
+\mathbf{1} & \mathrm{falls}\,g=1_{i}\\
+\mathrm{MAJ} & \mathrm{falls}\,g=g_{\bar{t}},\,\beta_{\bar{t}}y\in N\\
+\mathbf{0} & \mathrm{sonst}
+\end{cases}\\
+\Omega\left(\bar{t}\right) & = & a_{\bar{t}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Das Majority-Gate 
+\begin_inset Formula $a_{\bar{t}}$
+\end_inset
+
+ soll den Wert 
+\begin_inset Formula $\left\llbracket y\leqslant\#_{z}\psi\right\rrbracket \left(\mathfrak{A},\bar{t}\right)$
+\end_inset
+
+ berechnen.
+ Dazu wird es zunächst mit den entsprechenden Ausgängen von 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\psi}$
+\end_inset
+
+ verknüpft.
+ Seien 
+\begin_inset Formula $\rho_{1},\rho_{2}:U^{k}\rightarrow U^{k-1}$
+\end_inset
+
+ die folgenden Abbildungen, die die Variable 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+ aus 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ beziehungsweise 
+\begin_inset Formula $y_{j}$
+\end_inset
+
+ aus 
+\begin_inset Formula $\bar{y}$
+\end_inset
+
+ entfernen:
+\begin_inset Formula 
+\begin{eqnarray*}
+\rho_{1}\left(t_{1},\cdots,t_{k}\right) & = & \left(t_{1},\cdots t_{i-1},t_{i+1},\cdots,t_{k}\right)\\
+\rho_{2}\left(t_{1},\cdots,t_{k}\right) & = & \left(t_{1},\cdots t_{j-1},t_{j+1},\cdots,t_{k}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+W_{\mathrm{maj}}=\left\{ \left(\Omega\left(\bar{t}\right),g_{\bar{u}}\right)\mid\bar{t},\bar{u}\in\dot{U}^{k},\,\rho_{2}\left(\bar{t}\right)=\rho_{1}\left(\bar{u}\right)\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Momentan berechnet jedes Gate 
+\begin_inset Formula $g_{\bar{t}}$
+\end_inset
+
+, ob 
+\begin_inset Formula $2\left\llbracket \#_{z}\psi\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\geqslant n$
+\end_inset
+
+.
+ Es soll aber berechnen, ob 
+\begin_inset Formula $2\left\llbracket \#z_{i}\psi\right\rrbracket \geqslant2\beta_{\bar{t}}y$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dazu fügen wir die Kanten 
+\begin_inset Formula $W_{\mathrm{pad}}$
+\end_inset
+
+ ein, die die Eingänge der Majority-Gates in das richtige Gleichgewicht
+ bringen.
+ Ein Majority-Gate mit 
+\begin_inset Formula $k$
+\end_inset
+
+ zusätzlichen 
+\begin_inset Formula $\mathbf{0}$
+\end_inset
+
+-Eingängen berechnet 
+\begin_inset Formula $2\left\llbracket \#z_{i}\psi\right\rrbracket \geqslant n+k$
+\end_inset
+
+, eines mit 
+\begin_inset Formula $k$
+\end_inset
+
+ neuen 
+\begin_inset Formula $\mathbf{1}$
+\end_inset
+
+-Eingängen berechnet 
+\begin_inset Formula $2\left\llbracket \#z_{i}\psi\right\rrbracket +2k\geqslant n+k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Daher muss jedes Gate 
+\begin_inset Formula $g_{\bar{t}}$
+\end_inset
+
+ entweder 
+\begin_inset Formula $2\beta_{\bar{t}}y-n$
+\end_inset
+
+ 
+\begin_inset Formula $\mathbf{0}$
+\end_inset
+
+-Eingänge oder 
+\begin_inset Formula $n-2\beta_{t}y$
+\end_inset
+
+ 
+\begin_inset Formula $\mathbf{1}$
+\end_inset
+
+-Eingänge erhalten:
+\begin_inset Formula 
+\begin{eqnarray*}
+W_{\mathrm{pad}} & = & \left\{ \left(0_{i},g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant2\beta_{\bar{t}}y-n\right\} \\
+ & \cup & \left\{ \left(1_{i},g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant n-2\beta_{\bar{t}}y\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\overset{2\beta_{t}y}{\overbrace{x_{1}\cdots x_{n}\underset{2\beta_{t}y-n}{\underbrace{\mathbf{0}\mathbf{0}\cdots\mathbf{0}}}}} &  & \overset{2n-2\beta_{\bar{t}}y}{\overbrace{x_{1}\cdots x_{n}\underset{n-2\beta_{\bar{t}}y}{\underbrace{\mathbf{1}\mathbf{1}\cdots\mathbf{1}}}}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=\#z_{j}\psi\left(\bar{z}\right)\leqslant x_{i}$
+\end_inset
+
+, so muss der Schaltkreis die Anzahl der nicht erfüllenden Werte zählen.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\dot{\mathcal{C}_{2n+1}^{\psi}} & = & \left(G',W',\Sigma',\Omega',\dot{U}\right)\\
+\dot{\mathcal{C}_{2n+1}^{\varphi}} & = & \left(G,W,\Sigma,\Omega,\dot{U}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+G & = & G'\uplus\left\{ g_{\bar{t}},h_{\bar{t}}\mid\bar{t}\in\dot{U}^{k}\right\} \\
+ &  & \uplus\left\{ 0_{i},1_{i}\mid1\leqslant i\leqslant n\right\} \\
+W & = & W'\uplus W_{\mathrm{neg}}\uplus W_{\mathrm{maj}}\uplus_{\mathrm{pad}}\\
+\Sigma\left(g\right) & = & \begin{cases}
+\Sigma'\left(g\right) & g\in G'\\
+\neg & g=h_{\bar{t}}\\
+\mathbf{0} & \mathrm{falls}\,g=0_{i}\\
+\mathbf{1} & \mathrm{falls}\,g=1_{i}\\
+\mathrm{MAJ} & \mathrm{falls}\,g=g_{\bar{t}},\,\beta_{\bar{t}}y\in N\\
+\mathbf{0} & \mathrm{sonst}
+\end{cases}
+\end{eqnarray*}
+
+\end_inset
+
+Zuerst wird die Formel 
+\begin_inset Formula $\psi$
+\end_inset
+
+ negiert:
+\begin_inset Formula 
+\[
+W_{\mathrm{neg}}=\left\{ \left(\Omega'\left(\bar{t}\right),h_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k}\right\} 
+\]
+
+\end_inset
+
+Dann werden die Majority-Gates wie in Fall 1 verknüpft:
+\begin_inset Formula 
+\begin{eqnarray*}
+\rho_{1}\left(t_{1},\cdots,t_{k}\right) & = & \left(t_{1},\cdots t_{i-1},t_{i+1},\cdots,t_{k}\right)\\
+\rho_{2}\left(t_{1},\cdots,t_{k}\right) & = & \left(t_{1},\cdots t_{j-1},t_{j+1},\cdots,t_{k}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+W_{\mathrm{maj}}=\left\{ \left(\Omega\left(\bar{t}\right),g_{\bar{u}}\right)\mid\bar{t},\bar{u}\in\dot{U}^{k},\,\rho_{2}\left(\bar{t}\right)=\rho_{1}\left(\bar{u}\right)\right\} 
+\]
+
+\end_inset
+
+Schließlich werden die 
+\begin_inset Formula $\mathbf{0}/\mathbf{1}$
+\end_inset
+
+-Eingänge eingefügt.
+ Hierbei ist zu beachten, dass 
+\begin_inset Formula $\left\llbracket \#z_{j}\psi\right\rrbracket \left(\mathfrak{A},\beta\right)\leqslant\beta_{\bar{t}}y$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\left\llbracket \#z_{j}\neg\psi\right\rrbracket \left(\mathfrak{A},\beta\right)\geqslant n-\beta_{\bar{t}}y$
+\end_inset
+
+.
+ Entsprechend braucht das Gate 
+\begin_inset Formula $g_{\bar{t}}$
+\end_inset
+
+ genau 
+\begin_inset Formula $n-2\beta_{\bar{t}}y$
+\end_inset
+
+ 
+\begin_inset Formula $\mathbf{1}$
+\end_inset
+
+-Eingänge oder 
+\begin_inset Formula $2\beta_{\bar{t}}y-n$
+\end_inset
+
+ 
+\begin_inset Formula $\mathbf{0}$
+\end_inset
+
+-Eingänge:
+\begin_inset Formula 
+\begin{eqnarray*}
+W_{\mathrm{pad}} & = & \left\{ \left(1_{i},g_{\bar{t}}\right)\mid\bar{t}\in U^{k},1\leqslant i\leqslant2\beta_{\bar{t}}y-n\right\} \\
+ & \cup & \left\{ \left(0_{i},g_{\bar{t}}\right)\mid\bar{t}\in U^{k},1\leqslant i\leqslant n-2\beta_{\bar{t}}y\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\overset{2\beta_{t}y}{\overbrace{\overline{x_{1}}\cdots\overline{x_{n}}\underset{2\beta_{t}y-n}{\underbrace{\mathbf{1}\mathbf{1}\cdots\mathbf{1}}}}} &  & \overset{2n-2\beta_{\bar{t}}y}{\overbrace{\overline{x_{1}}\cdots\overline{x_{n}}\underset{n-2\beta_{\bar{t}}y}{\underbrace{\mathbf{0}\mathbf{0}\cdots\mathbf{0}}}}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Nach der Erzeugung von 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
+\end_inset
+
+ wird der Schaltkreis auf die bereits beschriebene Weise zu 
+\begin_inset Formula $\ddot{\mathcal{C}_{n}^{\varphi}}$
+\end_inset
+
+ umgewandelt.
+\end_layout
+
+\begin_layout Proof
+Sei nun 
+\begin_inset Formula $\ddot{\pi}\in\mathrm{Sym}_{U}$
+\end_inset
+
+ beliebig.
+ 
+\end_layout
+
+\begin_layout Section
+Schaltkreise zu Logik
+\end_layout
+
+\begin_layout Lemma
+Sei 
+\begin_inset Formula $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie mit konstant beschränkter Tiefe 
+\begin_inset Formula $\leqslant c$
+\end_inset
+
+ und polynomiell beschränkter Größe 
+\begin_inset Formula $\leqslant n^{k}$
+\end_inset
+
+, die eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage berechnet.
+ So existiert eine arb-invariante 
+\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
+\end_inset
+
+-Formel, die die gleiche Anfrage definiert.
+\end_layout
+
+\begin_layout Subsection
+Normalform
+\end_layout
+
+\begin_layout Standard
+Zum Beweis dieses Lemmas werden wir eine Normalform für die Schaltkreise
+ festlegen.
+\end_layout
+
+\begin_layout Definition
+Ein Schaltkreis 
+\begin_inset Formula $\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ ist in Alternierender Normalform, wenn er folgende Bedingungen erfüllt:
+\end_layout
+
+\begin_layout Enumerate
+Jedes Gate hat genau einen direkten Nachfolger (somit ist 
+\begin_inset Formula $\left(G,W\right)$
+\end_inset
+
+ ein gerichteter Baum).
+\end_layout
+
+\begin_layout Enumerate
+Jedes mit 
+\begin_inset Formula $\Sigma\left(g\right)=\neg$
+\end_inset
+
+ beschriftete Gate ist ein direkter Nachfolger eines Inputgates.
+\end_layout
+
+\begin_layout Enumerate
+Jedes Outputgate 
+\begin_inset Formula $g=\Omega\left(\bar{t}\right)$
+\end_inset
+
+ ist mit 
+\begin_inset Formula $\Sigma\left(g\right)=\vee$
+\end_inset
+
+ beschriftet.
+\end_layout
+
+\begin_layout Enumerate
+Je 
+\end_layout
+
+\begin_layout Lemma
+Sei 
+\begin_inset Formula $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie mit konstant beschränkter Tiefe 
+\begin_inset Formula $\leqslant c$
+\end_inset
+
+ und polynomiell beschränkter Größe 
+\begin_inset Formula $\leqslant n^{k}$
+\end_inset
+
+, die eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage berechnet.
+ So existiert eine äquivalente Schaltkreisfamilie 
 \end_layout
 
 \begin_layout Subsection
@@ -7076,6 +7563,113 @@ Im allgemeinen ist der so entstandene Schaltkreis weder
 \end_inset
 
 
+\end_layout
+
+\begin_layout Section
+Schaltkreise zu Logik
+\end_layout
+
+\begin_layout Lemma
+Sei 
+\begin_inset Formula $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie mit konstant beschränkter Tiefe 
+\begin_inset Formula $\leqslant c$
+\end_inset
+
+ und polynomiell beschränkter Größe 
+\begin_inset Formula $\leqslant n^{k}$
+\end_inset
+
+, die eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage berechnet.
+ So existiert eine arb-invariante 
+\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
+\end_inset
+
+-Formel, die die gleiche Anfrage definiert.
+\end_layout
+
+\begin_layout Subsection
+Normalform
+\end_layout
+
+\begin_layout Standard
+Zum Beweis dieses Lemmas werden wir eine Normalform für die Schaltkreise
+ festlegen.
+\end_layout
+
+\begin_layout Definition
+Ein Schaltkreis 
+\begin_inset Formula $\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ ist in Alternierender Normalform, wenn er folgende Bedingungen erfüllt:
+\end_layout
+
+\begin_layout Enumerate
+Jedes Gate hat genau einen direkten Nachfolger (somit ist 
+\begin_inset Formula $\left(G,W\right)$
+\end_inset
+
+ ein gerichteter Baum).
+\end_layout
+
+\begin_layout Enumerate
+Jedes mit 
+\begin_inset Formula $\Sigma\left(g\right)=\neg$
+\end_inset
+
+ beschriftete Gate ist ein direkter Nachfolger eines Inputgates.
+\end_layout
+
+\begin_layout Enumerate
+Jedes Outputgate 
+\begin_inset Formula $g=\Omega\left(\bar{t}\right)$
+\end_inset
+
+ ist mit 
+\begin_inset Formula $\Sigma\left(g\right)=\vee$
+\end_inset
+
+ beschriftet.
+\end_layout
+
+\begin_layout Enumerate
+Je 
+\end_layout
+
+\begin_layout Lemma
+Sei 
+\begin_inset Formula $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie mit konstant beschränkter Tiefe 
+\begin_inset Formula $\leqslant c$
+\end_inset
+
+ und polynomiell beschränkter Größe 
+\begin_inset Formula $\leqslant n^{k}$
+\end_inset
+
+, die eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage berechnet.
+ So existiert eine äquivalente Schaltkreisfamilie 
 \end_layout
 
 \begin_layout Section
