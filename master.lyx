@@ -6039,7 +6039,7 @@ Sei nun
 
 \begin_layout Proof
 Wir betrachten die Erweiterung 
-\begin_inset Formula $\dot{\pi}\coloneqq\ddot{\pi}\uplus\mathbf{id}_{N}$
+\begin_inset Formula $\dot{\pi}\coloneqq\ddot{\pi}\uplus\mathbf{id}_{\mid N}$
 \end_inset
 
 , die die Elemente von 
@@ -6468,7 +6468,7 @@ Nun wird der Schaltkreis
 \begin_deeper
 \begin_layout Case
 Falls 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=x_{i}\dot{\leqslant}\#z_{j}\psi\left(\bar{z}\right)$
+\begin_inset Formula $\varphi\left(\bar{x}\right)=x_{i}\dot{\leqslant}\#y_{j}\psi\left(\bar{y}\right)$
 \end_inset
 
 , so wird der Schaltkreis 
@@ -6501,7 +6501,7 @@ W & = & W'\uplus W_{\mathrm{maj}}\uplus W_{\mathrm{pad}}
 \Sigma'\left(g\right) & \mathrm{falls}\,g\in G'\\
 \mathbf{0} & \mathrm{falls}\,g=0_{i}\\
 \mathbf{1} & \mathrm{falls}\,g=1_{i}\\
-\mathrm{MAJ} & \mathrm{falls}\,g=g_{\bar{t}},\,\beta_{\bar{t}}y\in N\\
+\mathrm{MAJ} & \mathrm{falls}\,g=g_{\bar{t}},\,t_{i}\in N\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}\\
 \Omega\left(\bar{t}\right) & = & a_{\bar{t}}
@@ -6579,7 +6579,7 @@ Momentan berechnet jedes Gate
 
 .
  Es soll aber berechnen, ob 
-\begin_inset Formula $2\left\llbracket \#z_{i}\psi\right\rrbracket \geqslant2\beta_{\bar{t}}y$
+\begin_inset Formula $\left\llbracket \#z_{i}\psi\right\rrbracket \geqslant\beta_{\bar{t}}x_{i}=t_{i}$
 \end_inset
 
 .
@@ -6625,7 +6625,7 @@ Daher muss jedes Gate
 \end_inset
 
  entweder 
-\begin_inset Formula $2\beta_{\bar{t}}y-n$
+\begin_inset Formula $2t_{i}-n$
 \end_inset
 
  
@@ -6633,7 +6633,7 @@ Daher muss jedes Gate
 \end_inset
 
 -Eingänge oder 
-\begin_inset Formula $n-2\beta_{t}y$
+\begin_inset Formula $n-2t_{i}$
 \end_inset
 
  
@@ -6643,8 +6643,8 @@ Daher muss jedes Gate
 -Eingänge erhalten:
 \begin_inset Formula 
 \begin{eqnarray*}
-W_{\mathrm{pad}} & = & \left\{ \left(0_{i},g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant2\beta_{\bar{t}}y-n\right\} \\
- & \cup & \left\{ \left(1_{i},g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant n-2\beta_{\bar{t}}y\right\} 
+W_{\mathrm{pad}} & = & \left\{ \left(0_{i},g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant2t_{i}-n\right\} \\
+ & \cup & \left\{ \left(1_{i},g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant n-2t_{i}\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -6652,7 +6652,7 @@ W_{\mathrm{pad}} & = & \left\{ \left(0_{i},g_{\bar{t}}\right)\mid\bar{t}\in\dot{
 
 \begin_inset Formula 
 \begin{eqnarray*}
-\overset{2\beta_{t}y}{\overbrace{x_{1}\cdots x_{n}\underset{2\beta_{t}y-n}{\underbrace{\mathbf{0}\mathbf{0}\cdots\mathbf{0}}}}} &  & \overset{2n-2\beta_{\bar{t}}y}{\overbrace{x_{1}\cdots x_{n}\underset{n-2\beta_{\bar{t}}y}{\underbrace{\mathbf{1}\mathbf{1}\cdots\mathbf{1}}}}}
+\overset{2t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{2t_{i}-n}{\underbrace{\mathbf{0}\mathbf{0}\cdots\mathbf{0}}}}} &  & \overset{2n-2t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{n-2t_{i}}{\underbrace{\mathbf{1}\mathbf{1}\cdots\mathbf{1}}}}}
 \end{eqnarray*}
 
 \end_inset
@@ -6663,7 +6663,7 @@ W_{\mathrm{pad}} & = & \left\{ \left(0_{i},g_{\bar{t}}\right)\mid\bar{t}\in\dot{
 \end_deeper
 \begin_layout Case
 Falls 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=\#z_{j}\psi\left(\bar{z}\right)\leqslant x_{i}$
+\begin_inset Formula $\varphi\left(\bar{x}\right)=\#y_{j}\psi\left(\bar{y}\right)\leqslant x_{i}$
 \end_inset
 
 , so muss der Schaltkreis die Anzahl der nicht erfüllenden Werte zählen.
@@ -6687,7 +6687,7 @@ W & = & W'\uplus W_{\mathrm{neg}}\uplus W_{\mathrm{maj}}\uplus_{\mathrm{pad}}\\
 \neg & g=h_{\bar{t}}\\
 \mathbf{0} & \mathrm{falls}\,g=0_{i}\\
 \mathbf{1} & \mathrm{falls}\,g=1_{i}\\
-\mathrm{MAJ} & \mathrm{falls}\,g=g_{\bar{t}},\,\beta_{\bar{t}}y\in N\\
+\mathrm{MAJ} & \mathrm{falls}\,g=g_{\bar{t}},\,t_{i}\in N\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
@@ -6729,11 +6729,11 @@ Schließlich werden die
 
 -Eingänge eingefügt.
  Hierbei ist zu beachten, dass 
-\begin_inset Formula $\left\llbracket \#z_{j}\psi\right\rrbracket \left(\mathfrak{A},\beta\right)\leqslant\beta_{\bar{t}}y$
+\begin_inset Formula $\left\llbracket \#z_{j}\psi\right\rrbracket \left(\mathfrak{A},\beta\right)\leqslant\beta_{\bar{t}}x_{i}=t_{i}$
 \end_inset
 
  genau dann wenn 
-\begin_inset Formula $\left\llbracket \#z_{j}\neg\psi\right\rrbracket \left(\mathfrak{A},\beta\right)\geqslant n-\beta_{\bar{t}}y$
+\begin_inset Formula $\left\llbracket \#z_{j}\neg\psi\right\rrbracket \left(\mathfrak{A},\beta\right)\geqslant n-t_{i}$
 \end_inset
 
 .
@@ -6742,7 +6742,7 @@ Schließlich werden die
 \end_inset
 
  genau 
-\begin_inset Formula $n-2\beta_{\bar{t}}y$
+\begin_inset Formula $n-2t_{i}$
 \end_inset
 
  
@@ -6750,7 +6750,7 @@ Schließlich werden die
 \end_inset
 
 -Eingänge oder 
-\begin_inset Formula $2\beta_{\bar{t}}y-n$
+\begin_inset Formula $2t_{i}-n$
 \end_inset
 
  
@@ -6760,8 +6760,8 @@ Schließlich werden die
 -Eingänge:
 \begin_inset Formula 
 \begin{eqnarray*}
-W_{\mathrm{pad}} & = & \left\{ \left(1_{i},g_{\bar{t}}\right)\mid\bar{t}\in U^{k},1\leqslant i\leqslant2\beta_{\bar{t}}y-n\right\} \\
- & \cup & \left\{ \left(0_{i},g_{\bar{t}}\right)\mid\bar{t}\in U^{k},1\leqslant i\leqslant n-2\beta_{\bar{t}}y\right\} 
+W_{\mathrm{pad}} & = & \left\{ \left(1_{i},g_{\bar{t}}\right)\mid\bar{t}\in U^{k},1\leqslant i\leqslant2t_{i}-n\right\} \\
+ & \cup & \left\{ \left(0_{i},g_{\bar{t}}\right)\mid\bar{t}\in U^{k},1\leqslant i\leqslant n-2t_{i}\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -6769,7 +6769,7 @@ W_{\mathrm{pad}} & = & \left\{ \left(1_{i},g_{\bar{t}}\right)\mid\bar{t}\in U^{k
  
 \begin_inset Formula 
 \begin{eqnarray*}
-\overset{2\beta_{t}y}{\overbrace{\overline{x_{1}}\cdots\overline{x_{n}}\underset{2\beta_{t}y-n}{\underbrace{\mathbf{1}\mathbf{1}\cdots\mathbf{1}}}}} &  & \overset{2n-2\beta_{\bar{t}}y}{\overbrace{\overline{x_{1}}\cdots\overline{x_{n}}\underset{n-2\beta_{\bar{t}}y}{\underbrace{\mathbf{0}\mathbf{0}\cdots\mathbf{0}}}}}
+\overset{2t_{i}}{\overbrace{\overline{x_{1}}\cdots\overline{x_{n}}\underset{2t_{i}-n}{\underbrace{\mathbf{1}\mathbf{1}\cdots\mathbf{1}}}}} &  & \overset{2n-2t_{i}}{\overbrace{\overline{x_{1}}\cdots\overline{x_{n}}\underset{n-2t_{i}}{\underbrace{\mathbf{0}\mathbf{0}\cdots\mathbf{0}}}}}
 \end{eqnarray*}
 
 \end_inset
@@ -6778,6 +6778,21 @@ W_{\mathrm{pad}} & = & \left\{ \left(1_{i},g_{\bar{t}}\right)\mid\bar{t}\in U^{k
 \end_layout
 
 \end_deeper
+\begin_layout Proof
+Wir stellen fest, dass der so erzeugte Schaltkreis weiterhin konstante Tiefe
+ 
+\begin_inset Formula $\leqslant\left\Vert \varphi\right\Vert $
+\end_inset
+
+ hat, denn der neue Konstruktionsschritt vergrößert die Tiefe um maximal
+ 
+\begin_inset Formula $2$
+\end_inset
+
+ Kanten.
+ Weiterhin hat er die polynomielle Größe
+\end_layout
+
 \begin_layout Proof
 Nach der Erzeugung von 
 \begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
@@ -6796,7 +6811,115 @@ Sei nun
 \end_inset
 
  beliebig.
- 
+ Wir erweitern die Permutation wieder zu 
+\begin_inset Formula $\dot{\pi}\coloneqq\ddot{\pi}\uplus\mathbf{id}_{\mid N}\in\mathrm{Sym}_{U}$
+\end_inset
+
+, und bauen den Isomorphismus 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+ induktiv auf:
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=x_{i}\leqslant\#y_{i}\psi\left(\bar{y}\right)$
+\end_inset
+
+, so sei 
+\begin_inset Formula $\hat{\pi}'$
+\end_inset
+
+ der vorrausgesetzte Automorphismus im Schaltkreis 
+\begin_inset Formula $\psi\left(\bar{y}\right)$
+\end_inset
+
+.
+ Dieser wird wie folgt erweitert:
+\begin_inset Formula 
+\[
+\hat{\pi}\left(g\right)=\begin{cases}
+g & \mathrm{falls}\,g\in\left\{ 0_{i}1_{i}\mid1\leqslant i\leqslant n\right\} \\
+g_{\dot{\pi}\bar{t}} & \mathrm{falls}\,g=g_{\bar{t}}\\
+\hat{\pi}'\left(g\right) & \mathrm{sonst}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Es gilt: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\hat{\pi}W_{\mathrm{maj}} & = & \left\{ \left(\hat{\pi}\Omega\left(\bar{t}\right),\hat{\pi}g_{\bar{u}}\right)\mid\bar{t},\bar{u}\in\dot{U}^{k},\,\rho_{2}\left(\bar{t}\right)=\rho_{1}\left(\bar{u}\right)\right\} \\
+ & = & \left\{ \left(\Omega\left(\dot{\pi}\bar{t}\right),g_{\dot{\pi}\bar{u}}\right)\mid\bar{t},\bar{u}\in\dot{U}^{k},\,\rho_{2}\left(\bar{t}\right)=\rho_{1}\left(\bar{u}\right)\right\} \\
+ & = & W_{\mathrm{maj}}\\
+\Sigma\left(\hat{\pi}g\right) & = & \begin{cases}
+\Sigma'\left(\hat{\pi}'g\right) & \mathrm{falls}\,g\in G'\\
+\mathbf{0} & \mathrm{falls}\,g=0_{i}\\
+\mathbf{1} & \mathrm{falls}\,g=1_{i}\\
+\mathrm{MAJ} & \mathrm{falls}\,g=g_{\bar{t}},\,\beta_{\bar{t}}y\in N\\
+\mathbf{0} & \mathrm{sonst}
+\end{cases}\\
+\hat{\pi}\left(\Omega\left(\bar{t}\right)\right) & = & \hat{\pi}g_{\bar{t}}=g_{\dot{\pi}\bar{t}}=\Omega\left(\dot{\pi}\bar{t}\right)
+\end{eqnarray*}
+
+\end_inset
+
+Betrachten wir schließlich 
+\begin_inset Formula $W_{\mathrm{pad}}$
+\end_inset
+
+, so gilt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\hat{\pi}W_{\mathrm{pad}} & = & \left\{ \left(\hat{\pi}0_{i},\hat{\pi}g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant2t_{i}-n\right\} \\
+ & \cup & \left\{ \left(\hat{\pi}1_{i},\hat{\pi}g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant n-2t_{i}\right\} \\
+ & = & \left\{ \left(0_{i},g_{\dot{\pi}\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant2\dot{\pi}t_{i}-n\right\} \,\mathrm{denn}\,t_{i}\in N,\,\dot{\pi}t_{i}=t_{i}\\
+ & \cup & \left\{ \left(1_{i},g_{\dot{\pi}\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant n-2\dot{\pi}t_{i}\right\} \\
+ & = & W_{\mathrm{pad}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=\#y_{i}\psi\left(\bar{y}\right)\leqslant x_{i}$
+\end_inset
+
+, so ist 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+ analog zu Fall 1 definiert.
+ Es müssen zusätzlich die Negations-Gates abgebildet werden:
+\begin_inset Formula 
+\[
+\hat{\pi}h_{\bar{t}}=h_{\dot{\pi}\bar{t}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Damit ist der erzeugte Schaltkreis 
+\begin_inset Formula $\ddot{\mathcal{C}_{n}^{\varphi}}$
+\end_inset
+
+ symmetrisch.
 \end_layout
 
 \begin_layout Section
