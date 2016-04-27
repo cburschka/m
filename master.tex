@@ -112,15 +112,24 @@ definiert.
 \textbf{Tupel}
 
 Ein Tupel $\left(x_{1},\cdots,x_{n}\right)$ von Elementen einer Menge
-$U$ wird durch $\bar{x}\in U^{n}$ notiert. $\#\bar{x}=n$ sei die
-Anzahl der Elemente des Tupels, und ein $n$-stelliges Tupel heiße
-kurz ,,$n$-Tupel``.
+$U$ wird durch $\bar{x}\in U^{n}$ notiert.
+
+Die \textbf{Stelligkeit} $\#\bar{x}$ eines Tupels $\bar{x}$ sei
+die Anzahl der Elemente, und ein $n$-stelliges Tupel heiße kurz ,,$n$-Tupel``.
 
 Für zwei Tupel $\bar{x},\bar{y}$ mit $\#\bar{x}=m$ und $\#\bar{y}=n$
 sei $\bar{x}\bar{y}$ das $\left(m+n\right)$-Tupel $\left(x_{1},\cdots,x_{m},y_{1},\cdots,y_{m}\right)$.
 
 Das $0$-stellige Tupel wird durch $\left\langle \right\rangle $
 notiert.
+\end{defn}
+
+\begin{defn}
+\textbf{Bereiche}
+
+Die Mengen $\left\{ 1,\cdots,n\right\} $ und $\left\{ 0,\cdots,n\right\} $
+werden respektive durch $\left[1,n\right]$ und $\left[0,n\right]$
+abgekürzt. 
 \end{defn}
 
 \begin{defn}
@@ -176,7 +185,8 @@ die folgende Abbildung:
 
 
 Für $\pi:A\rightarrow B$ und $A'\subseteq A$ sei $\pi_{\mid A'}:A'\rightarrow B$
-die Reduktion auf eine Teilmenge des Definitionsbereichs.
+die Reduktion auf eine Teilmenge des Definitionsbereichs, und $\pi_{\backslash A'}:A\backslash A'\rightarrow B$
+die Reduktion auf das Komplement.
 \end{defn}
 
 \begin{defn}
@@ -223,13 +233,25 @@ die Menge aller $\sigma$-Strukturen mit einem Universum der Größe
 $\left|A\right|=n$.
 \item Sei $\mathbf{FIN}\left(\sigma\right)\coloneqq\bigcup_{n\in\mathbb{N}_{\geqslant1}}\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 die Menge aller endlichen $\sigma$-Strukturen.
-\item Sei $\mathbf{FIN}_{<}\left(\sigma\right)$ die Menge der endlichen
-$\sigma\cup\left\{ \dot{\leqslant}\right\} $-Strukturen über einem
-geordneten Universum $U=\left\{ 0,\cdots,n\right\} \subseteq\mathbb{N}$.
+\item Für $\dot{\leqslant}\notin\sigma$ seien $\mathbf{FIN}_{<}^{\left[a,b\right]}\left(\sigma\right)$
+die endlichen $\sigma\cup\left\{ \dot{\leqslant}\right\} $-Strukturen
+über einem geordneten Universum $U=\left[a,b\right]$. Ferner seien
+$\mathbf{FIN}_{<}^{0}\left(\sigma\right)$ und $\mathbf{FIN}_{<}^{1}\left(\sigma\right)$
+die endlichen geordneten $0$- beziehungsweise $1$-indizierten Strukturen:
+\begin{eqnarray*}
+\mathbf{FIN}_{<}^{0}\left(\sigma\right) & \coloneqq & \bigcup_{n\in\mathbb{N}}\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\sigma\right)\\
+\mathbf{FIN}_{<}^{1}\left(\sigma\right) & \coloneqq & \bigcup_{n\in\mathbb{N}}\mathbf{FIN}_{<}^{\left[1,n\right]}\left(\sigma\right)
+\end{eqnarray*}
+
 \end{enumerate}
 
-Operatoren wie $\leqslant$ werden gegebenenfalls durch einen Punkt
-als Relationssymbol gekennzeichnet, wie zum Beispiel in $\left(i,j\right)\in\dot{\leqslant}\Leftrightarrow i\leqslant j$.
+Relationssymbole wie $\leqslant$ werden gegebenenfalls durch einen
+Punkt als Relationssymbol gekennzeichnet, und zur Lesbarkeit mit Infix-Notation
+$a\leqslant b$ statt $\left(a,b\right)\in\leqslant$ verwendet. 
+\begin{eqnarray*}
+i\dot{\leqslant}j & \Leftrightarrow & \left(i,j\right)\in\dot{\leqslant}
+\end{eqnarray*}
+.
 
 \end{defn}
 
@@ -259,24 +281,23 @@ diese bilden wiederum eine Gruppe.
 \end{defn}
 
 \begin{defn}
-\textbf{\label{def:Disjunkte-Vereinigung}Disjunkte Vereinigung}
+\textbf{\label{def:Disjunkte-Vereinigung}Vereinigung von Strukturen}
 
-Zwei Strukturen können disjunkt vereinigt werden, wenn sie entweder
-verschiedene Relationssymbole interpretieren, oder die gleichen Relationssymbole
-über disjunkten Universen interpretieren. Für eine $\sigma_{1}$-Struktur
+Zwei Strukturen können vereinigt werden, wenn sie entweder disjunkte
+Signaturen oder die gleiche Signatur besitzen. Für eine $\sigma_{1}$-Struktur
 $\mathfrak{A}$ und eine $\sigma_{2}$-Struktur $\mathfrak{B}$ gilt:
 
-Wenn $\sigma_{1}\cap\sigma_{2}=\emptyset$, so ist $\mathfrak{A}\uplus\mathfrak{B}$
+Wenn $\sigma_{1}\cap\sigma_{2}=\emptyset$, so ist $\mathfrak{A}\oplus\mathfrak{B}$
 die folgende $\left(\sigma_{1}\cup\sigma_{2}\right)$-Struktur:
 \[
-\mathfrak{A}\uplus\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\right)_{R\in\sigma_{1}},\left(R^{\mathfrak{B}}\right)_{R\in\sigma_{2}}\right)
+\mathfrak{A}\oplus\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\right)_{R\in\sigma_{1}},\left(R^{\mathfrak{B}}\right)_{R\in\sigma_{2}}\right)
 \]
 
 
-Wenn $\sigma_{1}=\sigma_{2}=\sigma$ und $A\cap B=\emptyset$, so
-ist $\mathfrak{A}\uplus\mathfrak{B}$ die folgende $\sigma$-Struktur:
+Wenn $\sigma_{1}=\sigma_{2}=\sigma$, so ist $\mathfrak{A}\oplus\mathfrak{B}$
+die folgende $\sigma$-Struktur:
 \[
-\mathfrak{A}\uplus\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\cup R^{\mathfrak{B}}\right)_{R\in\sigma}\right)
+\mathfrak{A}\oplus\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\cup R^{\mathfrak{B}}\right)_{R\in\sigma}\right)
 \]
 
 \end{defn}
@@ -326,36 +347,43 @@ $\sigma$, deren Ausdrücke auf endlichen $\sigma$-Strukturen ausgewertet
 werden.
 \begin{defn}
 Sei $\mathbf{var}$ die Menge aller erststufigen Variablen. Es existiere
-implizit eine Ordnung von $\mathbf{var}$.
+implizit eine feste lineare Ordnung der Variablen.
 
 Für einen Ausdruck $\omega$ sei $\mathrm{var}\left(\omega\right)$
 die Menge der darin vorkommenden Variablen, und $\mathrm{frei}\left(\omega\right)\subseteq\mathrm{var}\left(\omega\right)$
 die Menge der freien Variablen.
 
-In einer Struktur $\mathfrak{A}$ sei eine Belegung $\beta$ eine
-Abbildung $\beta:\mathrm{frei}\left(\omega\right)\rightarrow A$ aller
-freien Variablen auf Elemente des Universums.
+In einer Struktur $\mathfrak{A}$ sei eine \textbf{Belegung} $\beta$
+eine partielle Abbildung $\beta:\mathbf{var}\rightarrow A$ von Variablen
+auf Elemente des Universums.
 \end{defn}
 Die Auswertungsfunktion für eine Struktur $\mathfrak{A}$ und eine
 Belegung $\beta$ wird durch $\left\llbracket \cdot\right\rrbracket \left(\mathfrak{A},\beta\right)$
 notiert.
 \begin{defn}
 Eine Logik $\mathscr{L}\left[\sigma\right]$ besteht aus der Sprache
-der $\mathscr{L}\left[\sigma\right]$-Terme $t$, für die $\left\llbracket t\right\rrbracket \left(\mathfrak{A},\beta\right)\in A$
-ein Element des Universums ist, den $\mathscr{L}\left[\sigma\right]$-Formeln
-$\varphi$, für die $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\in\left\{ 0,1\right\} $
-ein Wahrheitswert ist, und der Auswertungsfunktion $\left\llbracket \cdot\right\rrbracket $.
+der $\mathscr{L}\left[\sigma\right]$-Terme, der Sprache der $\mathscr{L}\left[\sigma\right]$-Formeln,
+und der Auswertungsfunktion $\left\llbracket \cdot\right\rrbracket $.
+
+Für einen $\mathscr{L}\left[\sigma\right]$-Term $t$ ist $\left\llbracket t\right\rrbracket \left(\mathfrak{A},\beta\right)\in A$
+ein Element des Universums. Für eine $\mathscr{L}\left[\sigma\right]$-Formel
+$\varphi$ ist $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\in\left\{ 0,1\right\} $
+ein Wahrheitswert.
 \end{defn}
 
 \begin{defn}
-Wenn $\mathrm{frei}\left(\varphi\right)=\left\{ x_{1},\cdots,x_{k}\right\} $
-und $x_{1}<\cdots<x_{k}$ in der Ordnung von $\mathbf{var}$, so bezeichnen
-wir das Tupel $\bar{x}=x_{1}\cdots x_{k}$ als das \textbf{Argument
-}von $\varphi$ (auch notiert durch $\varphi\left(\bar{x}\right)$).
+Für einen Ausdruck $\omega$ mit $\mathrm{frei}\left(\omega\right)=\left\{ x_{1},\cdots,x_{k}\right\} $
+und $x_{1}<\cdots<x_{k}$ in der Variablenordnung bezeichnen wir das
+Tupel $\bar{x}=x_{1}\cdots x_{k}$ als das \textbf{Argument }von $\omega$
+(auch notiert durch $\omega\left(\bar{x}\right)$).
 
-Die \textbf{Stelligkeit }einer logischen Formel bezeichne die Anzahl
-der frei darin vorkommenden Variablen: $\mathrm{ar}\left(\varphi\right)\coloneqq\left|\mathrm{frei}\left(\varphi\right)\right|=k$.
+Die \textbf{Stelligkeit }einer logischen Formel (beziehungsweise ihres
+Arguments) bezeichne die Anzahl der frei vorkommenden Variablen: $\mathrm{ar}\left(\varphi\left(\bar{x}\right)\right)=\#\bar{x}=\left|\mathrm{frei}\left(\varphi\right)\right|$.
 
+Ein \textbf{Satz} sei eine Formel ohne freie Variablen.
+\end{defn}
+
+\begin{defn}
 Für eine Belegung $\beta$ schreiben wir $\mathfrak{A}\models\varphi^{\beta}$
 genau dann wenn $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1$.
 
@@ -374,6 +402,20 @@ Entsprechend sei $\varphi\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^
 die Relation der $\varphi$ erfüllenden Tupel. Somit beschreibt jede
 $\mathscr{L}\left[\sigma\right]$-Formel eine $\sigma$-Anfrage, und
 jeder Satz eine $\sigma$-Eigenschaft.
+\end{defn}
+
+\begin{defn}
+Für einen Ausdruck $\omega\left(\bar{x}\right)$ und eine Belegung
+$\beta:X\rightarrow A$ mit $\mathrm{frei}\left(\omega\right)\backslash X\neq\emptyset$
+sei $\omega^{\beta}$ ein \textbf{partiell belegter} Ausdruck; es
+sei $\mathrm{frei}\left(\omega^{\beta}\right)=\mathrm{frei}\left(\omega\right)\backslash X$.
+
+Das Argument von $\omega^{\beta}$ sei $\bar{y}$ mit $\left\{ y_{1},\cdots,y_{\ell}\right\} =\left\{ x_{1},\cdots,x_{k}\right\} \backslash X$.
+
+Es stehe $\left\llbracket \varphi^{\beta}\right\rrbracket \left(\mathfrak{A},\beta'\right)$
+für die Auswertung $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\uplus\beta'\right)$
+mit $\beta':\mathrm{frei}\left(\omega^{\beta}\right)\rightarrow A$,
+und $\varphi^{\beta}\left(\mathfrak{A}\right)$ für die Anfrage $\left\{ \bar{a}\in A^{\ell}\mid\mathfrak{A}\models\varphi^{\beta\uplus\beta'}\right\} $.
 \end{defn}
 
 \begin{defn}
@@ -404,12 +446,9 @@ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
 \mathrm{frei}\left(R\bar{x}\right)=\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(R\bar{x}\right)=\bigcup_{i=1}^{k}\mathrm{var}\left(x_{i}\right)
 \end{eqnarray*}
-\[
-\left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right)=\begin{cases}
-1 & \mathrm{falls}\,\left(\left\llbracket x_{1}\right\rrbracket \left(\mathfrak{A},\beta\right),\cdots,\left\llbracket x_{k}\right\rrbracket \left(\mathfrak{A},\beta\right)\right)\in R^{\mathfrak{A}}\\
-0 & \mathrm{sonst}
-\end{cases}
-\]
+\begin{eqnarray*}
+\mathfrak{A}\models\left(R\bar{x}\right)^{\beta} & \Leftrightarrow & \left(\left\llbracket x_{1}\right\rrbracket \left(\mathfrak{A},\beta\right),\cdots,\left\llbracket x_{k}\right\rrbracket \left(\mathfrak{A},\beta\right)\right)\in R^{\mathfrak{A}}
+\end{eqnarray*}
 
 \item [{A2}] Für zwei $\mathrm{FO}\left[\sigma\right]$-Terme $x_{1},x_{2}$
 ist $x_{1}=x_{2}$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
@@ -418,12 +457,9 @@ Beispiel bei ,,$\varphi=x_{1}\dot{=}x_{2}$.``)
 \begin{eqnarray*}
 \mathrm{frei}\left(x_{1}\dot{=}x_{2}\right)=\bigcup_{i=1}^{2}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(x_{1}\dot{=}x_{2}\right)=\bigcup_{i=1}^{2}\mathrm{var}\left(x_{i}\right)
 \end{eqnarray*}
-\[
-\left\llbracket x\dot{=}y\right\rrbracket \left(\mathfrak{A},\beta\right)=\begin{cases}
-1 & \mathrm{falls\,}\left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket y\right\rrbracket \left(\mathfrak{A},\beta\right)\\
-0 & \mathrm{sonst}
-\end{cases}
-\]
+\begin{eqnarray*}
+\mathfrak{A}\models\left(x\dot{=}y\right)^{\beta} & \Leftrightarrow & \left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket y\right\rrbracket \left(\mathfrak{A},\beta\right)
+\end{eqnarray*}
 
 \item [{R1}] Für eine $\mathrm{FO}\left[\sigma\right]$-Formel $\varphi$
 ist $\neg\varphi$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
@@ -443,8 +479,8 @@ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \mathrm{frei}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)=\bigcup_{i=1}^{k}\mathrm{frei}\left(\varphi_{i}\right) &  & \mathrm{var}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)=\bigcup_{i=1}^{k}\mathrm{var}\left(\varphi_{i}\right)
 \end{eqnarray*}
 \begin{eqnarray*}
-\left\llbracket \varphi_{1}\wedge\cdots\wedge\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \prod_{i=1}^{k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
-\left\llbracket \varphi_{1}\vee\cdots\vee\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left\llbracket \neg\left(\neg\varphi_{1}\wedge\cdots\wedge\neg\varphi_{k}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)\\
+\left\llbracket \varphi_{1}\wedge\cdots\wedge\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \min_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
+\left\llbracket \varphi_{1}\vee\cdots\vee\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \max_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
 \left\llbracket \varphi_{1}\rightarrow\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left\llbracket \neg\varphi_{1}\vee\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
 \left\llbracket \varphi_{1}\leftrightarrow\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left\llbracket \left(\varphi_{1}\rightarrow\varphi_{2}\right)\wedge\left(\varphi_{2}\rightarrow\varphi_{1}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)
 \end{eqnarray*}
@@ -456,11 +492,14 @@ $\varphi$ ist $Qx\varphi$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \mathrm{frei}\left(Qx\varphi\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(Qx\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
 \end{eqnarray*}
 \begin{eqnarray*}
-\left\llbracket \exists x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \begin{cases}
-1 & \mbox{falls ein}\,a\in A\,\mbox{existiert so dass}\,\mathfrak{A}\models\varphi^{\beta\uplus\binom{x}{a}}\\
-0 & \mathrm{sonst}
-\end{cases}\\
-\left\llbracket \forall x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left\llbracket \neg\exists x\neg\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)
+\left\llbracket \exists x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \max_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\uplus\left(\begin{array}{c}
+x\\
+a
+\end{array}\right)\right)\right)\\
+\left\llbracket \forall x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \min_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\uplus\left(\begin{array}{c}
+x\\
+a
+\end{array}\right)\right)\right)
 \end{eqnarray*}
 
 \end{lyxlist}
@@ -474,48 +513,42 @@ diese wird auch durch $R/k\in\mathbf{var}_{2}$ notiert.
 
 \begin{defn}
 Die inflationäre Fixpunktlogik $\mathrm{IFP}\left[\sigma\right]$
-erweitert $\mathrm{FO}\left[\sigma\right]$ um den inflationären Fixpunkt-Operator
+erweitert $\mathrm{FO}\left[\sigma\right]$ um den inflationären Fixpunkt-Operator:
 \begin{lyxlist}{00.00.0000}
 \item [{R4}] Für eine Relationsvariable $R/k\in\mathbf{var}_{2}\backslash\sigma$,
-eine $k$-stellige $\mathrm{IFP}\left[\sigma\cup\left\{ R\right\} \right]$-Formel
-$\varphi$, ein Tupel $\bar{x}\in\mathbf{var}^{k}$ und ein $k$-Tupel
-$\bar{y}$ von $\mathrm{FP}\left[\sigma\right]$-Termen ist 
-\[
-\varphi'\coloneqq\left[\mathrm{ifp}_{R,\bar{x}}\varphi\right]\left(\bar{y}\right)
-\]
- eine $\mathrm{IFP}\left[\sigma\right]$-Formel.
+eine $\mathrm{IFP}\left[\sigma\cup\left\{ R\right\} \right]$-Formel
+$\psi$, ein Tupel $\bar{x}\in\mathbf{var}^{k}$ und ein $k$-Tupel
+$\bar{y}$ von $\mathrm{FP}\left[\sigma\right]$-Termen ist $\varphi=\left[\mathrm{ifp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
+eine $\mathrm{IFP}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
-\mathrm{frei}\left(\varphi'\right) & = & \bigcup_{i=1}^{k}\mathrm{frei}\left(\varphi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{frei}\left(y_{i}\right)\\
-\mathrm{var}\left(\varphi'\right) & = & \bigcup_{i=1}^{k}\mathrm{var}\left(\varphi\right)\cup\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{var}\left(y_{i}\right)
+\mathrm{frei}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{frei}\left(y_{i}\right)\\
+\mathrm{var}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{var}\left(\psi\right)\cup\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{var}\left(y_{i}\right)
 \end{eqnarray*}
 
 \end{lyxlist}
 \end{defn}
-Für eine $\sigma$-Struktur $\mathfrak{A}$ und eine Belegung $\beta:\mathrm{frei}\left(\varphi'\right)\rightarrow A$
-definieren wir eine Sequenz von $\left\{ R\right\} $-Strukturen $\left(\mathfrak{A}_{\varphi}^{\left(i\right)}\right)_{i\in\mathbb{N}}$
+Für eine $\sigma$-Struktur $\mathfrak{A}$ und eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
+definieren wir eine Sequenz von $\left\{ R\right\} $-Strukturen $\left(\mathfrak{R}^{\left(i\right)}\right)_{i\in\mathbb{N}}$
 und die Relationen $\left(R^{\left(i\right)}\right)_{i\in\mathbb{N}}$
 wie folgt: 
 \begin{eqnarray*}
 R^{\left(0\right)} & \coloneqq & \emptyset\\
-\mathfrak{A}_{\varphi}^{\left(i\right)} & \coloneqq & \left(A,R^{\left(i\right)}\right)\\
-R^{\left(i+1\right)} & \coloneqq & R^{\left(i\right)}\cup\varphi^{\beta}\left(\mathfrak{A}\uplus\mathfrak{A}_{\varphi}^{\left(i\right)}\right)
+\mathfrak{R}^{\left(i\right)} & \coloneqq & \left(A,R^{\left(i\right)}\right)\\
+R^{\left(i+1\right)} & \coloneqq & R^{\left(i\right)}\cup\psi^{\beta_{\backslash\bar{x}}}\left(\mathfrak{A}\right)
 \end{eqnarray*}
 Das heißt: $R^{\left(i+1\right)}$ fügt das Anfrageergebnis hinzu,
-das entsteht, wenn das Symbol $R$ durch die Relation $R^{\left(i\right)}$
-interpretiert wird.
-
-Nun gelte: 
-\[
-\left\llbracket \left[\mathrm{ifp}_{R,\bar{x}}\varphi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\begin{cases}
-1 & \mathrm{falls}\,\left\llbracket \bar{y}\right\rrbracket \left(\mathfrak{A},\beta\right)\in R^{\left(\infty\right)}\\
-0 & \mathrm{sonst}
-\end{cases}
-\]
-
+das unter der partiellen Belegung $\beta_{\backslash\bar{x}}$ entsteht,
+wenn das Symbol $R$ durch die Relation $R^{\left(i\right)}$ interpretiert
+wird.
 
 Da $R^{\left(i\right)}\subseteq R^{\left(i+1\right)}\subseteq A^{k}$,
-existiert der Fixpunkt $R^{\left(\infty\right)}$ und wird nach höchstens
-$\left|A\right|^{k}$ Iterationen erreicht.
+existiert ein Fixpunkt $R^{\left(\infty\right)}=R^{\left(\left|A\right|^{k}\right)}$.
+Nun wird $\varphi$ wie folgt auswertet:
+
+\begin{eqnarray*}
+\mathfrak{A}\models\left(\left[\mathrm{ifp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)\right)^{\beta} & \Leftrightarrow & \left\llbracket \bar{y}\right\rrbracket \left(\mathfrak{A},\beta\right)\in R^{\left(\infty\right)}
+\end{eqnarray*}
+
 \begin{example*}
 Die folgende Formel $\varphi\left(u,v\right)$ ist erfüllt, wenn $u$
 und $v$ durch einen Weg beliebiger Länge verbunden sind: 
@@ -538,10 +571,9 @@ mit vordefinierter Interpretation hinzu.
 \begin{defn}
 \textbf{$\Upsilon$-Orakel, $\mathscr{L}+\Upsilon$-Logik}
 
-Sei $\eta$ eine relationale Signatur. Ein Orakel $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}\left(\eta\right)$
+Sei $\eta$ eine relationale Signatur. Ein Orakel $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\eta\right)$
 ist eine Funktion, die jeder natürlichen Zahl $n$ eine geordnete
-Struktur $\Upsilon\left(n\right)$ mit dem Universum $U=\left\{ 0,\cdots,n\right\} $
-zuweist.
+Struktur $\Upsilon\left(n\right)$ über $\left[0,n\right]$ zuweist.
 
 Sei $\sigma$ eine von $\eta\uplus\left\{ \dot{\leqslant}\right\} $
 disjunkte relationale Signatur und $\mathscr{L}$ eine Logik (zum
@@ -553,30 +585,25 @@ ist die der Logik $\mathscr{L}\left[\sigma\uplus\eta\uplus\left\{ \dot{\leqslant
 Die Formeln werden auf der disjunkten Vereinigung einer endlichen
 $\sigma$-Struktur mit der entsprechenden Orakelstruktur ausgewertet:
 \[
-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\uplus\Upsilon\left(\left|A\right|\right),\beta\right)
+\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\oplus\Upsilon\left(\left|A\right|\right),\beta\right)
 \]
 
-
-Hierbei gilt durch die Belegung $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
-implizit, dass die freien Variablen nur mit den Elementen von $A$
-(nicht $\mathbb{N}$) belegt werden; andere Belegungen werden nicht
-betrachtet.
 \end{defn}
 
 \begin{defn}
-Falls $\eta$ leer ist, und daher $\Upsilon\left(n\right)=\left(\left\{ 0,\cdots,n\right\} ,\leqslant\right)$
+Falls $\eta$ leer ist, und daher $\Upsilon\left(n\right)=\left(\left[0,n\right],\leqslant\right)$
 nur die Ordnung enthält, so wird $\mathscr{L}+\Upsilon$ auch als
 $\mathscr{L}+\mathbf{ORD}$ bezeichnet.
 \end{defn}
 
-
-Die Zählerweiterung fügt einer Logik einen zusätzlichen Term zu, der
-die erfüllenden Belegungen einer Formel zählt.
 \begin{defn}
 \textbf{Zählerweiterung}
 
+Die Zählerweiterung fügt einer Logik einen zusätzlichen Term zu, der
+die erfüllenden Belegungen einer Formel zählt.
+
 Sei $\mathscr{L}$ eine beliebige Logik, $\eta$ eine relationale
-Signatur, und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}\left(\eta\right)$
+Signatur, und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta\right)$
 ein Orakel.
 
 Die $\mathscr{L}+\Upsilon+C$-Logik erweitert die $\mathscr{L}+\Upsilon$-Logik
@@ -591,14 +618,14 @@ ein $\left(\mathscr{L}+\Upsilon+C\right)\left[\sigma\right]$-Term.
 
 
 
-Auf einer endlichen Struktur $\mathfrak{A}\in\mathbf{FIN}_{n}\left(\sigma\right)$
-mit einer Belegung $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A\uplus U$
+Auf einer endlichen Struktur $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+mit einer Belegung $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A\uplus\left[0,n\right]$
 ist 
 \[
 \left\llbracket \#_{x}\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\left|\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\uplus\binom{x}{a}}\right\} \right|
 \]
-die Anzahl der Werte von $\beta\left(x\right)$ in erfüllenden Belegungen
-$\beta$ von $\varphi$ auf $\mathfrak{A}$.
+die Anzahl der unterschiedlichen Werte von $\beta'\left(x\right)$
+in erfüllenden Belegungen $\beta'$ von $\varphi$ auf $\mathfrak{A}$.
 
 \end{lyxlist}
 \begin{rem*}
@@ -616,9 +643,9 @@ durch Teilformeln, wie zum Beispiel die positive Differenz:
 
 \begin{example*}
 Die Logik $\mathrm{FO}+C$ kann ausdrücken, dass die Struktur eine
-gerade Größe hat. Bekanntlich ist diese $\sigma$-Eigenschaft auf
-ungeordneten Strukturen weder durch $\mathrm{FO}\left[\sigma\right]$
-noch $\mathrm{FP}\left[\sigma\right]$ definierbar:
+gerade Größe hat. Bekanntlich ist diese $\sigma$-Eigenschaft weder
+durch $\mathrm{FO}\left[\sigma\right]$ noch $\mathrm{FP}\left[\sigma\right]$
+auf geordneten oder ungeordneten Strukturen definierbar {[}CITE{]}:
 
 \[
 \varphi_{\mathrm{EVEN}}\coloneqq\exists y\,\left(y=\#_{z}\left(\neg z\leqslant y\wedge z\leqslant\#_{z}\,z=z\right)\right)
@@ -748,7 +775,10 @@ $u$ gilt
 \begin{eqnarray*}
 j_{0} & \coloneqq & \#\left\{ \left(h,g\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)=0\right\} \\
 j_{1} & \coloneqq & \#\left\{ \left(h,g\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)=1\right\} \\
-\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \phi\left(j_{0},j_{1}\right)
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \begin{cases}
+1 & \mathrm{falls}\,\left(j_{0},j_{1}\right)\in\phi\\
+0 & \mathrm{sonst}
+\end{cases}
 \end{eqnarray*}
 
 \end{casenv}
@@ -836,19 +866,15 @@ E\,i\,j & \mathrm{f\ddot{u}r}\,g=g_{i,j}\\
 
 
 \end{figure}
+
 \end{example*}
-\begin{defn}
-Für zwei Schaltkreise $\mathcal{C}_{1}$ und $\mathcal{C}_{2}$ über
-dem gleichen Universum $U$ sei $\mathcal{C}_{1}\uplus\mathcal{C}_{2}$
-die disjunkte Vereinigung beider Schaltkreise.
-\end{defn}
 
 \subsection{Eigenschaften von Schaltkreisen}
 \begin{defn}
 \textbf{Invarianz}
 
 Ein $k$-stelliger Schaltkreis $\mathcal{C}$ mit dem Universum $U$
-heiße \textbf{invariant} wenn für alle $\mathfrak{A}\in\mathbf{FIN}^{\left(\left|U\right|\right)}\left(\sigma\right)$,
+heiße \textbf{invariant} wenn für alle $\mathfrak{A}\in\mathbf{FIN}_{<}\left(\sigma\right)$,
 alle $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$ und alle
 Bijektionen $\pi_{1},\pi_{2}:A\rightarrow U$ gilt:
 \[
@@ -856,9 +882,9 @@ Bijektionen $\pi_{1},\pi_{2}:A\rightarrow U$ gilt:
 \]
 
 
-Für invariante Schaltkreise bezeichne $\mathcal{C}\left[\mathfrak{A}\right]$
-die Auswertung $\mathcal{C}\left[\pi\mathfrak{A}\right]$ mit einer
-beliebigen Bijektion $\pi:A\rightarrow U$.
+Für invariante Schaltkreise und beliebige Strukturen $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+bezeichne $\mathcal{C}\left[\mathfrak{A}\right]$ die Auswertung $\mathcal{C}\left[\pi\mathfrak{A}\right]$
+mit einer beliebigen Bijektion $\pi:A\rightarrow U$.
 \end{defn}
 
 \begin{defn}
@@ -992,17 +1018,7 @@ akzeptiert. Er ist aber nicht symmetrisch: Die Permutation $\left(\begin{array}{
 1 & 2\\
 2 & 1
 \end{array}\right)$ induziert keinen Automorphismus.
-\begin{defn}
-Die \textbf{disjunkte Vereinigung }von zwei Schaltkreisen über dem
-gleichen Universum $U$ ist wie folgt definiert:
-\begin{eqnarray*}
-\mathcal{C}_{1} & = & \left(G_{1},W_{1},\Sigma_{1},\Omega_{1},U\right)\\
-\mathcal{C}_{2} & = & \left(G_{2},W_{2},\Sigma_{2},\Omega_{2},U\right)\\
-\mathcal{C}_{1}\uplus\mathcal{C}_{2} & = & \left(G_{1}\uplus G_{2},W_{1}\uplus W_{2},\Sigma_{1}\uplus\Sigma_{2},\emptyset,U\right)
-\end{eqnarray*}
-(Hier ist zu beachten, dass der disjunkt vereinigte Schaltkreis zunächst
-keine Auswertungsfunktion besitzt; diese wird separat neu definiert.)
-\end{defn}
+
 
 \subsection{Eigenschaften von Schaltkreisfamilien}
 \begin{defn}
@@ -1248,6 +1264,9 @@ $\pi\in\mathrm{Sym}_{U}$ wird ein Automorphismus $\hat{\pi}$ angegeben.
 \begin{casenv}
 \item Falls $\varphi\left(\bar{x}\right)=R\bar{y}$ für $R\in\sigma$, so
 besteht $\mathcal{C}_{n}^{\varphi}$ aus $n^{k}$ isolierten Gates.
+
+\begin{description}
+\item [{Schaltkreis:}] 
 \[
 \mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} ,\emptyset,\Sigma,\Omega,U\right)
 \]
@@ -1259,17 +1278,28 @@ Für jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\begin{ar
 \Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}\\
 \Sigma\left(g_{\bar{t}}\right) & \coloneqq & R\beta_{\bar{t}}\left(\bar{y}\right)
 \end{eqnarray*}
-Sei $\hat{\pi}g_{\bar{t}}\coloneqq g_{\pi\bar{t}}$ für alle Tupel
-$\bar{t}\in U^{m}$. Per Definition ist $\pi\beta_{\bar{t}}\left(\bar{y}\right)=\beta_{\pi\bar{t}}\left(\bar{y}\right)$
+
+\item [{Korrektheit:}] Es gilt 
+\[
+\begin{array}{ccccc}
+\left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1 & \overset{\mathrm{def}}{\Leftrightarrow} & \bar{t}\in R^{\mathfrak{A}} & \overset{\mathrm{def}}{\Leftrightarrow} & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right)=1\end{array}
+\]
+
+\item [{Symmetrie:}] Sei $\hat{\pi}g_{\bar{t}}\coloneqq g_{\pi\bar{t}}$
+für alle Tupel $\bar{t}\in U^{m}$. Per Definition ist $\pi\beta_{\bar{t}}\left(\bar{y}\right)=\beta_{\pi\bar{t}}\left(\bar{y}\right)$
 und daher sind die Markierungen $\Sigma\left(\hat{\pi}g_{\bar{t}}\right)=\pi\Sigma\left(g_{\bar{t}}\right)$
 und $\Omega\left(\pi\bar{t}\right)=g_{\pi\bar{t}}=\hat{\pi}\Omega\left(\bar{t}\right)$.
+\end{description}
 \item Falls $\varphi\left(\bar{x}\right)=y_{1}\dot{=}y_{2}$, so besteht
 $\mathcal{C}_{n}^{\varphi}$ aus $n^{k}$ isolierten Gates (hier ist
 $k\in\left\{ 1,2\right\} $).
+
+\begin{description}
+\item [{Schaltkreis:}] 
 \[
 \mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} ,\emptyset,\Sigma,\Omega,U\right)
 \]
- Für jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\begin{array}{c}
+Für jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\begin{array}{c}
 \bar{x}\\
 \bar{t}
 \end{array}\right)$ die entsprechende Belegung:
@@ -1280,10 +1310,18 @@ $k\in\left\{ 1,2\right\} $).
 \mathbf{0} & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
-Sei $\hat{\pi}\left(g_{\bar{t}}\right)\coloneqq g_{\pi\bar{t}}$.
+
+\item [{Korrektheit:}] Es gilt 
+\[
+\begin{array}{ccccc}
+\left\llbracket y_{1}\dot{=}y_{2}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1 & \overset{\mathrm{def}}{\Leftrightarrow} & \beta_{\bar{t}}y_{1}=\beta_{\bar{t}}y_{2} & \overset{\mathrm{def}}{\Leftrightarrow} & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right)=1\end{array}
+\]
+
+\item [{Symmetrie:}] Sei $\hat{\pi}\left(g_{\bar{t}}\right)\coloneqq g_{\pi\bar{t}}$.
 Es gilt $\beta_{\bar{t}}\left(x\right)=\beta_{\bar{t}}\left(x'\right)$
 genau dann wenn $\beta_{\pi\bar{t}}\left(x\right)=\beta_{\pi\bar{t}}\left(x\right)$,
 und daher ist $\Sigma\left(\hat{\pi}g_{\bar{t}}\right)=\Sigma\left(g_{\pi\bar{t}}\right)$.
+\end{description}
 \item Falls $\varphi\left(\bar{x}\right)=\varphi_{1}\left(\bar{y_{1}}\right)\wedge\cdots\wedge\varphi_{m}\left(\bar{y_{m}}\right)$
 mit $\mathrm{ar}\left(\varphi_{i}\right)=k_{i}$, so besteht $\mathcal{C}_{n}^{\varphi}$
 aus der disjunkten Vereinigung aller $\mathcal{C}_{n}^{\varphi_{i}}$
@@ -1295,14 +1333,13 @@ für $1\leqslant i\leqslant m$ mit der folgenden Erweiterung.
 \mathcal{C}_{n}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)\\
 \mathcal{C}_{n}^{\varphi_{i}} & = & \left(G_{i},W_{i},\Sigma_{i},\Omega_{i},U\right)
 \end{eqnarray*}
- werden neue Ausgänge für jedes $k$-Tupel aus $U$ hinzugefügt:
+ werden neue Outputs für jedes $k$-Tupel aus $U$ hinzugefügt:
 \begin{eqnarray*}
 G & \coloneqq & \biguplus_{i=1}^{\ell}G_{i}\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} 
 \end{eqnarray*}
-Die neuen Ausgänge werden entsprechend mit denen der Teilschaltkreise
-verknüpft, wobei $\rho_{i}:U^{k}\rightarrow U^{k_{i}}$ ein $k$-Tupel
-$\bar{t}$ wie folgt auf die in $\varphi_{i}$ frei vorkommenden Variablen
-reduziere:
+Die Outputs werden entsprechend mit denen der Teilschaltkreise verknüpft,
+wobei $\rho_{i}:U^{k}\rightarrow U^{k_{i}}$ ein $k$-Tupel $\bar{t}$
+wie folgt auf die in $\varphi_{i}$ frei vorkommenden Variablen reduziere:
 \[
 \mathrm{Sei}\,\left(\left(y_{i}\right)_{1},\cdots,\left(y_{i}\right)_{k_{i}}\right)=\left(x_{\left(j_{1}\right)},\cdots,x_{\left(j_{k_{i}}\right)}\right)
 \]
@@ -1321,7 +1358,14 @@ Die Gates werden entsprechend beschriftet:
 \Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}\,\,\mathrm{f\ddot{u}r\,alle\,\,}\bar{t}\in U^{m'}
 \end{eqnarray*}
 
-\item [{Automorphismus:}] Es existieren bereits die Automorphismen $\hat{\pi_{i}}$
+\item [{Korrektheit:}] Es gilt 
+\begin{eqnarray*}
+\left\llbracket \varphi_{1}\wedge\cdots\wedge\varphi_{k}\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \min_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\\
+ & = & \min_{1\leqslant i\leqslant k}\mathcal{C}_{n}^{\varphi_{i}}\left[\mathfrak{A}\right]\left(\Omega_{i}\left(\rho_{i}\bar{t}\right)\right)\\
+ & = & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right)
+\end{eqnarray*}
+
+\item [{Symmetrie:}] Es existieren bereits die Automorphismen $\hat{\pi_{i}}$
 für jeden Schaltkreis $\mathcal{C}_{n}^{\varphi_{i}}$. Der Automorphismus
 $\hat{\pi}$ erweitert diese:
 \[
@@ -1347,34 +1391,41 @@ und kommutiert mit der Permutation $\pi$.)
 \end{enumerate}
 \item Falls $\varphi\left(\bar{x}\right)=\varphi_{1}\vee\cdots\vee\varphi_{\ell}$,
 so ist der Schaltkreis analog zu Fall 3 mit $\Sigma\left(g_{\bar{t}}\right)=\vee$.
-\item Falls $\varphi\left(\bar{x}\right)=\neg\varphi'$, so wird der Schaltkreis
-$\mathcal{C}_{n}^{\varphi'}$ wie folgt erweitert:
+\item Falls $\varphi\left(\bar{x}\right)=\neg\psi$, so wird der Schaltkreis
+$\mathcal{C}_{n}^{\psi}$ wie folgt erweitert:
 
 \begin{description}
 \item [{Schaltkreis:}] 
 \begin{eqnarray*}
-\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)\\
-\mathcal{C}_{n}^{\varphi'} & = & \left(G',W',\Sigma',\Omega',U\right)
+\mathcal{C}_{n}^{\psi} & = & \left(G',W',\Sigma',\Omega',U\right)\\
+\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)
 \end{eqnarray*}
-Für jedes Tupel $\bar{t}\in U^{m}$ wird ein neuer negierter Ausgang
-$v_{\bar{t}}$ eingefügt. Die Ausgänge werden mit den Ausgängen von
-$\mathcal{C}_{n}^{\varphi'}$ verknüpft. 
+Für jedes Tupel $\bar{t}\in U^{m}$ wird ein neues Gate $g_{\bar{t}}$
+eingefügt. Die Gates werden mit den Outputs von $\mathcal{C}_{n}^{\varphi'}$
+verknüpft. 
 \begin{eqnarray*}
 G & \coloneqq & G'\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
 W & \coloneqq & W'\uplus\left\{ \left(\Omega'\left(\bar{t}\right),g_{\bar{t}}\right)\mid\bar{t}\in U^{m}\right\} \\
 \Sigma\left(g\right) & \coloneqq & \begin{cases}
-\Sigma'\left(g\right) & \mathrm{f\ddot{u}r}\,g\in G'\\
+\Sigma'\left(g\right) & \mathrm{falls}\,g\in G'\\
 \neg & \mathrm{sonst}
 \end{cases}\\
-\Omega\left(\bar{t}\right) & \coloneqq & v_{\bar{t}}\,\mbox{für}\,\bar{t}\in U^{m}
+\Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}
 \end{eqnarray*}
 
-\item [{Automorphismus:}] Es existiert bereits der Automorphismus $\hat{\pi'}$.
+\item [{Korrektheit:}] Es gilt 
+\begin{eqnarray*}
+\left\llbracket \neg\psi\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & 1-\left\llbracket \psi\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\\
+ & = & 1-\mathcal{C}_{n}^{\psi}\left[\mathfrak{A}\right]\left(\Omega'\left(\bar{t}\right)\right)\\
+ & = & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right)
+\end{eqnarray*}
+
+\item [{Symmetrie:}] Es existiert bereits der Automorphismus $\hat{\pi'}$.
 Dieser wird wie folgt erweitert:
 \[
 \hat{\pi}\left(g\right)\coloneqq\begin{cases}
-\hat{\pi'}\left(g\right) & \mathrm{f\ddot{u}r}\,g\in G'\\
-g_{\pi\bar{t}} & \mathrm{f\ddot{u}r}\,g=g_{\bar{t}}
+\hat{\pi'}\left(g\right) & \mathrm{falls}\,g\in G'\\
+g_{\pi\bar{t}} & \mathrm{falls}\,g=g_{\bar{t}}
 \end{cases}
 \]
 
@@ -1396,7 +1447,7 @@ mit der folgenden Erweiterung:
 neue Gates eingefügt:
 \begin{eqnarray*}
 G & \coloneqq & G_{1}\uplus G_{2}\\
- & \uplus & \left\{ a_{\bar{t}},b_{\bar{t}},c_{\bar{t}},d_{\bar{t}},e_{\bar{t}}\mid\bar{t}\in U^{m}\right\} 
+ &  & \uplus\left\{ a_{\bar{t}},b_{\bar{t}},c_{\bar{t}},d_{\bar{t}},e_{\bar{t}}\mid\bar{t}\in U^{m}\right\} 
 \end{eqnarray*}
 Die Gates $a_{\bar{t}}$ und $b_{\bar{t}}$ negieren die Schaltkreise
 $\mathcal{C}_{n}^{\varphi_{1}}$ und $\mathcal{C}_{n}^{\varphi_{2}}$.
@@ -1407,25 +1458,47 @@ und $d_{\bar{t}}$.
 \begin{eqnarray*}
 W & \coloneqq & W_{1}\uplus W_{2}\\
  & \uplus & \left\{ \begin{array}{c}
-\left(\Omega_{1}\left(\rho_{1}\bar{t}\right),a_{\bar{t}}\right),\,\left(\Omega_{2}\left(\rho_{2}\bar{t}\right),b_{\bar{t}}\right),\\
+\left(\Omega_{1}\left(\rho_{1}\bar{t}\right),a_{\rho_{1}\bar{t}}\right),\,\left(\Omega_{2}\left(\rho_{2}\bar{t}\right),b_{\rho_{2}\bar{t}}\right),\\
 \left(\Omega_{1}\left(\rho_{1}\bar{t}\right),c_{\bar{t}}\right),\,\left(\Omega_{2}\left(\rho_{2}\bar{t}\right),c_{\bar{t}}\right),\\
-\left(a_{\bar{t}},d_{\bar{t}}\right),\,\left(b_{\bar{t}},d_{\bar{t}}\right),\\
+\left(a_{\rho_{1}\bar{t}},d_{\bar{t}}\right),\,\left(b_{\rho_{2}\bar{t}},d_{\bar{t}}\right),\\
 \left(c_{\bar{t}},e_{\bar{t}}\right),\,\left(d_{\bar{t}},e_{\bar{t}}\right)
 \end{array}\mid\bar{t}\in U^{m}\right\} 
 \end{eqnarray*}
 (Hierbei seien $\rho_{1}$ und $\rho_{2}$ analog zu Fall 3 definiert.)
 \begin{eqnarray*}
 \Sigma\left(g\right) & \coloneqq & \begin{cases}
-\neg & \mathrm{f\ddot{u}r}\,g\in\left\{ a_{\bar{t}},b_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
+\neg & \mathrm{f\ddot{u}r}\,g\in\left\{ a_{\rho_{1}\bar{t}},b_{\rho_{2}\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
 \wedge & \mathrm{f\ddot{u}r}\,g\in\left\{ c_{\bar{t}},d_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
-\vee & \mathrm{f\ddot{u}r}\,g\in\left\{ v_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
+\vee & \mathrm{f\ddot{u}r}\,g\in\left\{ e_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
 \Sigma_{i}\left(g\right) & \mathrm{f\ddot{u}r}\,g\in G_{i}
 \end{cases}
 \end{eqnarray*}
+\[
+\Omega\left(\bar{t}\right)=e_{\bar{t}}
+\]
 
-\item [{Automorphismus:}] Es existieren per Annahme die Automorphismen
-$\hat{\pi_{i}}$ für die Schaltkreise $\mathcal{C}_{n}^{\varphi_{i}}$.
-Diese werden wie folgt erweitert:
+\item [{Korrektheit:}] Es gilt 
+\begin{eqnarray*}
+\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \left\llbracket \left(\varphi_{1}\wedge\varphi_{2}\right)\vee\left(\neg\varphi_{1}\wedge\neg\varphi_{2}\right)\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\\
+ & = & \max\left(\begin{array}{c}
+\min\left(\left\llbracket \varphi_{1}\right\rrbracket \left(\mathfrak{A},\bar{t}\right),\left\llbracket \varphi_{2}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\right),\\
+\min\left(1-\left\llbracket \varphi_{1}\right\rrbracket \left(\mathfrak{A},\bar{t}\right),1-\left\llbracket \varphi_{2}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\right)
+\end{array}\right)\\
+ & = & \max\left(\begin{array}{c}
+\min\left(\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(\Omega_{1}\left(\rho_{1}\bar{t}\right)\right),\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(\Omega_{2}\left(\rho_{2}\bar{t}\right)\right)\right),\\
+\min\left(1-\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(\Omega_{1}\left(\rho_{1}\bar{t}\right)\right),1-\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(\Omega_{2}\left(\rho_{2}\bar{t}\right)\right)\right)
+\end{array}\right)\\
+ & = & \max\left(\begin{array}{c}
+\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(c_{t}\right),\\
+\min\left(\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(a_{\rho_{1}\bar{t}}\right),\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(b_{\rho_{2}\bar{t}}\right)\right)
+\end{array}\right)\\
+ & = & \max\left(\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(c_{t}\right),\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(d_{\bar{t}}\right)\right)\\
+ & = & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(e_{\bar{t}}\right)
+\end{eqnarray*}
+
+\item [{Symmetrie:}] Es existieren per Annahme die Automorphismen $\hat{\pi_{i}}$
+für die Schaltkreise $\mathcal{C}_{n}^{\varphi_{i}}$. Diese werden
+wie folgt erweitert:
 \[
 \hat{\pi}\left(g\right)\coloneqq\begin{cases}
 \hat{\pi_{i}}\left(g\right) & \mathrm{f\ddot{u}r}\,g\in G_{i}\\
@@ -1434,7 +1507,7 @@ g_{\pi\bar{t}} & \mathrm{f\ddot{u}r}\,g=g_{\bar{t}}\,\mathrm{und}\,g\in\left\{ a
 \]
 
 \end{description}
-\item Falls $\varphi\left(\bar{x}\right)=\exists y_{1}\cdots\exists y_{m}\varphi'\left(z_{1},\cdots,z_{k+m}\right)$,
+\item Falls $\varphi\left(\bar{x}\right)=\exists y_{1}\cdots\exists y_{m}\psi\left(z_{1},\cdots,z_{k+m}\right)$,
 so wird der Schaltkreis $\mathcal{C}_{n}^{\varphi'}$ wie folgt erweitert:
 
 \begin{description}
@@ -1452,29 +1525,44 @@ auf die freien Variablen $\bar{x}$ reduziere:
 
 \end{description}
 
-Es werden neue Ausgänge für jedes Tupel $\bar{t}\in U^{k}$ eingefügt:
+Es werden neue Outputs eingefügt:
 \begin{eqnarray*}
 G & \coloneqq & G'\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} 
 \end{eqnarray*}
+\[
+\Omega\left(\bar{t}\right)\coloneqq g_{\bar{t}}
+\]
 
 
 
-Die neuen Ausgänge werden mit $\vee$ markiert.
+Die neuen Outputs werden mit $\vee$ markiert.
 \begin{eqnarray*}
 \Sigma\left(g\right) & \coloneqq & \begin{cases}
 \Sigma'\left(g\right) & \mathrm{f\ddot{u}r}\,g\in G'\\
 \vee & \mathrm{sonst}
-\end{cases}\\
-\Omega\left(\bar{t}\right) & \coloneqq & v_{\bar{t}}\,\mathrm{f\ddot{u}r\,alle}\,\bar{t}\in U^{k}
+\end{cases}
 \end{eqnarray*}
-Jeder alte Ausgang $\Omega'\left(\bar{u}\right)$ mit $\bar{u}\in U^{k+m}$
-wird mit dem neuen Gate $g_{\rho\bar{u}}$ verknüpft:
+Jedes Gate $\Omega'\left(\bar{u}\right)$ mit $\bar{u}\in U^{k+m}$
+wird mit dem Gate $g_{\rho\bar{u}}$ verknüpft:
 \[
 W\coloneqq W'\uplus\left\{ \left(\Omega'\left(\bar{u}\right),g_{\rho\bar{u}}\right)\mid\bar{u}\in U^{k+m}\right\} 
 \]
 
 \begin{description}
-\item [{Automorphismus:}] Es existiert bereits der Automorphismus $\hat{\pi'}$.
+\item [{Korrektheit:}] Es gilt für 
+\begin{eqnarray*}
+\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \max_{\begin{subarray}{c}
+\bar{u}\in U^{k+m}\\
+\rho\bar{u}=\bar{t}
+\end{subarray}}\left\llbracket \psi\right\rrbracket \left(\mathfrak{A},\bar{u}\right)\\
+ & = & \max_{\begin{subarray}{c}
+\bar{u}\in U^{k+m}\\
+\rho\bar{u}=\bar{t}
+\end{subarray}}\left(\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(\Omega'\left(\bar{u}\right)\right)\right)\\
+ & = & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right)
+\end{eqnarray*}
+
+\item [{Symmetrie:}] Es existiert bereits der Automorphismus $\hat{\pi'}$.
 Dieser wird wie folgt erweitert:
 \[
 \hat{\pi}\left(g\right)\coloneqq\begin{cases}
@@ -1482,28 +1570,28 @@ Dieser wird wie folgt erweitert:
 g_{\pi\bar{t}} & \mathrm{f\ddot{u}r}\,g=g_{\bar{t}}
 \end{cases}
 \]
-
-\end{description}
-
 Auf den Gates von $\mathcal{C}_{n}^{\varphi'}$ ist $\hat{\pi}$ per
 Annahme treu zu $\pi$.
+
 \begin{enumerate}
 \item Für die neuen Kanten $\left(\Omega'\left(\bar{u}\right),g_{\rho\bar{u}}\right)\in W$
 gilt: $\left(\hat{\pi}\Omega'\left(\bar{u}\right),\hat{\pi}g_{\rho\bar{u}}\right)=\left(\Omega'\left(\pi\bar{u}\right),g_{\rho\pi\bar{u}}\right)\in W$.
 \item $\hat{\pi}\Sigma\left(g_{\bar{t}}\right)=\Sigma\left(g_{\bar{t}}\right)=\vee$.
 \item $\Omega\left(\pi\bar{t}\right)=g_{\pi\bar{t}}=\hat{\pi}g_{\bar{t}}=\hat{\pi}\Omega\left(\bar{t}\right)$.
 \end{enumerate}
-\item Falls $\varphi\left(x_{1},\cdots,x_{k}\right)=\forall y_{1}\cdots\forall y_{m}\varphi'\left(z_{1},\cdots,z_{k+m}\right)$,
+\end{description}
+\item Falls $\varphi\left(\bar{x}\right)=\forall y_{1}\cdots\forall y_{m}\psi\left(\bar{z}\right)$,
 so sei der Schaltkreis analog zu Fall 8 mit $\Sigma\left(g_{\bar{t}}\right)\coloneqq\wedge$.
 \end{casenv}
-\end{proof}
 Der so konstruierte Schaltkreis hat eine durch $3\left\Vert \varphi\right\Vert $
 beschränkte Tiefe und eine durch $5\left\Vert \varphi\right\Vert \cdot n^{\mathrm{var}\left(\varphi\right)}$
-beschränkte Größe hat. Dies folgt direkt aus der Tatsache, dass wir
-weniger als $\left\Vert \varphi\right\Vert $ Induktionsschritte durchführen,
-und jeder Schritt für eine $k$-stellige Teilformel die Tiefe um maximal
-$3$ Kanten verlängert, und maximal $5n^{k}$ Gates hinzufügt. (Insbesondere
-erreicht nur Fall 7 diese Schranken.)
+beschränkte Größe. Dies folgt direkt aus der Tatsache, dass höchstens
+$\left\Vert \varphi\right\Vert $ Induktionsschritte durchgeführt
+werden, und jeder Schritt für eine $k$-stellige Teilformel die Tiefe
+um maximal $3$ Kanten verlängert, und maximal $5n^{k}$ Gates hinzufügt.
+(Insbesondere erreicht nur Fall 7 diese Schranken.)
+\end{proof}
+\pagebreak{}
 
 
 \subsection{Ordnungserweiterung}
@@ -1515,9 +1603,9 @@ kann.
 \label{lem:fo-ord}Jede $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
 $P$-uniformen $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\left(\ddot{\mathcal{C}_{n}^{\varphi}}\right)_{n\in\mathbb{N}}$
-mit konstanter Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
-und polynomieller Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
+$\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit konstanter
+Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $ und polynomieller
+Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
 berechnet wird.
 \end{lem}
 (Dieses Lemma bildet die erste Hälfte des Theorems \ref{thm5.5:,fo-ord}.)
@@ -1632,6 +1720,8 @@ es aus der Abgeschlossenheit von $\ddot{U}$ unter $\ddot{\pi}$):
 Damit ist $\ddot{\mathcal{C}}$ eine symmetrische, $P$-uniforme Schaltkreisfamilie
 in $\mathrm{AC}^{0}$, die die Anfrage $q$ berechnet.
 \end{proof}
+\pagebreak{}
+
 
 \subsection{Zählterme}
 
@@ -1642,19 +1732,19 @@ kann, indem Majority-Gates hinzugefügt werden.
 \label{lem:fo-c}Jede $\left(\mathrm{FO}+C\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
 $P$-uniformen $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
-$\left(\ddot{\mathcal{C}_{n}^{\varphi}}\right)_{n\in\mathbb{N}}$
-mit konstanter Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
-und polynomieller Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
+$\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ mit konstanter Tiefe
+$T_{n}\leqslant3\left\Vert \varphi\right\Vert $ und polynomieller
+Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
 berechnet wird.\end{lem}
 \begin{proof}
 Zunächst wird die Formel $\varphi$ in eine Normalform $\hat{\varphi}$
 gebracht, in der jeder Zählterm in einer Teilformel der Form $x\leqslant\#y\psi$
 oder $\#y\psi\leqslant x$ oder $x=\#y\psi$ steht.
 
-Wir betrachten für diese Konstruktion die ,,pseudo-atomaren`` $k$-stelligen
-Formeln $\varphi$ der Form $R\bar{x}$, $x_{1}\dot{=}x_{2}$ oder
-$x_{1}\dot{\leqslant}x_{2}$, wobei $\bar{x}$ mindestens einen Zählterm
-der Form $\#y\psi$ enthält.
+Wir betrachten für diese Konstruktion nur die ,,pseudo-atomaren``
+$k$-stelligen Formeln $\varphi$ der Form $R\bar{x}$, $x_{1}\dot{=}x_{2}$
+oder $x_{1}\dot{\leqslant}x_{2}$, wobei $\bar{x}$ mindestens einen
+Zählterm der Form $\#y\psi$ enthält.
 \begin{casenv}
 \item Falls $\varphi=R\bar{x}$ mit $R/m\in\sigma$, und $\bar{x}$ enthält
 mindestens einen Zählterm $\#y\psi$, so ist die Formel offensichtlich
@@ -1690,7 +1780,7 @@ neue Variable:
 \end{casenv}
 \end{casenv}
 Nun wird der Schaltkreis $\dot{\mathcal{C}_{2n+1}^{\varphi}}$ über
-dem Universum $\dot{U}\coloneqq\ddot{U}\uplus N$ ($\ddot{U}=\left\{ 1,\cdots,n\right\} $,
+dem Universum $\dot{U}\coloneqq\ddot{U}\uplus N$ (mit $\ddot{U}=\left\{ 1,\cdots,n\right\} $,
 $N=\left\{ \dot{0},\cdots,\dot{n}\right\} $) erzeugt, in dem die
 folgenden neuen Konstruktionsschritte hinzukommen:
 \begin{casenv}
@@ -1900,6 +1990,9 @@ die Negations-Gates abgebildet werden:
 Damit ist der erzeugte Schaltkreis $\ddot{\mathcal{C}_{n}^{\varphi}}$
 symmetrisch.
 \end{proof}
+
+\subsection{Orakelerweiterung}
+
 
 \section{Schaltkreise zu Logik}
 \begin{lem}
