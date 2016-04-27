@@ -3621,6 +3621,10 @@ status open
 
 \begin_layout Plain Layout
 \align center
+\begin_inset Preview
+
+\begin_layout Standard
+\align center
 \begin_inset ERT
 status open
 
@@ -3646,7 +3650,13 @@ begin{tikzpicture}
 
 
 \backslash
-node (C) {$
+node [label=below:$
+\backslash
+Omega (
+\backslash
+langle 
+\backslash
+rangle)$] (C) {$
 \backslash
 wedge$};
 \end_layout
@@ -3676,28 +3686,28 @@ wedge$};
 
 
 \backslash
-node [above left of=B1,node distance=6em] (A1) {$E(1,2)$};
+node [above left of=B1,node distance=6em] (A1) {$E12$};
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-node [right of=A1,node distance=5.5em] (A2) {$E(1,1)$};
+node [right of=A1,node distance=5.5em] (A2) {$E11$};
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-node [right of=B1,node distance=5.5em] (A3) {$E(2,2)$};
+node [right of=B1,node distance=5.5em] (A3) {$E22$};
 \end_layout
 
 \begin_layout Plain Layout
 
 
 \backslash
-node [right of=A3,node distance=5.5em] (A4) {$E(2,1)$};
+node [right of=A3,node distance=5.5em] (A4) {$E21$};
 \end_layout
 
 \begin_layout Plain Layout
@@ -3728,6 +3738,11 @@ end{tikzpicture}
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
@@ -3737,10 +3752,6 @@ Schaltkreis
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -4873,11 +4884,11 @@ Jede
 \end_inset
 
  mit konstanter Tiefe 
-\begin_inset Formula $\leqslant\left\Vert \varphi\right\Vert $
+\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
 \end_inset
 
  und polynomieller Größe 
-\begin_inset Formula $\leqslant5n^{\mathrm{var}\left(\varphi\right)}$
+\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert n^{\mathrm{var}\left(\varphi\right)}$
 \end_inset
 
  berechnet wird.
@@ -5783,11 +5794,11 @@ Jede
 \end_inset
 
  mit konstanter Tiefe 
-\begin_inset Formula $\leqslant\left\Vert \varphi\right\Vert $
+\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
 \end_inset
 
  und polynomieller Größe 
-\begin_inset Formula $\leqslant5\cdot\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
+\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
 \end_inset
 
  berechnet wird.
@@ -5822,7 +5833,7 @@ Der Schaltkreis
 
 \begin_layout Proof
 Hierbei ist zu beachten, dass 
-\begin_inset Formula $U$
+\begin_inset Formula $U=\left\{ 1,\cdots,n\right\} $
 \end_inset
 
  keinesfalls mit dem Universum der Orakelstruktur 
@@ -5833,7 +5844,7 @@ Hierbei ist zu beachten, dass
 \end_layout
 
 \begin_layout Proof
-Zur besseren Unterscheidung bezeichnen wir 
+Zur Unterscheidung bezeichnen wir 
 \begin_inset Formula $\Upsilon\left(n\right)\coloneqq\left(N,\leqslant\right)$
 \end_inset
 
@@ -5877,10 +5888,10 @@ Daraus wird der
 \begin_inset Formula $\rho:U\rightarrow\dot{U}$
 \end_inset
 
- abgebildet wird: 
+ umbenannt wird: 
 \begin_inset Formula 
-\[
-\rho\coloneqq\left(\begin{array}{c}
+\begin{eqnarray*}
+\rho & \coloneqq & \left(\begin{array}{c}
 1\\
 1
 \end{array}\cdots\begin{array}{c}
@@ -5894,7 +5905,7 @@ n+1\\
 2n+1\\
 \dot{n}
 \end{array}\end{array}\right)
-\]
+\end{eqnarray*}
 
 \end_inset
 
@@ -5902,7 +5913,7 @@ n+1\\
 \end_layout
 
 \begin_layout Proof
-Anschließend konstruieren wir den 
+Anschließend konstruieren wir daraus den 
 \begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
 \end_inset
 
@@ -5922,6 +5933,10 @@ Anschließend konstruieren wir den
 \begin_inset Formula $\bar{t}\notin\ddot{U}^{k}$
 \end_inset
 
+ oder 
+\begin_inset Formula $R\notin\sigma$
+\end_inset
+
  durch 
 \begin_inset Formula $\ddot{\Sigma}\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
 \end_inset
@@ -5933,14 +5948,10 @@ Anschließend konstruieren wir den
  reduziert wird.
 \end_layout
 
-\begin_layout Proof
-Es werden hier nur die Fälle betrachtet, die neue Input-Gates erzeugen:
-\end_layout
-
 \begin_deeper
 \begin_layout Case
 Für 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=R\bar{y}$
+\begin_inset Formula $\dot{\Sigma}\left(g\right)=R\bar{t}$
 \end_inset
 
  mit 
@@ -5950,9 +5961,8 @@ Für
  gilt:
 \begin_inset Formula 
 \begin{eqnarray*}
-\dot{\Sigma}\left(g_{\bar{t}}\right) & \coloneqq & R\beta_{\bar{t}}\left(\bar{y}\right)\\
-\ddot{\Sigma}\left(g_{\bar{t}}\right) & \coloneqq & \begin{cases}
-R\beta_{\bar{t}}\left(\bar{y}\right) & \mathrm{falls}\,\bar{t}\in\ddot{U}^{k}\\
+\ddot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
+R\bar{t} & \mathrm{falls}\,\bar{t}\in\ddot{U}^{k}\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
@@ -5964,61 +5974,14 @@ R\beta_{\bar{t}}\left(\bar{y}\right) & \mathrm{falls}\,\bar{t}\in\ddot{U}^{k}\\
 
 \begin_layout Case
 Für 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=y_{1}\dot{=}y_{2}$
+\begin_inset Formula $\dot{\Sigma}\left(g\right)=t_{1}\dot{\leqslant}t_{2}$
 \end_inset
 
- (mit 
-\begin_inset Formula $k\in\left\{ 1,2\right\} $
-\end_inset
-
-) sei die Beschriftung 
-\begin_inset Formula $\ddot{\Sigma}$
-\end_inset
-
- identisch zu 
-\begin_inset Formula $\Sigma$
-\end_inset
-
- und 
-\begin_inset Formula $\dot{\Sigma}$
-\end_inset
-
-, da alle Input-Gates bereits mit 
-\begin_inset Formula $\mathbf{0}$
-\end_inset
-
- oder 
-\begin_inset Formula $\mathbf{1}$
-\end_inset
-
- beschriftet sind.
+ gilt:
 \begin_inset Formula 
 \begin{eqnarray*}
-\ddot{\Sigma}\left(g_{\bar{t}}\right) & \coloneqq & \begin{cases}
-\mathbf{1} & \mathrm{falls}\,\beta_{\bar{t}}y_{1}=\beta_{\bar{t}}y_{2}\\
-\mathbf{0} & \mathrm{sonst}
-\end{cases}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Case
-Für 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=y_{1}\dot{\leqslant}y_{2}$
-\end_inset
-
- (mit 
-\begin_inset Formula $k\in\left\{ 1,2\right\} $
-\end_inset
-
-) sei die Beschriftung wie folgt:
-\begin_inset Formula 
-\begin{eqnarray*}
-\ddot{\Sigma}\left(g_{\bar{t}}\right) & \coloneqq & \begin{cases}
-\mathbf{1} & \mathrm{falls}\,\bar{t}\in N^{k},\,\beta_{\bar{t}}y_{1}\leqslant\beta_{\bar{t}}y_{2}\\
+\ddot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
+\mathbf{1} & \mathrm{falls}\,t_{1},t_{2}\in N,\,t_{1}\leqslant t_{2}\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
@@ -6277,11 +6240,11 @@ Jede
 \end_inset
 
  mit konstanter Tiefe 
-\begin_inset Formula $\leqslant\left\Vert \varphi\right\Vert $
+\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
 \end_inset
 
  und polynomieller Größe 
-\begin_inset Formula $\leqslant5\cdot\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
+\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
 \end_inset
 
  berechnet wird.
@@ -6297,11 +6260,15 @@ Zunächst wird die Formel
 \end_inset
 
  gebracht, in der jeder Zählterm in einer Teilformel der Form 
-\begin_inset Formula $x'\leqslant\#x\psi$
+\begin_inset Formula $x\leqslant\#y\psi$
 \end_inset
 
  oder 
-\begin_inset Formula $\#x\psi\leqslant x'$
+\begin_inset Formula $\#y\psi\leqslant x$
+\end_inset
+
+ oder 
+\begin_inset Formula $x=\#y\psi$
 \end_inset
 
  steht.
@@ -6320,28 +6287,28 @@ pseudo-atomaren
 \begin_inset Formula $k$
 \end_inset
 
--stellige Formeln 
-\begin_inset Formula $\varphi\left(\bar{x}\right)$
+-stelligen Formeln 
+\begin_inset Formula $\varphi$
 \end_inset
 
  der Form 
-\begin_inset Formula $R\bar{y}$
+\begin_inset Formula $R\bar{x}$
 \end_inset
 
 , 
-\begin_inset Formula $y_{1}\dot{=}y_{2}$
+\begin_inset Formula $x_{1}\dot{=}x_{2}$
 \end_inset
 
  oder 
-\begin_inset Formula $y_{1}\dot{\leqslant}y_{2}$
+\begin_inset Formula $x_{1}\dot{\leqslant}x_{2}$
 \end_inset
 
 , wobei 
-\begin_inset Formula $\bar{y}$
+\begin_inset Formula $\bar{x}$
 \end_inset
 
- Zählterme der Form 
-\begin_inset Formula $y_{i}=\#_{z}\psi\left(\bar{z}\right)$
+ mindestens einen Zählterm der Form 
+\begin_inset Formula $\#y\psi$
 \end_inset
 
  enthält.
@@ -6350,7 +6317,7 @@ pseudo-atomaren
 \begin_deeper
 \begin_layout Case
 Falls 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=R\bar{y}$
+\begin_inset Formula $\varphi=R\bar{x}$
 \end_inset
 
  mit 
@@ -6358,15 +6325,15 @@ Falls
 \end_inset
 
 , und 
-\begin_inset Formula $\bar{y}$
+\begin_inset Formula $\bar{x}$
 \end_inset
 
  enthält mindestens einen Zählterm 
-\begin_inset Formula $y_{i}$
+\begin_inset Formula $\#y\psi$
 \end_inset
 
 , so ist die Formel offensichtlich unerfüllbar, da 
-\begin_inset Formula $\left\llbracket y_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\notin A$
+\begin_inset Formula $\left\llbracket \#y\psi\right\rrbracket \left(\mathfrak{A},\beta\right)\notin A$
 \end_inset
 
  und 
@@ -6387,7 +6354,7 @@ Falls
 
 \begin_layout Case
 Falls 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=y_{1}\dot{\leqslant}y_{2}$
+\begin_inset Formula $\varphi=x_{1}\dot{\leqslant}x_{2}$
 \end_inset
 
 :
@@ -6396,11 +6363,11 @@ Falls
 \begin_deeper
 \begin_layout Case
 Falls 
-\begin_inset Formula $y_{1}\in\mathbf{var}$
+\begin_inset Formula $x_{1}\in\mathbf{var}$
 \end_inset
 
  oder 
-\begin_inset Formula $y_{2}\in\mathbf{var}$
+\begin_inset Formula $x_{2}\in\mathbf{var}$
 \end_inset
 
 , so liegt bereits die Normalform vor.
@@ -6408,26 +6375,21 @@ Falls
 
 \begin_layout Case
 Falls 
-\begin_inset Formula $y_{1}=\#z_{1}\psi_{1}$
+\begin_inset Formula $x_{1}=\#y_{1}\psi_{1}$
 \end_inset
 
  und 
-\begin_inset Formula $y_{2}=\#z_{2}\psi_{2}$
+\begin_inset Formula $x_{2}=\#y_{2}\psi_{2}$
 \end_inset
 
 , so sei 
-\begin_inset Formula $z'\in\mathbf{var}\backslash\mathrm{frei}\left(\varphi\right)$
+\begin_inset Formula $z\in\mathbf{var}\backslash\mathrm{frei}\left(\varphi\right)$
 \end_inset
 
- eine neue Variable (o.B.d.A.
- mit 
-\begin_inset Formula $z'>\max\left(\mathrm{frei}\left(\varphi\right)\right)$
-\end_inset
-
-):
+ eine neue Variable:
 \begin_inset Formula 
 \begin{eqnarray*}
-\hat{\varphi} & \coloneqq & \exists z'\left(\#z_{1}\hat{\psi_{1}}\dot{\leqslant}z'\,\wedge\,z'\dot{\leqslant}\#z_{2}\hat{\psi_{2}}\right)
+\hat{\varphi} & \coloneqq & \exists z\left(\#y_{1}\hat{\psi_{1}}\dot{\leqslant}z\,\wedge\,z\dot{\leqslant}\#y_{2}\hat{\psi_{2}}\right)
 \end{eqnarray*}
 
 \end_inset
@@ -6438,20 +6400,58 @@ Falls
 \end_deeper
 \begin_layout Case
 Falls 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=y_{1}\dot{=}y_{2}$
+\begin_inset Formula $\varphi=x_{1}\dot{=}x_{2}$
 \end_inset
 
-, so schreiben wir 
-\begin_inset Formula $\varphi$
-\end_inset
-
- zu 
-\begin_inset Formula $\left(y_{1}\dot{\leqslant}y_{2}\,\wedge\,y_{2}\dot{\leqslant}y_{1}\right)$
-\end_inset
-
- um und fahren mit Fall 2 fort.
+:
 \end_layout
 
+\begin_deeper
+\begin_layout Case
+Falls 
+\begin_inset Formula $x_{1}\in\mathbf{var}$
+\end_inset
+
+, so liegt bereits die Normalform vor.
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $x_{2}\in\mathbf{var}$
+\end_inset
+
+, so sei 
+\begin_inset Formula $\hat{\varphi}\coloneqq x_{2}\dot{=}x_{1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $x_{1}=\#y_{1}\psi_{1}$
+\end_inset
+
+ und 
+\begin_inset Formula $x_{2}=\#y_{2}\psi_{2}$
+\end_inset
+
+, so sei 
+\begin_inset Formula $z\in\mathbf{var}\backslash\mathrm{frei}\left(\varphi\right)$
+\end_inset
+
+ eine neue Variable:
+\begin_inset Formula 
+\begin{eqnarray*}
+\hat{\varphi} & \coloneqq & \exists z\left(z\dot{=}y_{1}\hat{\psi_{1}}\,\wedge\,z\dot{=}\#y_{2}\hat{\psi_{2}}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \end_deeper
 \begin_layout Proof
 Nun wird der Schaltkreis 
@@ -6459,10 +6459,18 @@ Nun wird der Schaltkreis
 \end_inset
 
  über dem Universum 
-\begin_inset Formula $\dot{U}=\left\{ 1,\cdots,n,\dot{0},\cdots,\dot{n}\right\} $
+\begin_inset Formula $\dot{U}\coloneqq\ddot{U}\uplus N$
 \end_inset
 
- wie folgt erzeugt:
+ (
+\begin_inset Formula $\ddot{U}=\left\{ 1,\cdots,n\right\} $
+\end_inset
+
+, 
+\begin_inset Formula $N=\left\{ \dot{0},\cdots,\dot{n}\right\} $
+\end_inset
+
+) erzeugt, in dem die folgenden neuen Konstruktionsschritte hinzukommen:
 \end_layout
 
 \begin_deeper
@@ -6487,25 +6495,29 @@ Falls
  
 \begin_inset Formula 
 \begin{eqnarray*}
-G & = & G'\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in\dot{U}^{k}\right\} \\
- &  & \uplus\left\{ 0_{i},1_{i}\mid1\leqslant i\leqslant n\right\} \\
-W & = & W'\uplus W_{\mathrm{maj}}\uplus W_{\mathrm{pad}}
+G & = & G'\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in\dot{U}^{k}\right\} \uplus\left\{ 0_{i},1_{i}\mid1\leqslant i\leqslant n\right\} \\
+W & = & W'\uplus W_{\mathrm{maj}}\uplus_{\mathrm{pad}}
 \end{eqnarray*}
 
 \end_inset
 
 
 \begin_inset Formula 
-\begin{eqnarray*}
-\Sigma\left(g\right) & = & \begin{cases}
-\Sigma'\left(g\right) & \mathrm{falls}\,g\in G'\\
-\mathbf{0} & \mathrm{falls}\,g=0_{i}\\
-\mathbf{1} & \mathrm{falls}\,g=1_{i}\\
-\mathrm{MAJ} & \mathrm{falls}\,g=g_{\bar{t}},\,t_{i}\in N\\
+\[
+\begin{array}{ccc}
+\Sigma\left(0_{i}\right)=\mathbf{0}, & \Sigma\left(0_{i}\right)=\mathbf{1}, & \Sigma\left(g_{\bar{t}}\right)=\begin{cases}
+\mathrm{MAJ} & \mathrm{falls}\,t_{i}\in N\\
 \mathbf{0} & \mathrm{sonst}
-\end{cases}\\
-\Omega\left(\bar{t}\right) & = & a_{\bar{t}}
-\end{eqnarray*}
+\end{cases}\end{array}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Omega\left(\bar{t}\right)=g_{\bar{t}}
+\]
 
 \end_inset
 
@@ -6515,7 +6527,7 @@ W & = & W'\uplus W_{\mathrm{maj}}\uplus W_{\mathrm{pad}}
 \begin_deeper
 \begin_layout Standard
 Das Majority-Gate 
-\begin_inset Formula $a_{\bar{t}}$
+\begin_inset Formula $g_{\bar{t}}$
 \end_inset
 
  soll den Wert 
@@ -6560,7 +6572,7 @@ Das Majority-Gate
 
 \begin_inset Formula 
 \[
-W_{\mathrm{maj}}=\left\{ \left(\Omega\left(\bar{t}\right),g_{\bar{u}}\right)\mid\bar{t},\bar{u}\in\dot{U}^{k},\,\rho_{2}\left(\bar{t}\right)=\rho_{1}\left(\bar{u}\right)\right\} 
+W_{\mathrm{maj}}=\left\{ \left(\Omega\left(\bar{u}\right),g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in\dot{U}^{k},\,\rho_{1}\left(\bar{t}\right)=\rho_{2}\left(\bar{u}\right)\right\} 
 \]
 
 \end_inset
@@ -6590,8 +6602,7 @@ Dazu fügen wir die Kanten
 \begin_inset Formula $W_{\mathrm{pad}}$
 \end_inset
 
- ein, die die Eingänge der Majority-Gates in das richtige Gleichgewicht
- bringen.
+ ein, um die Eingänge der Majority-Gates mit Konstanten aufzufüllen.
  Ein Majority-Gate mit 
 \begin_inset Formula $k$
 \end_inset
@@ -6652,7 +6663,7 @@ W_{\mathrm{pad}} & = & \left\{ \left(0_{i},g_{\bar{t}}\right)\mid\bar{t}\in\dot{
 
 \begin_inset Formula 
 \begin{eqnarray*}
-\overset{2t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{2t_{i}-n}{\underbrace{\mathbf{0}\mathbf{0}\cdots\mathbf{0}}}}} &  & \overset{2n-2t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{n-2t_{i}}{\underbrace{\mathbf{1}\mathbf{1}\cdots\mathbf{1}}}}}
+\overset{n+k=2t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{k=2t_{i}-n}{\underbrace{\mathbf{0}\mathbf{0}\cdots\mathbf{0}}}}} &  & \overset{n+k=2n-2t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{k=n-2t_{i}}{\underbrace{\mathbf{1}\mathbf{1}\cdots\mathbf{1}}}}}
 \end{eqnarray*}
 
 \end_inset
@@ -6666,7 +6677,15 @@ Falls
 \begin_inset Formula $\varphi\left(\bar{x}\right)=\#y_{j}\psi\left(\bar{y}\right)\leqslant x_{i}$
 \end_inset
 
-, so muss der Schaltkreis die Anzahl der nicht erfüllenden Werte zählen.
+, so muss der Schaltkreis die Anzahl der 
+\emph on
+nicht
+\emph default
+ erfüllenden Belegungen von 
+\begin_inset Formula $y_{j}$
+\end_inset
+
+ zählen.
  
 \begin_inset Formula 
 \begin{eqnarray*}
@@ -6679,18 +6698,29 @@ Falls
 
 \begin_inset Formula 
 \begin{eqnarray*}
-G & = & G'\uplus\left\{ g_{\bar{t}},h_{\bar{t}}\mid\bar{t}\in\dot{U}^{k}\right\} \\
- &  & \uplus\left\{ 0_{i},1_{i}\mid1\leqslant i\leqslant n\right\} \\
-W & = & W'\uplus W_{\mathrm{neg}}\uplus W_{\mathrm{maj}}\uplus_{\mathrm{pad}}\\
-\Sigma\left(g\right) & = & \begin{cases}
-\Sigma'\left(g\right) & g\in G'\\
-\neg & g=h_{\bar{t}}\\
-\mathbf{0} & \mathrm{falls}\,g=0_{i}\\
-\mathbf{1} & \mathrm{falls}\,g=1_{i}\\
-\mathrm{MAJ} & \mathrm{falls}\,g=g_{\bar{t}},\,t_{i}\in N\\
-\mathbf{0} & \mathrm{sonst}
-\end{cases}
+G & = & G'\uplus\left\{ g_{\bar{t}},h_{\bar{t}}\mid\bar{t}\in\dot{U}^{k}\right\} \uplus\left\{ 0_{i},1_{i}\mid1\leqslant i\leqslant n\right\} \\
+W & = & W'\uplus W_{\mathrm{neg}}\uplus W_{\mathrm{maj}}\uplus_{\mathrm{pad}}
 \end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{array}{cccc}
+\Sigma\left(0_{i}\right)=\mathbf{0}, & \Sigma\left(0_{i}\right)=\mathbf{1}, & \Sigma\left(h_{\bar{t}}\right)=\neg, & \Sigma\left(g_{\bar{t}}\right)=\begin{cases}
+\mathrm{MAJ} & \mathrm{falls}\,t_{i}\in N\\
+\mathbf{0} & \mathrm{sonst}
+\end{cases}\end{array}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Omega\left(\bar{t}\right)=g_{\bar{t}}
+\]
 
 \end_inset
 
@@ -6698,7 +6728,7 @@ Zuerst wird die Formel
 \begin_inset Formula $\psi$
 \end_inset
 
- negiert:
+ für jede Belegung negiert:
 \begin_inset Formula 
 \[
 W_{\mathrm{neg}}=\left\{ \left(\Omega'\left(\bar{t}\right),h_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k}\right\} 
@@ -6718,7 +6748,7 @@ Dann werden die Majority-Gates wie in Fall 1 verknüpft:
 
 \begin_inset Formula 
 \[
-W_{\mathrm{maj}}=\left\{ \left(\Omega\left(\bar{t}\right),g_{\bar{u}}\right)\mid\bar{t},\bar{u}\in\dot{U}^{k},\,\rho_{2}\left(\bar{t}\right)=\rho_{1}\left(\bar{u}\right)\right\} 
+W_{\mathrm{maj}}=\left\{ \left(h_{\bar{u}},g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in\dot{U}^{k},\,\rho_{1}\left(\bar{t}\right)=\rho_{2}\left(\bar{u}\right)\right\} 
 \]
 
 \end_inset
@@ -6777,25 +6807,105 @@ W_{\mathrm{pad}} & = & \left\{ \left(1_{i},g_{\bar{t}}\right)\mid\bar{t}\in U^{k
 
 \end_layout
 
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=x_{i}\dot{=}\#y_{j}\psi$
+\end_inset
+
+, so kombinieren wir die beiden Konstruktionsschritte:
+\begin_inset Formula 
+\begin{eqnarray*}
+\dot{\mathcal{C}_{2n+1}^{\psi}} & = & \left(G',W',\Sigma',\Omega',\dot{U}\right)\\
+\dot{\mathcal{C}_{2n+1}^{\varphi}} & = & \left(G,W,\Sigma,\Omega,\dot{U}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+G & = & G'\uplus\left\{ f_{\bar{t}},g_{\bar{t}},g_{\bar{t}}',h_{\bar{t}}\mid\bar{t}\in\dot{U}^{k}\right\} \uplus\left\{ 0_{i},1_{i}\mid1\leqslant i\leqslant n\right\} \\
+W & = & W'\uplus W_{\mathrm{neg}}\uplus W_{\mathrm{maj}}\uplus W_{\mathrm{pad}}\uplus W_{\mathrm{and}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\begin{array}{ccc}
+\Sigma\left(0_{i}\right)=\mathbf{0}, & \Sigma\left(f_{\bar{t}}\right)=\wedge, & \Sigma\left(g_{\bar{t}}\right),\Sigma\left(g_{\bar{t}}'\right)=\begin{cases}
+\mathrm{MAJ} & \mathrm{falls}\,t_{i}\in N\\
+\mathbf{0} & \mathrm{sonst}
+\end{cases}\\
+\Sigma\left(0_{i}\right)=\mathbf{1} & \Sigma\left(h_{\bar{t}}\right)=\neg
+\end{array}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Omega\left(\bar{t}\right)=f_{\bar{t}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+W_{\mathrm{neg}} & = & \left\{ \left(\Omega'\left(\bar{t}\right),h_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k}\right\} \\
+W_{\mathrm{maj}} & = & \left\{ \left(\Omega\left(\bar{u}\right),g_{\bar{t}}\right),\left(h_{\bar{u}},g_{\bar{t}}'\right)\mid\bar{t},\bar{u}\in\dot{U}^{k},\,\rho_{1}\left(\bar{t}\right)=\rho_{2}\left(\bar{u}\right)\right\} \\
+W_{\mathrm{pad}} & = & \left\{ \left(0_{i},g_{\bar{t}}\right),\left(1_{i},g_{\bar{t}}'\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant2t_{i}-n\right\} \\
+ & \cup & \left\{ \left(1_{i},g_{\bar{t}}\right),\left(0_{i},g_{\bar{t}}'\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant n-2t_{i}\right\} \\
+W_{\mathrm{and}} & = & \left\{ \left(g_{\bar{t}},f_{\bar{t}}\right),\left(g_{\bar{t}}',f_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
 \begin_layout Proof
-Wir stellen fest, dass der so erzeugte Schaltkreis weiterhin konstante Tiefe
- 
-\begin_inset Formula $\leqslant\left\Vert \varphi\right\Vert $
+Der so erzeugte Schaltkreis hat weiterhin konstante Tiefe 
+\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
 \end_inset
 
- hat, denn der neue Konstruktionsschritt vergrößert die Tiefe um maximal
- 
-\begin_inset Formula $2$
+, denn die neuen Konstruktionsschritte vergrößern die Tiefe um maximal 
+\begin_inset Formula $3$
 \end_inset
 
- Kanten.
- Weiterhin hat er die polynomielle Größe
+ Kanten (in Fall 3).
+ Weiterhin hat er die Größe 
+\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
+\end_inset
+
+, denn die neuen Schritte fügen höchstens 
+\begin_inset Formula 
+\[
+4\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}+2n<5\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}
+\]
+
+\end_inset
+
+neue Gates hinzu.
+ (Die in der Normalform 
+\begin_inset Formula $\hat{\varphi}$
+\end_inset
+
+ definierte Variable 
+\begin_inset Formula $z$
+\end_inset
+
+ ist nicht relevant, weil sie sofort wieder gebunden wird und die Stelligkeit
+ der Teilformel nicht vergrößert.)
 \end_layout
 
 \begin_layout Proof
 Nach der Erzeugung von 
-\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
+\begin_inset Formula $\dot{\mathcal{C}_{2n+1}^{\varphi}}$
 \end_inset
 
  wird der Schaltkreis auf die bereits beschriebene Weise zu 
@@ -6807,12 +6917,12 @@ Nach der Erzeugung von
 
 \begin_layout Proof
 Sei nun 
-\begin_inset Formula $\ddot{\pi}\in\mathrm{Sym}_{U}$
+\begin_inset Formula $\ddot{\pi}\in\mathrm{Sym}_{\ddot{U}}$
 \end_inset
 
  beliebig.
  Wir erweitern die Permutation wieder zu 
-\begin_inset Formula $\dot{\pi}\coloneqq\ddot{\pi}\uplus\mathbf{id}_{\mid N}\in\mathrm{Sym}_{U}$
+\begin_inset Formula $\dot{\pi}\coloneqq\ddot{\pi}\uplus\mathbf{id}_{\mid N}\in\mathrm{Sym}_{\dot{U}}$
 \end_inset
 
 , und bauen den Isomorphismus 
