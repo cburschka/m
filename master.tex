@@ -35,6 +35,8 @@
 \newtheorem{thm}{\protect\theoremname}[section]
   \theoremstyle{definition}
   \newtheorem{defn}[thm]{\protect\definitionname}
+ \theoremstyle{definition}
+ \newtheorem*{defn*}{\protect\definitionname}
 \newenvironment{lyxlist}[1]
 {\begin{list}{}
 {\settowidth{\labelwidth}{#1}
@@ -383,6 +385,15 @@ Arguments) bezeichne die Anzahl der frei vorkommenden Variablen: $\mathrm{ar}\le
 Ein \textbf{Satz} sei eine Formel ohne freie Variablen.
 \end{defn}
 
+\begin{defn*}
+Es sei $\mathtt{M}\left(\varphi\right)$ die maximale Anzahl freier
+Variablen jeder Teilformel von $\varphi$: 
+\begin{eqnarray*}
+\mathtt{M}\left(\varphi\right) & \coloneqq & \max\left\{ \mathrm{ar}\left(\psi\right)\mid\psi\,\mbox{ist Teilformel von}\,\varphi\right\} 
+\end{eqnarray*}
+
+\end{defn*}
+
 \begin{defn}
 Für eine Belegung $\beta$ schreiben wir $\mathfrak{A}\models\varphi^{\beta}$
 genau dann wenn $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1$.
@@ -435,6 +446,9 @@ sind wie folgt definiert:\end{defn}
 \[
 \mathrm{frei}\left(x\right)=\mathrm{var}\left(x\right)=\left\{ x\right\} 
 \]
+\[
+\mathtt{M}\left(x\right)=1
+\]
  
 \[
 \left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\beta x
@@ -446,6 +460,9 @@ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
 \mathrm{frei}\left(R\bar{x}\right)=\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(R\bar{x}\right)=\bigcup_{i=1}^{k}\mathrm{var}\left(x_{i}\right)
 \end{eqnarray*}
+\[
+\mathtt{M}\left(R\bar{x}\right)=\max\left(\max_{i=1}^{k}\mathtt{M}\left(x_{i}\right),\mathrm{frei}\left(R\bar{x}\right)\right)
+\]
 \begin{eqnarray*}
 \mathfrak{A}\models\left(R\bar{x}\right)^{\beta} & \Leftrightarrow & \left(\left\llbracket x_{1}\right\rrbracket \left(\mathfrak{A},\beta\right),\cdots,\left\llbracket x_{k}\right\rrbracket \left(\mathfrak{A},\beta\right)\right)\in R^{\mathfrak{A}}
 \end{eqnarray*}
@@ -457,6 +474,9 @@ Beispiel bei ,,$\varphi=x_{1}\dot{=}x_{2}$.``)
 \begin{eqnarray*}
 \mathrm{frei}\left(x_{1}\dot{=}x_{2}\right)=\bigcup_{i=1}^{2}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(x_{1}\dot{=}x_{2}\right)=\bigcup_{i=1}^{2}\mathrm{var}\left(x_{i}\right)
 \end{eqnarray*}
+\[
+\mathtt{M}\left(x_{1}\dot{=}x_{2}\right)=\max\left(\mathtt{M}\left(x_{1}\right),\mathtt{M}\left(x_{2}\right),\mathrm{frei}\left(x_{1}\dot{=}x_{2}\right)\right)
+\]
 \begin{eqnarray*}
 \mathfrak{A}\models\left(x\dot{=}y\right)^{\beta} & \Leftrightarrow & \left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket y\right\rrbracket \left(\mathfrak{A},\beta\right)
 \end{eqnarray*}
@@ -466,6 +486,9 @@ ist $\neg\varphi$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
 \mathrm{frei}\left(\neg\varphi\right)=\mathrm{frei}\left(\varphi\right) &  & \mathrm{var}\left(\neg\varphi\right)=\mathrm{var}\left(\varphi\right)
 \end{eqnarray*}
+\[
+\mathtt{M}\left(\neg\varphi\right)=\mathtt{M}\left(\varphi\right)
+\]
 \[
 \left\llbracket \neg\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)
 \]
@@ -478,6 +501,9 @@ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
 \mathrm{frei}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)=\bigcup_{i=1}^{k}\mathrm{frei}\left(\varphi_{i}\right) &  & \mathrm{var}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)=\bigcup_{i=1}^{k}\mathrm{var}\left(\varphi_{i}\right)
 \end{eqnarray*}
+\[
+\mathtt{M}\left(R\bar{x}\right)=\max\left(\max_{i=1}^{k}\mathtt{M}\left(\varphi_{i}\right),\mathrm{frei}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)\right)
+\]
 \begin{eqnarray*}
 \left\llbracket \varphi_{1}\wedge\cdots\wedge\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \min_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
 \left\llbracket \varphi_{1}\vee\cdots\vee\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \max_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
@@ -491,6 +517,9 @@ $\varphi$ ist $Qx\varphi$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
 \mathrm{frei}\left(Qx\varphi\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(Qx\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
 \end{eqnarray*}
+\[
+\mathtt{M}\left(Qx\varphi\right)=\max\left(\mathtt{M}\left(\varphi\right),\mathrm{frei}\left(Qx\varphi\right)\right)
+\]
 \begin{eqnarray*}
 \left\llbracket \exists x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \max_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\uplus\left(\begin{array}{c}
 x\\
@@ -501,7 +530,8 @@ x\\
 a
 \end{array}\right)\right)\right)
 \end{eqnarray*}
-
+(Im folgenden wird o.B.d.A. angenommen, dass $x\in\mathrm{frei}\left(\varphi\right)$.
+Ist dies nicht der Fall, so ist $Qx\varphi\equiv\varphi$.)
 \end{lyxlist}
 
 \subsection{Fixpunktlogik}
@@ -522,7 +552,8 @@ $\bar{y}$ von $\mathrm{FP}\left[\sigma\right]$-Termen ist $\varphi=\left[\mathrm
 eine $\mathrm{IFP}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
 \mathrm{frei}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{frei}\left(y_{i}\right)\\
-\mathrm{var}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{var}\left(\psi\right)\cup\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{var}\left(y_{i}\right)
+\mathrm{var}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{var}\left(\psi\right)\cup\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{var}\left(y_{i}\right)\\
+\mathtt{M}\left(\varphi\right) & = & \max\left(\mathtt{M}\left(\psi\right),\mathrm{frei}\left(\varphi\right)\right)
 \end{eqnarray*}
 
 \end{lyxlist}
@@ -626,6 +657,12 @@ ist
 \]
 die Anzahl der unterschiedlichen Werte von $\beta'\left(x\right)$
 in erfüllenden Belegungen $\beta'$ von $\varphi$ auf $\mathfrak{A}$.
+
+
+(Im folgenden wird o.B.d.A. angenommen, dass $x\in\mathrm{frei}\left(\varphi\right)$.
+Ansonsten ist $\left\llbracket \#x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=A\cdot\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)$
+(denn entweder jede oder keine Belegung von $x$ erfüllt $\varphi$),
+und es gilt $\#x\varphi\equiv\#x\left(x=x\wedge\varphi\right)$.)
 
 \end{lyxlist}
 \begin{rem*}
@@ -1173,7 +1210,7 @@ zu $\varphi$ ist, und umgekehrt.
 
 \subsection{FO-Logiken und Schaltkreise}
 \begin{thm}
-\label{thm5.5:,fo-ord}$\mathrm{FO}+\mathbf{ORD}$, $P$-uniformes
+\label{thm:5.5:fo-ord}$\mathrm{FO}+\mathbf{ORD}$, $P$-uniformes
 symmetrisches $\mathrm{AC}^{0}$.
 
 Die folgenden Aussagen sind äquivalent:
@@ -1187,7 +1224,7 @@ $\mathcal{C}$ berechnet.
 \end{thm}
 
 \begin{thm}
-$\mathrm{FO}+C$, symmetrisches $\mathrm{AC}^{0}+\mathbf{MAJ}$.
+\label{thm:5.6:fo-c}$\mathrm{FO}+C$, symmetrisches $\mathrm{AC}^{0}+\mathbf{MAJ}$.
 
 Die folgenden Aussagen sind äquivalent:
 \begin{enumerate}
@@ -1200,7 +1237,7 @@ $\mathcal{C}$ berechnet.
 \end{thm}
 
 \begin{thm}
-$\mathrm{FO}+\Upsilon$, symmetrisches $\mathrm{AC}^{0}$.
+\label{thm:5.7:fo+u}$\mathrm{FO}+\Upsilon$, symmetrisches $\mathrm{AC}^{0}$.
 
 Die folgenden Aussagen sind äquivalent:
 \begin{enumerate}
@@ -1245,12 +1282,14 @@ ist.
 
 Die Formeln der Logik erster Stufe sind durch symmetrisches, $P$-uniformes
 $\mathrm{AC}^{0}$ berechenbar:
+\begin{defn*}
+.\end{defn*}
 \begin{lem}
 \label{lem:FO-Circuit}Jede $\mathrm{FO}\left[\sigma\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
 $P$-uniformen Schaltkreis-Familie $\left(\mathcal{C}_{n}^{\varphi}\right)_{n\in\mathbb{N}}$
 mit konstanter Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
-und polynomieller Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert n^{\mathrm{var}\left(\varphi\right)}$
+und polynomieller Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert n^{\mathtt{M}\left(\varphi\right)}$
 berechnet wird.\end{lem}
 \begin{proof}
 Sei $\sigma$ eine relationale Signatur, und sei $\varphi\left(\bar{x}\right)$
@@ -1584,7 +1623,7 @@ gilt: $\left(\hat{\pi}\Omega'\left(\bar{u}\right),\hat{\pi}g_{\rho\bar{u}}\right
 so sei der Schaltkreis analog zu Fall 8 mit $\Sigma\left(g_{\bar{t}}\right)\coloneqq\wedge$.
 \end{casenv}
 Der so konstruierte Schaltkreis hat eine durch $3\left\Vert \varphi\right\Vert $
-beschränkte Tiefe und eine durch $5\left\Vert \varphi\right\Vert \cdot n^{\mathrm{var}\left(\varphi\right)}$
+beschränkte Tiefe und eine durch $5\left\Vert \varphi\right\Vert \cdot n^{\mathtt{M}\left(\varphi\right)}$
 beschränkte Größe. Dies folgt direkt aus der Tatsache, dass höchstens
 $\left\Vert \varphi\right\Vert $ Induktionsschritte durchgeführt
 werden, und jeder Schritt für eine $k$-stellige Teilformel die Tiefe
@@ -1605,10 +1644,10 @@ $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
 $P$-uniformen $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
 $\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit konstanter
 Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $ und polynomieller
-Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
+Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)}$
 berechnet wird.
 \end{lem}
-(Dieses Lemma bildet die erste Hälfte des Theorems \ref{thm5.5:,fo-ord}.)
+(Dieses Lemma bildet die erste Hälfte des Theorems \ref{thm:5.5:fo-ord}.)
 \begin{proof}
 Der Schaltkreis $\mathcal{C}_{n}$ wird über einer geordneten Struktur
 $\mathfrak{A}\in\mathbf{FIN}_{<}\left(\sigma\right)$ über dem Universum
@@ -1618,15 +1657,18 @@ Hierbei ist zu beachten, dass $U=\left\{ 1,\cdots,n\right\} $ keinesfalls
 mit dem Universum der Orakelstruktur $\Upsilon\left(n\right)$ gleichzusetzen
 ist!
 
-Zur Unterscheidung bezeichnen wir $\Upsilon\left(n\right)\coloneqq\left(N,\leqslant\right)$,
-und $N\coloneqq\left\{ \dot{0},\cdots,\dot{n}\right\} $.
+Zur Unterscheidung verwenden wir die Umbenennung $\varodot:=\left(\begin{array}{c}
+0,\cdots,n\\
+\dot{0},\cdots,\dot{n}
+\end{array}\right)$ und betrachten nur $\varodot\Upsilon\left(n\right)=\left(N,\leqslant\right)$.
 
 Wir konstruieren zunächst den $\left(\sigma\uplus\left\{ \dot{\leqslant}\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
 $\mathcal{C}_{2n+1}^{\varphi}$ über $U=\left\{ 1,\cdots,2n+1\right\} $
-entspreched dem vorhergehenden Beweis.
+entspreched dem vorhergehenden Beweis. Dieser hat offensichtlich die
+geforderte Größe $S_{n}=S_{2n+1}'=5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)}$.
 
 Daraus wird der $\left(\sigma\uplus\left\{ \dot{\leqslant}\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
-$\dot{\mathcal{C}_{2n+1}^{\varphi}}=\left(G,W,\dot{\Sigma},\dot{\Omega},\dot{U}\right)=\rho\mathcal{C}_{2n+1}^{\varphi}$
+$\dot{\mathcal{C}_{2n+1}^{\varphi}}=\left(G,W,\dot{\Sigma},\dot{\Omega},\dot{U}\right)$
 über $\dot{U}=\left\{ 1,\cdots,n\right\} \uplus N$, in dem das Universum
 durch $\rho:U\rightarrow\dot{U}$ umbenannt wird: 
 \begin{eqnarray*}
@@ -1645,6 +1687,9 @@ n+1\\
 \dot{n}
 \end{array}\end{array}\right)
 \end{eqnarray*}
+\[
+\dot{\mathcal{C}_{2n+1}^{\varphi}}\coloneqq\rho\mathcal{C}_{2n+1}^{\varphi}=\left(G,W,\rho\Sigma,\Omega\rho,\rho U\right)
+\]
 
 
 Anschließend konstruieren wir daraus den $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
@@ -1679,18 +1724,20 @@ die die Elemente von $N$ auf sich selbst abbildet. Offensichtlich
 ist $\dot{\pi}\in\mathrm{Sym}_{\dot{U}}$ eine Permutation von $\dot{U}=\left(\ddot{U}\uplus N\right)$.
 
 Entsprechend ist $\pi\coloneqq\rho^{-1}\dot{\pi}\in\mathrm{Sym}_{U}$
-eine Permutation von $U=\left\{ 1,\cdots,2n+1\right\} $.
+eine Permutation von $U=\left\{ 1,\cdots,2n+1\right\} $ mit $\pi_{\mid\left\{ n+1,\cdots,2n+1\right\} }=\mathbf{id}$.
 
 Aus der Symmetrie des Schaltkreises $\mathcal{C}_{2n+1}^{\varphi}$
-bezüglich $\mathrm{Sym}_{U}$ folgt die Existenz eines induzierten
-Automorphismus $\hat{\pi}$ für den Schaltkreis $\mathcal{C}_{2n+1}^{\varphi}$.
-Wegen der Bijektivität von $\rho$ wird $\hat{\pi}$ auch in $\rho\mathcal{C}_{2n+1}^{\varphi}=\dot{\mathcal{C}_{2n+1}^{\varphi}}$
+bezüglich $\mathrm{Sym}_{U}$ (siehe Lemma \ref{lem:FO-Circuit})
+folgt die Existenz eines induzierten Automorphismus $\hat{\pi}$ für
+den Schaltkreis $\mathcal{C}_{2n+1}^{\varphi}$. Wegen der Bijektivität
+von $\rho$ wird $\hat{\pi}$ auch in $\rho\mathcal{C}_{2n+1}^{\varphi}=\dot{\mathcal{C}_{2n+1}^{\varphi}}$
 durch $\dot{\pi}$ induziert.
 
 Schließlich ist $\hat{\pi}$ auch in $\ddot{\mathcal{C}_{n}^{\varphi}}$
 ein durch $\ddot{\pi}$ induzierter Automorphismus, wozu nur die Funktion
-$\ddot{\Sigma}$ betrachtet werden muss (für $\ddot{\Omega}$ folgt
-es aus der Abgeschlossenheit von $\ddot{U}$ unter $\ddot{\pi}$):
+$\ddot{\Sigma}$ betrachtet werden muss (denn für $\ddot{\Omega}$
+folgt die Symmetrie aus der Abgeschlossenheit von $\ddot{U}$ unter
+$\ddot{\pi}$):
 \begin{casenv}
 \item Für $\varphi\left(\bar{x}\right)=R\bar{y}$ mit $R\in\sigma$ gilt:
 \[
@@ -1734,8 +1781,10 @@ $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
 $P$-uniformen $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
 $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ mit konstanter Tiefe
 $T_{n}\leqslant3\left\Vert \varphi\right\Vert $ und polynomieller
-Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
-berechnet wird.\end{lem}
+Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+1}$
+berechnet wird.
+\end{lem}
+(Dieses Lemma bildet die erste Hälfte von Theorem \ref{thm:5.6:fo-c}.)
 \begin{proof}
 Zunächst wird die Formel $\varphi$ in eine Normalform $\hat{\varphi}$
 gebracht, in der jeder Zählterm in einer Teilformel der Form $x\leqslant\#y\psi$
@@ -1779,6 +1828,15 @@ neue Variable:
 
 \end{casenv}
 \end{casenv}
+Hierbei wird $\mathtt{M}\left(\varphi\right)$ um maximal $1$ vergrößert,
+denn die neue Variable wird sofort wieder gebunden:
+\begin{eqnarray*}
+\mathtt{M}\left(\hat{\varphi}\right) & = & \max\left(\mathtt{M}\left(\psi_{1}\right),\mathtt{M}\left(\psi_{2}\right),1+\left|\mathrm{frei}\left(\#y_{1}\psi_{1}\right)\cup\mathrm{frei}\left(\#y_{1}\psi_{1}\right)\right|\right)\\
+ & = & \max\left(\mathtt{M}\left(\psi_{1}\right),\mathtt{M}\left(\psi_{2}\right),1+\mathrm{ar}\left(\#y_{1}\psi_{1}=\#y_{1}\psi_{2}\right)\right)\\
+ & \leqslant & 1+\mathtt{M}\left(\hat{\varphi}\right)
+\end{eqnarray*}
+
+
 Nun wird der Schaltkreis $\dot{\mathcal{C}_{2n+1}^{\varphi}}$ über
 dem Universum $\dot{U}\coloneqq\ddot{U}\uplus N$ (mit $\ddot{U}=\left\{ 1,\cdots,n\right\} $,
 $N=\left\{ \dot{0},\cdots,\dot{n}\right\} $) erzeugt, in dem die
@@ -1924,27 +1982,25 @@ W_{\mathrm{and}} & = & \left\{ \left(g_{\bar{t}},f_{\bar{t}}\right),\left(g_{\ba
 \end{casenv}
 Der so erzeugte Schaltkreis hat weiterhin konstante Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $,
 denn die neuen Konstruktionsschritte vergrößern die Tiefe um maximal
-$3$ Kanten (in Fall 3). Weiterhin hat er die Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$,
+$3$ Kanten (in Fall 3). Weiterhin hat er die Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+1}$,
 denn die neuen Schritte fügen höchstens 
 \[
-4\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}+2n<5\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}
+4\left(2n+1\right)^{\mathtt{M}\left(\hat{\varphi}\right)}+2n<5\left(2n+1\right)^{\mathtt{M}\left(\hat{\varphi}\right)}\leqslant5\left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+1}
 \]
-neue Gates hinzu. (Die in der Normalform $\hat{\varphi}$ definierte
-Variable $z$ ist nicht relevant, weil sie sofort wieder gebunden
-wird und die Stelligkeit der Teilformel nicht vergrößert.)
+neue Gates hinzu.
 
 Nach der Erzeugung von $\dot{\mathcal{C}_{2n+1}^{\varphi}}$ wird
 der Schaltkreis auf die bereits beschriebene Weise zu $\ddot{\mathcal{C}_{n}^{\varphi}}$
 umgewandelt. (Die neuen Schritte fügen keine Input-Gates hinzu, so
 dass sich hier nichts ändert.)
-
-Sei nun $\ddot{\pi}\in\mathrm{Sym}_{\ddot{U}}$ beliebig. Wir erweitern
-die Permutation wieder zu $\dot{\pi}\coloneqq\ddot{\pi}\uplus\mathbf{id}_{\mid N}\in\mathrm{Sym}_{\dot{U}}$,
-und bauen den Isomorphismus $\hat{\pi}$ induktiv auf:
+\begin{description}
+\item [{Symmetrie:}] Sei nun $\ddot{\pi}\in\mathrm{Sym}_{\ddot{U}}$ beliebig.
+Wir erweitern die Permutation wieder zu $\dot{\pi}\coloneqq\ddot{\pi}\uplus\mathbf{id}_{\mid N}\in\mathrm{Sym}_{\dot{U}}$,
+und bauen den Isomorphismus $\hat{\pi}$ induktiv auf:\end{description}
 \begin{casenv}
 \item Falls $\varphi\left(\bar{x}\right)=x_{i}\leqslant\#y_{i}\psi\left(\bar{y}\right)$,
 so sei $\hat{\pi}'$ der vorrausgesetzte Automorphismus im Schaltkreis
-$\psi\left(\bar{y}\right)$. Dieser wird wie folgt erweitert:
+$\dot{\mathcal{C}_{2n+1}^{\psi}}$. Dieser wird wie folgt erweitert:
 \[
 \hat{\pi}\left(g\right)=\begin{cases}
 g & \mathrm{falls}\,g\in\left\{ 0_{i}1_{i}\mid1\leqslant i\leqslant n\right\} \\
@@ -1973,7 +2029,7 @@ Betrachten wir schließlich $W_{\mathrm{pad}}$, so gilt:
 \begin{eqnarray*}
 \hat{\pi}W_{\mathrm{pad}} & = & \left\{ \left(\hat{\pi}0_{i},\hat{\pi}g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant2t_{i}-n\right\} \\
  & \cup & \left\{ \left(\hat{\pi}1_{i},\hat{\pi}g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant n-2t_{i}\right\} \\
- & = & \left\{ \left(0_{i},g_{\dot{\pi}\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant2\dot{\pi}t_{i}-n\right\} \,\mathrm{denn}\,t_{i}\in N,\,\dot{\pi}t_{i}=t_{i}\\
+ & = & \left\{ \left(0_{i},g_{\dot{\pi}\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant2\dot{\pi}t_{i}-n\right\} \,\mathrm{denn}\,t_{i}\in N,\,\mathrm{daher}\,\dot{\pi}t_{i}=t_{i}\\
  & \cup & \left\{ \left(1_{i},g_{\dot{\pi}\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant n-2\dot{\pi}t_{i}\right\} \\
  & = & W_{\mathrm{pad}}
 \end{eqnarray*}
@@ -1991,41 +2047,118 @@ Damit ist der erzeugte Schaltkreis $\ddot{\mathcal{C}_{n}^{\varphi}}$
 symmetrisch.
 \end{proof}
 
-\subsection{Orakelerweiterung}
+\subsection{Beliebiges Orakel}
 
-
-\section{Schaltkreise zu Logik}
+Wir betrachten die Logik $\mathrm{FO}+\Upsilon$ für beliebige Orakel
+$\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\eta\right)$,
+und weisen nach, dass die Konstruktion aus \ref{lem:fo-ord} auf beliebige
+Prädikate erweitert werden kann.
 \begin{lem}
-Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
+\label{lem:fo-u}Seien $\eta$ und $\sigma$ disjunkte Signaturen
+und $\Upsilon\rightarrow\mathbf{FIN}_{<}^{0}\left(\eta\right)$ ein
+Orakel.
+
+Jede $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
+$\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen
 $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-mit konstant beschränkter Tiefe $\leqslant c$ und polynomiell beschränkter
-Größe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
-existiert eine arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel,
-die die gleiche Anfrage definiert.
+$\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit konstanter
+Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $ und polynomieller
+Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)}$
+berechnet wird.
 \end{lem}
+Dieses Lemma bildet die erste Hälfte von \ref{thm:5.7:fo+u}.
+\begin{proof}
+Sei $n\in\mathbb{N}$ beliebig Zunächst werden die $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
+$\mathcal{C}_{2n+1}^{\varphi}$ und $\dot{\mathcal{C}_{2n+1}^{\varphi}}$
+wie in Lemma \ref{lem:fo-ord} erzeugt. Die Struktur $\Upsilon\left(n\right)$
+wird zu $\varodot\Upsilon\left(n\right)=\left(\left\{ \dot{0},\cdots,\dot{n}\right\} ,\left(R^{\varodot\Upsilon\left(n\right)}\right)_{R\in\eta}\right)$.
 
-\subsection{Normalform}
+Bei der Erzeugung des $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreises
+$\ddot{\mathcal{C}_{n}^{\varphi}}$ wird der folgende Konstruktionsschritt
+hinzugefügt:
+\begin{casenv}
+\item Falls $\dot{\Sigma}\left(g\right)=R\bar{t}$ mit $R/k\in\eta$, und
+$\bar{t}\in\dot{U}^{k}$:
+\[
+\ddot{\Sigma}\left(g\right)=\begin{cases}
+\mathbf{1} & \mathrm{falls}\,\bar{t}\in R^{\varodot\Upsilon\left(n\right)}\subseteq N\\
+\mathbf{0} & \mathrm{sonst}
+\end{cases}
+\]
 
-Zum Beweis dieses Lemmas werden wir eine Normalform für die Schaltkreise
-festlegen.
-\begin{defn}
-Ein Schaltkreis $\left(G,W,\Sigma,\Omega,U\right)$ ist in Alternierender
-Normalform, wenn er folgende Bedingungen erfüllt:\end{defn}
-\begin{enumerate}
-\item Jedes Gate hat genau einen direkten Nachfolger (somit ist $\left(G,W\right)$
-ein gerichteter Baum).
-\item Jedes mit $\Sigma\left(g\right)=\neg$ beschriftete Gate ist ein direkter
-Nachfolger eines Inputgates.
-\item Jedes Outputgate $g=\Omega\left(\bar{t}\right)$ ist mit $\Sigma\left(g\right)=\vee$
-beschriftet.
-\item Je \end{enumerate}
+
+\begin{description}
+\item [{Symmetrie:}] Wenn $\bar{t}\in R^{\Upsilon\left(n\right)}$, dann
+gilt $\dot{\pi}\left(\bar{t}\right)=\bar{t}$, und daher bildet der
+Automorphismus das Gate auf sich selbst ab. Somit wird jedes konstante
+Gate nur auf ein identisches Gate abgebildet.
+\end{description}
+\end{casenv}
+Hierbei ist zu beachten, dass die Relation $R^{\varodot\Upsilon\left(n\right)}$
+nicht in Polynomialzeit entscheidbar sein muss, und daher die so definierte
+Schaltkreisfamilie nicht mehr $P$-uniform ist.
+
+Offensichtlich ist sie jedoch immer noch $\mathrm{poly}\left(n\right)$-groß
+und damit $P/\mathrm{poly}$-uniform.
+\end{proof}
+
+\subsection{Orakel mit Zählterm}
+
+Für eine Orakellogik mit Zählterm $\mathrm{FO}+\Upsilon+C$ werden
+nun die Konstruktionen aller vorhergehender Abschnitte kombiniert.
 \begin{lem}
-Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
-$\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-mit konstant beschränkter Tiefe $\leqslant c$ und polynomiell beschränkter
-Größe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
-existiert eine äquivalente Schaltkreisfamilie 
-\end{lem}
+\label{lem:fo-u-c}Seien $\eta$ und $\sigma$ disjunkte Signaturen
+und $\Upsilon\rightarrow\mathbf{FIN}_{<}^{0}\left(\eta\right)$ ein
+Orakel.
+
+Jede $\left(\mathrm{FO}+\Upsilon+C\right)\left[\sigma\right]$-Formel
+$\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen
+$\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
+$\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit konstanter
+Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $ und polynomieller
+Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+c}$
+für $c\in\mathbb{N}$ berechnet wird.\end{lem}
+\begin{proof}
+Zunächst wird die Normalform aus Lemma \ref{lem:fo-c} hergestellt.
+
+Dafür müssen nun pseudo-atomare Formeln $R\bar{x}$ mit $R\in\eta$
+und Zähltermen in $\bar{x}$ behandelt werden:
+\begin{casenv}
+\item Falls $\varphi=R\bar{x}$ mit $R/k\in\eta$, so seien $x_{i_{1}},\cdots,x_{i_{\ell}}$
+die Zählterme in $\bar{x}$. Seien $y_{1},\cdots,y_{\ell}\in\mathbf{var}\backslash\mathrm{frei}\left(\varphi\right)$
+neue Variablen:
+\begin{eqnarray*}
+\rho & \coloneqq & \left(\begin{array}{c}
+x_{i_{1}}\\
+y_{1}
+\end{array}\cdots\begin{array}{c}
+x_{i_{\ell}}\\
+y_{\ell}
+\end{array}\right)\\
+\bar{x'} & \coloneqq & \rho\bar{x}\\
+\hat{\varphi} & \coloneqq & \exists y_{1}\cdots\exists y_{\ell}\left(R\bar{x'}\wedge\bigwedge_{j=1}^{\ell}y_{j}=\#x_{i_{j}}\right)
+\end{eqnarray*}
+
+\end{casenv}
+Hierbei wird $\mathtt{M}\left(\varphi\right)$ um maximal $\ell\leqslant\mathrm{ar}\left(R\right)$
+vergrößert; insgesamt vergrößert sich $\mathtt{M}\left(\varphi\right)$
+höchstens um die maximale Stelligkeit $c$ eines darin vorkommenden
+Relationssymbols. 
+\begin{eqnarray*}
+\mathtt{M}\left(\hat{\varphi}\right) & = & \max\left(\max_{i=1}^{\ell}\mathtt{M}\left(x_{i}\right),\ell+\mathrm{ar}\left(R\bar{x}\right)\right)\\
+ & \leqslant & \ell+\mathtt{M}\left(\varphi\right)
+\end{eqnarray*}
+
+
+Es werden nun die Konstruktionsschritte aus Lemma \ref{lem:fo-ord},
+\ref{lem:fo-c} und \ref{lem:fo-u} kombiniert, um eine symmetrische
+$\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
+$\left(\ddot{\mathcal{C}_{n}^{\varphi}}\right)_{n\in\mathbb{N}}$
+zu erzeugen. Diese Schaltkreise haben die Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
+und Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\hat{\varphi}\right)}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+c}$.
+\end{proof}
+\pagebreak{}
+
 
 \subsection{Fixpunktlogik}
 
@@ -2034,20 +2167,21 @@ als die Logik $\mathrm{FO}\left[\sigma\right]$; so ist beispielsweise
 die Erreichbarkeit über einen Pfad beliebiger Länge nicht erststufig
 definierbar.\marginpar{Quelle} Trotzdem kann jede $\mathrm{FP}\left[\sigma\right]$-Formel
 $\varphi$ durch eine Familie von $\mathrm{FO}\left[\sigma\right]$-Formeln
-mit polynomieller Länge $n^{\left\Vert \varphi\right\Vert }$ und
-höchstens $2\left\Vert \varphi\right\Vert $\emph{ }Variablen definiert
-werden, von denen jede auf den Strukturen einer bestimmten Größe äquivalent
-zu $\varphi$ ist.
+$\left(\varphi_{n}\right)_{n\in\mathbb{N}}$ mit polynomieller Länge
+$\left\Vert \varphi_{n}\right\Vert \leqslant n^{\left\Vert \varphi\right\Vert }$
+und höchstens $\mathrm{var}\left(\varphi_{n}\right)\leqslant2\left\Vert \varphi\right\Vert $\emph{
+}Variablen definiert werden, von denen jede auf den Strukturen einer
+bestimmten Größe äquivalent zu $\varphi$ ist.
 
-Mit der oben beschriebenen Konstruktion kann dann eine Schaltkreisfamilie
-erzeugt werden, die $\varphi$ berechnet.\marginpar{Siehe: k-Variablen Fragment infinitäre Logik, u.a. {[}LogKomp 2007{]}.}
+Mit den bereits beschriebenen Konstruktionnen kann aus diesen Formeln
+eine Schaltkreisfamilie erzeugt werden, die $\varphi$ berechnet.\marginpar{Siehe: k-Variablen Fragment infinitäre Logik, u.a. {[}LogKomp 2007{]}.}
 \[
 \mathcal{C}_{n}^{\varphi}\coloneqq\mathcal{C}_{n}^{\varphi_{n}}\,\mathrm{f\ddot{u}r}\,n\in\mathbb{N}
 \]
 
 
 Durch die Einschränkung auf eine konstante Anzahl von Variablen ist
-die Größe der Schaltkreisfamilie polynomiell durch $n^{2\left\Vert \varphi\right\Vert }$
+die Größe der Schaltkreisfamilie polynomiell durch $n^{\mathcal{O}\left(\left\Vert \varphi\right\Vert \right)}$
 beschränkt, obwohl die FO-Formeln beliebig lang werden.
 \begin{defn}
 Für zwei logische Formeln $\varphi$ und $\psi$ bedeute $\varphi\equiv_{n}\psi$,
@@ -2124,6 +2258,41 @@ Variablen: Nur in Fall 4 werden $m$ neue Variablen eingefügt, und
 für jeden solchen Induktionschritt enthält $\varphi$ bereits ein
 Tupel $\bar{y}\in\mathbf{var}^{m}$.
 \end{proof}
+\pagebreak{}
+
+
+\section{Schaltkreise zu Logik}
+\begin{lem}
+Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
+$\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+mit konstant beschränkter Tiefe $\leqslant c$ und polynomiell beschränkter
+Größe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
+existiert eine arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel,
+die die gleiche Anfrage definiert.
+\end{lem}
+
+\subsection{Normalform}
+
+Zum Beweis dieses Lemmas werden wir eine Normalform für die Schaltkreise
+festlegen.
+\begin{defn}
+Ein Schaltkreis $\left(G,W,\Sigma,\Omega,U\right)$ ist in Alternierender
+Normalform, wenn er folgende Bedingungen erfüllt:\end{defn}
+\begin{enumerate}
+\item Jedes Gate hat genau einen direkten Nachfolger (somit ist $\left(G,W\right)$
+ein gerichteter Baum).
+\item Jedes mit $\Sigma\left(g\right)=\neg$ beschriftete Gate ist ein direkter
+Nachfolger eines Inputgates.
+\item Jedes Outputgate $g=\Omega\left(\bar{t}\right)$ ist mit $\Sigma\left(g\right)=\vee$
+beschriftet.
+\item Je \end{enumerate}
+\begin{lem}
+Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
+$\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+mit konstant beschränkter Tiefe $\leqslant c$ und polynomiell beschränkter
+Größe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
+existiert eine äquivalente Schaltkreisfamilie 
+\end{lem}
 
 \subsection{Orakelerweiterungen}
 

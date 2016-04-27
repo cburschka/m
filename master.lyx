@@ -1299,6 +1299,30 @@ Satz
 
 \end_layout
 
+\begin_layout Definition*
+Es sei 
+\begin_inset Formula $\mathtt{M}\left(\varphi\right)$
+\end_inset
+
+ die maximale Anzahl freier Variablen jeder Teilformel von 
+\begin_inset Formula $\varphi$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathtt{M}\left(\varphi\right) & \coloneqq & \max\left\{ \mathrm{ar}\left(\psi\right)\mid\psi\,\mbox{ist Teilformel von}\,\varphi\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
 \begin_layout Definition
 Für eine Belegung 
 \begin_inset Formula $\beta$
@@ -1505,6 +1529,14 @@ T1 Für jede Variable
 
 \end_inset
 
+
+\begin_inset Formula 
+\[
+\mathtt{M}\left(x\right)=1
+\]
+
+\end_inset
+
  
 \begin_inset Formula 
 \[
@@ -1547,6 +1579,14 @@ A1 Für jedes Relationssymbol
 \begin{eqnarray*}
 \mathrm{frei}\left(R\bar{x}\right)=\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(R\bar{x}\right)=\bigcup_{i=1}^{k}\mathrm{var}\left(x_{i}\right)
 \end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathtt{M}\left(R\bar{x}\right)=\max\left(\max_{i=1}^{k}\mathtt{M}\left(x_{i}\right),\mathrm{frei}\left(R\bar{x}\right)\right)
+\]
 
 \end_inset
 
@@ -1606,6 +1646,14 @@ A2 Für zwei
 
 
 \begin_inset Formula 
+\[
+\mathtt{M}\left(x_{1}\dot{=}x_{2}\right)=\max\left(\mathtt{M}\left(x_{1}\right),\mathtt{M}\left(x_{2}\right),\mathrm{frei}\left(x_{1}\dot{=}x_{2}\right)\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
 \begin{eqnarray*}
 \mathfrak{A}\models\left(x\dot{=}y\right)^{\beta} & \Leftrightarrow & \left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket y\right\rrbracket \left(\mathfrak{A},\beta\right)
 \end{eqnarray*}
@@ -1638,6 +1686,14 @@ R1 Für eine
 \begin{eqnarray*}
 \mathrm{frei}\left(\neg\varphi\right)=\mathrm{frei}\left(\varphi\right) &  & \mathrm{var}\left(\neg\varphi\right)=\mathrm{var}\left(\varphi\right)
 \end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathtt{M}\left(\neg\varphi\right)=\mathtt{M}\left(\varphi\right)
+\]
 
 \end_inset
 
@@ -1697,6 +1753,14 @@ R2 Für
 
 
 \begin_inset Formula 
+\[
+\mathtt{M}\left(R\bar{x}\right)=\max\left(\max_{i=1}^{k}\mathtt{M}\left(\varphi_{i}\right),\mathrm{frei}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
 \begin{eqnarray*}
 \left\llbracket \varphi_{1}\wedge\cdots\wedge\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \min_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
 \left\llbracket \varphi_{1}\vee\cdots\vee\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \max_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
@@ -1745,6 +1809,14 @@ R3 Für einen Quantor
 
 
 \begin_inset Formula 
+\[
+\mathtt{M}\left(Qx\varphi\right)=\max\left(\mathtt{M}\left(\varphi\right),\mathrm{frei}\left(Qx\varphi\right)\right)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
 \begin{eqnarray*}
 \left\llbracket \exists x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \max_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\uplus\left(\begin{array}{c}
 x\\
@@ -1758,7 +1830,17 @@ a
 
 \end_inset
 
+(Im folgenden wird o.B.d.A.
+ angenommen, dass 
+\begin_inset Formula $x\in\mathrm{frei}\left(\varphi\right)$
+\end_inset
 
+.
+ Ist dies nicht der Fall, so ist 
+\begin_inset Formula $Qx\varphi\equiv\varphi$
+\end_inset
+
+.)
 \end_layout
 
 \begin_layout Subsection
@@ -1845,7 +1927,8 @@ R4 Für eine Relationsvariable
 \begin_inset Formula 
 \begin{eqnarray*}
 \mathrm{frei}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{frei}\left(y_{i}\right)\\
-\mathrm{var}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{var}\left(\psi\right)\cup\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{var}\left(y_{i}\right)
+\mathrm{var}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{var}\left(\psi\right)\cup\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{var}\left(y_{i}\right)\\
+\mathtt{M}\left(\varphi\right) & = & \max\left(\mathtt{M}\left(\psi\right),\mathrm{frei}\left(\varphi\right)\right)
 \end{eqnarray*}
 
 \end_inset
@@ -2216,6 +2299,32 @@ die Anzahl der unterschiedlichen Werte von
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+(Im folgenden wird o.B.d.A.
+ angenommen, dass 
+\begin_inset Formula $x\in\mathrm{frei}\left(\varphi\right)$
+\end_inset
+
+.
+ Ansonsten ist 
+\begin_inset Formula $\left\llbracket \#x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=A\cdot\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)$
+\end_inset
+
+ (denn entweder jede oder keine Belegung von 
+\begin_inset Formula $x$
+\end_inset
+
+ erfüllt 
+\begin_inset Formula $\varphi$
+\end_inset
+
+), und es gilt 
+\begin_inset Formula $\#x\varphi\equiv\#x\left(x=x\wedge\varphi\right)$
+\end_inset
+
+.)
 \end_layout
 
 \end_deeper
@@ -4675,7 +4784,7 @@ FO-Logiken und Schaltkreise
 \begin_layout Theorem
 \begin_inset CommandInset label
 LatexCommand label
-name "thm5.5:,fo-ord"
+name "thm:5.5:fo-ord"
 
 \end_inset
 
@@ -4745,6 +4854,13 @@ Die Anfrage
 \end_layout
 
 \begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:5.6:fo-c"
+
+\end_inset
+
+
 \begin_inset Formula $\mathrm{FO}+C$
 \end_inset
 
@@ -4806,6 +4922,13 @@ Die Anfrage
 \end_layout
 
 \begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:5.7:fo+u"
+
+\end_inset
+
+
 \begin_inset Formula $\mathrm{FO}+\Upsilon$
 \end_inset
 
@@ -4999,6 +5122,10 @@ Die Formeln der Logik erster Stufe sind durch symmetrisches,
  berechenbar:
 \end_layout
 
+\begin_layout Definition*
+.
+\end_layout
+
 \begin_layout Lemma
 \begin_inset CommandInset label
 LatexCommand label
@@ -5035,7 +5162,7 @@ Jede
 \end_inset
 
  und polynomieller Größe 
-\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert n^{\mathrm{var}\left(\varphi\right)}$
+\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert n^{\mathtt{M}\left(\varphi\right)}$
 \end_inset
 
  berechnet wird.
@@ -5990,7 +6117,7 @@ Der so konstruierte Schaltkreis hat eine durch
 \end_inset
 
  beschränkte Tiefe und eine durch 
-\begin_inset Formula $5\left\Vert \varphi\right\Vert \cdot n^{\mathrm{var}\left(\varphi\right)}$
+\begin_inset Formula $5\left\Vert \varphi\right\Vert \cdot n^{\mathtt{M}\left(\varphi\right)}$
 \end_inset
 
  beschränkte Größe.
@@ -6080,7 +6207,7 @@ Jede
 \end_inset
 
  und polynomieller Größe 
-\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
+\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)}$
 \end_inset
 
  berechnet wird.
@@ -6090,7 +6217,7 @@ Jede
 (Dieses Lemma bildet die erste Hälfte des Theorems 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "thm5.5:,fo-ord"
+reference "thm:5.5:fo-ord"
 
 \end_inset
 
@@ -6126,12 +6253,15 @@ Hierbei ist zu beachten, dass
 \end_layout
 
 \begin_layout Proof
-Zur Unterscheidung bezeichnen wir 
-\begin_inset Formula $\Upsilon\left(n\right)\coloneqq\left(N,\leqslant\right)$
+Zur Unterscheidung verwenden wir die Umbenennung 
+\begin_inset Formula $\varodot:=\left(\begin{array}{c}
+0,\cdots,n\\
+\dot{0},\cdots,\dot{n}
+\end{array}\right)$
 \end_inset
 
-, und 
-\begin_inset Formula $N\coloneqq\left\{ \dot{0},\cdots,\dot{n}\right\} $
+ und betrachten nur 
+\begin_inset Formula $\varodot\Upsilon\left(n\right)=\left(N,\leqslant\right)$
 \end_inset
 
 .
@@ -6151,6 +6281,11 @@ Wir konstruieren zunächst den
 \end_inset
 
  entspreched dem vorhergehenden Beweis.
+ Dieser hat offensichtlich die geforderte Größe 
+\begin_inset Formula $S_{n}=S_{2n+1}'=5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Proof
@@ -6159,7 +6294,7 @@ Daraus wird der
 \end_inset
 
 -Schaltkreis 
-\begin_inset Formula $\dot{\mathcal{C}_{2n+1}^{\varphi}}=\left(G,W,\dot{\Sigma},\dot{\Omega},\dot{U}\right)=\rho\mathcal{C}_{2n+1}^{\varphi}$
+\begin_inset Formula $\dot{\mathcal{C}_{2n+1}^{\varphi}}=\left(G,W,\dot{\Sigma},\dot{\Omega},\dot{U}\right)$
 \end_inset
 
  über 
@@ -6188,6 +6323,14 @@ n+1\\
 \dot{n}
 \end{array}\end{array}\right)
 \end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\dot{\mathcal{C}_{2n+1}^{\varphi}}\coloneqq\rho\mathcal{C}_{2n+1}^{\varphi}=\left(G,W,\rho\Sigma,\Omega\rho,\rho U\right)
+\]
 
 \end_inset
 
@@ -6312,6 +6455,10 @@ Entsprechend ist
 \begin_inset Formula $U=\left\{ 1,\cdots,2n+1\right\} $
 \end_inset
 
+ mit 
+\begin_inset Formula $\pi_{\mid\left\{ n+1,\cdots,2n+1\right\} }=\mathbf{id}$
+\end_inset
+
 .
 \end_layout
 
@@ -6324,7 +6471,14 @@ Aus der Symmetrie des Schaltkreises
 \begin_inset Formula $\mathrm{Sym}_{U}$
 \end_inset
 
- folgt die Existenz eines induzierten Automorphismus 
+ (siehe Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:FO-Circuit"
+
+\end_inset
+
+) folgt die Existenz eines induzierten Automorphismus 
 \begin_inset Formula $\hat{\pi}$
 \end_inset
 
@@ -6369,11 +6523,11 @@ Schließlich ist
 \begin_inset Formula $\ddot{\Sigma}$
 \end_inset
 
- betrachtet werden muss (für 
+ betrachtet werden muss (denn für 
 \begin_inset Formula $\ddot{\Omega}$
 \end_inset
 
- folgt es aus der Abgeschlossenheit von 
+ folgt die Symmetrie aus der Abgeschlossenheit von 
 \begin_inset Formula $\ddot{U}$
 \end_inset
 
@@ -6533,10 +6687,21 @@ Jede
 \end_inset
 
  und polynomieller Größe 
-\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
+\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+1}$
 \end_inset
 
  berechnet wird.
+\end_layout
+
+\begin_layout Standard
+(Dieses Lemma bildet die erste Hälfte von Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:5.6:fo-c"
+
+\end_inset
+
+.)
 \end_layout
 
 \begin_layout Proof
@@ -6742,6 +6907,28 @@ Falls
 
 \end_deeper
 \end_deeper
+\begin_layout Proof
+Hierbei wird 
+\begin_inset Formula $\mathtt{M}\left(\varphi\right)$
+\end_inset
+
+ um maximal 
+\begin_inset Formula $1$
+\end_inset
+
+ vergrößert, denn die neue Variable wird sofort wieder gebunden:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathtt{M}\left(\hat{\varphi}\right) & = & \max\left(\mathtt{M}\left(\psi_{1}\right),\mathtt{M}\left(\psi_{2}\right),1+\left|\mathrm{frei}\left(\#y_{1}\psi_{1}\right)\cup\mathrm{frei}\left(\#y_{1}\psi_{1}\right)\right|\right)\\
+ & = & \max\left(\mathtt{M}\left(\psi_{1}\right),\mathtt{M}\left(\psi_{2}\right),1+\mathrm{ar}\left(\#y_{1}\psi_{1}=\#y_{1}\psi_{2}\right)\right)\\
+ & \leqslant & 1+\mathtt{M}\left(\hat{\varphi}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Proof
 Nun wird der Schaltkreis 
 \begin_inset Formula $\dot{\mathcal{C}_{2n+1}^{\varphi}}$
@@ -7168,28 +7355,18 @@ Der so erzeugte Schaltkreis hat weiterhin konstante Tiefe
 
  Kanten (in Fall 3).
  Weiterhin hat er die Größe 
-\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
+\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+1}$
 \end_inset
 
 , denn die neuen Schritte fügen höchstens 
 \begin_inset Formula 
 \[
-4\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}+2n<5\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}
+4\left(2n+1\right)^{\mathtt{M}\left(\hat{\varphi}\right)}+2n<5\left(2n+1\right)^{\mathtt{M}\left(\hat{\varphi}\right)}\leqslant5\left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+1}
 \]
 
 \end_inset
 
 neue Gates hinzu.
- (Die in der Normalform 
-\begin_inset Formula $\hat{\varphi}$
-\end_inset
-
- definierte Variable 
-\begin_inset Formula $z$
-\end_inset
-
- ist nicht relevant, weil sie sofort wieder gebunden wird und die Stelligkeit
- der Teilformel nicht vergrößert.)
 \end_layout
 
 \begin_layout Proof
@@ -7206,8 +7383,9 @@ Nach der Erzeugung von
  ändert.)
 \end_layout
 
-\begin_layout Proof
-Sei nun 
+\begin_deeper
+\begin_layout Description
+Symmetrie: Sei nun 
 \begin_inset Formula $\ddot{\pi}\in\mathrm{Sym}_{\ddot{U}}$
 \end_inset
 
@@ -7223,7 +7401,6 @@ Sei nun
  induktiv auf:
 \end_layout
 
-\begin_deeper
 \begin_layout Case
 Falls 
 \begin_inset Formula $\varphi\left(\bar{x}\right)=x_{i}\leqslant\#y_{i}\psi\left(\bar{y}\right)$
@@ -7234,7 +7411,7 @@ Falls
 \end_inset
 
  der vorrausgesetzte Automorphismus im Schaltkreis 
-\begin_inset Formula $\psi\left(\bar{y}\right)$
+\begin_inset Formula $\dot{\mathcal{C}_{2n+1}^{\psi}}$
 \end_inset
 
 .
@@ -7282,7 +7459,7 @@ Betrachten wir schließlich
 \begin{eqnarray*}
 \hat{\pi}W_{\mathrm{pad}} & = & \left\{ \left(\hat{\pi}0_{i},\hat{\pi}g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant2t_{i}-n\right\} \\
  & \cup & \left\{ \left(\hat{\pi}1_{i},\hat{\pi}g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant n-2t_{i}\right\} \\
- & = & \left\{ \left(0_{i},g_{\dot{\pi}\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant2\dot{\pi}t_{i}-n\right\} \,\mathrm{denn}\,t_{i}\in N,\,\dot{\pi}t_{i}=t_{i}\\
+ & = & \left\{ \left(0_{i},g_{\dot{\pi}\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant2\dot{\pi}t_{i}-n\right\} \,\mathrm{denn}\,t_{i}\in N,\,\mathrm{daher}\,\dot{\pi}t_{i}=t_{i}\\
  & \cup & \left\{ \left(1_{i},g_{\dot{\pi}\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant n-2\dot{\pi}t_{i}\right\} \\
  & = & W_{\mathrm{pad}}
 \end{eqnarray*}
@@ -7324,114 +7501,435 @@ Damit ist der erzeugte Schaltkreis
 \end_layout
 
 \begin_layout Subsection
-Orakelerweiterung
-\end_layout
-
-\begin_layout Section
-Schaltkreise zu Logik
-\end_layout
-
-\begin_layout Lemma
-Sei 
-\begin_inset Formula $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
-\end_inset
-
- eine 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
-\end_inset
-
--Schaltkreisfamilie mit konstant beschränkter Tiefe 
-\begin_inset Formula $\leqslant c$
-\end_inset
-
- und polynomiell beschränkter Größe 
-\begin_inset Formula $\leqslant n^{k}$
-\end_inset
-
-, die eine 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Anfrage berechnet.
- So existiert eine arb-invariante 
-\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
-\end_inset
-
--Formel, die die gleiche Anfrage definiert.
-\end_layout
-
-\begin_layout Subsection
-Normalform
+Beliebiges Orakel
 \end_layout
 
 \begin_layout Standard
-Zum Beweis dieses Lemmas werden wir eine Normalform für die Schaltkreise
- festlegen.
-\end_layout
-
-\begin_layout Definition
-Ein Schaltkreis 
-\begin_inset Formula $\left(G,W,\Sigma,\Omega,U\right)$
+Wir betrachten die Logik 
+\begin_inset Formula $\mathrm{FO}+\Upsilon$
 \end_inset
 
- ist in Alternierender Normalform, wenn er folgende Bedingungen erfüllt:
-\end_layout
-
-\begin_layout Enumerate
-Jedes Gate hat genau einen direkten Nachfolger (somit ist 
-\begin_inset Formula $\left(G,W\right)$
+ für beliebige Orakel 
+\begin_inset Formula $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\eta\right)$
 \end_inset
 
- ein gerichteter Baum).
-\end_layout
+, und weisen nach, dass die Konstruktion aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:fo-ord"
 
-\begin_layout Enumerate
-Jedes mit 
-\begin_inset Formula $\Sigma\left(g\right)=\neg$
 \end_inset
 
- beschriftete Gate ist ein direkter Nachfolger eines Inputgates.
-\end_layout
-
-\begin_layout Enumerate
-Jedes Outputgate 
-\begin_inset Formula $g=\Omega\left(\bar{t}\right)$
-\end_inset
-
- ist mit 
-\begin_inset Formula $\Sigma\left(g\right)=\vee$
-\end_inset
-
- beschriftet.
-\end_layout
-
-\begin_layout Enumerate
-Je 
+ auf beliebige Prädikate erweitert werden kann.
 \end_layout
 
 \begin_layout Lemma
-Sei 
-\begin_inset Formula $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:fo-u"
+
 \end_inset
 
- eine 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+Seien 
+\begin_inset Formula $\eta$
 \end_inset
 
--Schaltkreisfamilie mit konstant beschränkter Tiefe 
-\begin_inset Formula $\leqslant c$
-\end_inset
-
- und polynomiell beschränkter Größe 
-\begin_inset Formula $\leqslant n^{k}$
-\end_inset
-
-, die eine 
+ und 
 \begin_inset Formula $\sigma$
 \end_inset
 
--Anfrage berechnet.
- So existiert eine äquivalente Schaltkreisfamilie 
+ disjunkte Signaturen und 
+\begin_inset Formula $\Upsilon\rightarrow\mathbf{FIN}_{<}^{0}\left(\eta\right)$
+\end_inset
+
+ ein Orakel.
+\end_layout
+
+\begin_layout Lemma
+Jede 
+\begin_inset Formula $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ definiert eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+, die von einer symmetrischen 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$
+\end_inset
+
+ mit konstanter Tiefe 
+\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
+\end_inset
+
+ und polynomieller Größe 
+\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)}$
+\end_inset
+
+ berechnet wird.
+\end_layout
+
+\begin_layout Standard
+Dieses Lemma bildet die erste Hälfte von 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:5.7:fo+u"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ beliebig Zunächst werden die 
+\begin_inset Formula $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
+\end_inset
+
+ und 
+\begin_inset Formula $\dot{\mathcal{C}_{2n+1}^{\varphi}}$
+\end_inset
+
+ wie in Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:fo-ord"
+
+\end_inset
+
+ erzeugt.
+ Die Struktur 
+\begin_inset Formula $\Upsilon\left(n\right)$
+\end_inset
+
+ wird zu 
+\begin_inset Formula $\varodot\Upsilon\left(n\right)=\left(\left\{ \dot{0},\cdots,\dot{n}\right\} ,\left(R^{\varodot\Upsilon\left(n\right)}\right)_{R\in\eta}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Bei der Erzeugung des 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreises 
+\begin_inset Formula $\ddot{\mathcal{C}_{n}^{\varphi}}$
+\end_inset
+
+ wird der folgende Konstruktionsschritt hinzugefügt:
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Falls 
+\begin_inset Formula $\dot{\Sigma}\left(g\right)=R\bar{t}$
+\end_inset
+
+ mit 
+\begin_inset Formula $R/k\in\eta$
+\end_inset
+
+, und 
+\begin_inset Formula $\bar{t}\in\dot{U}^{k}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\ddot{\Sigma}\left(g\right)=\begin{cases}
+\mathbf{1} & \mathrm{falls}\,\bar{t}\in R^{\varodot\Upsilon\left(n\right)}\subseteq N\\
+\mathbf{0} & \mathrm{sonst}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Symmetrie: Wenn 
+\begin_inset Formula $\bar{t}\in R^{\Upsilon\left(n\right)}$
+\end_inset
+
+, dann gilt 
+\begin_inset Formula $\dot{\pi}\left(\bar{t}\right)=\bar{t}$
+\end_inset
+
+, und daher bildet der Automorphismus das Gate auf sich selbst ab.
+ Somit wird jedes konstante Gate nur auf ein identisches Gate abgebildet.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Proof
+Hierbei ist zu beachten, dass die Relation 
+\begin_inset Formula $R^{\varodot\Upsilon\left(n\right)}$
+\end_inset
+
+ nicht in Polynomialzeit entscheidbar sein muss, und daher die so definierte
+ Schaltkreisfamilie nicht mehr 
+\begin_inset Formula $P$
+\end_inset
+
+-uniform ist.
+\end_layout
+
+\begin_layout Proof
+Offensichtlich ist sie jedoch immer noch 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-groß und damit 
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+-uniform.
+\end_layout
+
+\begin_layout Subsection
+Orakel mit Zählterm
+\end_layout
+
+\begin_layout Standard
+Für eine Orakellogik mit Zählterm 
+\begin_inset Formula $\mathrm{FO}+\Upsilon+C$
+\end_inset
+
+ werden nun die Konstruktionen aller vorhergehender Abschnitte kombiniert.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:fo-u-c"
+
+\end_inset
+
+Seien 
+\begin_inset Formula $\eta$
+\end_inset
+
+ und 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ disjunkte Signaturen und 
+\begin_inset Formula $\Upsilon\rightarrow\mathbf{FIN}_{<}^{0}\left(\eta\right)$
+\end_inset
+
+ ein Orakel.
+\end_layout
+
+\begin_layout Lemma
+Jede 
+\begin_inset Formula $\left(\mathrm{FO}+\Upsilon+C\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ definiert eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+, die von einer symmetrischen 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$
+\end_inset
+
+ mit konstanter Tiefe 
+\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
+\end_inset
+
+ und polynomieller Größe 
+\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+c}$
+\end_inset
+
+ für 
+\begin_inset Formula $c\in\mathbb{N}$
+\end_inset
+
+ berechnet wird.
+\end_layout
+
+\begin_layout Proof
+Zunächst wird die Normalform aus Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:fo-c"
+
+\end_inset
+
+ hergestellt.
+\end_layout
+
+\begin_layout Proof
+Dafür müssen nun pseudo-atomare Formeln 
+\begin_inset Formula $R\bar{x}$
+\end_inset
+
+ mit 
+\begin_inset Formula $R\in\eta$
+\end_inset
+
+ und Zähltermen in 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ behandelt werden:
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi=R\bar{x}$
+\end_inset
+
+ mit 
+\begin_inset Formula $R/k\in\eta$
+\end_inset
+
+, so seien 
+\begin_inset Formula $x_{i_{1}},\cdots,x_{i_{\ell}}$
+\end_inset
+
+ die Zählterme in 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+.
+ Seien 
+\begin_inset Formula $y_{1},\cdots,y_{\ell}\in\mathbf{var}\backslash\mathrm{frei}\left(\varphi\right)$
+\end_inset
+
+ neue Variablen:
+\begin_inset Formula 
+\begin{eqnarray*}
+\rho & \coloneqq & \left(\begin{array}{c}
+x_{i_{1}}\\
+y_{1}
+\end{array}\cdots\begin{array}{c}
+x_{i_{\ell}}\\
+y_{\ell}
+\end{array}\right)\\
+\bar{x'} & \coloneqq & \rho\bar{x}\\
+\hat{\varphi} & \coloneqq & \exists y_{1}\cdots\exists y_{\ell}\left(R\bar{x'}\wedge\bigwedge_{j=1}^{\ell}y_{j}=\#x_{i_{j}}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Hierbei wird 
+\begin_inset Formula $\mathtt{M}\left(\varphi\right)$
+\end_inset
+
+ um maximal 
+\begin_inset Formula $\ell\leqslant\mathrm{ar}\left(R\right)$
+\end_inset
+
+ vergrößert; insgesamt vergrößert sich 
+\begin_inset Formula $\mathtt{M}\left(\varphi\right)$
+\end_inset
+
+ höchstens um die maximale Stelligkeit 
+\begin_inset Formula $c$
+\end_inset
+
+ eines darin vorkommenden Relationssymbols.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathtt{M}\left(\hat{\varphi}\right) & = & \max\left(\max_{i=1}^{\ell}\mathtt{M}\left(x_{i}\right),\ell+\mathrm{ar}\left(R\bar{x}\right)\right)\\
+ & \leqslant & \ell+\mathtt{M}\left(\varphi\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Es werden nun die Konstruktionsschritte aus Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:fo-ord"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:fo-c"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:fo-u"
+
+\end_inset
+
+ kombiniert, um eine symmetrische 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\left(\ddot{\mathcal{C}_{n}^{\varphi}}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ zu erzeugen.
+ Diese Schaltkreise haben die Tiefe 
+\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
+\end_inset
+
+ und Größe 
+\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\hat{\varphi}\right)}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+c}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -7470,12 +7968,16 @@ Quelle
 \begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
--Formeln mit polynomieller Länge 
-\begin_inset Formula $n^{\left\Vert \varphi\right\Vert }$
+-Formeln 
+\begin_inset Formula $\left(\varphi_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ mit polynomieller Länge 
+\begin_inset Formula $\left\Vert \varphi_{n}\right\Vert \leqslant n^{\left\Vert \varphi\right\Vert }$
 \end_inset
 
  und höchstens 
-\begin_inset Formula $2\left\Vert \varphi\right\Vert $
+\begin_inset Formula $\mathrm{var}\left(\varphi_{n}\right)\leqslant2\left\Vert \varphi\right\Vert $
 \end_inset
 
 
@@ -7491,8 +7993,8 @@ Variablen definiert werden, von denen jede auf den Strukturen einer bestimmten
 \end_layout
 
 \begin_layout Standard
-Mit der oben beschriebenen Konstruktion kann dann eine Schaltkreisfamilie
- erzeugt werden, die 
+Mit den bereits beschriebenen Konstruktionnen kann aus diesen Formeln eine
+ Schaltkreisfamilie erzeugt werden, die 
 \begin_inset Formula $\varphi$
 \end_inset
 
@@ -7521,7 +8023,7 @@ Siehe: k-Variablen Fragment infinitäre Logik, u.a.
 \begin_layout Standard
 Durch die Einschränkung auf eine konstante Anzahl von Variablen ist die
  Größe der Schaltkreisfamilie polynomiell durch 
-\begin_inset Formula $n^{2\left\Vert \varphi\right\Vert }$
+\begin_inset Formula $n^{\mathcal{O}\left(\left\Vert \varphi\right\Vert \right)}$
 \end_inset
 
  beschränkt, obwohl die FO-Formeln beliebig lang werden.
@@ -7943,6 +8445,120 @@ Die so erzeugte Formel
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Schaltkreise zu Logik
+\end_layout
+
+\begin_layout Lemma
+Sei 
+\begin_inset Formula $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie mit konstant beschränkter Tiefe 
+\begin_inset Formula $\leqslant c$
+\end_inset
+
+ und polynomiell beschränkter Größe 
+\begin_inset Formula $\leqslant n^{k}$
+\end_inset
+
+, die eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage berechnet.
+ So existiert eine arb-invariante 
+\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
+\end_inset
+
+-Formel, die die gleiche Anfrage definiert.
+\end_layout
+
+\begin_layout Subsection
+Normalform
+\end_layout
+
+\begin_layout Standard
+Zum Beweis dieses Lemmas werden wir eine Normalform für die Schaltkreise
+ festlegen.
+\end_layout
+
+\begin_layout Definition
+Ein Schaltkreis 
+\begin_inset Formula $\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ ist in Alternierender Normalform, wenn er folgende Bedingungen erfüllt:
+\end_layout
+
+\begin_layout Enumerate
+Jedes Gate hat genau einen direkten Nachfolger (somit ist 
+\begin_inset Formula $\left(G,W\right)$
+\end_inset
+
+ ein gerichteter Baum).
+\end_layout
+
+\begin_layout Enumerate
+Jedes mit 
+\begin_inset Formula $\Sigma\left(g\right)=\neg$
+\end_inset
+
+ beschriftete Gate ist ein direkter Nachfolger eines Inputgates.
+\end_layout
+
+\begin_layout Enumerate
+Jedes Outputgate 
+\begin_inset Formula $g=\Omega\left(\bar{t}\right)$
+\end_inset
+
+ ist mit 
+\begin_inset Formula $\Sigma\left(g\right)=\vee$
+\end_inset
+
+ beschriftet.
+\end_layout
+
+\begin_layout Enumerate
+Je 
+\end_layout
+
+\begin_layout Lemma
+Sei 
+\begin_inset Formula $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie mit konstant beschränkter Tiefe 
+\begin_inset Formula $\leqslant c$
+\end_inset
+
+ und polynomiell beschränkter Größe 
+\begin_inset Formula $\leqslant n^{k}$
+\end_inset
+
+, die eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage berechnet.
+ So existiert eine äquivalente Schaltkreisfamilie 
 \end_layout
 
 \begin_layout Subsection
