@@ -700,11 +700,15 @@ $\Omega\left(\left\langle \right\rangle \right)\in G$ eine Konstante)
 und 
 \item ein geordnetes Universum $U\coloneqq\left\{ 1,\cdots,n\right\} $.
 \end{enumerate}
-Hierbei haben alle mit $\phi\in\mathbb{B}$ markierten Gates \textbf{mindestens}
-\textbf{einen}\footnote{Alle hier betrachteten Schaltkreise haben einen unbeschränkten Fan-In.}
+Hierbei haben alle mit $\phi\in\mathbb{B}$ markierten Gates mindestens
+einen\footnote{Alle hier betrachteten Schaltkreise haben einen unbeschränkten Fan-In.}
 Vorgänger, alle mit $R\bar{x}$, $\mathbf{0}$ oder $\mathbf{1}$
-markierten Gates \textbf{keinen }Vorgänger, und alle mit $\neg$ markierten
-Gates \textbf{genau einen }Vorgänger.
+markierten Gates keinen\textbf{ }Vorgänger, und alle mit $\neg$ markierten
+Gates genau\textbf{ }einen\textbf{ }Vorgänger.
+
+Die mit $\mathbf{0}$ oder $\mathbf{1}$ markierten Gates heißen \textbf{konstant},
+die mit $R\bar{x}$ markierten Gates heißen \textbf{Inputs}, und die
+Gates im Bild von $\Omega$ heißen \textbf{Outputs}.
 \end{defn}
 
 \begin{defn}
@@ -1841,7 +1845,8 @@ wird und die Stelligkeit der Teilformel nicht vergrößert.)
 
 Nach der Erzeugung von $\dot{\mathcal{C}_{2n+1}^{\varphi}}$ wird
 der Schaltkreis auf die bereits beschriebene Weise zu $\ddot{\mathcal{C}_{n}^{\varphi}}$
-umgewandelt.
+umgewandelt. (Die neuen Schritte fügen keine Input-Gates hinzu, so
+dass sich hier nichts ändert.)
 
 Sei nun $\ddot{\pi}\in\mathrm{Sym}_{\ddot{U}}$ beliebig. Wir erweitern
 die Permutation wieder zu $\dot{\pi}\coloneqq\ddot{\pi}\uplus\mathbf{id}_{\mid N}\in\mathrm{Sym}_{\dot{U}}$,

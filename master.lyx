@@ -2505,15 +2505,7 @@ Hierbei haben alle mit
 \begin_inset Formula $\phi\in\mathbb{B}$
 \end_inset
 
- markierten Gates 
-\series bold
-mindestens
-\series default
- 
-\series bold
-einen
-\series default
-
+ markierten Gates mindestens einen
 \begin_inset Foot
 status open
 
@@ -2535,19 +2527,55 @@ Alle hier betrachteten Schaltkreise haben einen unbeschränkten Fan-In.
 \begin_inset Formula $\mathbf{1}$
 \end_inset
 
- markierten Gates 
+ markierten Gates keinen
 \series bold
-keinen 
+ 
 \series default
 Vorgänger, und alle mit 
 \begin_inset Formula $\neg$
 \end_inset
 
- markierten Gates 
+ markierten Gates genau
 \series bold
-genau einen 
+ 
+\series default
+einen
+\series bold
+ 
 \series default
 Vorgänger.
+\end_layout
+
+\begin_layout Definition
+Die mit 
+\begin_inset Formula $\mathbf{0}$
+\end_inset
+
+ oder 
+\begin_inset Formula $\mathbf{1}$
+\end_inset
+
+ markierten Gates heißen 
+\series bold
+konstant
+\series default
+, die mit 
+\begin_inset Formula $R\bar{x}$
+\end_inset
+
+ markierten Gates heißen 
+\series bold
+Inputs
+\series default
+, und die Gates im Bild von 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ heißen 
+\series bold
+Outputs
+\series default
+.
 \end_layout
 
 \begin_layout --Separator--
@@ -6913,6 +6941,8 @@ Nach der Erzeugung von
 \end_inset
 
  umgewandelt.
+ (Die neuen Schritte fügen keine Input-Gates hinzu, so dass sich hier nichts
+ ändert.)
 \end_layout
 
 \begin_layout Proof
