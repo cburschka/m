@@ -2,7 +2,7 @@
 %% Do not edit unless you really know what you are doing.
 \documentclass[ngerman]{article}
 \usepackage[T1]{fontenc}
-\usepackage[latin9]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage{refstyle}
 \usepackage{float}
 \usepackage{mathrsfs}
@@ -76,22 +76,22 @@
 
 \section{Einleitung}
 
-‹bersicht:
+√úbersicht:
 \begin{enumerate}
 \item FP{[}<{]} $\subseteq$ SBC ($\subseteq$ P): Jede Fixpunktformel mit
-Ordnungspr‰dikat kann f¸r $n\in\mathbb{N}$ in $\mathrm{poly\left(n\right)}$
+Ordnungspr√§dikat kann f√ºr $n\in\mathbb{N}$ in $\mathrm{poly\left(n\right)}$
 in eine FO-Formel auf $n$-Graphen transformiert werden, aus der in
 $\mathrm{poly}\left(n\right)$ ein Symmetrischer Boolescher Schaltkreis
 wird. Daher ist FP auf P-uniforme SBC-Familien reduzierbar (und diese
 auf P).
-\item FP+C $\subseteq$ SBC+MAJ ( < P): Majority gates erlauben zus‰tzlich
-Z‰hlterme zu ¸bersetzen.
+\item FP+C $\subseteq$ SBC+MAJ ( < P): Majority gates erlauben zus√§tzlich
+Z√§hlterme zu √ºbersetzen.
 \item SBC $\subseteq$ FP{[}<{]}: Jede P-uniforme $\left[\sigma\right]$-Schaltkreisfamilie
-kann in eine $\mathrm{FP}\left[\sigma+<\right]$-Formel ¸berf¸hrt
+kann in eine $\mathrm{FP}\left[\sigma+<\right]$-Formel √ºberf√ºhrt
 werden (weil der erzeugende P-Algorithmus per Immerman-Vardi FP{[}<{]}-definierbar
 ist). Hierbei ist zu beachten, dass die $<^{\mathfrak{A}}$-Relation
-eine beliebige von $\mathfrak{A}$ unabh‰ngige lineare Ordnung ist.
-\item SBC+MAJ $\subseteq$ FP+C: FP-Logik mit Z‰hltermen kann zus‰tzlich
+eine beliebige von $\mathfrak{A}$ unabh√§ngige lineare Ordnung ist.
+\item SBC+MAJ $\subseteq$ FP+C: FP-Logik mit Z√§hltermen kann zus√§tzlich
 Majority gates beschreiben.
 \item Nicht-uniformes SBC $\subseteq$ FP+C+$\Upsilon$: (Vergleiche mit
 ,,nicht uniformes AC0 = FO+$\Upsilon$`` aus {[}Anderson, van Melkebeek,
@@ -113,10 +113,10 @@ definiert.
 
 Ein Tupel $\left(x_{1},\cdots,x_{n}\right)$ von Elementen einer Menge
 $U$ wird durch $\bar{x}\in U^{n}$ notiert. $\#\bar{x}=n$ sei die
-Anzahl der Elemente des Tupels, und ein $n$-stelliges Tupel heiﬂe
+Anzahl der Elemente des Tupels, und ein $n$-stelliges Tupel hei√üe
 kurz ,,$n$-Tupel``.
 
-F¸r zwei Tupel $\bar{x},\bar{y}$ mit $\#\bar{x}=m$ und $\#\bar{y}=n$
+F√ºr zwei Tupel $\bar{x},\bar{y}$ mit $\#\bar{x}=m$ und $\#\bar{y}=n$
 sei $\bar{x}\bar{y}$ das $\left(m+n\right)$-Tupel $\left(x_{1},\cdots,x_{m},y_{1},\cdots,y_{m}\right)$.
 
 Das $0$-stellige Tupel wird durch $\left\langle \right\rangle $
@@ -126,13 +126,13 @@ notiert.
 \begin{defn}
 \textbf{Abbildung}
 
-F¸r eine Abbildung $\pi:A\rightarrow B$ und $a\in A$ wird $\pi\left(a\right)$
-auch durch $\pi a$ abgek¸rzt.
+F√ºr eine Abbildung $\pi:A\rightarrow B$ und $a\in A$ wird $\pi\left(a\right)$
+auch durch $\pi a$ abgek√ºrzt.
 
-Es sei $\mathbf{id}:A\rightarrow A$ die Identit‰t mit $\mathbf{id}\left(a\right)=a$
-f¸r alle $a\in A$.
+Es sei $\mathbf{id}:A\rightarrow A$ die Identit√§t mit $\mathbf{id}\left(a\right)=a$
+f√ºr alle $a\in A$.
 
-Jede Abbildung $\pi:A\rightarrow B$ wird auf nat¸rliche Weise auf
+Jede Abbildung $\pi:A\rightarrow B$ wird auf nat√ºrliche Weise auf
 Tupel, Teilmengen und Relationen von $A$ erweitert:
 \begin{eqnarray*}
 \pi\left(x_{1},\cdots,x_{k}\right) & \coloneqq & \left(\pi x_{1},\cdots,\pi x_{n}\right)\\
@@ -150,7 +150,7 @@ a_{n}\\
 \pi a_{n}
 \end{array}\right)$ notiert.
 
-F¸r zwei Abbildungen $\pi_{1}:B\rightarrow C$ und $\pi_{2}:A\rightarrow B$
+F√ºr zwei Abbildungen $\pi_{1}:B\rightarrow C$ und $\pi_{2}:A\rightarrow B$
 sei $\pi_{1}\circ\pi_{2}:A\rightarrow C$ (kurz $\pi_{1}\pi_{2}$)
 die folgende Abbildung: 
 \[
@@ -164,7 +164,7 @@ a_{n}\\
 \]
 
 
-F¸r zwei Abbildungen $\pi:A\rightarrow B$ und $\pi':A'\rightarrow B'$
+F√ºr zwei Abbildungen $\pi:A\rightarrow B$ und $\pi':A'\rightarrow B'$
 mit disjunkten Definitionsbereichen sei $\pi\uplus\pi':A\cup A'\rightarrow B\cup B'$
 die folgende Abbildung:
 \[
@@ -175,7 +175,7 @@ die folgende Abbildung:
 \]
 
 
-F¸r $\pi:A\rightarrow B$ und $A'\subseteq A$ sei $\pi_{\mid A'}:A'\rightarrow B$
+F√ºr $\pi:A\rightarrow B$ und $A'\subseteq A$ sei $\pi_{\mid A'}:A'\rightarrow B$
 die Reduktion auf eine Teilmenge des Definitionsbereichs.
 \end{defn}
 
@@ -185,7 +185,7 @@ die Reduktion auf eine Teilmenge des Definitionsbereichs.
 Eine Permutation von $U$ ist eine bijektive Abbildung $\pi:U\rightarrow U$.
 
 Die Menge aller Permutationen von $U$ sei $\mathrm{Sym}_{U}$; diese
-bilden eine Symmetriegruppe bez¸glich der Verkettung $\circ:\mathrm{Sym}_{U}\times\mathrm{Sym}_{U}\rightarrow\mathrm{Sym}_{U}$
+bilden eine Symmetriegruppe bez√ºglich der Verkettung $\circ:\mathrm{Sym}_{U}\times\mathrm{Sym}_{U}\rightarrow\mathrm{Sym}_{U}$
 mit dem neutralen Element $\mathbf{id}$.
 
 Es sei $\pi^{-1}$ die inverse Abbildung mit $\pi^{-1}\pi=\pi\pi^{-1}=\mathbf{id}$.
@@ -215,16 +215,16 @@ $\mathbf{FIN}\left(\sigma\right)$
 
 Eine endliche $\sigma$-Struktur $\mathfrak{A}=\left(A,\left(R^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
 besteht aus einem endlichen, nichtleeren Universum $A$ und einer
-Interpretation $R^{\mathfrak{A}}\subseteq A^{k}$ f¸r jedes Symbol
+Interpretation $R^{\mathfrak{A}}\subseteq A^{k}$ f√ºr jedes Symbol
 $R/k\in\sigma$.
 \begin{enumerate}
-\item F¸r $n>0$ sei $\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
-die Menge aller $\sigma$-Strukturen mit einem Universum der Grˆﬂe
+\item F√ºr $n>0$ sei $\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+die Menge aller $\sigma$-Strukturen mit einem Universum der Gr√∂√üe
 $\left|A\right|=n$.
 \item Sei $\mathbf{FIN}\left(\sigma\right)\coloneqq\bigcup_{n\in\mathbb{N}_{\geqslant1}}\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 die Menge aller endlichen $\sigma$-Strukturen.
 \item Sei $\mathbf{FIN}_{<}\left(\sigma\right)$ die Menge der endlichen
-$\sigma\cup\left\{ \dot{\leqslant}\right\} $-Strukturen ¸ber einem
+$\sigma\cup\left\{ \dot{\leqslant}\right\} $-Strukturen √ºber einem
 geordneten Universum $U=\left\{ 0,\cdots,n\right\} \subseteq\mathbb{N}$.
 \end{enumerate}
 
@@ -236,20 +236,20 @@ als Relationssymbol gekennzeichnet, wie zum Beispiel in $\left(i,j\right)\in\dot
 \begin{defn}
 \textbf{\label{def:Isomorphismus}Isomorphismus}
 
-F¸r zwei $\sigma$-Strukturen $\mathfrak{A}=\left(A,\left(R^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
+F√ºr zwei $\sigma$-Strukturen $\mathfrak{A}=\left(A,\left(R^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
 und $\mathfrak{B}=\left(A,\left(R^{\mathfrak{B}}\right)_{R\in\sigma}\right)$
 sei eine bijektive Abbildung $\pi:A\rightarrow B$ ein Isomorphismus,
-falls $\pi R^{\mathfrak{A}}=R^{\mathfrak{B}}$ f¸r alle Symbole $R\in\sigma$
+falls $\pi R^{\mathfrak{A}}=R^{\mathfrak{B}}$ f√ºr alle Symbole $R\in\sigma$
 gilt.
 
-Die Abbildung $\pi$ wird auf nat¸rliche Weise auf Strukturen erweitert:
+Die Abbildung $\pi$ wird auf nat√ºrliche Weise auf Strukturen erweitert:
 \[
 \pi\mathfrak{A}=\left(\pi A,\left(\pi R^{\mathfrak{A}}\right)_{R\in\sigma}\right)
 \]
 
 
 Der Isomorphismus wird kurz durch $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{B}$
-notiert. Die Strukturen heiﬂen isomorph (kurz $\mathfrak{A}\cong\mathfrak{B}$),
+notiert. Die Strukturen hei√üen isomorph (kurz $\mathfrak{A}\cong\mathfrak{B}$),
 falls ein $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{B}$ existiert.
 
 Ein Automorphismus $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{A}$
@@ -261,9 +261,9 @@ diese bilden wiederum eine Gruppe.
 \begin{defn}
 \textbf{\label{def:Disjunkte-Vereinigung}Disjunkte Vereinigung}
 
-Zwei Strukturen kˆnnen disjunkt vereinigt werden, wenn sie entweder
+Zwei Strukturen k√∂nnen disjunkt vereinigt werden, wenn sie entweder
 verschiedene Relationssymbole interpretieren, oder die gleichen Relationssymbole
-¸ber disjunkten Universen interpretieren. F¸r eine $\sigma_{1}$-Struktur
+√ºber disjunkten Universen interpretieren. F√ºr eine $\sigma_{1}$-Struktur
 $\mathfrak{A}$ und eine $\sigma_{2}$-Struktur $\mathfrak{B}$ gilt:
 
 Wenn $\sigma_{1}\cap\sigma_{2}=\emptyset$, so ist $\mathfrak{A}\uplus\mathfrak{B}$
@@ -284,11 +284,11 @@ ist $\mathfrak{A}\uplus\mathfrak{B}$ die folgende $\sigma$-Struktur:
 \begin{defn}
 \textbf{\label{def:Induzierte-Teilstruktur}Induzierte Teilstruktur}
 
-F¸r eine Relation $R\subseteq A^{k}$ und eine Teilmenge $A'\subseteq A$
+F√ºr eine Relation $R\subseteq A^{k}$ und eine Teilmenge $A'\subseteq A$
 sei $R_{\mid A'}\coloneqq R\cap A'^{k}$ die auf Elemente aus $A'$
 reduzierte Teilrelation.
 
-F¸r eine $\sigma$-Struktur $\mathfrak{A}$ sei $\mathfrak{A}_{\mid A'}\coloneqq\left(A',\left(R_{\mid A'}^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
+F√ºr eine $\sigma$-Struktur $\mathfrak{A}$ sei $\mathfrak{A}_{\mid A'}\coloneqq\left(A',\left(R_{\mid A'}^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
 die von der Teilmenge $A'$ in $\mathfrak{A}$ induzierte Teilstruktur.
 \end{defn}
 
@@ -312,7 +312,7 @@ q_{S}\left(\mathfrak{A}\right) & \coloneqq & \begin{cases}
 
 
 Per Definition sind alle $\sigma$-Anfragen und $\sigma$-Eigenschaften
-invariant bez¸glich Isomorphismen: F¸r $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{B}$
+invariant bez√ºglich Isomorphismen: F√ºr $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{B}$
 gilt $\pi q\left(\mathfrak{A}\right)=q\left(\pi\mathfrak{A}\right)$
 und $\mathfrak{A}\in S\Leftrightarrow\pi\mathfrak{A}\in S$.
 \end{defn}
@@ -322,13 +322,13 @@ und $\mathfrak{A}\in S\Leftrightarrow\pi\mathfrak{A}\in S$.
 \section{Logik}
 
 Wir betrachten logische Sprachen auf endlichen relationalen Signaturen
-$\sigma$, deren Ausdr¸cke auf endlichen $\sigma$-Strukturen ausgewertet
+$\sigma$, deren Ausdr√ºcke auf endlichen $\sigma$-Strukturen ausgewertet
 werden.
 \begin{defn}
 Sei $\mathbf{var}$ die Menge aller erststufigen Variablen. Es existiere
 implizit eine Ordnung von $\mathbf{var}$.
 
-F¸r einen Ausdruck $\omega$ sei $\mathrm{var}\left(\omega\right)$
+F√ºr einen Ausdruck $\omega$ sei $\mathrm{var}\left(\omega\right)$
 die Menge der darin vorkommenden Variablen, und $\mathrm{frei}\left(\omega\right)\subseteq\mathrm{var}\left(\omega\right)$
 die Menge der freien Variablen.
 
@@ -336,14 +336,14 @@ In einer Struktur $\mathfrak{A}$ sei eine Belegung $\beta$ eine
 Abbildung $\beta:\mathrm{frei}\left(\omega\right)\rightarrow A$ aller
 freien Variablen auf Elemente des Universums.
 \end{defn}
-Die Auswertungsfunktion f¸r eine Struktur $\mathfrak{A}$ und eine
+Die Auswertungsfunktion f√ºr eine Struktur $\mathfrak{A}$ und eine
 Belegung $\beta$ wird durch $\left\llbracket \cdot\right\rrbracket \left(\mathfrak{A},\beta\right)$
 notiert.
 \begin{defn}
 Eine Logik $\mathscr{L}\left[\sigma\right]$ besteht aus der Sprache
-der $\mathscr{L}\left[\sigma\right]$-Terme $t$, f¸r die $\left\llbracket t\right\rrbracket \left(\mathfrak{A},\beta\right)\in A$
+der $\mathscr{L}\left[\sigma\right]$-Terme $t$, f√ºr die $\left\llbracket t\right\rrbracket \left(\mathfrak{A},\beta\right)\in A$
 ein Element des Universums ist, den $\mathscr{L}\left[\sigma\right]$-Formeln
-$\varphi$, f¸r die $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\in\left\{ 0,1\right\} $
+$\varphi$, f√ºr die $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\in\left\{ 0,1\right\} $
 ein Wahrheitswert ist, und der Auswertungsfunktion $\left\llbracket \cdot\right\rrbracket $.
 \end{defn}
 
@@ -356,10 +356,10 @@ wir das Tupel $\bar{x}=x_{1}\cdots x_{k}$ als das \textbf{Argument
 Die \textbf{Stelligkeit }einer logischen Formel bezeichne die Anzahl
 der frei darin vorkommenden Variablen: $\mathrm{ar}\left(\varphi\right)\coloneqq\left|\mathrm{frei}\left(\varphi\right)\right|=k$.
 
-F¸r eine Belegung $\beta$ schreiben wir $\mathfrak{A}\models\varphi^{\beta}$
+F√ºr eine Belegung $\beta$ schreiben wir $\mathfrak{A}\models\varphi^{\beta}$
 genau dann wenn $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1$.
 
-F¸r ein Tupel $\bar{a}\in A^{k}$ schreiben wir $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)$
+F√ºr ein Tupel $\bar{a}\in A^{k}$ schreiben wir $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)$
 anstelle von $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)$,
 beziehungsweise $\mathfrak{A}\models\varphi\left(\bar{a}\right)$
 anstelle von $\mathfrak{A}\models\varphi^{\beta}$ mit $\beta\coloneqq\left(\begin{array}{c}
@@ -371,25 +371,25 @@ a_{k}
 \end{array}\right)$.
 
 Entsprechend sei $\varphi\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\varphi\left(\bar{a}\right)\right\} $
-die Relation der $\varphi$ erf¸llenden Tupel. Somit beschreibt jede
+die Relation der $\varphi$ erf√ºllenden Tupel. Somit beschreibt jede
 $\mathscr{L}\left[\sigma\right]$-Formel eine $\sigma$-Anfrage, und
 jeder Satz eine $\sigma$-Eigenschaft.
 \end{defn}
 
 \begin{defn}
 Eine Logik $\mathscr{L}$ erweitert die Logik $\mathscr{L}'$, wenn
-sie die Syntax und Semantik von $\mathscr{L}'$ ¸bernimmt, und zus‰tzliche
-Produktionen einf¸hrt.
+sie die Syntax und Semantik von $\mathscr{L}'$ √ºbernimmt, und zus√§tzliche
+Produktionen einf√ºhrt.
 \end{defn}
 
-\subsection{Pr‰dikatenlogik erster Stufe}
+\subsection{Pr√§dikatenlogik erster Stufe}
 
 
 \begin{defn}
 Die Syntax und Semantik der relationalen Logik erster Stufe $\mathrm{FO}\left[\sigma\right]$
 sind wie folgt definiert:\end{defn}
 \begin{lyxlist}{00.00.0000}
-\item [{T1}] F¸r jede Variable $x\in\mathbf{var}$ ist $x$ ein $\mathrm{FO}\left[\sigma\right]$-Term.
+\item [{T1}] F√ºr jede Variable $x\in\mathbf{var}$ ist $x$ ein $\mathrm{FO}\left[\sigma\right]$-Term.
 \[
 \mathrm{frei}\left(x\right)=\mathrm{var}\left(x\right)=\left\{ x\right\} 
 \]
@@ -398,7 +398,7 @@ sind wie folgt definiert:\end{defn}
 \left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\beta x
 \]
 
-\item [{A1}] F¸r jedes Relationssymbol $R/k\in\sigma$ und jedes $k$-Tupel
+\item [{A1}] F√ºr jedes Relationssymbol $R/k\in\sigma$ und jedes $k$-Tupel
 von $\mathrm{FO}\left[\sigma\right]$-Termen $\bar{x}$ ist $R\bar{x}$
 eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
@@ -411,7 +411,7 @@ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \end{cases}
 \]
 
-\item [{A2}] F¸r zwei $\mathrm{FO}\left[\sigma\right]$-Terme $x_{1},x_{2}$
+\item [{A2}] F√ºr zwei $\mathrm{FO}\left[\sigma\right]$-Terme $x_{1},x_{2}$
 ist $x_{1}=x_{2}$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 (Bei Mehrdeutigkeit wird das Symbol als $\dot{=}$ geschrieben, zum
 Beispiel bei ,,$\varphi=x_{1}\dot{=}x_{2}$.``)
@@ -425,7 +425,7 @@ Beispiel bei ,,$\varphi=x_{1}\dot{=}x_{2}$.``)
 \end{cases}
 \]
 
-\item [{R1}] F¸r eine $\mathrm{FO}\left[\sigma\right]$-Formel $\varphi$
+\item [{R1}] F√ºr eine $\mathrm{FO}\left[\sigma\right]$-Formel $\varphi$
 ist $\neg\varphi$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
 \mathrm{frei}\left(\neg\varphi\right)=\mathrm{frei}\left(\varphi\right) &  & \mathrm{var}\left(\neg\varphi\right)=\mathrm{var}\left(\varphi\right)
@@ -434,9 +434,9 @@ ist $\neg\varphi$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \left\llbracket \neg\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)
 \]
 
-\item [{R2}] F¸r $k\geqslant2$ $\mathrm{FO}\left[\sigma\right]$-Formeln
+\item [{R2}] F√ºr $k\geqslant2$ $\mathrm{FO}\left[\sigma\right]$-Formeln
 $\varphi_{1},\cdots,\varphi_{k}$ und einen Junktor $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
-(mit $k=2$ f¸r $\gamma\in\left\{ \rightarrow,\leftrightarrow\right\} $)
+(mit $k=2$ f√ºr $\gamma\in\left\{ \rightarrow,\leftrightarrow\right\} $)
 ist auch $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)$
 eine $\mathrm{FO}\left[\sigma\right]$-Formel. 
 \begin{eqnarray*}
@@ -449,7 +449,7 @@ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \left\llbracket \varphi_{1}\leftrightarrow\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left\llbracket \left(\varphi_{1}\rightarrow\varphi_{2}\right)\wedge\left(\varphi_{2}\rightarrow\varphi_{1}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)
 \end{eqnarray*}
 
-\item [{R3}] F¸r einen Quantor $Q\in\left\{ \exists,\forall\right\} $,
+\item [{R3}] F√ºr einen Quantor $Q\in\left\{ \exists,\forall\right\} $,
 eine Variable $x\in\mathbf{var}$ und eine $\mathrm{FO}\left[\sigma\right]$-Formel
 $\varphi$ ist $Qx\varphi$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
@@ -473,10 +473,10 @@ diese wird auch durch $R/k\in\mathbf{var}_{2}$ notiert.
 \end{defn}
 
 \begin{defn}
-Die inflation‰re Fixpunktlogik $\mathrm{IFP}\left[\sigma\right]$
-erweitert $\mathrm{FO}\left[\sigma\right]$ um den inflation‰ren Fixpunkt-Operator
+Die inflation√§re Fixpunktlogik $\mathrm{IFP}\left[\sigma\right]$
+erweitert $\mathrm{FO}\left[\sigma\right]$ um den inflation√§ren Fixpunkt-Operator
 \begin{lyxlist}{00.00.0000}
-\item [{R4}] F¸r eine Relationsvariable $R/k\in\mathbf{var}_{2}\backslash\sigma$,
+\item [{R4}] F√ºr eine Relationsvariable $R/k\in\mathbf{var}_{2}\backslash\sigma$,
 eine $k$-stellige $\mathrm{IFP}\left[\sigma\cup\left\{ R\right\} \right]$-Formel
 $\varphi$, ein Tupel $\bar{x}\in\mathbf{var}^{k}$ und ein $k$-Tupel
 $\bar{y}$ von $\mathrm{FP}\left[\sigma\right]$-Termen ist 
@@ -491,7 +491,7 @@ $\bar{y}$ von $\mathrm{FP}\left[\sigma\right]$-Termen ist
 
 \end{lyxlist}
 \end{defn}
-F¸r eine $\sigma$-Struktur $\mathfrak{A}$ und eine Belegung $\beta:\mathrm{frei}\left(\varphi'\right)\rightarrow A$
+F√ºr eine $\sigma$-Struktur $\mathfrak{A}$ und eine Belegung $\beta:\mathrm{frei}\left(\varphi'\right)\rightarrow A$
 definieren wir eine Sequenz von $\left\{ R\right\} $-Strukturen $\left(\mathfrak{A}_{\varphi}^{\left(i\right)}\right)_{i\in\mathbb{N}}$
 und die Relationen $\left(R^{\left(i\right)}\right)_{i\in\mathbb{N}}$
 wie folgt: 
@@ -500,7 +500,7 @@ R^{\left(0\right)} & \coloneqq & \emptyset\\
 \mathfrak{A}_{\varphi}^{\left(i\right)} & \coloneqq & \left(A,R^{\left(i\right)}\right)\\
 R^{\left(i+1\right)} & \coloneqq & R^{\left(i\right)}\cup\varphi^{\beta}\left(\mathfrak{A}\uplus\mathfrak{A}_{\varphi}^{\left(i\right)}\right)
 \end{eqnarray*}
-Das heiﬂt: $R^{\left(i+1\right)}$ f¸gt das Anfrageergebnis hinzu,
+Das hei√üt: $R^{\left(i+1\right)}$ f√ºgt das Anfrageergebnis hinzu,
 das entsteht, wenn das Symbol $R$ durch die Relation $R^{\left(i\right)}$
 interpretiert wird.
 
@@ -514,32 +514,32 @@ Nun gelte:
 
 
 Da $R^{\left(i\right)}\subseteq R^{\left(i+1\right)}\subseteq A^{k}$,
-existiert der Fixpunkt $R^{\left(\infty\right)}$ und wird nach hˆchstens
+existiert der Fixpunkt $R^{\left(\infty\right)}$ und wird nach h√∂chstens
 $\left|A\right|^{k}$ Iterationen erreicht.
 \begin{example*}
-Die folgende Formel $\varphi\left(u,v\right)$ ist erf¸llt, wenn $u$
-und $v$ durch einen Weg beliebiger L‰nge verbunden sind: 
+Die folgende Formel $\varphi\left(u,v\right)$ ist erf√ºllt, wenn $u$
+und $v$ durch einen Weg beliebiger L√§nge verbunden sind: 
 \[
 \varphi\left(u,v\right)\coloneqq\left[\mathrm{ifp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
 \]
 
 \end{example*}
 Per {[}Gurevitch-Shelah{]} \& {[}Kreutzer{]} ist $\mathrm{IFP}$ in
-der Ausdrucksst‰rke ‰quivalent zur Least-Fixed-Point-Logik $\mathrm{LFP}$
+der Ausdrucksst√§rke √§quivalent zur Least-Fixed-Point-Logik $\mathrm{LFP}$
 und der partiellen Fixpunktlogik $\mathrm{PFP}.$ Im folgenden wird
-daher die Bezeichnung $\mathrm{FP}$ und die inflation‰re Definition
+daher die Bezeichnung $\mathrm{FP}$ und die inflation√§re Definition
 verwendet.
 
 
 \subsection{Logische Erweiterungen}
 
-Die Orakelerweiterung f¸gt einer Logik eine Anzahl von Relationssymbolen
+Die Orakelerweiterung f√ºgt einer Logik eine Anzahl von Relationssymbolen
 mit vordefinierter Interpretation hinzu. 
 \begin{defn}
 \textbf{$\Upsilon$-Orakel, $\mathscr{L}+\Upsilon$-Logik}
 
 Sei $\eta$ eine relationale Signatur. Ein Orakel $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}\left(\eta\right)$
-ist eine Funktion, die jeder nat¸rlichen Zahl $n$ eine geordnete
+ist eine Funktion, die jeder nat√ºrlichen Zahl $n$ eine geordnete
 Struktur $\Upsilon\left(n\right)$ mit dem Universum $U=\left\{ 0,\cdots,n\right\} $
 zuweist.
 
@@ -565,15 +565,15 @@ betrachtet.
 
 \begin{defn}
 Falls $\eta$ leer ist, und daher $\Upsilon\left(n\right)=\left(\left\{ 0,\cdots,n\right\} ,\leqslant\right)$
-nur die Ordnung enth‰lt, so wird $\mathscr{L}+\Upsilon$ auch als
+nur die Ordnung enth√§lt, so wird $\mathscr{L}+\Upsilon$ auch als
 $\mathscr{L}+\mathbf{ORD}$ bezeichnet.
 \end{defn}
 
 
-Die Z‰hlerweiterung f¸gt einer Logik einen zus‰tzlichen Term zu, der
-die erf¸llenden Belegungen einer Formel z‰hlt.
+Die Z√§hlerweiterung f√ºgt einer Logik einen zus√§tzlichen Term zu, der
+die erf√ºllenden Belegungen einer Formel z√§hlt.
 \begin{defn}
-\textbf{Z‰hlerweiterung}
+\textbf{Z√§hlerweiterung}
 
 Sei $\mathscr{L}$ eine beliebige Logik, $\eta$ eine relationale
 Signatur, und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}\left(\eta\right)$
@@ -582,7 +582,7 @@ ein Orakel.
 Die $\mathscr{L}+\Upsilon+C$-Logik erweitert die $\mathscr{L}+\Upsilon$-Logik
 um die folgende Regel:\end{defn}
 \begin{lyxlist}{00.00.0000}
-\item [{T2}] F¸r eine $\left(\mathscr{L}+\Upsilon+C\right)\left[\sigma\right]$-Formel
+\item [{T2}] F√ºr eine $\left(\mathscr{L}+\Upsilon+C\right)\left[\sigma\right]$-Formel
 $\varphi$ und eine Variable $x\in\mathbf{var}$ ist $\#_{x}\varphi$
 ein $\left(\mathscr{L}+\Upsilon+C\right)\left[\sigma\right]$-Term.
 \begin{eqnarray*}
@@ -597,13 +597,13 @@ ist
 \[
 \left\llbracket \#_{x}\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\left|\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\uplus\binom{x}{a}}\right\} \right|
 \]
-die Anzahl der Werte von $\beta\left(x\right)$ in erf¸llenden Belegungen
+die Anzahl der Werte von $\beta\left(x\right)$ in erf√ºllenden Belegungen
 $\beta$ von $\varphi$ auf $\mathfrak{A}$.
 
 \end{lyxlist}
 \begin{rem*}
 Falls $\eta$ leer ist, und daher $\Upsilon\left(n\right)=\left(\left\{ 0,\cdots,n\right\} ,\leqslant\right)$,
-so heiﬂe $\mathscr{L}+\Upsilon+C$ kurz $\mathscr{L}+C$.\end{rem*}
+so hei√üe $\mathscr{L}+\Upsilon+C$ kurz $\mathscr{L}+C$.\end{rem*}
 \begin{example*}
 Diese Erweiterung erlaubt die Definition vieler arithmetischer Operatoren
 durch Teilformeln, wie zum Beispiel die positive Differenz:
@@ -615,8 +615,8 @@ durch Teilformeln, wie zum Beispiel die positive Differenz:
 \end{example*}
 
 \begin{example*}
-Die Logik $\mathrm{FO}+C$ kann ausdr¸cken, dass die Struktur eine
-gerade Grˆﬂe hat. Bekanntlich ist diese $\sigma$-Eigenschaft auf
+Die Logik $\mathrm{FO}+C$ kann ausdr√ºcken, dass die Struktur eine
+gerade Gr√∂√üe hat. Bekanntlich ist diese $\sigma$-Eigenschaft auf
 ungeordneten Strukturen weder durch $\mathrm{FO}\left[\sigma\right]$
 noch $\mathrm{FP}\left[\sigma\right]$ definierbar:
 
@@ -627,10 +627,10 @@ noch $\mathrm{FP}\left[\sigma\right]$ definierbar:
 \begin{defn}
 \textbf{Arb-Invariante Logik erster Stufe}
 
-Die arb-invariante $\mathrm{FO}$-Logik ist wie folgt gem‰ﬂ N. Schweikardt.
+Die arb-invariante $\mathrm{FO}$-Logik ist wie folgt gem√§√ü N. Schweikardt.
 A short tutorial on order-invariant fir st-order logic. In International
-Computer Science Symposium in Russia (CSR) , pages 112\textendash 126,
-2013. definiert :\end{defn}
+Computer Science Symposium in Russia (CSR) , pages 112‚Äì126, 2013.
+definiert :\end{defn}
 \begin{enumerate}
 \item Sei $\eta_{\mathrm{arb}}$ eine unendliche relationale Signatur, die
 jeder numerischen Relation $R/k\subseteq\mathbb{N}^{k}$ ($k\in\mathbb{N}$)
@@ -638,22 +638,22 @@ ein Symbol $\dot{R}$ zuweist. (Insbesondere ist auch $\dot{\leqslant}\in\eta_{\m
 Sei $\mathfrak{N}$ die kanonische (unendliche) $\eta_{\mathrm{arb}}$-Struktur
 $\left(\mathbb{N},\left(\dot{R}^{\mathfrak{N}}\right)_{\dot{R}\in\eta_{\mathrm{arb}}}\right)$,
 die jedes Symbol $\dot{R}$ durch die Relation $R$ interpretiert.
-\item F¸r eine relationale Signatur $\sigma$ sei $\sigma_{\mathrm{arb}}\coloneqq\sigma\uplus\eta_{\mathrm{arb}}$,
+\item F√ºr eine relationale Signatur $\sigma$ sei $\sigma_{\mathrm{arb}}\coloneqq\sigma\uplus\eta_{\mathrm{arb}}$,
 und sei $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$ die erststufige
-Logik mit beliebigen numerischen Pr‰dikaten.
-\item Sei $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ mit Grˆﬂe $\left|A\right|=n$,
+Logik mit beliebigen numerischen Pr√§dikaten.
+\item Sei $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ mit Gr√∂√üe $\left|A\right|=n$,
 und $h:A\rightarrow\left\{ 1,\cdots,n\right\} $ eine Bijektion. Die
 \textbf{Einbettung} $\mathfrak{A}_{h}\in\mathbf{FIN}\left(\sigma_{\mathrm{arb}}\right)$
-sei die disjunkte Vereinigung (gem‰ﬂ \defref{Disjunkte-Vereinigung})
-der $\sigma$-Struktur $h\mathfrak{A}$ (gem‰ﬂ \ref{def:Isomorphismus})
+sei die disjunkte Vereinigung (gem√§√ü \defref{Disjunkte-Vereinigung})
+der $\sigma$-Struktur $h\mathfrak{A}$ (gem√§√ü \ref{def:Isomorphismus})
 mit der induzierten Teilstruktur $\mathfrak{N}_{\mid\left\{ 1,\cdots,n\right\} }$
-(gem‰ﬂ \ref{def:Induzierte-Teilstruktur}).
+(gem√§√ü \ref{def:Induzierte-Teilstruktur}).
 \item Eine $k$-stellige $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel
-$\varphi$ ist arb-invariant, wenn f¸r jede endliche $\sigma$-Struktur
+$\varphi$ ist arb-invariant, wenn f√ºr jede endliche $\sigma$-Struktur
 $\mathfrak{A}$ eine Relation $R_{\varphi}\subseteq A^{k}$ existiert,
 so dass $\varphi$ auf jeder Einbettung $\mathfrak{A}_{h}$ die Anfrage
 $\varphi\left(\mathfrak{A}_{h}\right)=hR_{\varphi}$ berechnet.
-\item Die \textbf{arb-invariante Logik erster Stufe} ¸ber $\sigma$ besteht
+\item Die \textbf{arb-invariante Logik erster Stufe} √ºber $\sigma$ besteht
 aus den arb-invarianten $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formeln.
 \end{enumerate}
 \pagebreak{}
@@ -665,8 +665,8 @@ aus den arb-invarianten $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formeln.
 
 Eine boolesche Basis $\mathbb{B}$ besteht aus beliebigen symmetrischen
 Relationen $\phi\subseteq\left\{ 0,1\right\} ^{*}$, die hier als
-$\phi\subseteq\mathbb{N}\times\mathbb{N}$ abgek¸rzt werden. Ein Gate
-vom Typ $\phi$ hat den Wert $1$, wenn genau $m$ seiner Vorg‰nger
+$\phi\subseteq\mathbb{N}\times\mathbb{N}$ abgek√ºrzt werden. Ein Gate
+vom Typ $\phi$ hat den Wert $1$, wenn genau $m$ seiner Vorg√§nger
 den Wert $0$ und $n$ den Wert $1$ haben, und $\left(m,n\right)\in\phi$.
 Als Beispiel seien die folgenden booleschen Junktoren gegeben: 
 \begin{eqnarray*}
@@ -676,7 +676,7 @@ Als Beispiel seien die folgenden booleschen Junktoren gegeben:
 \mathrm{XOR} & \coloneqq & \mathbb{N}\times\left(\mathbb{N}\backslash2\mathbb{N}\right)
 \end{eqnarray*}
 Im folgenden stehe $\mathbb{B}_{\mathrm{std}}\coloneqq\left\{ \wedge,\vee\right\} $
-f¸r die Basis mit boolescher Konjunktion und Disjunktion.
+f√ºr die Basis mit boolescher Konjunktion und Disjunktion.
 \end{defn}
 
 \begin{defn}
@@ -701,23 +701,23 @@ und
 \item ein geordnetes Universum $U\coloneqq\left\{ 1,\cdots,n\right\} $.
 \end{enumerate}
 Hierbei haben alle mit $\phi\in\mathbb{B}$ markierten Gates \textbf{mindestens}
-\textbf{einen}\footnote{Alle hier betrachteten Schaltkreise haben einen unbeschr‰nkten Fan-In.}
-Vorg‰nger, alle mit $R\bar{x}$, $\mathbf{0}$ oder $\mathbf{1}$
-markierten Gates \textbf{keinen }Vorg‰nger, und alle mit $\neg$ markierten
-Gates \textbf{genau einen }Vorg‰nger.
+\textbf{einen}\footnote{Alle hier betrachteten Schaltkreise haben einen unbeschr√§nkten Fan-In.}
+Vorg√§nger, alle mit $R\bar{x}$, $\mathbf{0}$ oder $\mathbf{1}$
+markierten Gates \textbf{keinen }Vorg√§nger, und alle mit $\neg$ markierten
+Gates \textbf{genau einen }Vorg√§nger.
 \end{defn}
 
 \begin{defn}
 \textbf{Auswertung von Schaltkreisen}
 
 Der Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ wird
-¸ber einer geordneten $\sigma$-Struktur $\mathfrak{A}\in\mathbf{FIN}_{\leqslant}\left(\sigma\right)$
+√ºber einer geordneten $\sigma$-Struktur $\mathfrak{A}\in\mathbf{FIN}_{\leqslant}\left(\sigma\right)$
 mit dem Universum $U$ ausgewertet. Die Auswertung ist eine Abbildung
 $\mathcal{C}\left[\mathfrak{A}\right]:G\rightarrow\left\{ 0,1\right\} $,
 die jedem Gate $g\in G$ den Wert $0$ oder $1$ zuweist, und ist
 rekursiv wie folgt definiert:
 \begin{casenv}
-\item F¸r $\Sigma\left(g\right)=R\bar{x}$ gilt 
+\item F√ºr $\Sigma\left(g\right)=R\bar{x}$ gilt 
 \[
 \mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\coloneqq\begin{cases}
 1 & \mathrm{falls}\,\bar{x}\in R^{\mathfrak{A}}\\
@@ -725,7 +725,7 @@ rekursiv wie folgt definiert:
 \end{cases}
 \]
 
-\item F¸r $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
+\item F√ºr $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
 gilt
 \[
 \mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\coloneqq\begin{cases}
@@ -734,13 +734,13 @@ gilt
 \end{cases}
 \]
 
-\item F¸r ein Gate $v$ mit $\Sigma\left(g\right)=\neg$ und dem Vorg‰nger
+\item F√ºr ein Gate $v$ mit $\Sigma\left(g\right)=\neg$ und dem Vorg√§nger
 $u$ gilt 
 \[
 \mathcal{C}\left[\mathfrak{A}\right]\left(v\right)\coloneqq1-\mathcal{C}\left[\mathfrak{A}\right]\left(u\right)
 \]
 
-\item F¸r ein Gate $v$ mit $\Sigma\left(g\right)=\phi\in\mathbb{B}$ gilt:
+\item F√ºr ein Gate $v$ mit $\Sigma\left(g\right)=\phi\in\mathbb{B}$ gilt:
 \begin{eqnarray*}
 j_{0} & \coloneqq & \#\left\{ \left(h,g\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)=0\right\} \\
 j_{1} & \coloneqq & \#\left\{ \left(h,g\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)=1\right\} \\
@@ -749,13 +749,13 @@ j_{1} & \coloneqq & \#\left\{ \left(h,g\right)\in E\mid\mathcal{C}\left[\mathfra
 
 \end{casenv}
 \end{defn}
-F¸r einen $k$-stelligen Schaltkreis $\mathcal{C}$ sei $\mathcal{C}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{t}\in U^{k}\mid\mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=1\right\} $
+F√ºr einen $k$-stelligen Schaltkreis $\mathcal{C}$ sei $\mathcal{C}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{t}\in U^{k}\mid\mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=1\right\} $
 die Menge der Tupel, deren Output-Gate den Wert $1$ annimmt.
 \begin{example*}
 Sei $\mathcal{C}_{4}=\left(G,W,\Sigma,\Omega,\left[4\right]\right)$
 ein $1$-stelliger $\left(\mathbb{B}_{\mathrm{std}},\left\{ E\right\} \right)$-Schaltkreis,
 der alle Knoten eines gerichteten Graphen findet, die Teil eines einfachen
-Kreises der L‰nge $2$ sind:
+Kreises der L√§nge $2$ sind:
 
 \begin{eqnarray*}
 G & \coloneqq & \left\{ g_{i,j}\mid i,j\in\left[4\right],\,i\neq j\right\} \\
@@ -834,7 +834,7 @@ E\,i\,j & \mathrm{f\ddot{u}r}\,g=g_{i,j}\\
 \end{figure}
 \end{example*}
 \begin{defn}
-F¸r zwei Schaltkreise $\mathcal{C}_{1}$ und $\mathcal{C}_{2}$ ¸ber
+F√ºr zwei Schaltkreise $\mathcal{C}_{1}$ und $\mathcal{C}_{2}$ √ºber
 dem gleichen Universum $U$ sei $\mathcal{C}_{1}\uplus\mathcal{C}_{2}$
 die disjunkte Vereinigung beider Schaltkreise.
 \end{defn}
@@ -844,7 +844,7 @@ die disjunkte Vereinigung beider Schaltkreise.
 \textbf{Invarianz}
 
 Ein $k$-stelliger Schaltkreis $\mathcal{C}$ mit dem Universum $U$
-heiﬂe \textbf{invariant} wenn f¸r alle $\mathfrak{A}\in\mathbf{FIN}^{\left(\left|U\right|\right)}\left(\sigma\right)$,
+hei√üe \textbf{invariant} wenn f√ºr alle $\mathfrak{A}\in\mathbf{FIN}^{\left(\left|U\right|\right)}\left(\sigma\right)$,
 alle $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$ und alle
 Bijektionen $\pi_{1},\pi_{2}:A\rightarrow U$ gilt:
 \[
@@ -852,7 +852,7 @@ Bijektionen $\pi_{1},\pi_{2}:A\rightarrow U$ gilt:
 \]
 
 
-F¸r invariante Schaltkreise bezeichne $\mathcal{C}\left[\mathfrak{A}\right]$
+F√ºr invariante Schaltkreise bezeichne $\mathcal{C}\left[\mathfrak{A}\right]$
 die Auswertung $\mathcal{C}\left[\pi\mathfrak{A}\right]$ mit einer
 beliebigen Bijektion $\pi:A\rightarrow U$.
 \end{defn}
@@ -860,21 +860,21 @@ beliebigen Bijektion $\pi:A\rightarrow U$.
 \begin{defn}
 \textbf{Symmetrie}
 \end{defn}
-Ein Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ heiﬂe
-\textbf{symmetrisch}, wenn f¸r jede Permutation der Universums $\pi\in\mathrm{Sym}_{U}$
+Ein Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ hei√üe
+\textbf{symmetrisch}, wenn f√ºr jede Permutation der Universums $\pi\in\mathrm{Sym}_{U}$
 ein Automorphismus $\hat{\pi}:G\rightarrow G$ des Graphen $\left(G,W\right)$
-existiert, der die folgenden Bedingungen erf¸llt:
+existiert, der die folgenden Bedingungen erf√ºllt:
 \begin{enumerate}
-\item F¸r alle Gates $g$ mit $\Sigma\left(g\right)=R\bar{x}$ gilt $\Sigma\left(\hat{\pi}g\right)=R\,\pi\bar{x}$.
-\item F¸r alle ¸brigen Gates gilt $\Sigma\left(g\right)=\Sigma\left(\hat{\pi}g\right)$.
-\item F¸r jedes Tupel $\bar{x}\in U$ gilt $\Omega\left(\pi\bar{x}\right)=\hat{\pi}\Omega\left(x\right)$.
+\item F√ºr alle Gates $g$ mit $\Sigma\left(g\right)=R\bar{x}$ gilt $\Sigma\left(\hat{\pi}g\right)=R\,\pi\bar{x}$.
+\item F√ºr alle √ºbrigen Gates gilt $\Sigma\left(g\right)=\Sigma\left(\hat{\pi}g\right)$.
+\item F√ºr jedes Tupel $\bar{x}\in U$ gilt $\Omega\left(\pi\bar{x}\right)=\hat{\pi}\Omega\left(x\right)$.
 \end{enumerate}
 Falls jede Permutation von $U$ genau einen\emph{ }Automorphismus
 induziert, so wird der von $\pi$ induzierte Automorphismus implizit
 mit $\hat{\pi}$ notiert.
 \begin{lem}
 Symmetrie ist eine hinreichende, aber nicht notwendige, Bedingung
-f¸r die Invarianz eines Schaltkreises.\end{lem}
+f√ºr die Invarianz eines Schaltkreises.\end{lem}
 \begin{proof}
 Sei $\mathcal{C}$ ein symmetrischer Schaltkreis, und $\mathfrak{A}$
 eine beliebige Struktur mit $\left|A\right|=\left|U\right|$. Seien
@@ -901,7 +901,7 @@ R\tau\bar{x} & \mathrm{f\ddot{u}r}\,\Sigma\left(g\right)=R\bar{x}\\
 \end{eqnarray*}
 
 
-Per Induktion ¸ber die Tiefe\footnote{Die Tiefe $T:G\rightarrow\mathbb{N}$ sei die maximale L‰nge eines
+Per Induktion √ºber die Tiefe\footnote{Die Tiefe $T:G\rightarrow\mathbb{N}$ sei die maximale L√§nge eines
 Weges von einer Quelle zum Gate $g$.} wird gezeigt: 
 \begin{eqnarray*}
 \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right) &  & \mathrm{f\ddot{u}r\,alle}\,g\in G
@@ -926,22 +926,22 @@ folgt die Behauptung direkt aus $\Sigma\left(\hat{\tau}g\right)=\Sigma\left(g\ri
 \item [{Induktionsschritt~$n\mapsto n+1$:}]~
 
 \begin{description}
-\item [{Annahme:}] F¸r alle Gates $g\in G$ mit Tiefe $T\left(g\right)\leqslant n$
+\item [{Annahme:}] F√ºr alle Gates $g\in G$ mit Tiefe $T\left(g\right)\leqslant n$
 gilt $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)$.
 \end{description}
 
-So gilt f¸r jedes Gatter $g'\in G$ mit $T\left(g'\right)=n+1$: 
+So gilt f√ºr jedes Gatter $g'\in G$ mit $T\left(g'\right)=n+1$: 
 \begin{enumerate}
 \item Die Beschriftungen $\Sigma\left(\hat{\tau}g'\right)=\Sigma\left(g'\right)=\phi$
 sind gleich.
 \item $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)$
-f¸r alle $\left(g,g'\right)\in W$.
+f√ºr alle $\left(g,g'\right)\in W$.
 \end{enumerate}
 
 Es folgt $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g'\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g'\right)$.
 
 \end{description}
-Schlieﬂlich gilt f¸r jedes Tupel $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$:
+Schlie√ülich gilt f√ºr jedes Tupel $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$:
 
 \begin{eqnarray*}
 \mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right) & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\tau\pi_{2}\bar{a}\right)\right)\\
@@ -955,7 +955,7 @@ Damit ist der Schaltkreis invariant.
 
 \begin{proof}
 Als Gegenbeispiel wird der folgende $0$-stellige Schaltkreis $\mathcal{C}$
-¸ber $U=\left\{ 1,2\right\} $ angef¸hrt:
+√ºber $U=\left\{ 1,2\right\} $ angef√ºhrt:
 
 \begin{figure}[H]
 \begin{centering}
@@ -989,14 +989,14 @@ akzeptiert. Er ist aber nicht symmetrisch: Die Permutation $\left(\begin{array}{
 2 & 1
 \end{array}\right)$ induziert keinen Automorphismus.
 \begin{defn}
-Die \textbf{disjunkte Vereinigung }von zwei Schaltkreisen ¸ber dem
+Die \textbf{disjunkte Vereinigung }von zwei Schaltkreisen √ºber dem
 gleichen Universum $U$ ist wie folgt definiert:
 \begin{eqnarray*}
 \mathcal{C}_{1} & = & \left(G_{1},W_{1},\Sigma_{1},\Omega_{1},U\right)\\
 \mathcal{C}_{2} & = & \left(G_{2},W_{2},\Sigma_{2},\Omega_{2},U\right)\\
 \mathcal{C}_{1}\uplus\mathcal{C}_{2} & = & \left(G_{1}\uplus G_{2},W_{1}\uplus W_{2},\Sigma_{1}\uplus\Sigma_{2},\emptyset,U\right)
 \end{eqnarray*}
-(Hier ist zu beachten, dass der disjunkt vereinigte Schaltkreis zun‰chst
+(Hier ist zu beachten, dass der disjunkt vereinigte Schaltkreis zun√§chst
 keine Auswertungsfunktion besitzt; diese wird separat neu definiert.)
 \end{defn}
 
@@ -1009,7 +1009,7 @@ und den Universen $U^{\mathcal{C}_{n}}=\left\{ 1,\cdots,n\right\} $.
 
 Eine invariante $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
 $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ \textbf{berechne}
-eine $\sigma$-Anfrage $q$ genau dann wenn f¸r alle $n\in\mathbb{N}$
+eine $\sigma$-Anfrage $q$ genau dann wenn f√ºr alle $n\in\mathbb{N}$
 und alle $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 gilt: 
 \[
@@ -1029,49 +1029,49 @@ wobei $\mathrm{MAJ}$ die Majority-Funktion ist.)
 \end{itemize}
 
 \begin{defn}
-\textbf{Uniformit‰t}
+\textbf{Uniformit√§t}
 
-F¸r eine Zeitfunktion $T:\mathbb{N}\rightarrow\mathbb{N}$ sei eine
+F√ºr eine Zeitfunktion $T:\mathbb{N}\rightarrow\mathbb{N}$ sei eine
 Schaltkreisfamilie $\mathcal{C}$ $T$-\textbf{uniform}, wenn eine
 deterministische Turingmaschine bei Eingabe von $n\geqslant n_{0}$
-eine Repr‰sentation von $\mathcal{C}_{n}$ in hˆchstens $T\left(n\right)$
+eine Repr√§sentation von $\mathcal{C}_{n}$ in h√∂chstens $T\left(n\right)$
 Schritten berechnen kann.
 
-F¸r eine Klasse von Zeitfunktionen $\mathscr{F}\subseteq\mathrm{Abb}\left(\mathbb{N},\mathbb{N}\right)$
+F√ºr eine Klasse von Zeitfunktionen $\mathscr{F}\subseteq\mathrm{Abb}\left(\mathbb{N},\mathbb{N}\right)$
 sei sie $\mathscr{F}$-uniform, wenn ein $T\in\mathscr{F}$ existiert,
 so dass sie $T$-uniform ist. Insbesondere sei $\mathrm{poly}\left(n\right)$
 die Klasse aller polynomiell wachsenden Funktionen, und eine $\mathrm{poly}\left(n\right)$-uniforme
-Schaltkreisfamilie heiﬂe ,,P-uniform``.
+Schaltkreisfamilie hei√üe ,,P-uniform``.
 \end{defn}
 
 \begin{defn}
-\textbf{Beschr‰nkte Grˆﬂe}
+\textbf{Beschr√§nkte Gr√∂√üe}
 
-F¸r eine Funktion $f:\mathbb{N}\rightarrow\mathbb{N}$ habe eine Schaltkreisfamilie
-$\mathcal{C}$ $f$-\textbf{Grˆﬂe}, wenn jeder Schaltkreis $\mathcal{C}_{n}=\left(G,W,\Sigma,\Omega,U\right)$
-hˆchstens $\left|G\right|\leqslant f\left(n\right)$ Gates besitzt.
-Der Begriff ,,$\mathscr{F}$-groﬂ`` sei analog zu ,,$\mathscr{F}$-uniform``
+F√ºr eine Funktion $f:\mathbb{N}\rightarrow\mathbb{N}$ habe eine Schaltkreisfamilie
+$\mathcal{C}$ $f$-\textbf{Gr√∂√üe}, wenn jeder Schaltkreis $\mathcal{C}_{n}=\left(G,W,\Sigma,\Omega,U\right)$
+h√∂chstens $\left|G\right|\leqslant f\left(n\right)$ Gates besitzt.
+Der Begriff ,,$\mathscr{F}$-gro√ü`` sei analog zu ,,$\mathscr{F}$-uniform``
 definiert.\end{defn}
 \begin{rem*}
-Es wird statt ,,$\mathrm{poly}\left(n\right)$-groﬂ`` auch der Begriff
+Es wird statt ,,$\mathrm{poly}\left(n\right)$-gro√ü`` auch der Begriff
 ,,$\mathrm{P}/\mathrm{poly}$-uniform`` verwendet.
 
 Eine $\mathrm{P/poly}$-Turingmaschine arbeitet mit einem polynomiell
-beschr‰nktem Orakel in Polynomialzeit, und kann daher genau solche
-Schaltkreisfamilien berechnen, deren bin‰re Repr‰sentation polynomielle
-Grˆﬂe hat. Unter Voraussetzung einer geeigneten Kodierung sind dies
-genau die $\mathrm{poly}\left(n\right)$-groﬂen Schaltkreisfamilien.\end{rem*}
+beschr√§nktem Orakel in Polynomialzeit, und kann daher genau solche
+Schaltkreisfamilien berechnen, deren bin√§re Repr√§sentation polynomielle
+Gr√∂√üe hat. Unter Voraussetzung einer geeigneten Kodierung sind dies
+genau die $\mathrm{poly}\left(n\right)$-gro√üen Schaltkreisfamilien.\end{rem*}
 \begin{defn}
-\textbf{Beschr‰nkte Tiefe}
+\textbf{Beschr√§nkte Tiefe}
 
-F¸r eine Funktion $f:\mathbb{N}\rightarrow\mathbb{N}$ sei eine Schaltkreisfamilie
+F√ºr eine Funktion $f:\mathbb{N}\rightarrow\mathbb{N}$ sei eine Schaltkreisfamilie
 $\mathcal{C}$ $f$-\textbf{Tiefe}, wenn jeder Schaltkreis $\mathcal{C}_{n}=\left(G,W,\Sigma,\Omega,U\right)$
-hˆchstens $\left|G\right|\leqslant f\left(n\right)$ Gates besitzt.
-Der Begriff ,,$\mathscr{F}$-tief`` sei analog zu ,,$\mathscr{F}$-groﬂ``
+h√∂chstens $\left|G\right|\leqslant f\left(n\right)$ Gates besitzt.
+Der Begriff ,,$\mathscr{F}$-tief`` sei analog zu ,,$\mathscr{F}$-gro√ü``
 definiert.\end{defn}
 \begin{rem*}
 $\mathrm{AC}^{0}$ ist die Klasse der $\mathcal{O}\left(1\right)$-tiefen,
-$\mathrm{poly}\left(n\right)$-groﬂen Schaltkreisfamilien.
+$\mathrm{poly}\left(n\right)$-gro√üen Schaltkreisfamilien.
 \end{rem*}
 \pagebreak{}
 
@@ -1081,12 +1081,12 @@ $\mathrm{poly}\left(n\right)$-groﬂen Schaltkreisfamilien.
 
 \subsection{Fixpunktlogiken und Schaltkreise}
 
-Es werden die folgenden ƒquivalenzen zwischen Fixpunktlogiken und
+Es werden die folgenden √Ñquivalenzen zwischen Fixpunktlogiken und
 Schaltkreisklassen nachgewiesen:
 \begin{thm}
 \textbf{$\mathrm{FP}+\mathbf{ORD}$, $P$-uniforme $\mathrm{SBC}$}
 
-Die folgenden Aussagen sind ‰quivalent:
+Die folgenden Aussagen sind √§quivalent:
 \begin{enumerate}
 \item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert.
@@ -1094,13 +1094,13 @@ $\varphi$ definiert.
 $\mathcal{C}$ berechnet.
 \end{enumerate}
 \end{thm}
-Die Fixpunktlogik mit disjunkter Ordnungserweiterung und Z‰hlterm
-ist ‰quivalent zu den $P$-uniformen symmetrischen booleschen Schaltkreisfamilien
+Die Fixpunktlogik mit disjunkter Ordnungserweiterung und Z√§hlterm
+ist √§quivalent zu den $P$-uniformen symmetrischen booleschen Schaltkreisfamilien
 mit Majority-Gates.
 \begin{thm}
 \textbf{$\mathrm{FP}+C$, $P$-uniforme $\mathrm{SBC}+\mathbf{MAJ}$}
 
-Die folgenden Aussagen sind ‰quivalent:
+Die folgenden Aussagen sind √§quivalent:
 \begin{enumerate}
 \item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+C\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert.
@@ -1108,36 +1108,36 @@ $\varphi$ definiert.
 $\mathcal{C}$ berechnet.
 \end{enumerate}
 \end{thm}
-Zur Erinnerung: $\mathbb{B}_{\mathrm{maj}}$ enth‰lt die boolesche
+Zur Erinnerung: $\mathbb{B}_{\mathrm{maj}}$ enth√§lt die boolesche
 Konjunktion, Disjunktion und den Majority-Operator $\mathrm{MAJ}=\left\{ \left(m,n\right)\mid m\leqslant n\right\} $.
 
 
 \begin{thm}
-\textbf{$\mathrm{FP}+\Upsilon$, $\mathrm{poly\left(n\right)}$-groﬂe
+\textbf{$\mathrm{FP}+\Upsilon$, $\mathrm{poly\left(n\right)}$-gro√üe
 $\mathrm{SBC}$}
 
-Die folgenden Aussagen sind ‰quivalent:
+Die folgenden Aussagen sind √§quivalent:
 \begin{enumerate}
 \item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+\Upsilon\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert.
-\item Die Anfrage $q$ wird durch eine $\mathrm{poly}\left(n\right)$-groﬂe
+\item Die Anfrage $q$ wird durch eine $\mathrm{poly}\left(n\right)$-gro√üe
 symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
 $\mathcal{C}$ berechnet.
 \end{enumerate}
 \end{thm}
-Zur Erinnerung: $\mathbb{B}_{\mathrm{maj}}$ enth‰lt die boolesche
+Zur Erinnerung: $\mathbb{B}_{\mathrm{maj}}$ enth√§lt die boolesche
 Konjunktion, Disjunktion und den Majority-Operator $\mathrm{MAJ}=\left\{ \left(m,n\right)\mid m\leqslant n\right\} $.
 
 
 \begin{thm}
-\textbf{$\mathrm{FP}+\Upsilon+C$, $\mathrm{poly}\left(n\right)$-groﬂe
+\textbf{$\mathrm{FP}+\Upsilon+C$, $\mathrm{poly}\left(n\right)$-gro√üe
 $\mathrm{SBC}+\mathbf{MAJ}$}
 
-Die folgenden Aussagen sind ‰quivalent:
+Die folgenden Aussagen sind √§quivalent:
 \begin{enumerate}
 \item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+\Upsilon+C\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert.
-\item Die Anfrage $q$ wird durch eine $\mathrm{poly}\left(n\right)$-groﬂe
+\item Die Anfrage $q$ wird durch eine $\mathrm{poly}\left(n\right)$-gro√üe
 symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
 $\mathcal{C}$ berechnet.
 \end{enumerate}
@@ -1145,9 +1145,9 @@ $\mathcal{C}$ berechnet.
 eine Orakelfunktion, die jeder Zahl $n$ die Orakelstruktur $\mathbf{ARB}\left(n\right)=\mathfrak{N}_{\mid\left\{ 0,\cdots,n\right\} }$
 zuweist.
 
-F¸r jede $\mathrm{FO}+\mathbf{ARB}$-Formel $\varphi$ existiert eine
+F√ºr jede $\mathrm{FO}+\mathbf{ARB}$-Formel $\varphi$ existiert eine
 arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel
-$\varphi'$, die auf allen endlichen $\sigma$-Strukturen ‰quivalent
+$\varphi'$, die auf allen endlichen $\sigma$-Strukturen √§quivalent
 zu $\varphi$ ist, und umgekehrt.
 
 
@@ -1156,7 +1156,7 @@ zu $\varphi$ ist, und umgekehrt.
 \label{thm5.5:,fo-ord}$\mathrm{FO}+\mathbf{ORD}$, $P$-uniformes
 symmetrisches $\mathrm{AC}^{0}$.
 
-Die folgenden Aussagen sind ‰quivalent:
+Die folgenden Aussagen sind √§quivalent:
 \begin{enumerate}
 \item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert.
@@ -1169,12 +1169,12 @@ $\mathcal{C}$ berechnet.
 \begin{thm}
 $\mathrm{FO}+C$, symmetrisches $\mathrm{AC}^{0}+\mathbf{MAJ}$.
 
-Die folgenden Aussagen sind ‰quivalent:
+Die folgenden Aussagen sind √§quivalent:
 \begin{enumerate}
 \item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+C\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert.
 \item Die Anfrage $q$ wird durch eine $\mathcal{O}\left(1\right)$-tiefe,
-$\mathrm{poly}\left(n\right)$-groﬂe, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
+$\mathrm{poly}\left(n\right)$-gro√üe, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
 $\mathcal{C}$ berechnet.
 \end{enumerate}
 \end{thm}
@@ -1182,22 +1182,22 @@ $\mathcal{C}$ berechnet.
 \begin{thm}
 $\mathrm{FO}+\Upsilon$, symmetrisches $\mathrm{AC}^{0}$.
 
-Die folgenden Aussagen sind ‰quivalent:
+Die folgenden Aussagen sind √§quivalent:
 \begin{enumerate}
 \item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert.
 \item Die Anfrage $q$ wird durch eine $\mathcal{O}\left(1\right)$-tiefe,
-$\mathrm{poly}\left(n\right)$-groﬂe, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+$\mathrm{poly}\left(n\right)$-gro√üe, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
 $\mathcal{C}$ berechnet.\end{enumerate}
 \begin{thm}
 $\mathrm{FO}+\Upsilon+C$, symmetrisches $\mathrm{AC}^{0}+\mathbf{MAJ}$.
 
-Die folgenden Aussagen sind ‰quivalent:
+Die folgenden Aussagen sind √§quivalent:
 \begin{enumerate}
 \item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert.
 \item Die Anfrage $q$ wird durch eine $\mathcal{O}\left(1\right)$-tiefe,
-$\mathrm{poly}\left(n\right)$-groﬂe, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
+$\mathrm{poly}\left(n\right)$-gro√üe, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
 $\mathcal{C}$ berechnet.
 \end{enumerate}
 \end{thm}
@@ -1208,7 +1208,7 @@ $\mathcal{C}$ berechnet.
 $\mathrm{FO}+\Upsilon$, invariantes $\mathrm{FO}\left(\mathrm{arb}\right)$
 \begin{enumerate}
 \item Jede $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
-$\varphi$ ist ‰quivalent zu einer arb-invarianten $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel
+$\varphi$ ist √§quivalent zu einer arb-invarianten $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel
 $\varphi$.
 \item Es existiert eine $\sigma$-Anfrage, die in der arb-invarianten $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Logik
 definierbar ist, aber nicht $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-definierbar
@@ -1230,24 +1230,24 @@ $\mathrm{AC}^{0}$ berechenbar:
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
 $P$-uniformen Schaltkreis-Familie $\left(\mathcal{C}_{n}^{\varphi}\right)_{n\in\mathbb{N}}$
 mit konstanter Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
-und polynomieller Grˆﬂe $S_{n}\leqslant5\left\Vert \varphi\right\Vert n^{\mathrm{var}\left(\varphi\right)}$
+und polynomieller Gr√∂√üe $S_{n}\leqslant5\left\Vert \varphi\right\Vert n^{\mathrm{var}\left(\varphi\right)}$
 berechnet wird.\end{lem}
 \begin{proof}
 Sei $\sigma$ eine relationale Signatur, und sei $\varphi\left(\bar{x}\right)$
 eine $k$-stellige $\mathrm{FO}\left[\sigma\right]$-Formel.
 
-Per induktiver Konstruktion ¸ber den Aufbau von $\varphi$ wird der
-$k$-stellige Schaltkreis $\mathcal{C}_{n}^{\varphi}$ ¸ber dem Universum
+Per induktiver Konstruktion √ºber den Aufbau von $\varphi$ wird der
+$k$-stellige Schaltkreis $\mathcal{C}_{n}^{\varphi}$ √ºber dem Universum
 $U\coloneqq\left\{ 1,\cdots,n\right\} $ definiert. Die Konstruktion
-ist in Polynomialzeit berechenbar. F¸r eine beliebige Permutation
+ist in Polynomialzeit berechenbar. F√ºr eine beliebige Permutation
 $\pi\in\mathrm{Sym}_{U}$ wird ein Automorphismus $\hat{\pi}$ angegeben.
 \begin{casenv}
-\item Falls $\varphi\left(\bar{x}\right)=R\bar{y}$ f¸r $R\in\sigma$, so
+\item Falls $\varphi\left(\bar{x}\right)=R\bar{y}$ f√ºr $R\in\sigma$, so
 besteht $\mathcal{C}_{n}^{\varphi}$ aus $n^{k}$ isolierten Gates.
 \[
 \mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} ,\emptyset,\Sigma,\Omega,U\right)
 \]
-F¸r jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\begin{array}{c}
+F√ºr jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\begin{array}{c}
 \bar{x}\\
 \bar{t}
 \end{array}\right)$ die Abbildung der Variablen $\bar{x}$ auf das Tupel $\bar{t}$:
@@ -1255,7 +1255,7 @@ F¸r jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\begin{arr
 \Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}\\
 \Sigma\left(g_{\bar{t}}\right) & \coloneqq & R\beta_{\bar{t}}\left(\bar{y}\right)
 \end{eqnarray*}
-Sei $\hat{\pi}g_{\bar{t}}\coloneqq g_{\pi\bar{t}}$ f¸r alle Tupel
+Sei $\hat{\pi}g_{\bar{t}}\coloneqq g_{\pi\bar{t}}$ f√ºr alle Tupel
 $\bar{t}\in U^{m}$. Per Definition ist $\pi\beta_{\bar{t}}\left(\bar{y}\right)=\beta_{\pi\bar{t}}\left(\bar{y}\right)$
 und daher sind die Markierungen $\Sigma\left(\hat{\pi}g_{\bar{t}}\right)=\pi\Sigma\left(g_{\bar{t}}\right)$
 und $\Omega\left(\pi\bar{t}\right)=g_{\pi\bar{t}}=\hat{\pi}\Omega\left(\bar{t}\right)$.
@@ -1265,7 +1265,7 @@ $k\in\left\{ 1,2\right\} $).
 \[
 \mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} ,\emptyset,\Sigma,\Omega,U\right)
 \]
- F¸r jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\begin{array}{c}
+ F√ºr jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\begin{array}{c}
 \bar{x}\\
 \bar{t}
 \end{array}\right)$ die entsprechende Belegung:
@@ -1283,7 +1283,7 @@ und daher ist $\Sigma\left(\hat{\pi}g_{\bar{t}}\right)=\Sigma\left(g_{\pi\bar{t}
 \item Falls $\varphi\left(\bar{x}\right)=\varphi_{1}\left(\bar{y_{1}}\right)\wedge\cdots\wedge\varphi_{m}\left(\bar{y_{m}}\right)$
 mit $\mathrm{ar}\left(\varphi_{i}\right)=k_{i}$, so besteht $\mathcal{C}_{n}^{\varphi}$
 aus der disjunkten Vereinigung aller $\mathcal{C}_{n}^{\varphi_{i}}$
-f¸r $1\leqslant i\leqslant m$ mit der folgenden Erweiterung.
+f√ºr $1\leqslant i\leqslant m$ mit der folgenden Erweiterung.
 
 \begin{description}
 \item [{Schaltkreis:}] 
@@ -1291,12 +1291,12 @@ f¸r $1\leqslant i\leqslant m$ mit der folgenden Erweiterung.
 \mathcal{C}_{n}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)\\
 \mathcal{C}_{n}^{\varphi_{i}} & = & \left(G_{i},W_{i},\Sigma_{i},\Omega_{i},U\right)
 \end{eqnarray*}
- werden neue Ausg‰nge f¸r jedes $k$-Tupel aus $U$ hinzugef¸gt:
+ werden neue Ausg√§nge f√ºr jedes $k$-Tupel aus $U$ hinzugef√ºgt:
 \begin{eqnarray*}
 G & \coloneqq & \biguplus_{i=1}^{\ell}G_{i}\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} 
 \end{eqnarray*}
-Die neuen Ausg‰nge werden entsprechend mit denen der Teilschaltkreise
-verkn¸pft, wobei $\rho_{i}:U^{k}\rightarrow U^{k_{i}}$ ein $k$-Tupel
+Die neuen Ausg√§nge werden entsprechend mit denen der Teilschaltkreise
+verkn√ºpft, wobei $\rho_{i}:U^{k}\rightarrow U^{k_{i}}$ ein $k$-Tupel
 $\bar{t}$ wie folgt auf die in $\varphi_{i}$ frei vorkommenden Variablen
 reduziere:
 \[
@@ -1318,7 +1318,7 @@ Die Gates werden entsprechend beschriftet:
 \end{eqnarray*}
 
 \item [{Automorphismus:}] Es existieren bereits die Automorphismen $\hat{\pi_{i}}$
-f¸r jeden Schaltkreis $\mathcal{C}_{n}^{\varphi_{i}}$. Der Automorphismus
+f√ºr jeden Schaltkreis $\mathcal{C}_{n}^{\varphi_{i}}$. Der Automorphismus
 $\hat{\pi}$ erweitert diese:
 \[
 \hat{\pi}\left(g\right)\coloneqq\begin{cases}
@@ -1326,10 +1326,10 @@ $\hat{\pi}$ erweitert diese:
 g_{\pi\bar{t}} & \mathrm{f\ddot{u}r}\,g=g_{\bar{t}}
 \end{cases}
 \]
-F¸r die Gates und Kanten der Schaltkreise $\mathcal{C}_{n}^{\varphi_{i}}$
+F√ºr die Gates und Kanten der Schaltkreise $\mathcal{C}_{n}^{\varphi_{i}}$
 ist $\hat{\pi}$ per Annahme bereits korrekt.\end{description}
 \begin{enumerate}
-\item F¸r die neuen Kanten $\left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\in W$
+\item F√ºr die neuen Kanten $\left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\in W$
 gilt nach Voraussetzung: 
 \begin{eqnarray*}
 \left(\hat{\pi}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right) & = & \left(\hat{\pi}_{i}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\\
@@ -1352,9 +1352,9 @@ $\mathcal{C}_{n}^{\varphi'}$ wie folgt erweitert:
 \mathcal{C}_{n}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)\\
 \mathcal{C}_{n}^{\varphi'} & = & \left(G',W',\Sigma',\Omega',U\right)
 \end{eqnarray*}
-F¸r jedes Tupel $\bar{t}\in U^{m}$ wird ein neuer negierter Ausgang
-$v_{\bar{t}}$ eingef¸gt. Die Ausg‰nge werden mit den Ausg‰ngen von
-$\mathcal{C}_{n}^{\varphi'}$ verkn¸pft. 
+F√ºr jedes Tupel $\bar{t}\in U^{m}$ wird ein neuer negierter Ausgang
+$v_{\bar{t}}$ eingef√ºgt. Die Ausg√§nge werden mit den Ausg√§ngen von
+$\mathcal{C}_{n}^{\varphi'}$ verkn√ºpft. 
 \begin{eqnarray*}
 G & \coloneqq & G'\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
 W & \coloneqq & W'\uplus\left\{ \left(\Omega'\left(\bar{t}\right),g_{\bar{t}}\right)\mid\bar{t}\in U^{m}\right\} \\
@@ -1362,7 +1362,7 @@ W & \coloneqq & W'\uplus\left\{ \left(\Omega'\left(\bar{t}\right),g_{\bar{t}}\ri
 \Sigma'\left(g\right) & \mathrm{f\ddot{u}r}\,g\in G'\\
 \neg & \mathrm{sonst}
 \end{cases}\\
-\Omega\left(\bar{t}\right) & \coloneqq & v_{\bar{t}}\,\mbox{f¸r}\,\bar{t}\in U^{m}
+\Omega\left(\bar{t}\right) & \coloneqq & v_{\bar{t}}\,\mbox{f√ºr}\,\bar{t}\in U^{m}
 \end{eqnarray*}
 
 \item [{Automorphismus:}] Es existiert bereits der Automorphismus $\hat{\pi'}$.
@@ -1388,8 +1388,8 @@ mit der folgenden Erweiterung:
 
 
 \begin{description}
-\item [{Schaltkreis:}] F¸r jedes Tupel $\bar{t}\in U^{m}$ werden f¸nf
-neue Gates eingef¸gt:
+\item [{Schaltkreis:}] F√ºr jedes Tupel $\bar{t}\in U^{m}$ werden f√ºnf
+neue Gates eingef√ºgt:
 \begin{eqnarray*}
 G & \coloneqq & G_{1}\uplus G_{2}\\
  & \uplus & \left\{ a_{\bar{t}},b_{\bar{t}},c_{\bar{t}},d_{\bar{t}},e_{\bar{t}}\mid\bar{t}\in U^{m}\right\} 
@@ -1420,7 +1420,7 @@ W & \coloneqq & W_{1}\uplus W_{2}\\
 \end{eqnarray*}
 
 \item [{Automorphismus:}] Es existieren per Annahme die Automorphismen
-$\hat{\pi_{i}}$ f¸r die Schaltkreise $\mathcal{C}_{n}^{\varphi_{i}}$.
+$\hat{\pi_{i}}$ f√ºr die Schaltkreise $\mathcal{C}_{n}^{\varphi_{i}}$.
 Diese werden wie folgt erweitert:
 \[
 \hat{\pi}\left(g\right)\coloneqq\begin{cases}
@@ -1448,14 +1448,14 @@ auf die freien Variablen $\bar{x}$ reduziere:
 
 \end{description}
 
-Es werden neue Ausg‰nge f¸r jedes Tupel $\bar{t}\in U^{k}$ eingef¸gt:
+Es werden neue Ausg√§nge f√ºr jedes Tupel $\bar{t}\in U^{k}$ eingef√ºgt:
 \begin{eqnarray*}
 G & \coloneqq & G'\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} 
 \end{eqnarray*}
 
 
 
-Die neuen Ausg‰nge werden mit $\vee$ markiert.
+Die neuen Ausg√§nge werden mit $\vee$ markiert.
 \begin{eqnarray*}
 \Sigma\left(g\right) & \coloneqq & \begin{cases}
 \Sigma'\left(g\right) & \mathrm{f\ddot{u}r}\,g\in G'\\
@@ -1464,7 +1464,7 @@ Die neuen Ausg‰nge werden mit $\vee$ markiert.
 \Omega\left(\bar{t}\right) & \coloneqq & v_{\bar{t}}\,\mathrm{f\ddot{u}r\,alle}\,\bar{t}\in U^{k}
 \end{eqnarray*}
 Jeder alte Ausgang $\Omega'\left(\bar{u}\right)$ mit $\bar{u}\in U^{k+m}$
-wird mit dem neuen Gate $g_{\rho\bar{u}}$ verkn¸pft:
+wird mit dem neuen Gate $g_{\rho\bar{u}}$ verkn√ºpft:
 \[
 W\coloneqq W'\uplus\left\{ \left(\Omega'\left(\bar{u}\right),g_{\rho\bar{u}}\right)\mid\bar{u}\in U^{k+m}\right\} 
 \]
@@ -1484,7 +1484,7 @@ g_{\pi\bar{t}} & \mathrm{f\ddot{u}r}\,g=g_{\bar{t}}
 Auf den Gates von $\mathcal{C}_{n}^{\varphi'}$ ist $\hat{\pi}$ per
 Annahme treu zu $\pi$.
 \begin{enumerate}
-\item F¸r die neuen Kanten $\left(\Omega'\left(\bar{u}\right),g_{\rho\bar{u}}\right)\in W$
+\item F√ºr die neuen Kanten $\left(\Omega'\left(\bar{u}\right),g_{\rho\bar{u}}\right)\in W$
 gilt: $\left(\hat{\pi}\Omega'\left(\bar{u}\right),\hat{\pi}g_{\rho\bar{u}}\right)=\left(\Omega'\left(\pi\bar{u}\right),g_{\rho\pi\bar{u}}\right)\in W$.
 \item $\hat{\pi}\Sigma\left(g_{\bar{t}}\right)=\Sigma\left(g_{\bar{t}}\right)=\vee$.
 \item $\Omega\left(\pi\bar{t}\right)=g_{\pi\bar{t}}=\hat{\pi}g_{\bar{t}}=\hat{\pi}\Omega\left(\bar{t}\right)$.
@@ -1494,11 +1494,11 @@ so sei der Schaltkreis analog zu Fall 8 mit $\Sigma\left(g_{\bar{t}}\right)\colo
 \end{casenv}
 \end{proof}
 Der so konstruierte Schaltkreis hat eine durch $3\left\Vert \varphi\right\Vert $
-beschr‰nkte Tiefe und eine durch $5\left\Vert \varphi\right\Vert \cdot n^{\mathrm{var}\left(\varphi\right)}$
-beschr‰nkte Grˆﬂe hat. Dies folgt direkt aus der Tatsache, dass wir
-weniger als $\left\Vert \varphi\right\Vert $ Induktionsschritte durchf¸hren,
-und jeder Schritt f¸r eine $k$-stellige Teilformel die Tiefe um maximal
-$3$ Kanten verl‰ngert, und maximal $5n^{k}$ Gates hinzuf¸gt. (Insbesondere
+beschr√§nkte Tiefe und eine durch $5\left\Vert \varphi\right\Vert \cdot n^{\mathrm{var}\left(\varphi\right)}$
+beschr√§nkte Gr√∂√üe hat. Dies folgt direkt aus der Tatsache, dass wir
+weniger als $\left\Vert \varphi\right\Vert $ Induktionsschritte durchf√ºhren,
+und jeder Schritt f√ºr eine $k$-stellige Teilformel die Tiefe um maximal
+$3$ Kanten verl√§ngert, und maximal $5n^{k}$ Gates hinzuf√ºgt. (Insbesondere
 erreicht nur Fall 7 diese Schranken.)
 
 
@@ -1513,13 +1513,13 @@ $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
 $P$-uniformen $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
 $\left(\ddot{\mathcal{C}_{n}^{\varphi}}\right)_{n\in\mathbb{N}}$
 mit konstanter Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
-und polynomieller Grˆﬂe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
+und polynomieller Gr√∂√üe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
 berechnet wird.
 \end{lem}
-(Dieses Lemma bildet die erste H‰lfte des Theorems \ref{thm5.5:,fo-ord}.)
+(Dieses Lemma bildet die erste H√§lfte des Theorems \ref{thm5.5:,fo-ord}.)
 \begin{proof}
-Der Schaltkreis $\mathcal{C}_{n}$ wird ¸ber einer geordneten Struktur
-$\mathfrak{A}\in\mathbf{FIN}_{<}\left(\sigma\right)$ ¸ber dem Universum
+Der Schaltkreis $\mathcal{C}_{n}$ wird √ºber einer geordneten Struktur
+$\mathfrak{A}\in\mathbf{FIN}_{<}\left(\sigma\right)$ √ºber dem Universum
 $U=\left\{ 1,\cdots,n\right\} $ ausgewertet.
 
 Hierbei ist zu beachten, dass $U=\left\{ 1,\cdots,n\right\} $ keinesfalls
@@ -1529,13 +1529,13 @@ ist!
 Zur Unterscheidung bezeichnen wir $\Upsilon\left(n\right)\coloneqq\left(N,\leqslant\right)$,
 und $N\coloneqq\left\{ \dot{0},\cdots,\dot{n}\right\} $.
 
-Wir konstruieren zun‰chst den $\left(\sigma\uplus\left\{ \dot{\leqslant}\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
-$\mathcal{C}_{2n+1}^{\varphi}$ ¸ber $U=\left\{ 1,\cdots,2n+1\right\} $
+Wir konstruieren zun√§chst den $\left(\sigma\uplus\left\{ \dot{\leqslant}\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
+$\mathcal{C}_{2n+1}^{\varphi}$ √ºber $U=\left\{ 1,\cdots,2n+1\right\} $
 entspreched dem vorhergehenden Beweis.
 
 Daraus wird der $\left(\sigma\uplus\left\{ \dot{\leqslant}\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
 $\dot{\mathcal{C}_{2n+1}^{\varphi}}=\left(G,W,\dot{\Sigma},\dot{\Omega},\dot{U}\right)=\rho\mathcal{C}_{2n+1}^{\varphi}$
-¸ber $\dot{U}=\left\{ 1,\cdots,n\right\} \uplus N$, in dem das Universum
+√ºber $\dot{U}=\left\{ 1,\cdots,n\right\} \uplus N$, in dem das Universum
 durch $\rho:U\rightarrow\dot{U}$ umbenannt wird: 
 \begin{eqnarray*}
 \rho & \coloneqq & \left(\begin{array}{c}
@@ -1555,15 +1555,15 @@ n+1\\
 \end{eqnarray*}
 
 
-Anschlieﬂend konstruieren wir daraus den $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
+Anschlie√üend konstruieren wir daraus den $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
 $\ddot{\mathcal{C}_{n}^{\varphi}}=\left(G,W,\ddot{\Sigma},\ddot{\Omega},\ddot{U}\right)$
-¸ber $\ddot{U}=\left\{ 1,\cdots,n\right\} $, indem alle Beschriftungen
+√ºber $\ddot{U}=\left\{ 1,\cdots,n\right\} $, indem alle Beschriftungen
 $\dot{\Sigma}\left(g\right)=R\bar{t}$ mit $\bar{t}\notin\ddot{U}^{k}$
 oder $R\notin\sigma$ durch $\ddot{\Sigma}\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
 ersetzt werden, und die Ausgangsfunktion auf $\ddot{\Omega}=\dot{\Omega}_{\mid\ddot{U}}$
 reduziert wird.
 \begin{casenv}
-\item F¸r $\dot{\Sigma}\left(g\right)=R\bar{t}$ mit $R\in\sigma$ gilt:
+\item F√ºr $\dot{\Sigma}\left(g\right)=R\bar{t}$ mit $R\in\sigma$ gilt:
 \begin{eqnarray*}
 \ddot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
 R\bar{t} & \mathrm{falls}\,\bar{t}\in\ddot{U}^{k}\\
@@ -1571,7 +1571,7 @@ R\bar{t} & \mathrm{falls}\,\bar{t}\in\ddot{U}^{k}\\
 \end{cases}
 \end{eqnarray*}
 
-\item F¸r $\dot{\Sigma}\left(g\right)=t_{1}\dot{\leqslant}t_{2}$ gilt:
+\item F√ºr $\dot{\Sigma}\left(g\right)=t_{1}\dot{\leqslant}t_{2}$ gilt:
 \begin{eqnarray*}
 \ddot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
 \mathbf{1} & \mathrm{falls}\,t_{1},t_{2}\in N,\,t_{1}\leqslant t_{2}\\
@@ -1590,17 +1590,17 @@ Entsprechend ist $\pi\coloneqq\rho^{-1}\dot{\pi}\in\mathrm{Sym}_{U}$
 eine Permutation von $U=\left\{ 1,\cdots,2n+1\right\} $.
 
 Aus der Symmetrie des Schaltkreises $\mathcal{C}_{2n+1}^{\varphi}$
-bez¸glich $\mathrm{Sym}_{U}$ folgt die Existenz eines induzierten
-Automorphismus $\hat{\pi}$ f¸r den Schaltkreis $\mathcal{C}_{2n+1}^{\varphi}$.
-Wegen der Bijektivit‰t von $\rho$ wird $\hat{\pi}$ auch in $\rho\mathcal{C}_{2n+1}^{\varphi}=\dot{\mathcal{C}_{2n+1}^{\varphi}}$
+bez√ºglich $\mathrm{Sym}_{U}$ folgt die Existenz eines induzierten
+Automorphismus $\hat{\pi}$ f√ºr den Schaltkreis $\mathcal{C}_{2n+1}^{\varphi}$.
+Wegen der Bijektivit√§t von $\rho$ wird $\hat{\pi}$ auch in $\rho\mathcal{C}_{2n+1}^{\varphi}=\dot{\mathcal{C}_{2n+1}^{\varphi}}$
 durch $\dot{\pi}$ induziert.
 
-Schlieﬂlich ist $\hat{\pi}$ auch in $\ddot{\mathcal{C}_{n}^{\varphi}}$
+Schlie√ülich ist $\hat{\pi}$ auch in $\ddot{\mathcal{C}_{n}^{\varphi}}$
 ein durch $\ddot{\pi}$ induzierter Automorphismus, wozu nur die Funktion
-$\ddot{\Sigma}$ betrachtet werden muss (f¸r $\ddot{\Omega}$ folgt
+$\ddot{\Sigma}$ betrachtet werden muss (f√ºr $\ddot{\Omega}$ folgt
 es aus der Abgeschlossenheit von $\ddot{U}$ unter $\ddot{\pi}$):
 \begin{casenv}
-\item F¸r $\varphi\left(\bar{x}\right)=R\bar{y}$ mit $R\in\sigma$ gilt:
+\item F√ºr $\varphi\left(\bar{x}\right)=R\bar{y}$ mit $R\in\sigma$ gilt:
 \[
 \ddot{\Sigma}\left(\hat{\pi}g_{\bar{t}}\right)=\ddot{\Sigma}\left(g_{\ddot{\pi}\bar{t}}\right)=\begin{cases}
 \mathbf{1} & \mathrm{falls}\,\ddot{\pi}\bar{t},\bar{t}\in\ddot{U}^{k}\\
@@ -1608,7 +1608,7 @@ es aus der Abgeschlossenheit von $\ddot{U}$ unter $\ddot{\pi}$):
 \end{cases}=\ddot{\Sigma}\left(g_{\bar{t}}\right)
 \]
 
-\item F¸r $\varphi\left(\bar{x}\right)=y_{1}\dot{=}y_{2}$ gilt:
+\item F√ºr $\varphi\left(\bar{x}\right)=y_{1}\dot{=}y_{2}$ gilt:
 \begin{eqnarray*}
 \ddot{\Sigma}\left(\hat{\pi}g_{\bar{t}}\right)=\ddot{\Sigma}\left(g_{\ddot{\pi}\bar{t}}\right) & \coloneqq & \begin{cases}
 \mathbf{1} & \mathrm{falls}\,\ddot{\pi}\beta_{\bar{t}}y_{1}=\ddot{\pi}\beta_{\bar{t}}y_{2}\\
@@ -1616,7 +1616,7 @@ es aus der Abgeschlossenheit von $\ddot{U}$ unter $\ddot{\pi}$):
 \end{cases}=\ddot{\Sigma}\left(g_{\bar{t}}\right)
 \end{eqnarray*}
 
-\item F¸r $\varphi\left(\bar{x}\right)=y_{1}\dot{\leqslant}y_{2}$ gilt:
+\item F√ºr $\varphi\left(\bar{x}\right)=y_{1}\dot{\leqslant}y_{2}$ gilt:
 \[
 \ddot{\Sigma}\left(\hat{\pi}g_{\bar{t}}\right)=\ddot{\Sigma}\left(g_{\ddot{\pi}\bar{t}}\right)\coloneqq\begin{cases}
 \mathbf{1} & \mathrm{falls}\,\bar{t}\in N^{k},\,\beta_{\bar{t}}y_{1}\leqslant\beta_{\bar{t}}y_{2}\\
@@ -1629,35 +1629,35 @@ Damit ist $\ddot{\mathcal{C}}$ eine symmetrische, $P$-uniforme Schaltkreisfamili
 in $\mathrm{AC}^{0}$, die die Anfrage $q$ berechnet.
 \end{proof}
 
-\subsection{Z‰hlterme}
+\subsection{Z√§hlterme}
 
 Wir betrachten die Logik $\mathrm{FO}+C$, und weisen nach, dass die
 vorhergehende Konstruktion aus Lemma \ref{lem:fo-ord} angepasst werden
-kann, indem Majority-Gates hinzugef¸gt werden.
+kann, indem Majority-Gates hinzugef√ºgt werden.
 \begin{lem}
 \label{lem:fo-c}Jede $\left(\mathrm{FO}+C\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
 $P$-uniformen $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
 $\left(\ddot{\mathcal{C}_{n}^{\varphi}}\right)_{n\in\mathbb{N}}$
 mit konstanter Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
-und polynomieller Grˆﬂe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
+und polynomieller Gr√∂√üe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$
 berechnet wird.\end{lem}
 \begin{proof}
-Zun‰chst wird die Formel $\varphi$ in eine Normalform $\hat{\varphi}$
-gebracht, in der jeder Z‰hlterm in einer Teilformel der Form $x\leqslant\#y\psi$
+Zun√§chst wird die Formel $\varphi$ in eine Normalform $\hat{\varphi}$
+gebracht, in der jeder Z√§hlterm in einer Teilformel der Form $x\leqslant\#y\psi$
 oder $\#y\psi\leqslant x$ oder $x=\#y\psi$ steht.
 
-Wir betrachten f¸r diese Konstruktion die ,,pseudo-atomaren`` $k$-stelligen
+Wir betrachten f√ºr diese Konstruktion die ,,pseudo-atomaren`` $k$-stelligen
 Formeln $\varphi$ der Form $R\bar{x}$, $x_{1}\dot{=}x_{2}$ oder
-$x_{1}\dot{\leqslant}x_{2}$, wobei $\bar{x}$ mindestens einen Z‰hlterm
-der Form $\#y\psi$ enth‰lt.
+$x_{1}\dot{\leqslant}x_{2}$, wobei $\bar{x}$ mindestens einen Z√§hlterm
+der Form $\#y\psi$ enth√§lt.
 \begin{casenv}
-\item Falls $\varphi=R\bar{x}$ mit $R/m\in\sigma$, und $\bar{x}$ enth‰lt
-mindestens einen Z‰hlterm $\#y\psi$, so ist die Formel offensichtlich
-unerf¸llbar, da $\left\llbracket \#y\psi\right\rrbracket \left(\mathfrak{A},\beta\right)\notin A$
+\item Falls $\varphi=R\bar{x}$ mit $R/m\in\sigma$, und $\bar{x}$ enth√§lt
+mindestens einen Z√§hlterm $\#y\psi$, so ist die Formel offensichtlich
+unerf√ºllbar, da $\left\llbracket \#y\psi\right\rrbracket \left(\mathfrak{A},\beta\right)\notin A$
 und $R^{\mathfrak{A}}\subseteq A^{m}$. Wir ersetzen $\varphi$ durch
 einen trivialen Satz $\hat{\varphi}\coloneqq\neg\exists x\,x\dot{=}x$
-ohne Z‰hlterme.
+ohne Z√§hlterme.
 \item Falls $\varphi=x_{1}\dot{\leqslant}x_{2}$:
 
 \begin{casenv}
@@ -1685,7 +1685,7 @@ neue Variable:
 
 \end{casenv}
 \end{casenv}
-Nun wird der Schaltkreis $\dot{\mathcal{C}_{2n+1}^{\varphi}}$ ¸ber
+Nun wird der Schaltkreis $\dot{\mathcal{C}_{2n+1}^{\varphi}}$ √ºber
 dem Universum $\dot{U}\coloneqq\ddot{U}\uplus N$ ($\ddot{U}=\left\{ 1,\cdots,n\right\} $,
 $N=\left\{ \dot{0},\cdots,\dot{n}\right\} $) erzeugt, in dem die
 folgenden neuen Konstruktionsschritte hinzukommen:
@@ -1715,8 +1715,8 @@ W & = & W'\uplus W_{\mathrm{maj}}\uplus_{\mathrm{pad}}
 
 
 Das Majority-Gate $g_{\bar{t}}$ soll den Wert $\left\llbracket y\leqslant\#_{z}\psi\right\rrbracket \left(\mathfrak{A},\bar{t}\right)$
-berechnen. Dazu wird es zun‰chst mit den entsprechenden Ausg‰ngen
-von $\mathcal{C}_{2n+1}^{\psi}$ verkn¸pft. Seien $\rho_{1},\rho_{2}:U^{k}\rightarrow U^{k-1}$
+berechnen. Dazu wird es zun√§chst mit den entsprechenden Ausg√§ngen
+von $\mathcal{C}_{2n+1}^{\psi}$ verkn√ºpft. Seien $\rho_{1},\rho_{2}:U^{k}\rightarrow U^{k-1}$
 die folgenden Abbildungen, die die Variable $x_{i}$ aus $\bar{x}$
 beziehungsweise $y_{j}$ aus $\bar{y}$ entfernen:
 \begin{eqnarray*}
@@ -1733,14 +1733,14 @@ Momentan berechnet jedes Gate $g_{\bar{t}}$, ob $2\left\llbracket \#_{z}\psi\rig
 Es soll aber berechnen, ob $\left\llbracket \#z_{i}\psi\right\rrbracket \geqslant\beta_{\bar{t}}x_{i}=t_{i}$.
 
 
-Dazu f¸gen wir die Kanten $W_{\mathrm{pad}}$ ein, um die Eing‰nge
-der Majority-Gates mit Konstanten aufzuf¸llen. Ein Majority-Gate mit
-$k$ zus‰tzlichen $\mathbf{0}$-Eing‰ngen berechnet $2\left\llbracket \#z_{i}\psi\right\rrbracket \geqslant n+k$,
-eines mit $k$ neuen $\mathbf{1}$-Eing‰ngen berechnet $2\left\llbracket \#z_{i}\psi\right\rrbracket +2k\geqslant n+k$.
+Dazu f√ºgen wir die Kanten $W_{\mathrm{pad}}$ ein, um die Eing√§nge
+der Majority-Gates mit Konstanten aufzuf√ºllen. Ein Majority-Gate mit
+$k$ zus√§tzlichen $\mathbf{0}$-Eing√§ngen berechnet $2\left\llbracket \#z_{i}\psi\right\rrbracket \geqslant n+k$,
+eines mit $k$ neuen $\mathbf{1}$-Eing√§ngen berechnet $2\left\llbracket \#z_{i}\psi\right\rrbracket +2k\geqslant n+k$.
 
 
-Daher muss jedes Gate $g_{\bar{t}}$ entweder $2t_{i}-n$ $\mathbf{0}$-Eing‰nge
-oder $n-2t_{i}$ $\mathbf{1}$-Eing‰nge erhalten:
+Daher muss jedes Gate $g_{\bar{t}}$ entweder $2t_{i}-n$ $\mathbf{0}$-Eing√§nge
+oder $n-2t_{i}$ $\mathbf{1}$-Eing√§nge erhalten:
 \begin{eqnarray*}
 W_{\mathrm{pad}} & = & \left\{ \left(0_{i},g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant2t_{i}-n\right\} \\
  & \cup & \left\{ \left(1_{i},g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant n-2t_{i}\right\} 
@@ -1751,8 +1751,8 @@ W_{\mathrm{pad}} & = & \left\{ \left(0_{i},g_{\bar{t}}\right)\mid\bar{t}\in\dot{
 
 
 \item Falls $\varphi\left(\bar{x}\right)=\#y_{j}\psi\left(\bar{y}\right)\leqslant x_{i}$,
-so muss der Schaltkreis die Anzahl der \emph{nicht} erf¸llenden Belegungen
-von $y_{j}$ z‰hlen. 
+so muss der Schaltkreis die Anzahl der \emph{nicht} erf√ºllenden Belegungen
+von $y_{j}$ z√§hlen. 
 \begin{eqnarray*}
 \dot{\mathcal{C}_{2n+1}^{\psi}} & = & \left(G',W',\Sigma',\Omega',\dot{U}\right)\\
 \dot{\mathcal{C}_{2n+1}^{\varphi}} & = & \left(G,W,\Sigma,\Omega,\dot{U}\right)
@@ -1771,11 +1771,11 @@ W & = & W'\uplus W_{\mathrm{neg}}\uplus W_{\mathrm{maj}}\uplus_{\mathrm{pad}}
 \[
 \Omega\left(\bar{t}\right)=g_{\bar{t}}
 \]
-Zuerst wird die Formel $\psi$ f¸r jede Belegung negiert:
+Zuerst wird die Formel $\psi$ f√ºr jede Belegung negiert:
 \[
 W_{\mathrm{neg}}=\left\{ \left(\Omega'\left(\bar{t}\right),h_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k}\right\} 
 \]
-Dann werden die Majority-Gates wie in Fall 1 verkn¸pft:
+Dann werden die Majority-Gates wie in Fall 1 verkn√ºpft:
 \begin{eqnarray*}
 \rho_{1}\left(t_{1},\cdots,t_{k}\right) & = & \left(t_{1},\cdots t_{i-1},t_{i+1},\cdots,t_{k}\right)\\
 \rho_{2}\left(t_{1},\cdots,t_{k}\right) & = & \left(t_{1},\cdots t_{j-1},t_{j+1},\cdots,t_{k}\right)
@@ -1783,11 +1783,11 @@ Dann werden die Majority-Gates wie in Fall 1 verkn¸pft:
 \[
 W_{\mathrm{maj}}=\left\{ \left(h_{\bar{u}},g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in\dot{U}^{k},\,\rho_{1}\left(\bar{t}\right)=\rho_{2}\left(\bar{u}\right)\right\} 
 \]
-Schlieﬂlich werden die $\mathbf{0}/\mathbf{1}$-Eing‰nge eingef¸gt.
+Schlie√ülich werden die $\mathbf{0}/\mathbf{1}$-Eing√§nge eingef√ºgt.
 Hierbei ist zu beachten, dass $\left\llbracket \#z_{j}\psi\right\rrbracket \left(\mathfrak{A},\beta\right)\leqslant\beta_{\bar{t}}x_{i}=t_{i}$
 genau dann wenn $\left\llbracket \#z_{j}\neg\psi\right\rrbracket \left(\mathfrak{A},\beta\right)\geqslant n-t_{i}$.
-Entsprechend braucht das Gate $g_{\bar{t}}$ genau $n-2t_{i}$ $\mathbf{1}$-Eing‰nge
-oder $2t_{i}-n$ $\mathbf{0}$-Eing‰nge:
+Entsprechend braucht das Gate $g_{\bar{t}}$ genau $n-2t_{i}$ $\mathbf{1}$-Eing√§nge
+oder $2t_{i}-n$ $\mathbf{0}$-Eing√§nge:
 \begin{eqnarray*}
 W_{\mathrm{pad}} & = & \left\{ \left(1_{i},g_{\bar{t}}\right)\mid\bar{t}\in U^{k},1\leqslant i\leqslant2t_{i}-n\right\} \\
  & \cup & \left\{ \left(0_{i},g_{\bar{t}}\right)\mid\bar{t}\in U^{k},1\leqslant i\leqslant n-2t_{i}\right\} 
@@ -1829,15 +1829,15 @@ W_{\mathrm{and}} & = & \left\{ \left(g_{\bar{t}},f_{\bar{t}}\right),\left(g_{\ba
 
 \end{casenv}
 Der so erzeugte Schaltkreis hat weiterhin konstante Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $,
-denn die neuen Konstruktionsschritte vergrˆﬂern die Tiefe um maximal
-$3$ Kanten (in Fall 3). Weiterhin hat er die Grˆﬂe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$,
-denn die neuen Schritte f¸gen hˆchstens 
+denn die neuen Konstruktionsschritte vergr√∂√üern die Tiefe um maximal
+$3$ Kanten (in Fall 3). Weiterhin hat er die Gr√∂√üe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}$,
+denn die neuen Schritte f√ºgen h√∂chstens 
 \[
 4\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}+2n<5\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}
 \]
 neue Gates hinzu. (Die in der Normalform $\hat{\varphi}$ definierte
 Variable $z$ ist nicht relevant, weil sie sofort wieder gebunden
-wird und die Stelligkeit der Teilformel nicht vergrˆﬂert.)
+wird und die Stelligkeit der Teilformel nicht vergr√∂√üert.)
 
 Nach der Erzeugung von $\dot{\mathcal{C}_{2n+1}^{\varphi}}$ wird
 der Schaltkreis auf die bereits beschriebene Weise zu $\ddot{\mathcal{C}_{n}^{\varphi}}$
@@ -1874,7 +1874,7 @@ Es gilt:
 \end{cases}\\
 \hat{\pi}\left(\Omega\left(\bar{t}\right)\right) & = & \hat{\pi}g_{\bar{t}}=g_{\dot{\pi}\bar{t}}=\Omega\left(\dot{\pi}\bar{t}\right)
 \end{eqnarray*}
-Betrachten wir schlieﬂlich $W_{\mathrm{pad}}$, so gilt:
+Betrachten wir schlie√ülich $W_{\mathrm{pad}}$, so gilt:
 \begin{eqnarray*}
 \hat{\pi}W_{\mathrm{pad}} & = & \left\{ \left(\hat{\pi}0_{i},\hat{\pi}g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant2t_{i}-n\right\} \\
  & \cup & \left\{ \left(\hat{\pi}1_{i},\hat{\pi}g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant n-2t_{i}\right\} \\
@@ -1885,7 +1885,7 @@ Betrachten wir schlieﬂlich $W_{\mathrm{pad}}$, so gilt:
 
 
 \item Falls $\varphi\left(\bar{x}\right)=\#y_{i}\psi\left(\bar{y}\right)\leqslant x_{i}$,
-so ist $\hat{\pi}$ analog zu Fall 1 definiert. Es m¸ssen zus‰tzlich
+so ist $\hat{\pi}$ analog zu Fall 1 definiert. Es m√ºssen zus√§tzlich
 die Negations-Gates abgebildet werden:
 \[
 \hat{\pi}h_{\bar{t}}=h_{\dot{\pi}\bar{t}}
@@ -1900,19 +1900,19 @@ symmetrisch.
 \begin{lem}
 Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
 $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-mit konstant beschr‰nkter Tiefe $\leqslant c$ und polynomiell beschr‰nkter
-Grˆﬂe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
+mit konstant beschr√§nkter Tiefe $\leqslant c$ und polynomiell beschr√§nkter
+Gr√∂√üe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
 existiert eine arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel,
 die die gleiche Anfrage definiert.
 \end{lem}
 
 \subsection{Normalform}
 
-Zum Beweis dieses Lemmas werden wir eine Normalform f¸r die Schaltkreise
+Zum Beweis dieses Lemmas werden wir eine Normalform f√ºr die Schaltkreise
 festlegen.
 \begin{defn}
 Ein Schaltkreis $\left(G,W,\Sigma,\Omega,U\right)$ ist in Alternierender
-Normalform, wenn er folgende Bedingungen erf¸llt:\end{defn}
+Normalform, wenn er folgende Bedingungen erf√ºllt:\end{defn}
 \begin{enumerate}
 \item Jedes Gate hat genau einen direkten Nachfolger (somit ist $\left(G,W\right)$
 ein gerichteter Baum).
@@ -1924,60 +1924,60 @@ beschriftet.
 \begin{lem}
 Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
 $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-mit konstant beschr‰nkter Tiefe $\leqslant c$ und polynomiell beschr‰nkter
-Grˆﬂe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
-existiert eine ‰quivalente Schaltkreisfamilie 
+mit konstant beschr√§nkter Tiefe $\leqslant c$ und polynomiell beschr√§nkter
+Gr√∂√üe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
+existiert eine √§quivalente Schaltkreisfamilie 
 \end{lem}
 
 \subsection{Fixpunktlogik}
 
-Die Fixpunktlogik $\mathrm{FP}\left[\sigma\right]$ ist echt ausdruckst‰rker
+Die Fixpunktlogik $\mathrm{FP}\left[\sigma\right]$ ist echt ausdruckst√§rker
 als die Logik $\mathrm{FO}\left[\sigma\right]$; so ist beispielsweise
-die Erreichbarkeit ¸ber einen Pfad beliebiger L‰nge nicht erststufig
+die Erreichbarkeit √ºber einen Pfad beliebiger L√§nge nicht erststufig
 definierbar.\marginpar{Quelle} Trotzdem kann jede $\mathrm{FP}\left[\sigma\right]$-Formel
 $\varphi$ durch eine Familie von $\mathrm{FO}\left[\sigma\right]$-Formeln
-mit polynomieller L‰nge $n^{\left\Vert \varphi\right\Vert }$ und
-hˆchstens $2\left\Vert \varphi\right\Vert $\emph{ }Variablen definiert
-werden, von denen jede auf den Strukturen einer bestimmten Grˆﬂe ‰quivalent
+mit polynomieller L√§nge $n^{\left\Vert \varphi\right\Vert }$ und
+h√∂chstens $2\left\Vert \varphi\right\Vert $\emph{ }Variablen definiert
+werden, von denen jede auf den Strukturen einer bestimmten Gr√∂√üe √§quivalent
 zu $\varphi$ ist.
 
 Mit der oben beschriebenen Konstruktion kann dann eine Schaltkreisfamilie
-erzeugt werden, die $\varphi$ berechnet.\marginpar{Siehe: k-Variablen Fragment infinit‰re Logik, u.a. {[}LogKomp 2007{]}.}
+erzeugt werden, die $\varphi$ berechnet.\marginpar{Siehe: k-Variablen Fragment infinit√§re Logik, u.a. {[}LogKomp 2007{]}.}
 \[
 \mathcal{C}_{n}^{\varphi}\coloneqq\mathcal{C}_{n}^{\varphi_{n}}\,\mathrm{f\ddot{u}r}\,n\in\mathbb{N}
 \]
 
 
-Durch die Einschr‰nkung auf eine konstante Anzahl von Variablen ist
-die Grˆﬂe der Schaltkreisfamilie polynomiell durch $n^{2\left\Vert \varphi\right\Vert }$
-beschr‰nkt, obwohl die FO-Formeln beliebig lang werden.
+Durch die Einschr√§nkung auf eine konstante Anzahl von Variablen ist
+die Gr√∂√üe der Schaltkreisfamilie polynomiell durch $n^{2\left\Vert \varphi\right\Vert }$
+beschr√§nkt, obwohl die FO-Formeln beliebig lang werden.
 \begin{defn}
-F¸r zwei logische Formeln $\varphi$ und $\psi$ bedeute $\varphi\equiv_{n}\psi$,
+F√ºr zwei logische Formeln $\varphi$ und $\psi$ bedeute $\varphi\equiv_{n}\psi$,
 dass diese Formeln auf allen Strukturen $\mathfrak{A}\in\mathbf{FIN}_{n}\left(\sigma\right)$
-‰quivalent sind.\end{defn}
+√§quivalent sind.\end{defn}
 \begin{lem}
-F¸r jede $\mathrm{FP}\left[\sigma\right]$-Formel $\varphi$ und jede
-Grˆﬂe $n\in\mathbb{N}_{\geqslant1}$ existiert eine $\mathrm{FO}\left[\sigma\right]$-Formel
-$\varphi_{n}$ mit hˆchstens $2\left\Vert \varphi\right\Vert $ Variablen,
+F√ºr jede $\mathrm{FP}\left[\sigma\right]$-Formel $\varphi$ und jede
+Gr√∂√üe $n\in\mathbb{N}_{\geqslant1}$ existiert eine $\mathrm{FO}\left[\sigma\right]$-Formel
+$\varphi_{n}$ mit h√∂chstens $2\left\Vert \varphi\right\Vert $ Variablen,
 so dass $\varphi_{n}\equiv_{n}\varphi$.\end{lem}
 \begin{proof}
-Induktiv ¸ber den Aufbau von $\varphi$:
+Induktiv √ºber den Aufbau von $\varphi$:
 \begin{casenv}
-\item Falls $\varphi$ von der Form $R\bar{x}$ f¸r $R/k\in\sigma$ und
-$\bar{x}\in\mathbf{var}^{k}$ oder $x=y$ f¸r $x,y\in\mathbf{var}$
+\item Falls $\varphi$ von der Form $R\bar{x}$ f√ºr $R/k\in\sigma$ und
+$\bar{x}\in\mathbf{var}^{k}$ oder $x=y$ f√ºr $x,y\in\mathbf{var}$
 ist, so ist $\varphi$ bereits eine $\mathrm{FO}\left[\sigma\right]$-Formel.
-\item Falls $\varphi=\left(\psi\gamma\psi'\right)$ f¸r $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
+\item Falls $\varphi=\left(\psi\gamma\psi'\right)$ f√ºr $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
 ist, so existieren per Induktionsannahme die Formeln $\psi_{n}\equiv_{n}\psi$
 und $\psi_{n}'\equiv_{n}\psi'$; es folgt $\left(\psi_{n}\gamma\psi_{n}'\right)\equiv_{n}\varphi$.
-\item Falls $\varphi=Qx\psi$ f¸r $Q\in\left\{ \exists,\forall\right\} $
+\item Falls $\varphi=Qx\psi$ f√ºr $Q\in\left\{ \exists,\forall\right\} $
 und $x\in\mathbf{var}$, so existiert per Annahme die auf Formel $\psi_{n}\equiv_{n}\psi$;
 es folgt $Qx\psi_{n}\equiv_{n}\varphi$.
 \item Falls $\varphi=\left[\mathrm{ifp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
-f¸r eine Relations-Variable $R\notin\sigma$ mit $\mathrm{ar}\left(R\right)=m$
+f√ºr eine Relations-Variable $R\notin\sigma$ mit $\mathrm{ar}\left(R\right)=m$
 und zwei Tupel $\bar{x},\bar{y}\in\mathbf{var}^{m}$, so gilt:
 
 
-Per Induktionsannahme existiert f¸r jedes $n\in\mathbb{N}$ eine $\mathrm{FO}\left[\sigma\right]$-Formel
+Per Induktionsannahme existiert f√ºr jedes $n\in\mathbb{N}$ eine $\mathrm{FO}\left[\sigma\right]$-Formel
 $\psi_{n}$, so dass $\psi_{n}\equiv_{n}\psi$.
 
 
@@ -1986,7 +1986,7 @@ Hierbei soll $\varphi_{n}^{\left(i\right)}$ in einer Struktur $\mathfrak{A}$
 die Anfrage $q\left(\mathfrak{A}\right)=R^{\left(i\right)}$ definieren.
 $R^{\left(n^{m}\right)}$ ist der Fixpunkt von $R$.
 \begin{itemize}
-\item Sei $\varphi_{n}^{\left(0\right)}\left(\bar{x}\right)$ die unerf¸llbare
+\item Sei $\varphi_{n}^{\left(0\right)}\left(\bar{x}\right)$ die unerf√ºllbare
 Formel $\bot\coloneqq\neg x_{1}=x_{1}$. Per Definition ist $R^{\left(0\right)}=\emptyset$,
 und $\varphi_{n}^{\left(0\right)}$ definiert diese Anfrage.
 \item Sei $\varphi_{n}^{\left(i+1\right)}\left(\bar{x}\right)$ entsteht
@@ -1994,14 +1994,14 @@ aus $\left(\psi_{n}\left(\bar{x}\right)\vee R\bar{x}\right)$, in
 dem jede atomare Teilformel $R\bar{z}$ durch die folgende Formel
 $\chi^{\left(n\right)}\left(\bar{z}\right)$ ersetzt wird, wobei $\bar{u}\in\mathbf{var}^{k}$
 ein Tupel von Variablen sei, die nicht in $\bar{x}$ oder $\bar{z}$
-vorkommen:\footnote{Hier stehe $\exists\bar{x}\psi$ f¸r $\exists x_{1}\cdots\exists x_{m}\psi$
-und $\bar{x}=\bar{y}$ f¸r $\bigwedge_{i=1}^{m}x_{i}=y_{i}$.}
+vorkommen:\footnote{Hier stehe $\exists\bar{x}\psi$ f√ºr $\exists x_{1}\cdots\exists x_{m}\psi$
+und $\bar{x}=\bar{y}$ f√ºr $\bigwedge_{i=1}^{m}x_{i}=y_{i}$.}
 \[
 \chi^{\left(n\right)}\left(\bar{z}\right)\coloneqq\exists\bar{u}\left(\bar{u}=\bar{z}\exists\bar{x}\left(\bar{x}=\bar{u}\wedge\varphi_{n}^{\left(i\right)}\left(\bar{x}\right)\right)\right)
 \]
-(Der Zwischenschritt ¸ber $\bar{u}$ ist notwendig, weil $\bar{z}$
-und $\bar{x}$ zum Teil die gleichen Variablen enthalten kˆnnen, und
-daher ihr Geltungsbereich nicht ¸berlappen darf.)
+(Der Zwischenschritt √ºber $\bar{u}$ ist notwendig, weil $\bar{z}$
+und $\bar{x}$ zum Teil die gleichen Variablen enthalten k√∂nnen, und
+daher ihr Geltungsbereich nicht √ºberlappen darf.)
 
 
 Unter der Annahme, dass $\varphi_{n}^{\left(i\right)}\left(\bar{x}\right)$
@@ -2016,14 +2016,14 @@ und $\varphi_{n}^{\left(i+1\right)}$ definiert die Anfrage $q\left(\mathfrak{A}\
 
 \end{itemize}
 
-Schlieﬂlich entsteht $\varphi_{n}\left(\bar{y}\right)$ aus $\varphi_{n}^{\left(n^{m}\right)}\left(\bar{x}\right)$,
+Schlie√ülich entsteht $\varphi_{n}\left(\bar{y}\right)$ aus $\varphi_{n}^{\left(n^{m}\right)}\left(\bar{x}\right)$,
 indem die freien Variablen $x_{1},\cdots,x_{m}$ in $y_{1},\cdots,y_{m}$
 umbenannt werden. Damit gilt $\varphi_{n}\equiv_{n}\varphi$.
 
 \end{casenv}
-Die so erzeugte Formel $\varphi_{n}$ hat hˆchstens $\left|\mathrm{var}\left(\varphi\right)\right|+\left\Vert \varphi\right\Vert \leqslant2\left\Vert \varphi\right\Vert $
-Variablen: Nur in Fall 4 werden $m$ neue Variablen eingef¸gt, und
-f¸r jeden solchen Induktionschritt enth‰lt $\varphi$ bereits ein
+Die so erzeugte Formel $\varphi_{n}$ hat h√∂chstens $\left|\mathrm{var}\left(\varphi\right)\right|+\left\Vert \varphi\right\Vert \leqslant2\left\Vert \varphi\right\Vert $
+Variablen: Nur in Fall 4 werden $m$ neue Variablen eingef√ºgt, und
+f√ºr jeden solchen Induktionschritt enth√§lt $\varphi$ bereits ein
 Tupel $\bar{y}\in\mathbf{var}^{m}$.
 \end{proof}
 
@@ -2031,20 +2031,20 @@ Tupel $\bar{y}\in\mathbf{var}^{m}$.
 
 Erweitern wir die Logik $\mathrm{FO}\left[\sigma\right]$ auf arb-invariante
 $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Logik, so opfern
-wir die $P$-Uniformit‰t und Symmetrie der Schaltkreisfamilie.
+wir die $P$-Uniformit√§t und Symmetrie der Schaltkreisfamilie.
 \begin{lem}
 Jede arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer Schaltkreisfamilie
 $\left(\mathcal{C}_{n}^{\varphi}\right)_{n\in\mathbb{N}}$ mit konstanter
-Tiefe $\leqslant\left\Vert \varphi\right\Vert $ und Grˆﬂe $\leqslant5n^{\mathrm{var}\left(\varphi\right)}$
+Tiefe $\leqslant\left\Vert \varphi\right\Vert $ und Gr√∂√üe $\leqslant5n^{\mathrm{var}\left(\varphi\right)}$
 berechnet wird.\end{lem}
 \begin{proof}
 Der Beweis folgt direkt aus der Tatsache, dass die Struktur $\mathfrak{N}_{\mid\left\{ 1,\cdots,n\right\} }$
-nur von $n$ abh‰ngt, und ihre Relationen daher fest im Schaltkreis
-$\mathcal{C}_{n}^{\varphi}$ eingebaut werden kˆnnen. Dem Beweis von
-\lemref{FO-Circuit} f¸gen wir den folgenden Fall hinzu:\end{proof}
+nur von $n$ abh√§ngt, und ihre Relationen daher fest im Schaltkreis
+$\mathcal{C}_{n}^{\varphi}$ eingebaut werden k√∂nnen. Dem Beweis von
+\lemref{FO-Circuit} f√ºgen wir den folgenden Fall hinzu:\end{proof}
 \begin{casenv}
-\item Falls $\varphi\left(\bar{x}\right)=R\bar{y}$ f¸r ein Relationssymbol
+\item Falls $\varphi\left(\bar{x}\right)=R\bar{y}$ f√ºr ein Relationssymbol
 $R\in\eta_{\mathrm{arb}}$, so besteht der Schaltkreis $\mathcal{C}_{n}^{\varphi}$
 aus $n^{k}$ isolierten Gates:
 \[
@@ -2061,7 +2061,7 @@ Wir betrachten die Relation $R_{\mid U}$, und legen fest:
 \end{casenv}
 Im allgemeinen ist der so entstandene Schaltkreis weder $P$-uniform
 noch symmetrisch. Die Relation $R_{\mid U}$ kann unter anderem unentscheidbare
-Klassen der nat¸rlichen Zahlen darstellen, und die Symmetrie wird
+Klassen der nat√ºrlichen Zahlen darstellen, und die Symmetrie wird
 offensichtlich verletzt, sofern $R_{\mid U}$ nicht unter Permutation
 von $U$ abgeschlossen ist.
 
@@ -2072,19 +2072,19 @@ von $U$ abgeschlossen ist.
 \begin{lem}
 Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
 $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-mit konstant beschr‰nkter Tiefe $\leqslant c$ und polynomiell beschr‰nkter
-Grˆﬂe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
+mit konstant beschr√§nkter Tiefe $\leqslant c$ und polynomiell beschr√§nkter
+Gr√∂√üe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
 existiert eine arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel,
 die die gleiche Anfrage definiert.
 \end{lem}
 
 \subsection{Normalform}
 
-Zum Beweis dieses Lemmas werden wir eine Normalform f¸r die Schaltkreise
+Zum Beweis dieses Lemmas werden wir eine Normalform f√ºr die Schaltkreise
 festlegen.
 \begin{defn}
 Ein Schaltkreis $\left(G,W,\Sigma,\Omega,U\right)$ ist in Alternierender
-Normalform, wenn er folgende Bedingungen erf¸llt:\end{defn}
+Normalform, wenn er folgende Bedingungen erf√ºllt:\end{defn}
 \begin{enumerate}
 \item Jedes Gate hat genau einen direkten Nachfolger (somit ist $\left(G,W\right)$
 ein gerichteter Baum).
@@ -2096,12 +2096,12 @@ beschriftet.
 \begin{lem}
 Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
 $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-mit konstant beschr‰nkter Tiefe $\leqslant c$ und polynomiell beschr‰nkter
-Grˆﬂe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
-existiert eine ‰quivalente Schaltkreisfamilie 
+mit konstant beschr√§nkter Tiefe $\leqslant c$ und polynomiell beschr√§nkter
+Gr√∂√üe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
+existiert eine √§quivalente Schaltkreisfamilie 
 \end{lem}
 
-\section{Stabilisatoren und Tr‰ger}
+\section{Stabilisatoren und Tr√§ger}
 
 
 \subsection{Partitionen}
@@ -2113,11 +2113,11 @@ von disjunkten nichtleeren Teilmengen $P_{i}\subseteq U$, so dass
 $U=\biguplus_{i=1}^{k}P_{i}$. Die Menge aller Partitionen von $U$
 sei $\mathrm{Part}_{U}$.
 
-Die Partition $\mathcal{P}$ induziert eine ƒquivalenzrelation $\sim_{\mathcal{P}}$
+Die Partition $\mathcal{P}$ induziert eine √Ñquivalenzrelation $\sim_{\mathcal{P}}$
 auf $U$, wobei $x\sim_{\mathcal{P}}y$ genau dann wenn $\left\{ x,y\right\} \subseteq P$
-f¸r irgendein $P\in\mathcal{P}$.
+f√ºr irgendein $P\in\mathcal{P}$.
 
-Die Permutationen aus $\mathrm{Sym}_{U}$ werden auf nat¸rliche Weise
+Die Permutationen aus $\mathrm{Sym}_{U}$ werden auf nat√ºrliche Weise
 auf $\mathcal{P}$ erweitert. $\pi\mathcal{P}$ ist ebenfalls eine
 Partition von $U$:
 \begin{eqnarray*}
@@ -2134,7 +2134,7 @@ als $\mathcal{P}'$``) genau dann wenn jede Element $P_{i}\in\mathcal{P}$
 Teilmenge einer Element $P'_{j}\in\mathcal{P}'$ ist.
 
 Die Relation $\preceq$ ist eine Halbordnung. Daher bilden die Partitionen
-von $U$ einen vollst‰ndigen Verband bez¸glich den Infimum- und Supremum-Operationen
+von $U$ einen vollst√§ndigen Verband bez√ºglich den Infimum- und Supremum-Operationen
 $\sqcap$ und $\sqcup$:
 \begin{eqnarray*}
 \mathcal{A}\sqcap\mathcal{B} & \coloneqq & \max_{\preceq}\left\{ \mathcal{P}\mid\mathcal{P}\preceq\mathcal{A}\,\mathrm{und}\,\mathcal{P}\preceq\mathcal{B}\right\} \\
@@ -2145,11 +2145,11 @@ $\sqcap$ und $\sqcup$:
 \item $\mathcal{A}\sqcap\mathcal{B}=\left\{ A\cap B\mid\left(A,B\right)\in\mathcal{A}\times\mathcal{B},\,A\cap B\neq\emptyset\right\} $
 besteht aus den nichtleeren Schnittmengen von allen Elementen von
 $\mathcal{A}$ und $\mathcal{B}$.
-\item $\mathcal{A}\sqcup\mathcal{B}$ besteht aus den ƒquivalenzklassen
-der transitiven H¸lle von $\sim_{\mathcal{A}}$ und $\sim_{\mathcal{B}}$,
+\item $\mathcal{A}\sqcup\mathcal{B}$ besteht aus den √Ñquivalenzklassen
+der transitiven H√ºlle von $\sim_{\mathcal{A}}$ und $\sim_{\mathcal{B}}$,
 so dass $\sim_{\mathcal{A}\sqcup\mathcal{B}}=$$\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)^{*}$.
 \end{itemize}
-Die feinste und grˆbste Partition seien $\mathcal{P}_{\min}\left(U\right)\coloneqq\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
+Die feinste und gr√∂bste Partition seien $\mathcal{P}_{\min}\left(U\right)\coloneqq\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
 und $\mathcal{P}_{\max}\left(U\right)\coloneqq\left\{ U\right\} $.
 \end{defn}
 
@@ -2214,8 +2214,8 @@ mit
 \mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi\mathcal{P}=\mathcal{P}\right\} 
 \]
 Diese Gruppe ist das Erzeugnis der Vereinigung von $\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
-mit allen Permutationen von gleich-m‰chtigen Elementen der Partition.
-Sei f¸r $1\leqslant n\leqslant\left|U\right|$ die Menge $\mathcal{P}_{\mid n}\coloneqq\left\{ P_{i}\in\mathcal{P}\mid\#P_{i}=n\right\} $,
+mit allen Permutationen von gleich-m√§chtigen Elementen der Partition.
+Sei f√ºr $1\leqslant n\leqslant\left|U\right|$ die Menge $\mathcal{P}_{\mid n}\coloneqq\left\{ P_{i}\in\mathcal{P}\mid\#P_{i}=n\right\} $,
 dann gilt: 
 \[
 \mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} =\left\langle \mathrm{Stab}_{U}\left(\mathcal{P}\right)\cup\bigcup_{i=1}^{\left|U\right|}\mathrm{Sym}_{\mathcal{P}_{\mid i}}\right\rangle 
@@ -2224,15 +2224,15 @@ dann gilt:
 \end{itemize}
 \end{defn}
 
-\subsection{Tr‰ger}
+\subsection{Tr√§ger}
 \begin{defn}
 Sei $G\subseteq\mathrm{\mathrm{Sym}}_{U}$ eine Untergruppe und $\mathcal{P}$
-eine Partitition von $U$. $\mathcal{P}$ ist ein \textbf{Tr‰ger}
+eine Partitition von $U$. $\mathcal{P}$ ist ein \textbf{Tr√§ger}
 von\textbf{ }$G$ genau dann wenn $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$.\end{defn}
 \begin{rem*}
 Wenn $G$ von $\mathcal{P}$ getragen wird, so wird $G$ auch von
 allen feineren Elementen $\mathcal{P}'\preceq\mathcal{P}$ getragen
-(und $\mathcal{P}$ wiederum tr‰gt alle Obergruppen $G'\supseteq G$).
+(und $\mathcal{P}$ wiederum tr√§gt alle Obergruppen $G'\supseteq G$).
 Dies folgt direkt daraus, dass die Grobheit von Partitionen eine Teilmengenbeziehung
 ihrer Stabilisatorgruppen induziert:
 \[
@@ -2240,12 +2240,12 @@ ihrer Stabilisatorgruppen induziert:
 \]
 \end{rem*}
 \begin{lem}
-Die Tr‰ger-Eigenschaft ist unter den Operationen $\sqcap$ und $\sqcup$
+Die Tr√§ger-Eigenschaft ist unter den Operationen $\sqcap$ und $\sqcup$
 abgeschlossen.\end{lem}
 \begin{proof}
-Seien $\mathcal{A}$ und $\mathcal{B}$ Tr‰ger einer Gruppe $G\subseteq\mathrm{Sym}_{U}$.
+Seien $\mathcal{A}$ und $\mathcal{B}$ Tr√§ger einer Gruppe $G\subseteq\mathrm{Sym}_{U}$.
 
-F¸r $\sqcap$ ist der Beweis per $\mathcal{A}\sqcap\mathcal{B}\preceq\mathcal{A},\mathcal{B}$
+F√ºr $\sqcap$ ist der Beweis per $\mathcal{A}\sqcap\mathcal{B}\preceq\mathcal{A},\mathcal{B}$
 trivial.
 
 Sei $\mathcal{P}\coloneqq\mathcal{A}\sqcup\mathcal{B}$, und sei $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
@@ -2261,14 +2261,14 @@ x & \mathrm{sonst}
 \end{cases}
 \]
 
-\item F¸r jedes $\pi_{i}$ existiert eine Folge von Transpositionen $\left(x_{i,1}y_{i,1}\right)\cdots\left(x_{i,m}y_{i,m}\right)=\pi_{i}$.
+\item F√ºr jedes $\pi_{i}$ existiert eine Folge von Transpositionen $\left(x_{i,1}y_{i,1}\right)\cdots\left(x_{i,m}y_{i,m}\right)=\pi_{i}$.
 \[
 \pi=\left(x_{1,1}y_{1,1}\right)\cdots\left(x_{k,m_{k}}y_{k,m_{k}}\right)
 \]
 
-\item F¸r jede dieser Transpositionen $\left(xy\right)$ gilt $x,y\in P_{i}$.
-Da $P_{i}\in\mathcal{A}\sqcup\mathcal{B}$ eine ƒquivalenzklasse der
-transitiven H¸lle von $\sim\coloneqq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)$
+\item F√ºr jede dieser Transpositionen $\left(xy\right)$ gilt $x,y\in P_{i}$.
+Da $P_{i}\in\mathcal{A}\sqcup\mathcal{B}$ eine √Ñquivalenzklasse der
+transitiven H√ºlle von $\sim\coloneqq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)$
 ist, existiert eine Folge von $\ell\leqslant\left|U\right|$ Elementen
 $\bar{u}\in U^{\ell}$ mit $u_{1}\sim\cdots\sim u_{\ell}$, so dass
 $x=u_{1}$ und $y=u_{\ell}$. Es gilt 
@@ -2286,29 +2286,29 @@ $\pi\in G$.
 \end{proof}
 \begin{cor*}
 Jede Gruppe $G\subseteq\mathrm{Sym}_{U}$ besitzt eine eindeutigen
-grˆbsten Tr‰ger.\end{cor*}
+gr√∂bsten Tr√§ger.\end{cor*}
 \begin{proof}
 Jede Gruppe wird mindestens von $\mathcal{P}_{\min}\left(U\right)$
 mit $\mathrm{Stab}_{U}\left(\mathcal{P}_{\min}\left(U\right)\right)=\left\{ \mathbf{id}\right\} \subseteq G$
 getragen.
 
-Angenommen, $\mathcal{P}$ und $\mathcal{P}'$ seien zwei grˆbste
-Tr‰ger von $G$. 
+Angenommen, $\mathcal{P}$ und $\mathcal{P}'$ seien zwei gr√∂bste
+Tr√§ger von $G$. 
 
-Nun ist $\mathcal{P}\sqcup\mathcal{P}'$ ebenfalls ein Tr‰ger von
+Nun ist $\mathcal{P}\sqcup\mathcal{P}'$ ebenfalls ein Tr√§ger von
 $G$, und $\mathcal{P},\mathcal{P}'\preceq\mathcal{P}\sqcup\mathcal{P}'$.
 
-Da $\mathcal{P}$ und $\mathcal{P}'$ aber per Definition grˆbste
-Tr‰ger von $G$ sind, muss $\mathcal{P}=\mathcal{P}\sqcup\mathcal{P}'=\mathcal{P}'$
+Da $\mathcal{P}$ und $\mathcal{P}'$ aber per Definition gr√∂bste
+Tr√§ger von $G$ sind, muss $\mathcal{P}=\mathcal{P}\sqcup\mathcal{P}'=\mathcal{P}'$
 gelten.\end{proof}
 \begin{defn}
-F¸r jede Gruppe $G\subseteq\mathrm{Sym}_{U}$ sei $\mathrm{SP}\left(G\right)$
-die grˆbste tragende Partition von $G$.
+F√ºr jede Gruppe $G\subseteq\mathrm{Sym}_{U}$ sei $\mathrm{SP}\left(G\right)$
+die gr√∂bste tragende Partition von $G$.
 \end{defn}
 Wir betrachten nun die Konjugationsoperation auf $\mathrm{Sym}_{U}$.
 \begin{lem}
-Wenn eine Partition $\mathcal{P}$ ein Tr‰ger einer Gruppe $G\subseteq\mathrm{Sym}_{U}$
-ist, dann ist $\pi\mathcal{P}$ ein Tr‰ger von $\pi G\pi^{-1}$ f¸r
+Wenn eine Partition $\mathcal{P}$ ein Tr√§ger einer Gruppe $G\subseteq\mathrm{Sym}_{U}$
+ist, dann ist $\pi\mathcal{P}$ ein Tr√§ger von $\pi G\pi^{-1}$ f√ºr
 alle $\pi\in\mathrm{Sym}_{U}$.\end{lem}
 \begin{proof}
 Seien $\vartheta\in\mathrm{Stab}_{U}\left(\pi\mathcal{P}\right)$
@@ -2321,7 +2321,7 @@ und $P_{i}\in\mathcal{P}$ beliebig. Nun gilt:
 
 
 Daraus folgt $\left(\pi^{-1}\vartheta\pi\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$,
-und schlieﬂlich:
+und schlie√ülich:
 \begin{eqnarray*}
 \vartheta & = & \left(\pi\pi^{-1}\right)\vartheta\left(\pi\pi^{-1}\right)\\
  & = & \pi\left(\pi^{-1}\vartheta\pi\right)\pi^{-1}\\
@@ -2329,12 +2329,12 @@ und schlieﬂlich:
 \end{eqnarray*}
 
 
-Damit tr‰gt $\pi\mathcal{P}$ die konjugierte Gruppe $\pi G\pi^{-1}$.\end{proof}
+Damit tr√§gt $\pi\mathcal{P}$ die konjugierte Gruppe $\pi G\pi^{-1}$.\end{proof}
 \begin{cor*}
-F¸r jede Gruppe $G\subseteq\mathrm{Sym}_{U}$ und jede Permutation
+F√ºr jede Gruppe $G\subseteq\mathrm{Sym}_{U}$ und jede Permutation
 $\pi\in\mathrm{Sym}_{U}$ ist $\pi\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\pi G\pi^{-1}\right)$.\end{cor*}
 \begin{proof}
-Es wurde gezeigt, dass $\pi\mathrm{SP}\left(G\right)$ ein Tr‰ger
+Es wurde gezeigt, dass $\pi\mathrm{SP}\left(G\right)$ ein Tr√§ger
 von $\pi G\pi^{-1}$ ist. Es folgt:
 \[
 \pi\mathrm{SP}\left(G\right)\preceq\mathrm{SP}\left(\pi G\pi^{-1}\right)
@@ -2342,7 +2342,7 @@ von $\pi G\pi^{-1}$ ist. Es folgt:
 
 
 Umgekehrt ist auch $\pi^{-1}\mathrm{SP}\left(\pi G\pi^{-1}\right)$
-ein Tr‰ger von $\pi^{-1}\pi G\pi\pi^{-1}=G$. Es folgt:
+ein Tr√§ger von $\pi^{-1}\pi G\pi\pi^{-1}=G$. Es folgt:
 \[
 \pi^{-1}\mathrm{SP}\left(\pi G\pi^{-1}\right)\preceq\mathrm{SP}\left(G\right)
 \]
@@ -2374,7 +2374,7 @@ Sei nun $\pi\in G$ beliebig. Es gilt:
 
 Daher ist $\pi\in\mathrm{Stab}_{U}\left\{ \mathrm{SP}\left(G\right)\right\} $.\end{proof}
 \begin{lem}
-F¸r $\epsilon\in\left[0,1\right[$, jedes hinreichend groﬂe Universum
+F√ºr $\epsilon\in\left[0,1\right[$, jedes hinreichend gro√üe Universum
 $U$ mit $n\coloneqq\left|U\right|\geqslant\exp\frac{4}{\epsilon}$
 und jede Partition $\mathcal{P}\in\mathrm{Part}_{U}$ gilt:
 
@@ -2385,21 +2385,21 @@ s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \m
 \]
 
 
-Dann enth‰lt $\mathcal{P}$ entweder $\mathcal{O}\left(n^{1-\epsilon}\right)$
+Dann enth√§lt $\mathcal{P}$ entweder $\mathcal{O}\left(n^{1-\epsilon}\right)$
 oder $n-\mathcal{O}\left(n^{1-\epsilon}\right)$ viele Elemente:
 \[
 \min\left\{ \left|\mathcal{P}\right|,n-\left|\mathcal{P}\right|\right\} \leqslant\frac{8}{\epsilon}\frac{\log s}{\log n}
 \]
 
 \end{lem}
-Diese Beziehung ist an der Repr‰sentation des Mengenstabilisators
+Diese Beziehung ist an der Repr√§sentation des Mengenstabilisators
 als 
 \[
 \mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} =\left\langle \mathrm{Stab}_{U}\left(\mathcal{P}\right)\cup\bigcup_{i=1}^{\left|U\right|}\mathrm{Sym}_{\mathcal{P}_{\mid i}}\right\rangle 
 \]
- erkennbar: Damit sein Index klein ist, muss die Gruppe selbst groﬂ
-sein, was entweder einen groﬂen Punktstabilisator oder eine groﬂe
-Anzahl gleich-m‰chtiger Elemente von $\mathcal{P}$ erfordert.
+ erkennbar: Damit sein Index klein ist, muss die Gruppe selbst gro√ü
+sein, was entweder einen gro√üen Punktstabilisator oder eine gro√üe
+Anzahl gleich-m√§chtiger Elemente von $\mathcal{P}$ erfordert.
 \begin{proof}
 Sei $\epsilon\in\left[0,1\right[$, $n\geqslant\exp\frac{4}{\epsilon}$,
 und $U=\left\{ 1,\cdots,n\right\} $. 
@@ -2411,22 +2411,22 @@ n\leqslant s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U
 
 \begin{enumerate}
 \item Die Definition des Mengenstabilisators liefert eine kombinatorische
-Schranke f¸r dessen Grˆﬂe: Jede Permutation $\pi\in\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} $
+Schranke f√ºr dessen Gr√∂√üe: Jede Permutation $\pi\in\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} $
 besteht aus einer Permutation der $k$ Elemente von $\mathcal{P}$,
-und einer Permutation $\pi_{i}\in\mathrm{Sym}_{P}$ f¸r jedes Element
+und einer Permutation $\pi_{i}\in\mathrm{Sym}_{P}$ f√ºr jedes Element
 $P\in\mathcal{P}$. 
 \[
 \left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|\leqslant k!\prod_{P\in\mathcal{P}}\left|P\right|!
 \]
 
-\item Seien $P_{1},\cdots,P_{k}\in\mathcal{P}$ die nach aufsteigender Grˆﬂe
+\item Seien $P_{1},\cdots,P_{k}\in\mathcal{P}$ die nach aufsteigender Gr√∂√üe
 geordneten Elemente von $\mathcal{P}$, und seien $p_{1}\leqslant\cdots\leqslant p_{k}$
-ihre Grˆﬂen ($\sum_{i=1}^{k}p_{i}=n$). 
+ihre Gr√∂√üen ($\sum_{i=1}^{k}p_{i}=n$). 
 \[
 \left|\mathrm{Stab}_{U}\left\{ P\right\} \right|\leqslant k!\prod_{i=1}^{k}p_{i}!
 \]
 .
-\item F¸r zwei beliebige $p_{i},p_{j}$ mit $i\leqslant j$ gilt $p_{i}\leqslant p_{j}$
+\item F√ºr zwei beliebige $p_{i},p_{j}$ mit $i\leqslant j$ gilt $p_{i}\leqslant p_{j}$
 und daher $\frac{p_{j}+1}{p_{i}}\geqslant1$. Es folgt:
 \begin{eqnarray*}
 \left|\mathrm{Stab}_{U}\left\{ P\right\} \right| & \leqslant & k!\prod_{i=1}^{k}p_{i}!\\
@@ -2441,7 +2441,7 @@ und daher $\frac{p_{j}+1}{p_{i}}\geqslant1$. Es folgt:
  & = & k!\left(n-k+1\right)!
 \end{eqnarray*}
 .
-\item Nun ist $s$ von unten durch einen Binomialkoeffizienten beschr‰nkt:
+\item Nun ist $s$ von unten durch einen Binomialkoeffizienten beschr√§nkt:
 \begin{eqnarray*}
 s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|} & = & \frac{n!}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\\
  & \geqslant & \frac{n!}{k!\left(n+1-k\right)!}\\
@@ -2451,7 +2451,7 @@ s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \m
  & = & \frac{1}{n+1}\binom{n}{\min\left\{ n,n-k\right\} }
 \end{eqnarray*}
 
-\item F¸r den Binomialkoeffizienten gibt es auch eine untere Schranke:\marginpar{Quelle}
+\item F√ºr den Binomialkoeffizienten gibt es auch eine untere Schranke:\marginpar{Quelle}
 \[
 \binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}=\frac{\prod_{i=n-k+1}^{n}i}{\prod_{i=1}^{k}i}=\prod_{i=1}^{k}\frac{n-k+i}{i}
 \]
@@ -2463,7 +2463,7 @@ s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \m
 \binom{n}{k}\geqslant\left(\frac{n}{k}\right)^{k}
 \]
 
-\item Daher ist $s$ von unten beschr‰nkt:
+\item Daher ist $s$ von unten beschr√§nkt:
 \[
 s\geqslant\frac{1}{n+1}\left(\frac{n}{k'}\right)^{k'}
 \]
@@ -2496,7 +2496,7 @@ s\geqslant\frac{1}{n+1}\left(\frac{n}{k'}\right)^{k'}
  & = & \left(1-\epsilon\right)\log n+2
 \end{eqnarray*}
 
-\item Schlieﬂlich folgt:
+\item Schlie√ülich folgt:
 \begin{eqnarray*}
 4\log s & \geqslant & k'\left(\log n-\log k'\right)\\
  & \geqslant & k'\left(\log n-\left(1-\epsilon\right)\log n-2\right)\\
@@ -2507,11 +2507,11 @@ s\geqslant\frac{1}{n+1}\left(\frac{n}{k'}\right)^{k'}
 
 \end{enumerate}
 \end{proof}
-Eine Partition, die hˆchstens $\frac{n}{2}$ Teile enth‰lt (und daher
+Eine Partition, die h√∂chstens $\frac{n}{2}$ Teile enth√§lt (und daher
 einen kleinen Nebengruppen-Index $\left[\mathrm{Sym}_{U}:\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right]\leqslant2^{n^{1-\epsilon}}$
-hat) muss ein sehr groﬂes Element enthalten.
+hat) muss ein sehr gro√ües Element enthalten.
 \begin{lem}
-F¸r $\epsilon\in\left[0,1\right[$, jedes hinreichend groﬂe Universum
+F√ºr $\epsilon\in\left[0,1\right[$, jedes hinreichend gro√üe Universum
 $U$ mit $n\coloneqq\left|U\right|\geqslant\exp\frac{8}{\epsilon^{2}}$
 und eine Partition $\mathcal{P}$ mit mit $\left|\mathcal{P}\right|\leqslant\frac{n}{2}$
 Elemente gilt:
@@ -2523,7 +2523,7 @@ s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \m
 \]
 
 
-Dann gilt f¸r das m‰chtigste Element von $\mathcal{P}$: 
+Dann gilt f√ºr das m√§chtigste Element von $\mathcal{P}$: 
 \[
 \max\left\{ \#P\mid P\in\mathcal{P}\right\} \geqslant n-\frac{33}{\epsilon}\cdot\frac{\log s}{\log n}
 \]
@@ -2551,10 +2551,10 @@ s\geqslant k-\ell-1+\ell p_{k-1}+p_{k}
 \ell
 \]
  $\ell\leqslant\frac{s-p_{k}-\left(k-1\right)}{\left(p_{k-1}-1\right)}$,
-Durch Umverteilung entstumverteilt werden, um zweitgrˆﬂte Teile und 
+Durch Umverteilung entstumverteilt werden, um zweitgr√∂√üte Teile und 
 
-Sei $S$ die Summe aller Teile auﬂer dem grˆﬂten: $S=\sum_{i=1}^{k-1}p_{i}$.
-$\ell-k+1$ Einsen zu erzeugen, wobei der Wert der Fakult‰t im Nenner
+Sei $S$ die Summe aller Teile au√üer dem gr√∂√üten: $S=\sum_{i=1}^{k-1}p_{i}$.
+$\ell-k+1$ Einsen zu erzeugen, wobei der Wert der Fakult√§t im Nenner
 ansteigt. 
 \begin{eqnarray*}
 s & = & \frac{n!}{\left|\mathrm{Stab}_{U}\left\{ P\right\} \right|}\geqslant\frac{1}{k!}\cdot\frac{n!}{\prod_{i=1}^{k}p_{i}}\\
@@ -2563,17 +2563,17 @@ s & = & \frac{n!}{\left|\mathrm{Stab}_{U}\left\{ P\right\} \right|}\geqslant\fra
 \end{eqnarray*}
 \end{proof}
 \begin{enumerate}
-\item Sei $C$ ein symmetrischer Schaltkreis ¸ber $\left|U\right|=n$ mit
+\item Sei $C$ ein symmetrischer Schaltkreis √ºber $\left|U\right|=n$ mit
 $s=\max_{C}\left|\mathrm{Orb}\left(g\right)\right|\leqslant2^{n^{1-\epsilon}}$;
-so ist die maximale SP eines Gatters hˆchstens $\frac{33}{\epsilon}\frac{\log s}{\log n}$.
+so ist die maximale SP eines Gatters h√∂chstens $\frac{33}{\epsilon}\frac{\log s}{\log n}$.
 (der Orbit eines Gatters entspricht dem Nebengruppen-Index des Stabilisators
 dieses Gatters.)
 \end{enumerate}
 
-\subsection{Tr‰ger im Schaltkreis}
+\subsection{Tr√§ger im Schaltkreis}
 \begin{defn}
 Sei $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ ein rigider, symmetrische
-Schaltkreis ¸ber dem Universum $U$. Der Stabilisator eines Gates
+Schaltkreis √ºber dem Universum $U$. Der Stabilisator eines Gates
 $g\in G$ sei die Gruppe aller Permutationen von $U$, deren induzierter
 Automorphismus $v$ fixiert: 
 \[
@@ -2581,9 +2581,9 @@ Automorphismus $v$ fixiert:
 \]
 
 
-Eine Partition $\mathcal{P}$ von $U$ sei \textbf{Tr‰ger} von $g$,
-wenn sie ein Tr‰ger von $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
-ist. Sei $\mathrm{SP}\left(g\right)$ der grˆbste Tr‰ger von $g$.
+Eine Partition $\mathcal{P}$ von $U$ sei \textbf{Tr√§ger} von $g$,
+wenn sie ein Tr√§ger von $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
+ist. Sei $\mathrm{SP}\left(g\right)$ der gr√∂bste Tr√§ger von $g$.
 \end{defn}
 
 \section{Beschreibung von Symmetrischen Schaltkreis-Familien durch Fixpunktlogik}
@@ -2595,7 +2595,7 @@ $\mathcal{C}$ wird zu einer $\mathrm{FP}+C\left[\sigma\right]$-Formel.
 \end{itemize}
 Nach dem Satz von Immerman-Vardi kann der Polynomialzeit-Algorithmus,
 der $\mathcal{C}$ erzeugt, als Sequenz von $\mathrm{FP}\left[\leqslant\right]$-Formeln
-ausgedr¸ckt werden:
+ausgedr√ºckt werden:
 
 \[
 \left(\varphi_{G},\varphi_{W},\varphi_{\Omega},\varphi_{\mathbf{0}},\varphi_{\mathbf{1}},\varphi_{\neg},\varphi_{\phi}\,\phi\in\mathbb{B},\varphi_{\Lambda}\right)

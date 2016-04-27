@@ -15,7 +15,7 @@ theorems-sec
 \maintain_unincluded_children false
 \language ngerman
 \language_package default
-\inputencoding auto
+\inputencoding utf8
 \fontencoding global
 \font_roman default
 \font_sans default
