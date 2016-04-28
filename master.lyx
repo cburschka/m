@@ -1574,13 +1574,17 @@ Die Notation
 Prädikatenlogik erster Stufe
 \end_layout
 
+\begin_layout Standard
+Diese Arbeit befasst sich ausschließlich mit relationalen Logiken ohne Funktions
+- oder Konstantensymbole.
+\end_layout
+
 \begin_layout Definition
 Die Syntax und Semantik der relationalen Logik erster Stufe 
 \begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
  sind wie folgt definiert.
- Wir verwenden die Kal
 \end_layout
 
 \begin_layout Labeling
@@ -1950,19 +1954,18 @@ Sei
 \end_inset
 
  notiert.
- (Per Definition sei 
-\begin_inset Formula $\mathbf{var}_{2}$
-\end_inset
-
- disjunkt von allen hier betrachteten relationalen Signaturen 
-\begin_inset Formula $\sigma$
-\end_inset
-
-.)
 \end_layout
 
 \begin_layout Definition
-Für eine Menge 
+Für eine von 
+\begin_inset Formula $\mathbf{var}_{2}$
+\end_inset
+
+ disjunkte Signatur 
+\begin_inset Formula $\sigma$
+\end_inset
+
+, eine Menge 
 \begin_inset Formula $\mathcal{R}\subseteq\mathbf{var}_{2}$
 \end_inset
 
@@ -1980,7 +1983,7 @@ Für eine Menge
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 (AV) Für jede Relationsvariable 
-\begin_inset Formula $R/k\in\mathcal{R}$
+\begin_inset Formula $X/k\in\mathcal{R}$
 \end_inset
 
  und ein 
@@ -1996,7 +1999,7 @@ Für eine Menge
 \end_inset
 
 -Termen ist 
-\begin_inset Formula $R\bar{x}$
+\begin_inset Formula $X\bar{x}$
 \end_inset
 
  eine 
@@ -2017,33 +2020,24 @@ Positivität
 \end_layout
 
 \begin_layout Definition
-Die Logik 
-\begin_inset Formula $\mathrm{FO}^{+}\left[\sigma\cup\mathcal{R}\right]$
+Wir definieren die Klasse der 
+\begin_inset Formula $P$
 \end_inset
 
- sei eine Einschränkung von 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+-positiven Formeln für 
+\begin_inset Formula $P\in\mathbf{var}_{2}$
 \end_inset
 
- auf Formeln ohne die Negation (RN).
- Wir definieren die Klasse der 
-\begin_inset Formula $R$
-\end_inset
-
--positiven 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
--Formeln wie folgt:
+ wie folgt:
 \end_layout
 
 \begin_layout Enumerate
 Für 
-\begin_inset Formula $R\in\mathbf{var}_{2}$
+\begin_inset Formula $P\in\mathbf{var}_{2}\backslash\mathcal{R}$
 \end_inset
 
  ist jede 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\cup\mathcal{R}\backslash\left\{ R\right\} \right]$
+\begin_inset Formula $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$
 \end_inset
 
 -Formel 
@@ -2051,18 +2045,46 @@ Für
 \end_inset
 
  sowohl 
-\begin_inset Formula $R$
+\begin_inset Formula $P$
 \end_inset
 
 -positiv als auch 
-\begin_inset Formula $R$
+\begin_inset Formula $P$
 \end_inset
 
 -negativ, da sie 
-\begin_inset Formula $R$
+\begin_inset Formula $P$
 \end_inset
 
  nicht enthält.
+\end_layout
+
+\begin_layout Enumerate
+Für 
+\begin_inset Formula $P/k\in\mathbf{var}_{2}$
+\end_inset
+
+ und jedes 
+\begin_inset Formula $k$
+\end_inset
+
+-Tupel von 
+\begin_inset Formula $P$
+\end_inset
+
+-positiven Termen 
+\begin_inset Formula $x_{1},\cdots,x_{k}$
+\end_inset
+
+ ist auch 
+\begin_inset Formula $P\bar{x}$
+\end_inset
+
+ eine 
+\begin_inset Formula $P$
+\end_inset
+
+-positive Formel.
 \end_layout
 
 \begin_layout Enumerate
@@ -2071,14 +2093,10 @@ Für
 \end_inset
 
  und eine 
-\begin_inset Formula $R$
+\begin_inset Formula $P$
 \end_inset
 
--positive 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$
-\end_inset
-
--Formel 
+-positive Formel 
 \begin_inset Formula $\varphi$
 \end_inset
 
@@ -2086,11 +2104,11 @@ Für
 \begin_inset Formula $\neg\varphi$
 \end_inset
 
- eine 
-\begin_inset Formula $R$
+ 
+\begin_inset Formula $P$
 \end_inset
 
--negative Formel, und umgekehrt.
+-negativ, und umgekehrt.
 \end_layout
 
 \begin_layout Enumerate
@@ -2103,11 +2121,11 @@ Für einen Junktor
 \end_inset
 
  
-\begin_inset Formula $R$
+\begin_inset Formula $P$
 \end_inset
 
 -positive (beziehungsweise 
-\begin_inset Formula $R$
+\begin_inset Formula $P$
 \end_inset
 
 -negative) Formeln 
@@ -2119,11 +2137,11 @@ Für einen Junktor
 \end_inset
 
  ebenfalls 
-\begin_inset Formula $R$
+\begin_inset Formula $P$
 \end_inset
 
 -positiv (beziehungsweise 
-\begin_inset Formula $R$
+\begin_inset Formula $P$
 \end_inset
 
 -negativ).
@@ -2139,11 +2157,11 @@ Für einen Quantor
 \end_inset
 
  und eine 
-\begin_inset Formula $R$
+\begin_inset Formula $P$
 \end_inset
 
 -positive (beziehungsweise 
-\begin_inset Formula $R$
+\begin_inset Formula $P$
 \end_inset
 
 -negative) Formel 
@@ -2155,11 +2173,11 @@ Für einen Quantor
 \end_inset
 
  ebenfalls 
-\begin_inset Formula $R$
+\begin_inset Formula $P$
 \end_inset
 
 -positiv (beziehungsweise 
-\begin_inset Formula $R$
+\begin_inset Formula $P$
 \end_inset
 
 -negativ).
@@ -2170,12 +2188,12 @@ Für einen Quantor
 \end_layout
 
 \begin_layout Definition
-Die inflationäre Fixpunktlogik 
+Die Fixpunktlogik 
 \begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
  erweitert 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}\left[\sigma\cup\mathbf{var}_{2}\right]$
 \end_inset
 
  um den folgenden Fixpunkt-Operator:
@@ -2183,44 +2201,19 @@ Die inflationäre Fixpunktlogik
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
-A Für 
-\begin_inset Formula $\mathcal{R}\subseteq\mathbf{var}_{2}$
-\end_inset
-
-, ein 
-\begin_inset Formula $k$
-\end_inset
-
--Tupel 
-\begin_inset Formula $\bar{x}$
-\end_inset
-
- von 
-\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}\right]$
-\end_inset
-
--Termen und eine Relationsvariable 
-\begin_inset Formula $R/k\in\mathbf{var}_{2}$
-\end_inset
-
- ist 
-\begin_inset Formula $R\bar{x}$
-\end_inset
-
- eine 
-\begin_inset Formula $\mathrm{FO}+\mathrm{IFP}\left[\sigma\cup\mathcal{R}\cup\left\{ R\right\} \right]$
-\end_inset
-
--Formel.
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-R4 Für 
+(LFP) Für 
 \begin_inset Formula $\mathcal{R}_{1},\mathcal{R}_{2}\subseteq\mathbf{var}_{2}$
 \end_inset
 
+, eine Relationsvariable 
+\begin_inset Formula $X/k\in\mathcal{R}_{1}$
+\end_inset
+
 , eine 
+\begin_inset Formula $X$
+\end_inset
+
+-positive 
 \begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}_{1}\right]$
 \end_inset
 
@@ -2228,11 +2221,7 @@ R4 Für
 \begin_inset Formula $\psi$
 \end_inset
 
-, eine Relationsvariable 
-\begin_inset Formula $R/k\in\mathbf{var}_{2}$
-\end_inset
-
-, ein Tupel 
+, , ein Tupel 
 \begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
 \end_inset
 
@@ -2245,15 +2234,15 @@ R4 Für
 \end_inset
 
  von 
-\begin_inset Formula $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\cup\tau_{2}\right]$
+\begin_inset Formula $\mathrm{\mathrm{FO}+\mathrm{LFP}}\left[\sigma\cup\mathcal{R}_{2}\right]$
 \end_inset
 
 -Termen ist 
-\begin_inset Formula $\varphi=\left[\mathrm{ifp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
+\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
 \end_inset
 
  eine 
-\begin_inset Formula $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\cup\left(\tau_{1}\backslash\left\{ R\right\} \right)\cup\tau_{2}\right]$
+\begin_inset Formula $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\cup\left(\mathcal{R}_{1}\backslash\left\{ X\right\} \right)\cup\mathcal{R}_{2}\right]$
 \end_inset
 
 -Formel.
@@ -2275,7 +2264,7 @@ Insbesondere besteht für eine relationale Signatur
 \end_inset
 
  die Logik 
-\begin_inset Formula $\mathrm{FO}+\mathrm{IFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
  nur aus Formeln, in denen alle Relationsvariablen durch Fixpunkt-Operatoren
@@ -2283,8 +2272,12 @@ Insbesondere besteht für eine relationale Signatur
 \end_layout
 
 \begin_layout Description
-Auswertung: Für eine 
-\begin_inset Formula $\sigma$
+Auswertung: Für 
+\begin_inset Formula $X/k\in\mathcal{R}\subseteq\mathbf{var}_{2}$
+\end_inset
+
+, eine 
+\begin_inset Formula $\left(\sigma\cup\mathcal{R}\backslash\left\{ X\right\} \right)$
 \end_inset
 
 -Struktur 
@@ -2292,40 +2285,40 @@ Auswertung: Für eine
 \end_inset
 
 , eine 
-\begin_inset Formula $\mathrm{FO}+\mathrm{IFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}\right]$
 \end_inset
 
 -Formel und eine Belegung 
-\begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
+\begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\backslash\bar{x}\rightarrow A$
 \end_inset
 
  definieren wir eine Sequenz von 
-\begin_inset Formula $\left\{ R\right\} $
+\begin_inset Formula $\left(\sigma\cup\mathcal{R}\right)$
 \end_inset
 
 -Strukturen 
-\begin_inset Formula $\left(\mathfrak{R}^{\left(i\right)}\right)_{i\in\mathbb{N}}$
-\end_inset
-
- und die Relationen 
-\begin_inset Formula $\left(R^{\left(i\right)}\right)_{i\in\mathbb{N}}$
+\begin_inset Formula $\left(\mathfrak{A}^{\left(i\right)}\right)_{i\in\mathbb{N}}$
 \end_inset
 
  wie folgt: 
 \begin_inset Formula 
 \begin{eqnarray*}
+\mathfrak{A}^{\left(i\right)} & \coloneqq & \left(A,\left(R^{\mathfrak{A}}\right)_{R}R^{\left(i\right)}\right)\\
 R^{\left(0\right)} & \coloneqq & \emptyset\\
-\mathfrak{R}^{\left(i\right)} & \coloneqq & \left(A,R^{\left(i\right)}\right)\\
-R^{\left(i+1\right)} & \coloneqq & R^{\left(i\right)}\cup\psi^{\beta_{\backslash\bar{x}}}\left(\mathfrak{A}\right)
+R^{\left(i+1\right)} & \coloneqq & \varphi^{\beta}\left(\mathfrak{A}^{\left(i\right)}\right)
 \end{eqnarray*}
 
 \end_inset
 
 Das heißt: 
+\begin_inset Formula $R^{\left(0\right)}$
+\end_inset
+
+ ist leer, und 
 \begin_inset Formula $R^{\left(i+1\right)}$
 \end_inset
 
- fügt das Anfrageergebnis hinzu, das unter der partiellen Belegung 
+ ist das Anfrageergebnis, das unter der partiellen Belegung 
 \begin_inset Formula $\beta_{\backslash\bar{x}}$
 \end_inset
 
@@ -2338,6 +2331,11 @@ Das heißt:
 \end_inset
 
  interpretiert wird.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Aus
 \end_layout
 
 \begin_layout Standard
@@ -2357,6 +2355,7 @@ Da
  wie folgt auswertet:
 \end_layout
 
+\end_deeper
 \begin_layout Standard
 \begin_inset Formula 
 \begin{eqnarray*}

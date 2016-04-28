@@ -454,9 +454,12 @@ unter allen Belegungen erfüllt wird.
 \end{defn}
 
 \subsection{Prädikatenlogik erster Stufe}
+
+Diese Arbeit befasst sich ausschließlich mit relationalen Logiken
+ohne Funktions- oder Konstantensymbole.
 \begin{defn}
 Die Syntax und Semantik der relationalen Logik erster Stufe $\mathrm{FO}\left[\sigma\right]$
-sind wie folgt definiert. Wir verwenden die Kal\end{defn}
+sind wie folgt definiert.\end{defn}
 \begin{lyxlist}{00.00.0000}
 \item [{(TV)}] Für jede Variable $x\in\mathbf{var}$ ist $x$ ein $\mathrm{FO}\left[\sigma\right]$-Term.
 \[
@@ -555,57 +558,54 @@ Ist dies nicht der Fall, so ist $Qx\varphi\equiv\varphi$.)
 \begin{defn}
 Sei $\mathbf{var}_{2}$ die Menge aller Relationsvariablen. Jede solche
 Variable $R\in\mathbf{var}_{2}$ besitzt eine Stelligkeit $\mathrm{ar}\left(R\right)=k\in\mathbb{N}_{\geqslant1}$;
-diese wird auch durch $R/k\in\mathbf{var}_{2}$ notiert. (Per Definition
-sei $\mathbf{var}_{2}$ disjunkt von allen hier betrachteten relationalen
-Signaturen $\sigma$.)
+diese wird auch durch $R/k\in\mathbf{var}_{2}$ notiert.
 
-Für eine Menge $\mathcal{R}\subseteq\mathbf{var}_{2}$ ist die $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$-Logik
+Für eine von $\mathbf{var}_{2}$ disjunkte Signatur $\sigma$, eine
+Menge $\mathcal{R}\subseteq\mathbf{var}_{2}$ ist die $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$-Logik
 eine Erweiterung der $\mathrm{FO}\left[\sigma\right]$-Logik um die
 folgende Regel:\end{defn}
 \begin{lyxlist}{00.00.0000}
-\item [{(AV)}] Für jede Relationsvariable $R/k\in\mathcal{R}$ und ein
+\item [{(AV)}] Für jede Relationsvariable $X/k\in\mathcal{R}$ und ein
 $k$-Tupel $\bar{x}$ von $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$-Termen
-ist $R\bar{x}$ eine $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$-Formel.
+ist $X\bar{x}$ eine $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$-Formel.
 \end{lyxlist}
 
 \begin{defn}
 \textbf{Positivität}
 
-Die Logik $\mathrm{FO}^{+}\left[\sigma\cup\mathcal{R}\right]$ sei
-eine Einschränkung von $\mathrm{FO}\left[\sigma\right]$ auf Formeln
-ohne die Negation (RN). Wir definieren die Klasse der $R$-positiven
-$\mathrm{FO}\left[\sigma\right]$-Formeln wie folgt:\end{defn}
+Wir definieren die Klasse der $P$-positiven Formeln für $P\in\mathbf{var}_{2}$
+wie folgt:\end{defn}
 \begin{enumerate}
-\item Für $R\in\mathbf{var}_{2}$ ist jede $\mathrm{FO}\left[\sigma\cup\mathcal{R}\backslash\left\{ R\right\} \right]$-Formel
-$\varphi$ sowohl $R$-positiv als auch $R$-negativ, da sie $R$
+\item Für $P\in\mathbf{var}_{2}\backslash\mathcal{R}$ ist jede $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$-Formel
+$\varphi$ sowohl $P$-positiv als auch $P$-negativ, da sie $P$
 nicht enthält.
-\item Für $\mathcal{R}\subseteq\mathbf{var}_{2}$ und eine $R$-positive
-$\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$-Formel $\varphi$
-ist $\neg\varphi$ eine $R$-negative Formel, und umgekehrt.
+\item Für $P/k\in\mathbf{var}_{2}$ und jedes $k$-Tupel von $P$-positiven
+Termen $x_{1},\cdots,x_{k}$ ist auch $P\bar{x}$ eine $P$-positive
+Formel.
+\item Für $\mathcal{R}\subseteq\mathbf{var}_{2}$ und eine $P$-positive
+Formel $\varphi$ ist $\neg\varphi$ $P$-negativ, und umgekehrt.
 \item Für einen Junktor $\gamma\in\left\{ \wedge,\vee\right\} $ und $k\geqslant2$
-$R$-positive (beziehungsweise $R$-negative) Formeln $\varphi_{1},\cdots,\varphi_{k}$
+$P$-positive (beziehungsweise $P$-negative) Formeln $\varphi_{1},\cdots,\varphi_{k}$
 ist $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)$ ebenfalls
-$R$-positiv (beziehungsweise $R$-negativ).
+$P$-positiv (beziehungsweise $P$-negativ).
 \item Für einen Quantor $Q\in\left\{ \exists,\forall\right\} $, eine Variable
-$x\in\mathbf{var}$ und eine $R$-positive (beziehungsweise $R$-negative)
-Formel $\varphi$ ist $Qx\varphi$ ebenfalls $R$-positiv (beziehungsweise
-$R$-negativ).
+$x\in\mathbf{var}$ und eine $P$-positive (beziehungsweise $P$-negative)
+Formel $\varphi$ ist $Qx\varphi$ ebenfalls $P$-positiv (beziehungsweise
+$P$-negativ).
 \end{enumerate}
 
 \begin{defn}
-Die inflationäre Fixpunktlogik $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
-erweitert $\mathrm{FO}\left[\sigma\right]$ um den folgenden Fixpunkt-Operator:\end{defn}
+Die Fixpunktlogik $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$ erweitert
+$\mathrm{FO}\left[\sigma\cup\mathbf{var}_{2}\right]$ um den folgenden
+Fixpunkt-Operator:\end{defn}
 \begin{lyxlist}{00.00.0000}
-\item [{A}] Für $\mathcal{R}\subseteq\mathbf{var}_{2}$, ein $k$-Tupel
-$\bar{x}$ von $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}\right]$-Termen
-und eine Relationsvariable $R/k\in\mathbf{var}_{2}$ ist $R\bar{x}$
-eine $\mathrm{FO}+\mathrm{IFP}\left[\sigma\cup\mathcal{R}\cup\left\{ R\right\} \right]$-Formel.
-\item [{R4}] Für $\mathcal{R}_{1},\mathcal{R}_{2}\subseteq\mathbf{var}_{2}$,
-eine $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}_{1}\right]$-Formel
-$\psi$, eine Relationsvariable $R/k\in\mathbf{var}_{2}$, ein Tupel
-$\bar{x}\in\mathbf{var}^{k}$ und ein $k$-Tupel $\bar{y}$ von $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\cup\tau_{2}\right]$-Termen
-ist $\varphi=\left[\mathrm{ifp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
-eine $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\cup\left(\tau_{1}\backslash\left\{ R\right\} \right)\cup\tau_{2}\right]$-Formel.
+\item [{(LFP)}] Für $\mathcal{R}_{1},\mathcal{R}_{2}\subseteq\mathbf{var}_{2}$,
+eine Relationsvariable $X/k\in\mathcal{R}_{1}$, eine $X$-positive
+$\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}_{1}\right]$-Formel
+$\psi$, , ein Tupel $\bar{x}\in\mathbf{var}^{k}$ und ein $k$-Tupel
+$\bar{y}$ von $\mathrm{\mathrm{FO}+\mathrm{LFP}}\left[\sigma\cup\mathcal{R}_{2}\right]$-Termen
+ist $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
+eine $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\cup\left(\mathcal{R}_{1}\backslash\left\{ X\right\} \right)\cup\mathcal{R}_{2}\right]$-Formel.
 \begin{eqnarray*}
 \mathrm{frei}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{frei}\left(y_{i}\right)\\
 \mathrm{var}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{var}\left(\psi\right)\cup\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{var}\left(y_{i}\right)\\
@@ -614,29 +614,35 @@ eine $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\cup\left(\tau_{1}\backslash\
 \end{lyxlist}
 \begin{rem*}
 Insbesondere besteht für eine relationale Signatur $\sigma$ die Logik
-$\mathrm{FO}+\mathrm{IFP}\left[\sigma\right]$ nur aus Formeln, in
+$\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$ nur aus Formeln, in
 denen alle Relationsvariablen durch Fixpunkt-Operatoren gebunden sind.\end{rem*}
 \begin{description}
-\item [{Auswertung:}] Für eine $\sigma$-Struktur $\mathfrak{A}$, eine
-$\mathrm{FO}+\mathrm{IFP}\left[\sigma\right]$-Formel und eine Belegung
-$\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$ definieren
-wir eine Sequenz von $\left\{ R\right\} $-Strukturen $\left(\mathfrak{R}^{\left(i\right)}\right)_{i\in\mathbb{N}}$
-und die Relationen $\left(R^{\left(i\right)}\right)_{i\in\mathbb{N}}$
-wie folgt: 
+\item [{Auswertung:}] Für $X/k\in\mathcal{R}\subseteq\mathbf{var}_{2}$,
+eine $\left(\sigma\cup\mathcal{R}\backslash\left\{ X\right\} \right)$-Struktur
+$\mathfrak{A}$, eine $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}\right]$-Formel
+und eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\backslash\bar{x}\rightarrow A$
+definieren wir eine Sequenz von $\left(\sigma\cup\mathcal{R}\right)$-Strukturen
+$\left(\mathfrak{A}^{\left(i\right)}\right)_{i\in\mathbb{N}}$ wie
+folgt: 
 \begin{eqnarray*}
+\mathfrak{A}^{\left(i\right)} & \coloneqq & \left(A,\left(R^{\mathfrak{A}}\right)_{R}R^{\left(i\right)}\right)\\
 R^{\left(0\right)} & \coloneqq & \emptyset\\
-\mathfrak{R}^{\left(i\right)} & \coloneqq & \left(A,R^{\left(i\right)}\right)\\
-R^{\left(i+1\right)} & \coloneqq & R^{\left(i\right)}\cup\psi^{\beta_{\backslash\bar{x}}}\left(\mathfrak{A}\right)
+R^{\left(i+1\right)} & \coloneqq & \varphi^{\beta}\left(\mathfrak{A}^{\left(i\right)}\right)
 \end{eqnarray*}
-Das heißt: $R^{\left(i+1\right)}$ fügt das Anfrageergebnis hinzu,
-das unter der partiellen Belegung $\beta_{\backslash\bar{x}}$ entsteht,
-wenn das Symbol $R$ durch die Relation $R^{\left(i\right)}$ interpretiert
-wird.
-\end{description}
+Das heißt: $R^{\left(0\right)}$ ist leer, und $R^{\left(i+1\right)}$
+ist das Anfrageergebnis, das unter der partiellen Belegung $\beta_{\backslash\bar{x}}$
+entsteht, wenn das Symbol $R$ durch die Relation $R^{\left(i\right)}$
+interpretiert wird.
+
+
+Aus
+
+
 Da $R^{\left(i\right)}\subseteq R^{\left(i+1\right)}\subseteq A^{k}$,
 existiert ein Fixpunkt $R^{\left(\infty\right)}=R^{\left(\left|A\right|^{k}\right)}$.
 Nun wird $\varphi$ wie folgt auswertet:
 
+\end{description}
 \begin{eqnarray*}
 \mathfrak{A}\models\left(\left[\mathrm{ifp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)\right)^{\beta} & \Leftrightarrow & \left\llbracket \bar{y}\right\rrbracket \left(\mathfrak{A},\beta\right)\in R^{\left(\infty\right)}
 \end{eqnarray*}
