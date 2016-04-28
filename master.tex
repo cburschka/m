@@ -581,15 +581,16 @@ Produktionen einführt.
 Für eine $\mathscr{L}\left[\sigma\right]$-Formel $\varphi$ und $n\in\mathbb{N}$
 drücke $\models_{n}\varphi$ aus, dass diese von allen $\sigma$-Strukturen
 $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
-der Größe $n$ unter allen Belegungen erfüllt wird.
+der Größe $n$ unter allen Belegungen erfüllt wird. Die Notation $\models_{\mathrm{fin}}\varphi$
+drücke aus, dass $\varphi$ von allen endlichen $\sigma$-Strukturen
+$\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ unter allen Belegungen
+erfüllt wird.
 
-Insbesondere bedeute $\models_{n}\left(\varphi\leftrightarrow\psi\right)$,
-dass $\varphi$ und $\psi$ auf allen $\sigma$-Strukturen der Größe
-$n$ äquivalent sind.
-
-Die Notation $\models_{\mathrm{fin}}\varphi$ drücke aus, dass $\varphi$
-von allen endlichen $\sigma$-Strukturen $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
-unter allen Belegungen erfüllt wird.
+Falls $\models_{n}\left(\varphi\leftrightarrow\psi\right)$, so heißen
+$\varphi$ und $\psi$ $n$-\textbf{äquivalent}. Insbesondere bedeutet
+dies, dass $\varphi\left(\bar{x}\right)$ und $\psi\left(\bar{x}\right)$
+das gleiche Argument $\bar{x}$ haben und die gleiche Anfrage $q_{\varphi}=q_{\psi}$
+auf Strukturen der Größe $n$ definieren.
 \end{defn}
 
 \subsection{Prädikatenlogik erster Stufe}
@@ -1735,7 +1736,7 @@ um maximal $3$ Kanten verlängert, und maximal $5n^{k}$ Gates hinzufügt.
 
 Wir betrachten die Logik $\mathrm{FO}+\mathbf{ORD}$, und weisen nach,
 dass die Konstruktion aus Lemma \ref{lem:FO-Circuit} angepasst werden
-kann, ohne die Klasse der $P$-uniformen symmetrischen Schaltkreise
+kann, ohne die Klasse der $P$-uniformen symmetrischen $\mathrm{AC}^{0}$-Schaltkreise
 zu verlassen.
 \begin{lem}
 \label{lem:fo-ord}Jede $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
@@ -1822,7 +1823,7 @@ die die Elemente von $N$ auf sich selbst abbildet. Offensichtlich
 ist $\dot{\pi}\in\mathrm{Sym}_{\dot{U}}$ eine Permutation von $\dot{U}=\left(\ddot{U}\uplus N\right)$.
 
 Entsprechend ist $\pi\coloneqq\rho^{-1}\dot{\pi}\in\mathrm{Sym}_{U}$
-eine Permutation von $U=\left\{ 1,\cdots,2n+1\right\} $ mit $\pi_{\mid\left\{ n+1,\cdots,2n+1\right\} }=\mathbf{id}$.
+eine Permutation von $U=\left[1,2n+1\right]$ mit $\pi_{\mid\left[n+1,2n+1\right]}=\mathbf{id}$.
 
 Aus der Symmetrie des Schaltkreises $\mathcal{C}_{2n+1}^{\varphi}$
 bezüglich $\mathrm{Sym}_{U}$ (siehe Lemma \ref{lem:FO-Circuit})
@@ -2261,12 +2262,10 @@ und Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\ma
 \subsection{Fixpunktlogik}
 
 Die Fixpunktlogik $\mathrm{FO+LFP}\left[\sigma\right]$ ist echt ausdrucksstärker
-als die Logik $\mathrm{FO}\left[\sigma\right]$.
-
-Beispielsweise ist die Erreichbarkeit über einen Pfad beliebiger Länge
-nicht erststufig definierbar \cite{Libkin:2004:EFM:1024196,Immerman1982}.
-In $\mathrm{FO+FP}\left[\left\{ E\right\} \right]$ wird diese Klasse
-durch die folgende Formel definiert:
+als die Logik $\mathrm{FO}\left[\sigma\right]$. Beispielsweise ist
+die Erreichbarkeit über einen Pfad beliebiger Länge nicht erststufig
+definierbar \cite{Libkin:2004:EFM:1024196,Immerman1982}. In $\mathrm{FO+FP}\left[\left\{ E\right\} \right]$
+wird diese Klasse durch die folgende Formel definiert:
 \[
 \varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
 \]
@@ -2300,42 +2299,67 @@ $\hat{\varphi}$ mit höchstens $2\left\Vert \varphi\right\Vert $
 Variablen und $\left\Vert \hat{\varphi}\right\Vert \leqslant n^{\left\Vert \varphi\right\Vert }$,
 so dass $\models_{n}\left(\hat{\varphi}\leftrightarrow\varphi\right)$.\end{lem}
 \begin{proof}
-Die Konstruktion erfolgt induktiv über die Definition von $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$:
+Die Konstruktion erfolgt induktiv über die Definition von $\mathrm{FO}+\mathrm{LFP}$.
+Sei $\varphi$ eine $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Formel
+für eine Signatur $\sigma$.
+
+Die Tatsache, dass jeder $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Term
+$t$ eine Variable $t\in\mathbf{var}$ ist, macht die atomaren Fälle
+trivial.
 \begin{casenv}
-\item Die Schritte $R\bar{x}$, $x_{1}\dot{=}x_{2}$, $\neg\varphi$, $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{m}\right)$
-und $Qx\varphi$ sind trivial.
-\item Falls $\varphi=\left[\mathrm{ifp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
-für eine Relationsvariable $R\notin\sigma$ mit $\bar{x}\in\mathbf{var}^{m}$
-und $\bar{y}\in\left(\mathrm{IFP}\left[\sigma\right]-\mathrm{Term}\right)^{m}$
-, so gilt:
-
-
-Per Induktionsannahme existiert für jedes $n\in\mathbb{N}$ eine $\mathrm{FO}\left[\sigma\right]$-Formel
-$\psi_{n}$, so dass $\psi_{n}\equiv_{n}\psi$.
-
-
-Sei $\varphi_{n}^{\left(n^{m}\right)}$ wie folgt induktiv definiert.
-Hierbei soll $\varphi_{n}^{\left(i\right)}$ in einer Struktur $\mathfrak{A}$
-die Anfrage $q\left(\mathfrak{A}\right)=R^{\left(i\right)}$ definieren.
-$R^{\left(n^{m}\right)}$ ist der Fixpunkt von $R$.
-\begin{itemize}
-\item Sei $\varphi_{n}^{\left(0\right)}\left(\bar{x}\right)$ die unerfüllbare
-Formel $\bot\coloneqq\neg x_{1}=x_{1}$. Per Definition ist $R^{\left(0\right)}=\emptyset$,
-und $\varphi_{n}^{\left(0\right)}$ definiert diese Anfrage.
-\item Sei $\varphi_{n}^{\left(i+1\right)}\left(\bar{x}\right)$ entsteht
-aus $\left(\psi_{n}\left(\bar{x}\right)\vee R\bar{x}\right)$, in
-dem jede atomare Teilformel $R\bar{z}$ durch die folgende Formel
-$\chi^{\left(n\right)}\left(\bar{z}\right)$ ersetzt wird, wobei $\bar{u}\in\mathbf{var}^{k}$
-ein Tupel von Variablen sei, die nicht in $\bar{x}$ oder $\bar{z}$
-vorkommen:\footnote{Hier stehe $\exists\bar{x}\psi$ für $\exists x_{1}\cdots\exists x_{m}\psi$
-und $\bar{x}=\bar{y}$ für $\bigwedge_{i=1}^{m}x_{i}=y_{i}$.}
+\item Falls $\varphi=R\bar{x}$ für ein $k$-Tupel von $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Termen
+$x$ und $R/k\in\sigma$, so ist $\varphi$ bereits eine $\mathrm{FO}\left[\sigma\right]$-Formel.
+\item Falls $\varphi=x_{1}\dot{=}x_{2}$ für zwei $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Terme
+$x_{1},x_{2}$, so ist $\varphi$ bereits eine $\mathrm{FO}\left[\sigma\right]$-Formel.
+\item Falls $\varphi=\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)$
+für $k$ $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Formeln $\varphi_{1},\cdots,\varphi_{k}$
+und $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $,
+so existieren per Annahme die dazu $n$-äquivalenten $\mathrm{FO}\left[\sigma\right]$-Formeln
+$\hat{\varphi_{1}},\cdots,\hat{\varphi_{k}}$:
 \[
-\chi^{\left(n\right)}\left(\bar{z}\right)\coloneqq\exists\bar{u}\left(\bar{u}=\bar{z}\exists\bar{x}\left(\bar{x}=\bar{u}\wedge\varphi_{n}^{\left(i\right)}\left(\bar{x}\right)\right)\right)
+\hat{\varphi}\coloneqq\left(\hat{\varphi_{1}}\gamma\cdots\gamma\hat{\varphi_{k}}\right)
 \]
-(Der Zwischenschritt über $\bar{u}$ ist notwendig, weil $\bar{z}$
-und $\bar{x}$ zum Teil die gleichen Variablen enthalten können, und
-daher ihr Geltungsbereich nicht überlappen darf.)
 
+\item Falls $\varphi=\neg\psi$ für eine $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Formel
+$\psi$, so existiert per Annahme die $n$-äquivalente Formel $\hat{\psi}$:
+\begin{eqnarray*}
+\hat{\varphi} & \coloneqq & \neg\hat{\psi}
+\end{eqnarray*}
+
+\item Falls $\varphi=Qx\psi$ für $Q\in\left\{ \exists,\forall\right\} $,
+$x\in\mathbf{var}$ und eine $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Formel
+$\psi$ , so existiert per Annahme die $n$-äquivalente Formel $\hat{\psi}$:
+\begin{eqnarray*}
+\hat{\varphi} & \coloneqq & Qx\hat{\psi}
+\end{eqnarray*}
+
+\item Falls $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
+für eine $k$-stellige Relationsvariable $X\in\mathbf{var}_{2}\backslash\sigma$,
+$\bar{x}\in\mathbf{var}^{k}$, eine $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\left\{ X\right\} \right]$-Formel
+$\psi$ und ein $k$-Tupel von $\mathrm{FO+LFP}\left[\sigma\right]$-Termen
+$\bar{y}$, so gilt:
+
+
+Per Induktionsannahme existiert eine $\mathrm{FO}\left[\sigma\right]$-Formel
+$\hat{\psi}$ mit $\models_{n}\left(\hat{\psi}\leftrightarrow\psi\right)$.
+
+
+Sei die Sequenz $\left(\hat{\psi}^{\left(i\right)}\right)_{i\in\mathbb{N}}$
+induktiv wie folgt induktiv definiert. Sei $\bar{u}\in\mathbf{var}^{k}\backslash\mathrm{frei}\left(\psi\right)$
+ein Tupel von Variablen, die nicht frei in $\psi$ vorkommen.
+\begin{eqnarray*}
+\hat{\psi}^{\left(0\right)}\left(\bar{x}\right) & \coloneqq & \neg x_{1}\dot{=}x_{1}\\
+\chi^{\left(i\right)}\left(\bar{z}\right) & \coloneqq & \exists\bar{u}\left(\bar{u}=\bar{z}\wedge\exists\bar{x}\left(\bar{x}=\bar{u}\wedge\psi^{\left(i\right)}\left(\bar{x}\right)\right)\right)\\
+\hat{\psi}^{\left(i+1\right)} & \coloneqq & \left(\hat{\psi}^{\left(i\right)}\right)^{\left(\frac{R\bar{z}}{\chi^{\left(i\right)}\left(\bar{z}\right)}\right)}
+\end{eqnarray*}
+Hierbei sei $\psi^{\left(\frac{R\bar{x}}{\varphi\left(\bar{x}\right)}\right)}$
+die Formel, die aus $\psi$ entsteht, indem alle Atome $R\bar{x}$
+durch $\varphi\left(\bar{x}\right)$ ersetzt werden. Der Zwischenschritt
+über $\bar{u}$ ist notwendig, weil $\bar{z}$ und $\bar{x}$ zum
+Teil die gleichen Variablen enthalten können, und daher ihr Geltungsbereich
+nicht überlappen darf.
+
+\end{casenv}
 
 Unter der Annahme, dass $\varphi_{n}^{\left(i\right)}\left(\bar{x}\right)$
 auf $\mathfrak{A}$ die Anfrage $q\left(\mathfrak{A}\right)=R^{\left(i\right)}$
@@ -2347,13 +2371,11 @@ Daher gilt $\bar{t}\models\left\llbracket \varphi_{n}^{\left(i+1\right)}\left(\b
 genau dann wenn $\bar{t}\models\left\llbracket \psi_{n}\right\rrbracket \left(\mathfrak{A},R^{\left(i\right)}\right)$,
 und $\varphi_{n}^{\left(i+1\right)}$ definiert die Anfrage $q\left(\mathfrak{A}\right)=R^{\left(i+1\right)}$.
 
-\end{itemize}
 
 Schließlich entsteht $\varphi_{n}\left(\bar{y}\right)$ aus $\varphi_{n}^{\left(n^{m}\right)}\left(\bar{x}\right)$,
 indem die freien Variablen $x_{1},\cdots,x_{m}$ in $y_{1},\cdots,y_{m}$
 umbenannt werden. Damit gilt $\varphi_{n}\equiv_{n}\varphi$.
 
-\end{casenv}
 Die so erzeugte Formel $\varphi_{n}$ hat höchstens $\left|\mathrm{var}\left(\varphi\right)\right|+\left\Vert \varphi\right\Vert \leqslant2\left\Vert \varphi\right\Vert $
 Variablen: Nur in Fall 4 werden $m$ neue Variablen eingefügt, und
 für jeden solchen Induktionsschritt enthält $\varphi$ bereits ein

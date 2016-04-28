@@ -2194,34 +2194,7 @@ Für eine
 \end_inset
 
  unter allen Belegungen erfüllt wird.
-\end_layout
-
-\begin_layout Definition
-Insbesondere bedeute 
-\begin_inset Formula $\models_{n}\left(\varphi\leftrightarrow\psi\right)$
-\end_inset
-
-, dass 
-\begin_inset Formula $\varphi$
-\end_inset
-
- und 
-\begin_inset Formula $\psi$
-\end_inset
-
- auf allen 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Strukturen der Größe 
-\begin_inset Formula $n$
-\end_inset
-
- äquivalent sind.
-\end_layout
-
-\begin_layout Definition
-Die Notation 
+ Die Notation 
 \begin_inset Formula $\models_{\mathrm{fin}}\varphi$
 \end_inset
 
@@ -2238,6 +2211,51 @@ Die Notation
 \end_inset
 
  unter allen Belegungen erfüllt wird.
+\end_layout
+
+\begin_layout Definition
+Falls 
+\begin_inset Formula $\models_{n}\left(\varphi\leftrightarrow\psi\right)$
+\end_inset
+
+, so heißen 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ und 
+\begin_inset Formula $\psi$
+\end_inset
+
+ 
+\begin_inset Formula $n$
+\end_inset
+
+-
+\series bold
+äquivalent
+\series default
+.
+ Insbesondere bedeutet dies, dass 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\psi\left(\bar{x}\right)$
+\end_inset
+
+ das gleiche Argument 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ haben und die gleiche Anfrage 
+\begin_inset Formula $q_{\varphi}=q_{\psi}$
+\end_inset
+
+ auf Strukturen der Größe 
+\begin_inset Formula $n$
+\end_inset
+
+ definieren.
 \end_layout
 
 \begin_layout Subsection
@@ -6656,7 +6674,11 @@ reference "lem:FO-Circuit"
 \begin_inset Formula $P$
 \end_inset
 
--uniformen symmetrischen Schaltkreise zu verlassen.
+-uniformen symmetrischen 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+-Schaltkreise zu verlassen.
 \end_layout
 
 \begin_layout Lemma
@@ -6945,11 +6967,11 @@ Entsprechend ist
 \end_inset
 
  eine Permutation von 
-\begin_inset Formula $U=\left\{ 1,\cdots,2n+1\right\} $
+\begin_inset Formula $U=\left[1,2n+1\right]$
 \end_inset
 
  mit 
-\begin_inset Formula $\pi_{\mid\left\{ n+1,\cdots,2n+1\right\} }=\mathbf{id}$
+\begin_inset Formula $\pi_{\mid\left[n+1,2n+1\right]}=\mathbf{id}$
 \end_inset
 
 .
@@ -8439,11 +8461,8 @@ Die Fixpunktlogik
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-Beispielsweise ist die Erreichbarkeit über einen Pfad beliebiger Länge nicht
- erststufig definierbar 
+ Beispielsweise ist die Erreichbarkeit über einen Pfad beliebiger Länge
+ nicht erststufig definierbar 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Libkin:2004:EFM:1024196,Immerman1982"
@@ -8588,193 +8607,313 @@ Für jede
 
 \begin_layout Proof
 Die Konstruktion erfolgt induktiv über die Definition von 
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}$
+\end_inset
+
+.
+ Sei 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ eine 
 \begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
-:
+-Formel für eine Signatur 
+\begin_inset Formula $\sigma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Die Tatsache, dass jeder 
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
+\end_inset
+
+-Term 
+\begin_inset Formula $t$
+\end_inset
+
+ eine Variable 
+\begin_inset Formula $t\in\mathbf{var}$
+\end_inset
+
+ ist, macht die atomaren Fälle trivial.
 \end_layout
 
 \begin_deeper
 \begin_layout Case
-Die Schritte 
-\begin_inset Formula $R\bar{x}$
+Falls 
+\begin_inset Formula $\varphi=R\bar{x}$
 \end_inset
 
-, 
-\begin_inset Formula $x_{1}\dot{=}x_{2}$
+ für ein 
+\begin_inset Formula $k$
 \end_inset
 
-, 
-\begin_inset Formula $\neg\varphi$
+-Tupel von 
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
-, 
-\begin_inset Formula $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{m}\right)$
+-Termen 
+\begin_inset Formula $x$
 \end_inset
 
  und 
-\begin_inset Formula $Qx\varphi$
+\begin_inset Formula $R/k\in\sigma$
 \end_inset
 
- sind trivial.
+, so ist 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ bereits eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel.
 \end_layout
 
 \begin_layout Case
 Falls 
-\begin_inset Formula $\varphi=\left[\mathrm{ifp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
+\begin_inset Formula $\varphi=x_{1}\dot{=}x_{2}$
 \end_inset
 
- für eine Relationsvariable 
-\begin_inset Formula $R\notin\sigma$
+ für zwei 
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
- mit 
-\begin_inset Formula $\bar{x}\in\mathbf{var}^{m}$
+-Terme 
+\begin_inset Formula $x_{1},x_{2}$
 \end_inset
 
- und 
-\begin_inset Formula $\bar{y}\in\left(\mathrm{IFP}\left[\sigma\right]-\mathrm{Term}\right)^{m}$
+, so ist 
+\begin_inset Formula $\varphi$
 \end_inset
 
- , so gilt:
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Per Induktionsannahme existiert für jedes 
-\begin_inset Formula $n\in\mathbb{N}$
-\end_inset
-
- eine 
+ bereits eine 
 \begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
--Formel 
-\begin_inset Formula $\psi_{n}$
-\end_inset
-
-, so dass 
-\begin_inset Formula $\psi_{n}\equiv_{n}\psi$
-\end_inset
-
-.
+-Formel.
 \end_layout
 
-\begin_layout Standard
-Sei 
-\begin_inset Formula $\varphi_{n}^{\left(n^{m}\right)}$
-\end_inset
-
- wie folgt induktiv definiert.
- Hierbei soll 
-\begin_inset Formula $\varphi_{n}^{\left(i\right)}$
-\end_inset
-
- in einer Struktur 
-\begin_inset Formula $\mathfrak{A}$
-\end_inset
-
- die Anfrage 
-\begin_inset Formula $q\left(\mathfrak{A}\right)=R^{\left(i\right)}$
-\end_inset
-
- definieren.
- 
-\begin_inset Formula $R^{\left(n^{m}\right)}$
-\end_inset
-
- ist der Fixpunkt von 
-\begin_inset Formula $R$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Sei 
-\begin_inset Formula $\varphi_{n}^{\left(0\right)}\left(\bar{x}\right)$
-\end_inset
-
- die unerfüllbare Formel 
-\begin_inset Formula $\bot\coloneqq\neg x_{1}=x_{1}$
-\end_inset
-
-.
- Per Definition ist 
-\begin_inset Formula $R^{\left(0\right)}=\emptyset$
-\end_inset
-
-, und 
-\begin_inset Formula $\varphi_{n}^{\left(0\right)}$
-\end_inset
-
- definiert diese Anfrage.
-\end_layout
-
-\begin_layout Itemize
-Sei 
-\begin_inset Formula $\varphi_{n}^{\left(i+1\right)}\left(\bar{x}\right)$
-\end_inset
-
- entsteht aus 
-\begin_inset Formula $\left(\psi_{n}\left(\bar{x}\right)\vee R\bar{x}\right)$
-\end_inset
-
-, in dem jede atomare Teilformel 
-\begin_inset Formula $R\bar{z}$
-\end_inset
-
- durch die folgende Formel 
-\begin_inset Formula $\chi^{\left(n\right)}\left(\bar{z}\right)$
-\end_inset
-
- ersetzt wird, wobei 
-\begin_inset Formula $\bar{u}\in\mathbf{var}^{k}$
-\end_inset
-
- ein Tupel von Variablen sei, die nicht in 
-\begin_inset Formula $\bar{x}$
-\end_inset
-
- oder 
-\begin_inset Formula $\bar{z}$
-\end_inset
-
- vorkommen:
-\begin_inset Foot
-status open
-
-\begin_layout Plain Layout
-Hier stehe 
-\begin_inset Formula $\exists\bar{x}\psi$
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi=\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)$
 \end_inset
 
  für 
-\begin_inset Formula $\exists x_{1}\cdots\exists x_{m}\psi$
+\begin_inset Formula $k$
+\end_inset
+
+ 
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
+\end_inset
+
+-Formeln 
+\begin_inset Formula $\varphi_{1},\cdots,\varphi_{k}$
 \end_inset
 
  und 
-\begin_inset Formula $\bar{x}=\bar{y}$
+\begin_inset Formula $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
 \end_inset
 
- für 
-\begin_inset Formula $\bigwedge_{i=1}^{m}x_{i}=y_{i}$
+, so existieren per Annahme die dazu 
+\begin_inset Formula $n$
 \end_inset
 
-.
-\end_layout
-
+-äquivalenten 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
+-Formeln 
+\begin_inset Formula $\hat{\varphi_{1}},\cdots,\hat{\varphi_{k}}$
+\end_inset
 
+:
 \begin_inset Formula 
 \[
-\chi^{\left(n\right)}\left(\bar{z}\right)\coloneqq\exists\bar{u}\left(\bar{u}=\bar{z}\exists\bar{x}\left(\bar{x}=\bar{u}\wedge\varphi_{n}^{\left(i\right)}\left(\bar{x}\right)\right)\right)
+\hat{\varphi}\coloneqq\left(\hat{\varphi_{1}}\gamma\cdots\gamma\hat{\varphi_{k}}\right)
 \]
 
 \end_inset
 
-(Der Zwischenschritt über 
+
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi=\neg\psi$
+\end_inset
+
+ für eine 
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\psi$
+\end_inset
+
+, so existiert per Annahme die 
+\begin_inset Formula $n$
+\end_inset
+
+-äquivalente Formel 
+\begin_inset Formula $\hat{\psi}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+\hat{\varphi} & \coloneqq & \neg\hat{\psi}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi=Qx\psi$
+\end_inset
+
+ für 
+\begin_inset Formula $Q\in\left\{ \exists,\forall\right\} $
+\end_inset
+
+, 
+\begin_inset Formula $x\in\mathbf{var}$
+\end_inset
+
+ und eine 
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\psi$
+\end_inset
+
+ , so existiert per Annahme die 
+\begin_inset Formula $n$
+\end_inset
+
+-äquivalente Formel 
+\begin_inset Formula $\hat{\psi}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+\hat{\varphi} & \coloneqq & Qx\hat{\psi}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
+\end_inset
+
+ für eine 
+\begin_inset Formula $k$
+\end_inset
+
+-stellige Relationsvariable 
+\begin_inset Formula $X\in\mathbf{var}_{2}\backslash\sigma$
+\end_inset
+
+, 
+\begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
+\end_inset
+
+, eine 
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\left\{ X\right\} \right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\psi$
+\end_inset
+
+ und ein 
+\begin_inset Formula $k$
+\end_inset
+
+-Tupel von 
+\begin_inset Formula $\mathrm{FO+LFP}\left[\sigma\right]$
+\end_inset
+
+-Termen 
+\begin_inset Formula $\bar{y}$
+\end_inset
+
+, so gilt:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Per Induktionsannahme existiert eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\hat{\psi}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\models_{n}\left(\hat{\psi}\leftrightarrow\psi\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sei die Sequenz 
+\begin_inset Formula $\left(\hat{\psi}^{\left(i\right)}\right)_{i\in\mathbb{N}}$
+\end_inset
+
+ induktiv wie folgt induktiv definiert.
+ Sei 
+\begin_inset Formula $\bar{u}\in\mathbf{var}^{k}\backslash\mathrm{frei}\left(\psi\right)$
+\end_inset
+
+ ein Tupel von Variablen, die nicht frei in 
+\begin_inset Formula $\psi$
+\end_inset
+
+ vorkommen.
+\begin_inset Formula 
+\begin{eqnarray*}
+\hat{\psi}^{\left(0\right)}\left(\bar{x}\right) & \coloneqq & \neg x_{1}\dot{=}x_{1}\\
+\chi^{\left(i\right)}\left(\bar{z}\right) & \coloneqq & \exists\bar{u}\left(\bar{u}=\bar{z}\wedge\exists\bar{x}\left(\bar{x}=\bar{u}\wedge\psi^{\left(i\right)}\left(\bar{x}\right)\right)\right)\\
+\hat{\psi}^{\left(i+1\right)} & \coloneqq & \left(\hat{\psi}^{\left(i\right)}\right)^{\left(\frac{R\bar{z}}{\chi^{\left(i\right)}\left(\bar{z}\right)}\right)}
+\end{eqnarray*}
+
+\end_inset
+
+Hierbei sei 
+\begin_inset Formula $\psi^{\left(\frac{R\bar{x}}{\varphi\left(\bar{x}\right)}\right)}$
+\end_inset
+
+ die Formel, die aus 
+\begin_inset Formula $\psi$
+\end_inset
+
+ entsteht, indem alle Atome 
+\begin_inset Formula $R\bar{x}$
+\end_inset
+
+ durch 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\end_inset
+
+ ersetzt werden.
+ Der Zwischenschritt über 
 \begin_inset Formula $\bar{u}$
 \end_inset
 
@@ -8787,10 +8926,10 @@ Hier stehe
 \end_inset
 
  zum Teil die gleichen Variablen enthalten können, und daher ihr Geltungsbereich
- nicht überlappen darf.)
+ nicht überlappen darf.
 \end_layout
 
-\begin_deeper
+\end_deeper
 \begin_layout Standard
 Unter der Annahme, dass 
 \begin_inset Formula $\varphi_{n}^{\left(i\right)}\left(\bar{x}\right)$
@@ -8839,7 +8978,6 @@ Daher gilt
 .
 \end_layout
 
-\end_deeper
 \begin_layout Standard
 Schließlich entsteht 
 \begin_inset Formula $\varphi_{n}\left(\bar{y}\right)$
@@ -8865,7 +9003,6 @@ Schließlich entsteht
 .
 \end_layout
 
-\end_deeper
 \end_deeper
 \begin_layout Proof
 Die so erzeugte Formel 
