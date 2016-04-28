@@ -83,7 +83,7 @@ Einleitung
 \end_layout
 
 \begin_layout Standard
-Übersicht
+Übersicht:
 \end_layout
 
 \begin_layout Enumerate
@@ -197,8 +197,14 @@ Fixpunktlogiken und Schaltkreise
 \end_layout
 
 \begin_layout Standard
-Es werden die folgenden Äquivalenzen zwischen Fixpunktlogiken und Schaltkreiskla
-ssen nachgewiesen:
+Es werden die folgenden Äquivalenzen (nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Anderson2014,anderson_et_al:LIPIcs:2014:4445"
+
+\end_inset
+
+) zwischen Fixpunktlogiken und Schaltkreisklassen nachgewiesen:
 \end_layout
 
 \begin_layout Theorem
@@ -525,6 +531,13 @@ FO-Logiken und Schaltkreise
 \end_layout
 
 \begin_layout Theorem
+\begin_inset CommandInset citation
+LatexCommand cite
+key "IMMERMAN198686"
+
+\end_inset
+
+
 \begin_inset CommandInset label
 LatexCommand label
 name "thm:5.5:fo-ord"
@@ -11028,7 +11041,8 @@ Nach dem Satz von Immerman-Vardi kann der Polynomialzeit-Algorithmus, der
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-bibfiles "library"
+btprint "btPrintAll"
+bibfiles "master"
 options "plain"
 
 \end_inset
