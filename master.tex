@@ -1735,7 +1735,8 @@ um maximal $3$ Kanten verlängert, und maximal $5n^{k}$ Gates hinzufügt.
 
 Wir betrachten die Logik $\mathrm{FO}+\mathbf{ORD}$, und weisen nach,
 dass die Konstruktion aus Lemma \ref{lem:FO-Circuit} angepasst werden
-kann.
+kann, ohne die Klasse der $P$-uniformen symmetrischen Schaltkreise
+zu verlassen.
 \begin{lem}
 \label{lem:fo-ord}Jede $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
@@ -1755,10 +1756,9 @@ Hierbei ist zu beachten, dass $U=\left\{ 1,\cdots,n\right\} $ keinesfalls
 mit dem Universum der Orakelstruktur $\Upsilon\left(n\right)$ gleichzusetzen
 ist!
 
-Zur Unterscheidung verwenden wir die Umbenennung $\varodot:=\left(\begin{array}{c}
-0,\cdots,n\\
-\dot{0},\cdots,\dot{n}
-\end{array}\right)$ und betrachten nur $\varodot\Upsilon\left(n\right)=\left(N,\leqslant\right)$.
+Zur Unterscheidung wird das Universum $\left[0,n\right]$ umbenannt
+zu $N\coloneqq\left\{ \dot{0},\cdots,\dot{n}\right\} $ und $\Upsilon\left(n\right)\coloneqq\left(N,\leqslant\right)$
+betrachtet.
 
 Wir konstruieren zunächst den $\left(\sigma\uplus\left\{ \dot{\leqslant}\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
 $\mathcal{C}_{2n+1}^{\varphi}$ über $U=\left\{ 1,\cdots,2n+1\right\} $

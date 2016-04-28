@@ -6652,7 +6652,11 @@ reference "lem:FO-Circuit"
 
 \end_inset
 
- angepasst werden kann.
+ angepasst werden kann, ohne die Klasse der 
+\begin_inset Formula $P$
+\end_inset
+
+-uniformen symmetrischen Schaltkreise zu verlassen.
 \end_layout
 
 \begin_layout Lemma
@@ -6741,18 +6745,19 @@ Hierbei ist zu beachten, dass
 \end_layout
 
 \begin_layout Proof
-Zur Unterscheidung verwenden wir die Umbenennung 
-\begin_inset Formula $\varodot:=\left(\begin{array}{c}
-0,\cdots,n\\
-\dot{0},\cdots,\dot{n}
-\end{array}\right)$
+Zur Unterscheidung wird das Universum 
+\begin_inset Formula $\left[0,n\right]$
 \end_inset
 
- und betrachten nur 
-\begin_inset Formula $\varodot\Upsilon\left(n\right)=\left(N,\leqslant\right)$
+ umbenannt zu 
+\begin_inset Formula $N\coloneqq\left\{ \dot{0},\cdots,\dot{n}\right\} $
 \end_inset
 
-.
+ und 
+\begin_inset Formula $\Upsilon\left(n\right)\coloneqq\left(N,\leqslant\right)$
+\end_inset
+
+ betrachtet.
 \end_layout
 
 \begin_layout Proof
