@@ -35,8 +35,8 @@
 \newtheorem{thm}{\protect\theoremname}[section]
   \theoremstyle{definition}
   \newtheorem{defn}[thm]{\protect\definitionname}
- \theoremstyle{definition}
- \newtheorem*{defn*}{\protect\definitionname}
+  \theoremstyle{remark}
+  \newtheorem*{rem*}{\protect\remarkname}
 \newenvironment{lyxlist}[1]
 {\begin{list}{}
 {\settowidth{\labelwidth}{#1}
@@ -46,6 +46,8 @@
 {\end{list}}
   \theoremstyle{definition}
   \newtheorem*{example*}{\protect\examplename}
+  \theoremstyle{plain}
+  \newtheorem{fact}[thm]{\protect\factname}
  \newlist{casenv}{enumerate}{4}
  \setlist[casenv]{leftmargin=*,align=left,widest={iiii}}
  \setlist[casenv,1]{label={{\itshape\ \casename} \arabic*.},ref=\arabic*}
@@ -54,8 +56,8 @@
  \setlist[casenv,4]{label={{\itshape\ \casename} \arabic*.},ref=\arabic*}
   \theoremstyle{plain}
   \newtheorem{lem}[thm]{\protect\lemmaname}
-  \theoremstyle{remark}
-  \newtheorem*{rem*}{\protect\remarkname}
+ \theoremstyle{definition}
+ \newtheorem*{defn*}{\protect\definitionname}
   \theoremstyle{plain}
   \newtheorem*{cor*}{\protect\corollaryname}
 
@@ -69,6 +71,7 @@
   \providecommand{\corollaryname}{Korollar}
   \providecommand{\definitionname}{Definition}
   \providecommand{\examplename}{Beispiel}
+  \providecommand{\factname}{Fakt}
   \providecommand{\lemmaname}{Lemma}
   \providecommand{\remarkname}{Bemerkung}
  \providecommand{\casename}{Fall}
@@ -318,10 +321,10 @@ a_{n}\\
 
 
 Für zwei Abbildungen $\pi:A\rightarrow B$ und $\pi':A'\rightarrow B'$
-mit disjunkten Definitionsbereichen sei $\pi\uplus\pi':A\cup A'\rightarrow B\cup B'$
+mit disjunkten Definitionsbereichen sei $\pi\oplus\pi':A\cup A'\rightarrow B\cup B'$
 die folgende Abbildung:
 \[
-\pi\uplus\pi'\left(x\right)\coloneqq\begin{cases}
+\pi\oplus\pi'\left(x\right)\coloneqq\begin{cases}
 \pi\left(x\right) & \mathrm{falls}\,x\in A\\
 \pi'\left(x\right) & \mathrm{falls}\,x\in A'
 \end{cases}
@@ -538,14 +541,19 @@ Arguments) bezeichne die Anzahl der frei vorkommenden Variablen: $\mathrm{ar}\le
 Ein \textbf{Satz} sei eine Formel ohne freie Variablen.
 \end{defn}
 
-\begin{defn*}
-Es sei $\mathtt{M}\left(\varphi\right)$ die maximale Anzahl freier
+\begin{defn}
+Es sei $\mathtt{MF}\left(\varphi\right)$ die maximale Anzahl freier
 Variablen jeder Teilformel von $\varphi$: 
 \begin{eqnarray*}
-\mathtt{M}\left(\varphi\right) & \coloneqq & \max\left\{ \mathrm{ar}\left(\psi\right)\mid\psi\,\mbox{ist Teilformel von}\,\varphi\right\} 
+\mathtt{MF}\left(\varphi\right) & \coloneqq & \max\left\{ \mathrm{ar}\left(\psi\right)\mid\psi\,\mbox{ist Teilformel von}\,\varphi\right\} 
 \end{eqnarray*}
-
-\end{defn*}
+\end{defn}
+\begin{rem*}
+Die Zahl $\mathtt{MF}\left(\varphi\right)$ ist ein Indikator für
+die Anzahl der maximal benötigten Variablen $\mathrm{var}\left(\varphi\right)$
+einer Formel, da gebundene Variablen umbenannt und wiederverwendet
+werden können.
+\end{rem*}
 
 \begin{defn}
 Für eine Belegung $\beta$ schreiben wir $\mathfrak{A}\models\varphi^{\beta}$
@@ -630,7 +638,7 @@ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \mathrm{frei}\left(R\bar{x}\right)=\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(R\bar{x}\right)=\bigcup_{i=1}^{k}\mathrm{var}\left(x_{i}\right)
 \end{eqnarray*}
 \[
-\mathtt{M}\left(R\bar{x}\right)=\max\left(\max_{i=1}^{k}\mathtt{M}\left(x_{i}\right),\mathrm{frei}\left(R\bar{x}\right)\right)
+\mathtt{MF}\left(R\bar{x}\right)=\max\left(\max_{i=1}^{k}\mathtt{M}\left(x_{i}\right),\mathrm{frei}\left(R\bar{x}\right)\right)
 \]
 \begin{eqnarray*}
 \mathfrak{A}\models\left(R\bar{x}\right)^{\beta} & \Leftrightarrow & \left(\left\llbracket x_{1}\right\rrbracket \left(\mathfrak{A},\beta\right),\cdots,\left\llbracket x_{k}\right\rrbracket \left(\mathfrak{A},\beta\right)\right)\in R^{\mathfrak{A}}
@@ -644,7 +652,7 @@ Beispiel bei ,,$\varphi=x_{1}\dot{=}x_{2}$.``)
 \mathrm{frei}\left(x_{1}\dot{=}x_{2}\right)=\bigcup_{i=1}^{2}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(x_{1}\dot{=}x_{2}\right)=\bigcup_{i=1}^{2}\mathrm{var}\left(x_{i}\right)
 \end{eqnarray*}
 \[
-\mathtt{M}\left(x_{1}\dot{=}x_{2}\right)=\max\left(\mathtt{M}\left(x_{1}\right),\mathtt{M}\left(x_{2}\right),\mathrm{frei}\left(x_{1}\dot{=}x_{2}\right)\right)
+\mathtt{MF}\left(x_{1}\dot{=}x_{2}\right)=\max\left(\mathtt{MF}\left(x_{1}\right),\mathtt{MF}\left(x_{2}\right),\mathrm{frei}\left(x_{1}\dot{=}x_{2}\right)\right)
 \]
 \begin{eqnarray*}
 \mathfrak{A}\models\left(x\dot{=}y\right)^{\beta} & \Leftrightarrow & \left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket y\right\rrbracket \left(\mathfrak{A},\beta\right)
@@ -656,7 +664,7 @@ ist $\neg\varphi$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \mathrm{frei}\left(\neg\varphi\right)=\mathrm{frei}\left(\varphi\right) &  & \mathrm{var}\left(\neg\varphi\right)=\mathrm{var}\left(\varphi\right)
 \end{eqnarray*}
 \[
-\mathtt{M}\left(\neg\varphi\right)=\mathtt{M}\left(\varphi\right)
+\mathtt{MF}\left(\neg\varphi\right)=\mathtt{MF}\left(\varphi\right)
 \]
 \[
 \left\llbracket \neg\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)
@@ -671,7 +679,7 @@ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \mathrm{frei}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)=\bigcup_{i=1}^{k}\mathrm{frei}\left(\varphi_{i}\right) &  & \mathrm{var}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)=\bigcup_{i=1}^{k}\mathrm{var}\left(\varphi_{i}\right)
 \end{eqnarray*}
 \[
-\mathtt{M}\left(R\bar{x}\right)=\max\left(\max_{i=1}^{k}\mathtt{M}\left(\varphi_{i}\right),\mathrm{frei}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)\right)
+\mathtt{MF}\left(R\bar{x}\right)=\max\left(\max_{i=1}^{k}\mathtt{MF}\left(\varphi_{i}\right),\mathrm{frei}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)\right)
 \]
 \begin{eqnarray*}
 \left\llbracket \varphi_{1}\wedge\cdots\wedge\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \min_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
@@ -687,7 +695,7 @@ $\varphi$ ist $Qx\varphi$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \mathrm{frei}\left(Qx\varphi\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(Qx\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
 \end{eqnarray*}
 \[
-\mathtt{M}\left(Qx\varphi\right)=\max\left(\mathtt{M}\left(\varphi\right),\mathrm{frei}\left(Qx\varphi\right)\right)
+\mathtt{MF}\left(Qx\varphi\right)=\max\left(\mathtt{MF}\left(\varphi\right),\mathrm{frei}\left(Qx\varphi\right)\right)
 \]
 \begin{eqnarray*}
 \left\llbracket \exists x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \max_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\uplus\left(\begin{array}{c}
@@ -700,8 +708,11 @@ a
 \end{array}\right)\right)\right)
 \end{eqnarray*}
 (Im folgenden wird o.B.d.A. angenommen, dass $x\in\mathrm{frei}\left(\varphi\right)$.
-Ist dies nicht der Fall, so ist $Qx\varphi\equiv\varphi$.)
-\end{lyxlist}
+Ist dies nicht der Fall, so ist $Qx\varphi\equiv\varphi$.)\end{lyxlist}
+\begin{rem*}
+Im folgenden stehe $Q\bar{x}\psi$ und $\bar{x}=\bar{y}$ abgekürzt
+für $Qx_{1}\cdots Qx_{k}\psi$ und $\bigwedge_{i=1}^{k}\left(x_{i}=y_{i}\right)$.
+\end{rem*}
 \pagebreak{}
 
 
@@ -752,7 +763,7 @@ eine $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
 \mathrm{frei}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{frei}\left(y_{i}\right)\\
 \mathrm{var}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{var}\left(\psi\right)\cup\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{var}\left(y_{i}\right)\\
-\mathtt{M}\left(\varphi\right) & = & \max\left(\mathtt{M}\left(\psi\right),\mathrm{frei}\left(\varphi\right)\right)
+\mathtt{MF}\left(\varphi\right) & = & \max\left(\mathtt{MF}\left(\psi\right),\mathrm{frei}\left(\varphi\right)\right)
 \end{eqnarray*}
 \end{lyxlist}
 \begin{description}
@@ -859,45 +870,94 @@ Die Logik $\mathscr{L}+\Upsilon_{\mathrm{arb}}$ werde auch als $\mathcal{L}+\mat
 bezeichnet.
 \end{defn}
 
-\begin{defn}
-\textbf{Zählterme}
 
-Der Zählterm ist eine zusätzliche Termproduktion, der die erfüllenden
+Wir betrachten zwei äquivalente Definitionen von Zähloperatoren auf
+Logiken mit disjunktem Orakel:
+\begin{defn}
+\textbf{Zählterm (wie \cite{anderson_et_al:LIPIcs:2014:4445})}
+
+Der Zählterm ist eine zusätzlicher Termproduktion, die die erfüllenden
 Belegungen einer Formel zählt.
 
 Sei $\mathscr{L}$ eine beliebige Logik, $\eta$ eine relationale
 Signatur, und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta\right)$
 ein Orakel.
 
-Die $\mathscr{L}+\Upsilon+C$-Logik erweitert die $\mathscr{L}+\Upsilon$-Logik
+Die $\mathscr{L}+\Upsilon+\#$-Logik erweitert die $\mathscr{L}+\Upsilon$-Logik
 um die folgende Regel:
 \begin{lyxlist}{00.00.0000}
-\item [{T2}] Für eine $\left(\mathscr{L}+\Upsilon+C\right)\left[\sigma\right]$-Formel
-$\varphi$ und eine Variable $x\in\mathbf{var}$ ist $\#_{x}\varphi$
+\item [{TC}] Für eine $\left(\mathscr{L}+\Upsilon+C\right)\left[\sigma\right]$-Formel
+$\varphi$ und eine Variable $x\in\mathbf{var}$ ist $\#x\varphi$
 ein $\left(\mathscr{L}+\Upsilon+C\right)\left[\sigma\right]$-Term.
 \begin{eqnarray*}
-\mathrm{frei}\left(\#_{x}\varphi\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(\#_{x}\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
+\mathrm{frei}\left(\#xy\varphi\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(\#_{x}\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
 \end{eqnarray*}
 
 
 
 Auf einer endlichen Struktur $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
-mit einer Belegung $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A\uplus\left[0,n\right]$
+mit einer Belegung $\beta:\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \rightarrow A\uplus\left[0,n\right]$
 ist 
 \[
-\left\llbracket \#_{x}\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\left|\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\uplus\binom{x}{a}}\right\} \right|
+\left\llbracket \#x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\left|\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\oplus\binom{x}{a}}\right\} \right|
 \]
-die Anzahl der unterschiedlichen Werte von $\beta'\left(x\right)$
+die Anzahl der unterschiedlichen Werte von $\beta\left(x\right)$
 in erfüllenden Belegungen $\beta'$ von $\varphi$ auf $\mathfrak{A}$.
-
-
-(Im folgenden wird o.B.d.A. angenommen, dass $x\in\mathrm{frei}\left(\varphi\right)$.
-Ansonsten ist $\left\llbracket \#x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=A\cdot\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)$
-(denn entweder jede oder keine Belegung von $x$ erfüllt $\varphi$),
-und es gilt $\#x\varphi\equiv\#x\left(x=x\wedge\varphi\right)$.)
 
 \end{lyxlist}
 \end{defn}
+
+\begin{defn}
+\textbf{Zählquantor (wie \cite{Schweikardt2002}, aber mit disjunktem
+Orakel)}
+
+Der Zählquantor ist eine zusätzlicher Quantor, der die erfüllenden
+Belegungen einer Formel mit einer Variable vergleicht.
+
+Sei $\mathscr{L}$ eine beliebige Logik, $\eta$ eine relationale
+Signatur, und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta\right)$
+ein Orakel.
+
+Die $\mathscr{L}+\Upsilon+\exists^{C}$-Logik erweitert die $\mathscr{L}+\Upsilon$-Logik
+um die folgende Regel:
+\begin{lyxlist}{00.00.0000}
+\item [{QC}] Für eine $\left(\mathscr{L}+\Upsilon+\exists^{C}\right)\left[\sigma\right]$-Formel
+$\varphi$ und zwei Variablen $x,y\in\mathbf{var}$ ist $\exists^{=y}x\varphi$
+eine $\left(\mathscr{L}+\Upsilon+\exists^{C}\right)\left[\sigma\right]$-Formel.
+\begin{eqnarray*}
+\mathrm{frei}\left(\exists^{=y}x\varphi\right)=\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right)\cup\left\{ y\right\}  &  & \mathrm{var}\left(\#_{x}\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x,y\right\} 
+\end{eqnarray*}
+
+
+
+Auf einer endlichen Struktur $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+mit einer Belegung 
+\[
+\beta:\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right)\cup\left\{ y\right\} \rightarrow A\uplus\left[0,n\right]
+\]
+ gilt: 
+\[
+\mathfrak{A}\models\left(\exists^{=y}x\varphi\right)^{\beta}\Leftrightarrow\left|\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\oplus\binom{x}{a}}\right\} \right|=\beta y
+\]
+
+
+\end{lyxlist}
+\end{defn}
+\begin{fact}
+Die Logiken $\mathscr{L}+\Upsilon+\#$ und $\mathscr{L}+\Upsilon+C$
+sind äquivalent:
+
+\begin{eqnarray*}
+\exists^{=y}x\psi & \equiv & \left(y\dot{=}\#x\psi\right)\\
+\#x_{1}\psi_{1}\dot{=}\#x_{2}\psi_{2} & \equiv & \exists z\left(\exists^{=y}x_{1}\psi_{1}\wedge\exists^{=y}x_{2}\psi_{2}\right)\\
+R\left(\#x_{1}\psi_{1}\cdots\#x_{k}\psi_{k}\right) & \equiv & \exists\bar{z}\left(R\bar{z}\wedge\bigwedge_{i=1}^{k}\exists^{=y_{i}}x_{i}\psi_{i}\right)
+\end{eqnarray*}
+
+
+(Für neue Variablen $z,z_{1},\cdots z_{\mathrm{ar}\left(R\right)}\in\mathbf{var}$.)
+Die Einführung dieser neuen Variablen ändert $\mathtt{MF}\left(\varphi\right)$
+höchstens um die Konstante $\max_{R\in\sigma}\left(\mathrm{ar}\left(R\right)\right)$.
+\end{fact}
 
 \begin{defn}
 Falls $\eta$ leer ist, und daher $\Upsilon\left(n\right)=\left(\left\{ 0,\cdots,n\right\} ,\leqslant\right)$,
@@ -913,11 +973,10 @@ t_{\mathrm{DIFF}}\left(x,y\right) & \coloneqq & \#_{z}\left(\neg z\leqslant x\we
 \end{example*}
 
 \begin{example*}
-Die Logik $\mathrm{FO}+C\left[\sigma\right]$ kann ausdrücken, dass
-die $\sigma$-Struktur eine gerade Größe hat. Bekanntlich ist diese
-$\sigma$-Eigenschaft weder durch $\mathrm{FO}\left[\sigma\right]$
-noch $\mathrm{FP}\left[\sigma\right]$ auf geordneten oder ungeordneten
-Strukturen definierbar \marginpar{{[}CITE, Ebbinghaus-Flum{]}}:
+Die Logik $\mathrm{FO}+C$ kann ausdrücken, dass die $\sigma$-Struktur
+eine gerade Größe hat. Bekanntlich ist diese $\sigma$-Eigenschaft
+weder durch $\mathrm{FO}$ auf geordneten, noch $\mathrm{LFP}$ auf
+ungeordneten Strukturen definierbar\cite{Ebbinghaus,Libkin2012} :
 
 \[
 \varphi_{\mathrm{EVEN}}\coloneqq\exists y\,\left(y=\#_{z}\left(\neg z\leqslant y\wedge z\leqslant\#_{z}\,z=z\right)\right)
@@ -1895,7 +1954,7 @@ berechnet wird.
 (Dieses Lemma bildet die erste Hälfte von Theorem \ref{thm:5.6:fo-c}.)
 \begin{proof}
 Zunächst wird die Formel $\varphi$ in eine Normalform $\hat{\varphi}$
-gebracht, in der jeder Zählterm in einer Teilformel der Form $x\leqslant\#y\psi$
+gebracht, in der jeder Zählqu in einer Teilformel der Form $x\leqslant\#y\psi$
 oder $\#y\psi\leqslant x$ oder $x=\#y\psi$ steht.
 
 Wir betrachten für diese Konstruktion nur die ,,pseudo-atomaren``

@@ -1127,13 +1127,13 @@ Für zwei Abbildungen
 \end_inset
 
  mit disjunkten Definitionsbereichen sei 
-\begin_inset Formula $\pi\uplus\pi':A\cup A'\rightarrow B\cup B'$
+\begin_inset Formula $\pi\oplus\pi':A\cup A'\rightarrow B\cup B'$
 \end_inset
 
  die folgende Abbildung:
 \begin_inset Formula 
 \[
-\pi\uplus\pi'\left(x\right)\coloneqq\begin{cases}
+\pi\oplus\pi'\left(x\right)\coloneqq\begin{cases}
 \pi\left(x\right) & \mathrm{falls}\,x\in A\\
 \pi'\left(x\right) & \mathrm{falls}\,x\in A'
 \end{cases}
@@ -1993,9 +1993,9 @@ Satz
 
 \end_layout
 
-\begin_layout Definition*
+\begin_layout Definition
 Es sei 
-\begin_inset Formula $\mathtt{M}\left(\varphi\right)$
+\begin_inset Formula $\mathtt{MF}\left(\varphi\right)$
 \end_inset
 
  die maximale Anzahl freier Variablen jeder Teilformel von 
@@ -2005,12 +2005,25 @@ Es sei
 : 
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathtt{M}\left(\varphi\right) & \coloneqq & \max\left\{ \mathrm{ar}\left(\psi\right)\mid\psi\,\mbox{ist Teilformel von}\,\varphi\right\} 
+\mathtt{MF}\left(\varphi\right) & \coloneqq & \max\left\{ \mathrm{ar}\left(\psi\right)\mid\psi\,\mbox{ist Teilformel von}\,\varphi\right\} 
 \end{eqnarray*}
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Remark*
+Die Zahl 
+\begin_inset Formula $\mathtt{MF}\left(\varphi\right)$
+\end_inset
+
+ ist ein Indikator für die Anzahl der maximal benötigten Variablen 
+\begin_inset Formula $\mathrm{var}\left(\varphi\right)$
+\end_inset
+
+ einer Formel, da gebundene Variablen umbenannt und wiederverwendet werden
+ können.
 \end_layout
 
 \begin_layout --Separator--
@@ -2378,7 +2391,7 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 
 \begin_inset Formula 
 \[
-\mathtt{M}\left(R\bar{x}\right)=\max\left(\max_{i=1}^{k}\mathtt{M}\left(x_{i}\right),\mathrm{frei}\left(R\bar{x}\right)\right)
+\mathtt{MF}\left(R\bar{x}\right)=\max\left(\max_{i=1}^{k}\mathtt{M}\left(x_{i}\right),\mathrm{frei}\left(R\bar{x}\right)\right)
 \]
 
 \end_inset
@@ -2440,7 +2453,7 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 
 \begin_inset Formula 
 \[
-\mathtt{M}\left(x_{1}\dot{=}x_{2}\right)=\max\left(\mathtt{M}\left(x_{1}\right),\mathtt{M}\left(x_{2}\right),\mathrm{frei}\left(x_{1}\dot{=}x_{2}\right)\right)
+\mathtt{MF}\left(x_{1}\dot{=}x_{2}\right)=\max\left(\mathtt{MF}\left(x_{1}\right),\mathtt{MF}\left(x_{2}\right),\mathrm{frei}\left(x_{1}\dot{=}x_{2}\right)\right)
 \]
 
 \end_inset
@@ -2485,7 +2498,7 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 
 \begin_inset Formula 
 \[
-\mathtt{M}\left(\neg\varphi\right)=\mathtt{M}\left(\varphi\right)
+\mathtt{MF}\left(\neg\varphi\right)=\mathtt{MF}\left(\varphi\right)
 \]
 
 \end_inset
@@ -2547,7 +2560,7 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 
 \begin_inset Formula 
 \[
-\mathtt{M}\left(R\bar{x}\right)=\max\left(\max_{i=1}^{k}\mathtt{M}\left(\varphi_{i}\right),\mathrm{frei}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)\right)
+\mathtt{MF}\left(R\bar{x}\right)=\max\left(\max_{i=1}^{k}\mathtt{MF}\left(\varphi_{i}\right),\mathrm{frei}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)\right)
 \]
 
 \end_inset
@@ -2603,7 +2616,7 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 
 \begin_inset Formula 
 \[
-\mathtt{M}\left(Qx\varphi\right)=\max\left(\mathtt{M}\left(\varphi\right),\mathrm{frei}\left(Qx\varphi\right)\right)
+\mathtt{MF}\left(Qx\varphi\right)=\max\left(\mathtt{MF}\left(\varphi\right),\mathrm{frei}\left(Qx\varphi\right)\right)
 \]
 
 \end_inset
@@ -2634,6 +2647,26 @@ a
 \end_inset
 
 .)
+\end_layout
+
+\begin_layout Remark*
+Im folgenden stehe 
+\begin_inset Formula $Q\bar{x}\psi$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{x}=\bar{y}$
+\end_inset
+
+ abgekürzt für 
+\begin_inset Formula $Qx_{1}\cdots Qx_{k}\psi$
+\end_inset
+
+ und 
+\begin_inset Formula $\bigwedge_{i=1}^{k}\left(x_{i}=y_{i}\right)$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -2905,7 +2938,7 @@ Die Fixpunktlogik
 \begin{eqnarray*}
 \mathrm{frei}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{frei}\left(y_{i}\right)\\
 \mathrm{var}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{var}\left(\psi\right)\cup\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{var}\left(y_{i}\right)\\
-\mathtt{M}\left(\varphi\right) & = & \max\left(\mathtt{M}\left(\psi\right),\mathrm{frei}\left(\varphi\right)\right)
+\mathtt{MF}\left(\varphi\right) & = & \max\left(\mathtt{MF}\left(\psi\right),\mathrm{frei}\left(\varphi\right)\right)
 \end{eqnarray*}
 
 \end_inset
@@ -3275,15 +3308,27 @@ Die Logik
 
 \end_layout
 
-\begin_layout Definition
-
-\series bold
-Zählterme
+\begin_layout Standard
+Wir betrachten zwei äquivalente Definitionen von Zähloperatoren auf Logiken
+ mit disjunktem Orakel:
 \end_layout
 
 \begin_layout Definition
-Der Zählterm ist eine zusätzliche Termproduktion, der die erfüllenden Belegungen
- einer Formel zählt.
+
+\series bold
+Zählterm (wie 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anderson_et_al:LIPIcs:2014:4445"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Definition
+Der Zählterm ist eine zusätzlicher Termproduktion, die die erfüllenden Belegunge
+n einer Formel zählt.
 \end_layout
 
 \begin_layout Definition
@@ -3304,7 +3349,7 @@ Sei
 
 \begin_layout Definition
 Die 
-\begin_inset Formula $\mathscr{L}+\Upsilon+C$
+\begin_inset Formula $\mathscr{L}+\Upsilon+\#$
 \end_inset
 
 -Logik erweitert die 
@@ -3317,7 +3362,7 @@ Die
 \begin_deeper
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
-T2 Für eine 
+TC Für eine 
 \begin_inset Formula $\left(\mathscr{L}+\Upsilon+C\right)\left[\sigma\right]$
 \end_inset
 
@@ -3330,7 +3375,7 @@ T2 Für eine
 \end_inset
 
  ist 
-\begin_inset Formula $\#_{x}\varphi$
+\begin_inset Formula $\#x\varphi$
 \end_inset
 
  ein 
@@ -3341,7 +3386,7 @@ T2 Für eine
  
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathrm{frei}\left(\#_{x}\varphi\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(\#_{x}\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
+\mathrm{frei}\left(\#xy\varphi\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(\#_{x}\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -3356,19 +3401,19 @@ Auf einer endlichen Struktur
 \end_inset
 
  mit einer Belegung 
-\begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A\uplus\left[0,n\right]$
+\begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \rightarrow A\uplus\left[0,n\right]$
 \end_inset
 
  ist 
 \begin_inset Formula 
 \[
-\left\llbracket \#_{x}\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\left|\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\uplus\binom{x}{a}}\right\} \right|
+\left\llbracket \#x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\left|\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\oplus\binom{x}{a}}\right\} \right|
 \]
 
 \end_inset
 
 die Anzahl der unterschiedlichen Werte von 
-\begin_inset Formula $\beta'\left(x\right)$
+\begin_inset Formula $\beta\left(x\right)$
 \end_inset
 
  in erfüllenden Belegungen 
@@ -3386,34 +3431,161 @@ die Anzahl der unterschiedlichen Werte von
 .
 \end_layout
 
-\begin_layout Standard
-(Im folgenden wird o.B.d.A.
- angenommen, dass 
-\begin_inset Formula $x\in\mathrm{frei}\left(\varphi\right)$
+\end_deeper
+\end_deeper
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Zählquantor (wie 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Schweikardt2002"
+
 \end_inset
 
-.
- Ansonsten ist 
-\begin_inset Formula $\left\llbracket \#x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=A\cdot\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)$
+, aber mit disjunktem Orakel)
+\end_layout
+
+\begin_layout Definition
+Der Zählquantor ist eine zusätzlicher Quantor, der die erfüllenden Belegungen
+ einer Formel mit einer Variable vergleicht.
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $\mathscr{L}$
 \end_inset
 
- (denn entweder jede oder keine Belegung von 
-\begin_inset Formula $x$
+ eine beliebige Logik, 
+\begin_inset Formula $\eta$
 \end_inset
 
- erfüllt 
+ eine relationale Signatur, und 
+\begin_inset Formula $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta\right)$
+\end_inset
+
+ ein Orakel.
+\end_layout
+
+\begin_layout Definition
+Die 
+\begin_inset Formula $\mathscr{L}+\Upsilon+\exists^{C}$
+\end_inset
+
+-Logik erweitert die 
+\begin_inset Formula $\mathscr{L}+\Upsilon$
+\end_inset
+
+-Logik um die folgende Regel:
+\end_layout
+
+\begin_deeper
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+QC Für eine 
+\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\exists^{C}\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
 \begin_inset Formula $\varphi$
 \end_inset
 
-), und es gilt 
-\begin_inset Formula $\#x\varphi\equiv\#x\left(x=x\wedge\varphi\right)$
+ und zwei Variablen 
+\begin_inset Formula $x,y\in\mathbf{var}$
 \end_inset
 
-.)
+ ist 
+\begin_inset Formula $\exists^{=y}x\varphi$
+\end_inset
+
+ eine 
+\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\exists^{C}\right)\left[\sigma\right]$
+\end_inset
+
+-Formel.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{frei}\left(\exists^{=y}x\varphi\right)=\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right)\cup\left\{ y\right\}  &  & \mathrm{var}\left(\#_{x}\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x,y\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Auf einer endlichen Struktur 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+\end_inset
+
+ mit einer Belegung 
+\begin_inset Formula 
+\[
+\beta:\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right)\cup\left\{ y\right\} \rightarrow A\uplus\left[0,n\right]
+\]
+
+\end_inset
+
+ gilt: 
+\begin_inset Formula 
+\[
+\mathfrak{A}\models\left(\exists^{=y}x\varphi\right)^{\beta}\Leftrightarrow\left|\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\oplus\binom{x}{a}}\right\} \right|=\beta y
+\]
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
 \end_deeper
+\begin_layout Fact
+Die Logiken 
+\begin_inset Formula $\mathscr{L}+\Upsilon+\#$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathscr{L}+\Upsilon+C$
+\end_inset
+
+ sind äquivalent:
+\end_layout
+
+\begin_layout Fact
+\begin_inset Formula 
+\begin{eqnarray*}
+\exists^{=y}x\psi & \equiv & \left(y\dot{=}\#x\psi\right)\\
+\#x_{1}\psi_{1}\dot{=}\#x_{2}\psi_{2} & \equiv & \exists z\left(\exists^{=y}x_{1}\psi_{1}\wedge\exists^{=y}x_{2}\psi_{2}\right)\\
+R\left(\#x_{1}\psi_{1}\cdots\#x_{k}\psi_{k}\right) & \equiv & \exists\bar{z}\left(R\bar{z}\wedge\bigwedge_{i=1}^{k}\exists^{=y_{i}}x_{i}\psi_{i}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fact
+(Für neue Variablen 
+\begin_inset Formula $z,z_{1},\cdots z_{\mathrm{ar}\left(R\right)}\in\mathbf{var}$
+\end_inset
+
+.) Die Einführung dieser neuen Variablen ändert 
+\begin_inset Formula $\mathtt{MF}\left(\varphi\right)$
+\end_inset
+
+ höchstens um die Konstante 
+\begin_inset Formula $\max_{R\in\sigma}\left(\mathrm{ar}\left(R\right)\right)$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout --Separator--
 
 \end_layout
@@ -3458,7 +3630,7 @@ t_{\mathrm{DIFF}}\left(x,y\right) & \coloneqq & \#_{z}\left(\neg z\leqslant x\we
 
 \begin_layout Example*
 Die Logik 
-\begin_inset Formula $\mathrm{FO}+C\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}+C$
 \end_inset
 
  kann ausdrücken, dass die 
@@ -3471,24 +3643,21 @@ Die Logik
 \end_inset
 
 -Eigenschaft weder durch 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}$
 \end_inset
 
- noch 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+ auf geordneten, noch 
+\begin_inset Formula $\mathrm{LFP}$
 \end_inset
 
- auf geordneten oder ungeordneten Strukturen definierbar 
-\begin_inset Marginal
-status open
-
-\begin_layout Plain Layout
-[CITE, Ebbinghaus-Flum]
-\end_layout
+ auf ungeordneten Strukturen definierbar
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Ebbinghaus,Libkin2012"
 
 \end_inset
 
-:
+ :
 \end_layout
 
 \begin_layout Example*
@@ -7214,7 +7383,7 @@ Zunächst wird die Formel
 \begin_inset Formula $\hat{\varphi}$
 \end_inset
 
- gebracht, in der jeder Zählterm in einer Teilformel der Form 
+ gebracht, in der jeder Zählqu in einer Teilformel der Form 
 \begin_inset Formula $x\leqslant\#y\psi$
 \end_inset
 
