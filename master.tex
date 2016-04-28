@@ -44,8 +44,6 @@
  \addtolength{\leftmargin}{\labelsep}
  \renewcommand{\makelabel}[1]{##1\hfil}}}
 {\end{list}}
-  \theoremstyle{remark}
-  \newtheorem*{rem*}{\protect\remarkname}
   \theoremstyle{definition}
   \newtheorem*{example*}{\protect\examplename}
  \newlist{casenv}{enumerate}{4}
@@ -56,6 +54,8 @@
  \setlist[casenv,4]{label={{\itshape\ \casename} \arabic*.},ref=\arabic*}
   \theoremstyle{plain}
   \newtheorem{lem}[thm]{\protect\lemmaname}
+  \theoremstyle{remark}
+  \newtheorem*{rem*}{\protect\remarkname}
   \theoremstyle{plain}
   \newtheorem*{cor*}{\protect\corollaryname}
 
@@ -371,6 +371,18 @@ Eine endliche $\sigma$-Struktur $\mathfrak{A}=\left(A,\left(R^{\mathfrak{A}}\rig
 besteht aus einem endlichen, nichtleeren Universum $A$ und einer
 Interpretation $R^{\mathfrak{A}}\subseteq A^{k}$ für jedes Symbol
 $R/k\in\sigma$.
+
+Wir formalisieren die Interpretation als eine Abbildung $\square^{\mathfrak{A}}:\sigma\rightarrow\mathcal{P}\left(A^{*}\right)$,
+die jedes Symbol eine Relation der entsprechenden Stelligkeit zuweist.
+Damit kann die Interpretation gegebenenfalls auch explizit durch $\mathfrak{A}=\left(A,\square^{\mathfrak{A}}\right)$
+notiert werden, um die Zuordnung zu verdeutlichen: 
+\[
+\mathfrak{A}:=\left(A,\left(\begin{array}{ccc}
+R_{1} & \cdots & R_{k}\\
+R_{1}^{\mathfrak{A}} & \cdots & R_{k}^{\mathfrak{A}}
+\end{array}\right)\right)
+\]
+
 \begin{enumerate}
 \item Für $n>0$ sei $\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 die Menge aller $\sigma$-Strukturen mit einem Universum der Größe
@@ -402,20 +414,19 @@ i\dot{\leqslant}j & \Leftrightarrow & \left(i,j\right)\in\dot{\leqslant}
 \begin{defn}
 \textbf{\label{def:Isomorphismus}Isomorphismus}
 
-Für zwei $\sigma$-Strukturen $\mathfrak{A}=\left(A,\left(R^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
-und $\mathfrak{B}=\left(A,\left(R^{\mathfrak{B}}\right)_{R\in\sigma}\right)$
+Für zwei $\sigma$-Strukturen $\mathfrak{A}$ und $\mathfrak{B}$
 sei eine bijektive Abbildung $\pi:A\rightarrow B$ ein Isomorphismus,
 falls $\pi R^{\mathfrak{A}}=R^{\mathfrak{B}}$ für alle Symbole $R\in\sigma$
 gilt.
 
 Die Abbildung $\pi$ wird auf natürliche Weise auf Strukturen erweitert:
 \[
-\pi\mathfrak{A}=\left(\pi A,\left(\pi R^{\mathfrak{A}}\right)_{R\in\sigma}\right)
+\pi\mathfrak{A}\coloneqq\left(\pi A,\left(\pi R^{\mathfrak{A}}\right)_{R\in\sigma}\right)
 \]
 
 
 Der Isomorphismus wird kurz durch $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{B}$
-notiert. Die Strukturen heißen isomorph (kurz $\mathfrak{A}\cong\mathfrak{B}$),
+notiert. Zwei Strukturen heißen isomorph (kurz $\mathfrak{A}\cong\mathfrak{B}$),
 falls ein $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{B}$ existiert.
 
 Ein Automorphismus $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{A}$
@@ -700,30 +711,23 @@ Sei $\mathbf{var}_{2}$ die Menge aller Relationsvariablen. Jede solche
 Variable $R\in\mathbf{var}_{2}$ besitzt eine Stelligkeit $\mathrm{ar}\left(R\right)=k\in\mathbb{N}_{\geqslant1}$;
 diese wird auch durch $R/k\in\mathbf{var}_{2}$ notiert.
 
-Für eine von $\mathbf{var}_{2}$ disjunkte Signatur $\sigma$, eine
-Menge $\mathcal{R}\subseteq\mathbf{var}_{2}$ ist die $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$-Logik
-eine Erweiterung der $\mathrm{FO}\left[\sigma\right]$-Logik um die
-folgende Regel:\end{defn}
-\begin{lyxlist}{00.00.0000}
-\item [{(AV)}] Für jede Relationsvariable $X/k\in\mathcal{R}$ und ein
-$k$-Tupel $\bar{x}$ von $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$-Termen
-ist $X\bar{x}$ eine $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$-Formel.
-\end{lyxlist}
+Im folgenden sei jede Signatur $\sigma$ als eine Kombination von
+Relationssymbolen und Relationsvariablen zu verstehen.
+\end{defn}
 
 \begin{defn}
 \textbf{Positivität}
 
-Wir definieren die Klasse der $P$-positiven Formeln für $P\in\mathbf{var}_{2}$
+Wir definieren die Klasse der $P$-positiven Formeln für $P\in\sigma$
 wie folgt:\end{defn}
 \begin{enumerate}
-\item Für $P\in\mathbf{var}_{2}\backslash\mathcal{R}$ ist jede $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$-Formel
-$\varphi$ sowohl $P$-positiv als auch $P$-negativ, da sie $P$
+\item Jede $\mathrm{FO}\left[\sigma\backslash\left\{ P\right\} \right]$-Formel
+$\varphi$ ist sowohl $P$-positiv als auch $P$-negativ, da sie $P$
 nicht enthält.
-\item Für $P/k\in\mathbf{var}_{2}$ und jedes $k$-Tupel von $P$-positiven
-Termen $x_{1},\cdots,x_{k}$ ist auch $P\bar{x}$ eine $P$-positive
-Formel.
-\item Für $\mathcal{R}\subseteq\mathbf{var}_{2}$ und eine $P$-positive
-Formel $\varphi$ ist $\neg\varphi$ $P$-negativ, und umgekehrt.
+\item Für $P/k\in\sigma$ und jedes $k$-Tupel von $P$-positiven Termen
+$x_{1},\cdots,x_{k}$ ist auch $P\bar{x}$ eine $P$-positive Formel.
+\item Für jede $P$-positive Formel $\varphi$ ist $\neg\varphi$ $P$-negativ,
+und umgekehrt.
 \item Für einen Junktor $\gamma\in\left\{ \wedge,\vee\right\} $ und $k\geqslant2$
 $P$-positive (beziehungsweise $P$-negative) Formeln $\varphi_{1},\cdots,\varphi_{k}$
 ist $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)$ ebenfalls
@@ -739,37 +743,34 @@ Die Fixpunktlogik $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$ erweitert
 $\mathrm{FO}\left[\sigma\cup\mathbf{var}_{2}\right]$ um den folgenden
 Fixpunkt-Operator:\end{defn}
 \begin{lyxlist}{00.00.0000}
-\item [{(LFP)}] Für $\mathcal{R}_{1},\mathcal{R}_{2}\subseteq\mathbf{var}_{2}$,
-eine Relationsvariable $X/k\in\mathcal{R}_{1}$, eine $X$-positive
-$\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}_{1}\right]$-Formel
+\item [{(LFP)}] Für eine Relationsvariable $X/k\in\mathbf{var}_{2}$, eine
+$X$-positive $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Formel
 $\psi$, ein Tupel $\bar{x}\in\mathbf{var}^{k}$ und ein $k$-Tupel
-$\bar{y}$ von $\mathrm{\mathrm{FO}+\mathrm{LFP}}\left[\sigma\cup\mathcal{R}_{2}\right]$-Termen
+$\bar{y}$ von $\mathrm{\mathrm{FO}+\mathrm{LFP}}\left[\sigma\right]$-Termen
 ist $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
-eine $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\cup\left(\mathcal{R}_{1}\backslash\left\{ X\right\} \right)\cup\mathcal{R}_{2}\right]$-Formel.
+eine $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
 \mathrm{frei}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{frei}\left(y_{i}\right)\\
 \mathrm{var}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{var}\left(\psi\right)\cup\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{var}\left(y_{i}\right)\\
 \mathtt{M}\left(\varphi\right) & = & \max\left(\mathtt{M}\left(\psi\right),\mathrm{frei}\left(\varphi\right)\right)
 \end{eqnarray*}
 \end{lyxlist}
-\begin{rem*}
-Insbesondere besteht für eine von $\mathbf{var}_{2}$ disjunkte relationale
-Signatur $\sigma$ die Logik $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
-nur aus Formeln, in denen alle Relationsvariablen durch Fixpunkt-Operatoren
-gebunden sind.\end{rem*}
 \begin{description}
-\item [{Auswertung:}] Für $X/k\in\mathcal{R}\subseteq\mathbf{var}_{2}$,
-eine $\left(\sigma\cup\mathcal{R}\backslash\left\{ X\right\} \right)$-Struktur
-$\mathfrak{A}$, eine $X$-positive $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}\right]$-Formel
-und eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\backslash\bar{x}\rightarrow A$
-definieren wir die Abbildung $F:\mathcal{P}\left(A^{k}\right)\rightarrow\mathcal{P}\left(A^{k}\right)$
+\item [{Auswertung:}] Für $R/k\in\mathbf{var}_{2}$, eine $\left(\sigma\backslash\left\{ R\right\} \right)$-Struktur
+$\mathfrak{A}$, eine $R$-positive $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Formel,
+eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\backslash\bar{x}\rightarrow A$
+und eine Relation $X\subseteq A^{k}$ definieren wir die $\left\{ R\right\} $-Struktur
+$\mathfrak{R}_{X}$ und die Abbildung $F:\mathcal{P}\left(A^{k}\right)\rightarrow\mathcal{P}\left(A^{k}\right)$
 wie folgt:
 \begin{eqnarray*}
-F\left(X^{\left(i\right)}\right) & \coloneqq & \varphi^{\beta}\left(\mathfrak{A}\oplus X^{\left(i\right)}\right)
+\mathfrak{R}_{X} & \coloneqq & \left(A,\left(\begin{array}{c}
+R\\
+X
+\end{array}\right)\right)\\
+F\left(X\right) & \coloneqq & \varphi^{\beta}\left(\mathfrak{A}\oplus\mathfrak{R}_{X}\right)
 \end{eqnarray*}
-Das heißt: $F\left(X^{\left(i\right)}\right)$ ist das Anfrageergebnis
-von $\varphi^{\beta}$, wenn das Symbol $X$ durch die Relation $X^{\left(i\right)}$
-interpretiert wird.
+Das heißt: $F\left(X\right)$ ist das Anfrageergebnis von $\varphi^{\beta}$,
+wenn das Symbol $R$ durch die Relation $X$ interpretiert wird.
 
 
 Aus der $X$-Positivität folgt nach \cite{Gurevich1986,Libkin2012}
@@ -787,6 +788,14 @@ A\subseteq B & \Rightarrow & F\left(A\right)\subseteq F\left(B\right)
 Insbesondere ist $F^{\infty}\left(\emptyset\right)=F^{\left|A^{k}\right|}\left(\emptyset\right)$,
 da die Iteration nach höchstens $\left|A^{k}\right|$ Iterationen
 ihren Fixpunkt erreicht.
+
+
+Die Formel prüft nun, ob die Belegung des Tupels $\bar{y}$ im Fixpunkt
+$F^{\infty}$ liegt: 
+\begin{eqnarray*}
+\left\llbracket \left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left\llbracket X\bar{y}\right\rrbracket \left(\mathfrak{A}\oplus\mathfrak{R}_{F^{\infty}},\beta\right)
+\end{eqnarray*}
+
 
 \end{description}
 \begin{example*}
@@ -2264,7 +2273,7 @@ und Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\ma
 Die Fixpunktlogik $\mathrm{FO+LFP}\left[\sigma\right]$ ist echt ausdrucksstärker
 als die Logik $\mathrm{FO}\left[\sigma\right]$. Beispielsweise ist
 die Erreichbarkeit über einen Pfad beliebiger Länge nicht erststufig
-definierbar \cite{Libkin:2004:EFM:1024196,Immerman1982}. In $\mathrm{FO+FP}\left[\left\{ E\right\} \right]$
+definierbar \cite{Immerman1982,Libkin2012}. In $\mathrm{FO+FP}\left[\left\{ E\right\} \right]$
 wird diese Klasse durch die folgende Formel definiert:
 \[
 \varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
@@ -2349,7 +2358,7 @@ induktiv wie folgt induktiv definiert. Sei $\bar{u}\in\mathbf{var}^{k}\backslash
 ein Tupel von Variablen, die nicht frei in $\psi$ vorkommen.
 \begin{eqnarray*}
 \hat{\psi}^{\left(0\right)}\left(\bar{x}\right) & \coloneqq & \neg x_{1}\dot{=}x_{1}\\
-\chi^{\left(i\right)}\left(\bar{z}\right) & \coloneqq & \exists\bar{u}\left(\bar{u}=\bar{z}\wedge\exists\bar{x}\left(\bar{x}=\bar{u}\wedge\psi^{\left(i\right)}\left(\bar{x}\right)\right)\right)\\
+\chi^{\left(i\right)}\left(\bar{z}\right) & \coloneqq & \exists\bar{u}\left(\bar{u}=\bar{z}\wedge\exists\bar{x}\left(\bar{x}=\bar{u}\wedge\hat{\psi}^{\left(i\right)}\left(\bar{x}\right)\right)\right)\\
 \hat{\psi}^{\left(i+1\right)} & \coloneqq & \left(\hat{\psi}^{\left(i\right)}\right)^{\left(\frac{R\bar{z}}{\chi^{\left(i\right)}\left(\bar{z}\right)}\right)}
 \end{eqnarray*}
 Hierbei sei $\psi^{\left(\frac{R\bar{x}}{\varphi\left(\bar{x}\right)}\right)}$
@@ -2359,23 +2368,33 @@ durch $\varphi\left(\bar{x}\right)$ ersetzt werden. Der Zwischenschritt
 Teil die gleichen Variablen enthalten können, und daher ihr Geltungsbereich
 nicht überlappen darf.
 
-\end{casenv}
 
+Nun gelte:
+\[
+\hat{\varphi}\coloneqq\exists\bar{u}\left(\bar{u}=\bar{y}\wedge\hat{\psi}^{\left(n^{k}\right)}\right)
+\]
+
+\begin{description}
+\item [{Korrektheit:}]~
+\end{description}
+
+Wir weisen induktiv nach, dass $\hat{\psi}^{\left(i\right)}\left(\mathfrak{A}\right)=F^{i}\left(\emptyset\right)$ 
+
+\end{casenv}
+\end{proof}
 Unter der Annahme, dass $\varphi_{n}^{\left(i\right)}\left(\bar{x}\right)$
 auf $\mathfrak{A}$ die Anfrage $q\left(\mathfrak{A}\right)=R^{\left(i\right)}$
 definiert, definiert $\chi^{\left(n\right)}\left(\bar{z}\right)$
 die gleiche Anfrage (mit Umbenennung von $\bar{x}$ in $\bar{z}$).
 
-
 Daher gilt $\bar{t}\models\left\llbracket \varphi_{n}^{\left(i+1\right)}\left(\bar{x}\right)\right\rrbracket \left(\mathfrak{A}\right)$
 genau dann wenn $\bar{t}\models\left\llbracket \psi_{n}\right\rrbracket \left(\mathfrak{A},R^{\left(i\right)}\right)$,
 und $\varphi_{n}^{\left(i+1\right)}$ definiert die Anfrage $q\left(\mathfrak{A}\right)=R^{\left(i+1\right)}$.
 
-
 Schließlich entsteht $\varphi_{n}\left(\bar{y}\right)$ aus $\varphi_{n}^{\left(n^{m}\right)}\left(\bar{x}\right)$,
 indem die freien Variablen $x_{1},\cdots,x_{m}$ in $y_{1},\cdots,y_{m}$
 umbenannt werden. Damit gilt $\varphi_{n}\equiv_{n}\varphi$.
-
+\begin{proof}
 Die so erzeugte Formel $\varphi_{n}$ hat höchstens $\left|\mathrm{var}\left(\varphi\right)\right|+\left\Vert \varphi\right\Vert \leqslant2\left\Vert \varphi\right\Vert $
 Variablen: Nur in Fall 4 werden $m$ neue Variablen eingefügt, und
 für jeden solchen Induktionsschritt enthält $\varphi$ bereits ein

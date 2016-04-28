@@ -1315,6 +1315,30 @@ Eine endliche
 .
 \end_layout
 
+\begin_layout Definition
+Wir formalisieren die Interpretation als eine Abbildung 
+\begin_inset Formula $\square^{\mathfrak{A}}:\sigma\rightarrow\mathcal{P}\left(A^{*}\right)$
+\end_inset
+
+, die jedes Symbol eine Relation der entsprechenden Stelligkeit zuweist.
+ Damit kann die Interpretation gegebenenfalls auch explizit durch 
+\begin_inset Formula $\mathfrak{A}=\left(A,\square^{\mathfrak{A}}\right)$
+\end_inset
+
+ notiert werden, um die Zuordnung zu verdeutlichen: 
+\begin_inset Formula 
+\[
+\mathfrak{A}:=\left(A,\left(\begin{array}{ccc}
+R_{1} & \cdots & R_{k}\\
+R_{1}^{\mathfrak{A}} & \cdots & R_{k}^{\mathfrak{A}}
+\end{array}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
 \begin_deeper
 \begin_layout Enumerate
 Für 
@@ -1443,11 +1467,11 @@ Für zwei
 \end_inset
 
 -Strukturen 
-\begin_inset Formula $\mathfrak{A}=\left(A,\left(R^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
+\begin_inset Formula $\mathfrak{A}$
 \end_inset
 
  und 
-\begin_inset Formula $\mathfrak{B}=\left(A,\left(R^{\mathfrak{B}}\right)_{R\in\sigma}\right)$
+\begin_inset Formula $\mathfrak{B}$
 \end_inset
 
  sei eine bijektive Abbildung 
@@ -1473,7 +1497,7 @@ Die Abbildung
  wird auf natürliche Weise auf Strukturen erweitert: 
 \begin_inset Formula 
 \[
-\pi\mathfrak{A}=\left(\pi A,\left(\pi R^{\mathfrak{A}}\right)_{R\in\sigma}\right)
+\pi\mathfrak{A}\coloneqq\left(\pi A,\left(\pi R^{\mathfrak{A}}\right)_{R\in\sigma}\right)
 \]
 
 \end_inset
@@ -1487,7 +1511,7 @@ Der Isomorphismus wird kurz durch
 \end_inset
 
  notiert.
- Die Strukturen heißen isomorph (kurz 
+ Zwei Strukturen heißen isomorph (kurz 
 \begin_inset Formula $\mathfrak{A}\cong\mathfrak{B}$
 \end_inset
 
@@ -2645,56 +2669,11 @@ Sei
 \end_layout
 
 \begin_layout Definition
-Für eine von 
-\begin_inset Formula $\mathbf{var}_{2}$
-\end_inset
-
- disjunkte Signatur 
+Im folgenden sei jede Signatur 
 \begin_inset Formula $\sigma$
 \end_inset
 
-, eine Menge 
-\begin_inset Formula $\mathcal{R}\subseteq\mathbf{var}_{2}$
-\end_inset
-
- ist die 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$
-\end_inset
-
--Logik eine Erweiterung der 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
--Logik um die folgende Regel:
-\end_layout
-
-\begin_layout Labeling
-\labelwidthstring 00.00.0000
-(AV) Für jede Relationsvariable 
-\begin_inset Formula $X/k\in\mathcal{R}$
-\end_inset
-
- und ein 
-\begin_inset Formula $k$
-\end_inset
-
--Tupel 
-\begin_inset Formula $\bar{x}$
-\end_inset
-
- von 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$
-\end_inset
-
--Termen ist 
-\begin_inset Formula $X\bar{x}$
-\end_inset
-
- eine 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$
-\end_inset
-
--Formel.
+ als eine Kombination von Relationssymbolen und Relationsvariablen zu verstehen.
 \end_layout
 
 \begin_layout --Separator--
@@ -2713,26 +2692,22 @@ Wir definieren die Klasse der
 \end_inset
 
 -positiven Formeln für 
-\begin_inset Formula $P\in\mathbf{var}_{2}$
+\begin_inset Formula $P\in\sigma$
 \end_inset
 
  wie folgt:
 \end_layout
 
 \begin_layout Enumerate
-Für 
-\begin_inset Formula $P\in\mathbf{var}_{2}\backslash\mathcal{R}$
-\end_inset
-
- ist jede 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$
+Jede 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\backslash\left\{ P\right\} \right]$
 \end_inset
 
 -Formel 
 \begin_inset Formula $\varphi$
 \end_inset
 
- sowohl 
+ ist sowohl 
 \begin_inset Formula $P$
 \end_inset
 
@@ -2749,7 +2724,7 @@ Für
 
 \begin_layout Enumerate
 Für 
-\begin_inset Formula $P/k\in\mathbf{var}_{2}$
+\begin_inset Formula $P/k\in\sigma$
 \end_inset
 
  und jedes 
@@ -2776,11 +2751,7 @@ Für
 \end_layout
 
 \begin_layout Enumerate
-Für 
-\begin_inset Formula $\mathcal{R}\subseteq\mathbf{var}_{2}$
-\end_inset
-
- und eine 
+Für jede 
 \begin_inset Formula $P$
 \end_inset
 
@@ -2889,12 +2860,8 @@ Die Fixpunktlogik
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
-(LFP) Für 
-\begin_inset Formula $\mathcal{R}_{1},\mathcal{R}_{2}\subseteq\mathbf{var}_{2}$
-\end_inset
-
-, eine Relationsvariable 
-\begin_inset Formula $X/k\in\mathcal{R}_{1}$
+(LFP) Für eine Relationsvariable 
+\begin_inset Formula $X/k\in\mathbf{var}_{2}$
 \end_inset
 
 , eine 
@@ -2902,7 +2869,7 @@ Die Fixpunktlogik
 \end_inset
 
 -positive 
-\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}_{1}\right]$
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -2922,7 +2889,7 @@ Die Fixpunktlogik
 \end_inset
 
  von 
-\begin_inset Formula $\mathrm{\mathrm{FO}+\mathrm{LFP}}\left[\sigma\cup\mathcal{R}_{2}\right]$
+\begin_inset Formula $\mathrm{\mathrm{FO}+\mathrm{LFP}}\left[\sigma\right]$
 \end_inset
 
 -Termen ist 
@@ -2930,7 +2897,7 @@ Die Fixpunktlogik
 \end_inset
 
  eine 
-\begin_inset Formula $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\cup\left(\mathcal{R}_{1}\backslash\left\{ X\right\} \right)\cup\mathcal{R}_{2}\right]$
+\begin_inset Formula $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\right]$
 \end_inset
 
 -Formel.
@@ -2946,30 +2913,13 @@ Die Fixpunktlogik
 
 \end_layout
 
-\begin_layout Remark*
-Insbesondere besteht für eine von 
-\begin_inset Formula $\mathbf{var}_{2}$
-\end_inset
-
- disjunkte relationale Signatur 
-\begin_inset Formula $\sigma$
-\end_inset
-
- die Logik 
-\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
-\end_inset
-
- nur aus Formeln, in denen alle Relationsvariablen durch Fixpunkt-Operatoren
- gebunden sind.
-\end_layout
-
 \begin_layout Description
 Auswertung: Für 
-\begin_inset Formula $X/k\in\mathcal{R}\subseteq\mathbf{var}_{2}$
+\begin_inset Formula $R/k\in\mathbf{var}_{2}$
 \end_inset
 
 , eine 
-\begin_inset Formula $\left(\sigma\cup\mathcal{R}\backslash\left\{ X\right\} \right)$
+\begin_inset Formula $\left(\sigma\backslash\left\{ R\right\} \right)$
 \end_inset
 
 -Struktur 
@@ -2977,31 +2927,47 @@ Auswertung: Für
 \end_inset
 
 , eine 
-\begin_inset Formula $X$
+\begin_inset Formula $R$
 \end_inset
 
 -positive 
-\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}\right]$
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
--Formel und eine Belegung 
+-Formel, eine Belegung 
 \begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\backslash\bar{x}\rightarrow A$
 \end_inset
 
- definieren wir die Abbildung 
+ und eine Relation 
+\begin_inset Formula $X\subseteq A^{k}$
+\end_inset
+
+ definieren wir die 
+\begin_inset Formula $\left\{ R\right\} $
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{R}_{X}$
+\end_inset
+
+ und die Abbildung 
 \begin_inset Formula $F:\mathcal{P}\left(A^{k}\right)\rightarrow\mathcal{P}\left(A^{k}\right)$
 \end_inset
 
  wie folgt:
 \begin_inset Formula 
 \begin{eqnarray*}
-F\left(X^{\left(i\right)}\right) & \coloneqq & \varphi^{\beta}\left(\mathfrak{A}\oplus X^{\left(i\right)}\right)
+\mathfrak{R}_{X} & \coloneqq & \left(A,\left(\begin{array}{c}
+R\\
+X
+\end{array}\right)\right)\\
+F\left(X\right) & \coloneqq & \varphi^{\beta}\left(\mathfrak{A}\oplus\mathfrak{R}_{X}\right)
 \end{eqnarray*}
 
 \end_inset
 
 Das heißt: 
-\begin_inset Formula $F\left(X^{\left(i\right)}\right)$
+\begin_inset Formula $F\left(X\right)$
 \end_inset
 
  ist das Anfrageergebnis von 
@@ -3009,11 +2975,11 @@ Das heißt:
 \end_inset
 
 , wenn das Symbol 
-\begin_inset Formula $X$
+\begin_inset Formula $R$
 \end_inset
 
  durch die Relation 
-\begin_inset Formula $X^{\left(i\right)}$
+\begin_inset Formula $X$
 \end_inset
 
  interpretiert wird.
@@ -3066,6 +3032,26 @@ Insbesondere ist
 \end_inset
 
  Iterationen ihren Fixpunkt erreicht.
+\end_layout
+
+\begin_layout Standard
+Die Formel prüft nun, ob die Belegung des Tupels 
+\begin_inset Formula $\bar{y}$
+\end_inset
+
+ im Fixpunkt 
+\begin_inset Formula $F^{\infty}$
+\end_inset
+
+ liegt: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\left\llbracket \left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left\llbracket X\bar{y}\right\rrbracket \left(\mathfrak{A}\oplus\mathfrak{R}_{F^{\infty}},\beta\right)
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -8465,7 +8451,7 @@ Die Fixpunktlogik
  nicht erststufig definierbar 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Libkin:2004:EFM:1024196,Immerman1982"
+key "Immerman1982,Libkin2012"
 
 \end_inset
 
@@ -8890,7 +8876,7 @@ Sei die Sequenz
 \begin_inset Formula 
 \begin{eqnarray*}
 \hat{\psi}^{\left(0\right)}\left(\bar{x}\right) & \coloneqq & \neg x_{1}\dot{=}x_{1}\\
-\chi^{\left(i\right)}\left(\bar{z}\right) & \coloneqq & \exists\bar{u}\left(\bar{u}=\bar{z}\wedge\exists\bar{x}\left(\bar{x}=\bar{u}\wedge\psi^{\left(i\right)}\left(\bar{x}\right)\right)\right)\\
+\chi^{\left(i\right)}\left(\bar{z}\right) & \coloneqq & \exists\bar{u}\left(\bar{u}=\bar{z}\wedge\exists\bar{x}\left(\bar{x}=\bar{u}\wedge\hat{\psi}^{\left(i\right)}\left(\bar{x}\right)\right)\right)\\
 \hat{\psi}^{\left(i+1\right)} & \coloneqq & \left(\hat{\psi}^{\left(i\right)}\right)^{\left(\frac{R\bar{z}}{\chi^{\left(i\right)}\left(\bar{z}\right)}\right)}
 \end{eqnarray*}
 
@@ -8929,6 +8915,31 @@ Hierbei sei
  nicht überlappen darf.
 \end_layout
 
+\begin_layout Standard
+Nun gelte:
+\begin_inset Formula 
+\[
+\hat{\varphi}\coloneqq\exists\bar{u}\left(\bar{u}=\bar{y}\wedge\hat{\psi}^{\left(n^{k}\right)}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Korrektheit:
+\end_layout
+
+\begin_layout Standard
+Wir weisen induktiv nach, dass 
+\begin_inset Formula $\hat{\psi}^{\left(i\right)}\left(\mathfrak{A}\right)=F^{i}\left(\emptyset\right)$
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
 \end_deeper
 \begin_layout Standard
 Unter der Annahme, dass 
@@ -9003,7 +9014,6 @@ Schließlich entsteht
 .
 \end_layout
 
-\end_deeper
 \begin_layout Proof
 Die so erzeugte Formel 
 \begin_inset Formula $\varphi_{n}$
