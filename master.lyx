@@ -8426,7 +8426,7 @@ Fixpunktlogik
 
 \begin_layout Standard
 Die Fixpunktlogik 
-\begin_inset Formula $\mathrm{IFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO+LFP}\left[\sigma\right]$
 \end_inset
 
  ist echt ausdrucksstärker als die Logik 
@@ -8441,25 +8441,25 @@ Beispielsweise ist die Erreichbarkeit über einen Pfad beliebiger Länge nicht
  erststufig definierbar 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Libkin:2004:EFM:1024196"
+key "Libkin:2004:EFM:1024196,Immerman1982"
 
 \end_inset
 
 .
  In 
-\begin_inset Formula $\mathrm{IFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO+FP}\left[\left\{ E\right\} \right]$
 \end_inset
 
  wird diese Klasse durch die folgende Formel definiert:
 \begin_inset Formula 
 \[
-\varphi\left(u,v\right)\coloneqq\left[\mathrm{ifp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
+\varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
 \]
 
 \end_inset
 
  Trotzdem kann jede 
-\begin_inset Formula $\mathrm{IFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -8475,7 +8475,7 @@ key "Libkin:2004:EFM:1024196"
 \end_inset
 
  mit polynomieller Länge 
-\begin_inset Formula $\left\Vert \varphi_{n}\right\Vert \leqslant n\left\Vert \varphi\right\Vert $
+\begin_inset Formula $\left\Vert \varphi_{n}\right\Vert \leqslant n^{\left\Vert \varphi\right\Vert }$
 \end_inset
 
  und höchstens 
@@ -8505,7 +8505,7 @@ Mit den bereits beschriebenen Konstruktionen kann aus diesen Formeln eine
 status open
 
 \begin_layout Plain Layout
-Siehe: k-Variablen Fragment infinitäre Logik, u.a.
+CITE k-Variablen Fragment infinitäre Logik, u.a.
  [LogKomp 2007].
 \end_layout
 
@@ -8513,9 +8513,10 @@ Siehe: k-Variablen Fragment infinitäre Logik, u.a.
 
 
 \begin_inset Formula 
-\[
-\mathcal{C}_{n}^{\varphi}\coloneqq\mathcal{C}_{n}^{\varphi_{n}}\,\mathrm{für}\,n\in\mathbb{N}
-\]
+\begin{eqnarray*}
+\mathcal{C} & \coloneqq & \left(\mathcal{C}_{n}^{\varphi_{n}}\right)_{n\in\mathbb{N}}\\
+\mathcal{C}\left(\mathfrak{A}\right) & = & \varphi\left(\mathfrak{A}\right)\,\mathrm{f.a.}\,\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)
+\end{eqnarray*}
 
 \end_inset
 
@@ -8534,14 +8535,10 @@ Durch die Einschränkung auf eine konstante Anzahl von Variablen ist die
 
 -Formeln beliebig lang werden.
  Die Tiefe ist durch 
-\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi_{n}\right\Vert \leqslant3n\left\Vert \varphi\right\Vert $
+\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi_{n}\right\Vert \leqslant3n^{\left\Vert \varphi\right\Vert }$
 \end_inset
 
  allerdings nicht mehr konstant.
-\end_layout
-
-\begin_layout Standard
-Zunächst 
 \end_layout
 
 \begin_layout --Separator--
@@ -8550,7 +8547,7 @@ Zunächst
 
 \begin_layout Lemma
 Für jede 
-\begin_inset Formula $\mathrm{IFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -8574,7 +8571,7 @@ Für jede
 \end_inset
 
  Variablen und 
-\begin_inset Formula $\left\Vert \hat{\varphi}\right\Vert \leqslant\left\Vert \varphi\right\Vert n$
+\begin_inset Formula $\left\Vert \hat{\varphi}\right\Vert \leqslant n^{\left\Vert \varphi\right\Vert }$
 \end_inset
 
 , so dass 
@@ -8586,7 +8583,7 @@ Für jede
 
 \begin_layout Proof
 Die Konstruktion erfolgt induktiv über die Definition von 
-\begin_inset Formula $\mathrm{IFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
 :

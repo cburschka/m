@@ -2260,46 +2260,47 @@ und Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\ma
 
 \subsection{Fixpunktlogik}
 
-Die Fixpunktlogik $\mathrm{IFP}\left[\sigma\right]$ ist echt ausdrucksstärker
+Die Fixpunktlogik $\mathrm{FO+LFP}\left[\sigma\right]$ ist echt ausdrucksstärker
 als die Logik $\mathrm{FO}\left[\sigma\right]$.
 
 Beispielsweise ist die Erreichbarkeit über einen Pfad beliebiger Länge
-nicht erststufig definierbar \cite{Libkin:2004:EFM:1024196}. In $\mathrm{IFP}\left[\sigma\right]$
-wird diese Klasse durch die folgende Formel definiert:
+nicht erststufig definierbar \cite{Libkin:2004:EFM:1024196,Immerman1982}.
+In $\mathrm{FO+FP}\left[\left\{ E\right\} \right]$ wird diese Klasse
+durch die folgende Formel definiert:
 \[
-\varphi\left(u,v\right)\coloneqq\left[\mathrm{ifp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
+\varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
 \]
- Trotzdem kann jede $\mathrm{IFP}\left[\sigma\right]$-Formel $\varphi$
-durch eine Familie von $\mathrm{FO}\left[\sigma\right]$-Formeln $\left(\varphi_{n}\right)_{n\in\mathbb{N}}$
-mit polynomieller Länge $\left\Vert \varphi_{n}\right\Vert \leqslant n\left\Vert \varphi\right\Vert $
+ Trotzdem kann jede $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Formel
+$\varphi$ durch eine Familie von $\mathrm{FO}\left[\sigma\right]$-Formeln
+$\left(\varphi_{n}\right)_{n\in\mathbb{N}}$ mit polynomieller Länge
+$\left\Vert \varphi_{n}\right\Vert \leqslant n^{\left\Vert \varphi\right\Vert }$
 und höchstens $\mathrm{var}\left(\varphi_{n}\right)\leqslant2\left\Vert \varphi\right\Vert $\emph{
 }Variablen definiert werden, von denen jede auf den Strukturen einer
 bestimmten Größe äquivalent zu $\varphi$ ist.
 
 Mit den bereits beschriebenen Konstruktionen kann aus diesen Formeln
-eine Schaltkreisfamilie erzeugt werden, die $\varphi$ berechnet.\marginpar{Siehe: k-Variablen Fragment infinitäre Logik, u.a. {[}LogKomp 2007{]}.}
-\[
-\mathcal{C}_{n}^{\varphi}\coloneqq\mathcal{C}_{n}^{\varphi_{n}}\,\mathrm{f\ddot{u}r}\,n\in\mathbb{N}
-\]
+eine Schaltkreisfamilie erzeugt werden, die $\varphi$ berechnet.\marginpar{CITE k-Variablen Fragment infinitäre Logik, u.a. {[}LogKomp 2007{]}.}
+\begin{eqnarray*}
+\mathcal{C} & \coloneqq & \left(\mathcal{C}_{n}^{\varphi_{n}}\right)_{n\in\mathbb{N}}\\
+\mathcal{C}\left(\mathfrak{A}\right) & = & \varphi\left(\mathfrak{A}\right)\,\mathrm{f.a.}\,\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)
+\end{eqnarray*}
 
 
 Durch die Einschränkung auf eine konstante Anzahl von Variablen ist
 die Größe der Schaltkreisfamilie polynomiell durch $n^{\mathcal{O}\left(\left\Vert \varphi\right\Vert \right)}$
 beschränkt, obwohl die $\mathrm{FO}\left[\sigma\right]$-Formeln beliebig
-lang werden. Die Tiefe ist durch $T_{n}\leqslant3\left\Vert \varphi_{n}\right\Vert \leqslant3n\left\Vert \varphi\right\Vert $
+lang werden. Die Tiefe ist durch $T_{n}\leqslant3\left\Vert \varphi_{n}\right\Vert \leqslant3n^{\left\Vert \varphi\right\Vert }$
 allerdings nicht mehr konstant.
-
-Zunächst 
 
 
 \begin{lem}
-Für jede $\mathrm{IFP}\left[\sigma\right]$-Formel $\varphi$ und
-jede Größe $n\in\mathbb{N}$ existiert eine $\mathrm{FO}\left[\sigma\right]$-Formel
+Für jede $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$
+und jede Größe $n\in\mathbb{N}$ existiert eine $\mathrm{FO}\left[\sigma\right]$-Formel
 $\hat{\varphi}$ mit höchstens $2\left\Vert \varphi\right\Vert $
-Variablen und $\left\Vert \hat{\varphi}\right\Vert \leqslant\left\Vert \varphi\right\Vert n$,
+Variablen und $\left\Vert \hat{\varphi}\right\Vert \leqslant n^{\left\Vert \varphi\right\Vert }$,
 so dass $\models_{n}\left(\hat{\varphi}\leftrightarrow\varphi\right)$.\end{lem}
 \begin{proof}
-Die Konstruktion erfolgt induktiv über die Definition von $\mathrm{IFP}\left[\sigma\right]$:
+Die Konstruktion erfolgt induktiv über die Definition von $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$:
 \begin{casenv}
 \item Die Schritte $R\bar{x}$, $x_{1}\dot{=}x_{2}$, $\neg\varphi$, $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{m}\right)$
 und $Qx\varphi$ sind trivial.
