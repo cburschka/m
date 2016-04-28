@@ -48,8 +48,6 @@
   \newtheorem*{rem*}{\protect\remarkname}
   \theoremstyle{definition}
   \newtheorem*{example*}{\protect\examplename}
-  \theoremstyle{plain}
-  \newtheorem{fact}[thm]{\protect\factname}
  \newlist{casenv}{enumerate}{4}
  \setlist[casenv]{leftmargin=*,align=left,widest={iiii}}
  \setlist[casenv,1]{label={{\itshape\ \casename} \arabic*.},ref=\arabic*}
@@ -71,7 +69,6 @@
   \providecommand{\corollaryname}{Korollar}
   \providecommand{\definitionname}{Definition}
   \providecommand{\examplename}{Beispiel}
-  \providecommand{\factname}{Fakt}
   \providecommand{\lemmaname}{Lemma}
   \providecommand{\remarkname}{Bemerkung}
  \providecommand{\casename}{Fall}
@@ -80,6 +77,8 @@
 \begin{document}
 
 \section{Einleitung}
+
+
 
 Übersicht:
 \begin{enumerate}
@@ -602,7 +601,7 @@ Fixpunkt-Operator:\end{defn}
 \item [{(LFP)}] Für $\mathcal{R}_{1},\mathcal{R}_{2}\subseteq\mathbf{var}_{2}$,
 eine Relationsvariable $X/k\in\mathcal{R}_{1}$, eine $X$-positive
 $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}_{1}\right]$-Formel
-$\psi$, , ein Tupel $\bar{x}\in\mathbf{var}^{k}$ und ein $k$-Tupel
+$\psi$, ein Tupel $\bar{x}\in\mathbf{var}^{k}$ und ein $k$-Tupel
 $\bar{y}$ von $\mathrm{\mathrm{FO}+\mathrm{LFP}}\left[\sigma\cup\mathcal{R}_{2}\right]$-Termen
 ist $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
 eine $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\cup\left(\mathcal{R}_{1}\backslash\left\{ X\right\} \right)\cup\mathcal{R}_{2}\right]$-Formel.
@@ -613,60 +612,51 @@ eine $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\cup\left(\mathcal{R}_{1}\bac
 \end{eqnarray*}
 \end{lyxlist}
 \begin{rem*}
-Insbesondere besteht für eine relationale Signatur $\sigma$ die Logik
-$\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$ nur aus Formeln, in
-denen alle Relationsvariablen durch Fixpunkt-Operatoren gebunden sind.\end{rem*}
+Insbesondere besteht für eine von $\mathbf{var}_{2}$ disjunkte relationale
+Signatur $\sigma$ die Logik $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
+nur aus Formeln, in denen alle Relationsvariablen durch Fixpunkt-Operatoren
+gebunden sind.\end{rem*}
 \begin{description}
 \item [{Auswertung:}] Für $X/k\in\mathcal{R}\subseteq\mathbf{var}_{2}$,
 eine $\left(\sigma\cup\mathcal{R}\backslash\left\{ X\right\} \right)$-Struktur
-$\mathfrak{A}$, eine $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}\right]$-Formel
+$\mathfrak{A}$, eine $X$-positive $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}\right]$-Formel
 und eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\backslash\bar{x}\rightarrow A$
-definieren wir eine Sequenz von $\left(\sigma\cup\mathcal{R}\right)$-Strukturen
-$\left(\mathfrak{A}^{\left(i\right)}\right)_{i\in\mathbb{N}}$ wie
-folgt: 
+definieren wir die Abbildung $F:\mathcal{P}\left(A^{k}\right)\rightarrow\mathcal{P}\left(A^{k}\right)$
+wie folgt:
 \begin{eqnarray*}
-\mathfrak{A}^{\left(i\right)} & \coloneqq & \left(A,\left(R^{\mathfrak{A}}\right)_{R}R^{\left(i\right)}\right)\\
-R^{\left(0\right)} & \coloneqq & \emptyset\\
-R^{\left(i+1\right)} & \coloneqq & \varphi^{\beta}\left(\mathfrak{A}^{\left(i\right)}\right)
+F\left(X^{\left(i\right)}\right) & \coloneqq & \varphi^{\beta}\left(\mathfrak{A}\oplus X^{\left(i\right)}\right)
 \end{eqnarray*}
-Das heißt: $R^{\left(0\right)}$ ist leer, und $R^{\left(i+1\right)}$
-ist das Anfrageergebnis, das unter der partiellen Belegung $\beta_{\backslash\bar{x}}$
-entsteht, wenn das Symbol $R$ durch die Relation $R^{\left(i\right)}$
+Das heißt: $F\left(X^{\left(i\right)}\right)$ ist das Anfrageergebnis
+von $\varphi^{\beta}$, wenn das Symbol $X$ durch die Relation $X^{\left(i\right)}$
 interpretiert wird.
 
 
-Aus
-
-
-Da $R^{\left(i\right)}\subseteq R^{\left(i+1\right)}\subseteq A^{k}$,
-existiert ein Fixpunkt $R^{\left(\infty\right)}=R^{\left(\left|A\right|^{k}\right)}$.
-Nun wird $\varphi$ wie folgt auswertet:
-
-\end{description}
+Aus der $X$-Positivität folgt nach \cite{Gurevich1986,Libkin2012}
+die Monotonie des Fixpunkt-Operators, und daher induktiv die Existenz
+eines kleinsten Fixpunkts $F^{\infty}\left(\emptyset\right)$:
 \begin{eqnarray*}
-\mathfrak{A}\models\left(\left[\mathrm{ifp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)\right)^{\beta} & \Leftrightarrow & \left\llbracket \bar{y}\right\rrbracket \left(\mathfrak{A},\beta\right)\in R^{\left(\infty\right)}
+A\subseteq B & \Rightarrow & F\left(A\right)\subseteq F\left(B\right)
 \end{eqnarray*}
-
-\begin{example*}
-Die folgende Formel $\varphi\left(u,v\right)$ ist erfüllt, wenn $u$
-und $v$ durch einen Weg beliebiger Länge verbunden sind: 
 \[
-\varphi\left(u,v\right)\coloneqq\left[\mathrm{ifp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
+\emptyset\subseteq F\left(\emptyset\right)\subseteq\cdots\subseteq F^{\infty}\left(\emptyset\right)\subseteq A^{k}
 \]
 
-\end{example*}
-Im folgenden beschränken wir uns ohne Beschränkung der Allgemeinheit
-auf Formeln mit einem einzigen Fixpunktoperator.
-\begin{fact}
-Jede $\mathrm{FO}+\mathrm{IFP}\left[\sigma\right]$-Formel ist 
-\end{fact}
 
-\begin{fact}
-Per \cite{Gurevich1986}, ist $\mathrm{IFP}$ in der Ausdrucksstärke
-äquivalent zur Least-Fixed-Point-Logik $\mathrm{LFP}$ und der partiellen
-Fixpunktlogik $\mathrm{PFP}.$ Im folgenden wird daher die Bezeichnung
-$\mathrm{FP}$ und die inflationäre Definition verwendet.
-\end{fact}
+
+Insbesondere ist $F^{\infty}\left(\emptyset\right)=F^{\left|A^{k}\right|}\left(\emptyset\right)$,
+da die Iteration nach höchstens $\left|A^{k}\right|$ Iterationen
+ihren Fixpunkt erreicht.
+
+\end{description}
+\begin{example*}
+Die folgende $\mathrm{FO}+\mathrm{LFP}\left[\left\{ E\right\} \right]$-Formel
+$\varphi\left(u,v\right)$ ist erfüllt, wenn $u$ und $v$ durch einen
+Weg beliebiger Länge verbunden sind: 
+\[
+\varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
+\]
+\pagebreak{}
+\end{example*}
 
 \subsection{Logische Erweiterungen}
 
@@ -784,12 +774,10 @@ Strukturen definierbar \marginpar{{[}CITE, Ebbinghaus-Flum{]}}:
 \]
 \end{example*}
 \begin{defn}
-\textbf{Arb-Invariante Logik erster Stufe}
+\textbf{Arb-invariante Logik erster Stufe}
 
-Die arb-invariante $\mathrm{FO}$-Logik ist wie folgt gemäß N. Schweikardt.
-A short tutorial on order-invariant fir st-order logic. In International
-Computer Science Symposium in Russia (CSR) , pages 112–126, 2013.
-definiert :\end{defn}
+Die arb-invariante $\mathrm{FO}$-Logik ist wie folgt gemäß \cite{Schweikardt13ashort}
+definiert:\end{defn}
 \begin{enumerate}
 \item Sei $\eta_{\mathrm{arb}}$ eine unendliche relationale Signatur, die
 jeder numerischen Relation $R/k\subseteq\mathbb{N}^{k}$ ($k\in\mathbb{N}$)
@@ -803,10 +791,14 @@ Logik mit beliebigen numerischen Prädikaten.
 \item Sei $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ mit Größe $\left|A\right|=n$,
 und $h:A\rightarrow\left\{ 1,\cdots,n\right\} $ eine Bijektion. Die
 \textbf{Einbettung} $\mathfrak{A}_{h}\in\mathbf{FIN}\left(\sigma_{\mathrm{arb}}\right)$
-sei die disjunkte Vereinigung (gemäß \defref{Disjunkte-Vereinigung})
-der $\sigma$-Struktur $h\mathfrak{A}$ (gemäß \ref{def:Isomorphismus})
-mit der induzierten Teilstruktur $\mathfrak{N}_{\mid\left\{ 1,\cdots,n\right\} }$
-(gemäß \ref{def:Induzierte-Teilstruktur}).
+sei definiert durch:
+\[
+\mathfrak{A}_{h}\coloneqq h\mathfrak{A}\oplus\mathfrak{N}_{\mid\left[1,n\right]}
+\]
+Hier wird (gemäß \defref{Disjunkte-Vereinigung}) die $\sigma$-Struktur
+$h\mathfrak{A}$ß mit der induzierten Teilstruktur $\mathfrak{N}_{\mid\left\{ 1,\cdots,n\right\} }$
+über dem gleichen Universum $\left[1,n\right]$ und den disjunkten
+Signaturen $\sigma,\eta_{\mathrm{arb}}$ vereinigt.
 \item Eine $k$-stellige $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel
 $\varphi$ ist arb-invariant, wenn für jede endliche $\sigma$-Struktur
 $\mathfrak{A}$ eine Relation $R_{\varphi}\subseteq A^{k}$ existiert,

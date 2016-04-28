@@ -83,6 +83,10 @@ Einleitung
 \end_layout
 
 \begin_layout Standard
+
+\end_layout
+
+\begin_layout Standard
 Übersicht:
 \end_layout
 
@@ -2221,7 +2225,7 @@ Die Fixpunktlogik
 \begin_inset Formula $\psi$
 \end_inset
 
-, , ein Tupel 
+, ein Tupel 
 \begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
 \end_inset
 
@@ -2259,7 +2263,11 @@ Die Fixpunktlogik
 \end_layout
 
 \begin_layout Remark*
-Insbesondere besteht für eine relationale Signatur 
+Insbesondere besteht für eine von 
+\begin_inset Formula $\mathbf{var}_{2}$
+\end_inset
+
+ disjunkte relationale Signatur 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -2285,6 +2293,10 @@ Auswertung: Für
 \end_inset
 
 , eine 
+\begin_inset Formula $X$
+\end_inset
+
+-positive 
 \begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}\right]$
 \end_inset
 
@@ -2292,42 +2304,32 @@ Auswertung: Für
 \begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\backslash\bar{x}\rightarrow A$
 \end_inset
 
- definieren wir eine Sequenz von 
-\begin_inset Formula $\left(\sigma\cup\mathcal{R}\right)$
+ definieren wir die Abbildung 
+\begin_inset Formula $F:\mathcal{P}\left(A^{k}\right)\rightarrow\mathcal{P}\left(A^{k}\right)$
 \end_inset
 
--Strukturen 
-\begin_inset Formula $\left(\mathfrak{A}^{\left(i\right)}\right)_{i\in\mathbb{N}}$
-\end_inset
-
- wie folgt: 
+ wie folgt:
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathfrak{A}^{\left(i\right)} & \coloneqq & \left(A,\left(R^{\mathfrak{A}}\right)_{R}R^{\left(i\right)}\right)\\
-R^{\left(0\right)} & \coloneqq & \emptyset\\
-R^{\left(i+1\right)} & \coloneqq & \varphi^{\beta}\left(\mathfrak{A}^{\left(i\right)}\right)
+F\left(X^{\left(i\right)}\right) & \coloneqq & \varphi^{\beta}\left(\mathfrak{A}\oplus X^{\left(i\right)}\right)
 \end{eqnarray*}
 
 \end_inset
 
 Das heißt: 
-\begin_inset Formula $R^{\left(0\right)}$
+\begin_inset Formula $F\left(X^{\left(i\right)}\right)$
 \end_inset
 
- ist leer, und 
-\begin_inset Formula $R^{\left(i+1\right)}$
+ ist das Anfrageergebnis von 
+\begin_inset Formula $\varphi^{\beta}$
 \end_inset
 
- ist das Anfrageergebnis, das unter der partiellen Belegung 
-\begin_inset Formula $\beta_{\backslash\bar{x}}$
-\end_inset
-
- entsteht, wenn das Symbol 
-\begin_inset Formula $R$
+, wenn das Symbol 
+\begin_inset Formula $X$
 \end_inset
 
  durch die Relation 
-\begin_inset Formula $R^{\left(i\right)}$
+\begin_inset Formula $X^{\left(i\right)}$
 \end_inset
 
  interpretiert wird.
@@ -2335,40 +2337,60 @@ Das heißt:
 
 \begin_deeper
 \begin_layout Standard
-Aus
-\end_layout
-
-\begin_layout Standard
-Da 
-\begin_inset Formula $R^{\left(i\right)}\subseteq R^{\left(i+1\right)}\subseteq A^{k}$
+Aus der 
+\begin_inset Formula $X$
 \end_inset
 
-, existiert ein Fixpunkt 
-\begin_inset Formula $R^{\left(\infty\right)}=R^{\left(\left|A\right|^{k}\right)}$
+-Positivität folgt nach 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gurevich1986,Libkin2012"
+
 \end_inset
 
-.
- Nun wird 
-\begin_inset Formula $\varphi$
+ die Monotonie des Fixpunkt-Operators, und daher induktiv die Existenz eines
+ kleinsten Fixpunkts 
+\begin_inset Formula $F^{\infty}\left(\emptyset\right)$
 \end_inset
 
- wie folgt auswertet:
-\end_layout
-
-\end_deeper
-\begin_layout Standard
+:
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathfrak{A}\models\left(\left[\mathrm{ifp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)\right)^{\beta} & \Leftrightarrow & \left\llbracket \bar{y}\right\rrbracket \left(\mathfrak{A},\beta\right)\in R^{\left(\infty\right)}
+A\subseteq B & \Rightarrow & F\left(A\right)\subseteq F\left(B\right)
 \end{eqnarray*}
 
 \end_inset
 
 
+\begin_inset Formula 
+\[
+\emptyset\subseteq F\left(\emptyset\right)\subseteq\cdots\subseteq F^{\infty}\left(\emptyset\right)\subseteq A^{k}
+\]
+
+\end_inset
+
+
 \end_layout
 
+\begin_layout Standard
+Insbesondere ist 
+\begin_inset Formula $F^{\infty}\left(\emptyset\right)=F^{\left|A^{k}\right|}\left(\emptyset\right)$
+\end_inset
+
+, da die Iteration nach höchstens 
+\begin_inset Formula $\left|A^{k}\right|$
+\end_inset
+
+ Iterationen ihren Fixpunkt erreicht.
+\end_layout
+
+\end_deeper
 \begin_layout Example*
-Die folgende Formel 
+Die folgende 
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\left\{ E\right\} \right]$
+\end_inset
+
+-Formel 
 \begin_inset Formula $\varphi\left(u,v\right)$
 \end_inset
 
@@ -2383,56 +2405,16 @@ Die folgende Formel
  durch einen Weg beliebiger Länge verbunden sind: 
 \begin_inset Formula 
 \[
-\varphi\left(u,v\right)\coloneqq\left[\mathrm{ifp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
+\varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
 \]
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Im folgenden beschränken wir uns ohne Beschränkung der Allgemeinheit auf
- Formeln mit einem einzigen Fixpunktoperator.
-\end_layout
-
-\begin_layout Fact
-Jede 
-\begin_inset Formula $\mathrm{FO}+\mathrm{IFP}\left[\sigma\right]$
+\begin_inset Newpage pagebreak
 \end_inset
 
--Formel ist 
-\end_layout
 
-\begin_layout --Separator--
-
-\end_layout
-
-\begin_layout Fact
-Per 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Gurevich1986"
-
-\end_inset
-
-, ist 
-\begin_inset Formula $\mathrm{IFP}$
-\end_inset
-
- in der Ausdrucksstärke äquivalent zur Least-Fixed-Point-Logik 
-\begin_inset Formula $\mathrm{LFP}$
-\end_inset
-
- und der partiellen Fixpunktlogik 
-\begin_inset Formula $\mathrm{PFP}.$
-\end_inset
-
- Im folgenden wird daher die Bezeichnung 
-\begin_inset Formula $\mathrm{FP}$
-\end_inset
-
- und die inflationäre Definition verwendet.
 \end_layout
 
 \begin_layout Subsection
@@ -2853,7 +2835,7 @@ status open
 \begin_layout Definition
 
 \series bold
-Arb-Invariante Logik erster Stufe
+Arb-invariante Logik erster Stufe
 \end_layout
 
 \begin_layout Definition
@@ -2861,12 +2843,14 @@ Die arb-invariante
 \begin_inset Formula $\mathrm{FO}$
 \end_inset
 
--Logik ist wie folgt gemäß N.
- Schweikardt.
- A short tutorial on order-invariant fir st-order logic.
- In International Computer Science Symposium in Russia (CSR) , pages 112–126,
- 2013.
- definiert :
+-Logik ist wie folgt gemäß 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Schweikardt13ashort"
+
+\end_inset
+
+ definiert:
 \end_layout
 
 \begin_layout Enumerate
@@ -2953,14 +2937,22 @@ Einbettung
 \begin_inset Formula $\mathfrak{A}_{h}\in\mathbf{FIN}\left(\sigma_{\mathrm{arb}}\right)$
 \end_inset
 
- sei die disjunkte Vereinigung (gemäß 
+ sei definiert durch:
+\begin_inset Formula 
+\[
+\mathfrak{A}_{h}\coloneqq h\mathfrak{A}\oplus\mathfrak{N}_{\mid\left[1,n\right]}
+\]
+
+\end_inset
+
+Hier wird (gemäß 
 \begin_inset CommandInset ref
 LatexCommand formatted
 reference "def:Disjunkte-Vereinigung"
 
 \end_inset
 
-) der 
+) die 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -2968,25 +2960,19 @@ reference "def:Disjunkte-Vereinigung"
 \begin_inset Formula $h\mathfrak{A}$
 \end_inset
 
- (gemäß 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "def:Isomorphismus"
-
-\end_inset
-
-) mit der induzierten Teilstruktur 
+ß mit der induzierten Teilstruktur 
 \begin_inset Formula $\mathfrak{N}_{\mid\left\{ 1,\cdots,n\right\} }$
 \end_inset
 
- (gemäß 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "def:Induzierte-Teilstruktur"
-
+ über dem gleichen Universum 
+\begin_inset Formula $\left[1,n\right]$
 \end_inset
 
-).
+ und den disjunkten Signaturen 
+\begin_inset Formula $\sigma,\eta_{\mathrm{arb}}$
+\end_inset
+
+ vereinigt.
 \end_layout
 
 \begin_layout Enumerate
