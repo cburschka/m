@@ -1490,12 +1490,88 @@ Eine Logik
  übernimmt, und zusätzliche Produktionen einführt.
 \end_layout
 
-\begin_layout Subsection
-Prädikatenlogik erster Stufe
-\end_layout
-
 \begin_layout --Separator--
 
+\end_layout
+
+\begin_layout Definition
+Für eine 
+\begin_inset Formula $\mathscr{L}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ und 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ drücke 
+\begin_inset Formula $\models_{n}\varphi$
+\end_inset
+
+ aus, dass diese von allen 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+\end_inset
+
+ der Größe 
+\begin_inset Formula $n$
+\end_inset
+
+ unter allen Belegungen erfüllt wird.
+\end_layout
+
+\begin_layout Definition
+Insbesondere bedeute 
+\begin_inset Formula $\models_{n}\left(\varphi\leftrightarrow\psi\right)$
+\end_inset
+
+, dass 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ und 
+\begin_inset Formula $\psi$
+\end_inset
+
+ auf allen 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen der Größe 
+\begin_inset Formula $n$
+\end_inset
+
+ äquivalent sind.
+\end_layout
+
+\begin_layout Definition
+Die Notation 
+\begin_inset Formula $\models_{\mathrm{fin}}\varphi$
+\end_inset
+
+ drücke aus, dass 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ von allen endlichen 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ unter allen Belegungen erfüllt wird.
+\end_layout
+
+\begin_layout Subsection
+Prädikatenlogik erster Stufe
 \end_layout
 
 \begin_layout Definition
@@ -1503,12 +1579,13 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 \begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
- sind wie folgt definiert:
+ sind wie folgt definiert.
+ Wir verwenden die Kal
 \end_layout
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
-T1 Für jede Variable 
+(TV) Für jede Variable 
 \begin_inset Formula $x\in\mathbf{var}$
 \end_inset
 
@@ -1537,7 +1614,7 @@ T1 Für jede Variable
 
 \end_inset
 
- 
+
 \begin_inset Formula 
 \[
 \left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\beta x
@@ -1550,7 +1627,7 @@ T1 Für jede Variable
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
-A1 Für jedes Relationssymbol 
+(AR) Für jedes Relationssymbol 
 \begin_inset Formula $R/k\in\sigma$
 \end_inset
 
@@ -1603,7 +1680,7 @@ A1 Für jedes Relationssymbol
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
-A2 Für zwei 
+(AE) Für zwei 
 \begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
@@ -1665,7 +1742,7 @@ A2 Für zwei
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
-R1 Für eine 
+(N) Für eine 
 \begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
@@ -1710,7 +1787,7 @@ R1 Für eine
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
-R2 Für 
+(J) Für 
 \begin_inset Formula $k\geqslant2$
 \end_inset
 
@@ -1775,7 +1852,7 @@ R2 Für
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
-R3 Für einen Quantor 
+(Q) Für einen Quantor 
 \begin_inset Formula $Q\in\left\{ \exists,\forall\right\} $
 \end_inset
 
@@ -1843,6 +1920,13 @@ a
 .)
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
 Fixpunktlogik
 \end_layout
@@ -1852,7 +1936,7 @@ Sei
 \begin_inset Formula $\mathbf{var}_{2}$
 \end_inset
 
- die Menge aller zweitstufigen Variablen.
+ die Menge aller Relationsvariablen.
  Jede solche Variable 
 \begin_inset Formula $R\in\mathbf{var}_{2}$
 \end_inset
@@ -1866,6 +1950,219 @@ Sei
 \end_inset
 
  notiert.
+ (Per Definition sei 
+\begin_inset Formula $\mathbf{var}_{2}$
+\end_inset
+
+ disjunkt von allen hier betrachteten relationalen Signaturen 
+\begin_inset Formula $\sigma$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Definition
+Für eine Menge 
+\begin_inset Formula $\mathcal{R}\subseteq\mathbf{var}_{2}$
+\end_inset
+
+ ist die 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$
+\end_inset
+
+-Logik eine Erweiterung der 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Logik um die folgende Regel:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+(AV) Für jede Relationsvariable 
+\begin_inset Formula $R/k\in\mathcal{R}$
+\end_inset
+
+ und ein 
+\begin_inset Formula $k$
+\end_inset
+
+-Tupel 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ von 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$
+\end_inset
+
+-Termen ist 
+\begin_inset Formula $R\bar{x}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$
+\end_inset
+
+-Formel.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Positivität
+\end_layout
+
+\begin_layout Definition
+Die Logik 
+\begin_inset Formula $\mathrm{FO}^{+}\left[\sigma\cup\mathcal{R}\right]$
+\end_inset
+
+ sei eine Einschränkung von 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+ auf Formeln ohne die Negation (RN).
+ Wir definieren die Klasse der 
+\begin_inset Formula $R$
+\end_inset
+
+-positiven 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formeln wie folgt:
+\end_layout
+
+\begin_layout Enumerate
+Für 
+\begin_inset Formula $R\in\mathbf{var}_{2}$
+\end_inset
+
+ ist jede 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\cup\mathcal{R}\backslash\left\{ R\right\} \right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ sowohl 
+\begin_inset Formula $R$
+\end_inset
+
+-positiv als auch 
+\begin_inset Formula $R$
+\end_inset
+
+-negativ, da sie 
+\begin_inset Formula $R$
+\end_inset
+
+ nicht enthält.
+\end_layout
+
+\begin_layout Enumerate
+Für 
+\begin_inset Formula $\mathcal{R}\subseteq\mathbf{var}_{2}$
+\end_inset
+
+ und eine 
+\begin_inset Formula $R$
+\end_inset
+
+-positive 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ ist 
+\begin_inset Formula $\neg\varphi$
+\end_inset
+
+ eine 
+\begin_inset Formula $R$
+\end_inset
+
+-negative Formel, und umgekehrt.
+\end_layout
+
+\begin_layout Enumerate
+Für einen Junktor 
+\begin_inset Formula $\gamma\in\left\{ \wedge,\vee\right\} $
+\end_inset
+
+ und 
+\begin_inset Formula $k\geqslant2$
+\end_inset
+
+ 
+\begin_inset Formula $R$
+\end_inset
+
+-positive (beziehungsweise 
+\begin_inset Formula $R$
+\end_inset
+
+-negative) Formeln 
+\begin_inset Formula $\varphi_{1},\cdots,\varphi_{k}$
+\end_inset
+
+ ist 
+\begin_inset Formula $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)$
+\end_inset
+
+ ebenfalls 
+\begin_inset Formula $R$
+\end_inset
+
+-positiv (beziehungsweise 
+\begin_inset Formula $R$
+\end_inset
+
+-negativ).
+\end_layout
+
+\begin_layout Enumerate
+Für einen Quantor 
+\begin_inset Formula $Q\in\left\{ \exists,\forall\right\} $
+\end_inset
+
+, eine Variable 
+\begin_inset Formula $x\in\mathbf{var}$
+\end_inset
+
+ und eine 
+\begin_inset Formula $R$
+\end_inset
+
+-positive (beziehungsweise 
+\begin_inset Formula $R$
+\end_inset
+
+-negative) Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ ist 
+\begin_inset Formula $Qx\varphi$
+\end_inset
+
+ ebenfalls 
+\begin_inset Formula $R$
+\end_inset
+
+-positiv (beziehungsweise 
+\begin_inset Formula $R$
+\end_inset
+
+-negativ).
 \end_layout
 
 \begin_layout --Separator--
@@ -1874,29 +2171,65 @@ Sei
 
 \begin_layout Definition
 Die inflationäre Fixpunktlogik 
-\begin_inset Formula $\mathrm{IFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
  erweitert 
 \begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
- um den inflationären Fixpunkt-Operator:
+ um den folgenden Fixpunkt-Operator:
 \end_layout
 
-\begin_deeper
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
-R4 Für eine Relationsvariable 
-\begin_inset Formula $R/k\in\mathbf{var}_{2}\backslash\sigma$
+A Für 
+\begin_inset Formula $\mathcal{R}\subseteq\mathbf{var}_{2}$
+\end_inset
+
+, ein 
+\begin_inset Formula $k$
+\end_inset
+
+-Tupel 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ von 
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}\right]$
+\end_inset
+
+-Termen und eine Relationsvariable 
+\begin_inset Formula $R/k\in\mathbf{var}_{2}$
+\end_inset
+
+ ist 
+\begin_inset Formula $R\bar{x}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\mathrm{FO}+\mathrm{IFP}\left[\sigma\cup\mathcal{R}\cup\left\{ R\right\} \right]$
+\end_inset
+
+-Formel.
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+R4 Für 
+\begin_inset Formula $\mathcal{R}_{1},\mathcal{R}_{2}\subseteq\mathbf{var}_{2}$
 \end_inset
 
 , eine 
-\begin_inset Formula $\mathrm{IFP}\left[\sigma\cup\left\{ R\right\} \right]$
+\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}_{1}\right]$
 \end_inset
 
 -Formel 
 \begin_inset Formula $\psi$
+\end_inset
+
+, eine Relationsvariable 
+\begin_inset Formula $R/k\in\mathbf{var}_{2}$
 \end_inset
 
 , ein Tupel 
@@ -1912,7 +2245,7 @@ R4 Für eine Relationsvariable
 \end_inset
 
  von 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\cup\tau_{2}\right]$
 \end_inset
 
 -Termen ist 
@@ -1920,7 +2253,7 @@ R4 Für eine Relationsvariable
 \end_inset
 
  eine 
-\begin_inset Formula $\mathrm{IFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\cup\left(\tau_{1}\backslash\left\{ R\right\} \right)\cup\tau_{2}\right]$
 \end_inset
 
 -Formel.
@@ -1936,9 +2269,21 @@ R4 Für eine Relationsvariable
 
 \end_layout
 
-\end_deeper
-\begin_layout Standard
-Für eine 
+\begin_layout Remark*
+Insbesondere besteht für eine relationale Signatur 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ die Logik 
+\begin_inset Formula $\mathrm{FO}+\mathrm{IFP}\left[\sigma\right]$
+\end_inset
+
+ nur aus Formeln, in denen alle Relationsvariablen durch Fixpunkt-Operatoren
+ gebunden sind.
+\end_layout
+
+\begin_layout Description
+Auswertung: Für eine 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -1946,7 +2291,11 @@ Für eine
 \begin_inset Formula $\mathfrak{A}$
 \end_inset
 
- und eine Belegung 
+, eine 
+\begin_inset Formula $\mathrm{FO}+\mathrm{IFP}\left[\sigma\right]$
+\end_inset
+
+-Formel und eine Belegung 
 \begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
 \end_inset
 
@@ -2044,7 +2393,31 @@ Die folgende Formel
 \end_layout
 
 \begin_layout Standard
-Per [Gurevitch-Shelah] & [Kreutzer] ist 
+Im folgenden beschränken wir uns ohne Beschränkung der Allgemeinheit auf
+ Formeln mit einem einzigen Fixpunktoperator.
+\end_layout
+
+\begin_layout Fact
+Jede 
+\begin_inset Formula $\mathrm{FO}+\mathrm{IFP}\left[\sigma\right]$
+\end_inset
+
+-Formel ist 
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Fact
+Per 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gurevich1986"
+
+\end_inset
+
+, ist 
 \begin_inset Formula $\mathrm{IFP}$
 \end_inset
 
@@ -2070,7 +2443,6 @@ Logische Erweiterungen
 \begin_layout Standard
 Die Orakelerweiterung fügt einer Logik eine Anzahl von Relationssymbolen
  mit vordefinierter Interpretation hinzu.
- 
 \end_layout
 
 \begin_layout Definition
@@ -2168,6 +2540,19 @@ Die Formeln werden auf der disjunkten Vereinigung einer endlichen
 \end_layout
 
 \begin_layout Definition
+
+\series bold
+\begin_inset Formula $\mathcal{L}+\mathbf{ORD}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathcal{L}+\mathbf{ARB}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
 Falls 
 \begin_inset Formula $\eta$
 \end_inset
@@ -2176,12 +2561,60 @@ Falls
 \begin_inset Formula $\Upsilon\left(n\right)=\left(\left[0,n\right],\leqslant\right)$
 \end_inset
 
- nur die Ordnung enthält, so wird 
+ nur die Ordnung enthält, so werde 
 \begin_inset Formula $\mathscr{L}+\Upsilon$
 \end_inset
 
  auch als 
 \begin_inset Formula $\mathscr{L}+\mathbf{ORD}$
+\end_inset
+
+ bezeichnet.
+\end_layout
+
+\begin_layout Definition
+Die unendliche Signatur 
+\begin_inset Formula $\eta_{\mathrm{arb}}=\left\{ R_{X}\mid X\subseteq\mathbb{N}\right\} $
+\end_inset
+
+ enthalte ein Symbol für jede Relation auf den natürlichen Zahlen.
+ Sei 
+\begin_inset Formula $\mathcal{N}_{\mathrm{arb}}$
+\end_inset
+
+ die 
+\begin_inset Formula $\eta_{\mathrm{arb}}$
+\end_inset
+
+-Struktur, die jedes Symbol durch die entsprechende Relation interpretiert,
+ und sei 
+\begin_inset Formula $\Upsilon_{\mathrm{arb}}:\mathbb{N}\rightarrow\mathbf{FIN}_{<}\left(\eta_{\mathrm{arb}}\right)$
+\end_inset
+
+ ein Orakel, das endliche Teilbereiche von 
+\begin_inset Formula $\mathcal{N}_{\mathrm{arb}}$
+\end_inset
+
+ ausgibt: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{N}_{\mathrm{arb}} & \coloneqq & \left(\mathbb{N},\left(R^{\mathcal{N}}\right)_{R\in\eta_{\mathrm{arb}}}\right)\\
+R_{X}^{\mathcal{N}} & \coloneqq & X\,\,\mathrm{f.a.}\,X\subseteq\mathbb{N}\\
+\Upsilon_{\mathrm{arb}}\left(n\right) & \coloneqq & \left(\mathcal{N}_{\mathrm{arb}}\right)_{\mid\left[0,n\right]}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Die Logik 
+\begin_inset Formula $\mathscr{L}+\Upsilon_{\mathrm{arb}}$
+\end_inset
+
+ werde auch als 
+\begin_inset Formula $\mathcal{L}+\mathbf{ARB}$
 \end_inset
 
  bezeichnet.
@@ -2194,12 +2627,12 @@ Falls
 \begin_layout Definition
 
 \series bold
-Zählerweiterung
+Zählterme
 \end_layout
 
 \begin_layout Definition
-Die Zählerweiterung fügt einer Logik einen zusätzlichen Term zu, der die
- erfüllenden Belegungen einer Formel zählt.
+Der Zählterm ist eine zusätzliche Termproduktion, der die erfüllenden Belegungen
+ einer Formel zählt.
 \end_layout
 
 \begin_layout Definition
@@ -2230,6 +2663,7 @@ Die
 -Logik um die folgende Regel:
 \end_layout
 
+\begin_deeper
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 T2 Für eine 
@@ -2328,7 +2762,12 @@ die Anzahl der unterschiedlichen Werte von
 \end_layout
 
 \end_deeper
-\begin_layout Remark*
+\end_deeper
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
 Falls 
 \begin_inset Formula $\eta$
 \end_inset
@@ -2350,11 +2789,11 @@ Falls
 
 \begin_layout Example*
 Diese Erweiterung erlaubt die Definition vieler arithmetischer Operatoren
- durch Teilformeln, wie zum Beispiel die positive Differenz:
+ durch Terme, wie zum Beispiel die positive Differenz:
 \begin_inset Formula 
 \begin{eqnarray*}
-\varphi_{\mathrm{DIFF}}\left(x,y\right) & \coloneqq & \#_{z}\left(\neg z\leqslant x\wedge z\leqslant y\right)\\
-\left\llbracket \varphi_{\mathrm{DIFF}}\left(a,b\right)\right\rrbracket \left(\mathfrak{A}\right) & = & \max\left(b-a,0\right)
+t_{\mathrm{DIFF}}\left(x,y\right) & \coloneqq & \#_{z}\left(\neg z\leqslant x\wedge z\leqslant y\right)\\
+\left\llbracket t_{\mathrm{DIFF}}\right\rrbracket \left(\mathfrak{A},\left(a,b\right)\right) & = & \max\left(b-a,0\right)
 \end{eqnarray*}
 
 \end_inset
@@ -2368,10 +2807,14 @@ Diese Erweiterung erlaubt die Definition vieler arithmetischer Operatoren
 
 \begin_layout Example*
 Die Logik 
-\begin_inset Formula $\mathrm{FO}+C$
+\begin_inset Formula $\mathrm{FO}+C\left[\sigma\right]$
 \end_inset
 
- kann ausdrücken, dass die Struktur eine gerade Größe hat.
+ kann ausdrücken, dass die 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur eine gerade Größe hat.
  Bekanntlich ist diese 
 \begin_inset Formula $\sigma$
 \end_inset
@@ -2384,7 +2827,17 @@ Die Logik
 \begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
 \end_inset
 
- auf geordneten oder ungeordneten Strukturen definierbar [CITE]:
+ auf geordneten oder ungeordneten Strukturen definierbar 
+\begin_inset Marginal
+status open
+
+\begin_layout Plain Layout
+[CITE, Ebbinghaus-Flum]
+\end_layout
+
+\end_inset
+
+:
 \end_layout
 
 \begin_layout Example*
@@ -2607,7 +3060,7 @@ Schaltkreise
 \begin_layout Definition
 
 \series bold
-Basis:
+Boolesche Basis:
 \series default
  
 \end_layout
@@ -2666,6 +3119,29 @@ Eine boolesche Basis
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Definition
+Wenn 
+\begin_inset Formula $\phi$
+\end_inset
+
+ als Funktion 
+\begin_inset Formula $\phi:\mathbb{N}\times\mathbb{N}\rightarrow\left\{ 0,1\right\} $
+\end_inset
+
+ verwendet wird, sei 
+\begin_inset Formula $\phi\left(m,n\right)=\begin{cases}
+1 & \mathrm{falls}\,\left(m,n\right)\in\phi\\
+0 & \mathrm{sonst}
+\end{cases}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
 Im folgenden stehe 
 \begin_inset Formula $\mathbb{B}_{\mathrm{std}}\coloneqq\left\{ \wedge,\vee\right\} $
 \end_inset
@@ -2694,7 +3170,7 @@ Sei
 
  eine relationale Signatur.
  Ein 
-\begin_inset Formula $\left(\mathbb{B},\sigma\right)$
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
 \end_inset
 
 -Schaltkreis 
@@ -2722,7 +3198,7 @@ Ein azyklischer Graph mit den Knoten
 \end_layout
 
 \begin_layout Enumerate
-eine Gatemarkierung 
+eine Gate-Markierung 
 \begin_inset Formula $\Sigma$
 \end_inset
 
@@ -2731,7 +3207,7 @@ eine Gatemarkierung
 \begin{eqnarray*}
 \Sigma:G & \rightarrow & \mathbb{B}\\
  & \cup & \left\{ \mathbf{0},\mathbf{1},\neg\right\} \\
- & \cup & \left\{ R\bar{x}\mid R\in\sigma,\bar{x}\in U^{\mathrm{ar}\left(R\right)}\right\} 
+ & \cup & \left\{ R\bar{t}\mid R\in\sigma,\bar{t}\in U^{\mathrm{ar}\left(R\right)}\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -2821,7 +3297,7 @@ Die mit
 
  markierten Gates heißen 
 \series bold
-konstant
+Konstanten
 \series default
 , die mit 
 \begin_inset Formula $R\bar{x}$
@@ -2857,7 +3333,7 @@ Der Schaltkreis
 \begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
 \end_inset
 
- wird über einer geordneten 
+ wird auf einer geordneten 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -2892,14 +3368,14 @@ Der Schaltkreis
 \begin_deeper
 \begin_layout Case
 Für 
-\begin_inset Formula $\Sigma\left(g\right)=R\bar{x}$
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
 \end_inset
 
  gilt 
 \begin_inset Formula 
 \[
 \mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\coloneqq\begin{cases}
-1 & \mathrm{falls}\,\bar{x}\in R^{\mathfrak{A}}\\
+1 & \mathrm{falls}\,\bar{t}\in R^{\mathfrak{A}}\\
 0 & \mathrm{sonst}
 \end{cases}
 \]
@@ -2964,12 +3440,10 @@ Für ein Gate
  gilt: 
 \begin_inset Formula 
 \begin{eqnarray*}
-j_{0} & \coloneqq & \#\left\{ \left(h,g\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)=0\right\} \\
-j_{1} & \coloneqq & \#\left\{ \left(h,g\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)=1\right\} \\
-\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \begin{cases}
-1 & \mathrm{falls}\,\left(j_{0},j_{1}\right)\in\phi\\
-0 & \mathrm{sonst}
-\end{cases}
+j_{1} & \coloneqq & \sum_{\left(h,g\right)\in E}\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\\
+j_{0} & \coloneqq & \left|\left\{ h\mid\left(h,g\right)\in E\right\} \right|-j_{1}\\
+\\
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \phi\left(j_{0},j_{1}\right)
 \end{eqnarray*}
 
 \end_inset
@@ -2978,6 +3452,26 @@ j_{1} & \coloneqq & \#\left\{ \left(h,g\right)\in E\mid\mathcal{C}\left[\mathfra
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+Die Ausgabe eines Schaltkreises für eine Struktur 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ und ein Tupel 
+\begin_inset Formula $\bar{t}$
+\end_inset
+
+ sei:
+\begin_inset Formula 
+\[
+\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\coloneqq\mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)
+\]
+
+\end_inset
+
+ 
+\end_layout
+
 \begin_layout Standard
 Für einen 
 \begin_inset Formula $k$
@@ -2991,7 +3485,7 @@ Für einen
 \begin_inset Formula $\mathcal{C}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{t}\in U^{k}\mid\mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=1\right\} $
 \end_inset
 
- die Menge der Tupel, deren Output-Gate den Wert 
+ die Menge der Tupel, deren Output den Wert 
 \begin_inset Formula $1$
 \end_inset
 
@@ -6280,7 +6774,7 @@ Wir konstruieren zunächst den
 \begin_inset Formula $U=\left\{ 1,\cdots,2n+1\right\} $
 \end_inset
 
- entspreched dem vorhergehenden Beweis.
+ entsprechend dem vorhergehenden Beweis.
  Dieser hat offensichtlich die geforderte Größe 
 \begin_inset Formula $S_{n}=S_{2n+1}'=5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)}$
 \end_inset
@@ -7379,7 +7873,7 @@ Nach der Erzeugung von
 \end_inset
 
  umgewandelt.
- (Die neuen Schritte fügen keine Input-Gates hinzu, so dass sich hier nichts
+ (Die neuen Schritte fügen keine Inputs hinzu, so dass sich hier nichts
  ändert.)
 \end_layout
 
@@ -7410,7 +7904,7 @@ Falls
 \begin_inset Formula $\hat{\pi}'$
 \end_inset
 
- der vorrausgesetzte Automorphismus im Schaltkreis 
+ der vorausgesetzte Automorphismus im Schaltkreis 
 \begin_inset Formula $\dot{\mathcal{C}_{2n+1}^{\psi}}$
 \end_inset
 
@@ -7480,7 +7974,7 @@ Falls
 \end_inset
 
  analog zu Fall 1 definiert.
- Es müssen zusätzlich die Negations-Gates abgebildet werden:
+ Es müssen zusätzlich die negierten Gates abgebildet werden:
 \begin_inset Formula 
 \[
 \hat{\pi}h_{\bar{t}}=h_{\dot{\pi}\bar{t}}
@@ -7938,26 +8432,40 @@ Fixpunktlogik
 
 \begin_layout Standard
 Die Fixpunktlogik 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{IFP}\left[\sigma\right]$
 \end_inset
 
- ist echt ausdruckstärker als die Logik 
+ ist echt ausdrucksstärker als die Logik 
 \begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
-; so ist beispielsweise die Erreichbarkeit über einen Pfad beliebiger Länge
- nicht erststufig definierbar.
-\begin_inset Marginal
-status open
-
-\begin_layout Plain Layout
-Quelle
+.
 \end_layout
+
+\begin_layout Standard
+Beispielsweise ist die Erreichbarkeit über einen Pfad beliebiger Länge nicht
+ erststufig definierbar 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Libkin:2004:EFM:1024196"
+
+\end_inset
+
+.
+ In 
+\begin_inset Formula $\mathrm{IFP}\left[\sigma\right]$
+\end_inset
+
+ wird diese Klasse durch die folgende Formel definiert:
+\begin_inset Formula 
+\[
+\varphi\left(u,v\right)\coloneqq\left[\mathrm{ifp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
+\]
 
 \end_inset
 
  Trotzdem kann jede 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{IFP}\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -7973,7 +8481,7 @@ Quelle
 \end_inset
 
  mit polynomieller Länge 
-\begin_inset Formula $\left\Vert \varphi_{n}\right\Vert \leqslant n^{\left\Vert \varphi\right\Vert }$
+\begin_inset Formula $\left\Vert \varphi_{n}\right\Vert \leqslant n\left\Vert \varphi\right\Vert $
 \end_inset
 
  und höchstens 
@@ -7993,7 +8501,7 @@ Variablen definiert werden, von denen jede auf den Strukturen einer bestimmten
 \end_layout
 
 \begin_layout Standard
-Mit den bereits beschriebenen Konstruktionnen kann aus diesen Formeln eine
+Mit den bereits beschriebenen Konstruktionen kann aus diesen Formeln eine
  Schaltkreisfamilie erzeugt werden, die 
 \begin_inset Formula $\varphi$
 \end_inset
@@ -8026,32 +8534,29 @@ Durch die Einschränkung auf eine konstante Anzahl von Variablen ist die
 \begin_inset Formula $n^{\mathcal{O}\left(\left\Vert \varphi\right\Vert \right)}$
 \end_inset
 
- beschränkt, obwohl die FO-Formeln beliebig lang werden.
+ beschränkt, obwohl die 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formeln beliebig lang werden.
+ Die Tiefe ist durch 
+\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi_{n}\right\Vert \leqslant3n\left\Vert \varphi\right\Vert $
+\end_inset
+
+ allerdings nicht mehr konstant.
 \end_layout
 
-\begin_layout Definition
-Für zwei logische Formeln 
-\begin_inset Formula $\varphi$
-\end_inset
+\begin_layout Standard
+Zunächst 
+\end_layout
 
- und 
-\begin_inset Formula $\psi$
-\end_inset
+\begin_layout --Separator--
 
- bedeute 
-\begin_inset Formula $\varphi\equiv_{n}\psi$
-\end_inset
-
-, dass diese Formeln auf allen Strukturen 
-\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}_{n}\left(\sigma\right)$
-\end_inset
-
- äquivalent sind.
 \end_layout
 
 \begin_layout Lemma
 Für jede 
-\begin_inset Formula $\mathrm{FP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{IFP}\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -8059,7 +8564,7 @@ Für jede
 \end_inset
 
  und jede Größe 
-\begin_inset Formula $n\in\mathbb{N}_{\geqslant1}$
+\begin_inset Formula $n\in\mathbb{N}$
 \end_inset
 
  existiert eine 
@@ -8067,23 +8572,27 @@ Für jede
 \end_inset
 
 -Formel 
-\begin_inset Formula $\varphi_{n}$
+\begin_inset Formula $\hat{\varphi}$
 \end_inset
 
  mit höchstens 
 \begin_inset Formula $2\left\Vert \varphi\right\Vert $
 \end_inset
 
- Variablen, so dass 
-\begin_inset Formula $\varphi_{n}\equiv_{n}\varphi$
+ Variablen und 
+\begin_inset Formula $\left\Vert \hat{\varphi}\right\Vert \leqslant\left\Vert \varphi\right\Vert n$
+\end_inset
+
+, so dass 
+\begin_inset Formula $\models_{n}\left(\hat{\varphi}\leftrightarrow\varphi\right)$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Proof
-Induktiv über den Aufbau von 
-\begin_inset Formula $\varphi$
+Die Konstruktion erfolgt induktiv über die Definition von 
+\begin_inset Formula $\mathrm{IFP}\left[\sigma\right]$
 \end_inset
 
 :
@@ -8091,87 +8600,27 @@ Induktiv über den Aufbau von
 
 \begin_deeper
 \begin_layout Case
-Falls 
-\begin_inset Formula $\varphi$
-\end_inset
-
- von der Form 
+Die Schritte 
 \begin_inset Formula $R\bar{x}$
 \end_inset
 
- für 
-\begin_inset Formula $R/k\in\sigma$
+, 
+\begin_inset Formula $x_{1}\dot{=}x_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\neg\varphi$
+\end_inset
+
+, 
+\begin_inset Formula $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{m}\right)$
 \end_inset
 
  und 
-\begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
+\begin_inset Formula $Qx\varphi$
 \end_inset
 
- oder 
-\begin_inset Formula $x=y$
-\end_inset
-
- für 
-\begin_inset Formula $x,y\in\mathbf{var}$
-\end_inset
-
- ist, so ist 
-\begin_inset Formula $\varphi$
-\end_inset
-
- bereits eine 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
--Formel.
-\end_layout
-
-\begin_layout Case
-Falls 
-\begin_inset Formula $\varphi=\left(\psi\gamma\psi'\right)$
-\end_inset
-
- für 
-\begin_inset Formula $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
-\end_inset
-
- ist, so existieren per Induktionsannahme die Formeln 
-\begin_inset Formula $\psi_{n}\equiv_{n}\psi$
-\end_inset
-
- und 
-\begin_inset Formula $\psi_{n}'\equiv_{n}\psi'$
-\end_inset
-
-; es folgt 
-\begin_inset Formula $\left(\psi_{n}\gamma\psi_{n}'\right)\equiv_{n}\varphi$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Case
-Falls 
-\begin_inset Formula $\varphi=Qx\psi$
-\end_inset
-
- für 
-\begin_inset Formula $Q\in\left\{ \exists,\forall\right\} $
-\end_inset
-
- und 
-\begin_inset Formula $x\in\mathbf{var}$
-\end_inset
-
-, so existiert per Annahme die auf Formel 
-\begin_inset Formula $\psi_{n}\equiv_{n}\psi$
-\end_inset
-
-; es folgt 
-\begin_inset Formula $Qx\psi_{n}\equiv_{n}\varphi$
-\end_inset
-
-.
+ sind trivial.
 \end_layout
 
 \begin_layout Case
@@ -8179,19 +8628,19 @@ Falls
 \begin_inset Formula $\varphi=\left[\mathrm{ifp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
 \end_inset
 
- für eine Relations-Variable 
+ für eine Relationsvariable 
 \begin_inset Formula $R\notin\sigma$
 \end_inset
 
  mit 
-\begin_inset Formula $\mathrm{ar}\left(R\right)=m$
+\begin_inset Formula $\bar{x}\in\mathbf{var}^{m}$
 \end_inset
 
- und zwei Tupel 
-\begin_inset Formula $\bar{x},\bar{y}\in\mathbf{var}^{m}$
+ und 
+\begin_inset Formula $\bar{y}\in\left(\mathrm{IFP}\left[\sigma\right]-\mathrm{Term}\right)^{m}$
 \end_inset
 
-, so gilt:
+ , so gilt:
 \end_layout
 
 \begin_deeper
@@ -8435,7 +8884,7 @@ Die so erzeugte Formel
 \begin_inset Formula $m$
 \end_inset
 
- neue Variablen eingefügt, und für jeden solchen Induktionschritt enthält
+ neue Variablen eingefügt, und für jeden solchen Induktionsschritt enthält
  
 \begin_inset Formula $\varphi$
 \end_inset
@@ -10142,7 +10591,7 @@ Für den Binomialkoeffizienten gibt es auch eine untere Schranke:
 status open
 
 \begin_layout Plain Layout
-Quelle
+CITE
 \end_layout
 
 \end_inset
@@ -10589,6 +11038,17 @@ Nach dem Satz von Immerman-Vardi kann der Polynomialzeit-Algorithmus, der
 \[
 \left(\varphi_{G},\varphi_{W},\varphi_{\Omega},\varphi_{\mathbf{0}},\varphi_{\mathbf{1}},\varphi_{\neg},\varphi_{\phi}\,\phi\in\mathbb{B},\varphi_{\Lambda}\right)
 \]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "library"
+options "plain"
 
 \end_inset
 

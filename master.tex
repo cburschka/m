@@ -44,10 +44,12 @@
  \addtolength{\leftmargin}{\labelsep}
  \renewcommand{\makelabel}[1]{##1\hfil}}}
 {\end{list}}
-  \theoremstyle{definition}
-  \newtheorem*{example*}{\protect\examplename}
   \theoremstyle{remark}
   \newtheorem*{rem*}{\protect\remarkname}
+  \theoremstyle{definition}
+  \newtheorem*{example*}{\protect\examplename}
+  \theoremstyle{plain}
+  \newtheorem{fact}[thm]{\protect\factname}
  \newlist{casenv}{enumerate}{4}
  \setlist[casenv]{leftmargin=*,align=left,widest={iiii}}
  \setlist[casenv,1]{label={{\itshape\ \casename} \arabic*.},ref=\arabic*}
@@ -69,6 +71,7 @@
   \providecommand{\corollaryname}{Korollar}
   \providecommand{\definitionname}{Definition}
   \providecommand{\examplename}{Beispiel}
+  \providecommand{\factname}{Fakt}
   \providecommand{\lemmaname}{Lemma}
   \providecommand{\remarkname}{Bemerkung}
  \providecommand{\casename}{Fall}
@@ -435,26 +438,38 @@ sie die Syntax und Semantik von $\mathscr{L}'$ übernimmt, und zusätzliche
 Produktionen einführt.
 \end{defn}
 
+\begin{defn}
+Für eine $\mathscr{L}\left[\sigma\right]$-Formel $\varphi$ und $n\in\mathbb{N}$
+drücke $\models_{n}\varphi$ aus, dass diese von allen $\sigma$-Strukturen
+$\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+der Größe $n$ unter allen Belegungen erfüllt wird.
+
+Insbesondere bedeute $\models_{n}\left(\varphi\leftrightarrow\psi\right)$,
+dass $\varphi$ und $\psi$ auf allen $\sigma$-Strukturen der Größe
+$n$ äquivalent sind.
+
+Die Notation $\models_{\mathrm{fin}}\varphi$ drücke aus, dass $\varphi$
+von allen endlichen $\sigma$-Strukturen $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+unter allen Belegungen erfüllt wird.
+\end{defn}
+
 \subsection{Prädikatenlogik erster Stufe}
-
-
 \begin{defn}
 Die Syntax und Semantik der relationalen Logik erster Stufe $\mathrm{FO}\left[\sigma\right]$
-sind wie folgt definiert:\end{defn}
+sind wie folgt definiert. Wir verwenden die Kal\end{defn}
 \begin{lyxlist}{00.00.0000}
-\item [{T1}] Für jede Variable $x\in\mathbf{var}$ ist $x$ ein $\mathrm{FO}\left[\sigma\right]$-Term.
+\item [{(TV)}] Für jede Variable $x\in\mathbf{var}$ ist $x$ ein $\mathrm{FO}\left[\sigma\right]$-Term.
 \[
 \mathrm{frei}\left(x\right)=\mathrm{var}\left(x\right)=\left\{ x\right\} 
 \]
 \[
 \mathtt{M}\left(x\right)=1
 \]
- 
 \[
 \left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\beta x
 \]
 
-\item [{A1}] Für jedes Relationssymbol $R/k\in\sigma$ und jedes $k$-Tupel
+\item [{(AR)}] Für jedes Relationssymbol $R/k\in\sigma$ und jedes $k$-Tupel
 von $\mathrm{FO}\left[\sigma\right]$-Termen $\bar{x}$ ist $R\bar{x}$
 eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
@@ -467,7 +482,7 @@ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \mathfrak{A}\models\left(R\bar{x}\right)^{\beta} & \Leftrightarrow & \left(\left\llbracket x_{1}\right\rrbracket \left(\mathfrak{A},\beta\right),\cdots,\left\llbracket x_{k}\right\rrbracket \left(\mathfrak{A},\beta\right)\right)\in R^{\mathfrak{A}}
 \end{eqnarray*}
 
-\item [{A2}] Für zwei $\mathrm{FO}\left[\sigma\right]$-Terme $x_{1},x_{2}$
+\item [{(AE)}] Für zwei $\mathrm{FO}\left[\sigma\right]$-Terme $x_{1},x_{2}$
 ist $x_{1}=x_{2}$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 (Bei Mehrdeutigkeit wird das Symbol als $\dot{=}$ geschrieben, zum
 Beispiel bei ,,$\varphi=x_{1}\dot{=}x_{2}$.``)
@@ -481,7 +496,7 @@ Beispiel bei ,,$\varphi=x_{1}\dot{=}x_{2}$.``)
 \mathfrak{A}\models\left(x\dot{=}y\right)^{\beta} & \Leftrightarrow & \left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket y\right\rrbracket \left(\mathfrak{A},\beta\right)
 \end{eqnarray*}
 
-\item [{R1}] Für eine $\mathrm{FO}\left[\sigma\right]$-Formel $\varphi$
+\item [{(N)}] Für eine $\mathrm{FO}\left[\sigma\right]$-Formel $\varphi$
 ist $\neg\varphi$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
 \mathrm{frei}\left(\neg\varphi\right)=\mathrm{frei}\left(\varphi\right) &  & \mathrm{var}\left(\neg\varphi\right)=\mathrm{var}\left(\varphi\right)
@@ -493,7 +508,7 @@ ist $\neg\varphi$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \left\llbracket \neg\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)
 \]
 
-\item [{R2}] Für $k\geqslant2$ $\mathrm{FO}\left[\sigma\right]$-Formeln
+\item [{(J)}] Für $k\geqslant2$ $\mathrm{FO}\left[\sigma\right]$-Formeln
 $\varphi_{1},\cdots,\varphi_{k}$ und einen Junktor $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
 (mit $k=2$ für $\gamma\in\left\{ \rightarrow,\leftrightarrow\right\} $)
 ist auch $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)$
@@ -511,7 +526,7 @@ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \left\llbracket \varphi_{1}\leftrightarrow\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left\llbracket \left(\varphi_{1}\rightarrow\varphi_{2}\right)\wedge\left(\varphi_{2}\rightarrow\varphi_{1}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)
 \end{eqnarray*}
 
-\item [{R3}] Für einen Quantor $Q\in\left\{ \exists,\forall\right\} $,
+\item [{(Q)}] Für einen Quantor $Q\in\left\{ \exists,\forall\right\} $,
 eine Variable $x\in\mathbf{var}$ und eine $\mathrm{FO}\left[\sigma\right]$-Formel
 $\varphi$ ist $Qx\varphi$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
@@ -533,33 +548,79 @@ a
 (Im folgenden wird o.B.d.A. angenommen, dass $x\in\mathrm{frei}\left(\varphi\right)$.
 Ist dies nicht der Fall, so ist $Qx\varphi\equiv\varphi$.)
 \end{lyxlist}
+\pagebreak{}
+
 
 \subsection{Fixpunktlogik}
 \begin{defn}
-Sei $\mathbf{var}_{2}$ die Menge aller zweitstufigen Variablen. Jede
-solche Variable $R\in\mathbf{var}_{2}$ besitzt eine Stelligkeit $\mathrm{ar}\left(R\right)=k\in\mathbb{N}_{\geqslant1}$;
-diese wird auch durch $R/k\in\mathbf{var}_{2}$ notiert.
-\end{defn}
+Sei $\mathbf{var}_{2}$ die Menge aller Relationsvariablen. Jede solche
+Variable $R\in\mathbf{var}_{2}$ besitzt eine Stelligkeit $\mathrm{ar}\left(R\right)=k\in\mathbb{N}_{\geqslant1}$;
+diese wird auch durch $R/k\in\mathbf{var}_{2}$ notiert. (Per Definition
+sei $\mathbf{var}_{2}$ disjunkt von allen hier betrachteten relationalen
+Signaturen $\sigma$.)
+
+Für eine Menge $\mathcal{R}\subseteq\mathbf{var}_{2}$ ist die $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$-Logik
+eine Erweiterung der $\mathrm{FO}\left[\sigma\right]$-Logik um die
+folgende Regel:\end{defn}
+\begin{lyxlist}{00.00.0000}
+\item [{(AV)}] Für jede Relationsvariable $R/k\in\mathcal{R}$ und ein
+$k$-Tupel $\bar{x}$ von $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$-Termen
+ist $R\bar{x}$ eine $\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$-Formel.
+\end{lyxlist}
 
 \begin{defn}
-Die inflationäre Fixpunktlogik $\mathrm{IFP}\left[\sigma\right]$
-erweitert $\mathrm{FO}\left[\sigma\right]$ um den inflationären Fixpunkt-Operator:
+\textbf{Positivität}
+
+Die Logik $\mathrm{FO}^{+}\left[\sigma\cup\mathcal{R}\right]$ sei
+eine Einschränkung von $\mathrm{FO}\left[\sigma\right]$ auf Formeln
+ohne die Negation (RN). Wir definieren die Klasse der $R$-positiven
+$\mathrm{FO}\left[\sigma\right]$-Formeln wie folgt:\end{defn}
+\begin{enumerate}
+\item Für $R\in\mathbf{var}_{2}$ ist jede $\mathrm{FO}\left[\sigma\cup\mathcal{R}\backslash\left\{ R\right\} \right]$-Formel
+$\varphi$ sowohl $R$-positiv als auch $R$-negativ, da sie $R$
+nicht enthält.
+\item Für $\mathcal{R}\subseteq\mathbf{var}_{2}$ und eine $R$-positive
+$\mathrm{FO}\left[\sigma\cup\mathcal{R}\right]$-Formel $\varphi$
+ist $\neg\varphi$ eine $R$-negative Formel, und umgekehrt.
+\item Für einen Junktor $\gamma\in\left\{ \wedge,\vee\right\} $ und $k\geqslant2$
+$R$-positive (beziehungsweise $R$-negative) Formeln $\varphi_{1},\cdots,\varphi_{k}$
+ist $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)$ ebenfalls
+$R$-positiv (beziehungsweise $R$-negativ).
+\item Für einen Quantor $Q\in\left\{ \exists,\forall\right\} $, eine Variable
+$x\in\mathbf{var}$ und eine $R$-positive (beziehungsweise $R$-negative)
+Formel $\varphi$ ist $Qx\varphi$ ebenfalls $R$-positiv (beziehungsweise
+$R$-negativ).
+\end{enumerate}
+
+\begin{defn}
+Die inflationäre Fixpunktlogik $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
+erweitert $\mathrm{FO}\left[\sigma\right]$ um den folgenden Fixpunkt-Operator:\end{defn}
 \begin{lyxlist}{00.00.0000}
-\item [{R4}] Für eine Relationsvariable $R/k\in\mathbf{var}_{2}\backslash\sigma$,
-eine $\mathrm{IFP}\left[\sigma\cup\left\{ R\right\} \right]$-Formel
-$\psi$, ein Tupel $\bar{x}\in\mathbf{var}^{k}$ und ein $k$-Tupel
-$\bar{y}$ von $\mathrm{FP}\left[\sigma\right]$-Termen ist $\varphi=\left[\mathrm{ifp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
-eine $\mathrm{IFP}\left[\sigma\right]$-Formel.
+\item [{A}] Für $\mathcal{R}\subseteq\mathbf{var}_{2}$, ein $k$-Tupel
+$\bar{x}$ von $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}\right]$-Termen
+und eine Relationsvariable $R/k\in\mathbf{var}_{2}$ ist $R\bar{x}$
+eine $\mathrm{FO}+\mathrm{IFP}\left[\sigma\cup\mathcal{R}\cup\left\{ R\right\} \right]$-Formel.
+\item [{R4}] Für $\mathcal{R}_{1},\mathcal{R}_{2}\subseteq\mathbf{var}_{2}$,
+eine $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\mathcal{R}_{1}\right]$-Formel
+$\psi$, eine Relationsvariable $R/k\in\mathbf{var}_{2}$, ein Tupel
+$\bar{x}\in\mathbf{var}^{k}$ und ein $k$-Tupel $\bar{y}$ von $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\cup\tau_{2}\right]$-Termen
+ist $\varphi=\left[\mathrm{ifp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
+eine $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\cup\left(\tau_{1}\backslash\left\{ R\right\} \right)\cup\tau_{2}\right]$-Formel.
 \begin{eqnarray*}
 \mathrm{frei}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{frei}\left(y_{i}\right)\\
 \mathrm{var}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{var}\left(\psi\right)\cup\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{var}\left(y_{i}\right)\\
 \mathtt{M}\left(\varphi\right) & = & \max\left(\mathtt{M}\left(\psi\right),\mathrm{frei}\left(\varphi\right)\right)
 \end{eqnarray*}
-
 \end{lyxlist}
-\end{defn}
-Für eine $\sigma$-Struktur $\mathfrak{A}$ und eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
-definieren wir eine Sequenz von $\left\{ R\right\} $-Strukturen $\left(\mathfrak{R}^{\left(i\right)}\right)_{i\in\mathbb{N}}$
+\begin{rem*}
+Insbesondere besteht für eine relationale Signatur $\sigma$ die Logik
+$\mathrm{FO}+\mathrm{IFP}\left[\sigma\right]$ nur aus Formeln, in
+denen alle Relationsvariablen durch Fixpunkt-Operatoren gebunden sind.\end{rem*}
+\begin{description}
+\item [{Auswertung:}] Für eine $\sigma$-Struktur $\mathfrak{A}$, eine
+$\mathrm{FO}+\mathrm{IFP}\left[\sigma\right]$-Formel und eine Belegung
+$\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$ definieren
+wir eine Sequenz von $\left\{ R\right\} $-Strukturen $\left(\mathfrak{R}^{\left(i\right)}\right)_{i\in\mathbb{N}}$
 und die Relationen $\left(R^{\left(i\right)}\right)_{i\in\mathbb{N}}$
 wie folgt: 
 \begin{eqnarray*}
@@ -571,7 +632,7 @@ Das heißt: $R^{\left(i+1\right)}$ fügt das Anfrageergebnis hinzu,
 das unter der partiellen Belegung $\beta_{\backslash\bar{x}}$ entsteht,
 wenn das Symbol $R$ durch die Relation $R^{\left(i\right)}$ interpretiert
 wird.
-
+\end{description}
 Da $R^{\left(i\right)}\subseteq R^{\left(i+1\right)}\subseteq A^{k}$,
 existiert ein Fixpunkt $R^{\left(\infty\right)}=R^{\left(\left|A\right|^{k}\right)}$.
 Nun wird $\varphi$ wie folgt auswertet:
@@ -588,17 +649,23 @@ und $v$ durch einen Weg beliebiger Länge verbunden sind:
 \]
 
 \end{example*}
-Per {[}Gurevitch-Shelah{]} \& {[}Kreutzer{]} ist $\mathrm{IFP}$ in
-der Ausdrucksstärke äquivalent zur Least-Fixed-Point-Logik $\mathrm{LFP}$
-und der partiellen Fixpunktlogik $\mathrm{PFP}.$ Im folgenden wird
-daher die Bezeichnung $\mathrm{FP}$ und die inflationäre Definition
-verwendet.
+Im folgenden beschränken wir uns ohne Beschränkung der Allgemeinheit
+auf Formeln mit einem einzigen Fixpunktoperator.
+\begin{fact}
+Jede $\mathrm{FO}+\mathrm{IFP}\left[\sigma\right]$-Formel ist 
+\end{fact}
 
+\begin{fact}
+Per \cite{Gurevich1986}, ist $\mathrm{IFP}$ in der Ausdrucksstärke
+äquivalent zur Least-Fixed-Point-Logik $\mathrm{LFP}$ und der partiellen
+Fixpunktlogik $\mathrm{PFP}.$ Im folgenden wird daher die Bezeichnung
+$\mathrm{FP}$ und die inflationäre Definition verwendet.
+\end{fact}
 
 \subsection{Logische Erweiterungen}
 
 Die Orakelerweiterung fügt einer Logik eine Anzahl von Relationssymbolen
-mit vordefinierter Interpretation hinzu. 
+mit vordefinierter Interpretation hinzu.
 \begin{defn}
 \textbf{$\Upsilon$-Orakel, $\mathscr{L}+\Upsilon$-Logik}
 
@@ -622,23 +689,42 @@ $\sigma$-Struktur mit der entsprechenden Orakelstruktur ausgewertet:
 \end{defn}
 
 \begin{defn}
+\textbf{$\mathcal{L}+\mathbf{ORD}$, $\mathcal{L}+\mathbf{ARB}$.}
+
 Falls $\eta$ leer ist, und daher $\Upsilon\left(n\right)=\left(\left[0,n\right],\leqslant\right)$
-nur die Ordnung enthält, so wird $\mathscr{L}+\Upsilon$ auch als
+nur die Ordnung enthält, so werde $\mathscr{L}+\Upsilon$ auch als
 $\mathscr{L}+\mathbf{ORD}$ bezeichnet.
+
+Die unendliche Signatur $\eta_{\mathrm{arb}}=\left\{ R_{X}\mid X\subseteq\mathbb{N}\right\} $
+enthalte ein Symbol für jede Relation auf den natürlichen Zahlen.
+Sei $\mathcal{N}_{\mathrm{arb}}$ die $\eta_{\mathrm{arb}}$-Struktur,
+die jedes Symbol durch die entsprechende Relation interpretiert, und
+sei $\Upsilon_{\mathrm{arb}}:\mathbb{N}\rightarrow\mathbf{FIN}_{<}\left(\eta_{\mathrm{arb}}\right)$
+ein Orakel, das endliche Teilbereiche von $\mathcal{N}_{\mathrm{arb}}$
+ausgibt: 
+\begin{eqnarray*}
+\mathcal{N}_{\mathrm{arb}} & \coloneqq & \left(\mathbb{N},\left(R^{\mathcal{N}}\right)_{R\in\eta_{\mathrm{arb}}}\right)\\
+R_{X}^{\mathcal{N}} & \coloneqq & X\,\,\mathrm{f.a.}\,X\subseteq\mathbb{N}\\
+\Upsilon_{\mathrm{arb}}\left(n\right) & \coloneqq & \left(\mathcal{N}_{\mathrm{arb}}\right)_{\mid\left[0,n\right]}
+\end{eqnarray*}
+
+
+Die Logik $\mathscr{L}+\Upsilon_{\mathrm{arb}}$ werde auch als $\mathcal{L}+\mathbf{ARB}$
+bezeichnet.
 \end{defn}
 
 \begin{defn}
-\textbf{Zählerweiterung}
+\textbf{Zählterme}
 
-Die Zählerweiterung fügt einer Logik einen zusätzlichen Term zu, der
-die erfüllenden Belegungen einer Formel zählt.
+Der Zählterm ist eine zusätzliche Termproduktion, der die erfüllenden
+Belegungen einer Formel zählt.
 
 Sei $\mathscr{L}$ eine beliebige Logik, $\eta$ eine relationale
 Signatur, und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta\right)$
 ein Orakel.
 
 Die $\mathscr{L}+\Upsilon+C$-Logik erweitert die $\mathscr{L}+\Upsilon$-Logik
-um die folgende Regel:\end{defn}
+um die folgende Regel:
 \begin{lyxlist}{00.00.0000}
 \item [{T2}] Für eine $\left(\mathscr{L}+\Upsilon+C\right)\left[\sigma\right]$-Formel
 $\varphi$ und eine Variable $x\in\mathbf{var}$ ist $\#_{x}\varphi$
@@ -665,24 +751,27 @@ Ansonsten ist $\left\llbracket \#x\varphi\right\rrbracket \left(\mathfrak{A},\be
 und es gilt $\#x\varphi\equiv\#x\left(x=x\wedge\varphi\right)$.)
 
 \end{lyxlist}
-\begin{rem*}
+\end{defn}
+
+\begin{defn}
 Falls $\eta$ leer ist, und daher $\Upsilon\left(n\right)=\left(\left\{ 0,\cdots,n\right\} ,\leqslant\right)$,
-so heiße $\mathscr{L}+\Upsilon+C$ kurz $\mathscr{L}+C$.\end{rem*}
+so heiße $\mathscr{L}+\Upsilon+C$ kurz $\mathscr{L}+C$.\end{defn}
 \begin{example*}
 Diese Erweiterung erlaubt die Definition vieler arithmetischer Operatoren
-durch Teilformeln, wie zum Beispiel die positive Differenz:
+durch Terme, wie zum Beispiel die positive Differenz:
 \begin{eqnarray*}
-\varphi_{\mathrm{DIFF}}\left(x,y\right) & \coloneqq & \#_{z}\left(\neg z\leqslant x\wedge z\leqslant y\right)\\
-\left\llbracket \varphi_{\mathrm{DIFF}}\left(a,b\right)\right\rrbracket \left(\mathfrak{A}\right) & = & \max\left(b-a,0\right)
+t_{\mathrm{DIFF}}\left(x,y\right) & \coloneqq & \#_{z}\left(\neg z\leqslant x\wedge z\leqslant y\right)\\
+\left\llbracket t_{\mathrm{DIFF}}\right\rrbracket \left(\mathfrak{A},\left(a,b\right)\right) & = & \max\left(b-a,0\right)
 \end{eqnarray*}
 
 \end{example*}
 
 \begin{example*}
-Die Logik $\mathrm{FO}+C$ kann ausdrücken, dass die Struktur eine
-gerade Größe hat. Bekanntlich ist diese $\sigma$-Eigenschaft weder
-durch $\mathrm{FO}\left[\sigma\right]$ noch $\mathrm{FP}\left[\sigma\right]$
-auf geordneten oder ungeordneten Strukturen definierbar {[}CITE{]}:
+Die Logik $\mathrm{FO}+C\left[\sigma\right]$ kann ausdrücken, dass
+die $\sigma$-Struktur eine gerade Größe hat. Bekanntlich ist diese
+$\sigma$-Eigenschaft weder durch $\mathrm{FO}\left[\sigma\right]$
+noch $\mathrm{FP}\left[\sigma\right]$ auf geordneten oder ungeordneten
+Strukturen definierbar \marginpar{{[}CITE, Ebbinghaus-Flum{]}}:
 
 \[
 \varphi_{\mathrm{EVEN}}\coloneqq\exists y\,\left(y=\#_{z}\left(\neg z\leqslant y\wedge z\leqslant\#_{z}\,z=z\right)\right)
@@ -725,7 +814,7 @@ aus den arb-invarianten $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formeln.
 
 \section{Schaltkreise}
 \begin{defn}
-\textbf{Basis:} 
+\textbf{Boolesche Basis:} 
 
 Eine boolesche Basis $\mathbb{B}$ besteht aus beliebigen symmetrischen
 Relationen $\phi\subseteq\left\{ 0,1\right\} ^{*}$, die hier als
@@ -739,6 +828,14 @@ Als Beispiel seien die folgenden booleschen Junktoren gegeben:
 \mathrm{MAJ} & \coloneqq & \left\{ \left(m,n\right)\in\mathbb{N}\times\mathbb{N}\mid m\leqslant n\right\} \\
 \mathrm{XOR} & \coloneqq & \mathbb{N}\times\left(\mathbb{N}\backslash2\mathbb{N}\right)
 \end{eqnarray*}
+
+
+Wenn $\phi$ als Funktion $\phi:\mathbb{N}\times\mathbb{N}\rightarrow\left\{ 0,1\right\} $
+verwendet wird, sei $\phi\left(m,n\right)=\begin{cases}
+1 & \mathrm{falls}\,\left(m,n\right)\in\phi\\
+0 & \mathrm{sonst}
+\end{cases}$.
+
 Im folgenden stehe $\mathbb{B}_{\mathrm{std}}\coloneqq\left\{ \wedge,\vee\right\} $
 für die Basis mit boolescher Konjunktion und Disjunktion.
 \end{defn}
@@ -747,16 +844,16 @@ für die Basis mit boolescher Konjunktion und Disjunktion.
 \textbf{Schaltkreis}
 
 Sei $\mathbb{B}$ eine boolesche Basis und $\sigma$ eine relationale
-Signatur. Ein $\left(\mathbb{B},\sigma\right)$-Schaltkreis $\mathcal{C}\coloneqq\left(G,W,\Sigma,\Omega,U\right)$
+Signatur. Ein $\left(\sigma,\mathbb{B}\right)$-Schaltkreis $\mathcal{C}\coloneqq\left(G,W,\Sigma,\Omega,U\right)$
 mit der Stelligkeit $m\coloneqq\mathrm{ar}\left(C\right)$ besteht
 aus den folgenden Komponenten: 
 \begin{enumerate}
 \item Ein azyklischer Graph mit den Knoten $G$ und den Kanten $W\subseteq G\times G$.
-\item eine Gatemarkierung $\Sigma$ 
+\item eine Gate-Markierung $\Sigma$ 
 \begin{eqnarray*}
 \Sigma:G & \rightarrow & \mathbb{B}\\
  & \cup & \left\{ \mathbf{0},\mathbf{1},\neg\right\} \\
- & \cup & \left\{ R\bar{x}\mid R\in\sigma,\bar{x}\in U^{\mathrm{ar}\left(R\right)}\right\} 
+ & \cup & \left\{ R\bar{t}\mid R\in\sigma,\bar{t}\in U^{\mathrm{ar}\left(R\right)}\right\} 
 \end{eqnarray*}
 
 \item eine Ausgabefunktion $\Omega:U^{m}\rightarrow G$ (bei $m=0$ ist
@@ -770,7 +867,7 @@ Vorgänger, alle mit $R\bar{x}$, $\mathbf{0}$ oder $\mathbf{1}$
 markierten Gates keinen\textbf{ }Vorgänger, und alle mit $\neg$ markierten
 Gates genau\textbf{ }einen\textbf{ }Vorgänger.
 
-Die mit $\mathbf{0}$ oder $\mathbf{1}$ markierten Gates heißen \textbf{konstant},
+Die mit $\mathbf{0}$ oder $\mathbf{1}$ markierten Gates heißen \textbf{Konstanten},
 die mit $R\bar{x}$ markierten Gates heißen \textbf{Inputs}, und die
 Gates im Bild von $\Omega$ heißen \textbf{Outputs}.
 \end{defn}
@@ -779,16 +876,16 @@ Gates im Bild von $\Omega$ heißen \textbf{Outputs}.
 \textbf{Auswertung von Schaltkreisen}
 
 Der Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ wird
-über einer geordneten $\sigma$-Struktur $\mathfrak{A}\in\mathbf{FIN}_{\leqslant}\left(\sigma\right)$
+auf einer geordneten $\sigma$-Struktur $\mathfrak{A}\in\mathbf{FIN}_{\leqslant}\left(\sigma\right)$
 mit dem Universum $U$ ausgewertet. Die Auswertung ist eine Abbildung
 $\mathcal{C}\left[\mathfrak{A}\right]:G\rightarrow\left\{ 0,1\right\} $,
 die jedem Gate $g\in G$ den Wert $0$ oder $1$ zuweist, und ist
 rekursiv wie folgt definiert:
 \begin{casenv}
-\item Für $\Sigma\left(g\right)=R\bar{x}$ gilt 
+\item Für $\Sigma\left(g\right)=R\bar{t}$ gilt 
 \[
 \mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\coloneqq\begin{cases}
-1 & \mathrm{falls}\,\bar{x}\in R^{\mathfrak{A}}\\
+1 & \mathrm{falls}\,\bar{t}\in R^{\mathfrak{A}}\\
 0 & \mathrm{sonst}
 \end{cases}
 \]
@@ -810,18 +907,23 @@ $u$ gilt
 
 \item Für ein Gate $v$ mit $\Sigma\left(g\right)=\phi\in\mathbb{B}$ gilt:
 \begin{eqnarray*}
-j_{0} & \coloneqq & \#\left\{ \left(h,g\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)=0\right\} \\
-j_{1} & \coloneqq & \#\left\{ \left(h,g\right)\in E\mid\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)=1\right\} \\
-\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \begin{cases}
-1 & \mathrm{falls}\,\left(j_{0},j_{1}\right)\in\phi\\
-0 & \mathrm{sonst}
-\end{cases}
+j_{1} & \coloneqq & \sum_{\left(h,g\right)\in E}\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\\
+j_{0} & \coloneqq & \left|\left\{ h\mid\left(h,g\right)\in E\right\} \right|-j_{1}\\
+\\
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \phi\left(j_{0},j_{1}\right)
 \end{eqnarray*}
 
 \end{casenv}
 \end{defn}
+Die Ausgabe eines Schaltkreises für eine Struktur $\mathfrak{A}$
+und ein Tupel $\bar{t}$ sei:
+\[
+\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\coloneqq\mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)
+\]
+ 
+
 Für einen $k$-stelligen Schaltkreis $\mathcal{C}$ sei $\mathcal{C}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{t}\in U^{k}\mid\mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=1\right\} $
-die Menge der Tupel, deren Output-Gate den Wert $1$ annimmt.
+die Menge der Tupel, deren Output den Wert $1$ annimmt.
 \begin{example*}
 Sei $\mathcal{C}_{4}=\left(G,W,\Sigma,\Omega,\left[4\right]\right)$
 ein $1$-stelliger $\left(\mathbb{B}_{\mathrm{std}},\left\{ E\right\} \right)$-Schaltkreis,
@@ -1664,8 +1766,8 @@ Zur Unterscheidung verwenden wir die Umbenennung $\varodot:=\left(\begin{array}{
 
 Wir konstruieren zunächst den $\left(\sigma\uplus\left\{ \dot{\leqslant}\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
 $\mathcal{C}_{2n+1}^{\varphi}$ über $U=\left\{ 1,\cdots,2n+1\right\} $
-entspreched dem vorhergehenden Beweis. Dieser hat offensichtlich die
-geforderte Größe $S_{n}=S_{2n+1}'=5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)}$.
+entsprechend dem vorhergehenden Beweis. Dieser hat offensichtlich
+die geforderte Größe $S_{n}=S_{2n+1}'=5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)}$.
 
 Daraus wird der $\left(\sigma\uplus\left\{ \dot{\leqslant}\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
 $\dot{\mathcal{C}_{2n+1}^{\varphi}}=\left(G,W,\dot{\Sigma},\dot{\Omega},\dot{U}\right)$
@@ -1991,15 +2093,15 @@ neue Gates hinzu.
 
 Nach der Erzeugung von $\dot{\mathcal{C}_{2n+1}^{\varphi}}$ wird
 der Schaltkreis auf die bereits beschriebene Weise zu $\ddot{\mathcal{C}_{n}^{\varphi}}$
-umgewandelt. (Die neuen Schritte fügen keine Input-Gates hinzu, so
-dass sich hier nichts ändert.)
+umgewandelt. (Die neuen Schritte fügen keine Inputs hinzu, so dass
+sich hier nichts ändert.)
 \begin{description}
 \item [{Symmetrie:}] Sei nun $\ddot{\pi}\in\mathrm{Sym}_{\ddot{U}}$ beliebig.
 Wir erweitern die Permutation wieder zu $\dot{\pi}\coloneqq\ddot{\pi}\uplus\mathbf{id}_{\mid N}\in\mathrm{Sym}_{\dot{U}}$,
 und bauen den Isomorphismus $\hat{\pi}$ induktiv auf:\end{description}
 \begin{casenv}
 \item Falls $\varphi\left(\bar{x}\right)=x_{i}\leqslant\#y_{i}\psi\left(\bar{y}\right)$,
-so sei $\hat{\pi}'$ der vorrausgesetzte Automorphismus im Schaltkreis
+so sei $\hat{\pi}'$ der vorausgesetzte Automorphismus im Schaltkreis
 $\dot{\mathcal{C}_{2n+1}^{\psi}}$. Dieser wird wie folgt erweitert:
 \[
 \hat{\pi}\left(g\right)=\begin{cases}
@@ -2037,7 +2139,7 @@ Betrachten wir schließlich $W_{\mathrm{pad}}$, so gilt:
 
 \item Falls $\varphi\left(\bar{x}\right)=\#y_{i}\psi\left(\bar{y}\right)\leqslant x_{i}$,
 so ist $\hat{\pi}$ analog zu Fall 1 definiert. Es müssen zusätzlich
-die Negations-Gates abgebildet werden:
+die negierten Gates abgebildet werden:
 \[
 \hat{\pi}h_{\bar{t}}=h_{\dot{\pi}\bar{t}}
 \]
@@ -2162,18 +2264,23 @@ und Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\ma
 
 \subsection{Fixpunktlogik}
 
-Die Fixpunktlogik $\mathrm{FP}\left[\sigma\right]$ ist echt ausdruckstärker
-als die Logik $\mathrm{FO}\left[\sigma\right]$; so ist beispielsweise
-die Erreichbarkeit über einen Pfad beliebiger Länge nicht erststufig
-definierbar.\marginpar{Quelle} Trotzdem kann jede $\mathrm{FP}\left[\sigma\right]$-Formel
-$\varphi$ durch eine Familie von $\mathrm{FO}\left[\sigma\right]$-Formeln
-$\left(\varphi_{n}\right)_{n\in\mathbb{N}}$ mit polynomieller Länge
-$\left\Vert \varphi_{n}\right\Vert \leqslant n^{\left\Vert \varphi\right\Vert }$
+Die Fixpunktlogik $\mathrm{IFP}\left[\sigma\right]$ ist echt ausdrucksstärker
+als die Logik $\mathrm{FO}\left[\sigma\right]$.
+
+Beispielsweise ist die Erreichbarkeit über einen Pfad beliebiger Länge
+nicht erststufig definierbar \cite{Libkin:2004:EFM:1024196}. In $\mathrm{IFP}\left[\sigma\right]$
+wird diese Klasse durch die folgende Formel definiert:
+\[
+\varphi\left(u,v\right)\coloneqq\left[\mathrm{ifp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
+\]
+ Trotzdem kann jede $\mathrm{IFP}\left[\sigma\right]$-Formel $\varphi$
+durch eine Familie von $\mathrm{FO}\left[\sigma\right]$-Formeln $\left(\varphi_{n}\right)_{n\in\mathbb{N}}$
+mit polynomieller Länge $\left\Vert \varphi_{n}\right\Vert \leqslant n\left\Vert \varphi\right\Vert $
 und höchstens $\mathrm{var}\left(\varphi_{n}\right)\leqslant2\left\Vert \varphi\right\Vert $\emph{
 }Variablen definiert werden, von denen jede auf den Strukturen einer
 bestimmten Größe äquivalent zu $\varphi$ ist.
 
-Mit den bereits beschriebenen Konstruktionnen kann aus diesen Formeln
+Mit den bereits beschriebenen Konstruktionen kann aus diesen Formeln
 eine Schaltkreisfamilie erzeugt werden, die $\varphi$ berechnet.\marginpar{Siehe: k-Variablen Fragment infinitäre Logik, u.a. {[}LogKomp 2007{]}.}
 \[
 \mathcal{C}_{n}^{\varphi}\coloneqq\mathcal{C}_{n}^{\varphi_{n}}\,\mathrm{f\ddot{u}r}\,n\in\mathbb{N}
@@ -2182,31 +2289,28 @@ eine Schaltkreisfamilie erzeugt werden, die $\varphi$ berechnet.\marginpar{Siehe
 
 Durch die Einschränkung auf eine konstante Anzahl von Variablen ist
 die Größe der Schaltkreisfamilie polynomiell durch $n^{\mathcal{O}\left(\left\Vert \varphi\right\Vert \right)}$
-beschränkt, obwohl die FO-Formeln beliebig lang werden.
-\begin{defn}
-Für zwei logische Formeln $\varphi$ und $\psi$ bedeute $\varphi\equiv_{n}\psi$,
-dass diese Formeln auf allen Strukturen $\mathfrak{A}\in\mathbf{FIN}_{n}\left(\sigma\right)$
-äquivalent sind.\end{defn}
+beschränkt, obwohl die $\mathrm{FO}\left[\sigma\right]$-Formeln beliebig
+lang werden. Die Tiefe ist durch $T_{n}\leqslant3\left\Vert \varphi_{n}\right\Vert \leqslant3n\left\Vert \varphi\right\Vert $
+allerdings nicht mehr konstant.
+
+Zunächst 
+
+
 \begin{lem}
-Für jede $\mathrm{FP}\left[\sigma\right]$-Formel $\varphi$ und jede
-Größe $n\in\mathbb{N}_{\geqslant1}$ existiert eine $\mathrm{FO}\left[\sigma\right]$-Formel
-$\varphi_{n}$ mit höchstens $2\left\Vert \varphi\right\Vert $ Variablen,
-so dass $\varphi_{n}\equiv_{n}\varphi$.\end{lem}
+Für jede $\mathrm{IFP}\left[\sigma\right]$-Formel $\varphi$ und
+jede Größe $n\in\mathbb{N}$ existiert eine $\mathrm{FO}\left[\sigma\right]$-Formel
+$\hat{\varphi}$ mit höchstens $2\left\Vert \varphi\right\Vert $
+Variablen und $\left\Vert \hat{\varphi}\right\Vert \leqslant\left\Vert \varphi\right\Vert n$,
+so dass $\models_{n}\left(\hat{\varphi}\leftrightarrow\varphi\right)$.\end{lem}
 \begin{proof}
-Induktiv über den Aufbau von $\varphi$:
+Die Konstruktion erfolgt induktiv über die Definition von $\mathrm{IFP}\left[\sigma\right]$:
 \begin{casenv}
-\item Falls $\varphi$ von der Form $R\bar{x}$ für $R/k\in\sigma$ und
-$\bar{x}\in\mathbf{var}^{k}$ oder $x=y$ für $x,y\in\mathbf{var}$
-ist, so ist $\varphi$ bereits eine $\mathrm{FO}\left[\sigma\right]$-Formel.
-\item Falls $\varphi=\left(\psi\gamma\psi'\right)$ für $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
-ist, so existieren per Induktionsannahme die Formeln $\psi_{n}\equiv_{n}\psi$
-und $\psi_{n}'\equiv_{n}\psi'$; es folgt $\left(\psi_{n}\gamma\psi_{n}'\right)\equiv_{n}\varphi$.
-\item Falls $\varphi=Qx\psi$ für $Q\in\left\{ \exists,\forall\right\} $
-und $x\in\mathbf{var}$, so existiert per Annahme die auf Formel $\psi_{n}\equiv_{n}\psi$;
-es folgt $Qx\psi_{n}\equiv_{n}\varphi$.
+\item Die Schritte $R\bar{x}$, $x_{1}\dot{=}x_{2}$, $\neg\varphi$, $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{m}\right)$
+und $Qx\varphi$ sind trivial.
 \item Falls $\varphi=\left[\mathrm{ifp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
-für eine Relations-Variable $R\notin\sigma$ mit $\mathrm{ar}\left(R\right)=m$
-und zwei Tupel $\bar{x},\bar{y}\in\mathbf{var}^{m}$, so gilt:
+für eine Relationsvariable $R\notin\sigma$ mit $\bar{x}\in\mathbf{var}^{m}$
+und $\bar{y}\in\left(\mathrm{IFP}\left[\sigma\right]-\mathrm{Term}\right)^{m}$
+, so gilt:
 
 
 Per Induktionsannahme existiert für jedes $n\in\mathbb{N}$ eine $\mathrm{FO}\left[\sigma\right]$-Formel
@@ -2255,7 +2359,7 @@ umbenannt werden. Damit gilt $\varphi_{n}\equiv_{n}\varphi$.
 \end{casenv}
 Die so erzeugte Formel $\varphi_{n}$ hat höchstens $\left|\mathrm{var}\left(\varphi\right)\right|+\left\Vert \varphi\right\Vert \leqslant2\left\Vert \varphi\right\Vert $
 Variablen: Nur in Fall 4 werden $m$ neue Variablen eingefügt, und
-für jeden solchen Induktionschritt enthält $\varphi$ bereits ein
+für jeden solchen Induktionsschritt enthält $\varphi$ bereits ein
 Tupel $\bar{y}\in\mathbf{var}^{m}$.
 \end{proof}
 \pagebreak{}
@@ -2718,7 +2822,7 @@ s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \m
  & = & \frac{1}{n+1}\binom{n}{\min\left\{ n,n-k\right\} }
 \end{eqnarray*}
 
-\item Für den Binomialkoeffizienten gibt es auch eine untere Schranke:\marginpar{Quelle}
+\item Für den Binomialkoeffizienten gibt es auch eine untere Schranke:\marginpar{CITE}
 \[
 \binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}=\frac{\prod_{i=n-k+1}^{n}i}{\prod_{i=1}^{k}i}=\prod_{i=1}^{k}\frac{n-k+i}{i}
 \]
@@ -2867,5 +2971,9 @@ ausgedrückt werden:
 \[
 \left(\varphi_{G},\varphi_{W},\varphi_{\Omega},\varphi_{\mathbf{0}},\varphi_{\mathbf{1}},\varphi_{\neg},\varphi_{\phi}\,\phi\in\mathbb{B},\varphi_{\Lambda}\right)
 \]
+
+
+\bibliographystyle{plain}
+\bibliography{library}
 
 \end{document}
