@@ -78,8 +78,6 @@
 
 \section{Einleitung}
 
-
-
 Übersicht:
 \begin{enumerate}
 \item FP{[}<{]} $\subseteq$ SBC ($\subseteq$ P): Jede Fixpunktformel mit
@@ -101,6 +99,148 @@ Majority gates beschreiben.
 ,,nicht uniformes AC0 = FO+$\Upsilon$`` aus {[}Anderson, van Melkebeek,
 Schweikardt, Segoufin{]}.)
 \end{enumerate}
+\pagebreak{}
+
+
+\section{Kernaussagen}
+
+
+\subsection{Fixpunktlogiken und Schaltkreise}
+
+Es werden die folgenden Äquivalenzen zwischen Fixpunktlogiken und
+Schaltkreisklassen nachgewiesen:
+\begin{thm}
+\textbf{$\mathrm{FP}+\mathbf{ORD}$, $P$-uniforme $\mathrm{SBC}$}
+
+Die folgenden Aussagen sind äquivalent:
+\begin{enumerate}
+\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
+$\varphi$ definiert.
+\item Die Anfrage $q$ wird durch eine $P$-uniforme symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+$\mathcal{C}$ berechnet.
+\end{enumerate}
+\end{thm}
+Die Fixpunktlogik mit disjunkter Ordnungserweiterung und Zählterm
+ist äquivalent zu den $P$-uniformen symmetrischen booleschen Schaltkreisfamilien
+mit Majority-Gates.
+\begin{thm}
+\textbf{$\mathrm{FP}+C$, $P$-uniforme $\mathrm{SBC}+\mathbf{MAJ}$}
+
+Die folgenden Aussagen sind äquivalent:
+\begin{enumerate}
+\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+C\right)\left[\sigma\right]$-Formel
+$\varphi$ definiert.
+\item Die Anfrage $q$ wird durch eine $P$-uniforme symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
+$\mathcal{C}$ berechnet.
+\end{enumerate}
+\end{thm}
+Zur Erinnerung: $\mathbb{B}_{\mathrm{maj}}$ enthält die boolesche
+Konjunktion, Disjunktion und den Majority-Operator $\mathrm{MAJ}=\left\{ \left(m,n\right)\mid m\leqslant n\right\} $.
+
+
+\begin{thm}
+\textbf{$\mathrm{FP}+\Upsilon$, $\mathrm{poly\left(n\right)}$-große
+$\mathrm{SBC}$}
+
+Die folgenden Aussagen sind äquivalent:
+\begin{enumerate}
+\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+\Upsilon\right)\left[\sigma\right]$-Formel
+$\varphi$ definiert.
+\item Die Anfrage $q$ wird durch eine $\mathrm{poly}\left(n\right)$-große
+symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+$\mathcal{C}$ berechnet.
+\end{enumerate}
+\end{thm}
+Zur Erinnerung: $\mathbb{B}_{\mathrm{maj}}$ enthält die boolesche
+Konjunktion, Disjunktion und den Majority-Operator $\mathrm{MAJ}=\left\{ \left(m,n\right)\mid m\leqslant n\right\} $.
+
+
+\begin{thm}
+\textbf{$\mathrm{FP}+\Upsilon+C$, $\mathrm{poly}\left(n\right)$-große
+$\mathrm{SBC}+\mathbf{MAJ}$}
+
+Die folgenden Aussagen sind äquivalent:
+\begin{enumerate}
+\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+\Upsilon+C\right)\left[\sigma\right]$-Formel
+$\varphi$ definiert.
+\item Die Anfrage $q$ wird durch eine $\mathrm{poly}\left(n\right)$-große
+symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
+$\mathcal{C}$ berechnet.
+\end{enumerate}
+\end{thm}
+eine Orakelfunktion, die jeder Zahl $n$ die Orakelstruktur $\mathbf{ARB}\left(n\right)=\mathfrak{N}_{\mid\left\{ 0,\cdots,n\right\} }$
+zuweist.
+
+Für jede $\mathrm{FO}+\mathbf{ARB}$-Formel $\varphi$ existiert eine
+arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel
+$\varphi'$, die auf allen endlichen $\sigma$-Strukturen äquivalent
+zu $\varphi$ ist, und umgekehrt.
+
+
+\subsection{FO-Logiken und Schaltkreise}
+\begin{thm}
+\label{thm:5.5:fo-ord}$\mathrm{FO}+\mathbf{ORD}$, $P$-uniformes
+symmetrisches $\mathrm{AC}^{0}$.
+
+Die folgenden Aussagen sind äquivalent:
+\begin{enumerate}
+\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
+$\varphi$ definiert.
+\item Die Anfrage $q$ wird durch eine $P$-uniforme, $\mathcal{O}\left(1\right)$-tiefe,
+symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+$\mathcal{C}$ berechnet.
+\end{enumerate}
+\end{thm}
+
+\begin{thm}
+\label{thm:5.6:fo-c}$\mathrm{FO}+C$, symmetrisches $\mathrm{AC}^{0}+\mathbf{MAJ}$.
+
+Die folgenden Aussagen sind äquivalent:
+\begin{enumerate}
+\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+C\right)\left[\sigma\right]$-Formel
+$\varphi$ definiert.
+\item Die Anfrage $q$ wird durch eine $\mathcal{O}\left(1\right)$-tiefe,
+$\mathrm{poly}\left(n\right)$-große, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
+$\mathcal{C}$ berechnet.
+\end{enumerate}
+\end{thm}
+
+\begin{thm}
+\label{thm:5.7:fo+u}$\mathrm{FO}+\Upsilon$, symmetrisches $\mathrm{AC}^{0}$.
+
+Die folgenden Aussagen sind äquivalent:
+\begin{enumerate}
+\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
+$\varphi$ definiert.
+\item Die Anfrage $q$ wird durch eine $\mathcal{O}\left(1\right)$-tiefe,
+$\mathrm{poly}\left(n\right)$-große, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+$\mathcal{C}$ berechnet.\end{enumerate}
+\begin{thm}
+$\mathrm{FO}+\Upsilon+C$, symmetrisches $\mathrm{AC}^{0}+\mathbf{MAJ}$.
+
+Die folgenden Aussagen sind äquivalent:
+\begin{enumerate}
+\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
+$\varphi$ definiert.
+\item Die Anfrage $q$ wird durch eine $\mathcal{O}\left(1\right)$-tiefe,
+$\mathrm{poly}\left(n\right)$-große, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
+$\mathcal{C}$ berechnet.
+\end{enumerate}
+\end{thm}
+\end{thm}
+
+\subsection{FO-Logik mit disjunktem und nicht-disjunktem Orakel}
+\begin{thm}
+$\mathrm{FO}+\Upsilon$, invariantes $\mathrm{FO}\left(\mathrm{arb}\right)$
+\begin{enumerate}
+\item Jede $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
+$\varphi$ ist äquivalent zu einer arb-invarianten $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel
+$\varphi$.
+\item Es existiert eine $\sigma$-Anfrage, die in der arb-invarianten $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Logik
+definierbar ist, aber nicht $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-definierbar
+ist.
+\end{enumerate}
+\end{thm}
 \pagebreak{}
 
 
@@ -1230,148 +1370,6 @@ definiert.\end{defn}
 $\mathrm{AC}^{0}$ ist die Klasse der $\mathcal{O}\left(1\right)$-tiefen,
 $\mathrm{poly}\left(n\right)$-großen Schaltkreisfamilien.
 \end{rem*}
-\pagebreak{}
-
-
-\section{Kernaussagen}
-
-
-\subsection{Fixpunktlogiken und Schaltkreise}
-
-Es werden die folgenden Äquivalenzen zwischen Fixpunktlogiken und
-Schaltkreisklassen nachgewiesen:
-\begin{thm}
-\textbf{$\mathrm{FP}+\mathbf{ORD}$, $P$-uniforme $\mathrm{SBC}$}
-
-Die folgenden Aussagen sind äquivalent:
-\begin{enumerate}
-\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert.
-\item Die Anfrage $q$ wird durch eine $P$-uniforme symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\mathcal{C}$ berechnet.
-\end{enumerate}
-\end{thm}
-Die Fixpunktlogik mit disjunkter Ordnungserweiterung und Zählterm
-ist äquivalent zu den $P$-uniformen symmetrischen booleschen Schaltkreisfamilien
-mit Majority-Gates.
-\begin{thm}
-\textbf{$\mathrm{FP}+C$, $P$-uniforme $\mathrm{SBC}+\mathbf{MAJ}$}
-
-Die folgenden Aussagen sind äquivalent:
-\begin{enumerate}
-\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+C\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert.
-\item Die Anfrage $q$ wird durch eine $P$-uniforme symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
-$\mathcal{C}$ berechnet.
-\end{enumerate}
-\end{thm}
-Zur Erinnerung: $\mathbb{B}_{\mathrm{maj}}$ enthält die boolesche
-Konjunktion, Disjunktion und den Majority-Operator $\mathrm{MAJ}=\left\{ \left(m,n\right)\mid m\leqslant n\right\} $.
-
-
-\begin{thm}
-\textbf{$\mathrm{FP}+\Upsilon$, $\mathrm{poly\left(n\right)}$-große
-$\mathrm{SBC}$}
-
-Die folgenden Aussagen sind äquivalent:
-\begin{enumerate}
-\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+\Upsilon\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert.
-\item Die Anfrage $q$ wird durch eine $\mathrm{poly}\left(n\right)$-große
-symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\mathcal{C}$ berechnet.
-\end{enumerate}
-\end{thm}
-Zur Erinnerung: $\mathbb{B}_{\mathrm{maj}}$ enthält die boolesche
-Konjunktion, Disjunktion und den Majority-Operator $\mathrm{MAJ}=\left\{ \left(m,n\right)\mid m\leqslant n\right\} $.
-
-
-\begin{thm}
-\textbf{$\mathrm{FP}+\Upsilon+C$, $\mathrm{poly}\left(n\right)$-große
-$\mathrm{SBC}+\mathbf{MAJ}$}
-
-Die folgenden Aussagen sind äquivalent:
-\begin{enumerate}
-\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+\Upsilon+C\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert.
-\item Die Anfrage $q$ wird durch eine $\mathrm{poly}\left(n\right)$-große
-symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
-$\mathcal{C}$ berechnet.
-\end{enumerate}
-\end{thm}
-eine Orakelfunktion, die jeder Zahl $n$ die Orakelstruktur $\mathbf{ARB}\left(n\right)=\mathfrak{N}_{\mid\left\{ 0,\cdots,n\right\} }$
-zuweist.
-
-Für jede $\mathrm{FO}+\mathbf{ARB}$-Formel $\varphi$ existiert eine
-arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel
-$\varphi'$, die auf allen endlichen $\sigma$-Strukturen äquivalent
-zu $\varphi$ ist, und umgekehrt.
-
-
-\subsection{FO-Logiken und Schaltkreise}
-\begin{thm}
-\label{thm:5.5:fo-ord}$\mathrm{FO}+\mathbf{ORD}$, $P$-uniformes
-symmetrisches $\mathrm{AC}^{0}$.
-
-Die folgenden Aussagen sind äquivalent:
-\begin{enumerate}
-\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert.
-\item Die Anfrage $q$ wird durch eine $P$-uniforme, $\mathcal{O}\left(1\right)$-tiefe,
-symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\mathcal{C}$ berechnet.
-\end{enumerate}
-\end{thm}
-
-\begin{thm}
-\label{thm:5.6:fo-c}$\mathrm{FO}+C$, symmetrisches $\mathrm{AC}^{0}+\mathbf{MAJ}$.
-
-Die folgenden Aussagen sind äquivalent:
-\begin{enumerate}
-\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+C\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert.
-\item Die Anfrage $q$ wird durch eine $\mathcal{O}\left(1\right)$-tiefe,
-$\mathrm{poly}\left(n\right)$-große, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
-$\mathcal{C}$ berechnet.
-\end{enumerate}
-\end{thm}
-
-\begin{thm}
-\label{thm:5.7:fo+u}$\mathrm{FO}+\Upsilon$, symmetrisches $\mathrm{AC}^{0}$.
-
-Die folgenden Aussagen sind äquivalent:
-\begin{enumerate}
-\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert.
-\item Die Anfrage $q$ wird durch eine $\mathcal{O}\left(1\right)$-tiefe,
-$\mathrm{poly}\left(n\right)$-große, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\mathcal{C}$ berechnet.\end{enumerate}
-\begin{thm}
-$\mathrm{FO}+\Upsilon+C$, symmetrisches $\mathrm{AC}^{0}+\mathbf{MAJ}$.
-
-Die folgenden Aussagen sind äquivalent:
-\begin{enumerate}
-\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert.
-\item Die Anfrage $q$ wird durch eine $\mathcal{O}\left(1\right)$-tiefe,
-$\mathrm{poly}\left(n\right)$-große, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
-$\mathcal{C}$ berechnet.
-\end{enumerate}
-\end{thm}
-\end{thm}
-
-\subsection{FO-Logik mit disjunktem und nicht-disjunktem Orakel}
-\begin{thm}
-$\mathrm{FO}+\Upsilon$, invariantes $\mathrm{FO}\left(\mathrm{arb}\right)$
-\begin{enumerate}
-\item Jede $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
-$\varphi$ ist äquivalent zu einer arb-invarianten $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel
-$\varphi$.
-\item Es existiert eine $\sigma$-Anfrage, die in der arb-invarianten $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Logik
-definierbar ist, aber nicht $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-definierbar
-ist.
-\end{enumerate}
-\end{thm}
 \pagebreak{}
 
 

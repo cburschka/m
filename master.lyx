@@ -83,10 +83,6 @@ Einleitung
 \end_layout
 
 \begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
 Übersicht:
 \end_layout
 
@@ -185,6 +181,663 @@ nicht uniformes AC0 = FO+
  aus [Anderson, van Melkebeek, Schweikardt, Segoufin].)
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Kernaussagen
+\end_layout
+
+\begin_layout Subsection
+Fixpunktlogiken und Schaltkreise
+\end_layout
+
+\begin_layout Standard
+Es werden die folgenden Äquivalenzen zwischen Fixpunktlogiken und Schaltkreiskla
+ssen nachgewiesen:
+\end_layout
+
+\begin_layout Theorem
+
+\series bold
+\begin_inset Formula $\mathrm{FP}+\mathbf{ORD}$
+\end_inset
+
+, 
+\begin_inset Formula $P$
+\end_inset
+
+-uniforme 
+\begin_inset Formula $\mathrm{SBC}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+Die folgenden Aussagen sind äquivalent:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Die Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ wird durch eine 
+\begin_inset Formula $\left(\mathrm{FP}+\mathbf{ORD}\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ definiert.
+\end_layout
+
+\begin_layout Enumerate
+Die Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ wird durch eine 
+\begin_inset Formula $P$
+\end_inset
+
+-uniforme symmetrische 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ berechnet.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Die Fixpunktlogik mit disjunkter Ordnungserweiterung und Zählterm ist äquivalent
+ zu den 
+\begin_inset Formula $P$
+\end_inset
+
+-uniformen symmetrischen booleschen Schaltkreisfamilien mit Majority-Gates.
+\end_layout
+
+\begin_layout Theorem
+
+\series bold
+\begin_inset Formula $\mathrm{FP}+C$
+\end_inset
+
+, 
+\begin_inset Formula $P$
+\end_inset
+
+-uniforme 
+\begin_inset Formula $\mathrm{SBC}+\mathbf{MAJ}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+Die folgenden Aussagen sind äquivalent:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Die Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ wird durch eine 
+\begin_inset Formula $\left(\mathrm{FP}+C\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ definiert.
+\end_layout
+
+\begin_layout Enumerate
+Die Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ wird durch eine 
+\begin_inset Formula $P$
+\end_inset
+
+-uniforme symmetrische 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ berechnet.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Zur Erinnerung: 
+\begin_inset Formula $\mathbb{B}_{\mathrm{maj}}$
+\end_inset
+
+ enthält die boolesche Konjunktion, Disjunktion und den Majority-Operator
+ 
+\begin_inset Formula $\mathrm{MAJ}=\left\{ \left(m,n\right)\mid m\leqslant n\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Theorem
+
+\series bold
+\begin_inset Formula $\mathrm{FP}+\Upsilon$
+\end_inset
+
+, 
+\begin_inset Formula $\mathrm{poly\left(n\right)}$
+\end_inset
+
+-große 
+\begin_inset Formula $\mathrm{SBC}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+Die folgenden Aussagen sind äquivalent:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Die Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ wird durch eine 
+\begin_inset Formula $\left(\mathrm{FP}+\Upsilon\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ definiert.
+\end_layout
+
+\begin_layout Enumerate
+Die Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ wird durch eine 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-große symmetrische 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ berechnet.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Zur Erinnerung: 
+\begin_inset Formula $\mathbb{B}_{\mathrm{maj}}$
+\end_inset
+
+ enthält die boolesche Konjunktion, Disjunktion und den Majority-Operator
+ 
+\begin_inset Formula $\mathrm{MAJ}=\left\{ \left(m,n\right)\mid m\leqslant n\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Theorem
+
+\series bold
+\begin_inset Formula $\mathrm{FP}+\Upsilon+C$
+\end_inset
+
+, 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-große 
+\begin_inset Formula $\mathrm{SBC}+\mathbf{MAJ}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+Die folgenden Aussagen sind äquivalent:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Die Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ wird durch eine 
+\begin_inset Formula $\left(\mathrm{FP}+\Upsilon+C\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ definiert.
+\end_layout
+
+\begin_layout Enumerate
+Die Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ wird durch eine 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-große symmetrische 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ berechnet.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+eine Orakelfunktion, die jeder Zahl 
+\begin_inset Formula $n$
+\end_inset
+
+ die Orakelstruktur 
+\begin_inset Formula $\mathbf{ARB}\left(n\right)=\mathfrak{N}_{\mid\left\{ 0,\cdots,n\right\} }$
+\end_inset
+
+ zuweist.
+\end_layout
+
+\begin_layout Standard
+Für jede 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ existiert eine arb-invariante 
+\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi'$
+\end_inset
+
+, die auf allen endlichen 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen äquivalent zu 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ ist, und umgekehrt.
+\end_layout
+
+\begin_layout Subsection
+FO-Logiken und Schaltkreise
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:5.5:fo-ord"
+
+\end_inset
+
+
+\begin_inset Formula $\mathrm{FO}+\mathbf{ORD}$
+\end_inset
+
+, 
+\begin_inset Formula $P$
+\end_inset
+
+-uniformes symmetrisches 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+Die folgenden Aussagen sind äquivalent:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Die Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ wird durch eine 
+\begin_inset Formula $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ definiert.
+\end_layout
+
+\begin_layout Enumerate
+Die Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ wird durch eine 
+\begin_inset Formula $P$
+\end_inset
+
+-uniforme, 
+\begin_inset Formula $\mathcal{O}\left(1\right)$
+\end_inset
+
+-tiefe, symmetrische 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ berechnet.
+\end_layout
+
+\end_deeper
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:5.6:fo-c"
+
+\end_inset
+
+
+\begin_inset Formula $\mathrm{FO}+C$
+\end_inset
+
+, symmetrisches 
+\begin_inset Formula $\mathrm{AC}^{0}+\mathbf{MAJ}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+Die folgenden Aussagen sind äquivalent:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Die Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ wird durch eine 
+\begin_inset Formula $\left(\mathrm{FO}+C\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ definiert.
+\end_layout
+
+\begin_layout Enumerate
+Die Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ wird durch eine 
+\begin_inset Formula $\mathcal{O}\left(1\right)$
+\end_inset
+
+-tiefe, 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-große, symmetrische 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ berechnet.
+\end_layout
+
+\end_deeper
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:5.7:fo+u"
+
+\end_inset
+
+
+\begin_inset Formula $\mathrm{FO}+\Upsilon$
+\end_inset
+
+, symmetrisches 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+Die folgenden Aussagen sind äquivalent:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Die Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ wird durch eine 
+\begin_inset Formula $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ definiert.
+\end_layout
+
+\begin_layout Enumerate
+Die Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ wird durch eine 
+\begin_inset Formula $\mathcal{O}\left(1\right)$
+\end_inset
+
+-tiefe, 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-große, symmetrische 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ berechnet.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula $\mathrm{FO}+\Upsilon+C$
+\end_inset
+
+, symmetrisches 
+\begin_inset Formula $\mathrm{AC}^{0}+\mathbf{MAJ}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+Die folgenden Aussagen sind äquivalent:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Die Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ wird durch eine 
+\begin_inset Formula $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ definiert.
+\end_layout
+
+\begin_layout Enumerate
+Die Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+ wird durch eine 
+\begin_inset Formula $\mathcal{O}\left(1\right)$
+\end_inset
+
+-tiefe, 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-große, symmetrische 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ berechnet.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Subsection
+FO-Logik mit disjunktem und nicht-disjunktem Orakel
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula $\mathrm{FO}+\Upsilon$
+\end_inset
+
+, invariantes 
+\begin_inset Formula $\mathrm{FO}\left(\mathrm{arb}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Jede 
+\begin_inset Formula $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ ist äquivalent zu einer arb-invarianten 
+\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Es existiert eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage, die in der arb-invarianten 
+\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
+\end_inset
+
+-Logik definierbar ist, aber nicht 
+\begin_inset Formula $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$
+\end_inset
+
+-definierbar ist.
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
@@ -4917,663 +5570,6 @@ Tiefe
 -großen Schaltkreisfamilien.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Kernaussagen
-\end_layout
-
-\begin_layout Subsection
-Fixpunktlogiken und Schaltkreise
-\end_layout
-
-\begin_layout Standard
-Es werden die folgenden Äquivalenzen zwischen Fixpunktlogiken und Schaltkreiskla
-ssen nachgewiesen:
-\end_layout
-
-\begin_layout Theorem
-
-\series bold
-\begin_inset Formula $\mathrm{FP}+\mathbf{ORD}$
-\end_inset
-
-, 
-\begin_inset Formula $P$
-\end_inset
-
--uniforme 
-\begin_inset Formula $\mathrm{SBC}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Theorem
-Die folgenden Aussagen sind äquivalent:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Die Anfrage 
-\begin_inset Formula $q$
-\end_inset
-
- wird durch eine 
-\begin_inset Formula $\left(\mathrm{FP}+\mathbf{ORD}\right)\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- definiert.
-\end_layout
-
-\begin_layout Enumerate
-Die Anfrage 
-\begin_inset Formula $q$
-\end_inset
-
- wird durch eine 
-\begin_inset Formula $P$
-\end_inset
-
--uniforme symmetrische 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
-\end_inset
-
--Schaltkreisfamilie 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- berechnet.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-Die Fixpunktlogik mit disjunkter Ordnungserweiterung und Zählterm ist äquivalent
- zu den 
-\begin_inset Formula $P$
-\end_inset
-
--uniformen symmetrischen booleschen Schaltkreisfamilien mit Majority-Gates.
-\end_layout
-
-\begin_layout Theorem
-
-\series bold
-\begin_inset Formula $\mathrm{FP}+C$
-\end_inset
-
-, 
-\begin_inset Formula $P$
-\end_inset
-
--uniforme 
-\begin_inset Formula $\mathrm{SBC}+\mathbf{MAJ}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Theorem
-Die folgenden Aussagen sind äquivalent:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Die Anfrage 
-\begin_inset Formula $q$
-\end_inset
-
- wird durch eine 
-\begin_inset Formula $\left(\mathrm{FP}+C\right)\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- definiert.
-\end_layout
-
-\begin_layout Enumerate
-Die Anfrage 
-\begin_inset Formula $q$
-\end_inset
-
- wird durch eine 
-\begin_inset Formula $P$
-\end_inset
-
--uniforme symmetrische 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
-\end_inset
-
--Schaltkreisfamilie 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- berechnet.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-Zur Erinnerung: 
-\begin_inset Formula $\mathbb{B}_{\mathrm{maj}}$
-\end_inset
-
- enthält die boolesche Konjunktion, Disjunktion und den Majority-Operator
- 
-\begin_inset Formula $\mathrm{MAJ}=\left\{ \left(m,n\right)\mid m\leqslant n\right\} $
-\end_inset
-
-.
-\end_layout
-
-\begin_layout --Separator--
-
-\end_layout
-
-\begin_layout Theorem
-
-\series bold
-\begin_inset Formula $\mathrm{FP}+\Upsilon$
-\end_inset
-
-, 
-\begin_inset Formula $\mathrm{poly\left(n\right)}$
-\end_inset
-
--große 
-\begin_inset Formula $\mathrm{SBC}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Theorem
-Die folgenden Aussagen sind äquivalent:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Die Anfrage 
-\begin_inset Formula $q$
-\end_inset
-
- wird durch eine 
-\begin_inset Formula $\left(\mathrm{FP}+\Upsilon\right)\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- definiert.
-\end_layout
-
-\begin_layout Enumerate
-Die Anfrage 
-\begin_inset Formula $q$
-\end_inset
-
- wird durch eine 
-\begin_inset Formula $\mathrm{poly}\left(n\right)$
-\end_inset
-
--große symmetrische 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
-\end_inset
-
--Schaltkreisfamilie 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- berechnet.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-Zur Erinnerung: 
-\begin_inset Formula $\mathbb{B}_{\mathrm{maj}}$
-\end_inset
-
- enthält die boolesche Konjunktion, Disjunktion und den Majority-Operator
- 
-\begin_inset Formula $\mathrm{MAJ}=\left\{ \left(m,n\right)\mid m\leqslant n\right\} $
-\end_inset
-
-.
-\end_layout
-
-\begin_layout --Separator--
-
-\end_layout
-
-\begin_layout Theorem
-
-\series bold
-\begin_inset Formula $\mathrm{FP}+\Upsilon+C$
-\end_inset
-
-, 
-\begin_inset Formula $\mathrm{poly}\left(n\right)$
-\end_inset
-
--große 
-\begin_inset Formula $\mathrm{SBC}+\mathbf{MAJ}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Theorem
-Die folgenden Aussagen sind äquivalent:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Die Anfrage 
-\begin_inset Formula $q$
-\end_inset
-
- wird durch eine 
-\begin_inset Formula $\left(\mathrm{FP}+\Upsilon+C\right)\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- definiert.
-\end_layout
-
-\begin_layout Enumerate
-Die Anfrage 
-\begin_inset Formula $q$
-\end_inset
-
- wird durch eine 
-\begin_inset Formula $\mathrm{poly}\left(n\right)$
-\end_inset
-
--große symmetrische 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
-\end_inset
-
--Schaltkreisfamilie 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- berechnet.
-\end_layout
-
-\end_deeper
-\begin_layout Standard
-eine Orakelfunktion, die jeder Zahl 
-\begin_inset Formula $n$
-\end_inset
-
- die Orakelstruktur 
-\begin_inset Formula $\mathbf{ARB}\left(n\right)=\mathfrak{N}_{\mid\left\{ 0,\cdots,n\right\} }$
-\end_inset
-
- zuweist.
-\end_layout
-
-\begin_layout Standard
-Für jede 
-\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- existiert eine arb-invariante 
-\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi'$
-\end_inset
-
-, die auf allen endlichen 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Strukturen äquivalent zu 
-\begin_inset Formula $\varphi$
-\end_inset
-
- ist, und umgekehrt.
-\end_layout
-
-\begin_layout Subsection
-FO-Logiken und Schaltkreise
-\end_layout
-
-\begin_layout Theorem
-\begin_inset CommandInset label
-LatexCommand label
-name "thm:5.5:fo-ord"
-
-\end_inset
-
-
-\begin_inset Formula $\mathrm{FO}+\mathbf{ORD}$
-\end_inset
-
-, 
-\begin_inset Formula $P$
-\end_inset
-
--uniformes symmetrisches 
-\begin_inset Formula $\mathrm{AC}^{0}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Theorem
-Die folgenden Aussagen sind äquivalent:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Die Anfrage 
-\begin_inset Formula $q$
-\end_inset
-
- wird durch eine 
-\begin_inset Formula $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- definiert.
-\end_layout
-
-\begin_layout Enumerate
-Die Anfrage 
-\begin_inset Formula $q$
-\end_inset
-
- wird durch eine 
-\begin_inset Formula $P$
-\end_inset
-
--uniforme, 
-\begin_inset Formula $\mathcal{O}\left(1\right)$
-\end_inset
-
--tiefe, symmetrische 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
-\end_inset
-
--Schaltkreisfamilie 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- berechnet.
-\end_layout
-
-\end_deeper
-\begin_layout --Separator--
-
-\end_layout
-
-\begin_layout Theorem
-\begin_inset CommandInset label
-LatexCommand label
-name "thm:5.6:fo-c"
-
-\end_inset
-
-
-\begin_inset Formula $\mathrm{FO}+C$
-\end_inset
-
-, symmetrisches 
-\begin_inset Formula $\mathrm{AC}^{0}+\mathbf{MAJ}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Theorem
-Die folgenden Aussagen sind äquivalent:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Die Anfrage 
-\begin_inset Formula $q$
-\end_inset
-
- wird durch eine 
-\begin_inset Formula $\left(\mathrm{FO}+C\right)\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- definiert.
-\end_layout
-
-\begin_layout Enumerate
-Die Anfrage 
-\begin_inset Formula $q$
-\end_inset
-
- wird durch eine 
-\begin_inset Formula $\mathcal{O}\left(1\right)$
-\end_inset
-
--tiefe, 
-\begin_inset Formula $\mathrm{poly}\left(n\right)$
-\end_inset
-
--große, symmetrische 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
-\end_inset
-
--Schaltkreisfamilie 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- berechnet.
-\end_layout
-
-\end_deeper
-\begin_layout --Separator--
-
-\end_layout
-
-\begin_layout Theorem
-\begin_inset CommandInset label
-LatexCommand label
-name "thm:5.7:fo+u"
-
-\end_inset
-
-
-\begin_inset Formula $\mathrm{FO}+\Upsilon$
-\end_inset
-
-, symmetrisches 
-\begin_inset Formula $\mathrm{AC}^{0}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Theorem
-Die folgenden Aussagen sind äquivalent:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Die Anfrage 
-\begin_inset Formula $q$
-\end_inset
-
- wird durch eine 
-\begin_inset Formula $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- definiert.
-\end_layout
-
-\begin_layout Enumerate
-Die Anfrage 
-\begin_inset Formula $q$
-\end_inset
-
- wird durch eine 
-\begin_inset Formula $\mathcal{O}\left(1\right)$
-\end_inset
-
--tiefe, 
-\begin_inset Formula $\mathrm{poly}\left(n\right)$
-\end_inset
-
--große, symmetrische 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
-\end_inset
-
--Schaltkreisfamilie 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- berechnet.
-\end_layout
-
-\begin_layout Theorem
-\begin_inset Formula $\mathrm{FO}+\Upsilon+C$
-\end_inset
-
-, symmetrisches 
-\begin_inset Formula $\mathrm{AC}^{0}+\mathbf{MAJ}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Theorem
-Die folgenden Aussagen sind äquivalent:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Die Anfrage 
-\begin_inset Formula $q$
-\end_inset
-
- wird durch eine 
-\begin_inset Formula $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- definiert.
-\end_layout
-
-\begin_layout Enumerate
-Die Anfrage 
-\begin_inset Formula $q$
-\end_inset
-
- wird durch eine 
-\begin_inset Formula $\mathcal{O}\left(1\right)$
-\end_inset
-
--tiefe, 
-\begin_inset Formula $\mathrm{poly}\left(n\right)$
-\end_inset
-
--große, symmetrische 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
-\end_inset
-
--Schaltkreisfamilie 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- berechnet.
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Subsection
-FO-Logik mit disjunktem und nicht-disjunktem Orakel
-\end_layout
-
-\begin_layout Theorem
-\begin_inset Formula $\mathrm{FO}+\Upsilon$
-\end_inset
-
-, invariantes 
-\begin_inset Formula $\mathrm{FO}\left(\mathrm{arb}\right)$
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Jede 
-\begin_inset Formula $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- ist äquivalent zu einer arb-invarianten 
-\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Es existiert eine 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Anfrage, die in der arb-invarianten 
-\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
-\end_inset
-
--Logik definierbar ist, aber nicht 
-\begin_inset Formula $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$
-\end_inset
-
--definierbar ist.
-\end_layout
-
-\end_deeper
 \begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
