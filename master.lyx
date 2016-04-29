@@ -977,24 +977,15 @@ Bereiche
 \end_layout
 
 \begin_layout Definition
-Die Mengen 
-\begin_inset Formula $\left\{ 1,\cdots,n\right\} $
+Die Menge 
+\begin_inset Formula $\left\{ i\in\mathbb{N}\mid a\leqslant i\leqslant b\right\} $
 \end_inset
 
- und 
-\begin_inset Formula $\left\{ 0,\cdots,n\right\} $
-\end_inset
-
- werden respektive durch 
-\begin_inset Formula $\left[1,n\right]$
-\end_inset
-
- und 
-\begin_inset Formula $\left[0,n\right]$
+ wird durch 
+\begin_inset Formula $\left[a,b\right]$
 \end_inset
 
  abgekürzt.
- 
 \end_layout
 
 \begin_layout --Separator--
@@ -1325,7 +1316,8 @@ Wir formalisieren die Interpretation als eine Abbildung
 \begin_inset Formula $\mathfrak{A}=\left(A,\square^{\mathfrak{A}}\right)$
 \end_inset
 
- notiert werden, um die Zuordnung zu verdeutlichen: 
+ notiert werden, um die Zuordnung von Symbolen und Relationen zu verdeutlichen:
+ 
 \begin_inset Formula 
 \[
 \mathfrak{A}:=\left(A,\left(\begin{array}{ccc}
@@ -1341,8 +1333,28 @@ R_{1}^{\mathfrak{A}} & \cdots & R_{k}^{\mathfrak{A}}
 
 \begin_deeper
 \begin_layout Enumerate
+Für eine endliche Menge 
+\begin_inset Formula $U$
+\end_inset
+
+ sei 
+\begin_inset Formula $\mathbf{FIN}^{U}\left(\sigma\right)$
+\end_inset
+
+ die Menge aller 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen mit dem Universum 
+\begin_inset Formula $U$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
 Für 
-\begin_inset Formula $n>0$
+\begin_inset Formula $\mathbb{N}_{>0}$
 \end_inset
 
  sei 
@@ -1377,45 +1389,31 @@ Für
 \begin_inset Formula $\dot{\leqslant}\notin\sigma$
 \end_inset
 
+ und 
+\begin_inset Formula $a,b\in\mathbb{N}$
+\end_inset
+
  seien 
-\begin_inset Formula $\mathbf{FIN}_{<}^{\left[a,b\right]}\left(\sigma\right)$
+\begin_inset Formula $\mathbf{FIN}_{<}^{\left[a,b\right]}\left(\sigma\right)\subseteq\mathbf{FIN}^{\left[a,b\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)$
 \end_inset
 
  die endlichen 
-\begin_inset Formula $\sigma\cup\left\{ \dot{\leqslant}\right\} $
+\begin_inset Formula $\sigma\cup\left\{ \leqslant\right\} $
 \end_inset
 
--Strukturen über einem geordneten Universum 
-\begin_inset Formula $U=\left[a,b\right]$
+-Strukturen über 
+\begin_inset Formula $\left[a,b\right]$
 \end_inset
 
-.
- Ferner seien 
-\begin_inset Formula $\mathbf{FIN}_{<}^{0}\left(\sigma\right)$
+, wobei 
+\begin_inset Formula $\leqslant$
 \end_inset
 
- und 
-\begin_inset Formula $\mathbf{FIN}_{<}^{1}\left(\sigma\right)$
+ die natürliche Ordnung von 
+\begin_inset Formula $\left[a,b\right]$
 \end_inset
 
- die endlichen geordneten 
-\begin_inset Formula $0$
-\end_inset
-
-- beziehungsweise 
-\begin_inset Formula $1$
-\end_inset
-
--indizierten Strukturen: 
-\begin_inset Formula 
-\begin{eqnarray*}
-\mathbf{FIN}_{<}^{0}\left(\sigma\right) & \coloneqq & \bigcup_{n\in\mathbb{N}}\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\sigma\right)\\
-\mathbf{FIN}_{<}^{1}\left(\sigma\right) & \coloneqq & \bigcup_{n\in\mathbb{N}}\mathbf{FIN}_{<}^{\left[1,n\right]}\left(\sigma\right)
-\end{eqnarray*}
-
-\end_inset
-
-
+ ist.
 \end_layout
 
 \begin_layout Standard
@@ -1439,6 +1437,21 @@ Relationssymbole wie
 i\dot{\leqslant}j & \Leftrightarrow & \left(i,j\right)\in\dot{\leqslant}
 \end{eqnarray*}
 
+\end_inset
+
+Für eine Relation 
+\begin_inset Formula $R^{\mathfrak{A}}\subseteq A^{k}$
+\end_inset
+
+ sei 
+\begin_inset Formula $\left[R^{\mathfrak{A}}\right]:A^{k}\rightarrow\left\{ 0,1\right\} $
+\end_inset
+
+ eine Funktion mit 
+\begin_inset Formula $\left[R^{\mathfrak{A}}\right]\bar{t}\coloneqq\begin{cases}
+1 & \mathrm{falls}\,t\in R^{\mathfrak{A}}\\
+0 & \mathrm{sonst}
+\end{cases}$
 \end_inset
 
 .
@@ -1587,7 +1600,7 @@ Wenn
 \end_inset
 
 , so ist 
-\begin_inset Formula $\mathfrak{A}\oplus\mathfrak{B}$
+\begin_inset Formula $\mathfrak{A}\cup\mathfrak{B}$
 \end_inset
 
  die folgende 
@@ -1597,7 +1610,7 @@ Wenn
 -Struktur:
 \begin_inset Formula 
 \[
-\mathfrak{A}\oplus\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\right)_{R\in\sigma_{1}},\left(R^{\mathfrak{B}}\right)_{R\in\sigma_{2}}\right)
+\mathfrak{A}\cup\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\right)_{R\in\sigma_{1}},\left(R^{\mathfrak{B}}\right)_{R\in\sigma_{2}}\right)
 \]
 
 \end_inset
@@ -1611,7 +1624,7 @@ Wenn
 \end_inset
 
 , so ist 
-\begin_inset Formula $\mathfrak{A}\oplus\mathfrak{B}$
+\begin_inset Formula $\mathfrak{A}\cup\mathfrak{B}$
 \end_inset
 
  die folgende 
@@ -1621,7 +1634,7 @@ Wenn
 -Struktur:
 \begin_inset Formula 
 \[
-\mathfrak{A}\oplus\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\cup R^{\mathfrak{B}}\right)_{R\in\sigma}\right)
+\mathfrak{A}\cup\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\cup R^{\mathfrak{B}}\right)_{R\in\sigma}\right)
 \]
 
 \end_inset
@@ -2399,7 +2412,7 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathfrak{A}\models\left(R\bar{x}\right)^{\beta} & \Leftrightarrow & \left(\left\llbracket x_{1}\right\rrbracket \left(\mathfrak{A},\beta\right),\cdots,\left\llbracket x_{k}\right\rrbracket \left(\mathfrak{A},\beta\right)\right)\in R^{\mathfrak{A}}
+\left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left[R^{\mathfrak{A}}\right]\left(\left\llbracket x_{1}\right\rrbracket \left(\mathfrak{A},\beta\right),\cdots,\left\llbracket x_{k}\right\rrbracket \left(\mathfrak{A},\beta\right)\right)
 \end{eqnarray*}
 
 \end_inset
@@ -2461,7 +2474,10 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathfrak{A}\models\left(x\dot{=}y\right)^{\beta} & \Leftrightarrow & \left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket y\right\rrbracket \left(\mathfrak{A},\beta\right)
+\left\llbracket x\dot{=}y\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \begin{cases}
+1 & \mathrm{falls}\,\left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket y\right\rrbracket \left(\mathfrak{A},\beta\right)\\
+0 & \mathrm{sonst}
+\end{cases}
 \end{eqnarray*}
 
 \end_inset
@@ -3947,25 +3963,6 @@ Eine boolesche Basis
 \end_layout
 
 \begin_layout Definition
-Wenn 
-\begin_inset Formula $\phi$
-\end_inset
-
- als Funktion 
-\begin_inset Formula $\phi:\mathbb{N}\times\mathbb{N}\rightarrow\left\{ 0,1\right\} $
-\end_inset
-
- verwendet wird, sei 
-\begin_inset Formula $\phi\left(m,n\right)=\begin{cases}
-1 & \mathrm{falls}\,\left(m,n\right)\in\phi\\
-0 & \mathrm{sonst}
-\end{cases}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Definition
 Im folgenden stehe 
 \begin_inset Formula $\mathbb{B}_{\mathrm{std}}\coloneqq\left\{ \wedge,\vee\right\} $
 \end_inset
@@ -4161,16 +4158,12 @@ Der
 \begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
 \end_inset
 
- wird auf einer geordneten 
+ wird auf einer 
 \begin_inset Formula $\sigma$
 \end_inset
 
 -Struktur 
-\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}_{\leqslant}\left(\sigma\right)$
-\end_inset
-
- mit dem Universum 
-\begin_inset Formula $U$
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$
 \end_inset
 
  ausgewertet.
@@ -4202,10 +4195,7 @@ Für
  gilt 
 \begin_inset Formula 
 \[
-\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\coloneqq\begin{cases}
-1 & \mathrm{falls}\,\bar{t}\in R^{\mathfrak{A}}\\
-0 & \mathrm{sonst}
-\end{cases}
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\coloneqq\left[R^{\mathfrak{A}}\right]\bar{t}
 \]
 
 \end_inset
@@ -4271,7 +4261,7 @@ Für ein Gate
 j_{1} & \coloneqq & \sum_{\left(h,g\right)\in E}\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\\
 j_{0} & \coloneqq & \left|\left\{ h\mid\left(h,g\right)\in E\right\} \right|-j_{1}\\
 \\
-\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \phi\left(j_{0},j_{1}\right)
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\phi\right]\left(j_{0},j_{1}\right)
 \end{eqnarray*}
 
 \end_inset
@@ -4280,16 +4270,24 @@ j_{0} & \coloneqq & \left|\left\{ h\mid\left(h,g\right)\in E\right\} \right|-j_{
 \end_layout
 
 \end_deeper
-\begin_layout Standard
-Die Ausgabe eines Schaltkreises für eine Struktur 
-\begin_inset Formula $\mathfrak{A}$
+\begin_layout Definition
+Für einen 
+\begin_inset Formula $k$
+\end_inset
+
+-stelligen Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
 \end_inset
 
  und ein Tupel 
-\begin_inset Formula $\bar{t}$
+\begin_inset Formula $\bar{t}\in U^{k}$
 \end_inset
 
- sei:
+ sei die Ausgabe von 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+:
 \begin_inset Formula 
 \[
 \left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\coloneqq\mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)
@@ -4301,23 +4299,28 @@ Die Ausgabe eines Schaltkreises für eine Struktur
 \end_layout
 
 \begin_layout Standard
-Für einen 
-\begin_inset Formula $k$
+Ferner sei 
+\begin_inset Formula $q_{\mathcal{C}}:\mathbf{FIN}^{U}\left(\sigma\right)\rightarrow U^{k}$
 \end_inset
 
--stelligen Schaltkreis 
+ die Abbildung einer Struktur auf die Relation der Tupel, für die 
 \begin_inset Formula $\mathcal{C}$
 \end_inset
 
- sei 
-\begin_inset Formula $\mathcal{C}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{t}\in U^{k}\mid\mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=1\right\} $
-\end_inset
-
- die Menge der Tupel, deren Output den Wert 
+ den Wert 
 \begin_inset Formula $1$
 \end_inset
 
- annimmt.
+ ausgibt.
+ 
+\begin_inset Formula 
+\[
+q_{\mathcal{C}}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{t}\in U^{k}\mid\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1\right\} 
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Example*
@@ -4758,6 +4761,52 @@ Eigenschaften von Schaltkreisen
 \begin_layout Definition
 
 \series bold
+Größe und Tiefe
+\end_layout
+
+\begin_layout Definition
+Die 
+\series bold
+Größe
+\series default
+ 
+\begin_inset Formula $\left|\mathcal{C}\right|$
+\end_inset
+
+ eines Schaltkreises 
+\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ sei die Anzahl seiner Gates, 
+\begin_inset Formula $\left|G\right|$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Die 
+\series bold
+Tiefe
+\series default
+ 
+\begin_inset Formula $T\left(\mathcal{C}\right)$
+\end_inset
+
+ sei die maximale Länge eines einfachen Wegs durch den Graphen 
+\begin_inset Formula $\left(G,W\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
 Invarianz
 \end_layout
 
@@ -4797,7 +4846,7 @@ invariant
  gilt:
 \begin_inset Formula 
 \[
-\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\pi{}_{2}\bar{a}\right)\right)
+q_{\mathcal{C}}\left(\pi_{1}\mathfrak{A}\right)=q_{\mathcal{C}}\left(\pi_{2}\mathfrak{A}\right)
 \]
 
 \end_inset
@@ -4806,23 +4855,31 @@ invariant
 \end_layout
 
 \begin_layout Definition
-Für invariante Schaltkreise und beliebige Strukturen 
-\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+In diesem Fall definieren wir für jede Struktur 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(\left|U\right|\right)}\left(\sigma\right)$
 \end_inset
 
- bezeichne 
-\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]$
+ die Auswertung von 
+\begin_inset Formula $\mathcal{C}$
 \end_inset
 
- die Auswertung 
-\begin_inset Formula $\mathcal{C}\left[\pi\mathfrak{A}\right]$
+ implizit als die Auswertung auf 
+\begin_inset Formula $\pi\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$
 \end_inset
 
  mit einer beliebigen Bijektion 
 \begin_inset Formula $\pi:A\rightarrow U$
 \end_inset
 
-.
+:
+\begin_inset Formula 
+\[
+q_{\mathcal{C}}\left(\mathfrak{A}\right)\coloneqq\pi^{-1}\left(q_{\mathcal{C}}\left(\pi\mathfrak{A}\right)\right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout --Separator--
@@ -4836,7 +4893,11 @@ Symmetrie
 \end_layout
 
 \begin_layout Standard
-Ein Schaltkreis 
+Ein 
+\begin_inset Formula $k$
+\end_inset
+
+-stelliger Schaltkreis 
 \begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
 \end_inset
 
@@ -4844,11 +4905,11 @@ Ein Schaltkreis
 \series bold
 symmetrisch
 \series default
-, wenn für jede Permutation der Universums 
+, wenn jede Permutation der Universums 
 \begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
 \end_inset
 
- ein Automorphismus 
+ einen Automorphismus 
 \begin_inset Formula $\hat{\pi}:G\rightarrow G$
 \end_inset
 
@@ -4856,11 +4917,18 @@ symmetrisch
 \begin_inset Formula $\left(G,W\right)$
 \end_inset
 
- existiert, der die folgenden Bedingungen erfüllt:
+ induziert, der die folgenden Bedingungen erfüllt:
 \end_layout
 
 \begin_layout Enumerate
-Für alle Gates 
+\begin_inset Formula $\hat{\pi}\left(W\right)=W$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Für alle nicht-konstanten Inputs 
 \begin_inset Formula $g$
 \end_inset
 
@@ -4869,7 +4937,11 @@ Für alle Gates
 \end_inset
 
  gilt 
-\begin_inset Formula $\Sigma\left(\hat{\pi}g\right)=R\,\pi\bar{x}$
+\begin_inset Formula $\Sigma\left(\hat{\pi}g\right)=R\,\bar{x'}$
+\end_inset
+
+, mit 
+\begin_inset Formula $\bar{x'}=\pi\bar{x}$
 \end_inset
 
 .
@@ -4877,7 +4949,7 @@ Für alle Gates
 
 \begin_layout Enumerate
 Für alle übrigen Gates gilt 
-\begin_inset Formula $\Sigma\left(g\right)=\Sigma\left(\hat{\pi}g\right)$
+\begin_inset Formula $\Sigma\left(\hat{\pi}g\right)=\Sigma\left(g\right)$
 \end_inset
 
 .
@@ -4885,34 +4957,14 @@ Für alle übrigen Gates gilt
 
 \begin_layout Enumerate
 Für jedes Tupel 
-\begin_inset Formula $\bar{x}\in U$
+\begin_inset Formula $\bar{x}\in U^{k}$
 \end_inset
 
  gilt 
-\begin_inset Formula $\Omega\left(\pi\bar{x}\right)=\hat{\pi}\Omega\left(x\right)$
+\begin_inset Formula $\hat{\pi}\Omega\left(\bar{x}\right)=\Omega\left(\pi x\right)$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-Falls jede Permutation von 
-\begin_inset Formula $U$
-\end_inset
-
- genau einen
-\emph on
- 
-\emph default
-Automorphismus induziert, so wird der von 
-\begin_inset Formula $\pi$
-\end_inset
-
- induzierte Automorphismus implizit mit 
-\begin_inset Formula $\hat{\pi}$
-\end_inset
-
- notiert.
 \end_layout
 
 \begin_layout Lemma
@@ -4926,48 +4978,36 @@ Sei
 \end_inset
 
  ein symmetrischer 
+\begin_inset Formula $k$
+\end_inset
+
+-stelliger 
 \begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
 \end_inset
 
--Schaltkreis, und 
-\begin_inset Formula $\mathfrak{A}$
+-Schaltkreis über 
+\begin_inset Formula $U$
 \end_inset
 
- eine beliebige 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Struktur mit 
-\begin_inset Formula $\left|A\right|=\left|U\right|$
+, und 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(\left|U\right|\right)}\left(\sigma\right)$
 \end_inset
 
 .
  Seien 
-\begin_inset Formula $\pi_{1}$
+\begin_inset Formula $\pi_{1},\pi_{2}:A\rightarrow U$
 \end_inset
 
- und 
-\begin_inset Formula $\pi_{2}$
-\end_inset
-
- zwei beliebige Bijektionen von 
-\begin_inset Formula $A$
-\end_inset
-
- auf 
-\begin_inset Formula $U$
-\end_inset
-
-, und sei 
-\begin_inset Formula $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$
+ zwei beliebige Bijektionen, und sei 
+\begin_inset Formula $\bar{a}\in A^{k}$
 \end_inset
 
  ein beliebiges Tupel.
  Es ist zu zeigen, dass: 
 \begin_inset Formula 
-\[
-\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\pi_{2}\bar{a}\right)\right)
-\]
+\begin{eqnarray*}
+\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right) & = & \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\pi_{2}\bar{a}\right)\right)
+\end{eqnarray*}
 
 \end_inset
 
@@ -4976,7 +5016,7 @@ Sei
 
 \begin_layout Proof
 Wir definieren die Permutation 
-\begin_inset Formula $\tau:U\rightarrow U$
+\begin_inset Formula $\tau\in\mathrm{Sym}_{U}$
 \end_inset
 
  als 
@@ -4991,7 +5031,7 @@ Wir definieren die Permutation
 \end_layout
 
 \begin_layout Proof
-Per Voraussetzung induziert 
+Wegen der Symmetrie induziert 
 \begin_inset Formula $\tau$
 \end_inset
 
@@ -5078,25 +5118,20 @@ Induktionsanfang
 
  gilt:
 \begin_inset Formula 
-\[
-\Sigma\left(\hat{\tau}g\right)=R\tau\bar{x}
-\]
-
-\end_inset
-
- 
-\begin_inset Formula 
 \begin{eqnarray*}
+\Sigma\left(\hat{\tau}g\right) & = & R\tau\bar{x}\\
 \tau\bar{x}\in\tau\pi_{2}R^{\mathfrak{A}} & \Longleftrightarrow & \bar{x}\in\pi_{2}R^{\mathfrak{A}}
 \end{eqnarray*}
 
 \end_inset
 
-Es folgt: 
+ Es folgt: 
 \begin_inset Formula 
-\[
-\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)
-\]
+\begin{eqnarray*}
+\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right) & = & \left[\tau\pi_{2}R^{\mathfrak{A}}\right]\left(\tau\bar{x}\right)\\
+ & = & \left[\pi_{2}R^{\mathfrak{A}}\right]\left(\bar{x}\right)\\
+ & = & \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)
+\end{eqnarray*}
 
 \end_inset
 
@@ -5403,53 +5438,41 @@ Eine
 Schaltkreisfamilie
 \series default
  
-\begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\begin_inset Formula $\bar{\mathcal{C}}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
 \end_inset
 
- sei eine Sequenz von Schaltkreisen mit der gleichen Stelligkeit 
+ sei eine Sequenz von invarianten Schaltkreisen 
+\begin_inset Formula $\mathcal{C}_{n}=\left(G_{n},W_{n},\Sigma_{n},\Omega_{n},U_{n}\right)$
+\end_inset
+
+ mit der gleichen Stelligkeit 
 \begin_inset Formula $\mathrm{ar}\left(\mathcal{C}_{n}\right)=k$
 \end_inset
 
  und den Universen 
-\begin_inset Formula $U^{\mathcal{C}_{n}}=\left\{ 1,\cdots,n\right\} $
+\begin_inset Formula $U_{n}=\left[1,n\right]$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Definition
-Eine invariante 
-\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
-\end_inset
-
--Schaltkreisfamilie 
-\begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
-\end_inset
-
- 
-\series bold
-berechne
-\series default
- eine 
+Die von der Schaltkreisfamilie berechnete 
 \begin_inset Formula $\sigma$
 \end_inset
 
 -Anfrage 
-\begin_inset Formula $q$
+\begin_inset Formula $q_{\bar{\mathcal{C}}}$
 \end_inset
 
- genau dann wenn für alle 
-\begin_inset Formula $n\in\mathbb{N}$
+ sei die disjunkte Vereinigung der Anfragen 
+\begin_inset Formula $q_{\mathcal{C}_{n}}$
 \end_inset
 
- und alle 
-\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
-\end_inset
-
- gilt: 
+ jedes Schaltkreises: 
 \begin_inset Formula 
 \[
-q\left(\mathfrak{A}\right)=\mathcal{C}_{n}\left(\mathfrak{A}\right)
+q_{\bar{\mathcal{C}}}\coloneqq\biguplus_{n\in\mathbb{N}}q_{\mathcal{C}_{n}}
 \]
 
 \end_inset
@@ -5529,7 +5552,7 @@ Für eine Zeitfunktion
 \end_inset
 
  sei eine Schaltkreisfamilie 
-\begin_inset Formula $\mathcal{C}$
+\begin_inset Formula $\bar{\mathcal{C}}$
 \end_inset
 
  
@@ -5540,7 +5563,12 @@ Für eine Zeitfunktion
 \series bold
 uniform
 \series default
-, wenn eine deterministische Turingmaschine bei Eingabe von 
+, wenn ein 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ existiert, so dass eine deterministische Turingmaschine bei Eingabe einer
+ Zahl 
 \begin_inset Formula $n\geqslant n_{0}$
 \end_inset
 
@@ -5608,7 +5636,7 @@ Für eine Funktion
 \end_inset
 
  habe eine Schaltkreisfamilie 
-\begin_inset Formula $\mathcal{C}$
+\begin_inset Formula $\bar{\mathcal{C}}$
 \end_inset
 
  
@@ -5619,15 +5647,19 @@ Für eine Funktion
 \series bold
 Größe
 \series default
-, wenn jeder Schaltkreis 
-\begin_inset Formula $\mathcal{C}_{n}=\left(G,W,\Sigma,\Omega,U\right)$
+, wenn für ein 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
 \end_inset
 
- höchstens 
-\begin_inset Formula $\left|G\right|\leqslant f\left(n\right)$
+ und alle 
+\begin_inset Formula $n\geqslant n_{0}$
 \end_inset
 
- Gates besitzt.
+ gilt, dass 
+\begin_inset Formula $\left|\mathcal{C}_{n}\right|\leqslant f\left(n\right)$
+\end_inset
+
+.
  Der Begriff 
 \begin_inset Quotes gld
 \end_inset
@@ -5710,7 +5742,7 @@ Für eine Funktion
 \end_inset
 
  sei eine Schaltkreisfamilie 
-\begin_inset Formula $\mathcal{C}$
+\begin_inset Formula $\bar{\mathcal{C}}$
 \end_inset
 
  
@@ -5721,15 +5753,19 @@ Für eine Funktion
 \series bold
 Tiefe
 \series default
-, wenn jeder Schaltkreis 
-\begin_inset Formula $\mathcal{C}_{n}=\left(G,W,\Sigma,\Omega,U\right)$
+, wenn 
+\begin_inset Formula $T\left(\mathcal{C}_{n}\right)\leqslant f\left(n\right)$
 \end_inset
 
- höchstens 
-\begin_inset Formula $\left|G\right|\leqslant f\left(n\right)$
+ für ein 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
 \end_inset
 
- Gates besitzt.
+ und alle 
+\begin_inset Formula $n\geqslant n_{0}$
+\end_inset
+
+.
  Der Begriff 
 \begin_inset Quotes gld
 \end_inset
@@ -6927,55 +6963,149 @@ reference "thm:5.5:fo-ord"
 \end_layout
 
 \begin_layout Proof
+Sei 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ eine 
+\begin_inset Formula $k$
+\end_inset
+
+-stellige 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ORD}\left[\sigma\right]$
+\end_inset
+
+-Formel, und 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+\end_inset
+
+.
+ Diese wird auf der vereinigten 
+\begin_inset Formula $\left(\sigma\cup\left\{ \leqslant\right\} \right)$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}\cup\Upsilon\left(n\right)$
+\end_inset
+
+ ausgewertet, wobei 
+\begin_inset Formula $\Upsilon\left(n\right)\coloneqq\left(\left[0,n\right],\leqslant\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
 Der Schaltkreis 
 \begin_inset Formula $\mathcal{C}_{n}$
 \end_inset
 
- wird über einer geordneten Struktur 
-\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}_{<}\left(\sigma\right)$
+ wird aber auf einer 
+\begin_inset Formula $\sigma$
 \end_inset
 
- über dem Universum 
-\begin_inset Formula $U=\left\{ 1,\cdots,n\right\} $
+-Struktur 
+\begin_inset Formula $\mathfrak{A}'\coloneqq\pi\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$
+\end_inset
+
+ mit dem Universum 
+\begin_inset Formula $U=\left[1,n\right]$
 \end_inset
 
  ausgewertet.
 \end_layout
 
 \begin_layout Proof
-Hierbei ist zu beachten, dass 
-\begin_inset Formula $U=\left[1,n\right]$
+Vor der Konstruktion muss daher sichergestellt werden, dass das Universum
+ von 
+\begin_inset Formula $\mathfrak{A}'$
 \end_inset
 
- disjunkt von dem Universum 
-\begin_inset Formula $\left[0,n\right]$
-\end_inset
-
- der Orakelstruktur 
+ disjunkt von dem Universum der Orakelstruktur 
 \begin_inset Formula $\Upsilon\left(n\right)$
 \end_inset
 
- sein muss! Zur Unterscheidung wird das Universum 
+ ist! Daher wird das Universum 
 \begin_inset Formula $\left[0,n\right]$
 \end_inset
 
- umbenannt zu 
-\begin_inset Formula $N\coloneqq\left\{ \dot{0},\cdots,\dot{n}\right\} $
+ von 
+\begin_inset Formula $\Upsilon\left(n\right)$
 \end_inset
 
- und 
-\begin_inset Formula $\Upsilon\left(n\right)\coloneqq\left(N,\leqslant\right)$
+ durch eine Umbenennung auf 
+\begin_inset Formula $\left[n+1,2n+1\right]$
 \end_inset
 
- betrachtet.
+ 
+\begin_inset Quotes gld
+\end_inset
+
+verschoben
+\begin_inset Quotes grd
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+\Upsilon'\left(n\right) & \coloneqq & \rho\Upsilon\left(n\right)\\
+\rho & \coloneqq & \left(\begin{array}{c}
+0\\
+n+1
+\end{array}\cdots\begin{array}{c}
+n\\
+2n+1
+\end{array}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Proof
-Wir konstruieren aus der 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\cup\left\{ \leqslant\right\} \right]$
+Nun ist 
+\begin_inset Formula $\mathfrak{A}'\cup\Upsilon'\left(n\right)\in\mathbf{FIN}^{\left[1,2n+1\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)$
 \end_inset
 
--Formel zunächst einen 
+ (wobei die Ordnung 
+\begin_inset Formula $\leqslant$
+\end_inset
+
+ weiterhin nur auf 
+\begin_inset Formula $\left[n+1,2n+1\right]$
+\end_inset
+
+ definiert ist).
+\end_layout
+
+\begin_layout Proof
+Weil 
+\begin_inset Formula $\Upsilon\left(n\right)\cong\Upsilon'\left(n\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{A}\cong\mathfrak{A}'$
+\end_inset
+
+, und beide Strukturen disjunkt voneinander sind, ist auch 
+\begin_inset Formula $\mathfrak{A}\cup\Upsilon\left(n\right)\cong\mathfrak{A}'\cup\Upsilon'\left(n\right)$
+\end_inset
+
+.
+ Daher gilt: 
+\begin_inset Formula 
+\[
+\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\cup\Upsilon\left(n\right)\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}'\cup\Upsilon'\left(n\right)\right)
+\]
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Wir konstruieren nun zunächst einen 
 \begin_inset Formula $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
 \end_inset
 
@@ -6984,10 +7114,14 @@ Wir konstruieren aus der
 \end_inset
 
  über 
-\begin_inset Formula $U=\left\{ 1,\cdots,2n+1\right\} $
+\begin_inset Formula $U'=\left[1,2n+1\right]$
 \end_inset
 
- entsprechend dem vorhergehenden Beweis.
+ entsprechend dem vorhergehenden Beweis für 
+\begin_inset Formula $\mathrm{FO}$
+\end_inset
+
+.
  Dieser hat offensichtlich die geforderte Größe 
 \begin_inset Formula $S_{n}=S_{2n+1}'\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$
 \end_inset
@@ -6996,85 +7130,36 @@ Wir konstruieren aus der
 \end_layout
 
 \begin_layout Proof
-Daraus wird der 
-\begin_inset Formula $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
-\end_inset
-
--Schaltkreis 
-\begin_inset Formula $\dot{\mathcal{C}_{2n+1}^{\varphi}}=\left(G,W,\dot{\Sigma},\dot{\Omega},\dot{U}\right)$
-\end_inset
-
- über 
-\begin_inset Formula $\dot{U}=\left\{ 1,\cdots,n\right\} \uplus N$
-\end_inset
-
-, in dem das Universum durch 
-\begin_inset Formula $\rho:U\rightarrow\dot{U}$
-\end_inset
-
- umbenannt wird: 
-\begin_inset Formula 
-\begin{eqnarray*}
-\rho & \coloneqq & \left(\begin{array}{c}
-1\\
-1
-\end{array}\cdots\begin{array}{c}
-n\\
-n
-\end{array}\begin{array}{c}
-\begin{array}{c}
-n+1\\
-\dot{0}
-\end{array}\cdots\begin{array}{c}
-2n+1\\
-\dot{n}
-\end{array}\end{array}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\dot{\mathcal{C}_{2n+1}^{\varphi}}\coloneqq\rho\mathcal{C}_{2n+1}^{\varphi}=\left(G,W,\rho\Sigma,\Omega\rho,\rho U\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
 Anschließend konstruieren wir daraus den 
 \begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
 \end_inset
 
 -Schaltkreis 
-\begin_inset Formula $\ddot{\mathcal{C}_{n}^{\varphi}}=\left(G,W,\ddot{\Sigma},\ddot{\Omega},\ddot{U}\right)$
+\begin_inset Formula $\dot{\mathcal{C}_{n}^{\varphi}}=\left(G,W,\dot{\Sigma},\dot{\Omega},U\right)$
 \end_inset
 
  über 
-\begin_inset Formula $\ddot{U}=\left\{ 1,\cdots,n\right\} $
+\begin_inset Formula $U=\left[1,n\right]$
 \end_inset
 
-, indem alle Beschriftungen 
-\begin_inset Formula $\dot{\Sigma}\left(g\right)=R\bar{t}$
+, indem alle nicht-konstanten Inputs 
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
 \end_inset
 
  mit 
-\begin_inset Formula $\bar{t}\notin\ddot{U}^{k}$
+\begin_inset Formula $\bar{t}\notin U^{k}$
 \end_inset
 
  oder 
 \begin_inset Formula $R\notin\sigma$
 \end_inset
 
- durch 
-\begin_inset Formula $\ddot{\Sigma}\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
+ durch Konstanten 
+\begin_inset Formula $\dot{\Sigma}\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
 \end_inset
 
  ersetzt werden, und die Ausgangsfunktion auf 
-\begin_inset Formula $\ddot{\Omega}=\dot{\Omega}_{\mid\ddot{U}}$
+\begin_inset Formula $\dot{\Omega}=\Omega_{\mid\dot{U}}$
 \end_inset
 
  reduziert wird.
@@ -7083,7 +7168,7 @@ Anschließend konstruieren wir daraus den
 \begin_deeper
 \begin_layout Case
 Für 
-\begin_inset Formula $\dot{\Sigma}\left(g\right)=R\bar{t}$
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
 \end_inset
 
  mit 
@@ -7093,8 +7178,8 @@ Für
  gilt:
 \begin_inset Formula 
 \begin{eqnarray*}
-\ddot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
-R\bar{t} & \mathrm{falls}\,\bar{t}\in\ddot{U}^{k}\\
+\dot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
+R\bar{t} & \mathrm{falls}\,\bar{t}\in U^{k}\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
@@ -7106,14 +7191,14 @@ R\bar{t} & \mathrm{falls}\,\bar{t}\in\ddot{U}^{k}\\
 
 \begin_layout Case
 Für 
-\begin_inset Formula $\dot{\Sigma}\left(g\right)=t_{1}\dot{\leqslant}t_{2}$
+\begin_inset Formula $\Sigma\left(g\right)=t_{1}\dot{\leqslant}t_{2}$
 \end_inset
 
  gilt:
 \begin_inset Formula 
 \begin{eqnarray*}
-\ddot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
-\mathbf{1} & \mathrm{falls}\,t_{1},t_{2}\in N,\,t_{1}\leqslant t_{2}\\
+\dot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
+\mathbf{1} & \mathrm{falls}\,t_{1},t_{2}\in\left[n+1,2n+1\right],\,t_{1}\leqslant t_{2}\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
@@ -7126,7 +7211,7 @@ Für
 \end_deeper
 \begin_layout Proof
 Sei nun 
-\begin_inset Formula $\ddot{\pi}\in\mathrm{Sym}_{\ddot{U}}$
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
 \end_inset
 
  eine beliebige Permutation.
@@ -7134,36 +7219,20 @@ Sei nun
 
 \begin_layout Proof
 Wir betrachten die Erweiterung 
-\begin_inset Formula $\dot{\pi}\coloneqq\ddot{\pi}\uplus\mathbf{id}_{\mid N}$
+\begin_inset Formula $\pi'\coloneqq\pi\cup\mathbf{id}_{\mid\left[n+1,2n+1\right]}$
 \end_inset
 
 , die die Elemente von 
-\begin_inset Formula $N$
+\begin_inset Formula $\Upsilon'\left(n\right)$
 \end_inset
 
  auf sich selbst abbildet.
  Offensichtlich ist 
-\begin_inset Formula $\dot{\pi}\in\mathrm{Sym}_{\dot{U}}$
+\begin_inset Formula $\pi'\in\mathrm{Sym}_{U'}$
 \end_inset
 
  eine Permutation von 
-\begin_inset Formula $\dot{U}=\left(\ddot{U}\uplus N\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Proof
-Entsprechend ist 
-\begin_inset Formula $\pi\coloneqq\rho^{-1}\dot{\pi}\in\mathrm{Sym}_{U}$
-\end_inset
-
- eine Permutation von 
-\begin_inset Formula $U=\left[1,2n+1\right]$
-\end_inset
-
- mit 
-\begin_inset Formula $\pi_{\mid\left[n+1,2n+1\right]}=\mathbf{id}$
+\begin_inset Formula $U'=\left[1,2n+1\right]$
 \end_inset
 
 .
@@ -7175,7 +7244,7 @@ Aus der Symmetrie des Schaltkreises
 \end_inset
 
  bezüglich 
-\begin_inset Formula $\mathrm{Sym}_{U}$
+\begin_inset Formula $\mathrm{Sym}_{U'}$
 \end_inset
 
  (siehe Lemma 
@@ -7185,67 +7254,55 @@ reference "lem:FO-Circuit"
 
 \end_inset
 
-) folgt die Existenz eines induzierten Automorphismus 
-\begin_inset Formula $\hat{\pi}$
+) folgt die Existenz eines von 
+\begin_inset Formula $\pi'$
 \end_inset
 
- für den Schaltkreis 
-\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
+ induzierten Automorphismus 
+\begin_inset Formula $\hat{\pi}$
 \end_inset
 
 .
- Wegen der Bijektivität von 
-\begin_inset Formula $\rho$
-\end_inset
-
- wird 
-\begin_inset Formula $\hat{\pi}$
-\end_inset
-
- auch in 
-\begin_inset Formula $\rho\mathcal{C}_{2n+1}^{\varphi}=\dot{\mathcal{C}_{2n+1}^{\varphi}}$
-\end_inset
-
- durch 
-\begin_inset Formula $\dot{\pi}$
-\end_inset
-
- induziert.
 \end_layout
 
 \begin_layout Proof
-Schließlich ist 
+Es wird nun nachgewiesen, dass 
 \begin_inset Formula $\hat{\pi}$
 \end_inset
 
- auch in 
-\begin_inset Formula $\ddot{\mathcal{C}_{n}^{\varphi}}$
+ auch ein von 
+\begin_inset Formula $\pi$
 \end_inset
 
- ein durch 
-\begin_inset Formula $\ddot{\pi}$
+ induzierter Automorphismus in 
+\begin_inset Formula $\dot{\mathcal{C}_{n}^{\varphi}}$
 \end_inset
 
- induzierter Automorphismus, wozu nur die Funktion 
-\begin_inset Formula $\ddot{\Sigma}$
+ ist.
+ Dazu muss nur 
+\begin_inset Formula $\dot{\Sigma}$
 \end_inset
 
- betrachtet werden muss (denn für 
-\begin_inset Formula $\ddot{\Omega}$
+ und 
+\begin_inset Formula $\dot{\Omega}$
 \end_inset
 
- folgt die Symmetrie aus der Abgeschlossenheit von 
-\begin_inset Formula $\ddot{U}$
+ betrachtet werden, da der Graph 
+\begin_inset Formula $\left(G,W\right)$
 \end_inset
 
- unter 
-\begin_inset Formula $\ddot{\pi}$
-\end_inset
-
-):
+ unverändert bleibt.
 \end_layout
 
 \begin_deeper
+\begin_layout Enumerate
+Für 
+\begin_inset Formula $\bar{t}\in U^{k}$
+\end_inset
+
+ 
+\end_layout
+
 \begin_layout Case
 Für 
 \begin_inset Formula $\varphi\left(\bar{x}\right)=R\bar{y}$

@@ -272,9 +272,8 @@ notiert.
 \begin{defn}
 \textbf{Bereiche}
 
-Die Mengen $\left\{ 1,\cdots,n\right\} $ und $\left\{ 0,\cdots,n\right\} $
-werden respektive durch $\left[1,n\right]$ und $\left[0,n\right]$
-abgekürzt. 
+Die Menge $\left\{ i\in\mathbb{N}\mid a\leqslant i\leqslant b\right\} $
+wird durch $\left[a,b\right]$ abgekürzt.
 \end{defn}
 
 \begin{defn}
@@ -376,7 +375,7 @@ $R/k\in\sigma$.
 Wir formalisieren die Interpretation als eine Abbildung $\square^{\mathfrak{A}}:\sigma\rightarrow\mathcal{P}\left(A^{*}\right)$,
 die jedes Symbol eine Relation der entsprechenden Stelligkeit zuweist.
 Damit kann die Interpretation gegebenenfalls auch explizit durch $\mathfrak{A}=\left(A,\square^{\mathfrak{A}}\right)$
-notiert werden, um die Zuordnung zu verdeutlichen: 
+notiert werden, um die Zuordnung von Symbolen und Relationen zu verdeutlichen:
 \[
 \mathfrak{A}:=\left(A,\left(\begin{array}{ccc}
 R_{1} & \cdots & R_{k}\\
@@ -385,21 +384,17 @@ R_{1}^{\mathfrak{A}} & \cdots & R_{k}^{\mathfrak{A}}
 \]
 
 \begin{enumerate}
-\item Für $n>0$ sei $\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+\item Für eine endliche Menge $U$ sei $\mathbf{FIN}^{U}\left(\sigma\right)$
+die Menge aller $\sigma$-Strukturen mit dem Universum $U$.
+\item Für $\mathbb{N}_{>0}$ sei $\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 die Menge aller $\sigma$-Strukturen mit einem Universum der Größe
 $\left|A\right|=n$.
 \item Sei $\mathbf{FIN}\left(\sigma\right)\coloneqq\bigcup_{n\in\mathbb{N}_{\geqslant1}}\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 die Menge aller endlichen $\sigma$-Strukturen.
-\item Für $\dot{\leqslant}\notin\sigma$ seien $\mathbf{FIN}_{<}^{\left[a,b\right]}\left(\sigma\right)$
-die endlichen $\sigma\cup\left\{ \dot{\leqslant}\right\} $-Strukturen
-über einem geordneten Universum $U=\left[a,b\right]$. Ferner seien
-$\mathbf{FIN}_{<}^{0}\left(\sigma\right)$ und $\mathbf{FIN}_{<}^{1}\left(\sigma\right)$
-die endlichen geordneten $0$- beziehungsweise $1$-indizierten Strukturen:
-\begin{eqnarray*}
-\mathbf{FIN}_{<}^{0}\left(\sigma\right) & \coloneqq & \bigcup_{n\in\mathbb{N}}\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\sigma\right)\\
-\mathbf{FIN}_{<}^{1}\left(\sigma\right) & \coloneqq & \bigcup_{n\in\mathbb{N}}\mathbf{FIN}_{<}^{\left[1,n\right]}\left(\sigma\right)
-\end{eqnarray*}
-
+\item Für $\dot{\leqslant}\notin\sigma$ und $a,b\in\mathbb{N}$ seien $\mathbf{FIN}_{<}^{\left[a,b\right]}\left(\sigma\right)\subseteq\mathbf{FIN}^{\left[a,b\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)$
+die endlichen $\sigma\cup\left\{ \leqslant\right\} $-Strukturen über
+$\left[a,b\right]$, wobei $\leqslant$ die natürliche Ordnung von
+$\left[a,b\right]$ ist.
 \end{enumerate}
 
 Relationssymbole wie $\leqslant$ werden gegebenenfalls durch einen
@@ -408,7 +403,11 @@ $a\leqslant b$ statt $\left(a,b\right)\in\leqslant$ verwendet.
 \begin{eqnarray*}
 i\dot{\leqslant}j & \Leftrightarrow & \left(i,j\right)\in\dot{\leqslant}
 \end{eqnarray*}
-.
+Für eine Relation $R^{\mathfrak{A}}\subseteq A^{k}$ sei $\left[R^{\mathfrak{A}}\right]:A^{k}\rightarrow\left\{ 0,1\right\} $
+eine Funktion mit $\left[R^{\mathfrak{A}}\right]\bar{t}\coloneqq\begin{cases}
+1 & \mathrm{falls}\,t\in R^{\mathfrak{A}}\\
+0 & \mathrm{sonst}
+\end{cases}$.
 
 \end{defn}
 
@@ -443,17 +442,17 @@ Zwei Strukturen können vereinigt werden, wenn sie entweder disjunkte
 Signaturen oder die gleiche Signatur besitzen. Für eine $\sigma_{1}$-Struktur
 $\mathfrak{A}$ und eine $\sigma_{2}$-Struktur $\mathfrak{B}$ gilt:
 
-Wenn $\sigma_{1}\cap\sigma_{2}=\emptyset$, so ist $\mathfrak{A}\oplus\mathfrak{B}$
+Wenn $\sigma_{1}\cap\sigma_{2}=\emptyset$, so ist $\mathfrak{A}\cup\mathfrak{B}$
 die folgende $\left(\sigma_{1}\cup\sigma_{2}\right)$-Struktur:
 \[
-\mathfrak{A}\oplus\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\right)_{R\in\sigma_{1}},\left(R^{\mathfrak{B}}\right)_{R\in\sigma_{2}}\right)
+\mathfrak{A}\cup\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\right)_{R\in\sigma_{1}},\left(R^{\mathfrak{B}}\right)_{R\in\sigma_{2}}\right)
 \]
 
 
-Wenn $\sigma_{1}=\sigma_{2}=\sigma$, so ist $\mathfrak{A}\oplus\mathfrak{B}$
+Wenn $\sigma_{1}=\sigma_{2}=\sigma$, so ist $\mathfrak{A}\cup\mathfrak{B}$
 die folgende $\sigma$-Struktur:
 \[
-\mathfrak{A}\oplus\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\cup R^{\mathfrak{B}}\right)_{R\in\sigma}\right)
+\mathfrak{A}\cup\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\cup R^{\mathfrak{B}}\right)_{R\in\sigma}\right)
 \]
 
 \end{defn}
@@ -639,7 +638,7 @@ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \mathtt{MF}\left(R\bar{x}\right)=\max\left(\max_{i=1}^{k}\mathtt{M}\left(x_{i}\right),\mathrm{frei}\left(R\bar{x}\right)\right)
 \]
 \begin{eqnarray*}
-\mathfrak{A}\models\left(R\bar{x}\right)^{\beta} & \Leftrightarrow & \left(\left\llbracket x_{1}\right\rrbracket \left(\mathfrak{A},\beta\right),\cdots,\left\llbracket x_{k}\right\rrbracket \left(\mathfrak{A},\beta\right)\right)\in R^{\mathfrak{A}}
+\left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left[R^{\mathfrak{A}}\right]\left(\left\llbracket x_{1}\right\rrbracket \left(\mathfrak{A},\beta\right),\cdots,\left\llbracket x_{k}\right\rrbracket \left(\mathfrak{A},\beta\right)\right)
 \end{eqnarray*}
 
 \item [{(AE)}] Für zwei $\mathrm{FO}\left[\sigma\right]$-Terme $x_{1},x_{2}$
@@ -653,7 +652,10 @@ Beispiel bei ,,$\varphi=x_{1}\dot{=}x_{2}$.``)
 \mathtt{MF}\left(x_{1}\dot{=}x_{2}\right)=\max\left(\mathtt{MF}\left(x_{1}\right),\mathtt{MF}\left(x_{2}\right),\mathrm{frei}\left(x_{1}\dot{=}x_{2}\right)\right)
 \]
 \begin{eqnarray*}
-\mathfrak{A}\models\left(x\dot{=}y\right)^{\beta} & \Leftrightarrow & \left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket y\right\rrbracket \left(\mathfrak{A},\beta\right)
+\left\llbracket x\dot{=}y\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \begin{cases}
+1 & \mathrm{falls}\,\left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket y\right\rrbracket \left(\mathfrak{A},\beta\right)\\
+0 & \mathrm{sonst}
+\end{cases}
 \end{eqnarray*}
 
 \item [{(N)}] Für eine $\mathrm{FO}\left[\sigma\right]$-Formel $\varphi$
@@ -1035,12 +1037,6 @@ Als Beispiel seien die folgenden booleschen Junktoren gegeben:
 \end{eqnarray*}
 
 
-Wenn $\phi$ als Funktion $\phi:\mathbb{N}\times\mathbb{N}\rightarrow\left\{ 0,1\right\} $
-verwendet wird, sei $\phi\left(m,n\right)=\begin{cases}
-1 & \mathrm{falls}\,\left(m,n\right)\in\phi\\
-0 & \mathrm{sonst}
-\end{cases}$.
-
 Im folgenden stehe $\mathbb{B}_{\mathrm{std}}\coloneqq\left\{ \wedge,\vee\right\} $
 für die Basis mit boolescher Konjunktion und Disjunktion.
 \end{defn}
@@ -1081,18 +1077,14 @@ Gates im Bild von $\Omega$ heißen \textbf{Outputs}.
 \textbf{Auswertung von Schaltkreisen}
 
 Der $\left(\sigma,\mathbb{B}\right)$-Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
-wird auf einer geordneten $\sigma$-Struktur $\mathfrak{A}\in\mathbf{FIN}_{\leqslant}\left(\sigma\right)$
-mit dem Universum $U$ ausgewertet. Die Auswertung ist eine Abbildung
-$\mathcal{C}\left[\mathfrak{A}\right]:G\rightarrow\left\{ 0,1\right\} $,
+wird auf einer $\sigma$-Struktur $\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$
+ausgewertet. Die Auswertung ist eine Abbildung $\mathcal{C}\left[\mathfrak{A}\right]:G\rightarrow\left\{ 0,1\right\} $,
 die jedem Gate $g\in G$ den Wert $0$ oder $1$ zuweist, und ist
 rekursiv wie folgt definiert:
 \begin{casenv}
 \item Für $\Sigma\left(g\right)=R\bar{t}$ gilt 
 \[
-\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\coloneqq\begin{cases}
-1 & \mathrm{falls}\,\bar{t}\in R^{\mathfrak{A}}\\
-0 & \mathrm{sonst}
-\end{cases}
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\coloneqq\left[R^{\mathfrak{A}}\right]\bar{t}
 \]
 
 \item Für $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
@@ -1115,20 +1107,24 @@ $u$ gilt
 j_{1} & \coloneqq & \sum_{\left(h,g\right)\in E}\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\\
 j_{0} & \coloneqq & \left|\left\{ h\mid\left(h,g\right)\in E\right\} \right|-j_{1}\\
 \\
-\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \phi\left(j_{0},j_{1}\right)
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\phi\right]\left(j_{0},j_{1}\right)
 \end{eqnarray*}
 
 \end{casenv}
-\end{defn}
-Die Ausgabe eines Schaltkreises für eine Struktur $\mathfrak{A}$
-und ein Tupel $\bar{t}$ sei:
+Für einen $k$-stelligen Schaltkreis $\mathcal{C}$ und ein Tupel
+$\bar{t}\in U^{k}$ sei die Ausgabe von $\mathcal{C}$:
 \[
 \left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\coloneqq\mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)
 \]
  
+\end{defn}
+Ferner sei $q_{\mathcal{C}}:\mathbf{FIN}^{U}\left(\sigma\right)\rightarrow U^{k}$
+die Abbildung einer Struktur auf die Relation der Tupel, für die $\mathcal{C}$
+den Wert $1$ ausgibt. 
+\[
+q_{\mathcal{C}}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{t}\in U^{k}\mid\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1\right\} 
+\]
 
-Für einen $k$-stelligen Schaltkreis $\mathcal{C}$ sei $\mathcal{C}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{t}\in U^{k}\mid\mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=1\right\} $
-die Menge der Tupel, deren Output den Wert $1$ annimmt.
 \begin{example*}
 Sei $\mathcal{C}_{4}=\left(G,W,\Sigma,\Omega,\left[4\right]\right)$
 ein $1$-stelliger $\left(\left\{ E\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis,
@@ -1215,6 +1211,17 @@ E\,i\,j & \mathrm{f\ddot{u}r}\,g=g_{i,j}\\
 
 \subsection{Eigenschaften von Schaltkreisen}
 \begin{defn}
+\textbf{Größe und Tiefe}
+
+Die \textbf{Größe} $\left|\mathcal{C}\right|$ eines Schaltkreises
+$\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ sei die Anzahl seiner
+Gates, $\left|G\right|$.
+
+Die \textbf{Tiefe} $T\left(\mathcal{C}\right)$ sei die maximale Länge
+eines einfachen Wegs durch den Graphen $\left(G,W\right)$.
+\end{defn}
+
+\begin{defn}
 \textbf{Invarianz}
 
 Ein $k$-stelliger $\left(\sigma,\mathbb{B}\right)$-Schaltkreis $\mathcal{C}$
@@ -1222,48 +1229,51 @@ mit dem Universum $U$ heiße \textbf{invariant} wenn für alle $\mathfrak{A}\in\
 alle $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$ und alle
 Bijektionen $\pi_{1},\pi_{2}:A\rightarrow U$ gilt:
 \[
-\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\pi{}_{2}\bar{a}\right)\right)
+q_{\mathcal{C}}\left(\pi_{1}\mathfrak{A}\right)=q_{\mathcal{C}}\left(\pi_{2}\mathfrak{A}\right)
 \]
 
 
-Für invariante Schaltkreise und beliebige Strukturen $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
-bezeichne $\mathcal{C}\left[\mathfrak{A}\right]$ die Auswertung $\mathcal{C}\left[\pi\mathfrak{A}\right]$
-mit einer beliebigen Bijektion $\pi:A\rightarrow U$.
+In diesem Fall definieren wir für jede Struktur $\mathfrak{A}\in\mathbf{FIN}^{\left(\left|U\right|\right)}\left(\sigma\right)$
+die Auswertung von $\mathcal{C}$ implizit als die Auswertung auf
+$\pi\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$ mit einer
+beliebigen Bijektion $\pi:A\rightarrow U$:
+\[
+q_{\mathcal{C}}\left(\mathfrak{A}\right)\coloneqq\pi^{-1}\left(q_{\mathcal{C}}\left(\pi\mathfrak{A}\right)\right)
+\]
+
 \end{defn}
 
 \begin{defn}
 \textbf{Symmetrie}
 \end{defn}
-Ein Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ heiße
-\textbf{symmetrisch}, wenn für jede Permutation der Universums $\pi\in\mathrm{Sym}_{U}$
-ein Automorphismus $\hat{\pi}:G\rightarrow G$ des Graphen $\left(G,W\right)$
-existiert, der die folgenden Bedingungen erfüllt:
+Ein $k$-stelliger Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+heiße \textbf{symmetrisch}, wenn jede Permutation der Universums $\pi\in\mathrm{Sym}_{U}$
+einen Automorphismus $\hat{\pi}:G\rightarrow G$ des Graphen $\left(G,W\right)$
+induziert, der die folgenden Bedingungen erfüllt:
 \begin{enumerate}
-\item Für alle Gates $g$ mit $\Sigma\left(g\right)=R\bar{x}$ gilt $\Sigma\left(\hat{\pi}g\right)=R\,\pi\bar{x}$.
-\item Für alle übrigen Gates gilt $\Sigma\left(g\right)=\Sigma\left(\hat{\pi}g\right)$.
-\item Für jedes Tupel $\bar{x}\in U$ gilt $\Omega\left(\pi\bar{x}\right)=\hat{\pi}\Omega\left(x\right)$.
-\end{enumerate}
-Falls jede Permutation von $U$ genau einen\emph{ }Automorphismus
-induziert, so wird der von $\pi$ induzierte Automorphismus implizit
-mit $\hat{\pi}$ notiert.
+\item $\hat{\pi}\left(W\right)=W$
+\item Für alle nicht-konstanten Inputs $g$ mit $\Sigma\left(g\right)=R\bar{x}$
+gilt $\Sigma\left(\hat{\pi}g\right)=R\,\bar{x'}$, mit $\bar{x'}=\pi\bar{x}$.
+\item Für alle übrigen Gates gilt $\Sigma\left(\hat{\pi}g\right)=\Sigma\left(g\right)$.
+\item Für jedes Tupel $\bar{x}\in U^{k}$ gilt $\hat{\pi}\Omega\left(\bar{x}\right)=\Omega\left(\pi x\right)$.\end{enumerate}
 \begin{lem}
 Symmetrie ist eine hinreichende, aber nicht notwendige, Bedingung
 für die Invarianz eines Schaltkreises.\end{lem}
 \begin{proof}
-Sei $\mathcal{C}$ ein symmetrischer $\left(\sigma,\mathbb{B}\right)$-Schaltkreis,
-und $\mathfrak{A}$ eine beliebige $\sigma$-Struktur mit $\left|A\right|=\left|U\right|$.
-Seien $\pi_{1}$ und $\pi_{2}$ zwei beliebige Bijektionen von $A$
-auf $U$, und sei $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$
-ein beliebiges Tupel. Es ist zu zeigen, dass: 
-\[
-\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\pi_{2}\bar{a}\right)\right)
-\]
+Sei $\mathcal{C}$ ein symmetrischer $k$-stelliger $\left(\sigma,\mathbb{B}\right)$-Schaltkreis
+über $U$, und $\mathfrak{A}\in\mathbf{FIN}^{\left(\left|U\right|\right)}\left(\sigma\right)$.
+Seien $\pi_{1},\pi_{2}:A\rightarrow U$ zwei beliebige Bijektionen,
+und sei $\bar{a}\in A^{k}$ ein beliebiges Tupel. Es ist zu zeigen,
+dass: 
+\begin{eqnarray*}
+\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right) & = & \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\pi_{2}\bar{a}\right)\right)
+\end{eqnarray*}
 
 
-Wir definieren die Permutation $\tau:U\rightarrow U$ als $\tau\coloneqq\pi_{1}\pi_{2}^{-1}$,
+Wir definieren die Permutation $\tau\in\mathrm{Sym}_{U}$ als $\tau\coloneqq\pi_{1}\pi_{2}^{-1}$,
 so dass $\pi_{1}=\tau\pi_{2}$.
 
-Per Voraussetzung induziert $\tau$ einen Automorphismus $\hat{\tau}$
+Wegen der Symmetrie induziert $\tau$ einen Automorphismus $\hat{\tau}$
 auf $\mathcal{C}$: 
 \begin{eqnarray*}
 \hat{\tau}\left(W\right) & = & W\\
@@ -1284,17 +1294,16 @@ Weges von einer Quelle zum Gate $g$.} wird gezeigt:
 \begin{description}
 \item [{Induktionsanfang~$n=0$:}] Sei $g\in G$ eine Quelle mit $\Sigma\left(g\right)=R\bar{x}$.
 Per Definition von $\tau$ und $\hat{\tau}$ gilt:
-\[
-\Sigma\left(\hat{\tau}g\right)=R\tau\bar{x}
-\]
- 
 \begin{eqnarray*}
+\Sigma\left(\hat{\tau}g\right) & = & R\tau\bar{x}\\
 \tau\bar{x}\in\tau\pi_{2}R^{\mathfrak{A}} & \Longleftrightarrow & \bar{x}\in\pi_{2}R^{\mathfrak{A}}
 \end{eqnarray*}
-Es folgt: 
-\[
-\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)
-\]
+ Es folgt: 
+\begin{eqnarray*}
+\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right) & = & \left[\tau\pi_{2}R^{\mathfrak{A}}\right]\left(\tau\bar{x}\right)\\
+ & = & \left[\pi_{2}R^{\mathfrak{A}}\right]\left(\bar{x}\right)\\
+ & = & \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)
+\end{eqnarray*}
 (Falls $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $,
 folgt die Behauptung direkt aus $\Sigma\left(\hat{\tau}g\right)=\Sigma\left(g\right)$.)
 \item [{Induktionsschritt~$n\mapsto n+1$:}]~
@@ -1367,17 +1376,16 @@ akzeptiert. Er ist aber nicht symmetrisch: Die Permutation $\left(\begin{array}{
 \subsection{Eigenschaften von Schaltkreisfamilien}
 \begin{defn}
 Eine $\left(\sigma,\mathbb{B}\right)$-\textbf{Schaltkreisfamilie}
-$\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ sei eine Sequenz
-von Schaltkreisen mit der gleichen Stelligkeit $\mathrm{ar}\left(\mathcal{C}_{n}\right)=k$
-und den Universen $U^{\mathcal{C}_{n}}=\left\{ 1,\cdots,n\right\} $.
+$\bar{\mathcal{C}}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+sei eine Sequenz von invarianten Schaltkreisen $\mathcal{C}_{n}=\left(G_{n},W_{n},\Sigma_{n},\Omega_{n},U_{n}\right)$
+mit der gleichen Stelligkeit $\mathrm{ar}\left(\mathcal{C}_{n}\right)=k$
+und den Universen $U_{n}=\left[1,n\right]$.
 
-Eine invariante $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
-$\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ \textbf{berechne}
-eine $\sigma$-Anfrage $q$ genau dann wenn für alle $n\in\mathbb{N}$
-und alle $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
-gilt: 
+Die von der Schaltkreisfamilie berechnete $\sigma$-Anfrage $q_{\bar{\mathcal{C}}}$
+sei die disjunkte Vereinigung der Anfragen $q_{\mathcal{C}_{n}}$
+jedes Schaltkreises: 
 \[
-q\left(\mathfrak{A}\right)=\mathcal{C}_{n}\left(\mathfrak{A}\right)
+q_{\bar{\mathcal{C}}}\coloneqq\biguplus_{n\in\mathbb{N}}q_{\mathcal{C}_{n}}
 \]
 
 \end{defn}
@@ -1396,10 +1404,11 @@ wobei $\mathrm{MAJ}$ die Majority-Funktion ist.)
 \textbf{Uniformität}
 
 Für eine Zeitfunktion $T:\mathbb{N}\rightarrow\mathbb{N}$ sei eine
-Schaltkreisfamilie $\mathcal{C}$ $T$-\textbf{uniform}, wenn eine
-deterministische Turingmaschine bei Eingabe von $n\geqslant n_{0}$
-eine Repräsentation von $\mathcal{C}_{n}$ in höchstens $T\left(n\right)$
-Schritten berechnen kann.
+Schaltkreisfamilie $\bar{\mathcal{C}}$ $T$-\textbf{uniform}, wenn
+ein $n_{0}\in\mathbb{N}$ existiert, so dass eine deterministische
+Turingmaschine bei Eingabe einer Zahl $n\geqslant n_{0}$ eine Repräsentation
+von $\mathcal{C}_{n}$ in höchstens $T\left(n\right)$ Schritten berechnen
+kann.
 
 Für eine Klasse von Zeitfunktionen $\mathscr{F}\subseteq\mathrm{Abb}\left(\mathbb{N},\mathbb{N}\right)$
 sei sie $\mathscr{F}$-uniform, wenn ein $T\in\mathscr{F}$ existiert,
@@ -1412,8 +1421,8 @@ Schaltkreisfamilie heiße ,,P-uniform``.
 \textbf{Beschränkte Größe}
 
 Für eine Funktion $f:\mathbb{N}\rightarrow\mathbb{N}$ habe eine Schaltkreisfamilie
-$\mathcal{C}$ $f$-\textbf{Größe}, wenn jeder Schaltkreis $\mathcal{C}_{n}=\left(G,W,\Sigma,\Omega,U\right)$
-höchstens $\left|G\right|\leqslant f\left(n\right)$ Gates besitzt.
+$\bar{\mathcal{C}}$ $f$-\textbf{Größe}, wenn für ein $n_{0}\in\mathbb{N}$
+und alle $n\geqslant n_{0}$ gilt, dass $\left|\mathcal{C}_{n}\right|\leqslant f\left(n\right)$.
 Der Begriff ,,$\mathscr{F}$-groß`` sei analog zu ,,$\mathscr{F}$-uniform``
 definiert.\end{defn}
 \begin{rem*}
@@ -1429,9 +1438,9 @@ genau die $\mathrm{poly}\left(n\right)$-großen Schaltkreisfamilien.\end{rem*}
 \textbf{Beschränkte Tiefe}
 
 Für eine Funktion $f:\mathbb{N}\rightarrow\mathbb{N}$ sei eine Schaltkreisfamilie
-$\mathcal{C}$ $f$-\textbf{Tiefe}, wenn jeder Schaltkreis $\mathcal{C}_{n}=\left(G,W,\Sigma,\Omega,U\right)$
-höchstens $\left|G\right|\leqslant f\left(n\right)$ Gates besitzt.
-Der Begriff ,,$\mathscr{F}$-tief`` sei analog zu ,,$\mathscr{F}$-groß``
+$\bar{\mathcal{C}}$ $f$-\textbf{Tiefe}, wenn $T\left(\mathcal{C}_{n}\right)\leqslant f\left(n\right)$
+für ein $n_{0}\in\mathbb{N}$ und alle $n\geqslant n_{0}$. Der Begriff
+,,$\mathscr{F}$-tief`` sei analog zu ,,$\mathscr{F}$-groß``
 definiert.\end{defn}
 \begin{rem*}
 $\mathrm{AC}^{0}$ ist die Klasse der $\mathcal{O}\left(1\right)$-tiefen,
@@ -1821,93 +1830,91 @@ berechnet wird.
 \end{lem}
 (Dieses Lemma bildet die erste Hälfte des Theorems \ref{thm:5.5:fo-ord}.)
 \begin{proof}
-Der Schaltkreis $\mathcal{C}_{n}$ wird über einer geordneten Struktur
-$\mathfrak{A}\in\mathbf{FIN}_{<}\left(\sigma\right)$ über dem Universum
-$U=\left\{ 1,\cdots,n\right\} $ ausgewertet.
+Sei $\varphi$ eine $k$-stellige $\mathrm{FO}+\mathbf{ORD}\left[\sigma\right]$-Formel,
+und $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$.
+Diese wird auf der vereinigten $\left(\sigma\cup\left\{ \leqslant\right\} \right)$-Struktur
+$\mathfrak{A}\cup\Upsilon\left(n\right)$ ausgewertet, wobei $\Upsilon\left(n\right)\coloneqq\left(\left[0,n\right],\leqslant\right)$.
 
-Hierbei ist zu beachten, dass $U=\left[1,n\right]$ disjunkt von dem
-Universum $\left[0,n\right]$ der Orakelstruktur $\Upsilon\left(n\right)$
-sein muss! Zur Unterscheidung wird das Universum $\left[0,n\right]$
-umbenannt zu $N\coloneqq\left\{ \dot{0},\cdots,\dot{n}\right\} $
-und $\Upsilon\left(n\right)\coloneqq\left(N,\leqslant\right)$ betrachtet.
+Der Schaltkreis $\mathcal{C}_{n}$ wird aber auf einer $\sigma$-Struktur
+$\mathfrak{A}'\coloneqq\pi\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$
+mit dem Universum $U=\left[1,n\right]$ ausgewertet.
 
-Wir konstruieren aus der $\mathrm{FO}\left[\sigma\cup\left\{ \leqslant\right\} \right]$-Formel
-zunächst einen $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
-$\mathcal{C}_{2n+1}^{\varphi}$ über $U=\left\{ 1,\cdots,2n+1\right\} $
-entsprechend dem vorhergehenden Beweis. Dieser hat offensichtlich
-die geforderte Größe $S_{n}=S_{2n+1}'\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$.
-
-Daraus wird der $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
-$\dot{\mathcal{C}_{2n+1}^{\varphi}}=\left(G,W,\dot{\Sigma},\dot{\Omega},\dot{U}\right)$
-über $\dot{U}=\left\{ 1,\cdots,n\right\} \uplus N$, in dem das Universum
-durch $\rho:U\rightarrow\dot{U}$ umbenannt wird: 
+Vor der Konstruktion muss daher sichergestellt werden, dass das Universum
+von $\mathfrak{A}'$ disjunkt von dem Universum der Orakelstruktur
+$\Upsilon\left(n\right)$ ist! Daher wird das Universum $\left[0,n\right]$
+von $\Upsilon\left(n\right)$ durch eine Umbenennung auf $\left[n+1,2n+1\right]$
+,,verschoben``:
 \begin{eqnarray*}
+\Upsilon'\left(n\right) & \coloneqq & \rho\Upsilon\left(n\right)\\
 \rho & \coloneqq & \left(\begin{array}{c}
-1\\
-1
+0\\
+n+1
 \end{array}\cdots\begin{array}{c}
 n\\
-n
-\end{array}\begin{array}{c}
-\begin{array}{c}
-n+1\\
-\dot{0}
-\end{array}\cdots\begin{array}{c}
-2n+1\\
-\dot{n}
-\end{array}\end{array}\right)
+2n+1
+\end{array}\right)
 \end{eqnarray*}
-\[
-\dot{\mathcal{C}_{2n+1}^{\varphi}}\coloneqq\rho\mathcal{C}_{2n+1}^{\varphi}=\left(G,W,\rho\Sigma,\Omega\rho,\rho U\right)
-\]
 
+
+Nun ist $\mathfrak{A}'\cup\Upsilon'\left(n\right)\in\mathbf{FIN}^{\left[1,2n+1\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)$
+(wobei die Ordnung $\leqslant$ weiterhin nur auf $\left[n+1,2n+1\right]$
+definiert ist).
+
+Weil $\Upsilon\left(n\right)\cong\Upsilon'\left(n\right)$ und $\mathfrak{A}\cong\mathfrak{A}'$,
+und beide Strukturen disjunkt voneinander sind, ist auch $\mathfrak{A}\cup\Upsilon\left(n\right)\cong\mathfrak{A}'\cup\Upsilon'\left(n\right)$.
+Daher gilt: 
+\[
+\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\cup\Upsilon\left(n\right)\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}'\cup\Upsilon'\left(n\right)\right)
+\]
+.
+
+Wir konstruieren nun zunächst einen $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
+$\mathcal{C}_{2n+1}^{\varphi}$ über $U'=\left[1,2n+1\right]$ entsprechend
+dem vorhergehenden Beweis für $\mathrm{FO}$. Dieser hat offensichtlich
+die geforderte Größe $S_{n}=S_{2n+1}'\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$.
 
 Anschließend konstruieren wir daraus den $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
-$\ddot{\mathcal{C}_{n}^{\varphi}}=\left(G,W,\ddot{\Sigma},\ddot{\Omega},\ddot{U}\right)$
-über $\ddot{U}=\left\{ 1,\cdots,n\right\} $, indem alle Beschriftungen
-$\dot{\Sigma}\left(g\right)=R\bar{t}$ mit $\bar{t}\notin\ddot{U}^{k}$
-oder $R\notin\sigma$ durch $\ddot{\Sigma}\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
-ersetzt werden, und die Ausgangsfunktion auf $\ddot{\Omega}=\dot{\Omega}_{\mid\ddot{U}}$
+$\dot{\mathcal{C}_{n}^{\varphi}}=\left(G,W,\dot{\Sigma},\dot{\Omega},U\right)$
+über $U=\left[1,n\right]$, indem alle nicht-konstanten Inputs $\Sigma\left(g\right)=R\bar{t}$
+mit $\bar{t}\notin U^{k}$ oder $R\notin\sigma$ durch Konstanten
+$\dot{\Sigma}\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
+ersetzt werden, und die Ausgangsfunktion auf $\dot{\Omega}=\Omega_{\mid\dot{U}}$
 reduziert wird.
 \begin{casenv}
-\item Für $\dot{\Sigma}\left(g\right)=R\bar{t}$ mit $R\in\sigma$ gilt:
+\item Für $\Sigma\left(g\right)=R\bar{t}$ mit $R\in\sigma$ gilt:
 \begin{eqnarray*}
-\ddot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
-R\bar{t} & \mathrm{falls}\,\bar{t}\in\ddot{U}^{k}\\
+\dot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
+R\bar{t} & \mathrm{falls}\,\bar{t}\in U^{k}\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
 
-\item Für $\dot{\Sigma}\left(g\right)=t_{1}\dot{\leqslant}t_{2}$ gilt:
+\item Für $\Sigma\left(g\right)=t_{1}\dot{\leqslant}t_{2}$ gilt:
 \begin{eqnarray*}
-\ddot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
-\mathbf{1} & \mathrm{falls}\,t_{1},t_{2}\in N,\,t_{1}\leqslant t_{2}\\
+\dot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
+\mathbf{1} & \mathrm{falls}\,t_{1},t_{2}\in\left[n+1,2n+1\right],\,t_{1}\leqslant t_{2}\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
 
 \end{casenv}
-Sei nun $\ddot{\pi}\in\mathrm{Sym}_{\ddot{U}}$ eine beliebige Permutation.
+Sei nun $\pi\in\mathrm{Sym}_{U}$ eine beliebige Permutation.
 
-Wir betrachten die Erweiterung $\dot{\pi}\coloneqq\ddot{\pi}\uplus\mathbf{id}_{\mid N}$,
-die die Elemente von $N$ auf sich selbst abbildet. Offensichtlich
-ist $\dot{\pi}\in\mathrm{Sym}_{\dot{U}}$ eine Permutation von $\dot{U}=\left(\ddot{U}\uplus N\right)$.
-
-Entsprechend ist $\pi\coloneqq\rho^{-1}\dot{\pi}\in\mathrm{Sym}_{U}$
-eine Permutation von $U=\left[1,2n+1\right]$ mit $\pi_{\mid\left[n+1,2n+1\right]}=\mathbf{id}$.
+Wir betrachten die Erweiterung $\pi'\coloneqq\pi\cup\mathbf{id}_{\mid\left[n+1,2n+1\right]}$,
+die die Elemente von $\Upsilon'\left(n\right)$ auf sich selbst abbildet.
+Offensichtlich ist $\pi'\in\mathrm{Sym}_{U'}$ eine Permutation von
+$U'=\left[1,2n+1\right]$.
 
 Aus der Symmetrie des Schaltkreises $\mathcal{C}_{2n+1}^{\varphi}$
-bezüglich $\mathrm{Sym}_{U}$ (siehe Lemma \ref{lem:FO-Circuit})
-folgt die Existenz eines induzierten Automorphismus $\hat{\pi}$ für
-den Schaltkreis $\mathcal{C}_{2n+1}^{\varphi}$. Wegen der Bijektivität
-von $\rho$ wird $\hat{\pi}$ auch in $\rho\mathcal{C}_{2n+1}^{\varphi}=\dot{\mathcal{C}_{2n+1}^{\varphi}}$
-durch $\dot{\pi}$ induziert.
+bezüglich $\mathrm{Sym}_{U'}$ (siehe Lemma \ref{lem:FO-Circuit})
+folgt die Existenz eines von $\pi'$ induzierten Automorphismus $\hat{\pi}$.
 
-Schließlich ist $\hat{\pi}$ auch in $\ddot{\mathcal{C}_{n}^{\varphi}}$
-ein durch $\ddot{\pi}$ induzierter Automorphismus, wozu nur die Funktion
-$\ddot{\Sigma}$ betrachtet werden muss (denn für $\ddot{\Omega}$
-folgt die Symmetrie aus der Abgeschlossenheit von $\ddot{U}$ unter
-$\ddot{\pi}$):
+Es wird nun nachgewiesen, dass $\hat{\pi}$ auch ein von $\pi$ induzierter
+Automorphismus in $\dot{\mathcal{C}_{n}^{\varphi}}$ ist. Dazu muss
+nur $\dot{\Sigma}$ und $\dot{\Omega}$ betrachtet werden, da der
+Graph $\left(G,W\right)$ unverändert bleibt.
+\begin{enumerate}
+\item Für $\bar{t}\in U^{k}$ \end{enumerate}
 \begin{casenv}
 \item Für $\varphi\left(\bar{x}\right)=R\bar{y}$ mit $R\in\sigma$ gilt:
 \[
