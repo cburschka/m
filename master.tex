@@ -56,8 +56,6 @@
  \setlist[casenv,4]{label={{\itshape\ \casename} \arabic*.},ref=\arabic*}
   \theoremstyle{plain}
   \newtheorem{lem}[thm]{\protect\lemmaname}
- \theoremstyle{definition}
- \newtheorem*{defn*}{\protect\definitionname}
   \theoremstyle{plain}
   \newtheorem*{cor*}{\protect\corollaryname}
 
@@ -1082,8 +1080,8 @@ Gates im Bild von $\Omega$ heißen \textbf{Outputs}.
 \begin{defn}
 \textbf{Auswertung von Schaltkreisen}
 
-Der Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ wird
-auf einer geordneten $\sigma$-Struktur $\mathfrak{A}\in\mathbf{FIN}_{\leqslant}\left(\sigma\right)$
+Der $\left(\sigma,\mathbb{B}\right)$-Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+wird auf einer geordneten $\sigma$-Struktur $\mathfrak{A}\in\mathbf{FIN}_{\leqslant}\left(\sigma\right)$
 mit dem Universum $U$ ausgewertet. Die Auswertung ist eine Abbildung
 $\mathcal{C}\left[\mathfrak{A}\right]:G\rightarrow\left\{ 0,1\right\} $,
 die jedem Gate $g\in G$ den Wert $0$ oder $1$ zuweist, und ist
@@ -1133,7 +1131,7 @@ Für einen $k$-stelligen Schaltkreis $\mathcal{C}$ sei $\mathcal{C}\left(\mathfr
 die Menge der Tupel, deren Output den Wert $1$ annimmt.
 \begin{example*}
 Sei $\mathcal{C}_{4}=\left(G,W,\Sigma,\Omega,\left[4\right]\right)$
-ein $1$-stelliger $\left(\mathbb{B}_{\mathrm{std}},\left\{ E\right\} \right)$-Schaltkreis,
+ein $1$-stelliger $\left(\left\{ E\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis,
 der alle Knoten eines gerichteten Graphen findet, die Teil eines einfachen
 Kreises der Länge $2$ sind:
 
@@ -1219,8 +1217,8 @@ E\,i\,j & \mathrm{f\ddot{u}r}\,g=g_{i,j}\\
 \begin{defn}
 \textbf{Invarianz}
 
-Ein $k$-stelliger Schaltkreis $\mathcal{C}$ mit dem Universum $U$
-heiße \textbf{invariant} wenn für alle $\mathfrak{A}\in\mathbf{FIN}_{<}\left(\sigma\right)$,
+Ein $k$-stelliger $\left(\sigma,\mathbb{B}\right)$-Schaltkreis $\mathcal{C}$
+mit dem Universum $U$ heiße \textbf{invariant} wenn für alle $\mathfrak{A}\in\mathbf{FIN}_{<}\left(\sigma\right)$,
 alle $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$ und alle
 Bijektionen $\pi_{1},\pi_{2}:A\rightarrow U$ gilt:
 \[
@@ -1252,10 +1250,10 @@ mit $\hat{\pi}$ notiert.
 Symmetrie ist eine hinreichende, aber nicht notwendige, Bedingung
 für die Invarianz eines Schaltkreises.\end{lem}
 \begin{proof}
-Sei $\mathcal{C}$ ein symmetrischer Schaltkreis, und $\mathfrak{A}$
-eine beliebige Struktur mit $\left|A\right|=\left|U\right|$. Seien
-$\pi_{1}$ und $\pi_{2}$ zwei beliebige Bijektionen von $A$ auf
-$U$, und sei $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$
+Sei $\mathcal{C}$ ein symmetrischer $\left(\sigma,\mathbb{B}\right)$-Schaltkreis,
+und $\mathfrak{A}$ eine beliebige $\sigma$-Struktur mit $\left|A\right|=\left|U\right|$.
+Seien $\pi_{1}$ und $\pi_{2}$ zwei beliebige Bijektionen von $A$
+auf $U$, und sei $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$
 ein beliebiges Tupel. Es ist zu zeigen, dass: 
 \[
 \mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\pi_{2}\bar{a}\right)\right)
@@ -1447,16 +1445,14 @@ $\mathrm{poly}\left(n\right)$-großen Schaltkreisfamilien.
 
 \subsection{FO-Logik}
 
-Die Formeln der Logik erster Stufe sind durch symmetrisches, $P$-uniformes
-$\mathrm{AC}^{0}$ berechenbar:
-\begin{defn*}
-.\end{defn*}
+Die Formeln der Logik erster Stufe sind durch symmetrische, $P$-uniforme
+$\mathrm{AC}^{0}$-Schaltkreise berechenbar:
 \begin{lem}
 \label{lem:FO-Circuit}Jede $\mathrm{FO}\left[\sigma\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
 $P$-uniformen Schaltkreis-Familie $\left(\mathcal{C}_{n}^{\varphi}\right)_{n\in\mathbb{N}}$
 mit konstanter Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
-und polynomieller Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert n^{\mathtt{M}\left(\varphi\right)}$
+und polynomieller Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}$
 berechnet wird.\end{lem}
 \begin{proof}
 Sei $\sigma$ eine relationale Signatur, und sei $\varphi\left(\bar{x}\right)$
@@ -1466,7 +1462,8 @@ Per induktiver Konstruktion über den Aufbau von $\varphi$ wird der
 $k$-stellige Schaltkreis $\mathcal{C}_{n}^{\varphi}$ über dem Universum
 $U\coloneqq\left\{ 1,\cdots,n\right\} $ definiert. Die Konstruktion
 ist in Polynomialzeit berechenbar. Für eine beliebige Permutation
-$\pi\in\mathrm{Sym}_{U}$ wird ein Automorphismus $\hat{\pi}$ angegeben.
+$\pi\in\mathrm{Sym}_{U}$ wird ein Automorphismus $\hat{\pi}$ angegeben,
+und damit die Symmetrie nachgewiesen.
 \begin{casenv}
 \item Falls $\varphi\left(\bar{x}\right)=R\bar{y}$ für $R\in\sigma$, so
 besteht $\mathcal{C}_{n}^{\varphi}$ aus $n^{k}$ isolierten Gates.
@@ -1479,16 +1476,16 @@ besteht $\mathcal{C}_{n}^{\varphi}$ aus $n^{k}$ isolierten Gates.
 Für jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\begin{array}{c}
 \bar{x}\\
 \bar{t}
-\end{array}\right)$ die Abbildung der Variablen $\bar{x}$ auf das Tupel $\bar{t}$:
+\end{array}\right)$ die Belegung der Variablen $\bar{x}$ mit $\bar{t}$:
 \begin{eqnarray*}
-\Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}\\
-\Sigma\left(g_{\bar{t}}\right) & \coloneqq & R\beta_{\bar{t}}\left(\bar{y}\right)
+\Sigma\left(g_{\bar{t}}\right) & \coloneqq & R\beta_{\bar{t}}\left(\bar{y}\right)\\
+\Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}
 \end{eqnarray*}
 
 \item [{Korrektheit:}] Es gilt 
 \[
 \begin{array}{ccccc}
-\left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1 & \overset{\mathrm{def}}{\Leftrightarrow} & \bar{t}\in R^{\mathfrak{A}} & \overset{\mathrm{def}}{\Leftrightarrow} & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right)=1\end{array}
+\left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1 & \overset{\mathrm{def}}{\Leftrightarrow} & \bar{t}\in R^{\mathfrak{A}} & \overset{\mathrm{def}}{\Leftrightarrow} & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=1\end{array}
 \]
 
 \item [{Symmetrie:}] Sei $\hat{\pi}g_{\bar{t}}\coloneqq g_{\pi\bar{t}}$
@@ -1510,17 +1507,17 @@ Für jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\begin{ar
 \bar{t}
 \end{array}\right)$ die entsprechende Belegung:
 \begin{eqnarray*}
-\Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}\\
 \Sigma\left(g_{\bar{t}}\right) & \coloneqq & \begin{cases}
 \mathbf{1} & \mathrm{falls}\,\beta\left(y_{1}\right)=\beta\left(y_{2}\right)\\
 \mathbf{0} & \mathrm{sonst}
-\end{cases}
+\end{cases}\\
+\Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}
 \end{eqnarray*}
 
 \item [{Korrektheit:}] Es gilt 
 \[
 \begin{array}{ccccc}
-\left\llbracket y_{1}\dot{=}y_{2}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1 & \overset{\mathrm{def}}{\Leftrightarrow} & \beta_{\bar{t}}y_{1}=\beta_{\bar{t}}y_{2} & \overset{\mathrm{def}}{\Leftrightarrow} & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right)=1\end{array}
+\left\llbracket y_{1}\dot{=}y_{2}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1 & \overset{\mathrm{def}}{\Leftrightarrow} & \beta_{\bar{t}}y_{1}=\beta_{\bar{t}}y_{2} & \overset{\mathrm{def}}{\Leftrightarrow} & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=1\end{array}
 \]
 
 \item [{Symmetrie:}] Sei $\hat{\pi}\left(g_{\bar{t}}\right)\coloneqq g_{\pi\bar{t}}$.
@@ -1536,45 +1533,47 @@ für $1\leqslant i\leqslant m$ mit der folgenden Erweiterung.
 \begin{description}
 \item [{Schaltkreis:}] 
 \begin{eqnarray*}
-\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)\\
-\mathcal{C}_{n}^{\varphi_{i}} & = & \left(G_{i},W_{i},\Sigma_{i},\Omega_{i},U\right)
+\mathcal{C}_{n}^{\varphi_{i}} & = & \left(G_{i},W_{i},\Sigma_{i},\Omega_{i},U\right)\\
+\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)
 \end{eqnarray*}
- werden neue Outputs für jedes $k$-Tupel aus $U$ hinzugefügt:
+Es werden neue Outputs für jedes $k$-Tupel aus $U$ hinzugefügt:
 \begin{eqnarray*}
-G & \coloneqq & \biguplus_{i=1}^{\ell}G_{i}\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} 
+G & \coloneqq & \biguplus_{i=1}^{m}G_{i}\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} 
 \end{eqnarray*}
 Die Outputs werden entsprechend mit denen von $\mathcal{C}_{n}^{\varphi_{i}}$
 verknüpft, wobei $\rho_{i}:U^{k}\rightarrow U^{k_{i}}$ ein $k$-Tupel
 $\bar{t}$ wie folgt auf die in $\varphi_{i}$ frei vorkommenden Variablen
 reduziere:
-\[
-\mathrm{Sei}\,\left(\left(y_{i}\right)_{1},\cdots,\left(y_{i}\right)_{k_{i}}\right)=\left(x_{\left(j_{1}\right)},\cdots,x_{\left(j_{k_{i}}\right)}\right)
-\]
 \begin{eqnarray*}
-\rho_{i}\left(t_{1},\cdots,t_{k}\right) & \coloneqq & \left(t_{\left(j_{1}\right)},\cdots,t_{\left(j_{k_{i}}\right)}\right)
+\mathrm{Sei}\,\,\,\bar{j} & \in & \left[1,k\right]^{k_{i}}\\
+\mathrm{so}\,\mathrm{dass}\,\,\,\bar{y_{i}} & = & \left(x_{\left(j_{1}\right)},\cdots,x_{\left(j_{k_{i}}\right)}\right)
 \end{eqnarray*}
-\[
-W\coloneqq\biguplus_{i=1}^{\ell}W_{i}\uplus\left\{ \left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\mid1\leqslant i\leqslant\ell,\,\bar{t}\in U^{m}\right\} 
-\]
+\begin{eqnarray*}
+\mathrm{dann}\,\,\,\rho_{i}\left(t_{1},\cdots,t_{k}\right) & \coloneqq & \left(t_{\left(j_{1}\right)},\cdots,t_{\left(j_{k_{i}}\right)}\right)
+\end{eqnarray*}
+\begin{eqnarray*}
+W & \coloneqq & \bigcup_{i=1}^{m}W_{i}\cup W_{\wedge}\\
+W_{\wedge} & \coloneqq & \left\{ \left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\mid1\leqslant i\leqslant m,\,\bar{t}\in U^{k}\right\} 
+\end{eqnarray*}
 Die Gates werden entsprechend beschriftet:
 \begin{eqnarray*}
 \Sigma\left(g\right) & \coloneqq & \begin{cases}
 \Sigma_{i}\left(g\right) & \mathrm{f\ddot{u}r}\,g\in G_{i}\\
 \wedge & \mathrm{sonst}
 \end{cases}\\
-\Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}\,\,\mathrm{f\ddot{u}r\,alle\,\,}\bar{t}\in U^{m'}
+\Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}\,\,\mathrm{f\ddot{u}r\,alle\,\,}\bar{t}\in U^{k}
 \end{eqnarray*}
 
-\item [{Korrektheit:}] Es gilt 
+\item [{Korrektheit:}] Es gilt für $\bar{t}\in U^{k}$: 
 \begin{eqnarray*}
-\left\llbracket \varphi_{1}\wedge\cdots\wedge\varphi_{k}\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \min_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\\
- & = & \min_{1\leqslant i\leqslant k}\mathcal{C}_{n}^{\varphi_{i}}\left[\mathfrak{A}\right]\left(\Omega_{i}\left(\rho_{i}\bar{t}\right)\right)\\
+\left\llbracket \varphi_{1}\wedge\cdots\wedge\varphi_{m}\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \min_{1\leqslant i\leqslant m}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\\
+ & = & \min_{1\leqslant i\leqslant m}\mathcal{C}_{n}^{\varphi_{i}}\left[\mathfrak{A}\right]\left(\Omega_{i}\left(\rho_{i}\bar{t}\right)\right)\\
  & = & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right)
 \end{eqnarray*}
 
 \item [{Symmetrie:}] Es existieren bereits die Automorphismen $\hat{\pi_{i}}$
 für jeden Schaltkreis $\mathcal{C}_{n}^{\varphi_{i}}$. Der Automorphismus
-$\hat{\pi}$ erweitert diese:
+$\hat{\pi}$ erweitert diese wie folgt:
 \[
 \hat{\pi}\left(g\right)\coloneqq\begin{cases}
 \hat{\pi}_{i}\left(g\right) & \mathrm{f\ddot{u}r}\,g\in G_{i}\\
@@ -1587,14 +1586,15 @@ ist $\hat{\pi}$ per Annahme bereits korrekt.\end{description}
 \item Für die neuen Kanten $\left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\in W$
 gilt nach Voraussetzung: 
 \begin{eqnarray*}
-\left(\hat{\pi}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right) & = & \left(\hat{\pi}_{i}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\\
- & = & \left(\Omega_{i}\left(\pi\rho_{i}\bar{t}\right),g_{\pi\bar{t}}\right)\\
- & = & \left(\Omega_{i}\left(\rho_{i}\pi\bar{t}\right),g_{\pi\bar{t}}\right)\in W
+\hat{\pi}W_{\wedge}=\left\{ \left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\mid1\leqslant i\leqslant m,\,\bar{t}\in U^{k}\right\}  & = & \left\{ \left(\hat{\pi}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\mid1\leqslant i\leqslant m,\,\bar{t}\in U^{k}\right\} \\
+ & = & \left\{ \left(\hat{\pi}_{i}\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\pi\bar{t}}\right)\mid1\leqslant i\leqslant m,\,\bar{t}\in U^{k}\right\} \\
+ & = & \left\{ \left(\Omega_{i}\left(\rho_{i}\pi\bar{t}\right),g_{\pi\bar{t}}\right)\mid1\leqslant i\leqslant m,\,\bar{t}\in U^{k}\right\} \\
+ & = & W_{\wedge}
 \end{eqnarray*}
-(Die Abbildung $\rho_{i}:U^{m}\rightarrow U^{m_{i}}$ ist ein Homomorphismus
+(Die Reduktion $\rho_{i}:U^{k}\rightarrow U^{k_{i}}$ ist ein Homomorphismus
 und kommutiert mit der Permutation $\pi$.)
-\item Es gilt $\Sigma\left(\hat{\pi}g_{\bar{t}}\right)=\Sigma\left(g_{\bar{t}}\right)=\vee$.
-\item Es gilt $\Omega\left(\pi\bar{t}\right)=g_{\pi\bar{t}}=\hat{\pi}gv=\hat{\pi}\Omega\left(\bar{t}\right)$.
+\item Es gilt $\Sigma\left(\hat{\pi}g_{\bar{t}}\right)=\Sigma\left(g_{\bar{t}}\right)=\wedge$.
+\item Es gilt $\hat{\pi}\Omega\left(\bar{t}\right)=\hat{\pi}g_{\bar{t}}=g_{\pi\bar{t}}=\Omega\left(\pi\bar{t}\right)$.
 \end{enumerate}
 \item Falls $\varphi\left(\bar{x}\right)=\varphi_{1}\vee\cdots\vee\varphi_{\ell}$,
 so ist der Schaltkreis analog zu Fall 3 mit $\Sigma\left(g_{\bar{t}}\right)=\vee$.
@@ -1607,12 +1607,13 @@ $\mathcal{C}_{n}^{\psi}$ wie folgt erweitert:
 \mathcal{C}_{n}^{\psi} & = & \left(G',W',\Sigma',\Omega',U\right)\\
 \mathcal{C}_{n}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)
 \end{eqnarray*}
-Für jedes Tupel $\bar{t}\in U^{m}$ wird ein neues Gate $g_{\bar{t}}$
+Für jedes Tupel $\bar{t}\in U^{k}$ wird ein neues Gate $g_{\bar{t}}$
 eingefügt. Die Gates werden mit den Outputs von $\mathcal{C}_{n}^{\varphi'}$
 verknüpft. 
 \begin{eqnarray*}
-G & \coloneqq & G'\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
-W & \coloneqq & W'\uplus\left\{ \left(\Omega'\left(\bar{t}\right),g_{\bar{t}}\right)\mid\bar{t}\in U^{m}\right\} \\
+G & \coloneqq & G'\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} \\
+W & \coloneqq & W'\cup W_{\neg}\\
+W_{\neg} & \coloneqq & \left\{ \left(\Omega'\left(\bar{t}\right),g_{\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} \\
 \Sigma\left(g\right) & \coloneqq & \begin{cases}
 \Sigma'\left(g\right) & \mathrm{falls}\,g\in G'\\
 \neg & \mathrm{sonst}
@@ -1635,7 +1636,7 @@ Dieser wird wie folgt erweitert:
 g_{\pi\bar{t}} & \mathrm{falls}\,g=g_{\bar{t}}
 \end{cases}
 \]
-
+Es gilt $\hat{\pi}W_{\neg}=\left\{ \left(\hat{\pi}\Omega'\left(\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} =\left\{ \left(\Omega'\left(\pi\bar{t}\right),g_{\pi\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} =W_{\neg}$.
 \end{description}
 \item Falls $\varphi\left(\bar{x}\right)=\left(\varphi_{1}\rightarrow\varphi_{2}\right)$,
 so ist der Schaltkreis $\mathcal{C}_{n}^{\varphi}\coloneqq\mathcal{C}_{n}^{\left(\neg\varphi_{1}\vee\varphi_{2}\right)}$.
@@ -1654,7 +1655,7 @@ mit der folgenden Erweiterung:
 neue Gates eingefügt:
 \begin{eqnarray*}
 G & \coloneqq & G_{1}\uplus G_{2}\\
- &  & \uplus\left\{ a_{\bar{t}},b_{\bar{t}},c_{\bar{t}},d_{\bar{t}},e_{\bar{t}}\mid\bar{t}\in U^{m}\right\} 
+ &  & \uplus\left\{ a_{\bar{t}},b_{\bar{t}},c_{\bar{t}},d_{\bar{t}},e_{\bar{t}}\mid\bar{t}\in U^{k}\right\} 
 \end{eqnarray*}
 Die Gates $a_{\bar{t}}$ und $b_{\bar{t}}$ negieren die Schaltkreise
 $\mathcal{C}_{n}^{\varphi_{1}}$ und $\mathcal{C}_{n}^{\varphi_{2}}$.
@@ -1663,20 +1664,20 @@ $\left(\varphi_{1}\wedge\varphi_{2}\right)$ und $\left(\neg\varphi_{1}\wedge\neg
 Die Gates $e_{\bar{t}}$ sind die Disjunktionen von $c_{\bar{t}}$
 und $d_{\bar{t}}$. 
 \begin{eqnarray*}
-W & \coloneqq & W_{1}\uplus W_{2}\\
- & \uplus & \left\{ \begin{array}{c}
-\left(\Omega_{1}\left(\rho_{1}\bar{t}\right),a_{\rho_{1}\bar{t}}\right),\,\left(\Omega_{2}\left(\rho_{2}\bar{t}\right),b_{\rho_{2}\bar{t}}\right),\\
+W & \coloneqq & W_{1}\cup W_{2}\cup W_{\neg}\cup W_{\wedge}\cup W_{\vee}\\
+W_{\neg} & \coloneqq & \left\{ \left(\Omega_{1}\left(\rho_{1}\bar{t}\right),a_{\rho_{1}\bar{t}}\right),\,\left(\Omega_{2}\left(\rho_{2}\bar{t}\right),b_{\rho_{2}\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} \\
+W_{\wedge} & \coloneqq & \left\{ \begin{array}{c}
 \left(\Omega_{1}\left(\rho_{1}\bar{t}\right),c_{\bar{t}}\right),\,\left(\Omega_{2}\left(\rho_{2}\bar{t}\right),c_{\bar{t}}\right),\\
-\left(a_{\rho_{1}\bar{t}},d_{\bar{t}}\right),\,\left(b_{\rho_{2}\bar{t}},d_{\bar{t}}\right),\\
-\left(c_{\bar{t}},e_{\bar{t}}\right),\,\left(d_{\bar{t}},e_{\bar{t}}\right)
-\end{array}\mid\bar{t}\in U^{m}\right\} 
+\left(a_{\rho_{1}\bar{t}},d_{\bar{t}}\right),\,\left(b_{\rho_{2}\bar{t}},d_{\bar{t}}\right)
+\end{array}\mid\bar{t}\in U^{k}\right\} \\
+W_{\vee} & \coloneqq & \left\{ \left(c_{\bar{t}},e_{\bar{t}}\right),\,\left(d_{\bar{t}},e_{\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} 
 \end{eqnarray*}
 (Hierbei seien $\rho_{1}$ und $\rho_{2}$ analog zu Fall 3 definiert.)
 \begin{eqnarray*}
 \Sigma\left(g\right) & \coloneqq & \begin{cases}
-\neg & \mathrm{f\ddot{u}r}\,g\in\left\{ a_{\rho_{1}\bar{t}},b_{\rho_{2}\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
-\wedge & \mathrm{f\ddot{u}r}\,g\in\left\{ c_{\bar{t}},d_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
-\vee & \mathrm{f\ddot{u}r}\,g\in\left\{ e_{\bar{t}}\mid\bar{t}\in U^{m}\right\} \\
+\neg & \mathrm{f\ddot{u}r}\,g\in\left\{ a_{\rho_{1}\bar{t}},b_{\rho_{2}\bar{t}}\mid\bar{t}\in U^{k}\right\} \\
+\wedge & \mathrm{f\ddot{u}r}\,g\in\left\{ c_{\bar{t}},d_{\bar{t}}\mid\bar{t}\in U^{k}\right\} \\
+\vee & \mathrm{f\ddot{u}r}\,g\in\left\{ e_{\bar{t}}\mid\bar{t}\in U^{k}\right\} \\
 \Sigma_{i}\left(g\right) & \mathrm{f\ddot{u}r}\,g\in G_{i}
 \end{cases}
 \end{eqnarray*}
@@ -1684,7 +1685,7 @@ W & \coloneqq & W_{1}\uplus W_{2}\\
 \Omega\left(\bar{t}\right)=e_{\bar{t}}
 \]
 
-\item [{Korrektheit:}] Es gilt 
+\item [{Korrektheit:}] Es gilt: 
 \begin{eqnarray*}
 \left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \left\llbracket \left(\varphi_{1}\wedge\varphi_{2}\right)\vee\left(\neg\varphi_{1}\wedge\neg\varphi_{2}\right)\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\\
  & = & \max\left(\begin{array}{c}
@@ -1723,22 +1724,26 @@ so wird der Schaltkreis $\mathcal{C}_{n}^{\varphi'}$ wie folgt erweitert:
 \mathcal{C}_{n}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)\\
 \mathcal{C}_{n}^{\varphi'} & \coloneqq & \left(G',W',\Sigma',\Omega',U\right)
 \end{eqnarray*}
-Sei $\rho:U^{k+m}\rightarrow U^{k}$ die Abbildung, die $\bar{z}$
-auf die freien Variablen $\bar{x}$ reduziere:
+Sei $\rho:U^{k+m}\rightarrow U^{k}$ die Abbildung, die aus $\bar{z}$
+die gebundenen Variablen $\bar{y}$ entferne:
 \begin{eqnarray*}
-\left(x_{1},\cdots,x_{k}\right) & = & \left(z_{\left(i_{i}\right)},\cdots,z_{\left(i_{k}\right)}\right)\\
-\rho\left(t_{1},\cdots,t_{k+m}\right) & \coloneqq & \left(t_{\left(i_{1}\right)},\cdots,t_{\left(i_{k}\right)}\right)
+\mathrm{Sei}\,\,\,\bar{i} & \in & \left[1,k\right]^{k}\\
+\mathrm{so}\,\mathrm{dass}\,\,\,\bar{x} & = & \left(z_{\left(i_{1}\right)},\cdots,z_{\left(i_{k}\right)}\right)\\
+\mathrm{dann}\,\,\,\rho\left(t_{1},\cdots,t_{k}\right) & \coloneqq & \left(t_{\left(i_{1}\right)},\cdots,t_{\left(i_{k}\right)}\right)
 \end{eqnarray*}
 
 \end{description}
 
-Es werden neue Outputs eingefügt:
+Es werden neue Outputs eingefügt.
 \begin{eqnarray*}
 G & \coloneqq & G'\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} 
 \end{eqnarray*}
-\[
-\Omega\left(\bar{t}\right)\coloneqq g_{\bar{t}}
-\]
+Jedes Gate $\Omega'\left(\bar{u}\right)$ mit $\bar{u}\in U^{k+m}$
+wird mit dem Gate $g_{\rho\bar{u}}$ verknüpft.
+\begin{eqnarray*}
+W & \coloneqq & W'\cup W_{\exists}\\
+W_{\exists} & \coloneqq & \left\{ \left(\Omega'\left(\bar{u}\right),g_{\rho\bar{u}}\right)\mid\bar{u}\in U^{k+m}\right\} 
+\end{eqnarray*}
 
 
 
@@ -1749,14 +1754,12 @@ Die neuen Outputs werden mit $\vee$ markiert.
 \vee & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
-Jedes Gate $\Omega'\left(\bar{u}\right)$ mit $\bar{u}\in U^{k+m}$
-wird mit dem Gate $g_{\rho\bar{u}}$ verknüpft:
 \[
-W\coloneqq W'\uplus\left\{ \left(\Omega'\left(\bar{u}\right),g_{\rho\bar{u}}\right)\mid\bar{u}\in U^{k+m}\right\} 
+\Omega\left(\bar{t}\right)\coloneqq g_{\bar{t}}
 \]
 
 \begin{description}
-\item [{Korrektheit:}] Es gilt für 
+\item [{Korrektheit:}] Für $\bar{t}\in U^{k}$ gilt: 
 \begin{eqnarray*}
 \left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \max_{\begin{subarray}{c}
 \bar{u}\in U^{k+m}\\
@@ -1791,7 +1794,7 @@ gilt: $\left(\hat{\pi}\Omega'\left(\bar{u}\right),\hat{\pi}g_{\rho\bar{u}}\right
 so sei der Schaltkreis analog zu Fall 8 mit $\Sigma\left(g_{\bar{t}}\right)\coloneqq\wedge$.
 \end{casenv}
 Der so konstruierte Schaltkreis hat eine durch $3\left\Vert \varphi\right\Vert $
-beschränkte Tiefe und eine durch $5\left\Vert \varphi\right\Vert \cdot n^{\mathtt{M}\left(\varphi\right)}$
+beschränkte Tiefe und eine durch $5\left\Vert \varphi\right\Vert \cdot n^{\mathtt{MF}\left(\varphi\right)}$
 beschränkte Größe. Dies folgt direkt aus der Tatsache, dass höchstens
 $\left\Vert \varphi\right\Vert $ Induktionsschritte durchgeführt
 werden, und jeder Schritt für eine $k$-stellige Teilformel die Tiefe
@@ -1813,7 +1816,7 @@ $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
 $P$-uniformen $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
 $\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit konstanter
 Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $ und polynomieller
-Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)}$
+Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$
 berechnet wird.
 \end{lem}
 (Dieses Lemma bildet die erste Hälfte des Theorems \ref{thm:5.5:fo-ord}.)
@@ -1822,20 +1825,19 @@ Der Schaltkreis $\mathcal{C}_{n}$ wird über einer geordneten Struktur
 $\mathfrak{A}\in\mathbf{FIN}_{<}\left(\sigma\right)$ über dem Universum
 $U=\left\{ 1,\cdots,n\right\} $ ausgewertet.
 
-Hierbei ist zu beachten, dass $U=\left\{ 1,\cdots,n\right\} $ keinesfalls
-mit dem Universum der Orakelstruktur $\Upsilon\left(n\right)$ gleichzusetzen
-ist!
+Hierbei ist zu beachten, dass $U=\left[1,n\right]$ disjunkt von dem
+Universum $\left[0,n\right]$ der Orakelstruktur $\Upsilon\left(n\right)$
+sein muss! Zur Unterscheidung wird das Universum $\left[0,n\right]$
+umbenannt zu $N\coloneqq\left\{ \dot{0},\cdots,\dot{n}\right\} $
+und $\Upsilon\left(n\right)\coloneqq\left(N,\leqslant\right)$ betrachtet.
 
-Zur Unterscheidung wird das Universum $\left[0,n\right]$ umbenannt
-zu $N\coloneqq\left\{ \dot{0},\cdots,\dot{n}\right\} $ und $\Upsilon\left(n\right)\coloneqq\left(N,\leqslant\right)$
-betrachtet.
-
-Wir konstruieren zunächst den $\left(\sigma\uplus\left\{ \dot{\leqslant}\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
+Wir konstruieren aus der $\mathrm{FO}\left[\sigma\cup\left\{ \leqslant\right\} \right]$-Formel
+zunächst einen $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
 $\mathcal{C}_{2n+1}^{\varphi}$ über $U=\left\{ 1,\cdots,2n+1\right\} $
 entsprechend dem vorhergehenden Beweis. Dieser hat offensichtlich
-die geforderte Größe $S_{n}=S_{2n+1}'=5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)}$.
+die geforderte Größe $S_{n}=S_{2n+1}'\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$.
 
-Daraus wird der $\left(\sigma\uplus\left\{ \dot{\leqslant}\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
+Daraus wird der $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
 $\dot{\mathcal{C}_{2n+1}^{\varphi}}=\left(G,W,\dot{\Sigma},\dot{\Omega},\dot{U}\right)$
 über $\dot{U}=\left\{ 1,\cdots,n\right\} \uplus N$, in dem das Universum
 durch $\rho:U\rightarrow\dot{U}$ umbenannt wird: 
