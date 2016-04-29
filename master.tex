@@ -1459,9 +1459,8 @@ $\mathrm{AC}^{0}$-Schaltkreise berechenbar:
 \begin{lem}
 \label{lem:FO-Circuit}Jede $\mathrm{FO}\left[\sigma\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
-$P$-uniformen Schaltkreis-Familie $\left(\mathcal{C}_{n}^{\varphi}\right)_{n\in\mathbb{N}}$
-mit konstanter Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
-und polynomieller Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}$
+$P$-uniformen Schaltkreis-Familie $\bar{\mathcal{C}^{\varphi}}$
+mit $3\left\Vert \varphi\right\Vert $-Tiefe und $5\left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}$-Größe
 berechnet wird.\end{lem}
 \begin{proof}
 Sei $\sigma$ eine relationale Signatur, und sei $\varphi\left(\bar{x}\right)$
@@ -1469,10 +1468,10 @@ eine $k$-stellige $\mathrm{FO}\left[\sigma\right]$-Formel.
 
 Per induktiver Konstruktion über den Aufbau von $\varphi$ wird der
 $k$-stellige Schaltkreis $\mathcal{C}_{n}^{\varphi}$ über dem Universum
-$U\coloneqq\left\{ 1,\cdots,n\right\} $ definiert. Die Konstruktion
-ist in Polynomialzeit berechenbar. Für eine beliebige Permutation
-$\pi\in\mathrm{Sym}_{U}$ wird ein Automorphismus $\hat{\pi}$ angegeben,
-und damit die Symmetrie nachgewiesen.
+$U\coloneqq\left[1,n\right]$ definiert. Die Konstruktion ist in Polynomialzeit
+berechenbar. Für eine beliebige Permutation $\pi\in\mathrm{Sym}_{U}$
+wird ein Automorphismus $\hat{\pi}$ angegeben, und damit die Symmetrie
+nachgewiesen.
 \begin{casenv}
 \item Falls $\varphi\left(\bar{x}\right)=R\bar{y}$ für $R\in\sigma$, so
 besteht $\mathcal{C}_{n}^{\varphi}$ aus $n^{k}$ isolierten Gates.
@@ -1498,7 +1497,7 @@ Für jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\begin{ar
 \]
 
 \item [{Symmetrie:}] Sei $\hat{\pi}g_{\bar{t}}\coloneqq g_{\pi\bar{t}}$
-für alle Tupel $\bar{t}\in U^{m}$. Per Definition ist $\pi\beta_{\bar{t}}\left(\bar{y}\right)=\beta_{\pi\bar{t}}\left(\bar{y}\right)$
+für alle Tupel $\bar{t}\in U^{k}$. Per Definition ist $\pi\beta_{\bar{t}}\left(\bar{y}\right)=\beta_{\pi\bar{t}}\left(\bar{y}\right)$
 und daher sind die Markierungen $\Sigma\left(\hat{\pi}g_{\bar{t}}\right)=\pi\Sigma\left(g_{\bar{t}}\right)$
 und $\Omega\left(\pi\bar{t}\right)=g_{\pi\bar{t}}=\hat{\pi}\Omega\left(\bar{t}\right)$.
 \end{description}
@@ -1832,8 +1831,8 @@ berechnet wird.
 \begin{proof}
 Sei $\varphi$ eine $k$-stellige $\mathrm{FO}+\mathbf{ORD}\left[\sigma\right]$-Formel,
 und $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$.
-Diese wird auf der vereinigten $\left(\sigma\cup\left\{ \leqslant\right\} \right)$-Struktur
-$\mathfrak{A}\cup\Upsilon\left(n\right)$ ausgewertet, wobei $\Upsilon\left(n\right)\coloneqq\left(\left[0,n\right],\leqslant\right)$.
+Diese wird auf der disjunkt vereinigten $\left(\sigma\cup\left\{ \leqslant\right\} \right)$-Struktur
+$\mathfrak{A}\uplus\Upsilon\left(n\right)$ ausgewertet, wobei $\Upsilon\left(n\right)\coloneqq\left(\left[0,n\right],\leqslant\right)$.
 
 Der Schaltkreis $\mathcal{C}_{n}$ wird aber auf einer $\sigma$-Struktur
 $\mathfrak{A}'\coloneqq\pi\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$
@@ -1842,7 +1841,7 @@ mit dem Universum $U=\left[1,n\right]$ ausgewertet.
 Vor der Konstruktion muss daher sichergestellt werden, dass das Universum
 von $\mathfrak{A}'$ disjunkt von dem Universum der Orakelstruktur
 $\Upsilon\left(n\right)$ ist! Daher wird das Universum $\left[0,n\right]$
-von $\Upsilon\left(n\right)$ durch eine Umbenennung auf $\left[n+1,2n+1\right]$
+von $\Upsilon\left(n\right)$ durch eine Umbenennung nach $\left[n+1,2n+1\right]$
 ,,verschoben``:
 \begin{eqnarray*}
 \Upsilon'\left(n\right) & \coloneqq & \rho\Upsilon\left(n\right)\\
@@ -1856,22 +1855,22 @@ n\\
 \end{eqnarray*}
 
 
-Nun ist $\mathfrak{A}'\cup\Upsilon'\left(n\right)\in\mathbf{FIN}^{\left[1,2n+1\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)$
+Nun ist $\mathfrak{A}'\uplus\Upsilon'\left(n\right)\in\mathbf{FIN}^{\left[1,2n+1\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)$
 (wobei die Ordnung $\leqslant$ weiterhin nur auf $\left[n+1,2n+1\right]$
 definiert ist).
 
 Weil $\Upsilon\left(n\right)\cong\Upsilon'\left(n\right)$ und $\mathfrak{A}\cong\mathfrak{A}'$,
-und beide Strukturen disjunkt voneinander sind, ist auch $\mathfrak{A}\cup\Upsilon\left(n\right)\cong\mathfrak{A}'\cup\Upsilon'\left(n\right)$.
+gilt auch $\mathfrak{A}\uplus\Upsilon\left(n\right)\cong\mathfrak{A}'\uplus\Upsilon'\left(n\right)$.
 Daher gilt: 
 \[
-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\cup\Upsilon\left(n\right)\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}'\cup\Upsilon'\left(n\right)\right)
+\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\uplus\Upsilon\left(n\right)\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}'\uplus\Upsilon'\left(n\right)\right)
 \]
 .
 
 Wir konstruieren nun zunächst einen $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
 $\mathcal{C}_{2n+1}^{\varphi}$ über $U'=\left[1,2n+1\right]$ entsprechend
 dem vorhergehenden Beweis für $\mathrm{FO}$. Dieser hat offensichtlich
-die geforderte Größe $S_{n}=S_{2n+1}'\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$.
+die geforderte Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$.
 
 Anschließend konstruieren wir daraus den $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
 $\dot{\mathcal{C}_{n}^{\varphi}}=\left(G,W,\dot{\Sigma},\dot{\Omega},U\right)$
@@ -1910,39 +1909,44 @@ bezüglich $\mathrm{Sym}_{U'}$ (siehe Lemma \ref{lem:FO-Circuit})
 folgt die Existenz eines von $\pi'$ induzierten Automorphismus $\hat{\pi}$.
 
 Es wird nun nachgewiesen, dass $\hat{\pi}$ auch ein von $\pi$ induzierter
-Automorphismus in $\dot{\mathcal{C}_{n}^{\varphi}}$ ist. Dazu muss
+Automorphismus in $\dot{\mathcal{C}_{n}^{\varphi}}$ ist. Dazu müssen
 nur $\dot{\Sigma}$ und $\dot{\Omega}$ betrachtet werden, da der
-Graph $\left(G,W\right)$ unverändert bleibt.
-\begin{enumerate}
-\item Für $\bar{t}\in U^{k}$ \end{enumerate}
+Graph $\left(G,W\right)$ unverändert bleibt. Ferner betrachten wir
+nur die nicht-konstanten Inputs von $\mathcal{C}_{2n+1}^{\varphi}$,
+denn ansonsten bleibt $\Sigma$ unverändert.
 \begin{casenv}
-\item Für $\varphi\left(\bar{x}\right)=R\bar{y}$ mit $R\in\sigma$ gilt:
+\item Für $\Sigma\left(g\right)=R\bar{t}$ mit $R\in\sigma$ gilt:
+
+\begin{casenv}
+\item Falls $\bar{t}\in U^{k}$:
 \[
-\ddot{\Sigma}\left(\hat{\pi}g_{\bar{t}}\right)=\ddot{\Sigma}\left(g_{\ddot{\pi}\bar{t}}\right)=\begin{cases}
-\mathbf{1} & \mathrm{falls}\,\ddot{\pi}\bar{t},\bar{t}\in\ddot{U}^{k}\\
-\mathbf{0} & \mathrm{sonst}
-\end{cases}=\ddot{\Sigma}\left(g_{\bar{t}}\right)
+\dot{\Sigma}\left(\hat{\pi}g\right)=\Sigma\left(\hat{\pi}g\right)=R\pi\bar{t}
 \]
 
-\item Für $\varphi\left(\bar{x}\right)=y_{1}\dot{=}y_{2}$ gilt:
-\begin{eqnarray*}
-\ddot{\Sigma}\left(\hat{\pi}g_{\bar{t}}\right)=\ddot{\Sigma}\left(g_{\ddot{\pi}\bar{t}}\right) & \coloneqq & \begin{cases}
-\mathbf{1} & \mathrm{falls}\,\ddot{\pi}\beta_{\bar{t}}y_{1}=\ddot{\pi}\beta_{\bar{t}}y_{2}\\
-\mathbf{0} & \mathrm{sonst}
-\end{cases}=\ddot{\Sigma}\left(g_{\bar{t}}\right)
-\end{eqnarray*}
-
-\item Für $\varphi\left(\bar{x}\right)=y_{1}\dot{\leqslant}y_{2}$ gilt:
+\item Sonst:
 \[
-\ddot{\Sigma}\left(\hat{\pi}g_{\bar{t}}\right)=\ddot{\Sigma}\left(g_{\ddot{\pi}\bar{t}}\right)\coloneqq\begin{cases}
-\mathbf{1} & \mathrm{falls}\,\bar{t}\in N^{k},\,\beta_{\bar{t}}y_{1}\leqslant\beta_{\bar{t}}y_{2}\\
-\mathbf{0} & \mathrm{sonst}
-\end{cases}=\ddot{\Sigma}\left(g_{\bar{t}}\right)
+\dot{\Sigma}\left(\hat{\pi}g\right)=\mathbf{0}=\dot{\Sigma}\left(g\right)
 \]
 
 \end{casenv}
-Damit ist $\ddot{\mathcal{C}}$ eine symmetrische, $P$-uniforme Schaltkreisfamilie
-in $\mathrm{AC}^{0}$, die die Anfrage $q$ berechnet.
+\item Für $\Sigma\left(g\right)=t_{1}\dot{\leqslant}t_{2}$ gilt:
+
+\begin{casenv}
+\item Falls $t_{1},t_{2}\in\left[n+1,2n+1\right]$ und $t_{1}\leqslant t_{2}$:
+\[
+\dot{\Sigma}\left(\hat{\pi}g\right)=\mathbf{1}=\dot{\Sigma}\left(g\right)
+\]
+
+\item Sonst:
+\[
+\dot{\Sigma}\left(\hat{\pi}g\right)=\mathbf{0}=\dot{\Sigma}\left(g\right)
+\]
+
+\end{casenv}
+\end{casenv}
+Damit ist $\bar{\dot{\mathcal{C}^{\varphi}}}$ eine symmetrische,
+$P$-uniforme Schaltkreisfamilie in $\mathrm{AC}^{0}$, die die Anfrage
+$q$ berechnet.
 \end{proof}
 \pagebreak{}
 

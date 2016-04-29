@@ -5863,18 +5863,18 @@ Jede
 \end_inset
 
 -uniformen Schaltkreis-Familie 
-\begin_inset Formula $\left(\mathcal{C}_{n}^{\varphi}\right)_{n\in\mathbb{N}}$
+\begin_inset Formula $\bar{\mathcal{C}^{\varphi}}$
 \end_inset
 
- mit konstanter Tiefe 
-\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
+ mit 
+\begin_inset Formula $3\left\Vert \varphi\right\Vert $
 \end_inset
 
- und polynomieller Größe 
-\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}$
+-Tiefe und 
+\begin_inset Formula $5\left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}$
 \end_inset
 
- berechnet wird.
+-Größe berechnet wird.
 \end_layout
 
 \begin_layout Proof
@@ -5911,7 +5911,7 @@ Per induktiver Konstruktion über den Aufbau von
 \end_inset
 
  über dem Universum 
-\begin_inset Formula $U\coloneqq\left\{ 1,\cdots,n\right\} $
+\begin_inset Formula $U\coloneqq\left[1,n\right]$
 \end_inset
 
  definiert.
@@ -6008,7 +6008,7 @@ Symmetrie: Sei
 \end_inset
 
  für alle Tupel 
-\begin_inset Formula $\bar{t}\in U^{m}$
+\begin_inset Formula $\bar{t}\in U^{k}$
 \end_inset
 
 .
@@ -6980,12 +6980,12 @@ Sei
 \end_inset
 
 .
- Diese wird auf der vereinigten 
+ Diese wird auf der disjunkt vereinigten 
 \begin_inset Formula $\left(\sigma\cup\left\{ \leqslant\right\} \right)$
 \end_inset
 
 -Struktur 
-\begin_inset Formula $\mathfrak{A}\cup\Upsilon\left(n\right)$
+\begin_inset Formula $\mathfrak{A}\uplus\Upsilon\left(n\right)$
 \end_inset
 
  ausgewertet, wobei 
@@ -7033,7 +7033,7 @@ Vor der Konstruktion muss daher sichergestellt werden, dass das Universum
 \begin_inset Formula $\Upsilon\left(n\right)$
 \end_inset
 
- durch eine Umbenennung auf 
+ durch eine Umbenennung nach 
 \begin_inset Formula $\left[n+1,2n+1\right]$
 \end_inset
 
@@ -7065,7 +7065,7 @@ n\\
 
 \begin_layout Proof
 Nun ist 
-\begin_inset Formula $\mathfrak{A}'\cup\Upsilon'\left(n\right)\in\mathbf{FIN}^{\left[1,2n+1\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)$
+\begin_inset Formula $\mathfrak{A}'\uplus\Upsilon'\left(n\right)\in\mathbf{FIN}^{\left[1,2n+1\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)$
 \end_inset
 
  (wobei die Ordnung 
@@ -7088,15 +7088,15 @@ Weil
 \begin_inset Formula $\mathfrak{A}\cong\mathfrak{A}'$
 \end_inset
 
-, und beide Strukturen disjunkt voneinander sind, ist auch 
-\begin_inset Formula $\mathfrak{A}\cup\Upsilon\left(n\right)\cong\mathfrak{A}'\cup\Upsilon'\left(n\right)$
+, gilt auch 
+\begin_inset Formula $\mathfrak{A}\uplus\Upsilon\left(n\right)\cong\mathfrak{A}'\uplus\Upsilon'\left(n\right)$
 \end_inset
 
 .
  Daher gilt: 
 \begin_inset Formula 
 \[
-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\cup\Upsilon\left(n\right)\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}'\cup\Upsilon'\left(n\right)\right)
+\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\uplus\Upsilon\left(n\right)\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}'\uplus\Upsilon'\left(n\right)\right)
 \]
 
 \end_inset
@@ -7123,7 +7123,7 @@ Wir konstruieren nun zunächst einen
 
 .
  Dieser hat offensichtlich die geforderte Größe 
-\begin_inset Formula $S_{n}=S_{2n+1}'\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$
+\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$
 \end_inset
 
 .
@@ -7279,7 +7279,7 @@ Es wird nun nachgewiesen, dass
 \end_inset
 
  ist.
- Dazu muss nur 
+ Dazu müssen nur 
 \begin_inset Formula $\dot{\Sigma}$
 \end_inset
 
@@ -7292,20 +7292,21 @@ Es wird nun nachgewiesen, dass
 \end_inset
 
  unverändert bleibt.
+ Ferner betrachten wir nur die nicht-konstanten Inputs von 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
+\end_inset
+
+, denn ansonsten bleibt 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ unverändert.
 \end_layout
 
 \begin_deeper
-\begin_layout Enumerate
-Für 
-\begin_inset Formula $\bar{t}\in U^{k}$
-\end_inset
-
- 
-\end_layout
-
 \begin_layout Case
 Für 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=R\bar{y}$
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
 \end_inset
 
  mit 
@@ -7313,12 +7314,18 @@ Für
 \end_inset
 
  gilt:
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Falls 
+\begin_inset Formula $\bar{t}\in U^{k}$
+\end_inset
+
+:
 \begin_inset Formula 
 \[
-\ddot{\Sigma}\left(\hat{\pi}g_{\bar{t}}\right)=\ddot{\Sigma}\left(g_{\ddot{\pi}\bar{t}}\right)=\begin{cases}
-\mathbf{1} & \mathrm{falls}\,\ddot{\pi}\bar{t},\bar{t}\in\ddot{U}^{k}\\
-\mathbf{0} & \mathrm{sonst}
-\end{cases}=\ddot{\Sigma}\left(g_{\bar{t}}\right)
+\dot{\Sigma}\left(\hat{\pi}g\right)=\Sigma\left(\hat{\pi}g\right)=R\pi\bar{t}
 \]
 
 \end_inset
@@ -7327,36 +7334,10 @@ Für
 \end_layout
 
 \begin_layout Case
-Für 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=y_{1}\dot{=}y_{2}$
-\end_inset
-
- gilt:
-\begin_inset Formula 
-\begin{eqnarray*}
-\ddot{\Sigma}\left(\hat{\pi}g_{\bar{t}}\right)=\ddot{\Sigma}\left(g_{\ddot{\pi}\bar{t}}\right) & \coloneqq & \begin{cases}
-\mathbf{1} & \mathrm{falls}\,\ddot{\pi}\beta_{\bar{t}}y_{1}=\ddot{\pi}\beta_{\bar{t}}y_{2}\\
-\mathbf{0} & \mathrm{sonst}
-\end{cases}=\ddot{\Sigma}\left(g_{\bar{t}}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Case
-Für 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=y_{1}\dot{\leqslant}y_{2}$
-\end_inset
-
- gilt:
+Sonst:
 \begin_inset Formula 
 \[
-\ddot{\Sigma}\left(\hat{\pi}g_{\bar{t}}\right)=\ddot{\Sigma}\left(g_{\ddot{\pi}\bar{t}}\right)\coloneqq\begin{cases}
-\mathbf{1} & \mathrm{falls}\,\bar{t}\in N^{k},\,\beta_{\bar{t}}y_{1}\leqslant\beta_{\bar{t}}y_{2}\\
-\mathbf{0} & \mathrm{sonst}
-\end{cases}=\ddot{\Sigma}\left(g_{\bar{t}}\right)
+\dot{\Sigma}\left(\hat{\pi}g\right)=\mathbf{0}=\dot{\Sigma}\left(g\right)
 \]
 
 \end_inset
@@ -7365,9 +7346,52 @@ Für
 \end_layout
 
 \end_deeper
+\begin_layout Case
+Für 
+\begin_inset Formula $\Sigma\left(g\right)=t_{1}\dot{\leqslant}t_{2}$
+\end_inset
+
+ gilt:
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Falls 
+\begin_inset Formula $t_{1},t_{2}\in\left[n+1,2n+1\right]$
+\end_inset
+
+ und 
+\begin_inset Formula $t_{1}\leqslant t_{2}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\dot{\Sigma}\left(\hat{\pi}g\right)=\mathbf{1}=\dot{\Sigma}\left(g\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Sonst:
+\begin_inset Formula 
+\[
+\dot{\Sigma}\left(\hat{\pi}g\right)=\mathbf{0}=\dot{\Sigma}\left(g\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
 \begin_layout Proof
 Damit ist 
-\begin_inset Formula $\ddot{\mathcal{C}}$
+\begin_inset Formula $\bar{\dot{\mathcal{C}^{\varphi}}}$
 \end_inset
 
  eine symmetrische, 
