@@ -1543,9 +1543,10 @@ für $1\leqslant i\leqslant m$ mit der folgenden Erweiterung.
 \begin{eqnarray*}
 G & \coloneqq & \biguplus_{i=1}^{\ell}G_{i}\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} 
 \end{eqnarray*}
-Die Outputs werden entsprechend mit denen der Teilschaltkreise verknüpft,
-wobei $\rho_{i}:U^{k}\rightarrow U^{k_{i}}$ ein $k$-Tupel $\bar{t}$
-wie folgt auf die in $\varphi_{i}$ frei vorkommenden Variablen reduziere:
+Die Outputs werden entsprechend mit denen von $\mathcal{C}_{n}^{\varphi_{i}}$
+verknüpft, wobei $\rho_{i}:U^{k}\rightarrow U^{k_{i}}$ ein $k$-Tupel
+$\bar{t}$ wie folgt auf die in $\varphi_{i}$ frei vorkommenden Variablen
+reduziere:
 \[
 \mathrm{Sei}\,\left(\left(y_{i}\right)_{1},\cdots,\left(y_{i}\right)_{k_{i}}\right)=\left(x_{\left(j_{1}\right)},\cdots,x_{\left(j_{k_{i}}\right)}\right)
 \]
@@ -1954,7 +1955,7 @@ berechnet wird.
 (Dieses Lemma bildet die erste Hälfte von Theorem \ref{thm:5.6:fo-c}.)
 \begin{proof}
 Zunächst wird die Formel $\varphi$ in eine Normalform $\hat{\varphi}$
-gebracht, in der jeder Zählqu in einer Teilformel der Form $x\leqslant\#y\psi$
+gebracht, in der jeder Zählterm in einer Teilformel der Form $x\leqslant\#y\psi$
 oder $\#y\psi\leqslant x$ oder $x=\#y\psi$ steht.
 
 Wir betrachten für diese Konstruktion nur die ,,pseudo-atomaren``
@@ -1998,9 +1999,9 @@ neue Variable:
 Hierbei wird $\mathtt{M}\left(\varphi\right)$ um maximal $1$ vergrößert,
 denn die neue Variable wird sofort wieder gebunden:
 \begin{eqnarray*}
-\mathtt{M}\left(\hat{\varphi}\right) & = & \max\left(\mathtt{M}\left(\psi_{1}\right),\mathtt{M}\left(\psi_{2}\right),1+\left|\mathrm{frei}\left(\#y_{1}\psi_{1}\right)\cup\mathrm{frei}\left(\#y_{1}\psi_{1}\right)\right|\right)\\
- & = & \max\left(\mathtt{M}\left(\psi_{1}\right),\mathtt{M}\left(\psi_{2}\right),1+\mathrm{ar}\left(\#y_{1}\psi_{1}=\#y_{1}\psi_{2}\right)\right)\\
- & \leqslant & 1+\mathtt{M}\left(\hat{\varphi}\right)
+\mathtt{MF}\left(\hat{\varphi}\right) & = & \max\left(\mathtt{MF}\left(\psi_{1}\right),\mathtt{MF}\left(\psi_{2}\right),1+\left|\mathrm{frei}\left(\#y_{1}\psi_{1}\right)\cup\mathrm{frei}\left(\#y_{1}\psi_{1}\right)\right|\right)\\
+ & = & \max\left(\mathtt{MF}\left(\psi_{1}\right),\mathtt{MF}\left(\psi_{2}\right),1+\mathrm{ar}\left(\#y_{1}\psi_{1}=\#y_{1}\psi_{2}\right)\right)\\
+ & \leqslant & 1+\mathtt{MF}\left(\varphi\right)
 \end{eqnarray*}
 
 
@@ -2462,114 +2463,10 @@ Tupel $\bar{y}\in\mathbf{var}^{m}$.
 \pagebreak{}
 
 
-\section{Schaltkreise zu Logik}
-\begin{lem}
-Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
-$\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-mit konstant beschränkter Tiefe $\leqslant c$ und polynomiell beschränkter
-Größe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
-existiert eine arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel,
-die die gleiche Anfrage definiert.
-\end{lem}
+\section{Exkurs in die Gruppentheorie}
 
-\subsection{Normalform}
-
-Zum Beweis dieses Lemmas werden wir eine Normalform für die Schaltkreise
-festlegen.
-\begin{defn}
-Ein Schaltkreis $\left(G,W,\Sigma,\Omega,U\right)$ ist in Alternierender
-Normalform, wenn er folgende Bedingungen erfüllt:\end{defn}
-\begin{enumerate}
-\item Jedes Gate hat genau einen direkten Nachfolger (somit ist $\left(G,W\right)$
-ein gerichteter Baum).
-\item Jedes mit $\Sigma\left(g\right)=\neg$ beschriftete Gate ist ein direkter
-Nachfolger eines Inputgates.
-\item Jedes Outputgate $g=\Omega\left(\bar{t}\right)$ ist mit $\Sigma\left(g\right)=\vee$
-beschriftet.
-\item Je \end{enumerate}
-\begin{lem}
-Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
-$\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-mit konstant beschränkter Tiefe $\leqslant c$ und polynomiell beschränkter
-Größe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
-existiert eine äquivalente Schaltkreisfamilie 
-\end{lem}
-
-\subsection{Orakelerweiterungen}
-
-Erweitern wir die Logik $\mathrm{FO}\left[\sigma\right]$ auf arb-invariante
-$\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Logik, so opfern
-wir die $P$-Uniformität und Symmetrie der Schaltkreisfamilie.
-\begin{lem}
-Jede arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel
-$\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer Schaltkreisfamilie
-$\left(\mathcal{C}_{n}^{\varphi}\right)_{n\in\mathbb{N}}$ mit konstanter
-Tiefe $\leqslant\left\Vert \varphi\right\Vert $ und Größe $\leqslant5n^{\mathrm{var}\left(\varphi\right)}$
-berechnet wird.\end{lem}
-\begin{proof}
-Der Beweis folgt direkt aus der Tatsache, dass die Struktur $\mathfrak{N}_{\mid\left\{ 1,\cdots,n\right\} }$
-nur von $n$ abhängt, und ihre Relationen daher fest im Schaltkreis
-$\mathcal{C}_{n}^{\varphi}$ eingebaut werden können. Dem Beweis von
-\lemref{FO-Circuit} fügen wir den folgenden Fall hinzu:\end{proof}
-\begin{casenv}
-\item Falls $\varphi\left(\bar{x}\right)=R\bar{y}$ für ein Relationssymbol
-$R\in\eta_{\mathrm{arb}}$, so besteht der Schaltkreis $\mathcal{C}_{n}^{\varphi}$
-aus $n^{k}$ isolierten Gates:
-\[
-\mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} ,\emptyset,\Sigma,\Omega,U\right)
-\]
-Wir betrachten die Relation $R_{\mid U}$, und legen fest:
-\[
-\Sigma\left(g_{\bar{t}}\right)\coloneqq\begin{cases}
-\mathbf{1} & \mathrm{falls}\,\bar{t}\in R_{\mid U}\\
-\mathbf{0} & \mathrm{sonst}
-\end{cases}
-\]
-
-\end{casenv}
-Im allgemeinen ist der so entstandene Schaltkreis weder $P$-uniform
-noch symmetrisch. Die Relation $R_{\mid U}$ kann unter anderem unentscheidbare
-Klassen der natürlichen Zahlen darstellen, und die Symmetrie wird
-offensichtlich verletzt, sofern $R_{\mid U}$ nicht unter Permutation
-von $U$ abgeschlossen ist.
-
-\pagebreak{}
-
-
-\section{Schaltkreise zu Logik}
-\begin{lem}
-Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
-$\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-mit konstant beschränkter Tiefe $\leqslant c$ und polynomiell beschränkter
-Größe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
-existiert eine arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel,
-die die gleiche Anfrage definiert.
-\end{lem}
-
-\subsection{Normalform}
-
-Zum Beweis dieses Lemmas werden wir eine Normalform für die Schaltkreise
-festlegen.
-\begin{defn}
-Ein Schaltkreis $\left(G,W,\Sigma,\Omega,U\right)$ ist in Alternierender
-Normalform, wenn er folgende Bedingungen erfüllt:\end{defn}
-\begin{enumerate}
-\item Jedes Gate hat genau einen direkten Nachfolger (somit ist $\left(G,W\right)$
-ein gerichteter Baum).
-\item Jedes mit $\Sigma\left(g\right)=\neg$ beschriftete Gate ist ein direkter
-Nachfolger eines Inputgates.
-\item Jedes Outputgate $g=\Omega\left(\bar{t}\right)$ ist mit $\Sigma\left(g\right)=\vee$
-beschriftet.
-\item Je \end{enumerate}
-\begin{lem}
-Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
-$\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-mit konstant beschränkter Tiefe $\leqslant c$ und polynomiell beschränkter
-Größe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
-existiert eine äquivalente Schaltkreisfamilie 
-\end{lem}
-
-\section{Stabilisatoren und Träger}
+Es werden nun mehrere Begriffe eingeführt, mit deren Hilfe wir eine
+symmetrische Schaltkreisfamilie logisch beschreiben werden.
 
 
 \subsection{Partitionen}
@@ -2577,7 +2474,7 @@ existiert eine äquivalente Schaltkreisfamilie
 Sei $U$ ein beliebiges Universum.
 \begin{defn}
 Eine \textbf{Partition} $\mathcal{P}$ von $U$ sei eine Menge $\mathcal{P}=\left\{ P_{1},\cdots,P_{k}\right\} $
-von disjunkten nichtleeren Teilmengen $P_{i}\subseteq U$, so dass
+von disjunkten nicht-leeren Teilmengen $P_{i}\subseteq U$, so dass
 $U=\biguplus_{i=1}^{k}P_{i}$. Die Menge aller Partitionen von $U$
 sei $\mathrm{Part}_{U}$.
 
@@ -2598,28 +2495,46 @@ Partition von $U$:
 \begin{defn}
 Die \textbf{Feinheit }der Partitionen von $U$ sei eine Relation $\preceq$,
 so dass $\mathcal{P}\preceq\mathcal{P}'$ (,,$\mathcal{P}$ ist feiner
-als $\mathcal{P}'$``) genau dann wenn jede Element $P_{i}\in\mathcal{P}$
-Teilmenge einer Element $P'_{j}\in\mathcal{P}'$ ist.
+als $\mathcal{P}'$``) genau dann wenn jedes $P_{i}\in\mathcal{P}$
+eine Teilmenge eines $P'_{j}\in\mathcal{P}'$ ist.
 
-Die Relation $\preceq$ ist eine Halbordnung. Daher bilden die Partitionen
-von $U$ einen vollständigen Verband bezüglich den Infimum- und Supremum-Operationen
-$\sqcap$ und $\sqcup$:
+Die Relation $\preceq$ ist eine Halbordnung: Sie ist offensichtlich
+reflexiv, transitiv und anti-symmetrisch.
+
+Daher bilden die Partitionen von $U$ einen vollständigen Verband
+bezüglich den Infimum- und Supremum-Operationen $\sqcap$ und $\sqcup$:
 \begin{eqnarray*}
 \mathcal{A}\sqcap\mathcal{B} & \coloneqq & \max_{\preceq}\left\{ \mathcal{P}\mid\mathcal{P}\preceq\mathcal{A}\,\mathrm{und}\,\mathcal{P}\preceq\mathcal{B}\right\} \\
 \mathcal{A}\sqcup\mathcal{B} & \coloneqq & \min_{\preceq}\left\{ \mathcal{P}\mid\mathcal{A}\preceq\mathcal{P}\,\mathrm{und}\,\mathcal{B}\preceq\mathcal{P}\right\} 
 \end{eqnarray*}
 
-\begin{itemize}
-\item $\mathcal{A}\sqcap\mathcal{B}=\left\{ A\cap B\mid\left(A,B\right)\in\mathcal{A}\times\mathcal{B},\,A\cap B\neq\emptyset\right\} $
-besteht aus den nichtleeren Schnittmengen von allen Elementen von
-$\mathcal{A}$ und $\mathcal{B}$.
+
+($\mathcal{A}\sqcap\mathcal{B}$ sei die gröbste feinere Partition
+als $\mathcal{A}$ und $\mathcal{B}$, und $\mathcal{A}\sqcup\mathcal{B}$
+die feinste gröbere Partition als $\mathcal{A}$ und $\mathcal{B}$.)\end{defn}
+\begin{fact}
+Es gilt: 
+\begin{eqnarray*}
+\mathcal{A}\sqcap\mathcal{B} & = & \left\{ A\cap B\mid A\in\mathcal{B},\,B\in\mathcal{B},\,A\cap B\neq\emptyset\right\} \\
+\mathcal{A}\sqcup\mathcal{B} & = & \left\{ \left[x\right]_{\hat{\sim}}\mid x\in U\right\} \\
+ &  & \mathrm{wobei}\,\hat{\sim}\coloneqq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)^{*}
+\end{eqnarray*}
+ 
+\begin{enumerate}
+\item $\mathcal{A}\sqcap\mathcal{B}$ besteht aus den nicht-leeren Schnittmengen
+von allen Elementen von $\mathcal{A}$ und $\mathcal{B}$, so dass
+$\sim_{\mathcal{A}\sqcap\mathcal{B}}=\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}$.
 \item $\mathcal{A}\sqcup\mathcal{B}$ besteht aus den Äquivalenzklassen
 der transitiven Hülle von $\sim_{\mathcal{A}}$ und $\sim_{\mathcal{B}}$,
 so dass $\sim_{\mathcal{A}\sqcup\mathcal{B}}=$$\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)^{*}$.
-\end{itemize}
-Die feinste und gröbste Partition seien $\mathcal{P}_{\min}\left(U\right)\coloneqq\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
+\end{enumerate}
+\end{fact}
+\begin{defn}
+Die feinste und gröbste Partition von $U$ seien $\mathcal{P}_{\min}\left(U\right)\coloneqq\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
 und $\mathcal{P}_{\max}\left(U\right)\coloneqq\left\{ U\right\} $.
 \end{defn}
+\pagebreak{}
+
 
 \subsection{Stabilisatoren}
 \begin{defn}
@@ -2651,7 +2566,7 @@ $\mathrm{Stab}_{U}\left\{ X\right\} \subseteq\mathrm{Sym}_{U}$ mit
 \[
 \mathrm{Stab}_{U}\left\{ X\right\} \coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi X=X\right\} 
 \]
-Diese Gruppe ist das Erzeugnis der Vereinung von $\mathrm{Stab}_{U}\left(X\right)$
+Diese Gruppe ist das Erzeugnis der Vereinigung von $\mathrm{Stab}_{U}\left(X\right)$
 und $\mathrm{Stab}_{U}\left(U\backslash X\right)$. 
 \[
 \mathrm{Stab}_{U}\left\{ X\right\} =\left\langle \mathrm{Stab}_{U}\left(X\right)\cup\mathrm{Stab}_{U}\left(U\backslash X\right)\right\rangle 
@@ -2661,7 +2576,7 @@ und $\mathrm{Stab}_{U}\left(U\backslash X\right)$.
 \end{defn}
 
 \begin{defn}
-Die vorige Definition wird auf Partititionen $\mathcal{P}$ von $U$
+Die vorige Definition wird auf Partitionen $\mathcal{P}$ von $U$
 erweitert:
 \begin{itemize}
 \item Der Punktstabilisator\textbf{ }von $\mathcal{P}$ in $U$ sei die
@@ -2695,8 +2610,8 @@ dann gilt:
 \subsection{Träger}
 \begin{defn}
 Sei $G\subseteq\mathrm{\mathrm{Sym}}_{U}$ eine Untergruppe und $\mathcal{P}$
-eine Partitition von $U$. $\mathcal{P}$ ist ein \textbf{Träger}
-von\textbf{ }$G$ genau dann wenn $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$.\end{defn}
+eine Partition von $U$. $\mathcal{P}$ ist ein \textbf{Träger} von\textbf{
+}$G$ genau dann wenn $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$.\end{defn}
 \begin{rem*}
 Wenn $G$ von $\mathcal{P}$ getragen wird, so wird $G$ auch von
 allen feineren Elementen $\mathcal{P}'\preceq\mathcal{P}$ getragen
@@ -3053,6 +2968,113 @@ Eine Partition $\mathcal{P}$ von $U$ sei \textbf{Träger} von $g$,
 wenn sie ein Träger von $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
 ist. Sei $\mathrm{SP}\left(g\right)$ der gröbste Träger von $g$.
 \end{defn}
+
+\section{Schaltkreise zu Logik}
+\begin{lem}
+Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
+$\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+mit konstant beschränkter Tiefe $\leqslant c$ und polynomiell beschränkter
+Größe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
+existiert eine arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel,
+die die gleiche Anfrage definiert.
+\end{lem}
+
+\subsection{Normalform}
+
+Zum Beweis dieses Lemmas werden wir eine Normalform für die Schaltkreise
+festlegen.
+\begin{defn}
+Ein Schaltkreis $\left(G,W,\Sigma,\Omega,U\right)$ ist in Alternierender
+Normalform, wenn er folgende Bedingungen erfüllt:\end{defn}
+\begin{enumerate}
+\item Jedes Gate hat genau einen direkten Nachfolger (somit ist $\left(G,W\right)$
+ein gerichteter Baum).
+\item Jedes mit $\Sigma\left(g\right)=\neg$ beschriftete Gate ist ein direkter
+Nachfolger eines Inputgates.
+\item Jedes Outputgate $g=\Omega\left(\bar{t}\right)$ ist mit $\Sigma\left(g\right)=\vee$
+beschriftet.
+\item Je \end{enumerate}
+\begin{lem}
+Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
+$\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+mit konstant beschränkter Tiefe $\leqslant c$ und polynomiell beschränkter
+Größe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
+existiert eine äquivalente Schaltkreisfamilie 
+\end{lem}
+
+\subsection{Orakelerweiterungen}
+
+Erweitern wir die Logik $\mathrm{FO}\left[\sigma\right]$ auf arb-invariante
+$\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Logik, so opfern
+wir die $P$-Uniformität und Symmetrie der Schaltkreisfamilie.
+\begin{lem}
+Jede arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel
+$\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer Schaltkreisfamilie
+$\left(\mathcal{C}_{n}^{\varphi}\right)_{n\in\mathbb{N}}$ mit konstanter
+Tiefe $\leqslant\left\Vert \varphi\right\Vert $ und Größe $\leqslant5n^{\mathrm{var}\left(\varphi\right)}$
+berechnet wird.\end{lem}
+\begin{proof}
+Der Beweis folgt direkt aus der Tatsache, dass die Struktur $\mathfrak{N}_{\mid\left\{ 1,\cdots,n\right\} }$
+nur von $n$ abhängt, und ihre Relationen daher fest im Schaltkreis
+$\mathcal{C}_{n}^{\varphi}$ eingebaut werden können. Dem Beweis von
+\lemref{FO-Circuit} fügen wir den folgenden Fall hinzu:\end{proof}
+\begin{casenv}
+\item Falls $\varphi\left(\bar{x}\right)=R\bar{y}$ für ein Relationssymbol
+$R\in\eta_{\mathrm{arb}}$, so besteht der Schaltkreis $\mathcal{C}_{n}^{\varphi}$
+aus $n^{k}$ isolierten Gates:
+\[
+\mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} ,\emptyset,\Sigma,\Omega,U\right)
+\]
+Wir betrachten die Relation $R_{\mid U}$, und legen fest:
+\[
+\Sigma\left(g_{\bar{t}}\right)\coloneqq\begin{cases}
+\mathbf{1} & \mathrm{falls}\,\bar{t}\in R_{\mid U}\\
+\mathbf{0} & \mathrm{sonst}
+\end{cases}
+\]
+
+\end{casenv}
+Im allgemeinen ist der so entstandene Schaltkreis weder $P$-uniform
+noch symmetrisch. Die Relation $R_{\mid U}$ kann unter anderem unentscheidbare
+Klassen der natürlichen Zahlen darstellen, und die Symmetrie wird
+offensichtlich verletzt, sofern $R_{\mid U}$ nicht unter Permutation
+von $U$ abgeschlossen ist.
+
+\pagebreak{}
+
+
+\section{Schaltkreise zu Logik}
+\begin{lem}
+Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
+$\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+mit konstant beschränkter Tiefe $\leqslant c$ und polynomiell beschränkter
+Größe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
+existiert eine arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel,
+die die gleiche Anfrage definiert.
+\end{lem}
+
+\subsection{Normalform}
+
+Zum Beweis dieses Lemmas werden wir eine Normalform für die Schaltkreise
+festlegen.
+\begin{defn}
+Ein Schaltkreis $\left(G,W,\Sigma,\Omega,U\right)$ ist in Alternierender
+Normalform, wenn er folgende Bedingungen erfüllt:\end{defn}
+\begin{enumerate}
+\item Jedes Gate hat genau einen direkten Nachfolger (somit ist $\left(G,W\right)$
+ein gerichteter Baum).
+\item Jedes mit $\Sigma\left(g\right)=\neg$ beschriftete Gate ist ein direkter
+Nachfolger eines Inputgates.
+\item Jedes Outputgate $g=\Omega\left(\bar{t}\right)$ ist mit $\Sigma\left(g\right)=\vee$
+beschriftet.
+\item Je \end{enumerate}
+\begin{lem}
+Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
+$\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+mit konstant beschränkter Tiefe $\leqslant c$ und polynomiell beschränkter
+Größe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
+existiert eine äquivalente Schaltkreisfamilie 
+\end{lem}
 
 \section{Beschreibung von Symmetrischen Schaltkreis-Familien durch Fixpunktlogik}
 \begin{itemize}

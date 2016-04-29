@@ -6122,8 +6122,11 @@ G & \coloneqq & \biguplus_{i=1}^{\ell}G_{i}\uplus\left\{ g_{\bar{t}}\mid\bar{t}\
 
 \end_inset
 
-Die Outputs werden entsprechend mit denen der Teilschaltkreise verknüpft,
- wobei 
+Die Outputs werden entsprechend mit denen von 
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi_{i}}$
+\end_inset
+
+ verknüpft, wobei 
 \begin_inset Formula $\rho_{i}:U^{k}\rightarrow U^{k_{i}}$
 \end_inset
 
@@ -7383,7 +7386,7 @@ Zunächst wird die Formel
 \begin_inset Formula $\hat{\varphi}$
 \end_inset
 
- gebracht, in der jeder Zählqu in einer Teilformel der Form 
+ gebracht, in der jeder Zählterm in einer Teilformel der Form 
 \begin_inset Formula $x\leqslant\#y\psi$
 \end_inset
 
@@ -7589,9 +7592,9 @@ Hierbei wird
  vergrößert, denn die neue Variable wird sofort wieder gebunden:
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathtt{M}\left(\hat{\varphi}\right) & = & \max\left(\mathtt{M}\left(\psi_{1}\right),\mathtt{M}\left(\psi_{2}\right),1+\left|\mathrm{frei}\left(\#y_{1}\psi_{1}\right)\cup\mathrm{frei}\left(\#y_{1}\psi_{1}\right)\right|\right)\\
- & = & \max\left(\mathtt{M}\left(\psi_{1}\right),\mathtt{M}\left(\psi_{2}\right),1+\mathrm{ar}\left(\#y_{1}\psi_{1}=\#y_{1}\psi_{2}\right)\right)\\
- & \leqslant & 1+\mathtt{M}\left(\hat{\varphi}\right)
+\mathtt{MF}\left(\hat{\varphi}\right) & = & \max\left(\mathtt{MF}\left(\psi_{1}\right),\mathtt{MF}\left(\psi_{2}\right),1+\left|\mathrm{frei}\left(\#y_{1}\psi_{1}\right)\cup\mathrm{frei}\left(\#y_{1}\psi_{1}\right)\right|\right)\\
+ & = & \max\left(\mathtt{MF}\left(\psi_{1}\right),\mathtt{MF}\left(\psi_{2}\right),1+\mathrm{ar}\left(\#y_{1}\psi_{1}=\#y_{1}\psi_{2}\right)\right)\\
+ & \leqslant & 1+\mathtt{MF}\left(\varphi\right)
 \end{eqnarray*}
 
 \end_inset
@@ -9216,369 +9219,12 @@ Die so erzeugte Formel
 \end_layout
 
 \begin_layout Section
-Schaltkreise zu Logik
-\end_layout
-
-\begin_layout Lemma
-Sei 
-\begin_inset Formula $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
-\end_inset
-
- eine 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
-\end_inset
-
--Schaltkreisfamilie mit konstant beschränkter Tiefe 
-\begin_inset Formula $\leqslant c$
-\end_inset
-
- und polynomiell beschränkter Größe 
-\begin_inset Formula $\leqslant n^{k}$
-\end_inset
-
-, die eine 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Anfrage berechnet.
- So existiert eine arb-invariante 
-\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
-\end_inset
-
--Formel, die die gleiche Anfrage definiert.
-\end_layout
-
-\begin_layout Subsection
-Normalform
+Exkurs in die Gruppentheorie
 \end_layout
 
 \begin_layout Standard
-Zum Beweis dieses Lemmas werden wir eine Normalform für die Schaltkreise
- festlegen.
-\end_layout
-
-\begin_layout Definition
-Ein Schaltkreis 
-\begin_inset Formula $\left(G,W,\Sigma,\Omega,U\right)$
-\end_inset
-
- ist in Alternierender Normalform, wenn er folgende Bedingungen erfüllt:
-\end_layout
-
-\begin_layout Enumerate
-Jedes Gate hat genau einen direkten Nachfolger (somit ist 
-\begin_inset Formula $\left(G,W\right)$
-\end_inset
-
- ein gerichteter Baum).
-\end_layout
-
-\begin_layout Enumerate
-Jedes mit 
-\begin_inset Formula $\Sigma\left(g\right)=\neg$
-\end_inset
-
- beschriftete Gate ist ein direkter Nachfolger eines Inputgates.
-\end_layout
-
-\begin_layout Enumerate
-Jedes Outputgate 
-\begin_inset Formula $g=\Omega\left(\bar{t}\right)$
-\end_inset
-
- ist mit 
-\begin_inset Formula $\Sigma\left(g\right)=\vee$
-\end_inset
-
- beschriftet.
-\end_layout
-
-\begin_layout Enumerate
-Je 
-\end_layout
-
-\begin_layout Lemma
-Sei 
-\begin_inset Formula $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
-\end_inset
-
- eine 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
-\end_inset
-
--Schaltkreisfamilie mit konstant beschränkter Tiefe 
-\begin_inset Formula $\leqslant c$
-\end_inset
-
- und polynomiell beschränkter Größe 
-\begin_inset Formula $\leqslant n^{k}$
-\end_inset
-
-, die eine 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Anfrage berechnet.
- So existiert eine äquivalente Schaltkreisfamilie 
-\end_layout
-
-\begin_layout Subsection
-Orakelerweiterungen
-\end_layout
-
-\begin_layout Standard
-Erweitern wir die Logik 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
- auf arb-invariante 
-\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
-\end_inset
-
--Logik, so opfern wir die 
-\begin_inset Formula $P$
-\end_inset
-
--Uniformität und Symmetrie der Schaltkreisfamilie.
-\end_layout
-
-\begin_layout Lemma
-Jede arb-invariante 
-\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- definiert eine 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Anfrage 
-\begin_inset Formula $q$
-\end_inset
-
-, die von einer Schaltkreisfamilie 
-\begin_inset Formula $\left(\mathcal{C}_{n}^{\varphi}\right)_{n\in\mathbb{N}}$
-\end_inset
-
- mit konstanter Tiefe 
-\begin_inset Formula $\leqslant\left\Vert \varphi\right\Vert $
-\end_inset
-
- und Größe 
-\begin_inset Formula $\leqslant5n^{\mathrm{var}\left(\varphi\right)}$
-\end_inset
-
- berechnet wird.
-\end_layout
-
-\begin_layout Proof
-Der Beweis folgt direkt aus der Tatsache, dass die Struktur 
-\begin_inset Formula $\mathfrak{N}_{\mid\left\{ 1,\cdots,n\right\} }$
-\end_inset
-
- nur von 
-\begin_inset Formula $n$
-\end_inset
-
- abhängt, und ihre Relationen daher fest im Schaltkreis 
-\begin_inset Formula $\mathcal{C}_{n}^{\varphi}$
-\end_inset
-
- eingebaut werden können.
- Dem Beweis von 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "lem:FO-Circuit"
-
-\end_inset
-
- fügen wir den folgenden Fall hinzu:
-\end_layout
-
-\begin_layout Case
-Falls 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=R\bar{y}$
-\end_inset
-
- für ein Relationssymbol 
-\begin_inset Formula $R\in\eta_{\mathrm{arb}}$
-\end_inset
-
-, so besteht der Schaltkreis 
-\begin_inset Formula $\mathcal{C}_{n}^{\varphi}$
-\end_inset
-
- aus 
-\begin_inset Formula $n^{k}$
-\end_inset
-
- isolierten Gates:
-\begin_inset Formula 
-\[
-\mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} ,\emptyset,\Sigma,\Omega,U\right)
-\]
-
-\end_inset
-
-Wir betrachten die Relation 
-\begin_inset Formula $R_{\mid U}$
-\end_inset
-
-, und legen fest:
-\begin_inset Formula 
-\[
-\Sigma\left(g_{\bar{t}}\right)\coloneqq\begin{cases}
-\mathbf{1} & \mathrm{falls}\,\bar{t}\in R_{\mid U}\\
-\mathbf{0} & \mathrm{sonst}
-\end{cases}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Im allgemeinen ist der so entstandene Schaltkreis weder 
-\begin_inset Formula $P$
-\end_inset
-
--uniform noch symmetrisch.
- Die Relation 
-\begin_inset Formula $R_{\mid U}$
-\end_inset
-
- kann unter anderem unentscheidbare Klassen der natürlichen Zahlen darstellen,
- und die Symmetrie wird offensichtlich verletzt, sofern 
-\begin_inset Formula $R_{\mid U}$
-\end_inset
-
- nicht unter Permutation von 
-\begin_inset Formula $U$
-\end_inset
-
- abgeschlossen ist.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Schaltkreise zu Logik
-\end_layout
-
-\begin_layout Lemma
-Sei 
-\begin_inset Formula $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
-\end_inset
-
- eine 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
-\end_inset
-
--Schaltkreisfamilie mit konstant beschränkter Tiefe 
-\begin_inset Formula $\leqslant c$
-\end_inset
-
- und polynomiell beschränkter Größe 
-\begin_inset Formula $\leqslant n^{k}$
-\end_inset
-
-, die eine 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Anfrage berechnet.
- So existiert eine arb-invariante 
-\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
-\end_inset
-
--Formel, die die gleiche Anfrage definiert.
-\end_layout
-
-\begin_layout Subsection
-Normalform
-\end_layout
-
-\begin_layout Standard
-Zum Beweis dieses Lemmas werden wir eine Normalform für die Schaltkreise
- festlegen.
-\end_layout
-
-\begin_layout Definition
-Ein Schaltkreis 
-\begin_inset Formula $\left(G,W,\Sigma,\Omega,U\right)$
-\end_inset
-
- ist in Alternierender Normalform, wenn er folgende Bedingungen erfüllt:
-\end_layout
-
-\begin_layout Enumerate
-Jedes Gate hat genau einen direkten Nachfolger (somit ist 
-\begin_inset Formula $\left(G,W\right)$
-\end_inset
-
- ein gerichteter Baum).
-\end_layout
-
-\begin_layout Enumerate
-Jedes mit 
-\begin_inset Formula $\Sigma\left(g\right)=\neg$
-\end_inset
-
- beschriftete Gate ist ein direkter Nachfolger eines Inputgates.
-\end_layout
-
-\begin_layout Enumerate
-Jedes Outputgate 
-\begin_inset Formula $g=\Omega\left(\bar{t}\right)$
-\end_inset
-
- ist mit 
-\begin_inset Formula $\Sigma\left(g\right)=\vee$
-\end_inset
-
- beschriftet.
-\end_layout
-
-\begin_layout Enumerate
-Je 
-\end_layout
-
-\begin_layout Lemma
-Sei 
-\begin_inset Formula $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
-\end_inset
-
- eine 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
-\end_inset
-
--Schaltkreisfamilie mit konstant beschränkter Tiefe 
-\begin_inset Formula $\leqslant c$
-\end_inset
-
- und polynomiell beschränkter Größe 
-\begin_inset Formula $\leqslant n^{k}$
-\end_inset
-
-, die eine 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Anfrage berechnet.
- So existiert eine äquivalente Schaltkreisfamilie 
-\end_layout
-
-\begin_layout Section
-Stabilisatoren und Träger
+Es werden nun mehrere Begriffe eingeführt, mit deren Hilfe wir eine symmetrische
+ Schaltkreisfamilie logisch beschreiben werden.
 \end_layout
 
 \begin_layout Subsection
@@ -9610,7 +9256,7 @@ Partition
 \begin_inset Formula $\mathcal{P}=\left\{ P_{1},\cdots,P_{k}\right\} $
 \end_inset
 
- von disjunkten nichtleeren Teilmengen 
+ von disjunkten nicht-leeren Teilmengen 
 \begin_inset Formula $P_{i}\subseteq U$
 \end_inset
 
@@ -9725,11 +9371,11 @@ der Partitionen von
 \begin_inset Quotes grd
 \end_inset
 
-) genau dann wenn jede Element 
+) genau dann wenn jedes 
 \begin_inset Formula $P_{i}\in\mathcal{P}$
 \end_inset
 
- Teilmenge einer Element 
+ eine Teilmenge eines 
 \begin_inset Formula $P'_{j}\in\mathcal{P}'$
 \end_inset
 
@@ -9741,8 +9387,12 @@ Die Relation
 \begin_inset Formula $\preceq$
 \end_inset
 
- ist eine Halbordnung.
- Daher bilden die Partitionen von 
+ ist eine Halbordnung: Sie ist offensichtlich reflexiv, transitiv und anti-symme
+trisch.
+\end_layout
+
+\begin_layout Definition
+Daher bilden die Partitionen von 
 \begin_inset Formula $U$
 \end_inset
 
@@ -9767,12 +9417,12 @@ Die Relation
 
 \end_layout
 
-\begin_deeper
-\begin_layout Itemize
-\begin_inset Formula $\mathcal{A}\sqcap\mathcal{B}=\left\{ A\cap B\mid\left(A,B\right)\in\mathcal{A}\times\mathcal{B},\,A\cap B\neq\emptyset\right\} $
+\begin_layout Definition
+(
+\begin_inset Formula $\mathcal{A}\sqcap\mathcal{B}$
 \end_inset
 
- besteht aus den nichtleeren Schnittmengen von allen Elementen von 
+ sei die gröbste feinere Partition als 
 \begin_inset Formula $\mathcal{A}$
 \end_inset
 
@@ -9780,10 +9430,56 @@ Die Relation
 \begin_inset Formula $\mathcal{B}$
 \end_inset
 
+, und 
+\begin_inset Formula $\mathcal{A}\sqcup\mathcal{B}$
+\end_inset
+
+ die feinste gröbere Partition als 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{B}$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Fact
+Es gilt: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{A}\sqcap\mathcal{B} & = & \left\{ A\cap B\mid A\in\mathcal{B},\,B\in\mathcal{B},\,A\cap B\neq\emptyset\right\} \\
+\mathcal{A}\sqcup\mathcal{B} & = & \left\{ \left[x\right]_{\hat{\sim}}\mid x\in U\right\} \\
+ &  & \mathrm{wobei}\,\hat{\sim}\coloneqq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)^{*}
+\end{eqnarray*}
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\mathcal{A}\sqcap\mathcal{B}$
+\end_inset
+
+ besteht aus den nicht-leeren Schnittmengen von allen Elementen von 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{B}$
+\end_inset
+
+, so dass 
+\begin_inset Formula $\sim_{\mathcal{A}\sqcap\mathcal{B}}=\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}$
+\end_inset
+
 .
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Enumerate
 \begin_inset Formula $\mathcal{A}\sqcup\mathcal{B}$
 \end_inset
 
@@ -9808,7 +9504,11 @@ Die Relation
 
 \end_deeper
 \begin_layout Definition
-Die feinste und gröbste Partition seien 
+Die feinste und gröbste Partition von 
+\begin_inset Formula $U$
+\end_inset
+
+ seien 
 \begin_inset Formula $\mathcal{P}_{\min}\left(U\right)\coloneqq\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
 \end_inset
 
@@ -9817,6 +9517,13 @@ Die feinste und gröbste Partition seien
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -9939,7 +9646,7 @@ Mengenstabilisator
 
 \end_inset
 
-Diese Gruppe ist das Erzeugnis der Vereinung von 
+Diese Gruppe ist das Erzeugnis der Vereinigung von 
 \begin_inset Formula $\mathrm{Stab}_{U}\left(X\right)$
 \end_inset
 
@@ -9965,7 +9672,7 @@ Diese Gruppe ist das Erzeugnis der Vereinung von
 \end_layout
 
 \begin_layout Definition
-Die vorige Definition wird auf Partititionen 
+Die vorige Definition wird auf Partitionen 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
@@ -10076,7 +9783,7 @@ Sei
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
- eine Partitition von 
+ eine Partition von 
 \begin_inset Formula $U$
 \end_inset
 
@@ -11294,6 +11001,368 @@ Träger
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Section
+Schaltkreise zu Logik
+\end_layout
+
+\begin_layout Lemma
+Sei 
+\begin_inset Formula $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie mit konstant beschränkter Tiefe 
+\begin_inset Formula $\leqslant c$
+\end_inset
+
+ und polynomiell beschränkter Größe 
+\begin_inset Formula $\leqslant n^{k}$
+\end_inset
+
+, die eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage berechnet.
+ So existiert eine arb-invariante 
+\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
+\end_inset
+
+-Formel, die die gleiche Anfrage definiert.
+\end_layout
+
+\begin_layout Subsection
+Normalform
+\end_layout
+
+\begin_layout Standard
+Zum Beweis dieses Lemmas werden wir eine Normalform für die Schaltkreise
+ festlegen.
+\end_layout
+
+\begin_layout Definition
+Ein Schaltkreis 
+\begin_inset Formula $\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ ist in Alternierender Normalform, wenn er folgende Bedingungen erfüllt:
+\end_layout
+
+\begin_layout Enumerate
+Jedes Gate hat genau einen direkten Nachfolger (somit ist 
+\begin_inset Formula $\left(G,W\right)$
+\end_inset
+
+ ein gerichteter Baum).
+\end_layout
+
+\begin_layout Enumerate
+Jedes mit 
+\begin_inset Formula $\Sigma\left(g\right)=\neg$
+\end_inset
+
+ beschriftete Gate ist ein direkter Nachfolger eines Inputgates.
+\end_layout
+
+\begin_layout Enumerate
+Jedes Outputgate 
+\begin_inset Formula $g=\Omega\left(\bar{t}\right)$
+\end_inset
+
+ ist mit 
+\begin_inset Formula $\Sigma\left(g\right)=\vee$
+\end_inset
+
+ beschriftet.
+\end_layout
+
+\begin_layout Enumerate
+Je 
+\end_layout
+
+\begin_layout Lemma
+Sei 
+\begin_inset Formula $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie mit konstant beschränkter Tiefe 
+\begin_inset Formula $\leqslant c$
+\end_inset
+
+ und polynomiell beschränkter Größe 
+\begin_inset Formula $\leqslant n^{k}$
+\end_inset
+
+, die eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage berechnet.
+ So existiert eine äquivalente Schaltkreisfamilie 
+\end_layout
+
+\begin_layout Subsection
+Orakelerweiterungen
+\end_layout
+
+\begin_layout Standard
+Erweitern wir die Logik 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+ auf arb-invariante 
+\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
+\end_inset
+
+-Logik, so opfern wir die 
+\begin_inset Formula $P$
+\end_inset
+
+-Uniformität und Symmetrie der Schaltkreisfamilie.
+\end_layout
+
+\begin_layout Lemma
+Jede arb-invariante 
+\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ definiert eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+, die von einer Schaltkreisfamilie 
+\begin_inset Formula $\left(\mathcal{C}_{n}^{\varphi}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ mit konstanter Tiefe 
+\begin_inset Formula $\leqslant\left\Vert \varphi\right\Vert $
+\end_inset
+
+ und Größe 
+\begin_inset Formula $\leqslant5n^{\mathrm{var}\left(\varphi\right)}$
+\end_inset
+
+ berechnet wird.
+\end_layout
+
+\begin_layout Proof
+Der Beweis folgt direkt aus der Tatsache, dass die Struktur 
+\begin_inset Formula $\mathfrak{N}_{\mid\left\{ 1,\cdots,n\right\} }$
+\end_inset
+
+ nur von 
+\begin_inset Formula $n$
+\end_inset
+
+ abhängt, und ihre Relationen daher fest im Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi}$
+\end_inset
+
+ eingebaut werden können.
+ Dem Beweis von 
+\begin_inset CommandInset ref
+LatexCommand formatted
+reference "lem:FO-Circuit"
+
+\end_inset
+
+ fügen wir den folgenden Fall hinzu:
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=R\bar{y}$
+\end_inset
+
+ für ein Relationssymbol 
+\begin_inset Formula $R\in\eta_{\mathrm{arb}}$
+\end_inset
+
+, so besteht der Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi}$
+\end_inset
+
+ aus 
+\begin_inset Formula $n^{k}$
+\end_inset
+
+ isolierten Gates:
+\begin_inset Formula 
+\[
+\mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} ,\emptyset,\Sigma,\Omega,U\right)
+\]
+
+\end_inset
+
+Wir betrachten die Relation 
+\begin_inset Formula $R_{\mid U}$
+\end_inset
+
+, und legen fest:
+\begin_inset Formula 
+\[
+\Sigma\left(g_{\bar{t}}\right)\coloneqq\begin{cases}
+\mathbf{1} & \mathrm{falls}\,\bar{t}\in R_{\mid U}\\
+\mathbf{0} & \mathrm{sonst}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Im allgemeinen ist der so entstandene Schaltkreis weder 
+\begin_inset Formula $P$
+\end_inset
+
+-uniform noch symmetrisch.
+ Die Relation 
+\begin_inset Formula $R_{\mid U}$
+\end_inset
+
+ kann unter anderem unentscheidbare Klassen der natürlichen Zahlen darstellen,
+ und die Symmetrie wird offensichtlich verletzt, sofern 
+\begin_inset Formula $R_{\mid U}$
+\end_inset
+
+ nicht unter Permutation von 
+\begin_inset Formula $U$
+\end_inset
+
+ abgeschlossen ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Schaltkreise zu Logik
+\end_layout
+
+\begin_layout Lemma
+Sei 
+\begin_inset Formula $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie mit konstant beschränkter Tiefe 
+\begin_inset Formula $\leqslant c$
+\end_inset
+
+ und polynomiell beschränkter Größe 
+\begin_inset Formula $\leqslant n^{k}$
+\end_inset
+
+, die eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage berechnet.
+ So existiert eine arb-invariante 
+\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
+\end_inset
+
+-Formel, die die gleiche Anfrage definiert.
+\end_layout
+
+\begin_layout Subsection
+Normalform
+\end_layout
+
+\begin_layout Standard
+Zum Beweis dieses Lemmas werden wir eine Normalform für die Schaltkreise
+ festlegen.
+\end_layout
+
+\begin_layout Definition
+Ein Schaltkreis 
+\begin_inset Formula $\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ ist in Alternierender Normalform, wenn er folgende Bedingungen erfüllt:
+\end_layout
+
+\begin_layout Enumerate
+Jedes Gate hat genau einen direkten Nachfolger (somit ist 
+\begin_inset Formula $\left(G,W\right)$
+\end_inset
+
+ ein gerichteter Baum).
+\end_layout
+
+\begin_layout Enumerate
+Jedes mit 
+\begin_inset Formula $\Sigma\left(g\right)=\neg$
+\end_inset
+
+ beschriftete Gate ist ein direkter Nachfolger eines Inputgates.
+\end_layout
+
+\begin_layout Enumerate
+Jedes Outputgate 
+\begin_inset Formula $g=\Omega\left(\bar{t}\right)$
+\end_inset
+
+ ist mit 
+\begin_inset Formula $\Sigma\left(g\right)=\vee$
+\end_inset
+
+ beschriftet.
+\end_layout
+
+\begin_layout Enumerate
+Je 
+\end_layout
+
+\begin_layout Lemma
+Sei 
+\begin_inset Formula $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie mit konstant beschränkter Tiefe 
+\begin_inset Formula $\leqslant c$
+\end_inset
+
+ und polynomiell beschränkter Größe 
+\begin_inset Formula $\leqslant n^{k}$
+\end_inset
+
+, die eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage berechnet.
+ So existiert eine äquivalente Schaltkreisfamilie 
 \end_layout
 
 \begin_layout Section
