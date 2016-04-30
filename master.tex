@@ -35,8 +35,6 @@
 \newtheorem{thm}{\protect\theoremname}[section]
   \theoremstyle{definition}
   \newtheorem{defn}[thm]{\protect\definitionname}
-  \theoremstyle{remark}
-  \newtheorem*{rem*}{\protect\remarkname}
 \newenvironment{lyxlist}[1]
 {\begin{list}{}
 {\settowidth{\labelwidth}{#1}
@@ -44,10 +42,12 @@
  \addtolength{\leftmargin}{\labelsep}
  \renewcommand{\makelabel}[1]{##1\hfil}}}
 {\end{list}}
+  \theoremstyle{remark}
+  \newtheorem*{rem*}{\protect\remarkname}
   \theoremstyle{definition}
   \newtheorem*{example*}{\protect\examplename}
   \theoremstyle{plain}
-  \newtheorem{fact}[thm]{\protect\factname}
+  \newtheorem{prop}[thm]{\protect\propositionname}
  \newlist{casenv}{enumerate}{4}
  \setlist[casenv]{leftmargin=*,align=left,widest={iiii}}
  \setlist[casenv,1]{label={{\itshape\ \casename} \arabic*.},ref=\arabic*}
@@ -56,6 +56,8 @@
  \setlist[casenv,4]{label={{\itshape\ \casename} \arabic*.},ref=\arabic*}
   \theoremstyle{plain}
   \newtheorem{lem}[thm]{\protect\lemmaname}
+  \theoremstyle{plain}
+  \newtheorem{fact}[thm]{\protect\factname}
   \theoremstyle{plain}
   \newtheorem*{cor*}{\protect\corollaryname}
 
@@ -71,6 +73,7 @@
   \providecommand{\examplename}{Beispiel}
   \providecommand{\factname}{Fakt}
   \providecommand{\lemmaname}{Lemma}
+  \providecommand{\propositionname}{Satz}
   \providecommand{\remarkname}{Bemerkung}
  \providecommand{\casename}{Fall}
 \providecommand{\theoremname}{Theorem}
@@ -259,18 +262,33 @@ definiert.
 Ein Tupel $\left(x_{1},\cdots,x_{n}\right)$ von Elementen einer Menge
 $U$ wird durch $\bar{x}\in U^{n}$ notiert.
 
-Die \textbf{Stelligkeit} $\#\bar{x}$ eines Tupels $\bar{x}$ sei
-die Anzahl der Elemente, und ein $n$-stelliges Tupel heiße kurz ,,$n$-Tupel``.
+Die \textbf{Stelligkeit} $\mathrm{ar}\left(\bar{x}\right)$ eines
+Tupels $\bar{x}$ sei die Anzahl der Elemente, und ein $n$-stelliges
+Tupel heiße kurz ,,$n$-Tupel``.
 
-Für zwei Tupel $\bar{x},\bar{y}$ mit $\#\bar{x}=m$ und $\#\bar{y}=n$
-sei $\bar{x}\bar{y}$ das $\left(m+n\right)$-Tupel $\left(x_{1},\cdots,x_{m},y_{1},\cdots,y_{m}\right)$.
+Für ein $m$-Tupel $\bar{x}$ und ein $n$-Tupel $\bar{y}$ sei $\bar{x}\bar{y}$
+das $\left(m+n\right)$-Tupel $\left(x_{1},\cdots,x_{m},y_{1},\cdots,y_{n}\right)$.
 
 Das $0$-stellige Tupel wird durch $\left\langle \right\rangle $
 notiert.
 \end{defn}
 
 \begin{defn}
-\textbf{Bereiche}
+\textbf{Relation}
+
+Für eine Menge $A$ und $k\in\mathbb{N}$ sei $R\subseteq A^{k}$
+eine $k$-stellige Relation über $A$. Sei $2^{A}=\left\{ A'\mid A'\subseteq A\right\} $
+die Potenzmenge von $A$.
+
+Für jede Relation $R\subseteq A^{k}$ sei $\left[R\right]:A^{k}\rightarrow\left\{ 0,1\right\} $
+eine Funktion, die $\left[R\right]\left(\bar{a}\right)\coloneqq\begin{cases}
+1 & \mathrm{falls}\,\bar{a}\in R\\
+0 & \mathrm{sonst}
+\end{cases}$ ausgibt.
+\end{defn}
+
+\begin{defn}
+\textbf{Intervall}
 
 Die Menge $\left\{ i\in\mathbb{N}\mid a\leqslant i\leqslant b\right\} $
 wird durch $\left[a,b\right]$ abgekürzt.
@@ -318,10 +336,10 @@ a_{n}\\
 
 
 Für zwei Abbildungen $\pi:A\rightarrow B$ und $\pi':A'\rightarrow B'$
-mit disjunkten Definitionsbereichen sei $\pi\oplus\pi':A\cup A'\rightarrow B\cup B'$
+mit disjunkten Definitionsbereichen sei $\pi\cup\pi':A\uplus A'\rightarrow B\cup B'$
 die folgende Abbildung:
 \[
-\pi\oplus\pi'\left(x\right)\coloneqq\begin{cases}
+\pi\cup\pi'\left(x\right)\coloneqq\begin{cases}
 \pi\left(x\right) & \mathrm{falls}\,x\in A\\
 \pi'\left(x\right) & \mathrm{falls}\,x\in A'
 \end{cases}
@@ -339,14 +357,14 @@ die Reduktion auf das Komplement.
 Eine Permutation von $U$ ist eine bijektive Abbildung $\pi:U\rightarrow U$.
 
 Die Menge aller Permutationen von $U$ sei $\mathrm{Sym}_{U}$; diese
-bilden eine Symmetriegruppe bezüglich der Verkettung $\circ:\mathrm{Sym}_{U}\times\mathrm{Sym}_{U}\rightarrow\mathrm{Sym}_{U}$
+bilden eine Symmetrie-Gruppe bezüglich der Verkettung $\circ:\mathrm{Sym}_{U}\times\mathrm{Sym}_{U}\rightarrow\mathrm{Sym}_{U}$
 mit dem neutralen Element $\mathbf{id}$.
 
 Es sei $\pi^{-1}$ die inverse Abbildung mit $\pi^{-1}\pi=\pi\pi^{-1}=\mathbf{id}$.
 
 Eine Transposition sei eine Permutation, die zwei Elemente $u_{i}$
 und $u_{j}$ vertauscht und alle anderen Elemente fixiert. Diese wird
-kurz durch $\left(u_{i}u_{j}\right)$ notiert.
+kurz durch $\left[u_{i}u_{j}\right]$ notiert.
 \end{defn}
 
 \subsection{Relationale Strukturen}
@@ -356,24 +374,22 @@ relationalen Strukturen.
 \begin{defn}
 \textbf{Relationale Signatur}
 
-Eine relationale Signatur $\sigma$ ist eine endliche Menge von Relationssymbolen
-$\left\{ R_{1},\cdots,R_{m}\right\} $. Jedes Symbol $R\in\sigma$
-hat eine feste Stelligkeit $\mathrm{ar}\left(R\right)=k\in\mathbb{N}_{\geqslant1}$.
+Eine relationale Signatur $\sigma$ ist eine Menge von Relationssymbolen.
+Jedes Symbol $R\in\sigma$ hat eine feste Stelligkeit $\mathrm{ar}\left(R\right)=k\in\mathbb{N}_{\geqslant1}$.
 Gegebenenfalls wird die Stelligkeit kompakt durch $R/k\in\sigma$
-beziehungsweise $\sigma=\left\{ R_{1}/k_{1},\cdots,R_{m}/k_{m}\right\} $
 notiert.
 \end{defn}
 
 \begin{defn}
-$\mathbf{FIN}\left(\sigma\right)$
+\textbf{Endliche Struktur}
 
 Eine endliche $\sigma$-Struktur $\mathfrak{A}=\left(A,\left(R^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
-besteht aus einem endlichen, nichtleeren Universum $A$ und einer
+besteht aus einem endlichen, nicht-leeren Universum $A$ und einer
 Interpretation $R^{\mathfrak{A}}\subseteq A^{k}$ für jedes Symbol
 $R/k\in\sigma$.
 
-Wir formalisieren die Interpretation als eine Abbildung $\square^{\mathfrak{A}}:\sigma\rightarrow\mathcal{P}\left(A^{*}\right)$,
-die jedes Symbol eine Relation der entsprechenden Stelligkeit zuweist.
+Wir formalisieren die Interpretation als eine Abbildung $\square^{\mathfrak{A}}:\sigma\rightarrow\bigcup_{k\in\mathbb{N}}2^{\left(A^{k}\right)}$,
+die jedem Symbol eine Relation der entsprechenden Stelligkeit zuweist.
 Damit kann die Interpretation gegebenenfalls auch explizit durch $\mathfrak{A}=\left(A,\square^{\mathfrak{A}}\right)$
 notiert werden, um die Zuordnung von Symbolen und Relationen zu verdeutlichen:
 \[
@@ -383,32 +399,42 @@ R_{1}^{\mathfrak{A}} & \cdots & R_{k}^{\mathfrak{A}}
 \end{array}\right)\right)
 \]
 
-\begin{enumerate}
-\item Für eine endliche Menge $U$ sei $\mathbf{FIN}^{U}\left(\sigma\right)$
-die Menge aller $\sigma$-Strukturen mit dem Universum $U$.
-\item Für $\mathbb{N}_{>0}$ sei $\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
-die Menge aller $\sigma$-Strukturen mit einem Universum der Größe
-$\left|A\right|=n$.
-\item Sei $\mathbf{FIN}\left(\sigma\right)\coloneqq\bigcup_{n\in\mathbb{N}_{\geqslant1}}\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
-die Menge aller endlichen $\sigma$-Strukturen.
-\item Für $\dot{\leqslant}\notin\sigma$ und $a,b\in\mathbb{N}$ seien $\mathbf{FIN}_{<}^{\left[a,b\right]}\left(\sigma\right)\subseteq\mathbf{FIN}^{\left[a,b\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)$
-die endlichen $\sigma\cup\left\{ \leqslant\right\} $-Strukturen über
-$\left[a,b\right]$, wobei $\leqslant$ die natürliche Ordnung von
-$\left[a,b\right]$ ist.
-\end{enumerate}
 
-Relationssymbole wie $\leqslant$ werden gegebenenfalls durch einen
-Punkt als Relationssymbol gekennzeichnet, und zur Lesbarkeit mit Infix-Notation
-$a\leqslant b$ statt $\left(a,b\right)\in\leqslant$ verwendet. 
-\begin{eqnarray*}
-i\dot{\leqslant}j & \Leftrightarrow & \left(i,j\right)\in\dot{\leqslant}
-\end{eqnarray*}
 Für eine Relation $R^{\mathfrak{A}}\subseteq A^{k}$ sei $\left[R^{\mathfrak{A}}\right]:A^{k}\rightarrow\left\{ 0,1\right\} $
 eine Funktion mit $\left[R^{\mathfrak{A}}\right]\bar{t}\coloneqq\begin{cases}
 1 & \mathrm{falls}\,t\in R^{\mathfrak{A}}\\
 0 & \mathrm{sonst}
 \end{cases}$.
+\begin{enumerate}
+\item Für eine endliche Menge $U$ sei $\mathbf{FIN}^{U}\left(\sigma\right)$
+die Menge aller $\sigma$-Strukturen über dem Universum $U$.
+\item Für $n\in\mathbb{N}_{\geqslant1}$ sei $\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+die Menge aller $\sigma$-Strukturen über einem beliebigen Universum
+der Größe $n$.
+\item Sei $\mathbf{FIN}\left(\sigma\right)\coloneqq\bigcup_{n\in\mathbb{N}_{\geqslant1}}\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+die Menge aller endlichen $\sigma$-Strukturen.
+\end{enumerate}
+\end{defn}
 
+\begin{defn}
+\textbf{Geordnete Struktur}
+
+Sei $\sigma$ eine relationale Signatur, die nicht das zweistellige
+Symbol $\leqslant$ enthält.
+
+Für $a,b\in\mathbb{N}$ seien $\mathbf{FIN}_{\leqslant}^{\left[a,b\right]}\left(\sigma\right)\subseteq\mathbf{FIN}^{\left[a,b\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)$
+die endlichen $\sigma\cup\left\{ \leqslant\right\} $-Strukturen über
+$\left[a,b\right]$, wobei $\leqslant$ durch die natürliche Ordnung
+von $\left[a,b\right]$ interpretiert wird.
+
+Der Lesbarkeit halber wird die Infixnotation $a\leqslant b$ anstelle
+von $\left(a,b\right)\in\leqslant$ oder $\leqslant\left(a,b\right)$
+verwendet.
+
+Die Symbole $\dot{\leqslant}$ und $\dot{=}$ seien gleichbedeutend
+mit den Symbolen $\leqslant$ und $=$, und werden der Lesbarkeit
+halber in Gleichungen wie $\varphi=x\dot{=}y$ und $\varphi=x\dot{\leqslant}y$
+verwendet.
 \end{defn}
 
 \begin{defn}
@@ -441,28 +467,31 @@ diese bilden wiederum eine Gruppe.
 Zwei Strukturen können vereinigt werden, wenn sie entweder disjunkte
 Signaturen oder die gleiche Signatur besitzen. Für eine $\sigma_{1}$-Struktur
 $\mathfrak{A}$ und eine $\sigma_{2}$-Struktur $\mathfrak{B}$ gilt:
-
-Wenn $\sigma_{1}\cap\sigma_{2}=\emptyset$, so ist $\mathfrak{A}\cup\mathfrak{B}$
+\begin{enumerate}
+\item Wenn $\sigma_{1}\cap\sigma_{2}=\emptyset$, so ist $\mathfrak{A}\cup\mathfrak{B}$
 die folgende $\left(\sigma_{1}\cup\sigma_{2}\right)$-Struktur:
 \[
 \mathfrak{A}\cup\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\right)_{R\in\sigma_{1}},\left(R^{\mathfrak{B}}\right)_{R\in\sigma_{2}}\right)
 \]
 
-
-Wenn $\sigma_{1}=\sigma_{2}=\sigma$, so ist $\mathfrak{A}\cup\mathfrak{B}$
+\item Wenn $\sigma_{1}=\sigma_{2}=\sigma$, so ist $\mathfrak{A}\cup\mathfrak{B}$
 die folgende $\sigma$-Struktur:
 \[
 \mathfrak{A}\cup\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\cup R^{\mathfrak{B}}\right)_{R\in\sigma}\right)
 \]
 
+\end{enumerate}
+Falls das Universum der beiden Strukturen ebenfalls disjunkt ist,
+so heißt $\mathfrak{A}\cup\mathfrak{B}=\mathfrak{A}\uplus\mathfrak{B}$
+die \textbf{disjunkte Vereinigung} der Strukturen.
 \end{defn}
 
 \begin{defn}
 \textbf{\label{def:Induzierte-Teilstruktur}Induzierte Teilstruktur}
 
 Für eine Relation $R\subseteq A^{k}$ und eine Teilmenge $A'\subseteq A$
-sei $R_{\mid A'}\coloneqq R\cap A'^{k}$ die auf Elemente aus $A'$
-reduzierte Teilrelation.
+sei $R_{\mid A'}\coloneqq R\cap\left(A'\right)^{k}$ die von $A'$
+induzierte Teilrelation.
 
 Für eine $\sigma$-Struktur $\mathfrak{A}$ sei $\mathfrak{A}_{\mid A'}\coloneqq\left(A',\left(R_{\mid A'}^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
 die von der Teilmenge $A'$ in $\mathfrak{A}$ induzierte Teilstruktur.
@@ -488,7 +517,7 @@ q_{S}\left(\mathfrak{A}\right) & \coloneqq & \begin{cases}
 
 
 Per Definition sind alle $\sigma$-Anfragen und $\sigma$-Eigenschaften
-invariant bezüglich Isomorphismen: Für $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{B}$
+unter Isomorphismen abgeschlossen: Für $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{B}$
 gilt $\pi q\left(\mathfrak{A}\right)=q\left(\pi\mathfrak{A}\right)$
 und $\mathfrak{A}\in S\Leftrightarrow\pi\mathfrak{A}\in S$.
 \end{defn}
@@ -497,9 +526,8 @@ und $\mathfrak{A}\in S\Leftrightarrow\pi\mathfrak{A}\in S$.
 
 \section{Logik}
 
-Wir betrachten logische Sprachen auf endlichen relationalen Signaturen
-$\sigma$, deren Ausdrücke auf endlichen $\sigma$-Strukturen ausgewertet
-werden.
+Wir betrachten logische Sprachen auf relationalen Signaturen $\sigma$,
+deren Ausdrücke auf endlichen $\sigma$-Strukturen ausgewertet werden.
 \begin{defn}
 Sei $\mathbf{var}$ die Menge aller erststufigen Variablen. Es existiere
 implizit eine feste lineare Ordnung der Variablen.
@@ -528,12 +556,12 @@ ein Wahrheitswert.
 
 \begin{defn}
 Für einen Ausdruck $\omega$ mit $\mathrm{frei}\left(\omega\right)=\left\{ x_{1},\cdots,x_{k}\right\} $
-und $x_{1}<\cdots<x_{k}$ in der Variablenordnung bezeichnen wir das
-Tupel $\bar{x}=x_{1}\cdots x_{k}$ als das \textbf{Argument }von $\omega$
-(auch notiert durch $\omega\left(\bar{x}\right)$).
+und $x_{1}<\cdots<x_{k}$ in der Variablen-Ordnung bezeichnen wir
+das Tupel $\bar{x}=x_{1}\cdots x_{k}$ als das \textbf{Argument }von
+$\omega$ (auch notiert durch $\omega\left(\bar{x}\right)$).
 
 Die \textbf{Stelligkeit }einer logischen Formel (beziehungsweise ihres
-Arguments) bezeichne die Anzahl der frei vorkommenden Variablen: $\mathrm{ar}\left(\varphi\left(\bar{x}\right)\right)=\#\bar{x}=\left|\mathrm{frei}\left(\varphi\right)\right|$.
+Arguments) bezeichne die Anzahl der frei vorkommenden Variablen: $\mathrm{ar}\left(\varphi\left(\bar{x}\right)\right)=\mathrm{ar}\left(\bar{x}\right)=\left|\mathrm{frei}\left(\varphi\right)\right|$.
 
 Ein \textbf{Satz} sei eine Formel ohne freie Variablen.
 \end{defn}
@@ -544,30 +572,26 @@ Variablen jeder Teilformel von $\varphi$:
 \begin{eqnarray*}
 \mathtt{MF}\left(\varphi\right) & \coloneqq & \max\left\{ \mathrm{ar}\left(\psi\right)\mid\psi\,\mbox{ist Teilformel von}\,\varphi\right\} 
 \end{eqnarray*}
+
 \end{defn}
-\begin{rem*}
-Die Zahl $\mathtt{MF}\left(\varphi\right)$ ist ein Indikator für
-die Anzahl der maximal benötigten Variablen $\mathrm{var}\left(\varphi\right)$
-einer Formel, da gebundene Variablen umbenannt und wiederverwendet
-werden können.
-\end{rem*}
 
 \begin{defn}
-Für eine Belegung $\beta$ schreiben wir $\mathfrak{A}\models\varphi^{\beta}$
+Für eine $k$-stellige Formel $\varphi\left(\bar{x}\right)$ und eine
+Belegung $\beta:\bar{x}\rightarrow A$ schreiben wir $\mathfrak{A}\models\varphi^{\beta}$
 genau dann wenn $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1$.
 
-Für ein Tupel $\bar{a}\in A^{k}$ schreiben wir $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)$
-anstelle von $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)$,
-beziehungsweise $\mathfrak{A}\models\varphi\left(\bar{a}\right)$
-anstelle von $\mathfrak{A}\models\varphi^{\beta}$ mit $\beta\coloneqq\left(\begin{array}{c}
+Für ein Tupel $\bar{a}\in A^{k}$ sei $\beta_{\bar{a}}\coloneqq\left(\begin{array}{c}
 x_{1}\\
 a_{1}
 \end{array}\cdots\begin{array}{c}
 x_{k}\\
 a_{k}
-\end{array}\right)$.
+\end{array}\right)$. Wir schreiben $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)$
+anstelle von $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\bar{a}}\right)$,
+beziehungsweise $\mathfrak{A}\models\varphi\left[\bar{a}\right]$
+anstelle von $\mathfrak{A}\models\varphi^{\beta_{\bar{a}}}$.
 
-Entsprechend sei $\varphi\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\varphi\left(\bar{a}\right)\right\} $
+Entsprechend sei $\varphi\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\varphi\left[\bar{a}\right]\right\} $
 die Relation der $\varphi$ erfüllenden Tupel. Somit beschreibt jede
 $\mathscr{L}\left[\sigma\right]$-Formel eine $\sigma$-Anfrage, und
 jeder Satz eine $\sigma$-Eigenschaft.
@@ -582,15 +606,10 @@ sei $\mathrm{frei}\left(\omega^{\beta}\right)=\mathrm{frei}\left(\omega\right)\b
 Das Argument von $\omega^{\beta}$ sei $\bar{y}$ mit $\left\{ y_{1},\cdots,y_{\ell}\right\} =\left\{ x_{1},\cdots,x_{k}\right\} \backslash X$.
 
 Es stehe $\left\llbracket \varphi^{\beta}\right\rrbracket \left(\mathfrak{A},\beta'\right)$
-für die Auswertung $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\uplus\beta'\right)$
-mit $\beta':\mathrm{frei}\left(\omega^{\beta}\right)\rightarrow A$,
-und $\varphi^{\beta}\left(\mathfrak{A}\right)$ für die Anfrage $\left\{ \bar{a}\in A^{\ell}\mid\mathfrak{A}\models\varphi^{\beta\uplus\beta'}\right\} $.
-\end{defn}
-
-\begin{defn}
-Eine Logik $\mathscr{L}$ erweitert die Logik $\mathscr{L}'$, wenn
-sie die Syntax und Semantik von $\mathscr{L}'$ übernimmt, und zusätzliche
-Produktionen einführt.
+für die Auswertung $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\cup\beta'\right)$
+mit $\beta':\mathrm{frei}\left(\varphi^{\beta}\right)\rightarrow A$.
+Sei $q_{\varphi^{\beta}}=\left\{ \bar{a}\in A^{\ell}\mid\mathfrak{A}\models\varphi^{\beta\uplus\beta'}\right\} $
+die von $\varphi^{\beta}$ definierte $\sigma$-Anfrage.
 \end{defn}
 
 \begin{defn}
@@ -718,6 +737,12 @@ für $Qx_{1}\cdots Qx_{k}\psi$ und $\bigwedge_{i=1}^{k}\left(x_{i}=y_{i}\right)$
 
 \subsection{Fixpunktlogik}
 \begin{defn}
+Eine Logik $\mathscr{L}$ erweitert die Logik $\mathscr{L}'$, wenn
+sie die Syntax und Semantik von $\mathscr{L}'$ übernimmt, und zusätzliche
+Produktionen einführt.
+\end{defn}
+
+\begin{defn}
 Sei $\mathbf{var}_{2}$ die Menge aller Relationsvariablen. Jede solche
 Variable $R\in\mathbf{var}_{2}$ besitzt eine Stelligkeit $\mathrm{ar}\left(R\right)=k\in\mathbb{N}_{\geqslant1}$;
 diese wird auch durch $R/k\in\mathbf{var}_{2}$ notiert.
@@ -750,43 +775,44 @@ $P$-negativ).
 \end{enumerate}
 
 \begin{defn}
-Die Fixpunktlogik $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$ erweitert
-$\mathrm{FO}\left[\sigma\cup\mathbf{var}_{2}\right]$ um den folgenden
+Die Fixpunktlogik $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\sigma\right]$
+erweitert die Logik $\mathrm{FO}\left[\sigma\right]$ um den folgenden
 Fixpunkt-Operator:\end{defn}
 \begin{lyxlist}{00.00.0000}
-\item [{(LFP)}] Für eine Relationsvariable $X/k\in\mathbf{var}_{2}$, eine
-$X$-positive $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Formel
+\item [{(LFP)}] Für eine Relationsvariable $R/k\in\mathbf{var}_{2}$, eine
+$R$-positive $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\sigma\right]$-Formel
 $\psi$, ein Tupel $\bar{x}\in\mathbf{var}^{k}$ und ein $k$-Tupel
-$\bar{y}$ von $\mathrm{\mathrm{FO}+\mathrm{LFP}}\left[\sigma\right]$-Termen
-ist $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
-eine $\mathrm{\mathrm{FO}+\mathrm{IFP}}\left[\sigma\right]$-Formel.
+$\bar{y}$ von $\mathrm{\left(\mathrm{FO}+\mathrm{LFP}\right)}\left[\sigma\right]$-Termen
+ist $\varphi=\left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
+eine $R$-positive $\left(\mathrm{\mathrm{FO}+\mathrm{LFP}}\right)\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
-\mathrm{frei}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{frei}\left(y_{i}\right)\\
-\mathrm{var}\left(\varphi\right) & = & \bigcup_{i=1}^{k}\mathrm{var}\left(\psi\right)\cup\left\{ x_{1},\cdots,x_{k}\right\} \cup\mathrm{var}\left(y_{i}\right)\\
+\mathrm{frei}\left(\varphi\right) & = & \mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \cup\bigcup_{i=1}^{k}\mathrm{frei}\left(y_{i}\right)\\
+\mathrm{var}\left(\varphi\right) & = & \mathrm{var}\left(\psi\right)\cup\left\{ x_{1},\cdots,x_{k}\right\} \cup\bigcup_{i=1}^{k}\mathrm{var}\left(y_{i}\right)\\
 \mathtt{MF}\left(\varphi\right) & = & \max\left(\mathtt{MF}\left(\psi\right),\mathrm{frei}\left(\varphi\right)\right)
 \end{eqnarray*}
 \end{lyxlist}
 \begin{description}
 \item [{Auswertung:}] Für $R/k\in\mathbf{var}_{2}$, eine $\left(\sigma\backslash\left\{ R\right\} \right)$-Struktur
-$\mathfrak{A}$, eine $R$-positive $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Formel,
-eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\backslash\bar{x}\rightarrow A$
-und eine Relation $X\subseteq A^{k}$ definieren wir die $\left\{ R\right\} $-Struktur
-$\mathfrak{R}_{X}$ und die Abbildung $F:\mathcal{P}\left(A^{k}\right)\rightarrow\mathcal{P}\left(A^{k}\right)$
+$\mathfrak{A}$, eine $R$-positive $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\sigma\right]$-Formel,
+eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \rightarrow A$
+und eine Relation $X\subseteq A^{k}$ definieren wir die $\left\{ X\right\} $-Struktur
+$\mathfrak{R}_{X}$ und die Abbildung $F:2^{A^{k}}\rightarrow2^{A^{k}}$
 wie folgt:
 \begin{eqnarray*}
 \mathfrak{R}_{X} & \coloneqq & \left(A,\left(\begin{array}{c}
 R\\
 X
 \end{array}\right)\right)\\
-F\left(X\right) & \coloneqq & \varphi^{\beta}\left(\mathfrak{A}\oplus\mathfrak{R}_{X}\right)
+F\left(X\right) & \coloneqq & \varphi^{\beta}\left(\mathfrak{A}\cup\mathfrak{R}_{X}\right)
 \end{eqnarray*}
-Das heißt: $F\left(X\right)$ ist das Anfrageergebnis von $\varphi^{\beta}$,
-wenn das Symbol $R$ durch die Relation $X$ interpretiert wird.
+Das heißt: $F\left(X\right)$ ist das Anfrageergebnis von $\varphi^{\beta}$
+auf $\mathfrak{A}$, wenn das Symbol $R$ durch die Relation $X$
+interpretiert wird.
 
 
 Aus der $X$-Positivität folgt nach \cite{Gurevich1986,Libkin2012}
-die Monotonie des Fixpunkt-Operators, und daher induktiv die Existenz
-eines kleinsten Fixpunkts $F^{\infty}\left(\emptyset\right)$:
+die Monotonie von $F$, und daher induktiv die Existenz eines kleinsten
+Fixpunkts $F^{\infty}\left(\emptyset\right)$:
 \begin{eqnarray*}
 A\subseteq B & \Rightarrow & F\left(A\right)\subseteq F\left(B\right)
 \end{eqnarray*}
@@ -804,43 +830,52 @@ ihren Fixpunkt erreicht.
 Die Formel prüft nun, ob die Belegung des Tupels $\bar{y}$ im Fixpunkt
 $F^{\infty}$ liegt: 
 \begin{eqnarray*}
-\left\llbracket \left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left\llbracket X\bar{y}\right\rrbracket \left(\mathfrak{A}\oplus\mathfrak{R}_{F^{\infty}},\beta\right)
+\left\llbracket \left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left\llbracket R\bar{y}\right\rrbracket \left(\mathfrak{A}\cup\mathfrak{R}_{F^{\infty}\left(\emptyset\right)},\beta\right)
 \end{eqnarray*}
 
 
 \end{description}
 \begin{example*}
-Die folgende $\mathrm{FO}+\mathrm{LFP}\left[\left\{ E\right\} \right]$-Formel
+Die folgende $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\left\{ E\right\} \right]$-Formel
 $\varphi\left(u,v\right)$ ist erfüllt, wenn $u$ und $v$ durch einen
 Weg beliebiger Länge verbunden sind: 
 \[
 \varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
 \]
-\pagebreak{}
+
 \end{example*}
+Im folgenden wird die Logik $\mathrm{FO}+\mathrm{LFP}$ abgekürzt
+als $\mathrm{LFP}$ bezeichnet.
+
+\pagebreak{}
+
 
 \subsection{Logische Erweiterungen}
 
 Die Orakelerweiterung fügt einer Logik eine Anzahl von Relationssymbolen
 mit vordefinierter Interpretation hinzu.
 \begin{defn}
-\textbf{$\Upsilon$-Orakel, $\mathscr{L}+\Upsilon$-Logik}
+\textbf{$\eta$-Orakel, $\mathscr{L}+\Upsilon$-Logik}
 
-Sei $\eta$ eine relationale Signatur. Ein Orakel $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\eta\right)$
+Sei $\eta$ eine relationale Signatur. Ein $\eta$-Orakel $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta\right)$
 ist eine Funktion, die jeder natürlichen Zahl $n$ eine geordnete
-Struktur $\Upsilon\left(n\right)$ über $\left[0,n\right]$ zuweist.
+$\left(\eta\uplus\left\{ \leqslant\right\} \right)$-Struktur $\Upsilon\left(n\right)$
+über $\left[0,n\right]$ zuweist.
 
-Sei $\sigma$ eine von $\eta\uplus\left\{ \dot{\leqslant}\right\} $
-disjunkte relationale Signatur und $\mathscr{L}$ eine Logik (zum
-Beispiel $\mathrm{FO}$ oder $\mathrm{FP}$).
+Sei $\sigma$ eine von $\eta\uplus\left\{ \leqslant\right\} $ disjunkte
+relationale Signatur und $\mathscr{L}$ eine Logik (zum Beispiel $\mathrm{FO}$
+oder $\mathrm{LFP}$).
 
 Die Syntax der $\left(\mathscr{L}+\Upsilon\right)\left[\sigma\right]$-Logik
-ist die der Logik $\mathscr{L}\left[\sigma\uplus\eta\uplus\left\{ \dot{\leqslant}\right\} \right]$.
+ist die der Logik $\mathscr{L}\left[\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right]$.
 
-Die Formeln werden auf der disjunkten Vereinigung einer endlichen
-$\sigma$-Struktur mit der entsprechenden Orakelstruktur ausgewertet:
+Für eine endliche $\sigma$-Struktur $\mathfrak{A}$ mit $A\cap\left[0,n\right]=\emptyset$
+und eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A\cup\left[0,n\right]$
+wird $\varphi$ auf der disjunkten Vereinigung von $\mathfrak{A}$
+mit der entsprechenden Orakelstruktur $\Upsilon\left(\left|A\right|\right)$
+ausgewertet:
 \[
-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\oplus\Upsilon\left(\left|A\right|\right),\beta\right)
+\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\uplus\Upsilon\left(\left|A\right|\right),\beta\right)
 \]
 
 \end{defn}
@@ -852,16 +887,18 @@ Falls $\eta$ leer ist, und daher $\Upsilon\left(n\right)=\left(\left[0,n\right],
 nur die Ordnung enthält, so werde $\mathscr{L}+\Upsilon$ auch als
 $\mathscr{L}+\mathbf{ORD}$ bezeichnet.
 
-Die unendliche Signatur $\eta_{\mathrm{arb}}=\left\{ R_{X}\mid X\subseteq\mathbb{N}\right\} $
-enthalte ein Symbol für jede Relation auf den natürlichen Zahlen.
-Sei $\mathcal{N}_{\mathrm{arb}}$ die $\eta_{\mathrm{arb}}$-Struktur,
+Die unendliche Signatur $\eta_{\mathrm{arb}}=\left\{ R_{X}\mid k\in\mathbb{N},\,X\subseteq\mathbb{N}^{k}\right\} $
+enthalte ein Symbol für jede beliebige Relation auf den natürlichen
+Zahlen. Sei $\mathcal{N}_{\mathrm{arb}}$ die $\eta_{\mathrm{arb}}$-Struktur,
 die jedes Symbol durch die entsprechende Relation interpretiert, und
-sei $\Upsilon_{\mathrm{arb}}:\mathbb{N}\rightarrow\mathbf{FIN}_{<}\left(\eta_{\mathrm{arb}}\right)$
-ein Orakel, das endliche Teilbereiche von $\mathcal{N}_{\mathrm{arb}}$
+sei $\Upsilon_{\mathrm{arb}}:\mathbb{N}\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta_{\mathrm{arb}}\right)$
+ein Orakel, das die endlichen Anfangs-Stücke von $\mathcal{N}_{\mathrm{arb}}$
 ausgibt: 
 \begin{eqnarray*}
-\mathcal{N}_{\mathrm{arb}} & \coloneqq & \left(\mathbb{N},\left(R^{\mathcal{N}}\right)_{R\in\eta_{\mathrm{arb}}}\right)\\
-R_{X}^{\mathcal{N}} & \coloneqq & X\,\,\mathrm{f.a.}\,X\subseteq\mathbb{N}\\
+\mathcal{N}_{\mathrm{arb}} & \coloneqq & \left(\mathbb{N},\left(\begin{array}{c}
+R_{X}\\
+X
+\end{array}\right)_{R_{X}\in\eta_{\mathrm{arb}}}\right)\\
 \Upsilon_{\mathrm{arb}}\left(n\right) & \coloneqq & \left(\mathcal{N}_{\mathrm{arb}}\right)_{\mid\left[0,n\right]}
 \end{eqnarray*}
 
@@ -871,97 +908,48 @@ bezeichnet.
 \end{defn}
 
 
-Wir betrachten zwei äquivalente Definitionen von Zähloperatoren auf
-Logiken mit disjunktem Orakel:
+Wir führen mehrere syntaktische Erweiterungen der Logik $\mathrm{FO}+\Upsilon$
+ein: Den Zählterm $\#$, den Zählquantor $\exists^{=}$, und den Majority-Quantor
+$\exists^{\geqslant}$.
+
+Es wird nachgewiesen, dass alle drei Erweiterungen die gleiche Ausdrucksstärke
+bis auf einen konstanten Zuwachs von $\mathtt{MF}\left(\varphi\right)$
+haben.
 \begin{defn}
-\textbf{Zählterm (wie \cite{anderson_et_al:LIPIcs:2014:4445})}
+\textbf{Zählterm $\#$} (wie \cite{anderson_et_al:LIPIcs:2014:4445})
 
 Der Zählterm ist eine zusätzlicher Termproduktion, die die erfüllenden
 Belegungen einer Formel zählt.
 
 Sei $\mathscr{L}$ eine beliebige Logik, $\eta$ eine relationale
-Signatur, und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta\right)$
-ein Orakel.
+Signatur, und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}\left(\eta\right)$
+ein $\eta$-Orakel.
 
 Die $\mathscr{L}+\Upsilon+\#$-Logik erweitert die $\mathscr{L}+\Upsilon$-Logik
 um die folgende Regel:
 \begin{lyxlist}{00.00.0000}
-\item [{TC}] Für eine $\left(\mathscr{L}+\Upsilon+C\right)\left[\sigma\right]$-Formel
+\item [{(TC)}] Für eine $\left(\mathscr{L}+\Upsilon+\#\right)\left[\sigma\right]$-Formel
 $\varphi$ und eine Variable $x\in\mathbf{var}$ ist $\#x\varphi$
-ein $\left(\mathscr{L}+\Upsilon+C\right)\left[\sigma\right]$-Term.
+ein $\left(\mathscr{L}+\Upsilon+\#\right)\left[\sigma\right]$-Term.
 \begin{eqnarray*}
-\mathrm{frei}\left(\#xy\varphi\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(\#_{x}\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
+\mathrm{frei}\left(\#x\varphi\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(\#x\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
 \end{eqnarray*}
 
 
 
 Auf einer endlichen Struktur $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
-mit einer Belegung $\beta:\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \rightarrow A\uplus\left[0,n\right]$
-ist 
+mit $n\in\mathbb{N}$ und einer Belegung $\beta:\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \rightarrow A\uplus\left[0,n\right]$
+sei 
 \[
-\left\llbracket \#x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\left|\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\oplus\binom{x}{a}}\right\} \right|
+\left\llbracket \#x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\left|\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\uplus\binom{x}{a}}\right\} \right|
 \]
-die Anzahl der unterschiedlichen Werte von $\beta\left(x\right)$
-in erfüllenden Belegungen $\beta'$ von $\varphi$ auf $\mathfrak{A}$.
+die Anzahl der unterschiedlichen Werte $a\in A$, für die $\beta'=\beta\uplus\left(\begin{array}{c}
+x\\
+a
+\end{array}\right)$ eine erfüllende Belegung von $\varphi$ auf $\mathfrak{A}$ ist.
 
 \end{lyxlist}
 \end{defn}
-
-\begin{defn}
-\textbf{Zählquantor (wie \cite{Schweikardt2002}, aber mit disjunktem
-Orakel)}
-
-Der Zählquantor ist eine zusätzlicher Quantor, der die erfüllenden
-Belegungen einer Formel mit einer Variable vergleicht.
-
-Sei $\mathscr{L}$ eine beliebige Logik, $\eta$ eine relationale
-Signatur, und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta\right)$
-ein Orakel.
-
-Die $\mathscr{L}+\Upsilon+\exists^{C}$-Logik erweitert die $\mathscr{L}+\Upsilon$-Logik
-um die folgende Regel:
-\begin{lyxlist}{00.00.0000}
-\item [{QC}] Für eine $\left(\mathscr{L}+\Upsilon+\exists^{C}\right)\left[\sigma\right]$-Formel
-$\varphi$ und zwei Variablen $x,y\in\mathbf{var}$ ist $\exists^{=y}x\varphi$
-eine $\left(\mathscr{L}+\Upsilon+\exists^{C}\right)\left[\sigma\right]$-Formel.
-\begin{eqnarray*}
-\mathrm{frei}\left(\exists^{=y}x\varphi\right)=\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right)\cup\left\{ y\right\}  &  & \mathrm{var}\left(\#_{x}\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x,y\right\} 
-\end{eqnarray*}
-
-
-
-Auf einer endlichen Struktur $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
-mit einer Belegung 
-\[
-\beta:\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right)\cup\left\{ y\right\} \rightarrow A\uplus\left[0,n\right]
-\]
- gilt: 
-\[
-\mathfrak{A}\models\left(\exists^{=y}x\varphi\right)^{\beta}\Leftrightarrow\left|\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\oplus\binom{x}{a}}\right\} \right|=\beta y
-\]
-
-
-\end{lyxlist}
-\end{defn}
-\begin{fact}
-Die Logiken $\mathscr{L}+\Upsilon+\#$ und $\mathscr{L}+\Upsilon+C$
-sind äquivalent:
-
-\begin{eqnarray*}
-\exists^{=y}x\psi & \equiv & \left(y\dot{=}\#x\psi\right)\\
-\#x_{1}\psi_{1}\dot{=}\#x_{2}\psi_{2} & \equiv & \exists z\left(\exists^{=y}x_{1}\psi_{1}\wedge\exists^{=y}x_{2}\psi_{2}\right)\\
-R\left(\#x_{1}\psi_{1}\cdots\#x_{k}\psi_{k}\right) & \equiv & \exists\bar{z}\left(R\bar{z}\wedge\bigwedge_{i=1}^{k}\exists^{=y_{i}}x_{i}\psi_{i}\right)
-\end{eqnarray*}
-
-
-(Für neue Variablen $z,z_{1},\cdots z_{\mathrm{ar}\left(R\right)}\in\mathbf{var}$.)
-Die Einführung dieser neuen Variablen ändert $\mathtt{MF}\left(\varphi\right)$
-höchstens um die Konstante $\max_{R\in\sigma}\left(\mathrm{ar}\left(R\right)\right)$.
-\end{fact}
-
-\begin{defn}
-Falls $\eta$ leer ist, und daher $\Upsilon\left(n\right)=\left(\left\{ 0,\cdots,n\right\} ,\leqslant\right)$,
-so heiße $\mathscr{L}+\Upsilon+C$ kurz $\mathscr{L}+C$.\end{defn}
 \begin{example*}
 Diese Erweiterung erlaubt die Definition vieler arithmetischer Operatoren
 durch Terme, wie zum Beispiel die positive Differenz:
@@ -969,53 +957,221 @@ durch Terme, wie zum Beispiel die positive Differenz:
 t_{\mathrm{DIFF}}\left(x,y\right) & \coloneqq & \#_{z}\left(\neg z\leqslant x\wedge z\leqslant y\right)\\
 \left\llbracket t_{\mathrm{DIFF}}\right\rrbracket \left(\mathfrak{A},\left(a,b\right)\right) & = & \max\left(b-a,0\right)
 \end{eqnarray*}
-
 \end{example*}
+\begin{defn}
+\textbf{Zählquantor }$\exists^{=}$ (wie \cite{Schweikardt2002},
+aber mit disjunktem Orakel)
 
+Der Zählquantor ist eine zusätzlicher Quantor, der die Zahl der erfüllenden
+Belegungen einer Formel mit einer Variable vergleicht.
+
+Sei $\mathscr{L}$ eine beliebige Logik, $\eta$ eine relationale
+Signatur, und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta\right)$
+ein $\eta$-Orakel.
+
+Die $\mathscr{L}+\Upsilon+\exists^{=}$-Logik erweitert die $\mathscr{L}+\Upsilon$-Logik
+um die folgende Regel:
+\begin{lyxlist}{00.00.0000}
+\item [{(QC)}] Für eine $\left(\mathscr{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel
+$\varphi$ und zwei Variablen $x,y\in\mathbf{var}$ ist $\exists^{=y}x\varphi$
+eine $\left(\mathscr{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel.
+\begin{eqnarray*}
+\mathrm{frei}\left(\exists^{=y}x\varphi\right)=\left\{ y\right\} \cup\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right) &  & \mathrm{var}\left(\exists^{=y}x\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x,y\right\} 
+\end{eqnarray*}
+
+
+
+Auf einer endlichen Struktur $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+mit einer Belegung 
+\[
+\beta:\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right)\cup\left\{ y\right\} \rightarrow A\cup\left[0,n\right]
+\]
+ gilt: 
+\[
+\left\llbracket \exists^{=y}x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\begin{cases}
+1 & \mathrm{falls}\,\beta y=\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\cup\binom{x}{a}}\right\} \\
+0 & \mathrm{sonst}
+\end{cases}
+\]
+
+
+\end{lyxlist}
+\end{defn}
+
+\begin{defn}
+\textbf{Majority-Quantor }$\exists^{\geqslant}$
+
+Der Majority-Quantor funktioniert wie der Zählquantor und prüft, ob
+die Zahl der erfüllenden Belegungen mindestens den Wert einer Variable
+erreicht.
+
+Sei $\mathscr{L}$ eine beliebige Logik, $\eta$ eine relationale
+Signatur, und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta\right)$
+ein $\eta$-Orakel.
+
+Die $\mathscr{L}+\Upsilon+\exists^{\geqslant}$-Logik erweitert die
+$\mathscr{L}+\Upsilon$-Logik um die folgende Regel:
+\begin{lyxlist}{00.00.0000}
+\item [{(QM)}] Für eine $\left(\mathscr{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
+$\varphi$ und zwei Variablen $x,y\in\mathbf{var}$ ist $\exists^{\geqslant y}x\varphi$
+eine $\left(\mathscr{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel.
+\begin{eqnarray*}
+\mathrm{frei}\left(\exists^{\geqslant y}x\varphi\right)=\left\{ y\right\} \cup\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right) &  & \mathrm{var}\left(\exists^{\geqslant y}x\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x,y\right\} 
+\end{eqnarray*}
+
+
+
+Auf einer endlichen Struktur $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+mit einer Belegung 
+\[
+\beta:\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right)\cup\left\{ y\right\} \rightarrow A\cup\left[0,n\right]
+\]
+ gilt: 
+\[
+\left\llbracket \exists^{\geqslant y}x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\begin{cases}
+1 & \mathrm{falls}\,\beta y\in\left[0,n\right],\,\beta y\leqslant\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\cup\binom{x}{a}}\right\} \\
+0 & \mathrm{sonst}
+\end{cases}
+\]
+
+
+\end{lyxlist}
+\end{defn}
+\begin{prop}
+Die Logiken $\mathscr{L}+\Upsilon+\#$ und $\mathscr{L}+\Upsilon+\exists^{=}$
+und $\mathscr{L}+\Upsilon+\exists^{\geqslant}$ sind äquivalent:\end{prop}
+\begin{proof}
+Jede $\left(\mathscr{L}+\Upsilon+\#\right)\left[\sigma\right]$-Formel
+$\varphi$ ist äquivalent zu einer $\left(\mathscr{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel
+$\varphi'$. Dies wird per Induktion über den Aufbau von $\varphi$
+gezeigt.
+\begin{casenv}
+\item Falls $\varphi$ eine $\left(\mathscr{L}+\Upsilon\right)\left[\sigma\right]$-Formel
+ohne Zählterm ist, so sei $\varphi'\coloneqq\varphi$.
+\item Falls $\varphi$ von der Form $\neg\psi$ oder $\left(\psi_{1}\gamma\cdots\gamma\psi_{k}\right)$
+oder $Qx\psi$ ist, so existieren per Induktionsannahme die äquivalenten
+Teilformeln $\psi',\psi_{1}',\cdots,\psi_{k}'$. Sei $\varphi'$ entsprechend
+$\neg\psi'$ oder $\left(\psi_{1}'\gamma\cdots\gamma\psi_{k}\right)$
+oder $Qx\psi'$.
+\item Falls $\varphi=y\dot{=}\#x\psi$ oder $\varphi=\#x\psi\dot{=y}$ für
+$x,y\in\mathbf{var}$, so sei $\varphi'\coloneqq\exists^{=y}x\psi'$.
+\item Falls $\varphi=\#x_{1}\psi_{1}\dot{=}\#x_{2}\psi_{2}$ für $x_{1},x_{2}\in\mathbf{var}$,
+so sei $y\in\mathbf{var}\backslash\left(\mathrm{frei}\left(\psi_{1}\right)\cup\mathrm{frei}\left(\psi_{2}\right)\right)$
+eine neue Variable, und:
+\[
+\varphi'\coloneqq\exists y\left(\exists^{=y}x_{1}\psi_{1}'\wedge\exists^{=y}x_{2}\psi_{2}'\right)
+\]
+
+\item Falls $\varphi=R\bar{x}$ für $R/k\in\sigma\cup\eta\cup\left\{ \leqslant\right\} $
+und ein $k$-Tupel von $\left(\mathscr{L}+\Upsilon+\#\right)\left[\sigma\right]$-Termen
+$\bar{x}$ ist, so sei $\bar{y}\in\left(\mathbf{var}\backslash\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right)\right)^{k}$
+ein Tupel von neuen Variablen, und:
+\begin{eqnarray*}
+\chi_{i} & \coloneqq & \begin{cases}
+\exists^{=y_{i}}z_{i}\psi_{i}' & \mathrm{falls}\,x_{i}=\#z_{i}\psi_{i}\\
+y_{i}=x_{i} & \mathrm{sonst}
+\end{cases}\\
+\varphi' & \coloneqq & \exists\bar{y}\left(R\bar{y}\wedge\bigwedge_{i=1}^{k}\chi_{i}\right)
+\end{eqnarray*}
+
+\end{casenv}
+Jede $\left(\mathscr{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel
+$\varphi$ ist äquivalent zu einer $\left(\mathscr{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
+$\varphi'$:
+\begin{casenv}
+\item Falls $\varphi=\exists^{=y}x\psi$, so sei $\psi'$ eine zu $\psi$
+äquivalente $\left(\mathscr{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel,
+$z\in\mathbf{var}\backslash\mathrm{frei}\left(\psi\right)$ eine neue
+Variable, und: 
+\[
+\varphi'\coloneqq\forall z\left(\exists^{\geqslant z}x\psi'\leftrightarrow\left(z\leqslant y\right)\right)
+\]
+Die Formel $\exists^{=y}x\psi$ ist mit $\beta\left(y\right)\in\left[0,n\right]$
+erfüllt, genau dann wenn gilt: Die Formel $\exists^{\geqslant z}x\psi$
+ist für alle $\beta\left(z\right)\in\left[0,n\right]$ erfüllt, genau
+dann wenn $\beta\left(z\right)\leqslant\beta\left(y\right)$.
+\end{casenv}
+Schließlich ist jede $\left(\mathscr{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
+$\varphi$ äquivalent zu einer $\left(\mathscr{L}+\Upsilon+\#\right)\left[\sigma\right]$-Formel
+$\varphi'$:
+\begin{casenv}
+\item Falls $\varphi=\exists^{\geqslant y}x\psi$, so sei $\psi'$ eine
+$\left(\mathscr{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
+mit $\psi\equiv\psi'$, und:
+\[
+\varphi'\coloneqq y\leqslant\#x\psi
+\]
+
+\end{casenv}
+\end{proof}
+Im folgenden wird mit $\mathscr{L}+\Upsilon+C$ stets eine dieser
+äquivalenten Zähl-Logiken bezeichnet.
+\begin{defn}
+Falls $\eta$ leer ist, und daher $\Upsilon\left(n\right)=\left(\left\{ 0,\cdots,n\right\} ,\leqslant\right)$,
+so heiße $\mathscr{L}+\Upsilon+C$ kurz $\mathscr{L}+C$.\end{defn}
 \begin{example*}
 Die Logik $\mathrm{FO}+C$ kann ausdrücken, dass die $\sigma$-Struktur
 eine gerade Größe hat. Bekanntlich ist diese $\sigma$-Eigenschaft
 weder durch $\mathrm{FO}$ auf geordneten, noch $\mathrm{LFP}$ auf
-ungeordneten Strukturen definierbar\cite{Ebbinghaus,Libkin2012} :
+ungeordneten Strukturen definierbar\cite{Ebbinghaus,Libkin2012}:
 
 \[
 \varphi_{\mathrm{EVEN}}\coloneqq\exists y\,\left(y=\#_{z}\left(\neg z\leqslant y\wedge z\leqslant\#_{z}\,z=z\right)\right)
 \]
 \end{example*}
 \begin{defn}
-\textbf{Arb-invariante Logik erster Stufe}
+\textbf{Arb-invariante Logik erster Stufe }(nach \cite{Schweikardt13ashort})
 
-Die arb-invariante $\mathrm{FO}$-Logik ist wie folgt gemäß \cite{Schweikardt13ashort}
-definiert:\end{defn}
-\begin{enumerate}
-\item Sei $\eta_{\mathrm{arb}}$ eine unendliche relationale Signatur, die
-jeder numerischen Relation $R/k\subseteq\mathbb{N}^{k}$ ($k\in\mathbb{N}$)
-ein Symbol $\dot{R}$ zuweist. (Insbesondere ist auch $\dot{\leqslant}\in\eta_{\mathrm{arb}}$).
-Sei $\mathfrak{N}$ die kanonische (unendliche) $\eta_{\mathrm{arb}}$-Struktur
-$\left(\mathbb{N},\left(\dot{R}^{\mathfrak{N}}\right)_{\dot{R}\in\eta_{\mathrm{arb}}}\right)$,
-die jedes Symbol $\dot{R}$ durch die Relation $R$ interpretiert.
-\item Für eine relationale Signatur $\sigma$ sei $\sigma_{\mathrm{arb}}\coloneqq\sigma\uplus\eta_{\mathrm{arb}}$,
+Die unendliche Signatur $\eta_{\mathrm{arb}}=\left\{ R_{X}\mid k\in\mathbb{N},\,X\in\mathcal{P}\left(\mathbb{N}^{k}\right)\right\} $
+enthalte ein Symbol für jede beliebige Relation auf den natürlichen
+Zahlen. Sei $\mathcal{N}_{\mathrm{arb}}$ die $\eta_{\mathrm{arb}}$-Struktur,
+die jedes Symbol durch die entsprechende Relation interpretiert.
+
+\begin{eqnarray*}
+\mathcal{N}_{\mathrm{arb}} & \coloneqq & \left(\mathbb{N},\left(\begin{array}{c}
+R_{X}\\
+X
+\end{array}\right)_{R_{X}\in\eta_{\mathrm{arb}}}\right)
+\end{eqnarray*}
+
+
+Für eine relationale Signatur $\sigma$ sei $\sigma_{\mathrm{arb}}\coloneqq\sigma\uplus\eta_{\mathrm{arb}}$,
 und sei $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$ die erststufige
 Logik mit beliebigen numerischen Prädikaten.
-\item Sei $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ mit Größe $\left|A\right|=n$,
-und $h:A\rightarrow\left\{ 1,\cdots,n\right\} $ eine Bijektion. Die
-\textbf{Einbettung} $\mathfrak{A}_{h}\in\mathbf{FIN}\left(\sigma_{\mathrm{arb}}\right)$
-sei definiert durch:
+
+Für $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ sei $n=\left|A\right|$
+und $h:A\rightarrow\left[1,n\right]$ eine beliebige Bijektion. Sei
+$\mathfrak{A}_{h}\in\mathbf{FIN}_{<}^{\left[1,n\right]}\left(\sigma_{\mathrm{arb}}\right)$
+definiert durch:
 \[
-\mathfrak{A}_{h}\coloneqq h\mathfrak{A}\oplus\mathfrak{N}_{\mid\left[1,n\right]}
+\mathfrak{A}_{h}\coloneqq h\mathfrak{A}\cup\mathcal{N}_{\mid\left[1,n\right]}
 \]
-Hier wird (gemäß \defref{Disjunkte-Vereinigung}) die $\sigma$-Struktur
-$h\mathfrak{A}$ß mit der induzierten Teilstruktur $\mathfrak{N}_{\mid\left\{ 1,\cdots,n\right\} }$
-über dem gleichen Universum $\left[1,n\right]$ und den disjunkten
-Signaturen $\sigma,\eta_{\mathrm{arb}}$ vereinigt.
+(Hier werden gemäß \defref{Disjunkte-Vereinigung} die $\sigma$-Struktur
+$h\mathfrak{A}$ und die induzierte Teilstruktur $\mathcal{N}_{\mid\left[1,n\right]}$
+mit den disjunkten Signaturen $\sigma$ und $\eta_{\mathrm{arb}}$
+über dem gleichen Universum $\left[1,n\right]$ vereinigt.)
+\begin{enumerate}
 \item Eine $k$-stellige $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel
-$\varphi$ ist arb-invariant, wenn für jede endliche $\sigma$-Struktur
-$\mathfrak{A}$ eine Relation $R_{\varphi}\subseteq A^{k}$ existiert,
-so dass $\varphi$ auf jeder Einbettung $\mathfrak{A}_{h}$ die Anfrage
-$\varphi\left(\mathfrak{A}_{h}\right)=hR_{\varphi}$ berechnet.
-\item Die \textbf{arb-invariante Logik erster Stufe} über $\sigma$ besteht
-aus den arb-invarianten $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formeln.
+$\varphi$ ist \textbf{arb-invariant auf }$\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$,
+wenn für jedes Paar von Bijektionen $h,h':A\rightarrow\left[1,\left|A\right|\right]$
+und jedes Tupel $\bar{a}\in A^{k}$ gilt:
+\begin{eqnarray*}
+\mathfrak{A}_{h}\models\varphi\left[h\bar{a}\right] & \Longleftrightarrow & \mathfrak{A}_{h'}\models\varphi\left[h'\bar{a}\right]
+\end{eqnarray*}
+
+\item Eine $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel sei arb-invariant,
+wenn sie auf allen Strukturen $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+arb-invariant ist.
+\item Sei $\mathrm{\mbox{arb-inv-}FO}\left[\sigma\right]$ die Sprache der
+arb-invarianten $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formeln.
 \end{enumerate}
+\end{defn}
+\begin{rem*}
+Nach dem Satz von Trakhtenbrot ist die endlichen Erfüllbarkeit von
+$\mathrm{FO}\left[\left\{ \leqslant\right\} \right]$ unentscheidbar,
+und daher auch die Arb-Invarianz und die Sprache $\mbox{arb-inv-}\mathrm{FO}\left[\sigma\right]$
+in $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$.\cite{EFT,Libkin2012,Schweikardt13ashort}
+\end{rem*}
 \pagebreak{}
 
 
@@ -1026,19 +1182,21 @@ aus den arb-invarianten $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formeln.
 Eine boolesche Basis $\mathbb{B}$ besteht aus beliebigen symmetrischen
 Relationen $\phi\subseteq\left\{ 0,1\right\} ^{*}$, die hier als
 $\phi\subseteq\mathbb{N}\times\mathbb{N}$ abgekürzt werden. Ein Gate
-vom Typ $\phi$ hat den Wert $1$, wenn genau $m$ seiner Vorgänger
-den Wert $0$ und $n$ den Wert $1$ haben, und $\left(m,n\right)\in\phi$.
-Als Beispiel seien die folgenden booleschen Junktoren gegeben: 
+vom Typ $\phi$ hat den Wert $\left[\phi\right]\left(m,n\right)$,
+wenn $m$ seiner Vorgänger den Wert $0$ und $n$ Vorgänger den Wert
+$1$ haben. Als Beispiel seien die folgenden booleschen Junktoren
+gegeben: 
 \begin{eqnarray*}
 \wedge & \coloneqq & \left\{ 0\right\} \times\mathbb{N}\\
 \vee & \coloneqq & \mathbb{N}\times\left(\mathbb{N}\backslash\left\{ 0\right\} \right)\\
-\mathrm{MAJ} & \coloneqq & \left\{ \left(m,n\right)\in\mathbb{N}\times\mathbb{N}\mid m\leqslant n\right\} \\
-\mathrm{XOR} & \coloneqq & \mathbb{N}\times\left(\mathbb{N}\backslash2\mathbb{N}\right)
+\mathtt{MAJ} & \coloneqq & \left\{ \left(m,n\right)\in\mathbb{N}\times\mathbb{N}\mid m\leqslant n\right\} \\
+\mathtt{XOR} & \coloneqq & \mathbb{N}\times\left(\mathbb{N}\backslash2\mathbb{N}\right)
 \end{eqnarray*}
 
 
 Im folgenden stehe $\mathbb{B}_{\mathrm{std}}\coloneqq\left\{ \wedge,\vee\right\} $
-für die Basis mit boolescher Konjunktion und Disjunktion.
+für die Basis mit boolescher Konjunktion und Disjunktion, und $\mathbb{B}_{\mathrm{maj}}\coloneqq\left\{ \wedge,\vee,\mathtt{MAJ}\right\} $
+für die Basis mit Konjunktion, Disjunktion und Majority.
 \end{defn}
 
 \begin{defn}
@@ -1396,8 +1554,8 @@ $\mathrm{SBC}$ und $\mathrm{SBC+\mathbf{MAJ}}$\end{defn}
 \item Sei $\mathrm{SBC}$ die Klasse aller \textbf{symmetrischen $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilien}.
 \item Sei $\mathrm{SBC}+\mathbf{MAJ}$ die Klasse aller \textbf{symmetrischen
 $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilien}.
-(Zur Erinnerung: $\mathbb{B}_{\mathrm{maj}}=\mathbb{B}_{\mathrm{std}}\uplus\left\{ \mathrm{MAJ}\right\} $,
-wobei $\mathrm{MAJ}$ die Majority-Funktion ist.)
+(Zur Erinnerung: $\mathbb{B}_{\mathrm{maj}}=\mathbb{B}_{\mathrm{std}}\uplus\left\{ \mathtt{MAJ}\right\} $,
+wobei $\mathtt{MAJ}$ der Majority-Operator ist.)
 \end{itemize}
 
 \begin{defn}
@@ -1452,7 +1610,7 @@ $\mathrm{poly}\left(n\right)$-großen Schaltkreisfamilien.
 \section{Von Formeln zu Schaltkreisen}
 
 
-\subsection{FO-Logik}
+\subsection{Logik erster Stufe}
 
 Die Formeln der Logik erster Stufe sind durch symmetrische, $P$-uniforme
 $\mathrm{AC}^{0}$-Schaltkreise berechenbar:
@@ -1490,7 +1648,7 @@ Für jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\begin{ar
 \Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}
 \end{eqnarray*}
 
-\item [{Korrektheit:}] Es gilt 
+\item [{Korrektheit:}] 
 \[
 \begin{array}{ccccc}
 \left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1 & \overset{\mathrm{def}}{\Leftrightarrow} & \bar{t}\in R^{\mathfrak{A}} & \overset{\mathrm{def}}{\Leftrightarrow} & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=1\end{array}
@@ -1522,7 +1680,7 @@ Für jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\begin{ar
 \Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}
 \end{eqnarray*}
 
-\item [{Korrektheit:}] Es gilt 
+\item [{Korrektheit:}] 
 \[
 \begin{array}{ccccc}
 \left\llbracket y_{1}\dot{=}y_{2}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1 & \overset{\mathrm{def}}{\Leftrightarrow} & \beta_{\bar{t}}y_{1}=\beta_{\bar{t}}y_{2} & \overset{\mathrm{def}}{\Leftrightarrow} & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=1\end{array}
@@ -1629,7 +1787,7 @@ W_{\neg} & \coloneqq & \left\{ \left(\Omega'\left(\bar{t}\right),g_{\bar{t}}\rig
 \Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}
 \end{eqnarray*}
 
-\item [{Korrektheit:}] Es gilt 
+\item [{Korrektheit:}] 
 \begin{eqnarray*}
 \left\llbracket \neg\psi\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & 1-\left\llbracket \psi\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\\
  & = & 1-\mathcal{C}_{n}^{\psi}\left[\mathfrak{A}\right]\left(\Omega'\left(\bar{t}\right)\right)\\
@@ -1693,7 +1851,7 @@ W_{\vee} & \coloneqq & \left\{ \left(c_{\bar{t}},e_{\bar{t}}\right),\,\left(d_{\
 \Omega\left(\bar{t}\right)=e_{\bar{t}}
 \]
 
-\item [{Korrektheit:}] Es gilt: 
+\item [{Korrektheit:}] 
 \begin{eqnarray*}
 \left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \left\llbracket \left(\varphi_{1}\wedge\varphi_{2}\right)\vee\left(\neg\varphi_{1}\wedge\neg\varphi_{2}\right)\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\\
  & = & \max\left(\begin{array}{c}
@@ -1832,7 +1990,9 @@ berechnet wird.
 Sei $\varphi$ eine $k$-stellige $\mathrm{FO}+\mathbf{ORD}\left[\sigma\right]$-Formel,
 und $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$.
 Diese wird auf der disjunkt vereinigten $\left(\sigma\cup\left\{ \leqslant\right\} \right)$-Struktur
-$\mathfrak{A}\uplus\Upsilon\left(n\right)$ ausgewertet, wobei $\Upsilon\left(n\right)\coloneqq\left(\left[0,n\right],\leqslant\right)$.
+$\mathfrak{A}\uplus\Upsilon\left(n\right)$ ausgewertet, wobei $\Upsilon\left(n\right)=\left(\left[0,n\right],\leqslant\right)$
+die einzige Struktur in $\mathbf{FIN}_{\leqslant}^{\left[0,n\right]}\left(\emptyset\right)$
+ist.
 
 Der Schaltkreis $\mathcal{C}_{n}$ wird aber auf einer $\sigma$-Struktur
 $\mathfrak{A}'\coloneqq\pi\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$
@@ -1840,36 +2000,33 @@ mit dem Universum $U=\left[1,n\right]$ ausgewertet.
 
 Vor der Konstruktion muss daher sichergestellt werden, dass das Universum
 von $\mathfrak{A}'$ disjunkt von dem Universum der Orakelstruktur
-$\Upsilon\left(n\right)$ ist! Daher wird das Universum $\left[0,n\right]$
+$\Upsilon\left(n\right)$ ist. Dazu wird das Universum $\left[0,n\right]$
 von $\Upsilon\left(n\right)$ durch eine Umbenennung nach $\left[n+1,2n+1\right]$
 ,,verschoben``:
 \begin{eqnarray*}
 \Upsilon'\left(n\right) & \coloneqq & \rho\Upsilon\left(n\right)\\
-\rho & \coloneqq & \left(\begin{array}{c}
-0\\
-n+1
-\end{array}\cdots\begin{array}{c}
-n\\
-2n+1
-\end{array}\right)
+\rho & : & \left[0,n\right]\rightarrow\left[n+1,2n+1\right]\\
+\rho\left(i\right) & \coloneqq & i+n+1
 \end{eqnarray*}
 
 
-Nun ist $\mathfrak{A}'\uplus\Upsilon'\left(n\right)\in\mathbf{FIN}^{\left[1,2n+1\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)$
+Nun betrachten wir die disjunkte Vereinigung $\mathfrak{A}'\uplus\Upsilon'\left(n\right)\in\mathbf{FIN}^{\left[1,2n+1\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)$
 (wobei die Ordnung $\leqslant$ weiterhin nur auf $\left[n+1,2n+1\right]$
 definiert ist).
 
 Weil $\Upsilon\left(n\right)\cong\Upsilon'\left(n\right)$ und $\mathfrak{A}\cong\mathfrak{A}'$,
-gilt auch $\mathfrak{A}\uplus\Upsilon\left(n\right)\cong\mathfrak{A}'\uplus\Upsilon'\left(n\right)$.
-Daher gilt: 
+gilt auch $\mathfrak{A}\uplus\Upsilon\left(n\right)\cong\mathfrak{A}'\uplus\Upsilon'\left(n\right)$
+(die Isomorphie ist unter disjunkter Vereinigung abgeschlossen). Also
+gilt: 
 \[
 \left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\uplus\Upsilon\left(n\right)\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}'\uplus\Upsilon'\left(n\right)\right)
 \]
-.
+
 
 Wir konstruieren nun zunächst einen $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
 $\mathcal{C}_{2n+1}^{\varphi}$ über $U'=\left[1,2n+1\right]$ entsprechend
-dem vorhergehenden Beweis für $\mathrm{FO}$. Dieser hat offensichtlich
+dem vorhergehenden Beweis für $\mathrm{FO}$. Dieser arbeitet korrekt
+auf $\mathfrak{A}'\uplus\Upsilon'\left(n\right)$ und hat offensichtlich
 die geforderte Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$.
 
 Anschließend konstruieren wir daraus den $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
@@ -1880,7 +2037,8 @@ $\dot{\Sigma}\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
 ersetzt werden, und die Ausgangsfunktion auf $\dot{\Omega}=\Omega_{\mid\dot{U}}$
 reduziert wird.
 \begin{casenv}
-\item Für $\Sigma\left(g\right)=R\bar{t}$ mit $R\in\sigma$ gilt:
+\item Für $\Sigma\left(g\right)=R\bar{t}$ mit $R\in\sigma$ werden die
+,,überschüssigen`` Inputs einfach auf $\mathbf{0}$ gesetzt:
 \begin{eqnarray*}
 \dot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
 R\bar{t} & \mathrm{falls}\,\bar{t}\in U^{k}\\
@@ -1888,7 +2046,8 @@ R\bar{t} & \mathrm{falls}\,\bar{t}\in U^{k}\\
 \end{cases}
 \end{eqnarray*}
 
-\item Für $\Sigma\left(g\right)=t_{1}\dot{\leqslant}t_{2}$ gilt:
+\item Für $\Sigma\left(g\right)=t_{1}\dot{\leqslant}t_{2}$ wird das Ordnungsprädikat
+fest in den Schaltkreis eingebaut:
 \begin{eqnarray*}
 \dot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
 \mathbf{1} & \mathrm{falls}\,t_{1},t_{2}\in\left[n+1,2n+1\right],\,t_{1}\leqslant t_{2}\\
@@ -1951,281 +2110,180 @@ $q$ berechnet.
 \pagebreak{}
 
 
-\subsection{Zählterme}
+\subsection{Zählquantoren}
 
 Wir betrachten die Logik $\mathrm{FO}+C$, und weisen nach, dass die
 vorhergehende Konstruktion aus Lemma \ref{lem:fo-ord} angepasst werden
 kann, indem Majority-Gates hinzugefügt werden.
 \begin{lem}
-\label{lem:fo-c}Jede $\left(\mathrm{FO}+C\right)\left[\sigma\right]$-Formel
+\label{lem:fo-c}Jede $\left(\mathrm{FO}+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
 $P$-uniformen $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
 $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ mit konstanter Tiefe
 $T_{n}\leqslant3\left\Vert \varphi\right\Vert $ und polynomieller
-Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+1}$
+Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$
 berechnet wird.
 \end{lem}
 (Dieses Lemma bildet die erste Hälfte von Theorem \ref{thm:5.6:fo-c}.)
 \begin{proof}
-Zunächst wird die Formel $\varphi$ in eine Normalform $\hat{\varphi}$
-gebracht, in der jeder Zählterm in einer Teilformel der Form $x\leqslant\#y\psi$
-oder $\#y\psi\leqslant x$ oder $x=\#y\psi$ steht.
+Für eine $k$-stellige $\left(\mathrm{FO}+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
+$\varphi$ konstruieren wir den $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreis
+$\mathcal{C}_{2n+1}^{\varphi}$ über dem Universum $U'\coloneqq\left[1,2n+1\right]=\left[1,n\right]\uplus\rho\left[0,n\right]$
+nach dem gleichen Schema wie in Lemma \ref{lem:fo-ord}, wobei ein
+neuer Fall hinzukommt.
 
-Wir betrachten für diese Konstruktion nur die ,,pseudo-atomaren``
-$k$-stelligen Formeln $\varphi$ der Form $R\bar{x}$, $x_{1}\dot{=}x_{2}$
-oder $x_{1}\dot{\leqslant}x_{2}$, wobei $\bar{x}$ mindestens einen
-Zählterm der Form $\#y\psi$ enthält.
-\begin{casenv}
-\item Falls $\varphi=R\bar{x}$ mit $R/m\in\sigma$, und $\bar{x}$ enthält
-mindestens einen Zählterm $\#y\psi$, so ist die Formel offensichtlich
-unerfüllbar, da $\left\llbracket \#y\psi\right\rrbracket \left(\mathfrak{A},\beta\right)\notin A$
-und $R^{\mathfrak{A}}\subseteq A^{m}$. Wir ersetzen $\varphi$ durch
-einen trivialen Satz $\hat{\varphi}\coloneqq\neg\exists x\,x\dot{=}x$
-ohne Zählterme.
-\item Falls $\varphi=x_{1}\dot{\leqslant}x_{2}$:
-
-\begin{casenv}
-\item Falls $x_{1}\in\mathbf{var}$ oder $x_{2}\in\mathbf{var}$, so liegt
-bereits die Normalform vor.
-\item Falls $x_{1}=\#y_{1}\psi_{1}$ und $x_{2}=\#y_{2}\psi_{2}$, so sei
-$z\in\mathbf{var}\backslash\mathrm{frei}\left(\varphi\right)$ eine
-neue Variable:
+(Zur Erinnerung: $\rho:\left[0,n\right]\rightarrow\left[n+1,2n+1\right]$
+ist die Verschiebung des Universums von $\Upsilon\left(n\right)$.)
+\begin{description}
+\item [{Schaltkreis:}] $\varphi\left(\bar{x}\right)=\exists^{\geqslant x_{i}}y_{j}\psi\left(\bar{y}\right)$,
+so sei $\mathcal{C}_{2n+1}^{\psi}$ der $k$-stellige Schaltkreis
+für die Formel $\psi$:
 \begin{eqnarray*}
-\hat{\varphi} & \coloneqq & \exists z\left(\#y_{1}\hat{\psi_{1}}\dot{\leqslant}z\,\wedge\,z\dot{\leqslant}\#y_{2}\hat{\psi_{2}}\right)
+\mathcal{C}_{2n+1}^{\psi} & = & \left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U'\right)\\
+\mathcal{C}_{2n+1}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U'\right)
 \end{eqnarray*}
-
-\end{casenv}
-\item Falls $\varphi=x_{1}\dot{=}x_{2}$:
-
-\begin{casenv}
-\item Falls $x_{1}\in\mathbf{var}$, so liegt bereits die Normalform vor.
-\item Falls $x_{2}\in\mathbf{var}$, so sei $\hat{\varphi}\coloneqq x_{2}\dot{=}x_{1}$.
-\item Falls $x_{1}=\#y_{1}\psi_{1}$ und $x_{2}=\#y_{2}\psi_{2}$, so sei
-$z\in\mathbf{var}\backslash\mathrm{frei}\left(\varphi\right)$ eine
-neue Variable:
+Es wird für jedes Tupel $\bar{t}\in U'^{k}$ ein neuer Output $g_{\bar{t}}$
+eingefügt; ferner werden $2n$ Konstanten eingefügt: 
 \begin{eqnarray*}
-\hat{\varphi} & \coloneqq & \exists z\left(z\dot{=}y_{1}\hat{\psi_{1}}\,\wedge\,z\dot{=}\#y_{2}\hat{\psi_{2}}\right)
+G & = & G_{\psi}\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U'^{k}\right\} \uplus\left\{ 0_{j},1_{j}\mid1\leqslant j\leqslant n\right\} \\
+W & = & W_{\psi}\uplus W_{\mathrm{maj}}\uplus_{\mathrm{pad}}
 \end{eqnarray*}
-
-\end{casenv}
-\end{casenv}
-Hierbei wird $\mathtt{M}\left(\varphi\right)$ um maximal $1$ vergrößert,
-denn die neue Variable wird sofort wieder gebunden:
-\begin{eqnarray*}
-\mathtt{MF}\left(\hat{\varphi}\right) & = & \max\left(\mathtt{MF}\left(\psi_{1}\right),\mathtt{MF}\left(\psi_{2}\right),1+\left|\mathrm{frei}\left(\#y_{1}\psi_{1}\right)\cup\mathrm{frei}\left(\#y_{1}\psi_{1}\right)\right|\right)\\
- & = & \max\left(\mathtt{MF}\left(\psi_{1}\right),\mathtt{MF}\left(\psi_{2}\right),1+\mathrm{ar}\left(\#y_{1}\psi_{1}=\#y_{1}\psi_{2}\right)\right)\\
- & \leqslant & 1+\mathtt{MF}\left(\varphi\right)
-\end{eqnarray*}
-
-
-Nun wird der Schaltkreis $\dot{\mathcal{C}_{2n+1}^{\varphi}}$ über
-dem Universum $\dot{U}\coloneqq\ddot{U}\uplus N$ (mit $\ddot{U}=\left\{ 1,\cdots,n\right\} $,
-$N=\left\{ \dot{0},\cdots,\dot{n}\right\} $) erzeugt, in dem die
-folgenden neuen Konstruktionsschritte hinzukommen:
-\begin{casenv}
-\item Falls $\varphi\left(\bar{x}\right)=x_{i}\dot{\leqslant}\#y_{j}\psi\left(\bar{y}\right)$,
-so wird der Schaltkreis $\mathcal{C}_{2n+1}^{\psi}$ wie folgt erweitert:
-\begin{eqnarray*}
-\dot{\mathcal{C}_{2n+1}^{\psi}} & = & \left(G',W',\Sigma',\Omega',\dot{U}\right)\\
-\dot{\mathcal{C}_{2n+1}^{\varphi}} & = & \left(G,W,\Sigma,\Omega,\dot{U}\right)
-\end{eqnarray*}
- 
-\begin{eqnarray*}
-G & = & G'\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in\dot{U}^{k}\right\} \uplus\left\{ 0_{i},1_{i}\mid1\leqslant i\leqslant n\right\} \\
-W & = & W'\uplus W_{\mathrm{maj}}\uplus_{\mathrm{pad}}
-\end{eqnarray*}
+Die neuen Outputs werden mit $\mathtt{MAJ}$ markiert, falls $t_{i}$
+(der Wert der Variable $x_{i}$) einer der numerischen Werte (im Bereich
+$\rho\left[0,n\right]=\left[n+1,2n+1\right]$) ist, und sonst mit
+$\mathbf{0}$. 
 \[
 \begin{array}{ccc}
-\Sigma\left(0_{i}\right)=\mathbf{0}, & \Sigma\left(0_{i}\right)=\mathbf{1}, & \Sigma\left(g_{\bar{t}}\right)=\begin{cases}
-\mathrm{MAJ} & \mathrm{falls}\,t_{i}\in N\\
+\Sigma\left(0_{j}\right)=\mathbf{0}, & \Sigma\left(0_{j}\right)=\mathbf{1}, & \Sigma\left(g_{\bar{t}}\right)=\begin{cases}
+\mathtt{MAJ} & \mathrm{falls}\,t_{i}\in\rho\left[0,n\right]\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}\end{array}
 \]
 \[
 \Omega\left(\bar{t}\right)=g_{\bar{t}}
 \]
-
-
-
-Das Majority-Gate $g_{\bar{t}}$ soll den Wert $\left\llbracket y\leqslant\#_{z}\psi\right\rrbracket \left(\mathfrak{A},\bar{t}\right)$
-berechnen. Dazu wird es zunächst mit den entsprechenden Ausgängen
-von $\mathcal{C}_{2n+1}^{\psi}$ verknüpft. Seien $\rho_{1},\rho_{2}:U^{k}\rightarrow U^{k-1}$
-die folgenden Abbildungen, die die Variable $x_{i}$ aus $\bar{x}$
-beziehungsweise $y_{j}$ aus $\bar{y}$ entfernen:
+Seien $\tau_{1},\tau_{2}:U^{k}\rightarrow U^{k-1}$ die folgenden
+Abbildungen, die den Wert $t_{i}$ aus $\bar{t}$ beziehungsweise
+$u_{j}$ aus $\bar{u}$ entfernen:
 \begin{eqnarray*}
-\rho_{1}\left(t_{1},\cdots,t_{k}\right) & = & \left(t_{1},\cdots t_{i-1},t_{i+1},\cdots,t_{k}\right)\\
-\rho_{2}\left(t_{1},\cdots,t_{k}\right) & = & \left(t_{1},\cdots t_{j-1},t_{j+1},\cdots,t_{k}\right)
+\tau_{1}\left(t_{1},\cdots,t_{k}\right) & = & \left(t_{1},\cdots t_{i-1},t_{i+1},\cdots,t_{k}\right)\\
+\tau_{2}\left(t_{1},\cdots,t_{k}\right) & = & \left(t_{1},\cdots t_{j-1},t_{j+1},\cdots,t_{k}\right)
 \end{eqnarray*}
+Es gilt also $\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right)$
+genau dann wenn $\bar{t}$ und $\bar{u}$ in den gemeinsamen freien
+Variablen von $\varphi$ und $\psi$ übereinstimmen. Das Majority-Gate
+$g_{\bar{t}}$ soll prüfen, ob $t_{i}\leqslant\rho f\left(\tau_{1}\left(\bar{t}\right)\right)$,
+wobei $f:U^{k-1}\rightarrow\left[0,n\right]$ die Anzahl der $\psi$
+erfüllenden Belegungen von $y_{j}$ bei der Belegung der übrigen freien
+Variablen mit $\tau_{1}\left(\bar{t}\right)$ sei: 
+\begin{eqnarray*}
+f\left(\bar{t'}\right) & \coloneqq & \left|\left\{ u_{j}\in\left[1,n\right]\mid\mathrm{es\,existiert\,}\bar{u}\in q_{\mathcal{C}_{2n+1}^{\psi}}\left(\mathfrak{A}\uplus\rho\Upsilon\left(n\right)\right),\,\tau_{2}\left(\bar{u}\right)=\bar{t'}\right\} \right|
+\end{eqnarray*}
+Dazu wird jedes Gate $g_{\bar{t}}$ mit $t_{i}\in\left[n+1,2n+1\right]$
+zunächst mit den entsprechenden Outputs von $\mathcal{C}_{2n+1}^{\psi}$
+verknüpft: 
 \[
-W_{\mathrm{maj}}=\left\{ \left(\Omega\left(\bar{u}\right),g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in\dot{U}^{k},\,\rho_{1}\left(\bar{t}\right)=\rho_{2}\left(\bar{u}\right)\right\} 
+W_{\mathrm{maj}}=\left\{ \left(\Omega_{\psi}\left(\bar{u}\right),g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in U'^{k},\,\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right),\,u_{j}\in\left[1,n\right]\right\} 
 \]
-
-
-
-Momentan berechnet jedes Gate $g_{\bar{t}}$, ob $2\left\llbracket \#_{z}\psi\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\geqslant n$.
-Es soll aber berechnen, ob $\left\llbracket \#z_{i}\psi\right\rrbracket \geqslant\beta_{\bar{t}}x_{i}=t_{i}$.
-
-
+Momentan hat es genau $n$ Eingänge (für jeden Wert $u_{j}\in\left[1,n\right]$).
+Daher gibt es $1$ aus, wenn $f\left(\bar{t}\right)\geqslant\frac{n}{2}$.
+Es soll aber berechnen, ob $f\left(\bar{t}\right)\geqslant\rho^{-1}t_{i}$.
 Dazu fügen wir die Kanten $W_{\mathrm{pad}}$ ein, um die Eingänge
 der Majority-Gates mit Konstanten aufzufüllen. Ein Majority-Gate mit
-$k$ zusätzlichen $\mathbf{0}$-Eingängen berechnet $2\left\llbracket \#z_{i}\psi\right\rrbracket \geqslant n+k$,
-eines mit $k$ neuen $\mathbf{1}$-Eingängen berechnet $2\left\llbracket \#z_{i}\psi\right\rrbracket +2k\geqslant n+k$.
-
-
-Daher muss jedes Gate $g_{\bar{t}}$ entweder $2t_{i}-n$ $\mathbf{0}$-Eingänge
-oder $n-2t_{i}$ $\mathbf{1}$-Eingänge erhalten:
+$k$ zusätzlichen $\mathbf{0}$-Eingängen entscheidet $f\left(\bar{t}\right)\geqslant\frac{n+k}{2}$,
+eines mit $k'$ zusätzlichen $\mathbf{1}$-Eingängen berechnet $f\left(\bar{t}\right)\geqslant\frac{n-k'}{2}$.
+Es folgt:
 \begin{eqnarray*}
-W_{\mathrm{pad}} & = & \left\{ \left(0_{i},g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant2t_{i}-n\right\} \\
- & \cup & \left\{ \left(1_{i},g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant n-2t_{i}\right\} 
+\rho^{-1}t_{i} & \in & \left\{ \frac{n+k}{2},\frac{n-k'}{2}\right\} \\
+k=2\rho^{-1}t_{i}-n & \mbox{oder} & k'=n-2\rho^{-1}t_{i}
+\end{eqnarray*}
+Jedes Majority-Gate $g_{\bar{t}}$ muss entweder $k=2\rho^{-1}t_{i}-n$
+$\mathbf{0}$-Eingänge oder $k'=n-2\rho^{-1}t_{i}$ $\mathbf{1}$-Eingänge
+erhalten:
+\begin{eqnarray*}
+W_{\mathrm{pad}} & = & \left\{ \left(0_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{k},\,t_{i}\in\left[n+1,2n+1\right],\,1\leqslant j\leqslant2t_{i}-3n-2\right\} \\
+ & \cup & \left\{ \left(1_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{k},\,t_{i}\in\left[n+1,2n+1\right],\,1\leqslant j\leqslant3n+2-2t_{i}\right\} 
 \end{eqnarray*}
 \begin{eqnarray*}
-\overset{n+k=2t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{k=2t_{i}-n}{\underbrace{\mathbf{0}\mathbf{0}\cdots\mathbf{0}}}}} &  & \overset{n+k=2n-2t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{k=n-2t_{i}}{\underbrace{\mathbf{1}\mathbf{1}\cdots\mathbf{1}}}}}
-\end{eqnarray*}
-
-
-\item Falls $\varphi\left(\bar{x}\right)=\#y_{j}\psi\left(\bar{y}\right)\leqslant x_{i}$,
-so muss der Schaltkreis die Anzahl der \emph{nicht} erfüllenden Belegungen
-von $y_{j}$ zählen. 
-\begin{eqnarray*}
-\dot{\mathcal{C}_{2n+1}^{\psi}} & = & \left(G',W',\Sigma',\Omega',\dot{U}\right)\\
-\dot{\mathcal{C}_{2n+1}^{\varphi}} & = & \left(G,W,\Sigma,\Omega,\dot{U}\right)
-\end{eqnarray*}
-\begin{eqnarray*}
-G & = & G'\uplus\left\{ g_{\bar{t}},h_{\bar{t}}\mid\bar{t}\in\dot{U}^{k}\right\} \uplus\left\{ 0_{i},1_{i}\mid1\leqslant i\leqslant n\right\} \\
-W & = & W'\uplus W_{\mathrm{neg}}\uplus W_{\mathrm{maj}}\uplus_{\mathrm{pad}}
-\end{eqnarray*}
-\[
-\begin{array}{cccc}
-\Sigma\left(0_{i}\right)=\mathbf{0}, & \Sigma\left(0_{i}\right)=\mathbf{1}, & \Sigma\left(h_{\bar{t}}\right)=\neg, & \Sigma\left(g_{\bar{t}}\right)=\begin{cases}
-\mathrm{MAJ} & \mathrm{falls}\,t_{i}\in N\\
-\mathbf{0} & \mathrm{sonst}
-\end{cases}\end{array}
-\]
-\[
-\Omega\left(\bar{t}\right)=g_{\bar{t}}
-\]
-Zuerst wird die Formel $\psi$ für jede Belegung negiert:
-\[
-W_{\mathrm{neg}}=\left\{ \left(\Omega'\left(\bar{t}\right),h_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k}\right\} 
-\]
-Dann werden die Majority-Gates wie in Fall 1 verknüpft:
-\begin{eqnarray*}
-\rho_{1}\left(t_{1},\cdots,t_{k}\right) & = & \left(t_{1},\cdots t_{i-1},t_{i+1},\cdots,t_{k}\right)\\
-\rho_{2}\left(t_{1},\cdots,t_{k}\right) & = & \left(t_{1},\cdots t_{j-1},t_{j+1},\cdots,t_{k}\right)
-\end{eqnarray*}
-\[
-W_{\mathrm{maj}}=\left\{ \left(h_{\bar{u}},g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in\dot{U}^{k},\,\rho_{1}\left(\bar{t}\right)=\rho_{2}\left(\bar{u}\right)\right\} 
-\]
-Schließlich werden die $\mathbf{0}/\mathbf{1}$-Eingänge eingefügt.
-Hierbei ist zu beachten, dass $\left\llbracket \#z_{j}\psi\right\rrbracket \left(\mathfrak{A},\beta\right)\leqslant\beta_{\bar{t}}x_{i}=t_{i}$
-genau dann wenn $\left\llbracket \#z_{j}\neg\psi\right\rrbracket \left(\mathfrak{A},\beta\right)\geqslant n-t_{i}$.
-Entsprechend braucht das Gate $g_{\bar{t}}$ genau $n-2t_{i}$ $\mathbf{1}$-Eingänge
-oder $2t_{i}-n$ $\mathbf{0}$-Eingänge:
-\begin{eqnarray*}
-W_{\mathrm{pad}} & = & \left\{ \left(1_{i},g_{\bar{t}}\right)\mid\bar{t}\in U^{k},1\leqslant i\leqslant2t_{i}-n\right\} \\
- & \cup & \left\{ \left(0_{i},g_{\bar{t}}\right)\mid\bar{t}\in U^{k},1\leqslant i\leqslant n-2t_{i}\right\} 
-\end{eqnarray*}
- 
-\begin{eqnarray*}
-\overset{2t_{i}}{\overbrace{\overline{x_{1}}\cdots\overline{x_{n}}\underset{2t_{i}-n}{\underbrace{\mathbf{1}\mathbf{1}\cdots\mathbf{1}}}}} &  & \overset{2n-2t_{i}}{\overbrace{\overline{x_{1}}\cdots\overline{x_{n}}\underset{n-2t_{i}}{\underbrace{\mathbf{0}\mathbf{0}\cdots\mathbf{0}}}}}
+\overset{n+k=2\rho^{-1}t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{k=2\rho^{-1}t_{i}-n}{\underbrace{\mathbf{0}\mathbf{0}\cdots\mathbf{0}}}}} &  & \overset{n+k'=2n-2\rho^{-1}t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{k'=n-2\rho^{-1}t_{i}}{\underbrace{\mathbf{1}\mathbf{1}\cdots\mathbf{1}}}}}
 \end{eqnarray*}
 
-\item Falls $\varphi\left(\bar{x}\right)=x_{i}\dot{=}\#y_{j}\psi$, so kombinieren
-wir die beiden Konstruktionsschritte:
+\item [{Symmetrie:}] Der neue Schaltkreis ist offensichtlich nicht symmetrisch
+bezüglich $\mathrm{Sym}_{U'}$, denn die Anzahl der konstanten Vorgänger
+von $g_{\bar{t}}$ hängt von dem Wert $t_{i}$ ab. Allerdings ist
+er symmetrisch bezüglich der Permutationen, die die Werte in $\left[n+1,2n+1\right]$
+fixieren. (Da die Induktion in Lemma \ref{lem:FO-Circuit} für eine
+beliebige Permutation $\pi$ gilt, funktioniert sie auch für diesen
+Spezialfall.)
+
+
+Sei $\pi\in\mathrm{Sym}_{U}$ beliebig, und $\pi'\coloneqq\pi\cup\mathbf{id}_{\left[n+1,2n+1\right]}$
+deren Erweiterung auf $U'$. Nun erweitern wir den Automorphismus
+$\hat{\pi}$ von $\mathcal{C}_{2n+1}^{\psi}$ wie folgt: 
 \begin{eqnarray*}
-\dot{\mathcal{C}_{2n+1}^{\psi}} & = & \left(G',W',\Sigma',\Omega',\dot{U}\right)\\
-\dot{\mathcal{C}_{2n+1}^{\varphi}} & = & \left(G,W,\Sigma,\Omega,\dot{U}\right)
+\hat{\pi}\left(0_{i}\right) & \coloneqq & 0_{i}\\
+\hat{\pi}\left(1_{i}\right) & \coloneqq & 1_{i}\\
+\hat{\pi}\left(g_{\bar{t}}\right) & \coloneqq & g_{\pi'\bar{t}}
 \end{eqnarray*}
+
+\begin{enumerate}
+\item Nun gilt für $W_{\mathrm{maj}}$:
 \begin{eqnarray*}
-G & = & G'\uplus\left\{ f_{\bar{t}},g_{\bar{t}},g_{\bar{t}}',h_{\bar{t}}\mid\bar{t}\in\dot{U}^{k}\right\} \uplus\left\{ 0_{i},1_{i}\mid1\leqslant i\leqslant n\right\} \\
-W & = & W'\uplus W_{\mathrm{neg}}\uplus W_{\mathrm{maj}}\uplus W_{\mathrm{pad}}\uplus W_{\mathrm{and}}
+\hat{\pi}W_{\mathrm{maj}} & = & \left\{ \left(\hat{\pi}\Omega_{\psi}\left(\bar{u}\right),\hat{\pi}g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in U'^{k},\,\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right),\,u_{j}\in\left[1,n\right]\right\} \\
+ & \overset{\mathrm{ind.}}{=} & \left\{ \left(\Omega_{\psi}\left(\pi'\bar{u}\right),\hat{\pi}g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in U'^{k},\,\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right),\,u_{j}\in\left[1,n\right]\right\} \\
+ & \overset{\mathrm{def.}}{=} & \left\{ \left(\Omega_{\psi}\left(\pi'\bar{u}\right),g_{\pi'\bar{t}}\right)\mid\bar{t},\bar{u}\in U'^{k},\,\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right),\,u_{j}\in\left[1,n\right]\right\} 
 \end{eqnarray*}
-\[
-\begin{array}{ccc}
-\Sigma\left(0_{i}\right)=\mathbf{0}, & \Sigma\left(f_{\bar{t}}\right)=\wedge, & \Sigma\left(g_{\bar{t}}\right),\Sigma\left(g_{\bar{t}}'\right)=\begin{cases}
-\mathrm{MAJ} & \mathrm{falls}\,t_{i}\in N\\
+und (weil $\pi'u_{j}\in\left[1,n\right]$ ist, und $\tau_{1},\tau_{2}$
+Homomorphismen sind):
+\begin{eqnarray*}
+ & = & \left\{ \left(\Omega_{\psi}\left(\pi'\bar{u}\right),g_{\pi'\bar{t}}\right)\mid\bar{t},\bar{u}\in U'^{k},\,\tau_{1}\left(\pi'\bar{t}\right)=\tau_{2}\left(\pi\bar{u}\right),\,\pi'u_{j}\in\left[1,n\right]\right\} \\
+ & = & W_{\mathrm{maj}}
+\end{eqnarray*}
+
+\item Für jede Kante $\left(0_{j},g_{\bar{t}}\right)\in W_{\mathrm{pad}}$
+(mit $\bar{t}\in U'^{k}$ und $t_{i}\in\left[n+1,2n+1\right]$, und
+$j\in\left[1,2t_{i}-3n-2\right]$):
+\begin{eqnarray*}
+\left(\hat{\pi}0_{j},\hat{\pi}g_{\bar{t}}\right) & = & \left(0_{j},g_{\pi'\bar{t}}\right)
+\end{eqnarray*}
+Und weil $\pi't_{i}=t_{i}$, gilt immer noch $j\in\left[1,2\pi't_{i}-3n-2\right]$,
+und daher $\left(\hat{\pi}0_{j},\hat{\pi}g_{\bar{t}}\right)\in W_{\mathrm{pad}}$.
+Das gleiche gilt analog für die Kanten $\left(\hat{\pi}1_{j},\hat{\pi}g_{\bar{t}}\right)$.
+\item Für $\Sigma$:
+\begin{eqnarray*}
+\Sigma\left(\hat{\pi}0_{j}\right) & = & \Sigma\left(0_{j}\right)\\
+\Sigma\left(\hat{\pi}1_{j}\right) & = & \Sigma\left(1_{j}\right)\\
+\Sigma\left(\hat{\pi}g_{\bar{t}}\right) & = & \Sigma\left(g_{\pi'\bar{t}}\right)\\
+ & = & \begin{cases}
+\mathtt{MAJ} & \mathrm{falls}\,\pi't_{i}\in\left[n+1,2n+1\right]\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}\\
-\Sigma\left(0_{i}\right)=\mathbf{1} & \Sigma\left(h_{\bar{t}}\right)=\neg
-\end{array}
-\]
-\[
-\Omega\left(\bar{t}\right)=f_{\bar{t}}
-\]
-\begin{eqnarray*}
-W_{\mathrm{neg}} & = & \left\{ \left(\Omega'\left(\bar{t}\right),h_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k}\right\} \\
-W_{\mathrm{maj}} & = & \left\{ \left(\Omega\left(\bar{u}\right),g_{\bar{t}}\right),\left(h_{\bar{u}},g_{\bar{t}}'\right)\mid\bar{t},\bar{u}\in\dot{U}^{k},\,\rho_{1}\left(\bar{t}\right)=\rho_{2}\left(\bar{u}\right)\right\} \\
-W_{\mathrm{pad}} & = & \left\{ \left(0_{i},g_{\bar{t}}\right),\left(1_{i},g_{\bar{t}}'\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant2t_{i}-n\right\} \\
- & \cup & \left\{ \left(1_{i},g_{\bar{t}}\right),\left(0_{i},g_{\bar{t}}'\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant n-2t_{i}\right\} \\
-W_{\mathrm{and}} & = & \left\{ \left(g_{\bar{t}},f_{\bar{t}}\right),\left(g_{\bar{t}}',f_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k}\right\} 
+ & = & \Sigma\left(g_{\bar{t}}\right)
 \end{eqnarray*}
 
-\end{casenv}
+\item Für $\Omega$ ist $\hat{\pi}\Omega\left(\bar{t}\right)=\hat{\pi}g_{\bar{t}}=g_{\pi'\bar{t}}=\Omega\left(\pi'\bar{t}\right)$
+per Definition gegeben.
+\end{enumerate}
+\end{description}
 Der so erzeugte Schaltkreis hat weiterhin konstante Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $,
-denn die neuen Konstruktionsschritte vergrößern die Tiefe um maximal
-$3$ Kanten (in Fall 3). Weiterhin hat er die Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+1}$,
-denn die neuen Schritte fügen höchstens 
+denn der neue Schritt vergrößert die Tiefe nur um eine Kante. Weiterhin
+hat er die Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$,
+denn der neue Schritt fügt höchstens 
 \[
-4\left(2n+1\right)^{\mathtt{M}\left(\hat{\varphi}\right)}+2n<5\left(2n+1\right)^{\mathtt{M}\left(\hat{\varphi}\right)}\leqslant5\left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+1}
+\left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}+2n<5\left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}
 \]
 neue Gates hinzu.
 
-Nach der Erzeugung von $\dot{\mathcal{C}_{2n+1}^{\varphi}}$ wird
-der Schaltkreis auf die bereits beschriebene Weise zu $\ddot{\mathcal{C}_{n}^{\varphi}}$
-umgewandelt. (Die neuen Schritte fügen keine Inputs hinzu, so dass
-sich hier nichts ändert.)
-\begin{description}
-\item [{Symmetrie:}] Sei nun $\ddot{\pi}\in\mathrm{Sym}_{\ddot{U}}$ beliebig.
-Wir erweitern die Permutation wieder zu $\dot{\pi}\coloneqq\ddot{\pi}\uplus\mathbf{id}_{\mid N}\in\mathrm{Sym}_{\dot{U}}$,
-und bauen den Isomorphismus $\hat{\pi}$ induktiv auf:\end{description}
-\begin{casenv}
-\item Falls $\varphi\left(\bar{x}\right)=x_{i}\leqslant\#y_{i}\psi\left(\bar{y}\right)$,
-so sei $\hat{\pi}'$ der vorausgesetzte Automorphismus im Schaltkreis
-$\dot{\mathcal{C}_{2n+1}^{\psi}}$. Dieser wird wie folgt erweitert:
-\[
-\hat{\pi}\left(g\right)=\begin{cases}
-g & \mathrm{falls}\,g\in\left\{ 0_{i}1_{i}\mid1\leqslant i\leqslant n\right\} \\
-g_{\dot{\pi}\bar{t}} & \mathrm{falls}\,g=g_{\bar{t}}\\
-\hat{\pi}'\left(g\right) & \mathrm{sonst}
-\end{cases}
-\]
+Nach der Erzeugung von $\mathcal{C}_{2n+1}^{\varphi}$ wird der Schaltkreis
+auf die bereits beschriebene Weise zu $\dot{\mathcal{C}_{n}^{\varphi}}$
+umgewandelt, in dem die nicht-konstanten Inputs mit Elementen aus
+$\left[n+1,2n+1\right]$ zu Konstanten werden. Der neue Schritt fügt
+keine nicht-konstanten Inputs hinzu, so dass sich hierbei nichts ändert.
 
-
-
-Es gilt: 
-\begin{eqnarray*}
-\hat{\pi}W_{\mathrm{maj}} & = & \left\{ \left(\hat{\pi}\Omega\left(\bar{t}\right),\hat{\pi}g_{\bar{u}}\right)\mid\bar{t},\bar{u}\in\dot{U}^{k},\,\rho_{2}\left(\bar{t}\right)=\rho_{1}\left(\bar{u}\right)\right\} \\
- & = & \left\{ \left(\Omega\left(\dot{\pi}\bar{t}\right),g_{\dot{\pi}\bar{u}}\right)\mid\bar{t},\bar{u}\in\dot{U}^{k},\,\rho_{2}\left(\bar{t}\right)=\rho_{1}\left(\bar{u}\right)\right\} \\
- & = & W_{\mathrm{maj}}\\
-\Sigma\left(\hat{\pi}g\right) & = & \begin{cases}
-\Sigma'\left(\hat{\pi}'g\right) & \mathrm{falls}\,g\in G'\\
-\mathbf{0} & \mathrm{falls}\,g=0_{i}\\
-\mathbf{1} & \mathrm{falls}\,g=1_{i}\\
-\mathrm{MAJ} & \mathrm{falls}\,g=g_{\bar{t}},\,\beta_{\bar{t}}y\in N\\
-\mathbf{0} & \mathrm{sonst}
-\end{cases}\\
-\hat{\pi}\left(\Omega\left(\bar{t}\right)\right) & = & \hat{\pi}g_{\bar{t}}=g_{\dot{\pi}\bar{t}}=\Omega\left(\dot{\pi}\bar{t}\right)
-\end{eqnarray*}
-Betrachten wir schließlich $W_{\mathrm{pad}}$, so gilt:
-\begin{eqnarray*}
-\hat{\pi}W_{\mathrm{pad}} & = & \left\{ \left(\hat{\pi}0_{i},\hat{\pi}g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant2t_{i}-n\right\} \\
- & \cup & \left\{ \left(\hat{\pi}1_{i},\hat{\pi}g_{\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant n-2t_{i}\right\} \\
- & = & \left\{ \left(0_{i},g_{\dot{\pi}\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant2\dot{\pi}t_{i}-n\right\} \,\mathrm{denn}\,t_{i}\in N,\,\mathrm{daher}\,\dot{\pi}t_{i}=t_{i}\\
- & \cup & \left\{ \left(1_{i},g_{\dot{\pi}\bar{t}}\right)\mid\bar{t}\in\dot{U}^{k},1\leqslant i\leqslant n-2\dot{\pi}t_{i}\right\} \\
- & = & W_{\mathrm{pad}}
-\end{eqnarray*}
-
-
-\item Falls $\varphi\left(\bar{x}\right)=\#y_{i}\psi\left(\bar{y}\right)\leqslant x_{i}$,
-so ist $\hat{\pi}$ analog zu Fall 1 definiert. Es müssen zusätzlich
-die negierten Gates abgebildet werden:
-\[
-\hat{\pi}h_{\bar{t}}=h_{\dot{\pi}\bar{t}}
-\]
-
-\end{casenv}
-Damit ist der erzeugte Schaltkreis $\ddot{\mathcal{C}_{n}^{\varphi}}$
-symmetrisch.
+Da der Schaltkreis $\mathcal{C}_{2n+1}^{\varphi}$ für jede Permutation
+$\pi\uplus\mathbf{id}_{\left[n+1,2n+1\right]}$ mit $\pi\in\mathrm{Sym}_{\left[1,n\right]}$
+einen Automorphismus besitzt, ist der Schaltkreis $\dot{\mathcal{C}_{n}^{\varphi}}$
+symmetrisch (siehe Lemma \ref{lem:fo-ord}).
 \end{proof}
 
 \subsection{Beliebiges Orakel}
@@ -3104,6 +3162,8 @@ ausgedrückt werden:
 \left(\varphi_{G},\varphi_{W},\varphi_{\Omega},\varphi_{\mathbf{0}},\varphi_{\mathbf{1}},\varphi_{\neg},\varphi_{\phi}\,\phi\in\mathbb{B},\varphi_{\Lambda}\right)
 \]
 
+
+\pagebreak{}
 
 \bibliographystyle{plain}
 \nocite{*}
