@@ -6289,7 +6289,7 @@ Größe
 \end_layout
 
 \begin_layout Remark*
-Es wird statt 
+Statt 
 \begin_inset Quotes gld
 \end_inset
 
@@ -6301,7 +6301,7 @@ Es wird statt
 \begin_inset Quotes grd
 \end_inset
 
- auch der Begriff 
+ wird auch der Begriff 
 \begin_inset Quotes gld
 \end_inset
 
@@ -6322,20 +6322,21 @@ Eine
 \end_inset
 
 -Turingmaschine arbeitet mit einem polynomiell beschränktem Orakel in Polynomial
-zeit
-\begin_inset CommandInset citation
-LatexCommand cite
-key "arora-barak"
-
-\end_inset
-
-, und kann daher genau solche Schaltkreisfamilien berechnen, deren binäre
+zeit.
+ Sie kann daher genau solche Schaltkreisfamilien berechnen, deren binäre
  Repräsentation polynomielle Größe hat.
  Unter Voraussetzung einer geeigneten Kodierung sind dies genau die 
 \begin_inset Formula $\mathrm{poly}\left(n\right)$
 \end_inset
 
 -großen Schaltkreisfamilien.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "arora-barak"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Definition
@@ -6656,6 +6657,18 @@ Symmetrie: Sei
 
 \end_layout
 
+\begin_layout Description
+Größe: Der Schaltkreis hat die Tiefe 
+\begin_inset Formula $0$
+\end_inset
+
+ und die Größe 
+\begin_inset Formula $n^{k}=n^{\mathtt{MF}\left(\varphi\right)}$
+\end_inset
+
+.
+\end_layout
+
 \end_deeper
 \begin_layout Case
 Falls 
@@ -6716,10 +6729,11 @@ Für jedes Tupel
 \begin_layout Description
 Korrektheit: 
 \begin_inset Formula 
-\[
-\begin{array}{ccccccc}
-\left\llbracket y_{1}\dot{=}y_{2}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1 & \Leftrightarrow & \left(\beta_{\bar{t}}y_{1}=\beta_{\bar{t}}y_{2}\right) & \Leftrightarrow & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right) & = & \left\llbracket \mathcal{C}_{n}^{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1\end{array}
-\]
+\begin{eqnarray*}
+\left\llbracket y_{1}\dot{=}y_{2}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1 & \Leftrightarrow & \left(\beta_{\bar{t}}y_{1}=\beta_{\bar{t}}y_{2}\right)\\
+ & \Leftrightarrow & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right)=1\\
+ & \Leftrightarrow & \left\llbracket \mathcal{C}_{n}^{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1
+\end{eqnarray*}
 
 \end_inset
 
@@ -6742,6 +6756,18 @@ Symmetrie: Sei
 
 , und daher ist 
 \begin_inset Formula $\Sigma\left(\hat{\pi}g_{\bar{t}}\right)=\Sigma\left(g_{\pi\bar{t}}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Größe: Der Schaltkreis hat die Tiefe 
+\begin_inset Formula $0$
+\end_inset
+
+ und die Größe 
+\begin_inset Formula $n^{k}=n^{\mathtt{MF}\left(\varphi\right)}$
 \end_inset
 
 .
@@ -6914,18 +6940,18 @@ Für die Gates und Kanten der Schaltkreise
  per Annahme bereits korrekt.
 \end_layout
 
+\begin_deeper
 \begin_layout Enumerate
-Für die neuen Kanten 
-\begin_inset Formula $\left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\in W$
+Für jede neue Kante 
+\begin_inset Formula $\left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\in W_{\wedge}$
 \end_inset
 
  gilt nach Voraussetzung: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\hat{\pi}W_{\wedge}=\left\{ \left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\mid1\leqslant i\leqslant m,\,\bar{t}\in U^{k}\right\}  & = & \left\{ \left(\hat{\pi}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\mid1\leqslant i\leqslant m,\,\bar{t}\in U^{k}\right\} \\
- & = & \left\{ \left(\hat{\pi}_{i}\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\pi\bar{t}}\right)\mid1\leqslant i\leqslant m,\,\bar{t}\in U^{k}\right\} \\
- & = & \left\{ \left(\Omega_{i}\left(\rho_{i}\pi\bar{t}\right),g_{\pi\bar{t}}\right)\mid1\leqslant i\leqslant m,\,\bar{t}\in U^{k}\right\} \\
- & = & W_{\wedge}
+\left(\hat{\pi}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right) & = & \left(\hat{\pi}_{i}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\\
+ & = & \left(\Omega_{i}\left(\rho_{i}\pi\bar{t}\right),g_{\pi\bar{t}}\right)\\
+ & \in & W_{\wedge}
 \end{eqnarray*}
 
 \end_inset
@@ -6955,6 +6981,40 @@ Es gilt
 \end_inset
 
 .
+\end_layout
+
+\end_deeper
+\begin_layout Description
+Größe: Der Schaltkreis hat die Tiefe 
+\begin_inset Formula $T\left(\mathcal{C}_{n}^{\varphi}\right)$
+\end_inset
+
+ und die Größe 
+\begin_inset Formula $\left|\mathcal{C}_{n}^{\varphi}\right|$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{eqnarray*}
+T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+\max_{i=1}^{m}T\left(\mathcal{C}_{n}^{\psi_{i}}\right)\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & 1+3\max_{i=1}^{m}\left\Vert \psi_{i}\right\Vert \\
+ & \leqslant & 1+3\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert \leqslant3\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\left|\mathcal{C}_{n}^{\varphi}\right| & = & n^{k}+\sum_{i=1}^{m}\left|\mathcal{C}_{n}^{\psi_{i}}\right|\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & n^{k}+5\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert n^{\mathtt{MF}\left(\psi_{i}\right)}\\
+ & \leqslant & n^{\mathtt{MF}\left(\varphi\right)}+5\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert n^{\mathtt{MF}\left(\varphi\right)}\\
+ & \leqslant & 5n^{\mathtt{MF}\left(\varphi\right)}\left(1+\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert \right)\leqslant5n^{\mathtt{MF}\left(\varphi\right)}\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -7056,11 +7116,49 @@ g_{\pi\bar{t}} & \mathrm{falls}\,\,g=g_{\bar{t}}
 
 \end_inset
 
-Es gilt 
-\begin_inset Formula $\hat{\pi}W_{\neg}=\left\{ \left(\hat{\pi}\Omega'\left(\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} =\left\{ \left(\Omega'\left(\pi\bar{t}\right),g_{\pi\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} =W_{\neg}$
+Dann gilt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\hat{\pi}W_{\neg} & = & \left\{ \left(\hat{\pi}\Omega'\left(\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} \\
+ & = & \left\{ \left(\Omega'\left(\pi\bar{t}\right),g_{\pi\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} =W_{\neg}\\
+\Sigma\left(\hat{\pi}g_{\bar{t}}\right) & = & \Sigma\left(g_{\bar{t}}\right)=\neg
+\end{eqnarray*}
+
 \end_inset
 
-.
+
+\end_layout
+
+\begin_layout Description
+Größe: Der Schaltkreis hat die Tiefe 
+\begin_inset Formula $T\left(\mathcal{C}_{n}^{\varphi}\right)$
+\end_inset
+
+ und die Größe 
+\begin_inset Formula $\left|\mathcal{C}_{n}^{\varphi}\right|$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{eqnarray*}
+T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+T\left(\mathcal{C}_{n}^{\psi}\right)\\
+ & \leqslant & 1+3\left\Vert \psi\right\Vert \leqslant3\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\left|\mathcal{C}_{n}^{\varphi}\right| & = & n^{k}+\left|\mathcal{C}_{n}^{\psi}\right|\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & n^{k}+5\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\psi\right)}\\
+ & \leqslant & 5n^{\mathtt{MF}\left(\varphi\right)}+5\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}\\
+ & \leqslant & 5\left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -7263,6 +7361,38 @@ g_{\pi\bar{t}} & \mathrm{für}\,\,g=g_{\bar{t}}\,\mathrm{und}\,g\in\left\{ a,b,c
 
 \end_layout
 
+\begin_layout Description
+Größe: Der Schaltkreis hat die Tiefe 
+\begin_inset Formula $T\left(\mathcal{C}_{n}^{\varphi}\right)$
+\end_inset
+
+ und die Größe 
+\begin_inset Formula $\left|\mathcal{C}_{n}^{\varphi}\right|$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 3+T\left(\mathcal{C}_{n}^{\psi}\right)\\
+ & \leqslant & 3+3\left\Vert \psi\right\Vert \leqslant3\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\left|\mathcal{C}_{n}^{\varphi}\right| & = & 5n^{k}+\left|\mathcal{C}_{n}^{\psi}\right|\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & 5n^{k}+5\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\psi\right)}\\
+ & \leqslant & 5n^{\mathtt{MF}\left(\varphi\right)}+5\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}\\
+ & \leqslant & 5\left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
 \begin_layout Case
 Falls 
@@ -7383,7 +7513,7 @@ Korrektheit: Für
 \left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \max_{\begin{subarray}{c}
 \bar{u}\in U^{k+m}\\
 \rho\bar{u}=\bar{t}
-\end{subarray}}\left\llbracket \psi\right\rrbracket \left(\mathfrak{A},\bar{u}\right)\\
+\end{subarray}}\left\llbracket \psi\right\rrbracket \left(\mathfrak{A},\bar{u}\right)=1\\
  & = & \max_{\begin{subarray}{c}
 \bar{u}\in U^{k+m}\\
 \rho\bar{u}=\bar{t}
@@ -7456,6 +7586,38 @@ Für die neuen Kanten
 \end_layout
 
 \end_deeper
+\begin_layout Description
+Größe: Der Schaltkreis hat die Tiefe 
+\begin_inset Formula $T\left(\mathcal{C}_{n}^{\varphi}\right)$
+\end_inset
+
+ und die Größe 
+\begin_inset Formula $\left|\mathcal{C}_{n}^{\varphi}\right|$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+T\left(\mathcal{C}_{n}^{\psi}\right)\\
+ & \leqslant & 1+3\left\Vert \psi\right\Vert \leqslant3\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\left|\mathcal{C}_{n}^{\varphi}\right| & = & n^{k}+\left|\mathcal{C}_{n}^{\psi}\right|\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & n^{k}+5\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\psi\right)}\\
+ & \leqslant & 5n^{\mathtt{MF}\left(\varphi\right)}+5\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}\\
+ & \leqslant & 5\left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
 \end_deeper
 \begin_layout Case
 Falls 
@@ -7470,36 +7632,6 @@ Falls
 \end_layout
 
 \end_deeper
-\begin_layout Proof
-Der so konstruierte Schaltkreis hat eine durch 
-\begin_inset Formula $3\left\Vert \varphi\right\Vert $
-\end_inset
-
- beschränkte Tiefe und eine durch 
-\begin_inset Formula $5\left\Vert \varphi\right\Vert \cdot n^{\mathtt{MF}\left(\varphi\right)}$
-\end_inset
-
- beschränkte Größe.
- Dies folgt direkt aus der Tatsache, dass höchstens 
-\begin_inset Formula $\left\Vert \varphi\right\Vert $
-\end_inset
-
- Induktionsschritte durchgeführt werden, und jeder Schritt für eine 
-\begin_inset Formula $k$
-\end_inset
-
--stellige Teilformel die Tiefe um maximal 
-\begin_inset Formula $3$
-\end_inset
-
- Kanten verlängert, und maximal 
-\begin_inset Formula $5n^{k}$
-\end_inset
-
- Gates hinzufügt.
- (Insbesondere erreicht nur Fall 7 diese Schranken.)
-\end_layout
-
 \begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
@@ -7569,15 +7701,15 @@ Jede
 \begin_inset Formula $\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$
 \end_inset
 
- mit konstanter Tiefe 
-\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
+ mit 
+\begin_inset Formula $3\left\Vert \varphi\right\Vert $
 \end_inset
 
- und polynomieller Größe 
-\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$
+-Tiefe und 
+\begin_inset Formula $5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$
 \end_inset
 
- berechnet wird.
+-Größe berechnet wird.
 \end_layout
 
 \begin_layout Standard
@@ -7601,15 +7733,23 @@ Sei
 \end_inset
 
 -stellige 
-\begin_inset Formula $\mathrm{FO}+\mathbf{ORD}\left[\sigma\right]$
+\begin_inset Formula $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$
 \end_inset
 
--Formel, und 
+-Formel.
+ Für 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ und 
 \begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 \end_inset
 
-.
- Diese wird auf der disjunkt vereinigten 
+ wird 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ auf der disjunkt vereinigten 
 \begin_inset Formula $\left(\sigma\cup\left\{ \leqslant\right\} \right)$
 \end_inset
 
@@ -7621,8 +7761,8 @@ Sei
 \begin_inset Formula $\Upsilon\left(n\right)=\left(\left[0,n\right],\leqslant\right)$
 \end_inset
 
- die einzige Struktur in 
-\begin_inset Formula $\mathbf{FIN}_{\leqslant}^{\left[0,n\right]}\left(\emptyset\right)$
+ die lineare Ordnung auf 
+\begin_inset Formula $\left[0,n\right]$
 \end_inset
 
  ist.
@@ -7633,7 +7773,7 @@ Der Schaltkreis
 \begin_inset Formula $\mathcal{C}_{n}$
 \end_inset
 
- wird aber auf einer 
+ wird aber auf der umbenannten 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -7693,11 +7833,7 @@ verschoben
 \end_layout
 
 \begin_layout Proof
-Nun betrachten wir die disjunkte Vereinigung 
-\begin_inset Formula $\mathfrak{A}'\uplus\Upsilon'\left(n\right)\in\mathbf{FIN}^{\left[1,2n+1\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)$
-\end_inset
-
- (wobei die Ordnung 
+Nun betrachten wir die disjunkte Vereinigung (wobei die Ordnung 
 \begin_inset Formula $\leqslant$
 \end_inset
 
@@ -7705,7 +7841,15 @@ Nun betrachten wir die disjunkte Vereinigung
 \begin_inset Formula $\left[n+1,2n+1\right]$
 \end_inset
 
- definiert ist).
+ definiert ist): 
+\begin_inset Formula 
+\[
+\mathfrak{A}'\uplus\Upsilon'\left(n\right)\in\mathbf{FIN}^{\left[1,2n+1\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Proof
@@ -7721,8 +7865,8 @@ Weil
 \begin_inset Formula $\mathfrak{A}\uplus\Upsilon\left(n\right)\cong\mathfrak{A}'\uplus\Upsilon'\left(n\right)$
 \end_inset
 
- (die Isomorphie ist unter disjunkter Vereinigung abgeschlossen).
- Also gilt: 
+ (denn der Isomorphismus ist unter disjunkter Vereinigung abgeschlossen):
+ 
 \begin_inset Formula 
 \[
 \left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\uplus\Upsilon\left(n\right)\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}'\uplus\Upsilon'\left(n\right)\right)
@@ -7768,14 +7912,15 @@ Anschließend konstruieren wir daraus den
 \end_inset
 
 -Schaltkreis 
-\begin_inset Formula $\dot{\mathcal{C}_{n}^{\varphi}}=\left(G,W,\dot{\Sigma},\dot{\Omega},U\right)$
+\begin_inset Formula 
+\begin{eqnarray*}
+\dot{\mathcal{C}_{n}^{\varphi}} & \coloneqq & \left(G,W,\dot{\Sigma},\dot{\Omega},U\right)\\
+U & \coloneqq & \left[1,n\right]
+\end{eqnarray*}
+
 \end_inset
 
- über 
-\begin_inset Formula $U=\left[1,n\right]$
-\end_inset
-
-, indem alle nicht-konstanten Inputs 
+ indem alle Inputs 
 \begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
 \end_inset
 
@@ -7792,7 +7937,7 @@ Anschließend konstruieren wir daraus den
 \end_inset
 
  ersetzt werden, und die Ausgangsfunktion auf 
-\begin_inset Formula $\dot{\Omega}=\Omega_{\mid\dot{U}}$
+\begin_inset Formula $\dot{\Omega}=\Omega_{\mid U^{k}}$
 \end_inset
 
  reduziert wird.
@@ -8035,7 +8180,23 @@ Sonst:
 \end_deeper
 \end_deeper
 \begin_layout Proof
-Damit ist 
+Außerdem gilt ist 
+\begin_inset Formula $U^{k}$
+\end_inset
+
+ bezüglich 
+\begin_inset Formula $\pi'$
+\end_inset
+
+ abgeschlossen: 
+\begin_inset Formula 
+\[
+\hat{\pi}\dot{\Omega}\left(\bar{t}\right)=\hat{\pi}\Omega\left(\bar{t}\right)=\Omega\left(\pi'\bar{t}\right)=\dot{\Omega}\left(\pi'\bar{t}\right)
+\]
+
+\end_inset
+
+ Damit ist 
 \begin_inset Formula $\bar{\dot{\mathcal{C}^{\varphi}}}$
 \end_inset
 
@@ -8115,15 +8276,15 @@ Jede
 \begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
 \end_inset
 
- mit konstanter Tiefe 
-\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
+ mit 
+\begin_inset Formula $3\left\Vert \varphi\right\Vert $
 \end_inset
 
- und polynomieller Größe 
-\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$
+-Tiefe und 
+\begin_inset Formula $5\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$
 \end_inset
 
- berechnet wird.
+-Größe berechnet wird.
 \end_layout
 
 \begin_layout Standard
@@ -8138,7 +8299,11 @@ reference "thm:5.6:fo-c"
 \end_layout
 
 \begin_layout Proof
-Für eine 
+Sei 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ eine 
 \begin_inset Formula $k$
 \end_inset
 
@@ -8146,11 +8311,8 @@ Für eine
 \begin_inset Formula $\left(\mathrm{FO}+\exists^{\geqslant}\right)\left[\sigma\right]$
 \end_inset
 
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- konstruieren wir den 
+-Formel.
+ Der 
 \begin_inset Formula $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{maj}}\right)$
 \end_inset
 
@@ -8162,7 +8324,7 @@ Für eine
 \begin_inset Formula $U'\coloneqq\left[1,2n+1\right]=\left[1,n\right]\uplus\rho\left[0,n\right]$
 \end_inset
 
- nach dem gleichen Schema wie in Lemma 
+ wird nach dem gleichen Schema wie in Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:fo-ord"
@@ -8185,8 +8347,8 @@ reference "lem:fo-ord"
 \end_layout
 
 \begin_deeper
-\begin_layout Description
-Schaltkreis: 
+\begin_layout Case
+Falls 
 \begin_inset Formula $\varphi\left(\bar{x}\right)=\exists^{\geqslant x_{i}}y_{j}\psi\left(\bar{y}\right)$
 \end_inset
 
@@ -8204,8 +8366,20 @@ Schaltkreis:
 
 :
 \begin_inset Formula 
+\[
+\mathcal{C}_{2n+1}^{\psi}=\left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U'\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Schaltkreis: 
+\begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{C}_{2n+1}^{\psi} & = & \left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U'\right)\\
 \mathcal{C}_{2n+1}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U'\right)
 \end{eqnarray*}
 
@@ -8460,8 +8634,8 @@ Jedes Majority-Gate
 -Eingänge erhalten:
 \begin_inset Formula 
 \begin{eqnarray*}
-W_{\mathrm{pad}} & = & \left\{ \left(0_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{k},\,t_{i}\in\left[n+1,2n+1\right],\,1\leqslant j\leqslant2t_{i}-3n-2\right\} \\
- & \cup & \left\{ \left(1_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{k},\,t_{i}\in\left[n+1,2n+1\right],\,1\leqslant j\leqslant3n+2-2t_{i}\right\} 
+W_{\mathrm{pad}} & = & \left\{ \left(0_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{k},\,t_{i}\in\rho\left[0,n\right],\,1\leqslant j\leqslant2\rho^{-1}t_{i}-n\right\} \\
+ & \cup & \left\{ \left(1_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{k},\,t_{i}\in\rho\left[0,n\right],\,1\leqslant j\leqslant n-2\rho^{-1}t_{i}\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -8664,28 +8838,32 @@ Für
 \end_layout
 
 \end_deeper
-\end_deeper
-\begin_layout Proof
-Der so erzeugte Schaltkreis hat weiterhin konstante Tiefe 
-\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
-\end_inset
-
-, denn der neue Schritt vergrößert die Tiefe nur um eine Kante.
- Weiterhin hat er die Größe 
-\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$
-\end_inset
-
-, denn der neue Schritt fügt höchstens 
+\begin_layout Description
+Größe: 
 \begin_inset Formula 
-\[
-\left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}+2n<5\left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}
-\]
+\begin{eqnarray*}
+T\left(\mathcal{C}_{2n+1}^{\varphi}\right) & \leqslant & 1+T\left(\mathcal{C}_{2n+1}^{\psi}\right)\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & 1+3\left\Vert \psi\right\Vert \leqslant3\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
 
 \end_inset
 
-neue Gates hinzu.
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\left|\mathcal{C}_{2n+1}^{\varphi}\right| & \leqslant & \left(2n+1\right)^{k}+2n+\left|\mathcal{C}_{2n+1}^{\psi}\right|\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & \left(2n+1\right)^{k}+2n+5\left\Vert \psi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\psi\right)}\\
+ &  & 5\left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}+5\left\Vert \psi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}\\
+ & \leqslant & 5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
+\end_deeper
+\end_deeper
 \begin_layout Proof
 Nach der Erzeugung von 
 \begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
@@ -8729,6 +8907,13 @@ reference "lem:fo-ord"
 \end_inset
 
 ).
+\end_layout
+
+\begin_layout Proof
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -8806,14 +8991,14 @@ Jede
 \end_inset
 
  mit konstanter Tiefe 
-\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
+\begin_inset Formula $3\left\Vert \varphi\right\Vert $
 \end_inset
 
- und polynomieller Größe 
-\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)}$
+-Tiefe und polynomieller Größe 
+\begin_inset Formula $5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)}$
 \end_inset
 
- berechnet wird.
+-Tiefe berechnet wird.
 \end_layout
 
 \begin_layout Standard
@@ -8842,15 +9027,19 @@ Sei
 \end_inset
 
  wird zu 
-\begin_inset Formula $\Upsilon'\left(n\right)=\rho\Upsilon'\left(n\right)=\left(\left[n+1,2n+1\right],\left(\rho R^{\Upsilon\left(n\right)}\right)_{R\in\eta}\right)$
+\begin_inset Formula 
+\[
+\Upsilon'\left(n\right)=\rho\Upsilon'\left(n\right)=\left(\left[n+1,2n+1\right],\left(\rho R^{\Upsilon\left(n\right)}\right)_{R\in\eta}\right)
+\]
+
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Proof
 Zunächst wird der 
-\begin_inset Formula $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
+\begin_inset Formula $\left(\sigma\cup\eta\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
 \end_inset
 
 -Schaltkreis 
@@ -8961,7 +9150,7 @@ Offensichtlich ist sie jedoch immer noch
 \begin_inset Formula $\mathrm{poly}\left(n\right)$
 \end_inset
 
--groß und damit 
+-groß und daher auch 
 \begin_inset Formula $P/\mathrm{poly}$
 \end_inset
 
@@ -9003,7 +9192,7 @@ Seien
 \end_inset
 
  disjunkte Signaturen und 
-\begin_inset Formula $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}\left(\eta\right)$
+\begin_inset Formula $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta\right)$
 \end_inset
 
  ein Orakel.
@@ -9034,15 +9223,15 @@ Jede
 \begin_inset Formula $\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$
 \end_inset
 
- mit konstanter Tiefe 
-\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
+ mit 
+\begin_inset Formula $3\left\Vert \varphi\right\Vert $
 \end_inset
 
- und polynomieller Größe 
-\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+c}$
+-Tiefe und 
+\begin_inset Formula $5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+c}$
 \end_inset
 
- für 
+-Größe für 
 \begin_inset Formula $c\in\mathbb{N}$
 \end_inset
 
@@ -9057,7 +9246,11 @@ reference "lem:fo-c"
 
 \end_inset
 
- angewendet, um eine 
+ und angewendet, um eine 
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+-uniforme 
 \begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
 \end_inset
 
@@ -9070,15 +9263,6 @@ reference "lem:fo-c"
 \end_inset
 
  symmetrisch ist.
- Diese Schaltkreise haben die Tiefe 
-\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
-\end_inset
-
- und Größe 
-\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}F\left(\hat{\varphi}\right)}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}F\left(\varphi\right)}$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Proof
@@ -9097,6 +9281,10 @@ reference "lem:fo-u"
 \end_inset
 
  kombiniert, um daraus eine symmetrische 
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+-uniforme 
 \begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
 \end_inset
 
@@ -11944,7 +12132,6 @@ Nach dem Satz von Immerman-Vardi kann der Polynomialzeit-Algorithmus, der
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-btprint "btPrintAll"
 bibfiles "master"
 options "plain"
 

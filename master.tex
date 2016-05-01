@@ -1585,14 +1585,14 @@ und alle $n\geqslant n_{0}$ gilt, dass $\left|\mathcal{C}_{n}\right|\leqslant f\
 Der Begriff ,,$\mathscr{F}$-groß`` sei analog zu ,,$\mathscr{F}$-uniform``
 definiert.\end{defn}
 \begin{rem*}
-Es wird statt ,,$\mathrm{poly}\left(n\right)$-groß`` auch der Begriff
+Statt ,,$\mathrm{poly}\left(n\right)$-groß`` wird auch der Begriff
 ,,$\mathrm{P}/\mathrm{poly}$-uniform`` verwendet:
 
 Eine $\mathrm{P/poly}$-Turingmaschine arbeitet mit einem polynomiell
-beschränktem Orakel in Polynomialzeit\cite{arora-barak}, und kann
-daher genau solche Schaltkreisfamilien berechnen, deren binäre Repräsentation
-polynomielle Größe hat. Unter Voraussetzung einer geeigneten Kodierung
-sind dies genau die $\mathrm{poly}\left(n\right)$-großen Schaltkreisfamilien.\end{rem*}
+beschränktem Orakel in Polynomialzeit. Sie kann daher genau solche
+Schaltkreisfamilien berechnen, deren binäre Repräsentation polynomielle
+Größe hat. Unter Voraussetzung einer geeigneten Kodierung sind dies
+genau die $\mathrm{poly}\left(n\right)$-großen Schaltkreisfamilien.\cite{arora-barak}\end{rem*}
 \begin{defn}
 \textbf{Beschränkte Tiefe}
 
@@ -1666,6 +1666,7 @@ und daher
 \Omega\left(\pi\bar{t}\right) & = & \hat{\pi}\Omega\left(\bar{t}\right)
 \end{eqnarray*}
 
+\item [{Größe:}] Der Schaltkreis hat die Tiefe $0$ und die Größe $n^{k}=n^{\mathtt{MF}\left(\varphi\right)}$.
 \end{description}
 \item Falls $\varphi\left(\bar{x}\right)=y_{1}\dot{=}y_{2}$, so besteht
 $\mathcal{C}_{n}^{\varphi}$ aus $n^{k}$ isolierten Gates (hier ist
@@ -1689,15 +1690,17 @@ Für jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\begin{ar
 \end{eqnarray*}
 
 \item [{Korrektheit:}] 
-\[
-\begin{array}{ccccccc}
-\left\llbracket y_{1}\dot{=}y_{2}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1 & \Leftrightarrow & \left(\beta_{\bar{t}}y_{1}=\beta_{\bar{t}}y_{2}\right) & \Leftrightarrow & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right) & = & \left\llbracket \mathcal{C}_{n}^{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1\end{array}
-\]
+\begin{eqnarray*}
+\left\llbracket y_{1}\dot{=}y_{2}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1 & \Leftrightarrow & \left(\beta_{\bar{t}}y_{1}=\beta_{\bar{t}}y_{2}\right)\\
+ & \Leftrightarrow & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right)=1\\
+ & \Leftrightarrow & \left\llbracket \mathcal{C}_{n}^{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1
+\end{eqnarray*}
 
 \item [{Symmetrie:}] Sei $\hat{\pi}\left(g_{\bar{t}}\right)\coloneqq g_{\pi\bar{t}}$.
 Es gilt $\beta_{\bar{t}}\left(x\right)=\beta_{\bar{t}}\left(x'\right)$
 genau dann wenn $\beta_{\pi\bar{t}}\left(x\right)=\beta_{\pi\bar{t}}\left(x\right)$,
 und daher ist $\Sigma\left(\hat{\pi}g_{\bar{t}}\right)=\Sigma\left(g_{\pi\bar{t}}\right)$.
+\item [{Größe:}] Der Schaltkreis hat die Tiefe $0$ und die Größe $n^{k}=n^{\mathtt{MF}\left(\varphi\right)}$.
 \end{description}
 \item Falls $\varphi\left(\bar{x}\right)=\varphi_{1}\left(\bar{y_{1}}\right)\wedge\cdots\wedge\varphi_{m}\left(\bar{y_{m}}\right)$
 mit $\mathrm{ar}\left(\varphi_{i}\right)=k_{i}$, so besteht $\mathcal{C}_{n}^{\varphi}$
@@ -1755,21 +1758,37 @@ g_{\pi\bar{t}} & \mathrm{f\ddot{u}r}\,g=g_{\bar{t}}
 \end{cases}
 \]
 Für die Gates und Kanten der Schaltkreise $\mathcal{C}_{n}^{\varphi_{i}}$
-ist $\hat{\pi}$ per Annahme bereits korrekt.\end{description}
+ist $\hat{\pi}$ per Annahme bereits korrekt.
+
 \begin{enumerate}
-\item Für die neuen Kanten $\left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\in W$
+\item Für jede neue Kante $\left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\in W_{\wedge}$
 gilt nach Voraussetzung: 
 \begin{eqnarray*}
-\hat{\pi}W_{\wedge}=\left\{ \left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\mid1\leqslant i\leqslant m,\,\bar{t}\in U^{k}\right\}  & = & \left\{ \left(\hat{\pi}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\mid1\leqslant i\leqslant m,\,\bar{t}\in U^{k}\right\} \\
- & = & \left\{ \left(\hat{\pi}_{i}\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\pi\bar{t}}\right)\mid1\leqslant i\leqslant m,\,\bar{t}\in U^{k}\right\} \\
- & = & \left\{ \left(\Omega_{i}\left(\rho_{i}\pi\bar{t}\right),g_{\pi\bar{t}}\right)\mid1\leqslant i\leqslant m,\,\bar{t}\in U^{k}\right\} \\
- & = & W_{\wedge}
+\left(\hat{\pi}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right) & = & \left(\hat{\pi}_{i}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\\
+ & = & \left(\Omega_{i}\left(\rho_{i}\pi\bar{t}\right),g_{\pi\bar{t}}\right)\\
+ & \in & W_{\wedge}
 \end{eqnarray*}
 (Die Reduktion $\rho_{i}:U^{k}\rightarrow U^{k_{i}}$ ist ein Homomorphismus
 und kommutiert mit der Permutation $\pi$.)
 \item Es gilt $\Sigma\left(\hat{\pi}g_{\bar{t}}\right)=\Sigma\left(g_{\bar{t}}\right)=\wedge$.
 \item Es gilt $\hat{\pi}\Omega\left(\bar{t}\right)=\hat{\pi}g_{\bar{t}}=g_{\pi\bar{t}}=\Omega\left(\pi\bar{t}\right)$.
 \end{enumerate}
+\item [{Größe:}] Der Schaltkreis hat die Tiefe $T\left(\mathcal{C}_{n}^{\varphi}\right)$
+und die Größe $\left|\mathcal{C}_{n}^{\varphi}\right|$: 
+\begin{eqnarray*}
+T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+\max_{i=1}^{m}T\left(\mathcal{C}_{n}^{\psi_{i}}\right)\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & 1+3\max_{i=1}^{m}\left\Vert \psi_{i}\right\Vert \\
+ & \leqslant & 1+3\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert \leqslant3\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+ 
+\begin{eqnarray*}
+\left|\mathcal{C}_{n}^{\varphi}\right| & = & n^{k}+\sum_{i=1}^{m}\left|\mathcal{C}_{n}^{\psi_{i}}\right|\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & n^{k}+5\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert n^{\mathtt{MF}\left(\psi_{i}\right)}\\
+ & \leqslant & n^{\mathtt{MF}\left(\varphi\right)}+5\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert n^{\mathtt{MF}\left(\varphi\right)}\\
+ & \leqslant & 5n^{\mathtt{MF}\left(\varphi\right)}\left(1+\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert \right)\leqslant5n^{\mathtt{MF}\left(\varphi\right)}\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+
+\end{description}
 \item Falls $\varphi\left(\bar{x}\right)=\varphi_{1}\vee\cdots\vee\varphi_{\ell}$,
 so ist der Schaltkreis analog zu Fall 3 mit $\Sigma\left(g_{\bar{t}}\right)=\vee$.
 \item Falls $\varphi\left(\bar{x}\right)=\neg\psi$, so wird der Schaltkreis
@@ -1810,7 +1829,26 @@ Dieser wird wie folgt erweitert:
 g_{\pi\bar{t}} & \mathrm{falls}\,\,g=g_{\bar{t}}
 \end{cases}
 \]
-Es gilt $\hat{\pi}W_{\neg}=\left\{ \left(\hat{\pi}\Omega'\left(\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} =\left\{ \left(\Omega'\left(\pi\bar{t}\right),g_{\pi\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} =W_{\neg}$.
+Dann gilt:
+\begin{eqnarray*}
+\hat{\pi}W_{\neg} & = & \left\{ \left(\hat{\pi}\Omega'\left(\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} \\
+ & = & \left\{ \left(\Omega'\left(\pi\bar{t}\right),g_{\pi\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} =W_{\neg}\\
+\Sigma\left(\hat{\pi}g_{\bar{t}}\right) & = & \Sigma\left(g_{\bar{t}}\right)=\neg
+\end{eqnarray*}
+
+\item [{Größe:}] Der Schaltkreis hat die Tiefe $T\left(\mathcal{C}_{n}^{\varphi}\right)$
+und die Größe $\left|\mathcal{C}_{n}^{\varphi}\right|$: 
+\begin{eqnarray*}
+T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+T\left(\mathcal{C}_{n}^{\psi}\right)\\
+ & \leqslant & 1+3\left\Vert \psi\right\Vert \leqslant3\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+\begin{eqnarray*}
+\left|\mathcal{C}_{n}^{\varphi}\right| & = & n^{k}+\left|\mathcal{C}_{n}^{\psi}\right|\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & n^{k}+5\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\psi\right)}\\
+ & \leqslant & 5n^{\mathtt{MF}\left(\varphi\right)}+5\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}\\
+ & \leqslant & 5\left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}
+\end{eqnarray*}
+
 \end{description}
 \item Falls $\varphi\left(\bar{x}\right)=\left(\varphi_{1}\rightarrow\varphi_{2}\right)$,
 so ist der Schaltkreis $\mathcal{C}_{n}^{\varphi}\coloneqq\mathcal{C}_{n}^{\left(\neg\varphi_{1}\vee\varphi_{2}\right)}$.
@@ -1888,6 +1926,19 @@ g_{\pi\bar{t}} & \mathrm{f\ddot{u}r}\,\,g=g_{\bar{t}}\,\mathrm{und}\,g\in\left\{
 \end{cases}
 \]
 
+\item [{Größe:}] Der Schaltkreis hat die Tiefe $T\left(\mathcal{C}_{n}^{\varphi}\right)$
+und die Größe $\left|\mathcal{C}_{n}^{\varphi}\right|$:
+\begin{eqnarray*}
+T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 3+T\left(\mathcal{C}_{n}^{\psi}\right)\\
+ & \leqslant & 3+3\left\Vert \psi\right\Vert \leqslant3\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+\begin{eqnarray*}
+\left|\mathcal{C}_{n}^{\varphi}\right| & = & 5n^{k}+\left|\mathcal{C}_{n}^{\psi}\right|\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & 5n^{k}+5\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\psi\right)}\\
+ & \leqslant & 5n^{\mathtt{MF}\left(\varphi\right)}+5\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}\\
+ & \leqslant & 5\left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}
+\end{eqnarray*}
+
 \end{description}
 \item Falls $\varphi\left(\bar{x}\right)=\exists y_{1}\cdots\exists y_{m}\psi\left(z_{1},\cdots,z_{k+m}\right)$,
 so wird der Schaltkreis $\mathcal{C}_{n}^{\varphi'}$ wie folgt erweitert:
@@ -1938,7 +1989,7 @@ Die neuen Outputs werden mit $\vee$ markiert.
 \left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \max_{\begin{subarray}{c}
 \bar{u}\in U^{k+m}\\
 \rho\bar{u}=\bar{t}
-\end{subarray}}\left\llbracket \psi\right\rrbracket \left(\mathfrak{A},\bar{u}\right)\\
+\end{subarray}}\left\llbracket \psi\right\rrbracket \left(\mathfrak{A},\bar{u}\right)=1\\
  & = & \max_{\begin{subarray}{c}
 \bar{u}\in U^{k+m}\\
 \rho\bar{u}=\bar{t}
@@ -1963,17 +2014,23 @@ gilt: $\left(\hat{\pi}\Omega'\left(\bar{u}\right),\hat{\pi}g_{\rho\bar{u}}\right
 \item $\hat{\pi}\Sigma\left(g_{\bar{t}}\right)=\Sigma\left(g_{\bar{t}}\right)=\vee$.
 \item $\Omega\left(\pi\bar{t}\right)=g_{\pi\bar{t}}=\hat{\pi}g_{\bar{t}}=\hat{\pi}\Omega\left(\bar{t}\right)$.
 \end{enumerate}
+\item [{Größe:}] Der Schaltkreis hat die Tiefe $T\left(\mathcal{C}_{n}^{\varphi}\right)$
+und die Größe $\left|\mathcal{C}_{n}^{\varphi}\right|$:
+\begin{eqnarray*}
+T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+T\left(\mathcal{C}_{n}^{\psi}\right)\\
+ & \leqslant & 1+3\left\Vert \psi\right\Vert \leqslant3\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+\begin{eqnarray*}
+\left|\mathcal{C}_{n}^{\varphi}\right| & = & n^{k}+\left|\mathcal{C}_{n}^{\psi}\right|\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & n^{k}+5\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\psi\right)}\\
+ & \leqslant & 5n^{\mathtt{MF}\left(\varphi\right)}+5\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}\\
+ & \leqslant & 5\left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}
+\end{eqnarray*}
+
 \end{description}
 \item Falls $\varphi\left(\bar{x}\right)=\forall y_{1}\cdots\forall y_{m}\psi\left(\bar{z}\right)$,
 so sei der Schaltkreis analog zu Fall 8 mit $\Sigma\left(g_{\bar{t}}\right)\coloneqq\wedge$.
 \end{casenv}
-Der so konstruierte Schaltkreis hat eine durch $3\left\Vert \varphi\right\Vert $
-beschränkte Tiefe und eine durch $5\left\Vert \varphi\right\Vert \cdot n^{\mathtt{MF}\left(\varphi\right)}$
-beschränkte Größe. Dies folgt direkt aus der Tatsache, dass höchstens
-$\left\Vert \varphi\right\Vert $ Induktionsschritte durchgeführt
-werden, und jeder Schritt für eine $k$-stellige Teilformel die Tiefe
-um maximal $3$ Kanten verlängert, und maximal $5n^{k}$ Gates hinzufügt.
-(Insbesondere erreicht nur Fall 7 diese Schranken.)
 \end{proof}
 \pagebreak{}
 
@@ -1988,21 +2045,19 @@ zu verlassen.
 \label{lem:fo-ord}Jede $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
 $P$-uniformen $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit konstanter
-Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $ und polynomieller
-Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$
+$\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit $3\left\Vert \varphi\right\Vert $-Tiefe
+und $5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$-Größe
 berechnet wird.
 \end{lem}
 (Dieses Lemma bildet die erste Hälfte des Theorems \ref{thm:5.5:fo-ord}.)
 \begin{proof}
-Sei $\varphi$ eine $k$-stellige $\mathrm{FO}+\mathbf{ORD}\left[\sigma\right]$-Formel,
-und $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$.
-Diese wird auf der disjunkt vereinigten $\left(\sigma\cup\left\{ \leqslant\right\} \right)$-Struktur
+Sei $\varphi$ eine $k$-stellige $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel.
+Für $n\in\mathbb{N}$ und $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+wird $\varphi$ auf der disjunkt vereinigten $\left(\sigma\cup\left\{ \leqslant\right\} \right)$-Struktur
 $\mathfrak{A}\uplus\Upsilon\left(n\right)$ ausgewertet, wobei $\Upsilon\left(n\right)=\left(\left[0,n\right],\leqslant\right)$
-die einzige Struktur in $\mathbf{FIN}_{\leqslant}^{\left[0,n\right]}\left(\emptyset\right)$
-ist.
+die lineare Ordnung auf $\left[0,n\right]$ ist.
 
-Der Schaltkreis $\mathcal{C}_{n}$ wird aber auf einer $\sigma$-Struktur
+Der Schaltkreis $\mathcal{C}_{n}$ wird aber auf der umbenannten $\sigma$-Struktur
 $\mathfrak{A}'\coloneqq\pi\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$
 mit dem Universum $U=\left[1,n\right]$ ausgewertet.
 
@@ -2018,14 +2073,16 @@ von $\Upsilon\left(n\right)$ durch eine Umbenennung nach $\left[n+1,2n+1\right]$
 \end{eqnarray*}
 
 
-Nun betrachten wir die disjunkte Vereinigung $\mathfrak{A}'\uplus\Upsilon'\left(n\right)\in\mathbf{FIN}^{\left[1,2n+1\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)$
-(wobei die Ordnung $\leqslant$ weiterhin nur auf $\left[n+1,2n+1\right]$
-definiert ist).
+Nun betrachten wir die disjunkte Vereinigung (wobei die Ordnung $\leqslant$
+weiterhin nur auf $\left[n+1,2n+1\right]$ definiert ist): 
+\[
+\mathfrak{A}'\uplus\Upsilon'\left(n\right)\in\mathbf{FIN}^{\left[1,2n+1\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)
+\]
+
 
 Weil $\Upsilon\left(n\right)\cong\Upsilon'\left(n\right)$ und $\mathfrak{A}\cong\mathfrak{A}'$,
 gilt auch $\mathfrak{A}\uplus\Upsilon\left(n\right)\cong\mathfrak{A}'\uplus\Upsilon'\left(n\right)$
-(die Isomorphie ist unter disjunkter Vereinigung abgeschlossen). Also
-gilt: 
+(denn der Isomorphismus ist unter disjunkter Vereinigung abgeschlossen):
 \[
 \left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\uplus\Upsilon\left(n\right)\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}'\uplus\Upsilon'\left(n\right)\right)
 \]
@@ -2038,11 +2095,13 @@ auf $\mathfrak{A}'\uplus\Upsilon'\left(n\right)$ und hat offensichtlich
 die geforderte Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$.
 
 Anschließend konstruieren wir daraus den $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
-$\dot{\mathcal{C}_{n}^{\varphi}}=\left(G,W,\dot{\Sigma},\dot{\Omega},U\right)$
-über $U=\left[1,n\right]$, indem alle nicht-konstanten Inputs $\Sigma\left(g\right)=R\bar{t}$
-mit $\bar{t}\notin U^{k}$ oder $R\notin\sigma$ durch Konstanten
-$\dot{\Sigma}\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
-ersetzt werden, und die Ausgangsfunktion auf $\dot{\Omega}=\Omega_{\mid\dot{U}}$
+\begin{eqnarray*}
+\dot{\mathcal{C}_{n}^{\varphi}} & \coloneqq & \left(G,W,\dot{\Sigma},\dot{\Omega},U\right)\\
+U & \coloneqq & \left[1,n\right]
+\end{eqnarray*}
+ indem alle Inputs $\Sigma\left(g\right)=R\bar{t}$ mit $\bar{t}\notin U^{k}$
+oder $R\notin\sigma$ durch Konstanten $\dot{\Sigma}\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
+ersetzt werden, und die Ausgangsfunktion auf $\dot{\Omega}=\Omega_{\mid U^{k}}$
 reduziert wird.
 \begin{casenv}
 \item Für $\Sigma\left(g\right)=R\bar{t}$ mit $R\in\sigma$ werden die
@@ -2111,7 +2170,11 @@ denn ansonsten bleibt $\Sigma$ unverändert.
 
 \end{casenv}
 \end{casenv}
-Damit ist $\bar{\dot{\mathcal{C}^{\varphi}}}$ eine symmetrische,
+Außerdem gilt ist $U^{k}$ bezüglich $\pi'$ abgeschlossen: 
+\[
+\hat{\pi}\dot{\Omega}\left(\bar{t}\right)=\hat{\pi}\Omega\left(\bar{t}\right)=\Omega\left(\pi'\bar{t}\right)=\dot{\Omega}\left(\pi'\bar{t}\right)
+\]
+ Damit ist $\bar{\dot{\mathcal{C}^{\varphi}}}$ eine symmetrische,
 $P$-uniforme Schaltkreisfamilie in $\mathrm{AC}^{0}$, die die Anfrage
 $q$ berechnet.
 \end{proof}
@@ -2127,27 +2190,32 @@ kann, indem Majority-Gates hinzugefügt werden.
 \label{lem:fo-c}Jede $\left(\mathrm{FO}+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
 $P$-uniformen $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
-$\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ mit konstanter Tiefe
-$T_{n}\leqslant3\left\Vert \varphi\right\Vert $ und polynomieller
-Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$
+$\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ mit $3\left\Vert \varphi\right\Vert $-Tiefe
+und $5\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$-Größe
 berechnet wird.
 \end{lem}
 (Dieses Lemma bildet die erste Hälfte von Theorem \ref{thm:5.6:fo-c}.)
 \begin{proof}
-Für eine $k$-stellige $\left(\mathrm{FO}+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
-$\varphi$ konstruieren wir den $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreis
+Sei $\varphi$ eine $k$-stellige $\left(\mathrm{FO}+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel.
+Der $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreis
 $\mathcal{C}_{2n+1}^{\varphi}$ über dem Universum $U'\coloneqq\left[1,2n+1\right]=\left[1,n\right]\uplus\rho\left[0,n\right]$
-nach dem gleichen Schema wie in Lemma \ref{lem:fo-ord}, wobei ein
-neuer Fall hinzukommt.
+wird nach dem gleichen Schema wie in Lemma \ref{lem:fo-ord}, wobei
+ein neuer Fall hinzukommt.
 
 (Zur Erinnerung: $\rho:\left[0,n\right]\rightarrow\left[n+1,2n+1\right]$
 ist die Verschiebung des Universums von $\Upsilon\left(n\right)$.)
-\begin{description}
-\item [{Schaltkreis:}] $\varphi\left(\bar{x}\right)=\exists^{\geqslant x_{i}}y_{j}\psi\left(\bar{y}\right)$,
+\begin{casenv}
+\item Falls $\varphi\left(\bar{x}\right)=\exists^{\geqslant x_{i}}y_{j}\psi\left(\bar{y}\right)$,
 so sei $\mathcal{C}_{2n+1}^{\psi}$ der $k$-stellige Schaltkreis
 für die Formel $\psi$:
+\[
+\mathcal{C}_{2n+1}^{\psi}=\left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U'\right)
+\]
+
+
+\begin{description}
+\item [{Schaltkreis:}] 
 \begin{eqnarray*}
-\mathcal{C}_{2n+1}^{\psi} & = & \left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U'\right)\\
 \mathcal{C}_{2n+1}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U'\right)
 \end{eqnarray*}
 Es wird für jedes Tupel $\bar{t}\in U'^{k}$ ein neuer Output $g_{\bar{t}}$
@@ -2209,8 +2277,8 @@ Jedes Majority-Gate $g_{\bar{t}}$ muss entweder $k=2\rho^{-1}t_{i}-n$
 $\mathbf{0}$-Eingänge oder $k'=n-2\rho^{-1}t_{i}$ $\mathbf{1}$-Eingänge
 erhalten:
 \begin{eqnarray*}
-W_{\mathrm{pad}} & = & \left\{ \left(0_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{k},\,t_{i}\in\left[n+1,2n+1\right],\,1\leqslant j\leqslant2t_{i}-3n-2\right\} \\
- & \cup & \left\{ \left(1_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{k},\,t_{i}\in\left[n+1,2n+1\right],\,1\leqslant j\leqslant3n+2-2t_{i}\right\} 
+W_{\mathrm{pad}} & = & \left\{ \left(0_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{k},\,t_{i}\in\rho\left[0,n\right],\,1\leqslant j\leqslant2\rho^{-1}t_{i}-n\right\} \\
+ & \cup & \left\{ \left(1_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{k},\,t_{i}\in\rho\left[0,n\right],\,1\leqslant j\leqslant n-2\rho^{-1}t_{i}\right\} 
 \end{eqnarray*}
 \begin{eqnarray*}
 \overset{n+k=2\rho^{-1}t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{k=2\rho^{-1}t_{i}-n}{\underbrace{\mathbf{0}\mathbf{0}\cdots\mathbf{0}}}}} &  & \overset{n+k'=2n-2\rho^{-1}t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{k'=n-2\rho^{-1}t_{i}}{\underbrace{\mathbf{1}\mathbf{1}\cdots\mathbf{1}}}}}
@@ -2272,16 +2340,20 @@ Das gleiche gilt analog für die Kanten $\left(\hat{\pi}1_{j},\hat{\pi}g_{\bar{t
 \item Für $\Omega$ ist $\hat{\pi}\Omega\left(\bar{t}\right)=\hat{\pi}g_{\bar{t}}=g_{\pi'\bar{t}}=\Omega\left(\pi'\bar{t}\right)$
 per Definition gegeben.
 \end{enumerate}
-\end{description}
-Der so erzeugte Schaltkreis hat weiterhin konstante Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $,
-denn der neue Schritt vergrößert die Tiefe nur um eine Kante. Weiterhin
-hat er die Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$,
-denn der neue Schritt fügt höchstens 
-\[
-\left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}+2n<5\left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}
-\]
-neue Gates hinzu.
+\item [{Größe:}] 
+\begin{eqnarray*}
+T\left(\mathcal{C}_{2n+1}^{\varphi}\right) & \leqslant & 1+T\left(\mathcal{C}_{2n+1}^{\psi}\right)\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & 1+3\left\Vert \psi\right\Vert \leqslant3\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+\begin{eqnarray*}
+\left|\mathcal{C}_{2n+1}^{\varphi}\right| & \leqslant & \left(2n+1\right)^{k}+2n+\left|\mathcal{C}_{2n+1}^{\psi}\right|\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & \left(2n+1\right)^{k}+2n+5\left\Vert \psi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\psi\right)}\\
+ &  & 5\left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}+5\left\Vert \psi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}\\
+ & \leqslant & 5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}
+\end{eqnarray*}
 
+\end{description}
+\end{casenv}
 Nach der Erzeugung von $\mathcal{C}_{2n+1}^{\varphi}$ wird der Schaltkreis
 auf die bereits beschriebene Weise zu $\dot{\mathcal{C}_{n}^{\varphi}}$
 umgewandelt, in dem die nicht-konstanten Inputs mit Elementen aus
@@ -2292,6 +2364,8 @@ Da der Schaltkreis $\mathcal{C}_{2n+1}^{\varphi}$ für jede Permutation
 $\pi\uplus\mathbf{id}_{\left[n+1,2n+1\right]}$ mit $\pi\in\mathrm{Sym}_{\left[1,n\right]}$
 einen Automorphismus besitzt, ist der Schaltkreis $\dot{\mathcal{C}_{n}^{\varphi}}$
 symmetrisch (siehe Lemma \ref{lem:fo-ord}).
+
+\pagebreak{}
 \end{proof}
 
 \subsection{Beliebige Orakel}
@@ -2310,17 +2384,21 @@ Jede $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen
 $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
 $\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit konstanter
-Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $ und polynomieller
-Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)}$
+Tiefe $3\left\Vert \varphi\right\Vert $-Tiefe und polynomieller Größe
+$5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)}$-Tiefe
 berechnet wird.
 \end{lem}
 (Dieses Lemma bildet die erste Hälfte von \ref{thm:5.7:fo+u}.)
 \begin{proof}
 Sei $n\in\mathbb{N}$ beliebig und sei $\rho:\left[0,n\right]\rightarrow\left[n+1,2n+1\right]$
 wie bisher definiert. Die Struktur $\Upsilon\left(n\right)$ wird
-zu $\Upsilon'\left(n\right)=\rho\Upsilon'\left(n\right)=\left(\left[n+1,2n+1\right],\left(\rho R^{\Upsilon\left(n\right)}\right)_{R\in\eta}\right)$.
+zu 
+\[
+\Upsilon'\left(n\right)=\rho\Upsilon'\left(n\right)=\left(\left[n+1,2n+1\right],\left(\rho R^{\Upsilon\left(n\right)}\right)_{R\in\eta}\right)
+\]
 
-Zunächst wird der $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
+
+Zunächst wird der $\left(\sigma\cup\eta\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
 $\mathcal{C}_{2n+1}^{\varphi}$ wie in Lemma \ref{lem:fo-ord} erzeugt.
 
 Bei der Erzeugung des $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreises
@@ -2350,7 +2428,7 @@ nicht in Polynomialzeit entscheidbar sein muss, und daher die so definierte
 Schaltkreisfamilie nicht mehr $P$-uniform ist.
 
 Offensichtlich ist sie jedoch immer noch $\mathrm{poly}\left(n\right)$-groß
-und damit $P/\mathrm{poly}$-uniform.
+und daher auch $P/\mathrm{poly}$-uniform.
 
 \pagebreak{}
 \end{proof}
@@ -2361,26 +2439,24 @@ Für eine Orakellogik mit Zählquantor $\mathrm{FO}+\Upsilon+\exists^{\geqslant}
 werden nun die Konstruktionen aller vorhergehender Abschnitte kombiniert.
 \begin{lem}
 \label{lem:fo-u-c}Seien $\eta$ und $\sigma$ disjunkte Signaturen
-und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}\left(\eta\right)$
+und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta\right)$
 ein Orakel.
 
 Jede $\left(\mathrm{FO}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen
 $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
-$\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit konstanter
-Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $ und polynomieller
-Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+c}$
+$\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit $3\left\Vert \varphi\right\Vert $-Tiefe
+und $5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+c}$-Größe
 für $c\in\mathbb{N}$ berechnet wird.\end{lem}
 \begin{proof}
-Zunächst wird die Konstruktion aus Lemma \ref{lem:fo-c} angewendet,
-um eine $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
+Zunächst wird die Konstruktion aus Lemma \ref{lem:fo-c} und angewendet,
+um eine $P/\mathrm{poly}$-uniforme $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
 $\left(\mathcal{C}_{2n+1}^{\varphi}\right)_{n\in\mathbb{N}}$ zu erzeugen,
 die bezüglich Permutationen von $\left[1,n\right]$ symmetrisch ist.
-Diese Schaltkreise haben die Tiefe $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
-und Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}F\left(\hat{\varphi}\right)}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}F\left(\varphi\right)}$.
 
 Dann werden die Konstruktionen aus Lemma \ref{lem:fo-ord} und Lemma
-\ref{lem:fo-u} kombiniert, um daraus eine symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
+\ref{lem:fo-u} kombiniert, um daraus eine symmetrische $P/\mathrm{poly}$-uniforme
+$\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
 $\left(\dot{\mathcal{C}_{n}^{\varphi}}\right)_{n\in\mathbb{N}}$ zu
 erzeugen.
 \end{proof}
@@ -3154,7 +3230,6 @@ ausgedrückt werden:
 \pagebreak{}
 
 \bibliographystyle{plain}
-\nocite{*}
 \bibliography{master}
 
 \end{document}
