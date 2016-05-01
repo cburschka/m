@@ -11,6 +11,7 @@
 \begin_modules
 theorems-ams
 theorems-sec
+enumitem
 \end_modules
 \maintain_unincluded_children false
 \language ngerman
@@ -527,7 +528,7 @@ Für jede
 \end_layout
 
 \begin_layout Subsection
-FO-Logiken und Schaltkreise
+Logik erster Stufe und Schaltkreise konstanter Tiefe
 \end_layout
 
 \begin_layout Theorem
@@ -799,7 +800,7 @@ Die Anfrage
 \end_deeper
 \end_deeper
 \begin_layout Subsection
-FO-Logik mit disjunktem und nicht-disjunktem Orakel
+Logik erster Stufe mit disjunktem und nicht-disjunktem Orakel
 \end_layout
 
 \begin_layout Theorem
@@ -864,7 +865,7 @@ Grundlagen
 
 \begin_layout Standard
 Diese Arbeit verwendet verschiedene Begriffe der endlichen Modelltheorie
- und der Gruppentheorie.
+ und der Graphentheorie.
  Diese Begriffe werden im folgenden formal definiert.
 \end_layout
 
@@ -907,7 +908,7 @@ Stelligkeit
 \begin_inset Formula $\bar{x}$
 \end_inset
 
- sei die Anzahl der Elemente, und ein 
+ sei die Anzahl seiner Elemente, und ein 
 \begin_inset Formula $n$
 \end_inset
 
@@ -1022,14 +1023,18 @@ Für jede Relation
 \begin_inset Formula $\left[R\right]:A^{k}\rightarrow\left\{ 0,1\right\} $
 \end_inset
 
- eine Funktion, die 
-\begin_inset Formula $\left[R\right]\left(\bar{a}\right)\coloneqq\begin{cases}
-1 & \mathrm{falls}\,\bar{a}\in R\\
+ die folgende Funktion: 
+\begin_inset Formula 
+\[
+\left[R\right]\left(\bar{a}\right)\coloneqq\begin{cases}
+1 & \mathrm{falls}\,\,\bar{a}\in R\\
 0 & \mathrm{sonst}
-\end{cases}$
+\end{cases}
+\]
+
 \end_inset
 
- ausgibt.
+ 
 \end_layout
 
 \begin_layout --Separator--
@@ -1190,9 +1195,9 @@ Für zwei Abbildungen
  die folgende Abbildung:
 \begin_inset Formula 
 \[
-\pi\cup\pi'\left(x\right)\coloneqq\begin{cases}
-\pi\left(x\right) & \mathrm{falls}\,x\in A\\
-\pi'\left(x\right) & \mathrm{falls}\,x\in A'
+\left(\pi\cup\pi'\right)x\coloneqq\begin{cases}
+\pi x & \mathrm{falls}\,\,x\in A\\
+\pi'x & \mathrm{falls}\,\,x\in A'
 \end{cases}
 \]
 
@@ -1286,7 +1291,7 @@ Eine Transposition sei eine Permutation, die zwei Elemente
 
  vertauscht und alle anderen Elemente fixiert.
  Diese wird kurz durch 
-\begin_inset Formula $\left[u_{i}u_{j}\right]$
+\begin_inset Formula $\left(u_{i}u_{j}\right)$
 \end_inset
 
  notiert.
@@ -1388,25 +1393,6 @@ R_{1}^{\mathfrak{A}} & \cdots & R_{k}^{\mathfrak{A}}
 
 \end_layout
 
-\begin_layout Definition
-Für eine Relation 
-\begin_inset Formula $R^{\mathfrak{A}}\subseteq A^{k}$
-\end_inset
-
- sei 
-\begin_inset Formula $\left[R^{\mathfrak{A}}\right]:A^{k}\rightarrow\left\{ 0,1\right\} $
-\end_inset
-
- eine Funktion mit 
-\begin_inset Formula $\left[R^{\mathfrak{A}}\right]\bar{t}\coloneqq\begin{cases}
-1 & \mathrm{falls}\,t\in R^{\mathfrak{A}}\\
-0 & \mathrm{sonst}
-\end{cases}$
-\end_inset
-
-.
-\end_layout
-
 \begin_deeper
 \begin_layout Enumerate
 Für eine endliche Menge 
@@ -1433,11 +1419,11 @@ Für
 \begin_inset Formula $n\in\mathbb{N}_{\geqslant1}$
 \end_inset
 
- sei 
+ seien 
 \begin_inset Formula $\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 \end_inset
 
- die Menge aller 
+ die 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -1449,11 +1435,11 @@ Für
 \end_layout
 
 \begin_layout Enumerate
-Sei 
+Seien 
 \begin_inset Formula $\mathbf{FIN}\left(\sigma\right)\coloneqq\bigcup_{n\in\mathbb{N}_{\geqslant1}}\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 \end_inset
 
- die Menge aller endlichen 
+ die endlichen 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -1508,7 +1494,16 @@ Für
 \begin_inset Formula $\left[a,b\right]$
 \end_inset
 
- interpretiert wird.
+ interpretiert wird, und sei 
+\begin_inset Formula $\mathbf{FIN}_{\leqslant}\left(\sigma\right)\coloneqq\bigcup_{a,b\in\mathbb{N}}\mathbf{FIN}_{\leqslant}^{\left[a,b\right]}\left(\sigma\right)$
+\end_inset
+
+ die Klasse aller endlichen geordneten 
+\begin_inset Formula $\sigma\cup\left\{ \leqslant\right\} $
+\end_inset
+
+-Strukturen.
+ 
 \end_layout
 
 \begin_layout Definition
@@ -1650,7 +1645,15 @@ Ein Automorphismus
 \begin_inset Formula $\mathrm{Aut}_{\mathfrak{A}}$
 \end_inset
 
-; diese bilden wiederum eine Gruppe.
+; diese bilden wiederum eine Gruppe bezüglich 
+\begin_inset Formula $\circ$
+\end_inset
+
+ und dem neutralen Element 
+\begin_inset Formula $\mathbf{id}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout --Separator--
@@ -2098,9 +2101,9 @@ Die
 \series bold
 Stelligkeit 
 \series default
-einer logischen Formel (beziehungsweise ihres Arguments) bezeichne die Anzahl
- der frei vorkommenden Variablen: 
-\begin_inset Formula $\mathrm{ar}\left(\varphi\left(\bar{x}\right)\right)=\mathrm{ar}\left(\bar{x}\right)=\left|\mathrm{frei}\left(\varphi\right)\right|$
+eines logischen Ausdrucks (beziehungsweise ihres Arguments) bezeichne die
+ Anzahl der frei vorkommenden Variablen: 
+\begin_inset Formula $\mathrm{ar}\left(\omega\left(\bar{x}\right)\right)=\mathrm{ar}\left(\bar{x}\right)=\left|\mathrm{frei}\left(\omega\right)\right|$
 \end_inset
 
 .
@@ -2120,17 +2123,17 @@ Satz
 
 \begin_layout Definition
 Es sei 
-\begin_inset Formula $\mathtt{MF}\left(\varphi\right)$
+\begin_inset Formula $\mathtt{MF}\left(\omega\right)$
 \end_inset
 
- die maximale Anzahl freier Variablen jeder Teilformel von 
-\begin_inset Formula $\varphi$
+ die maximale Anzahl freier Variablen jedes Teilausdrucks von 
+\begin_inset Formula $\omega$
 \end_inset
 
 : 
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathtt{MF}\left(\varphi\right) & \coloneqq & \max\left\{ \mathrm{ar}\left(\psi\right)\mid\psi\,\mbox{ist Teilformel von}\,\varphi\right\} 
+\mathtt{MF}\left(\omega\right) & \coloneqq & \max\left\{ \mathrm{ar}\left(\omega'\right)\mid\omega'\,\mbox{ist Teilausdruck von}\,\omega\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -2289,7 +2292,7 @@ Es stehe
 
 .
  Sei 
-\begin_inset Formula $q_{\varphi^{\beta}}=\left\{ \bar{a}\in A^{\ell}\mid\mathfrak{A}\models\varphi^{\beta\uplus\beta'}\right\} $
+\begin_inset Formula $q_{\varphi^{\beta}}=\left\{ \bar{a}\in A^{\ell}\mid\mathfrak{A}\models\varphi^{\beta}\left[\bar{a}\right]\right\} $
 \end_inset
 
  die von 
@@ -2444,7 +2447,7 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 
 \begin_inset Formula 
 \[
-\mathtt{M}\left(x\right)=1
+\mathtt{MF}\left(x\right)=1
 \]
 
 \end_inset
@@ -2497,7 +2500,7 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 
 \begin_inset Formula 
 \[
-\mathtt{MF}\left(R\bar{x}\right)=\max\left(\max_{i=1}^{k}\mathtt{M}\left(x_{i}\right),\mathrm{frei}\left(R\bar{x}\right)\right)
+\mathtt{MF}\left(R\bar{x}\right)=\max\left(\max_{i=1}^{k}\mathtt{MF}\left(x_{i}\right),\left|\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right)\right|\right)
 \]
 
 \end_inset
@@ -2524,7 +2527,7 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 \end_inset
 
  ist 
-\begin_inset Formula $x_{1}=x_{2}$
+\begin_inset Formula $x_{1}\dot{=}x_{2}$
 \end_inset
 
  eine 
@@ -2532,23 +2535,6 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 \end_inset
 
 -Formel.
- (Bei Mehrdeutigkeit wird das Symbol als 
-\begin_inset Formula $\dot{=}$
-\end_inset
-
- geschrieben, zum Beispiel bei 
-\begin_inset Quotes gld
-\end_inset
-
-
-\begin_inset Formula $\varphi=x_{1}\dot{=}x_{2}$
-\end_inset
-
-.
-\begin_inset Quotes grd
-\end_inset
-
-)
 \begin_inset Formula 
 \begin{eqnarray*}
 \mathrm{frei}\left(x_{1}\dot{=}x_{2}\right)=\bigcup_{i=1}^{2}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(x_{1}\dot{=}x_{2}\right)=\bigcup_{i=1}^{2}\mathrm{var}\left(x_{i}\right)
@@ -2559,7 +2545,7 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 
 \begin_inset Formula 
 \[
-\mathtt{MF}\left(x_{1}\dot{=}x_{2}\right)=\max\left(\mathtt{MF}\left(x_{1}\right),\mathtt{MF}\left(x_{2}\right),\mathrm{frei}\left(x_{1}\dot{=}x_{2}\right)\right)
+\mathtt{MF}\left(x_{1}\dot{=}x_{2}\right)=\max\left(\max_{i=1}^{2}\mathtt{MF}\left(x_{i}\right),\left|\bigcup_{i=1}^{2}\mathrm{frei}\left(x_{i}\right)\right|\right)
 \]
 
 \end_inset
@@ -2669,7 +2655,7 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 
 \begin_inset Formula 
 \[
-\mathtt{MF}\left(R\bar{x}\right)=\max\left(\max_{i=1}^{k}\mathtt{MF}\left(\varphi_{i}\right),\mathrm{frei}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)\right)
+\mathtt{MF}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)=\max\left(\max_{i=1}^{k}\mathtt{MF}\left(\varphi_{i}\right),\left|\bigcup_{i=1}^{k}\mathrm{frei}\left(\varphi_{i}\right)\right|\right)
 \]
 
 \end_inset
@@ -2725,7 +2711,7 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 
 \begin_inset Formula 
 \[
-\mathtt{MF}\left(Qx\varphi\right)=\max\left(\mathtt{MF}\left(\varphi\right),\mathrm{frei}\left(Qx\varphi\right)\right)
+\mathtt{MF}\left(Qx\varphi\right)=\mathtt{MF}\left(\varphi\right)
 \]
 
 \end_inset
@@ -2745,21 +2731,11 @@ a
 
 \end_inset
 
-(Im folgenden wird o.B.d.A.
- angenommen, dass 
-\begin_inset Formula $x\in\mathrm{frei}\left(\varphi\right)$
-\end_inset
 
-.
- Ist dies nicht der Fall, so ist 
-\begin_inset Formula $Qx\varphi\equiv\varphi$
-\end_inset
-
-.)
 \end_layout
 
 \begin_layout Remark*
-Im folgenden stehe 
+Im folgenden stehen 
 \begin_inset Formula $Q\bar{x}\psi$
 \end_inset
 
@@ -2853,7 +2829,11 @@ Wir definieren die Klasse der
 \begin_inset Formula $P$
 \end_inset
 
--positiven Formeln für 
+-positiven und 
+\begin_inset Formula $P$
+\end_inset
+
+-negativen Formeln für 
 \begin_inset Formula $P\in\sigma$
 \end_inset
 
@@ -2862,7 +2842,7 @@ Wir definieren die Klasse der
 
 \begin_layout Enumerate
 Jede 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\backslash\left\{ P\right\} \right]$
+\begin_inset Formula $\mathscr{L}\left[\sigma\backslash\left\{ P\right\} \right]$
 \end_inset
 
 -Formel 
@@ -3127,7 +3107,7 @@ Auswertung: Für
 R\\
 X
 \end{array}\right)\right)\\
-F\left(X\right) & \coloneqq & \varphi^{\beta}\left(\mathfrak{A}\cup\mathfrak{R}_{X}\right)
+F\left(X\right) & \coloneqq & q_{\varphi^{\beta}}\left(\mathfrak{A}\cup\mathfrak{R}_{X}\right)
 \end{eqnarray*}
 
 \end_inset
@@ -3219,7 +3199,7 @@ Die Formel prüft nun, ob die Belegung des Tupels
  liegt: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\left\llbracket \left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left\llbracket R\bar{y}\right\rrbracket \left(\mathfrak{A}\cup\mathfrak{R}_{F^{\infty}\left(\emptyset\right)},\beta\right)
+\left\llbracket \left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket R\bar{y}\right\rrbracket \left(\mathfrak{A}\cup\mathfrak{R}_{F^{\infty}\left(\emptyset\right)},\beta\right)
 \end{eqnarray*}
 
 \end_inset
@@ -3248,7 +3228,7 @@ Die folgende
  durch einen Weg beliebiger Länge verbunden sind: 
 \begin_inset Formula 
 \[
-\varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
+\varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x\dot{=}y\right)\right]\left(u,v\right)
 \]
 
 \end_inset
@@ -3380,14 +3360,14 @@ Für eine endliche
 \end_inset
 
  und eine Belegung 
-\begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A\cup\left[0,n\right]$
+\begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
 \end_inset
 
- wird 
-\begin_inset Formula $\varphi$
+ werden 
+\begin_inset Formula $\left(\mathscr{L}+\Upsilon\right)$
 \end_inset
 
- auf der disjunkten Vereinigung von 
+-Ausdrücke auf der disjunkten Vereinigung von 
 \begin_inset Formula $\mathfrak{A}$
 \end_inset
 
@@ -3398,7 +3378,7 @@ Für eine endliche
  ausgewertet:
 \begin_inset Formula 
 \[
-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\uplus\Upsilon\left(\left|A\right|\right),\beta\right)
+\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\uplus\Upsilon\left(\left|A\right|\right),\beta\right)
 \]
 
 \end_inset
@@ -3432,7 +3412,7 @@ Falls
 \begin_inset Formula $\Upsilon\left(n\right)=\left(\left[0,n\right],\leqslant\right)$
 \end_inset
 
- nur die Ordnung enthält, so werde 
+ nur die Ordnung enthält, so wird 
 \begin_inset Formula $\mathscr{L}+\Upsilon$
 \end_inset
 
@@ -3445,7 +3425,7 @@ Falls
 
 \begin_layout Definition
 Die unendliche Signatur 
-\begin_inset Formula $\eta_{\mathrm{arb}}=\left\{ R_{X}\mid k\in\mathbb{N},\,X\subseteq\mathbb{N}^{k}\right\} $
+\begin_inset Formula $\eta_{\mathrm{arb}}=\left\{ R_{X}\mid X\in\bigcup_{k\in\mathbb{N}}2^{\mathbb{N}^{k}}\right\} $
 \end_inset
 
  enthalte ein Symbol für jede beliebige Relation auf den natürlichen Zahlen.
@@ -3457,8 +3437,15 @@ Die unendliche Signatur
 \begin_inset Formula $\eta_{\mathrm{arb}}$
 \end_inset
 
--Struktur, die jedes Symbol durch die entsprechende Relation interpretiert,
- und sei 
+-Struktur, die jedes Symbol 
+\begin_inset Formula $R_{X}$
+\end_inset
+
+ durch die entsprechende Relation 
+\begin_inset Formula $X$
+\end_inset
+
+ interpretiert, und sei 
 \begin_inset Formula $\Upsilon_{\mathrm{arb}}:\mathbb{N}\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta_{\mathrm{arb}}\right)$
 \end_inset
 
@@ -3493,10 +3480,6 @@ Die Logik
  bezeichnet.
 \end_layout
 
-\begin_layout --Separator--
-
-\end_layout
-
 \begin_layout Standard
 Wir führen mehrere syntaktische Erweiterungen der Logik 
 \begin_inset Formula $\mathrm{FO}+\Upsilon$
@@ -3519,10 +3502,6 @@ Wir führen mehrere syntaktische Erweiterungen der Logik
 
 \begin_layout Standard
 Es wird nachgewiesen, dass alle drei Erweiterungen die gleiche Ausdrucksstärke
- bis auf einen konstanten Zuwachs von 
-\begin_inset Formula $\mathtt{MF}\left(\varphi\right)$
-\end_inset
-
  haben.
 \end_layout
 
@@ -3546,8 +3525,8 @@ key "anderson_et_al:LIPIcs:2014:4445"
 \end_layout
 
 \begin_layout Definition
-Der Zählterm ist eine zusätzlicher Termproduktion, die die erfüllenden Belegunge
-n einer Formel zählt.
+Der Zählterm ist eine zusätzliche Termproduktion, die die erfüllenden Belegungen
+ einer Formel zählt.
 \end_layout
 
 \begin_layout Definition
@@ -3572,11 +3551,11 @@ Sei
 
 \begin_layout Definition
 Die 
-\begin_inset Formula $\mathscr{L}+\Upsilon+\#$
+\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\#\right)$
 \end_inset
 
 -Logik erweitert die 
-\begin_inset Formula $\mathscr{L}+\Upsilon$
+\begin_inset Formula $\left(\mathscr{L}+\Upsilon\right)$
 \end_inset
 
 -Logik um die folgende Regel:
@@ -3634,7 +3613,7 @@ Auf einer endlichen Struktur
  sei 
 \begin_inset Formula 
 \[
-\left\llbracket \#x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\left|\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\uplus\binom{x}{a}}\right\} \right|
+\left\llbracket \#x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\left|\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\cup\binom{x}{a}}\right\} \right|
 \]
 
 \end_inset
@@ -3644,21 +3623,10 @@ die Anzahl der unterschiedlichen Werte
 \end_inset
 
 , für die 
-\begin_inset Formula $\beta'=\beta\uplus\left(\begin{array}{c}
-x\\
-a
-\end{array}\right)$
+\begin_inset Formula $\mathfrak{A}\models\varphi^{\beta\cup\binom{x}{a}}$
 \end_inset
 
- eine erfüllende Belegung von 
-\begin_inset Formula $\varphi$
-\end_inset
-
- auf 
-\begin_inset Formula $\mathfrak{A}$
-\end_inset
-
- ist.
+ gilt.
 \end_layout
 
 \end_deeper
@@ -3786,7 +3754,7 @@ Auf einer endlichen Struktur
 \begin_inset Formula 
 \[
 \left\llbracket \exists^{=y}x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\begin{cases}
-1 & \mathrm{falls}\,\beta y=\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\cup\binom{x}{a}}\right\} \\
+1 & \mathrm{falls}\,\,\beta y=\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta_{\backslash\left\{ x\right\} }\cup\binom{x}{a}}\right\} \\
 0 & \mathrm{sonst}
 \end{cases}
 \]
@@ -3904,7 +3872,7 @@ Auf einer endlichen Struktur
 \begin_inset Formula 
 \[
 \left\llbracket \exists^{\geqslant y}x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\begin{cases}
-1 & \mathrm{falls}\,\beta y\in\left[0,n\right],\,\beta y\leqslant\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\cup\binom{x}{a}}\right\} \\
+1 & \mathrm{falls}\,\,\beta y\in\left[0,n\right],\,\beta y\leqslant\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta_{\backslash\left\{ x\right\} }\cup\binom{x}{a}}\right\} \\
 0 & \mathrm{sonst}
 \end{cases}
 \]
@@ -4312,7 +4280,7 @@ key "Schweikardt13ashort"
 
 \begin_layout Definition
 Die unendliche Signatur 
-\begin_inset Formula $\eta_{\mathrm{arb}}=\left\{ R_{X}\mid k\in\mathbb{N},\,X\in\mathcal{P}\left(\mathbb{N}^{k}\right)\right\} $
+\begin_inset Formula $\eta_{\mathrm{arb}}=\left\{ R_{X}\mid X\in\bigcup_{k\in\mathbb{N}}2^{\mathbb{N}^{k}}\right\} $
 \end_inset
 
  enthalte ein Symbol für jede beliebige Relation auf den natürlichen Zahlen.
@@ -4463,11 +4431,36 @@ Eine
 \begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
 \end_inset
 
--Formel sei arb-invariant, wenn sie auf allen Strukturen 
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ sei arb-invariant, wenn sie auf allen Strukturen 
 \begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
 \end_inset
 
  arb-invariant ist.
+ In diesem Fall berechne 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ die folgende 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage (für eine beliebige Abbildung 
+\begin_inset Formula $h:A\rightarrow\left[1,\left|A\right|\right]$
+\end_inset
+
+):
+\begin_inset Formula 
+\[
+q_{\varphi}\left(\mathfrak{A}\right)\coloneqq h^{-1}q_{\varphi}\left(\mathfrak{A}_{h}\right)
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Enumerate
@@ -4531,40 +4524,23 @@ Eine boolesche Basis
 \end_inset
 
  besteht aus beliebigen symmetrischen Relationen 
-\begin_inset Formula $\phi\subseteq\left\{ 0,1\right\} ^{*}$
+\begin_inset Formula $\phi'\subseteq\left\{ 0,1\right\} ^{*}$
 \end_inset
 
 , die hier als 
-\begin_inset Formula $\phi\subseteq\mathbb{N}\times\mathbb{N}$
+\begin_inset Formula $\phi\subseteq\mathbb{N}^{2}$
 \end_inset
 
  abgekürzt werden.
- Ein Gate vom Typ 
-\begin_inset Formula $\phi$
+ Es gelte: 
+\begin_inset Formula 
+\[
+\phi\coloneqq\left\{ \left(m,n\right)\in\mathbb{N}^{2}\mid0^{m}1^{m}\in\phi'\right\} 
+\]
+
 \end_inset
 
- hat den Wert 
-\begin_inset Formula $\left[\phi\right]\left(m,n\right)$
-\end_inset
-
-, wenn 
-\begin_inset Formula $m$
-\end_inset
-
- seiner Vorgänger den Wert 
-\begin_inset Formula $0$
-\end_inset
-
- und 
-\begin_inset Formula $n$
-\end_inset
-
- Vorgänger den Wert 
-\begin_inset Formula $1$
-\end_inset
-
- haben.
- Als Beispiel seien die folgenden booleschen Junktoren gegeben: 
+Als Beispiel seien die folgenden booleschen Junktoren gegeben: 
 \begin_inset Formula 
 \begin{eqnarray*}
 \wedge & \coloneqq & \left\{ 0\right\} \times\mathbb{N}\\
@@ -4619,7 +4595,7 @@ Sei
 \end_inset
 
  mit der Stelligkeit 
-\begin_inset Formula $m\coloneqq\mathrm{ar}\left(C\right)$
+\begin_inset Formula $k\coloneqq\mathrm{ar}\left(C\right)$
 \end_inset
 
  besteht aus den folgenden Komponenten: 
@@ -4631,7 +4607,15 @@ Ein azyklischer Graph mit den Knoten
 \begin_inset Formula $G$
 \end_inset
 
- und den Kanten 
+ (
+\begin_inset Quotes gld
+\end_inset
+
+Gates
+\begin_inset Quotes grd
+\end_inset
+
+) und den Kanten 
 \begin_inset Formula $W\subseteq G\times G$
 \end_inset
 
@@ -4658,26 +4642,34 @@ eine Gate-Markierung
 
 \begin_layout Enumerate
 eine Ausgabefunktion 
-\begin_inset Formula $\Omega:U^{m}\rightarrow G$
+\begin_inset Formula $\Omega:U^{k}\rightarrow G$
 \end_inset
 
  (bei 
-\begin_inset Formula $m=0$
+\begin_inset Formula $k=0$
 \end_inset
 
  ist 
 \begin_inset Formula $\Omega\left(\left\langle \right\rangle \right)\in G$
 \end_inset
 
- eine Konstante) und 
+ ein einziges Output-Gate, und wird mit 
+\begin_inset Formula $\Omega=\Omega\left(\left\langle \right\rangle \right)$
+\end_inset
+
+ abgekürzt) und 
 \end_layout
 
 \begin_layout Enumerate
-ein geordnetes Universum 
-\begin_inset Formula $U\coloneqq\left\{ 1,\cdots,n\right\} $
+ein Universum 
+\begin_inset Formula $U$
 \end_inset
 
-.
+ (üblicherweise 
+\begin_inset Formula $U=\left[1,n\right]$
+\end_inset
+
+).
 \end_layout
 
 \end_deeper
@@ -4832,7 +4824,7 @@ Für
 \begin_inset Formula 
 \[
 \mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\coloneqq\begin{cases}
-1 & \mathrm{falls}\,\Sigma\left(v\right)=\mathbf{1}\\
+1 & \mathrm{falls}\,\,\Sigma\left(v\right)=\mathbf{1}\\
 0 & \mathrm{sonst}
 \end{cases}
 \]
@@ -4843,22 +4835,18 @@ Für
 \end_layout
 
 \begin_layout Case
-Für ein Gate 
-\begin_inset Formula $v$
-\end_inset
-
- mit 
+Für 
 \begin_inset Formula $\Sigma\left(g\right)=\neg$
 \end_inset
 
- und dem Vorgänger 
-\begin_inset Formula $u$
+ und 
+\begin_inset Formula $\left(h,g\right)\in W$
 \end_inset
 
  gilt 
 \begin_inset Formula 
 \[
-\mathcal{C}\left[\mathfrak{A}\right]\left(v\right)\coloneqq1-\mathcal{C}\left[\mathfrak{A}\right]\left(u\right)
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\coloneqq1-\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)
 \]
 
 \end_inset
@@ -4867,11 +4855,7 @@ Für ein Gate
 \end_layout
 
 \begin_layout Case
-Für ein Gate 
-\begin_inset Formula $v$
-\end_inset
-
- mit 
+Für 
 \begin_inset Formula $\Sigma\left(g\right)=\phi\in\mathbb{B}$
 \end_inset
 
@@ -4905,6 +4889,10 @@ Für einen
 
  sei die Ausgabe von 
 \begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ der Wert des Outputs 
+\begin_inset Formula $\Omega\left(\bar{t}\right)$
 \end_inset
 
 :
@@ -4987,9 +4975,9 @@ E & \coloneqq & \left\{ \left(g_{i,j},g_{\left\{ i,j\right\} }\right)\mid i,j\in
 \begin_inset Formula 
 \[
 \Sigma\left(g\right)=\begin{cases}
-E\,i\,j & \mathrm{für}\,g=g_{i,j}\\
-\wedge & \mathrm{für}\,g=g_{\left\{ i,j\right\} }\\
-\vee & \mathrm{für}\,g=g_{i}
+E\,i\,j & \mathrm{für}\,\,g=g_{i,j}\\
+\wedge & \mathrm{für}\,\,g=g_{\left\{ i,j\right\} }\\
+\vee & \mathrm{für}\,\,g=g_{i}
 \end{cases}
 \]
 
@@ -5530,7 +5518,7 @@ symmetrisch
 \end_inset
 
  einen Automorphismus 
-\begin_inset Formula $\hat{\pi}:G\rightarrow G$
+\begin_inset Formula $\hat{\pi}:G\tilde{\rightarrow}G$
 \end_inset
 
  des Graphen 
@@ -5541,14 +5529,7 @@ symmetrisch
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $\hat{\pi}\left(W\right)=W$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Für alle nicht-konstanten Inputs 
+Für alle Inputs 
 \begin_inset Formula $g$
 \end_inset
 
@@ -5577,17 +5558,17 @@ Für alle übrigen Gates gilt
 
 \begin_layout Enumerate
 Für jedes Tupel 
-\begin_inset Formula $\bar{x}\in U^{k}$
+\begin_inset Formula $\bar{t}\in U^{k}$
 \end_inset
 
  gilt 
-\begin_inset Formula $\hat{\pi}\Omega\left(\bar{x}\right)=\Omega\left(\pi x\right)$
+\begin_inset Formula $\hat{\pi}\Omega\left(\bar{x}\right)=\Omega\left(\pi\bar{t}\right)$
 \end_inset
 
 .
 \end_layout
 
-\begin_layout Lemma
+\begin_layout Proposition
 Symmetrie ist eine hinreichende, aber nicht notwendige, Bedingung für die
  Invarianz eines Schaltkreises.
 \end_layout
@@ -5668,7 +5649,7 @@ Wegen der Symmetrie induziert
 \begin{eqnarray*}
 \hat{\tau}\left(W\right) & = & W\\
 \Sigma\left(\hat{\tau}g\right) & = & \begin{cases}
-R\tau\bar{x} & \mathrm{für}\,\Sigma\left(g\right)=R\bar{x}\\
+R\tau\bar{x} & \mathrm{für}\,\,\Sigma\left(g\right)=R\bar{x}\\
 \Sigma\left(g\right) & \mathrm{sonst}
 \end{cases}\\
 \Omega\left(\tau\bar{x}\right) & = & \hat{\tau}\Omega\left(\bar{x}\right)\,\mathrm{für\,alle}\,\bar{x}\in U^{\mathrm{ar}\left(\mathcal{C}\right)}
@@ -5680,7 +5661,15 @@ R\tau\bar{x} & \mathrm{für}\,\Sigma\left(g\right)=R\bar{x}\\
 \end_layout
 
 \begin_layout Proof
-Per Induktion über die Tiefe
+Per Induktion über die Tiefe 
+\begin_inset Formula $T\left(g\right)$
+\end_inset
+
+ des Gates 
+\begin_inset Formula $g$
+\end_inset
+
+
 \begin_inset Foot
 status open
 
@@ -5716,14 +5705,14 @@ Induktionsanfang
 \end_inset
 
 
-\begin_inset Formula $n=0$
+\begin_inset Formula $T\left(g\right)=0$
 \end_inset
 
 : Sei 
 \begin_inset Formula $g\in G$
 \end_inset
 
- eine Quelle mit 
+ ein Input mit 
 \begin_inset Formula $\Sigma\left(g\right)=R\bar{x}$
 \end_inset
 
@@ -5920,11 +5909,7 @@ begin{tikzpicture}
 \backslash
 node [label=below:$
 \backslash
-Omega (
-\backslash
-langle 
-\backslash
-rangle)$] (C) {$
+Omega$] (C) {$
 \backslash
 wedge$};
 \end_layout
@@ -6029,11 +6014,11 @@ Schaltkreis
 \end_layout
 
 \begin_layout Standard
-Der Schaltkreis ist invariant, da er genau den Isomorphietyp 
+Der Schaltkreis ist invariant, und akzeptiert alle vollständigen 
 \begin_inset Formula $K_{2}$
 \end_inset
 
- akzeptiert.
+-Graphen.
  Er ist aber nicht symmetrisch: Die Permutation 
 \begin_inset Formula $\left(\begin{array}{cc}
 1 & 2\\
@@ -6085,14 +6070,10 @@ Die von der Schaltkreisfamilie berechnete
 \begin_inset Formula $q_{\bar{\mathcal{C}}}$
 \end_inset
 
- sei die disjunkte Vereinigung der Anfragen 
-\begin_inset Formula $q_{\mathcal{C}_{n}}$
-\end_inset
-
- jedes Schaltkreises: 
+ sei wie folgt: 
 \begin_inset Formula 
 \[
-q_{\bar{\mathcal{C}}}\coloneqq\biguplus_{n\in\mathbb{N}}q_{\mathcal{C}_{n}}
+q_{\bar{\mathcal{C}}}\left(\mathfrak{A}\right)\coloneqq q_{\mathcal{C}_{\left|A\right|}}\left(\mathfrak{A}\right)
 \]
 
 \end_inset
@@ -6332,7 +6313,7 @@ Es wird statt
 \begin_inset Quotes grd
 \end_inset
 
- verwendet.
+ verwendet:
 \end_layout
 
 \begin_layout Remark*
@@ -6341,7 +6322,14 @@ Eine
 \end_inset
 
 -Turingmaschine arbeitet mit einem polynomiell beschränktem Orakel in Polynomial
-zeit, und kann daher genau solche Schaltkreisfamilien berechnen, deren binäre
+zeit
+\begin_inset CommandInset citation
+LatexCommand cite
+key "arora-barak"
+
+\end_inset
+
+, und kann daher genau solche Schaltkreisfamilien berechnen, deren binäre
  Repräsentation polynomielle Größe hat.
  Unter Voraussetzung einer geeigneten Kodierung sind dies genau die 
 \begin_inset Formula $\mathrm{poly}\left(n\right)$
@@ -6361,7 +6349,7 @@ Für eine Funktion
 \begin_inset Formula $f:\mathbb{N}\rightarrow\mathbb{N}$
 \end_inset
 
- sei eine Schaltkreisfamilie 
+ habe eine Schaltkreisfamilie 
 \begin_inset Formula $\bar{\mathcal{C}}$
 \end_inset
 
@@ -6534,7 +6522,23 @@ Per induktiver Konstruktion über den Aufbau von
 \begin_inset Formula $U\coloneqq\left[1,n\right]$
 \end_inset
 
- definiert.
+ definiert, so dass 
+\begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\Leftrightarrow\left\llbracket \mathcal{C}_{n}^{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)$
+\end_inset
+
+ für alle 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{t}\in\left[1,n\right]^{k}$
+\end_inset
+
+ gilt.
  Die Konstruktion ist in Polynomialzeit berechenbar.
  Für eine beliebige Permutation 
 \begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
@@ -6554,7 +6558,11 @@ Falls
 \end_inset
 
  für 
-\begin_inset Formula $R\in\sigma$
+\begin_inset Formula $R/m\in\sigma$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{y}\in\mathrm{frei}\left(\varphi\right)^{m}$
 \end_inset
 
 , so besteht 
@@ -6565,7 +6573,7 @@ Falls
 \begin_inset Formula $n^{k}$
 \end_inset
 
- isolierten Gates.
+ Gates.
 \end_layout
 
 \begin_deeper
@@ -6613,8 +6621,8 @@ Für jedes Tupel
 Korrektheit: 
 \begin_inset Formula 
 \[
-\begin{array}{ccccc}
-\left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1 & \overset{\mathrm{def}}{\Leftrightarrow} & \bar{t}\in R^{\mathfrak{A}} & \overset{\mathrm{def}}{\Leftrightarrow} & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=1\end{array}
+\begin{array}{cccccc}
+\left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \left[R^{\mathfrak{A}}\right]\left(\beta_{\bar{t}}\bar{y}\right) & = & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right)= & \left\llbracket \mathcal{C}_{n}^{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\end{array}
 \]
 
 \end_inset
@@ -6636,15 +6644,16 @@ Symmetrie: Sei
 \begin_inset Formula $\pi\beta_{\bar{t}}\left(\bar{y}\right)=\beta_{\pi\bar{t}}\left(\bar{y}\right)$
 \end_inset
 
- und daher sind die Markierungen 
-\begin_inset Formula $\Sigma\left(\hat{\pi}g_{\bar{t}}\right)=\pi\Sigma\left(g_{\bar{t}}\right)$
+ und daher 
+\begin_inset Formula 
+\begin{eqnarray*}
+\Sigma\left(\hat{\pi}g_{\bar{t}}\right) & = & \pi\Sigma\left(g_{\bar{t}}\right)\\
+\Omega\left(\pi\bar{t}\right) & = & \hat{\pi}\Omega\left(\bar{t}\right)
+\end{eqnarray*}
+
 \end_inset
 
- und 
-\begin_inset Formula $\Omega\left(\pi\bar{t}\right)=g_{\pi\bar{t}}=\hat{\pi}\Omega\left(\bar{t}\right)$
-\end_inset
 
-.
 \end_layout
 
 \end_deeper
@@ -6693,7 +6702,7 @@ Für jedes Tupel
 \begin_inset Formula 
 \begin{eqnarray*}
 \Sigma\left(g_{\bar{t}}\right) & \coloneqq & \begin{cases}
-\mathbf{1} & \mathrm{falls}\,\beta\left(y_{1}\right)=\beta\left(y_{2}\right)\\
+\mathbf{1} & \mathrm{falls}\,\,\beta\left(y_{1}\right)=\beta\left(y_{2}\right)\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}\\
 \Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}
@@ -6708,8 +6717,8 @@ Für jedes Tupel
 Korrektheit: 
 \begin_inset Formula 
 \[
-\begin{array}{ccccc}
-\left\llbracket y_{1}\dot{=}y_{2}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1 & \overset{\mathrm{def}}{\Leftrightarrow} & \beta_{\bar{t}}y_{1}=\beta_{\bar{t}}y_{2} & \overset{\mathrm{def}}{\Leftrightarrow} & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=1\end{array}
+\begin{array}{ccccccc}
+\left\llbracket y_{1}\dot{=}y_{2}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1 & \Leftrightarrow & \left(\beta_{\bar{t}}y_{1}=\beta_{\bar{t}}y_{2}\right) & \Leftrightarrow & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right) & = & \left\llbracket \mathcal{C}_{n}^{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1\end{array}
 \]
 
 \end_inset
@@ -6840,7 +6849,7 @@ Die Gates werden entsprechend beschriftet:
 \begin_inset Formula 
 \begin{eqnarray*}
 \Sigma\left(g\right) & \coloneqq & \begin{cases}
-\Sigma_{i}\left(g\right) & \mathrm{für}\,g\in G_{i}\\
+\Sigma_{i}\left(g\right) & \mathrm{für}\,\,g\in G_{i}\\
 \wedge & \mathrm{sonst}
 \end{cases}\\
 \Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}\,\,\mathrm{für\,alle\,\,}\bar{t}\in U^{k}
@@ -7005,7 +7014,7 @@ G & \coloneqq & G'\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} \\
 W & \coloneqq & W'\cup W_{\neg}\\
 W_{\neg} & \coloneqq & \left\{ \left(\Omega'\left(\bar{t}\right),g_{\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} \\
 \Sigma\left(g\right) & \coloneqq & \begin{cases}
-\Sigma'\left(g\right) & \mathrm{falls}\,g\in G'\\
+\Sigma'\left(g\right) & \mathrm{falls}\,\,g\in G'\\
 \neg & \mathrm{sonst}
 \end{cases}\\
 \Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}
@@ -7040,8 +7049,8 @@ Symmetrie: Es existiert bereits der Automorphismus
 \begin_inset Formula 
 \[
 \hat{\pi}\left(g\right)\coloneqq\begin{cases}
-\hat{\pi'}\left(g\right) & \mathrm{falls}\,g\in G'\\
-g_{\pi\bar{t}} & \mathrm{falls}\,g=g_{\bar{t}}
+\hat{\pi'}\left(g\right) & \mathrm{falls}\,\,g\in G'\\
+g_{\pi\bar{t}} & \mathrm{falls}\,\,g=g_{\bar{t}}
 \end{cases}
 \]
 
@@ -7184,10 +7193,10 @@ W_{\vee} & \coloneqq & \left\{ \left(c_{\bar{t}},e_{\bar{t}}\right),\,\left(d_{\
 \begin_inset Formula 
 \begin{eqnarray*}
 \Sigma\left(g\right) & \coloneqq & \begin{cases}
-\neg & \mathrm{für}\,g\in\left\{ a_{\rho_{1}\bar{t}},b_{\rho_{2}\bar{t}}\mid\bar{t}\in U^{k}\right\} \\
-\wedge & \mathrm{für}\,g\in\left\{ c_{\bar{t}},d_{\bar{t}}\mid\bar{t}\in U^{k}\right\} \\
-\vee & \mathrm{für}\,g\in\left\{ e_{\bar{t}}\mid\bar{t}\in U^{k}\right\} \\
-\Sigma_{i}\left(g\right) & \mathrm{für}\,g\in G_{i}
+\neg & \mathrm{für}\,\,g\in\left\{ a_{\rho_{1}\bar{t}},b_{\rho_{2}\bar{t}}\mid\bar{t}\in U^{k}\right\} \\
+\wedge & \mathrm{für}\,\,g\in\left\{ c_{\bar{t}},d_{\bar{t}}\mid\bar{t}\in U^{k}\right\} \\
+\vee & \mathrm{für}\,\,g\in\left\{ e_{\bar{t}}\mid\bar{t}\in U^{k}\right\} \\
+\Sigma_{i}\left(g\right) & \mathrm{für}\,\,g\in G_{i}
 \end{cases}
 \end{eqnarray*}
 
@@ -7244,8 +7253,8 @@ Symmetrie: Es existieren per Annahme die Automorphismen
 \begin_inset Formula 
 \[
 \hat{\pi}\left(g\right)\coloneqq\begin{cases}
-\hat{\pi_{i}}\left(g\right) & \mathrm{für}\,g\in G_{i}\\
-g_{\pi\bar{t}} & \mathrm{für}\,g=g_{\bar{t}}\,\mathrm{und}\,g\in\left\{ a,b,c,d,e\right\} 
+\hat{\pi_{i}}\left(g\right) & \mathrm{für}\,\,g\in G_{i}\\
+g_{\pi\bar{t}} & \mathrm{für}\,\,g=g_{\bar{t}}\,\mathrm{und}\,g\in\left\{ a,b,c,d,e\right\} 
 \end{cases}
 \]
 
@@ -7397,8 +7406,8 @@ Symmetrie: Es existiert bereits der Automorphismus
 \begin_inset Formula 
 \[
 \hat{\pi}\left(g\right)\coloneqq\begin{cases}
-\hat{\pi'}\left(g\right) & \mathrm{für}\,g\in G'\\
-g_{\pi\bar{t}} & \mathrm{für}\,g=g_{\bar{t}}
+\hat{\pi'}\left(g\right) & \mathrm{für}\,\,g\in G'\\
+g_{\pi\bar{t}} & \mathrm{für}\,\,g=g_{\bar{t}}
 \end{cases}
 \]
 
@@ -7815,7 +7824,7 @@ Für
 \begin_inset Formula 
 \begin{eqnarray*}
 \dot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
-R\bar{t} & \mathrm{falls}\,\bar{t}\in U^{k}\\
+R\bar{t} & \mathrm{falls}\,\,\bar{t}\in U^{k}\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
@@ -7834,7 +7843,7 @@ Für
 \begin_inset Formula 
 \begin{eqnarray*}
 \dot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
-\mathbf{1} & \mathrm{falls}\,t_{1},t_{2}\in\left[n+1,2n+1\right],\,t_{1}\leqslant t_{2}\\
+\mathbf{1} & \mathrm{falls}\,\,t_{1},t_{2}\in\left[n+1,2n+1\right],\,t_{1}\leqslant t_{2}\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
@@ -8249,7 +8258,7 @@ Die neuen Outputs werden mit
 \[
 \begin{array}{ccc}
 \Sigma\left(0_{j}\right)=\mathbf{0}, & \Sigma\left(0_{j}\right)=\mathbf{1}, & \Sigma\left(g_{\bar{t}}\right)=\begin{cases}
-\mathtt{MAJ} & \mathrm{falls}\,t_{i}\in\rho\left[0,n\right]\\
+\mathtt{MAJ} & \mathrm{falls}\,\,t_{i}\in\rho\left[0,n\right]\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}\end{array}
 \]
@@ -8631,7 +8640,7 @@ Für
 \Sigma\left(\hat{\pi}1_{j}\right) & = & \Sigma\left(1_{j}\right)\\
 \Sigma\left(\hat{\pi}g_{\bar{t}}\right) & = & \Sigma\left(g_{\pi'\bar{t}}\right)\\
  & = & \begin{cases}
-\mathtt{MAJ} & \mathrm{falls}\,\pi't_{i}\in\left[n+1,2n+1\right]\\
+\mathtt{MAJ} & \mathrm{falls}\,\,\pi't_{i}\in\left[n+1,2n+1\right]\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}\\
  & = & \Sigma\left(g_{\bar{t}}\right)
@@ -8723,7 +8732,7 @@ reference "lem:fo-ord"
 \end_layout
 
 \begin_layout Subsection
-Beliebiges Orakel
+Beliebige Orakel
 \end_layout
 
 \begin_layout Standard
@@ -8732,7 +8741,7 @@ Wir betrachten die Logik
 \end_inset
 
  für beliebige Orakel 
-\begin_inset Formula $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\eta\right)$
+\begin_inset Formula $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta\right)$
 \end_inset
 
 , und weisen nach, dass die Konstruktion aus 
@@ -8742,7 +8751,11 @@ reference "lem:fo-ord"
 
 \end_inset
 
- auf beliebige Prädikate erweitert werden kann.
+ auf beliebige Prädikate erweitert werden kann, wobei die 
+\begin_inset Formula $P$
+\end_inset
+
+-Uniformität aber nicht die beschränkte Größe geopfert wird.
 \end_layout
 
 \begin_layout Lemma
@@ -8761,7 +8774,7 @@ Seien
 \end_inset
 
  disjunkte Signaturen und 
-\begin_inset Formula $\Upsilon\rightarrow\mathbf{FIN}_{<}^{0}\left(\eta\right)$
+\begin_inset Formula $\Upsilon\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta\right)$
 \end_inset
 
  ein Orakel.
@@ -8804,14 +8817,14 @@ Jede
 \end_layout
 
 \begin_layout Standard
-Dieses Lemma bildet die erste Hälfte von 
+(Dieses Lemma bildet die erste Hälfte von 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:5.7:fo+u"
 
 \end_inset
 
-.
+.)
 \end_layout
 
 \begin_layout Proof
@@ -8819,16 +8832,29 @@ Sei
 \begin_inset Formula $n\in\mathbb{N}$
 \end_inset
 
- beliebig Zunächst werden die 
+ beliebig und sei 
+\begin_inset Formula $\rho:\left[0,n\right]\rightarrow\left[n+1,2n+1\right]$
+\end_inset
+
+ wie bisher definiert.
+ Die Struktur 
+\begin_inset Formula $\Upsilon\left(n\right)$
+\end_inset
+
+ wird zu 
+\begin_inset Formula $\Upsilon'\left(n\right)=\rho\Upsilon'\left(n\right)=\left(\left[n+1,2n+1\right],\left(\rho R^{\Upsilon\left(n\right)}\right)_{R\in\eta}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Zunächst wird der 
 \begin_inset Formula $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
 \end_inset
 
 -Schaltkreis 
 \begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
-\end_inset
-
- und 
-\begin_inset Formula $\dot{\mathcal{C}_{2n+1}^{\varphi}}$
 \end_inset
 
  wie in Lemma 
@@ -8839,15 +8865,6 @@ reference "lem:fo-ord"
 \end_inset
 
  erzeugt.
- Die Struktur 
-\begin_inset Formula $\Upsilon\left(n\right)$
-\end_inset
-
- wird zu 
-\begin_inset Formula $\varodot\Upsilon\left(n\right)=\left(\left\{ \dot{0},\cdots,\dot{n}\right\} ,\left(R^{\varodot\Upsilon\left(n\right)}\right)_{R\in\eta}\right)$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Proof
@@ -8856,31 +8873,35 @@ Bei der Erzeugung des
 \end_inset
 
 -Schaltkreises 
-\begin_inset Formula $\ddot{\mathcal{C}_{n}^{\varphi}}$
+\begin_inset Formula $\dot{\mathcal{C}_{n}^{\varphi}}$
 \end_inset
 
- wird der folgende Konstruktionsschritt hinzugefügt:
+ wird nun der folgende Konstruktionsschritt hinzugefügt:
 \end_layout
 
 \begin_deeper
 \begin_layout Case
 Falls 
-\begin_inset Formula $\dot{\Sigma}\left(g\right)=R\bar{t}$
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
 \end_inset
 
  mit 
-\begin_inset Formula $R/k\in\eta$
+\begin_inset Formula $R\in\eta$
+\end_inset
+
+, 
+\begin_inset Formula $\mathrm{ar}\left(R\right)=k$
 \end_inset
 
 , und 
-\begin_inset Formula $\bar{t}\in\dot{U}^{k}$
+\begin_inset Formula $\bar{t}\in U'^{k}$
 \end_inset
 
 :
 \begin_inset Formula 
 \[
-\ddot{\Sigma}\left(g\right)=\begin{cases}
-\mathbf{1} & \mathrm{falls}\,\bar{t}\in R^{\varodot\Upsilon\left(n\right)}\subseteq N\\
+\dot{\Sigma}\left(g\right)=\begin{cases}
+\mathbf{1} & \mathrm{falls}\,\,\bar{t}\in R^{\Upsilon'\left(n\right)}\subseteq\left[n+1,2n+1\right]^{k}\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}
 \]
@@ -8893,22 +8914,38 @@ Falls
 \begin_deeper
 \begin_layout Description
 Symmetrie: Wenn 
-\begin_inset Formula $\bar{t}\in R^{\Upsilon\left(n\right)}$
+\begin_inset Formula $\dot{\Sigma}\left(g\right)=\mathbf{1}$
 \end_inset
 
 , dann gilt 
-\begin_inset Formula $\dot{\pi}\left(\bar{t}\right)=\bar{t}$
+\begin_inset Formula $\bar{t}\in R^{\Upsilon'\left(n\right)}$
 \end_inset
 
-, und daher bildet der Automorphismus das Gate auf sich selbst ab.
- Somit wird jedes konstante Gate nur auf ein identisches Gate abgebildet.
+, und 
+\begin_inset Formula $\pi'\left(\bar{t}\right)=\bar{t}$
+\end_inset
+
+ (weil 
+\begin_inset Formula $\pi'_{\mid\left[n+1,2n+1\right]}=\mathbf{id}_{\mid\left[n+1,2n+1\right]}$
+\end_inset
+
+ ist).
+ Daher ist 
+\begin_inset Formula $\Sigma\left(\hat{\pi}g\right)=R\pi'\bar{t}=R\bar{t}$
+\end_inset
+
+, und somit gilt auch 
+\begin_inset Formula $\dot{\Sigma}\left(\hat{\pi}g\right)=\mathbf{1}$
+\end_inset
+
+.
 \end_layout
 
 \end_deeper
 \end_deeper
 \begin_layout Proof
 Hierbei ist zu beachten, dass die Relation 
-\begin_inset Formula $R^{\varodot\Upsilon\left(n\right)}$
+\begin_inset Formula $R^{\Upsilon'\left(n\right)}$
 \end_inset
 
  nicht in Polynomialzeit entscheidbar sein muss, und daher die so definierte
@@ -8931,13 +8968,20 @@ Offensichtlich ist sie jedoch immer noch
 -uniform.
 \end_layout
 
+\begin_layout Proof
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Subsection
-Orakel mit Zählterm
+Beliebige Orakel mit Zählterm
 \end_layout
 
 \begin_layout Standard
-Für eine Orakellogik mit Zählterm 
-\begin_inset Formula $\mathrm{FO}+\Upsilon+C$
+Für eine Orakellogik mit Zählquantor 
+\begin_inset Formula $\mathrm{FO}+\Upsilon+\exists^{\geqslant}$
 \end_inset
 
  werden nun die Konstruktionen aller vorhergehender Abschnitte kombiniert.
@@ -8959,7 +9003,7 @@ Seien
 \end_inset
 
  disjunkte Signaturen und 
-\begin_inset Formula $\Upsilon\rightarrow\mathbf{FIN}_{<}^{0}\left(\eta\right)$
+\begin_inset Formula $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}\left(\eta\right)$
 \end_inset
 
  ein Orakel.
@@ -8967,7 +9011,7 @@ Seien
 
 \begin_layout Lemma
 Jede 
-\begin_inset Formula $\left(\mathrm{FO}+\Upsilon+C\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathrm{FO}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -9006,145 +9050,61 @@ Jede
 \end_layout
 
 \begin_layout Proof
-Zunächst wird die Normalform aus Lemma 
+Zunächst wird die Konstruktion aus Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:fo-c"
 
 \end_inset
 
- hergestellt.
-\end_layout
-
-\begin_layout Proof
-Dafür müssen nun pseudo-atomare Formeln 
-\begin_inset Formula $R\bar{x}$
+ angewendet, um eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
 \end_inset
 
- mit 
-\begin_inset Formula $R\in\eta$
+-Schaltkreisfamilie 
+\begin_inset Formula $\left(\mathcal{C}_{2n+1}^{\varphi}\right)_{n\in\mathbb{N}}$
 \end_inset
 
- und Zähltermen in 
-\begin_inset Formula $\bar{x}$
+ zu erzeugen, die bezüglich Permutationen von 
+\begin_inset Formula $\left[1,n\right]$
 \end_inset
 
- behandelt werden:
-\end_layout
-
-\begin_deeper
-\begin_layout Case
-Falls 
-\begin_inset Formula $\varphi=R\bar{x}$
+ symmetrisch ist.
+ Diese Schaltkreise haben die Tiefe 
+\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
 \end_inset
 
- mit 
-\begin_inset Formula $R/k\in\eta$
-\end_inset
-
-, so seien 
-\begin_inset Formula $x_{i_{1}},\cdots,x_{i_{\ell}}$
-\end_inset
-
- die Zählterme in 
-\begin_inset Formula $\bar{x}$
+ und Größe 
+\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}F\left(\hat{\varphi}\right)}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}F\left(\varphi\right)}$
 \end_inset
 
 .
- Seien 
-\begin_inset Formula $y_{1},\cdots,y_{\ell}\in\mathbf{var}\backslash\mathrm{frei}\left(\varphi\right)$
-\end_inset
-
- neue Variablen:
-\begin_inset Formula 
-\begin{eqnarray*}
-\rho & \coloneqq & \left(\begin{array}{c}
-x_{i_{1}}\\
-y_{1}
-\end{array}\cdots\begin{array}{c}
-x_{i_{\ell}}\\
-y_{\ell}
-\end{array}\right)\\
-\bar{x'} & \coloneqq & \rho\bar{x}\\
-\hat{\varphi} & \coloneqq & \exists y_{1}\cdots\exists y_{\ell}\left(R\bar{x'}\wedge\bigwedge_{j=1}^{\ell}y_{j}=\#x_{i_{j}}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Proof
-Hierbei wird 
-\begin_inset Formula $\mathtt{M}\left(\varphi\right)$
-\end_inset
-
- um maximal 
-\begin_inset Formula $\ell\leqslant\mathrm{ar}\left(R\right)$
-\end_inset
-
- vergrößert; insgesamt vergrößert sich 
-\begin_inset Formula $\mathtt{M}\left(\varphi\right)$
-\end_inset
-
- höchstens um die maximale Stelligkeit 
-\begin_inset Formula $c$
-\end_inset
-
- eines darin vorkommenden Relationssymbols.
- 
-\begin_inset Formula 
-\begin{eqnarray*}
-\mathtt{M}\left(\hat{\varphi}\right) & = & \max\left(\max_{i=1}^{\ell}\mathtt{M}\left(x_{i}\right),\ell+\mathrm{ar}\left(R\bar{x}\right)\right)\\
- & \leqslant & \ell+\mathtt{M}\left(\varphi\right)
-\end{eqnarray*}
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Proof
-Es werden nun die Konstruktionsschritte aus Lemma 
+Dann werden die Konstruktionen aus Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:fo-ord"
 
 \end_inset
 
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:fo-c"
-
-\end_inset
-
- und 
+ und Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:fo-u"
 
 \end_inset
 
- kombiniert, um eine symmetrische 
+ kombiniert, um daraus eine symmetrische 
 \begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
 \end_inset
 
 -Schaltkreisfamilie 
-\begin_inset Formula $\left(\ddot{\mathcal{C}_{n}^{\varphi}}\right)_{n\in\mathbb{N}}$
+\begin_inset Formula $\left(\dot{\mathcal{C}_{n}^{\varphi}}\right)_{n\in\mathbb{N}}$
 \end_inset
 
  zu erzeugen.
- Diese Schaltkreise haben die Tiefe 
-\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi\right\Vert $
-\end_inset
-
- und Größe 
-\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\hat{\varphi}\right)}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+c}$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Standard
