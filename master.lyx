@@ -2989,6 +2989,12 @@ Für einen Quantor
 \end_layout
 
 \begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:lfp"
+
+\end_inset
+
 Die Fixpunktlogik 
 \begin_inset Formula $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\sigma\right]$
 \end_inset
@@ -9308,7 +9314,7 @@ Fixpunktlogik
 
 \begin_layout Standard
 Die Fixpunktlogik 
-\begin_inset Formula $\mathrm{FO+LFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
  ist echt ausdrucksstärker als die Logik 
@@ -9326,7 +9332,7 @@ key "Immerman1982,Libkin2012"
 
 .
  In 
-\begin_inset Formula $\mathrm{FO+FP}\left[\left\{ E\right\} \right]$
+\begin_inset Formula $\mathrm{LFP}\left[\left\{ E\right\} \right]$
 \end_inset
 
  wird diese Klasse durch die folgende Formel definiert:
@@ -9338,7 +9344,7 @@ key "Immerman1982,Libkin2012"
 \end_inset
 
  Trotzdem kann jede 
-\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -9353,24 +9359,36 @@ key "Immerman1982,Libkin2012"
 \begin_inset Formula $\left(\varphi_{n}\right)_{n\in\mathbb{N}}$
 \end_inset
 
- mit polynomieller Länge 
-\begin_inset Formula $\left\Vert \varphi_{n}\right\Vert \leqslant n^{\left\Vert \varphi\right\Vert }$
+ mit polynomieller Länge und einer konstanten Anzahl Variablen definiert
+ werden, so dass 
+\begin_inset Formula $\varphi_{n}$
 \end_inset
 
- und höchstens 
-\begin_inset Formula $\mathrm{var}\left(\varphi_{n}\right)\leqslant2\left\Vert \varphi\right\Vert $
+ auf den Strukturen der Größe 
+\begin_inset Formula $n$
 \end_inset
 
-
-\emph on
- 
-\emph default
-Variablen definiert werden, von denen jede auf den Strukturen einer bestimmten
- Größe äquivalent zu 
+ äquivalent zu 
 \begin_inset Formula $\varphi$
 \end_inset
 
  ist.
+ (Vergleichbar zum 
+\begin_inset Formula $k$
+\end_inset
+
+-Variablen-Fragment der infinitären Logik 
+\begin_inset Formula $L_{\infty\omega}^{k}$
+\end_inset
+
+, welches die Fixpunktlogik einschließt.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Dawar1995a,Kolaitis1992a"
+
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Standard
@@ -9380,17 +9398,6 @@ Mit den bereits beschriebenen Konstruktionen kann aus diesen Formeln eine
 \end_inset
 
  berechnet.
-\begin_inset Marginal
-status open
-
-\begin_layout Plain Layout
-CITE k-Variablen Fragment infinitäre Logik, u.a.
- [LogKomp 2007].
-\end_layout
-
-\end_inset
-
-
 \begin_inset Formula 
 \begin{eqnarray*}
 \mathcal{C} & \coloneqq & \left(\mathcal{C}_{n}^{\varphi_{n}}\right)_{n\in\mathbb{N}}\\
@@ -9414,26 +9421,22 @@ Durch die Einschränkung auf eine konstante Anzahl von Variablen ist die
 
 -Formeln beliebig lang werden.
  Die Tiefe ist durch 
-\begin_inset Formula $T_{n}\leqslant3\left\Vert \varphi_{n}\right\Vert \leqslant3n^{\left\Vert \varphi\right\Vert }$
+\begin_inset Formula $T\left(\mathcal{C}_{n}^{\varphi_{n}}\right)\in\mathcal{O}\left(\left\Vert \varphi_{n}\right\Vert \right)=\mathcal{O}\left(n^{\left\Vert \varphi\right\Vert }\right)$
 \end_inset
 
  allerdings nicht mehr konstant.
 \end_layout
 
-\begin_layout --Separator--
-
-\end_layout
-
 \begin_layout Lemma
 Für jede 
-\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
 -Formel 
 \begin_inset Formula $\varphi$
 \end_inset
 
- und jede Größe 
+ und jedes 
 \begin_inset Formula $n\in\mathbb{N}$
 \end_inset
 
@@ -9445,12 +9448,12 @@ Für jede
 \begin_inset Formula $\hat{\varphi}$
 \end_inset
 
- mit höchstens 
-\begin_inset Formula $2\left\Vert \varphi\right\Vert $
+ mit 
+\begin_inset Formula $\left\Vert \hat{\varphi}\right\Vert \leqslant n^{\left\Vert \varphi\right\Vert }$
 \end_inset
 
- Variablen und 
-\begin_inset Formula $\left\Vert \hat{\varphi}\right\Vert \leqslant n^{\left\Vert \varphi\right\Vert }$
+ und 
+\begin_inset Formula $\mathtt{MF}\left(\hat{\varphi}\right)\leqslant2\mathtt{MF}\left(\varphi\right)$
 \end_inset
 
 , so dass 
@@ -9461,21 +9464,20 @@ Für jede
 \end_layout
 
 \begin_layout Proof
-Die Konstruktion erfolgt induktiv über die Definition von 
-\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}$
-\end_inset
-
-.
- Sei 
-\begin_inset Formula $\varphi$
+Sei 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
 \end_inset
 
  eine 
-\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
+\begin_inset Formula $k$
 \end_inset
 
--Formel für eine Signatur 
-\begin_inset Formula $\sigma$
+-stellige 
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
+\end_inset
+
+-Formel mit dem Argument 
+\begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
 \end_inset
 
 .
@@ -9483,7 +9485,7 @@ Die Konstruktion erfolgt induktiv über die Definition von
 
 \begin_layout Proof
 Die Tatsache, dass jeder 
-\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
 -Term 
@@ -9494,13 +9496,13 @@ Die Tatsache, dass jeder
 \begin_inset Formula $t\in\mathbf{var}$
 \end_inset
 
- ist, macht die atomaren Fälle trivial.
+ ist, macht die atomaren Fälle trivial:
 \end_layout
 
 \begin_deeper
 \begin_layout Case
 Falls 
-\begin_inset Formula $\varphi=R\bar{x}$
+\begin_inset Formula $\varphi=R\bar{y}$
 \end_inset
 
  für ein 
@@ -9508,11 +9510,11 @@ Falls
 \end_inset
 
 -Tupel von 
-\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
 -Termen 
-\begin_inset Formula $x$
+\begin_inset Formula $\bar{y}\in\mathbf{var}^{k}$
 \end_inset
 
  und 
@@ -9520,7 +9522,7 @@ Falls
 \end_inset
 
 , so ist 
-\begin_inset Formula $\varphi$
+\begin_inset Formula $\hat{\varphi}=\varphi$
 \end_inset
 
  bereits eine 
@@ -9532,19 +9534,19 @@ Falls
 
 \begin_layout Case
 Falls 
-\begin_inset Formula $\varphi=x_{1}\dot{=}x_{2}$
+\begin_inset Formula $\varphi=y_{1}\dot{=}y_{2}$
 \end_inset
 
  für zwei 
-\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
 -Terme 
-\begin_inset Formula $x_{1},x_{2}$
+\begin_inset Formula $y_{1},y_{2}\in\mathbf{var}$
 \end_inset
 
 , so ist 
-\begin_inset Formula $\varphi$
+\begin_inset Formula $\hat{\varphi}=\varphi$
 \end_inset
 
  bereits eine 
@@ -9556,7 +9558,7 @@ Falls
 
 \begin_layout Case
 Falls 
-\begin_inset Formula $\varphi=\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)$
+\begin_inset Formula $\varphi=\left(\psi_{1}\gamma\cdots\gamma\psi_{k}\right)$
 \end_inset
 
  für 
@@ -9564,11 +9566,11 @@ Falls
 \end_inset
 
  
-\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
 -Formeln 
-\begin_inset Formula $\varphi_{1},\cdots,\varphi_{k}$
+\begin_inset Formula $\psi_{1},\cdots,\psi_{k}$
 \end_inset
 
  und 
@@ -9584,13 +9586,13 @@ Falls
 \end_inset
 
 -Formeln 
-\begin_inset Formula $\hat{\varphi_{1}},\cdots,\hat{\varphi_{k}}$
+\begin_inset Formula $\hat{\psi_{1}},\cdots,\hat{\psi_{k}}$
 \end_inset
 
-:
+.
 \begin_inset Formula 
 \[
-\hat{\varphi}\coloneqq\left(\hat{\varphi_{1}}\gamma\cdots\gamma\hat{\varphi_{k}}\right)
+\hat{\varphi}\coloneqq\left(\hat{\psi_{1}}\gamma\cdots\gamma\hat{\psi_{k}}\right)
 \]
 
 \end_inset
@@ -9604,7 +9606,7 @@ Falls
 \end_inset
 
  für eine 
-\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -9632,7 +9634,7 @@ Falls
 
 \begin_layout Case
 Falls 
-\begin_inset Formula $\varphi=Qx\psi$
+\begin_inset Formula $\varphi=Qy\psi$
 \end_inset
 
  für 
@@ -9640,11 +9642,11 @@ Falls
 \end_inset
 
 , 
-\begin_inset Formula $x\in\mathbf{var}$
+\begin_inset Formula $y\in\mathbf{var}$
 \end_inset
 
  und eine 
-\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -9662,7 +9664,7 @@ Falls
 :
 \begin_inset Formula 
 \begin{eqnarray*}
-\hat{\varphi} & \coloneqq & Qx\hat{\psi}
+\hat{\varphi} & \coloneqq & Qy\hat{\psi}
 \end{eqnarray*}
 
 \end_inset
@@ -9672,7 +9674,7 @@ Falls
 
 \begin_layout Case
 Falls 
-\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
+\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
 \end_inset
 
  für eine 
@@ -9680,15 +9682,15 @@ Falls
 \end_inset
 
 -stellige Relationsvariable 
-\begin_inset Formula $X\in\mathbf{var}_{2}\backslash\sigma$
+\begin_inset Formula $R\in\mathbf{var}_{2}$
 \end_inset
 
 , 
-\begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
+\begin_inset Formula $\bar{z}\in\mathbf{var}^{k}$
 \end_inset
 
 , eine 
-\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\left\{ X\right\} \right]$
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -9700,19 +9702,14 @@ Falls
 \end_inset
 
 -Tupel von 
-\begin_inset Formula $\mathrm{FO+LFP}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
 -Termen 
-\begin_inset Formula $\bar{y}$
+\begin_inset Formula $\bar{y}\in\mathbf{var}^{k}$
 \end_inset
 
-, so gilt:
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Per Induktionsannahme existiert eine 
+, so existiert per Annahme eine 
 \begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
@@ -9727,68 +9724,73 @@ Per Induktionsannahme existiert eine
 .
 \end_layout
 
+\begin_deeper
 \begin_layout Standard
-Sei die Sequenz 
-\begin_inset Formula $\left(\hat{\psi}^{\left(i\right)}\right)_{i\in\mathbb{N}}$
-\end_inset
-
- induktiv wie folgt induktiv definiert.
- Sei 
+Sei 
 \begin_inset Formula $\bar{u}\in\mathbf{var}^{k}\backslash\mathrm{frei}\left(\psi\right)$
 \end_inset
 
  ein Tupel von Variablen, die nicht frei in 
-\begin_inset Formula $\psi$
+\begin_inset Formula $\hat{\psi}$
 \end_inset
 
  vorkommen.
+ Sei die Sequenz 
+\begin_inset Formula $\left(\psi_{i}\right)_{i\in\mathbb{N}}$
+\end_inset
+
+ induktiv wie folgt definiert:
 \begin_inset Formula 
 \begin{eqnarray*}
-\hat{\psi}^{\left(0\right)}\left(\bar{x}\right) & \coloneqq & \neg x_{1}\dot{=}x_{1}\\
-\chi^{\left(i\right)}\left(\bar{z}\right) & \coloneqq & \exists\bar{u}\left(\bar{u}=\bar{z}\wedge\exists\bar{x}\left(\bar{x}=\bar{u}\wedge\hat{\psi}^{\left(i\right)}\left(\bar{x}\right)\right)\right)\\
-\hat{\psi}^{\left(i+1\right)} & \coloneqq & \left(\hat{\psi}^{\left(i\right)}\right)^{\left(\frac{R\bar{z}}{\chi^{\left(i\right)}\left(\bar{z}\right)}\right)}
+\psi_{0} & \coloneqq & \neg\bar{z}\dot{=}\bar{z}\\
+\psi_{i+1} & \coloneqq & \hat{\psi}^{\left(\frac{R\bar{t}}{\chi_{i}\left(\bar{t}\right)}\right)}\\
+\chi_{i}\left(\bar{t}\right) & \coloneqq & \exists\bar{u}\left(\bar{t}=\bar{u}\wedge\exists\bar{z}\left(\bar{u}=\bar{z}\wedge\psi_{i}\right)\right)
 \end{eqnarray*}
 
 \end_inset
 
 Hierbei sei 
-\begin_inset Formula $\psi^{\left(\frac{R\bar{x}}{\varphi\left(\bar{x}\right)}\right)}$
+\begin_inset Formula $\hat{\psi}^{\left(\frac{R\bar{t}}{\chi_{i}\left(\bar{t}\right)}\right)}$
 \end_inset
 
  die Formel, die aus 
-\begin_inset Formula $\psi$
+\begin_inset Formula $\hat{\psi}$
 \end_inset
 
- entsteht, indem alle Atome 
-\begin_inset Formula $R\bar{x}$
+ entsteht, indem jedes Atom 
+\begin_inset Formula $R\bar{t}$
 \end_inset
 
- durch 
-\begin_inset Formula $\varphi\left(\bar{x}\right)$
+ (für irgendein 
+\begin_inset Formula $\bar{t}\in\mathbf{var}^{k}$
 \end_inset
 
- ersetzt werden.
- Der Zwischenschritt über 
+) durch 
+\begin_inset Formula $\chi_{i}\left(\bar{t}\right)$
+\end_inset
+
+ ersetzt wird.
+ (Der Zwischenschritt über 
 \begin_inset Formula $\bar{u}$
 \end_inset
 
  ist notwendig, weil 
-\begin_inset Formula $\bar{z}$
+\begin_inset Formula $\bar{t}$
 \end_inset
 
  und 
-\begin_inset Formula $\bar{x}$
+\begin_inset Formula $\bar{z}$
 \end_inset
 
  zum Teil die gleichen Variablen enthalten können, und daher ihr Geltungsbereich
- nicht überlappen darf.
+ nicht überlappen darf.)
 \end_layout
 
 \begin_layout Standard
 Nun gelte:
 \begin_inset Formula 
 \[
-\hat{\varphi}\coloneqq\exists\bar{u}\left(\bar{u}=\bar{y}\wedge\hat{\psi}^{\left(n^{k}\right)}\right)
+\hat{\varphi}\coloneqq\exists\bar{z}\left(\bar{x}=\bar{z}\wedge\psi_{n^{k}}\right)
 \]
 
 \end_inset
@@ -9797,15 +9799,119 @@ Nun gelte:
 \end_layout
 
 \begin_layout Description
-Korrektheit:
+Korrektheit: Sei 
+\begin_inset Formula $F:2^{A^{k}}\rightarrow2^{A^{k}}$
+\end_inset
+
+ wie in Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:lfp"
+
+\end_inset
+
+ definiert.
+ Außerdem sei 
+\begin_inset Formula $\left(X_{i}\right)_{i\in\mathbb{N}}$
+\end_inset
+
+ wie folgt: 
+\begin_inset Formula 
+\[
+X_{i}\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\psi_{i}\left[\bar{a}\right]\right\} 
+\]
+
+\end_inset
+
+Wir weisen induktiv nach, dass 
+\begin_inset Formula $X_{i}=F^{i}\left(\emptyset\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\psi_{0}=\neg\bar{x}\dot{=}\bar{x}$
+\end_inset
+
+ ist offensichtlich unerfüllbar, und erkennt daher die Relation 
+\begin_inset Formula $X_{0}=\emptyset=F^{0}\left(\emptyset\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Sei 
+\begin_inset Formula $i\in\mathbb{N}$
+\end_inset
+
+ beliebig:
+\begin_inset Formula 
+\begin{eqnarray*}
+\bar{a}\in X_{i+1} & \Leftrightarrow & \mathfrak{A}\models\psi_{i+1}\left[\bar{a}\right]\\
+ & \Leftrightarrow & \mathfrak{A}\models\hat{\psi}^{\left(\frac{R\bar{z}}{\chi_{i}\left(\bar{z}\right)}\right)}\left[\bar{a}\right]
+\end{eqnarray*}
+
+\end_inset
+
+Per Definition gilt: 
+\begin_inset Formula 
+\[
+X_{i}\coloneqq\left\{ \bar{a}\mid\mathfrak{A}\models\psi_{i}\left[\bar{a}\right]\right\} =\left\{ \bar{a}\mid\mathfrak{A}\models\chi_{i}\left[\bar{a}\right]\right\} 
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\bar{a}\in X_{i+1} & \Leftrightarrow & \mathfrak{A}\cup\left(A,\left(\begin{array}{c}
+R\\
+X_{i}
+\end{array}\right)\right)\models\hat{\psi}\left[\bar{a}\right]\\
+ & \overset{\mathrm{Ann.}}{\Leftrightarrow} & \mathfrak{A}\cup\left(A,\left(\begin{array}{c}
+R\\
+F^{i}\left(\emptyset\right)
+\end{array}\right)\right)\models\hat{\psi}\left[\bar{a}\right]\\
+ & \overset{\mathrm{Def.\ref{def:lfp}}}{\Leftrightarrow} & \bar{a}\in F^{i+1}\left(\emptyset\right)
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
-Wir weisen induktiv nach, dass 
-\begin_inset Formula $\hat{\psi}^{\left(i\right)}\left(\mathfrak{A}\right)=F^{i}\left(\emptyset\right)$
+Schließlich folgt 
+\begin_inset Formula $X_{n^{k}}=F^{n^{k}}\left(\emptyset\right)=F^{\infty}\left(\emptyset\right)$
 \end_inset
 
- 
+, da 
+\begin_inset Formula $\left|F^{\infty}\left(\emptyset\right)\right|\leqslant n^{k}$
+\end_inset
+
+.
+ Daher gilt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\left\llbracket \hat{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{a}\right) & = & \left\llbracket \exists\bar{u}\left(\bar{u}=\bar{y}\wedge\psi_{n^{k}}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)\\
+ & = & \left\llbracket R\bar{y}\right\rrbracket \left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
+R\\
+F^{\infty}\left(\emptyset\right)
+\end{array}\right)\right),\bar{a}\right)\\
+ & \overset{\mathrm{Def.\ref{def:lfp}}}{=} & \left\llbracket \left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Description
+Größe: 
 \end_layout
 
 \end_deeper
@@ -12132,8 +12238,9 @@ Nach dem Satz von Immerman-Vardi kann der Polynomialzeit-Algorithmus, der
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
+btprint "btPrintAll"
 bibfiles "master"
-options "plain"
+options "bibtotoc,plain"
 
 \end_inset
 

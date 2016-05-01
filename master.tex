@@ -775,7 +775,7 @@ $P$-negativ).
 \end{enumerate}
 
 \begin{defn}
-Die Fixpunktlogik $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\sigma\right]$
+\label{def:lfp}Die Fixpunktlogik $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\sigma\right]$
 erweitert die Logik $\mathrm{FO}\left[\sigma\right]$ um den folgenden
 Fixpunkt-Operator:\end{defn}
 \begin{elabeling}{00.00.0000}
@@ -2465,24 +2465,23 @@ erzeugen.
 
 \subsection{Fixpunktlogik}
 
-Die Fixpunktlogik $\mathrm{FO+LFP}\left[\sigma\right]$ ist echt ausdrucksstärker
+Die Fixpunktlogik $\mathrm{LFP}\left[\sigma\right]$ ist echt ausdrucksstärker
 als die Logik $\mathrm{FO}\left[\sigma\right]$. Beispielsweise ist
 die Erreichbarkeit über einen Pfad beliebiger Länge nicht erststufig
-definierbar \cite{Immerman1982,Libkin2012}. In $\mathrm{FO+FP}\left[\left\{ E\right\} \right]$
+definierbar \cite{Immerman1982,Libkin2012}. In $\mathrm{LFP}\left[\left\{ E\right\} \right]$
 wird diese Klasse durch die folgende Formel definiert:
 \[
 \varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
 \]
- Trotzdem kann jede $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Formel
-$\varphi$ durch eine Familie von $\mathrm{FO}\left[\sigma\right]$-Formeln
-$\left(\varphi_{n}\right)_{n\in\mathbb{N}}$ mit polynomieller Länge
-$\left\Vert \varphi_{n}\right\Vert \leqslant n^{\left\Vert \varphi\right\Vert }$
-und höchstens $\mathrm{var}\left(\varphi_{n}\right)\leqslant2\left\Vert \varphi\right\Vert $\emph{
-}Variablen definiert werden, von denen jede auf den Strukturen einer
-bestimmten Größe äquivalent zu $\varphi$ ist.
+ Trotzdem kann jede $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$
+durch eine Familie von $\mathrm{FO}\left[\sigma\right]$-Formeln $\left(\varphi_{n}\right)_{n\in\mathbb{N}}$
+mit polynomieller Länge und einer konstanten Anzahl Variablen definiert
+werden, so dass $\varphi_{n}$ auf den Strukturen der Größe $n$ äquivalent
+zu $\varphi$ ist. (Vergleichbar zum $k$-Variablen-Fragment der infinitären
+Logik $L_{\infty\omega}^{k}$, welches die Fixpunktlogik einschließt.\cite{Dawar1995a,Kolaitis1992a})
 
 Mit den bereits beschriebenen Konstruktionen kann aus diesen Formeln
-eine Schaltkreisfamilie erzeugt werden, die $\varphi$ berechnet.\marginpar{CITE k-Variablen Fragment infinitäre Logik, u.a. {[}LogKomp 2007{]}.}
+eine Schaltkreisfamilie erzeugt werden, die $\varphi$ berechnet.
 \begin{eqnarray*}
 \mathcal{C} & \coloneqq & \left(\mathcal{C}_{n}^{\varphi_{n}}\right)_{n\in\mathbb{N}}\\
 \mathcal{C}\left(\mathfrak{A}\right) & = & \varphi\left(\mathfrak{A}\right)\,\mathrm{f.a.}\,\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)
@@ -2492,89 +2491,129 @@ eine Schaltkreisfamilie erzeugt werden, die $\varphi$ berechnet.\marginpar{CITE 
 Durch die Einschränkung auf eine konstante Anzahl von Variablen ist
 die Größe der Schaltkreisfamilie polynomiell durch $n^{\mathcal{O}\left(\left\Vert \varphi\right\Vert \right)}$
 beschränkt, obwohl die $\mathrm{FO}\left[\sigma\right]$-Formeln beliebig
-lang werden. Die Tiefe ist durch $T_{n}\leqslant3\left\Vert \varphi_{n}\right\Vert \leqslant3n^{\left\Vert \varphi\right\Vert }$
+lang werden. Die Tiefe ist durch $T\left(\mathcal{C}_{n}^{\varphi_{n}}\right)\in\mathcal{O}\left(\left\Vert \varphi_{n}\right\Vert \right)=\mathcal{O}\left(n^{\left\Vert \varphi\right\Vert }\right)$
 allerdings nicht mehr konstant.
-
-
 \begin{lem}
-Für jede $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$
-und jede Größe $n\in\mathbb{N}$ existiert eine $\mathrm{FO}\left[\sigma\right]$-Formel
-$\hat{\varphi}$ mit höchstens $2\left\Vert \varphi\right\Vert $
-Variablen und $\left\Vert \hat{\varphi}\right\Vert \leqslant n^{\left\Vert \varphi\right\Vert }$,
+Für jede $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$ und
+jedes $n\in\mathbb{N}$ existiert eine $\mathrm{FO}\left[\sigma\right]$-Formel
+$\hat{\varphi}$ mit $\left\Vert \hat{\varphi}\right\Vert \leqslant n^{\left\Vert \varphi\right\Vert }$
+und $\mathtt{MF}\left(\hat{\varphi}\right)\leqslant2\mathtt{MF}\left(\varphi\right)$,
 so dass $\models_{n}\left(\hat{\varphi}\leftrightarrow\varphi\right)$.\end{lem}
 \begin{proof}
-Die Konstruktion erfolgt induktiv über die Definition von $\mathrm{FO}+\mathrm{LFP}$.
-Sei $\varphi$ eine $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Formel
-für eine Signatur $\sigma$.
+Sei $\varphi\left(\bar{x}\right)$ eine $k$-stellige $\mathrm{LFP}\left[\sigma\right]$-Formel
+mit dem Argument $\bar{x}\in\mathbf{var}^{k}$.
 
-Die Tatsache, dass jeder $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Term
-$t$ eine Variable $t\in\mathbf{var}$ ist, macht die atomaren Fälle
-trivial.
+Die Tatsache, dass jeder $\mathrm{LFP}\left[\sigma\right]$-Term $t$
+eine Variable $t\in\mathbf{var}$ ist, macht die atomaren Fälle trivial:
 \begin{casenv}
-\item Falls $\varphi=R\bar{x}$ für ein $k$-Tupel von $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Termen
-$x$ und $R/k\in\sigma$, so ist $\varphi$ bereits eine $\mathrm{FO}\left[\sigma\right]$-Formel.
-\item Falls $\varphi=x_{1}\dot{=}x_{2}$ für zwei $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Terme
-$x_{1},x_{2}$, so ist $\varphi$ bereits eine $\mathrm{FO}\left[\sigma\right]$-Formel.
-\item Falls $\varphi=\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)$
-für $k$ $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Formeln $\varphi_{1},\cdots,\varphi_{k}$
+\item Falls $\varphi=R\bar{y}$ für ein $k$-Tupel von $\mathrm{LFP}\left[\sigma\right]$-Termen
+$\bar{y}\in\mathbf{var}^{k}$ und $R/k\in\sigma$, so ist $\hat{\varphi}=\varphi$
+bereits eine $\mathrm{FO}\left[\sigma\right]$-Formel.
+\item Falls $\varphi=y_{1}\dot{=}y_{2}$ für zwei $\mathrm{LFP}\left[\sigma\right]$-Terme
+$y_{1},y_{2}\in\mathbf{var}$, so ist $\hat{\varphi}=\varphi$ bereits
+eine $\mathrm{FO}\left[\sigma\right]$-Formel.
+\item Falls $\varphi=\left(\psi_{1}\gamma\cdots\gamma\psi_{k}\right)$ für
+$k$ $\mathrm{LFP}\left[\sigma\right]$-Formeln $\psi_{1},\cdots,\psi_{k}$
 und $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $,
 so existieren per Annahme die dazu $n$-äquivalenten $\mathrm{FO}\left[\sigma\right]$-Formeln
-$\hat{\varphi_{1}},\cdots,\hat{\varphi_{k}}$:
+$\hat{\psi_{1}},\cdots,\hat{\psi_{k}}$.
 \[
-\hat{\varphi}\coloneqq\left(\hat{\varphi_{1}}\gamma\cdots\gamma\hat{\varphi_{k}}\right)
+\hat{\varphi}\coloneqq\left(\hat{\psi_{1}}\gamma\cdots\gamma\hat{\psi_{k}}\right)
 \]
 
-\item Falls $\varphi=\neg\psi$ für eine $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Formel
+\item Falls $\varphi=\neg\psi$ für eine $\mathrm{LFP}\left[\sigma\right]$-Formel
 $\psi$, so existiert per Annahme die $n$-äquivalente Formel $\hat{\psi}$:
 \begin{eqnarray*}
 \hat{\varphi} & \coloneqq & \neg\hat{\psi}
 \end{eqnarray*}
 
-\item Falls $\varphi=Qx\psi$ für $Q\in\left\{ \exists,\forall\right\} $,
-$x\in\mathbf{var}$ und eine $\mathrm{FO}+\mathrm{LFP}\left[\sigma\right]$-Formel
+\item Falls $\varphi=Qy\psi$ für $Q\in\left\{ \exists,\forall\right\} $,
+$y\in\mathbf{var}$ und eine $\mathrm{LFP}\left[\sigma\right]$-Formel
 $\psi$ , so existiert per Annahme die $n$-äquivalente Formel $\hat{\psi}$:
 \begin{eqnarray*}
-\hat{\varphi} & \coloneqq & Qx\hat{\psi}
+\hat{\varphi} & \coloneqq & Qy\hat{\psi}
 \end{eqnarray*}
 
-\item Falls $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
-für eine $k$-stellige Relationsvariable $X\in\mathbf{var}_{2}\backslash\sigma$,
-$\bar{x}\in\mathbf{var}^{k}$, eine $\mathrm{FO}+\mathrm{LFP}\left[\sigma\cup\left\{ X\right\} \right]$-Formel
-$\psi$ und ein $k$-Tupel von $\mathrm{FO+LFP}\left[\sigma\right]$-Termen
-$\bar{y}$, so gilt:
-
-
-Per Induktionsannahme existiert eine $\mathrm{FO}\left[\sigma\right]$-Formel
+\item Falls $\varphi=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
+für eine $k$-stellige Relationsvariable $R\in\mathbf{var}_{2}$,
+$\bar{z}\in\mathbf{var}^{k}$, eine $\mathrm{LFP}\left[\sigma\right]$-Formel
+$\psi$ und ein $k$-Tupel von $\mathrm{LFP}\left[\sigma\right]$-Termen
+$\bar{y}\in\mathbf{var}^{k}$, so existiert per Annahme eine $\mathrm{FO}\left[\sigma\right]$-Formel
 $\hat{\psi}$ mit $\models_{n}\left(\hat{\psi}\leftrightarrow\psi\right)$.
 
 
-Sei die Sequenz $\left(\hat{\psi}^{\left(i\right)}\right)_{i\in\mathbb{N}}$
-induktiv wie folgt induktiv definiert. Sei $\bar{u}\in\mathbf{var}^{k}\backslash\mathrm{frei}\left(\psi\right)$
-ein Tupel von Variablen, die nicht frei in $\psi$ vorkommen.
+Sei $\bar{u}\in\mathbf{var}^{k}\backslash\mathrm{frei}\left(\psi\right)$
+ein Tupel von Variablen, die nicht frei in $\hat{\psi}$ vorkommen.
+Sei die Sequenz $\left(\psi_{i}\right)_{i\in\mathbb{N}}$ induktiv
+wie folgt definiert:
 \begin{eqnarray*}
-\hat{\psi}^{\left(0\right)}\left(\bar{x}\right) & \coloneqq & \neg x_{1}\dot{=}x_{1}\\
-\chi^{\left(i\right)}\left(\bar{z}\right) & \coloneqq & \exists\bar{u}\left(\bar{u}=\bar{z}\wedge\exists\bar{x}\left(\bar{x}=\bar{u}\wedge\hat{\psi}^{\left(i\right)}\left(\bar{x}\right)\right)\right)\\
-\hat{\psi}^{\left(i+1\right)} & \coloneqq & \left(\hat{\psi}^{\left(i\right)}\right)^{\left(\frac{R\bar{z}}{\chi^{\left(i\right)}\left(\bar{z}\right)}\right)}
+\psi_{0} & \coloneqq & \neg\bar{z}\dot{=}\bar{z}\\
+\psi_{i+1} & \coloneqq & \hat{\psi}^{\left(\frac{R\bar{t}}{\chi_{i}\left(\bar{t}\right)}\right)}\\
+\chi_{i}\left(\bar{t}\right) & \coloneqq & \exists\bar{u}\left(\bar{t}=\bar{u}\wedge\exists\bar{z}\left(\bar{u}=\bar{z}\wedge\psi_{i}\right)\right)
 \end{eqnarray*}
-Hierbei sei $\psi^{\left(\frac{R\bar{x}}{\varphi\left(\bar{x}\right)}\right)}$
-die Formel, die aus $\psi$ entsteht, indem alle Atome $R\bar{x}$
-durch $\varphi\left(\bar{x}\right)$ ersetzt werden. Der Zwischenschritt
-über $\bar{u}$ ist notwendig, weil $\bar{z}$ und $\bar{x}$ zum
-Teil die gleichen Variablen enthalten können, und daher ihr Geltungsbereich
-nicht überlappen darf.
+Hierbei sei $\hat{\psi}^{\left(\frac{R\bar{t}}{\chi_{i}\left(\bar{t}\right)}\right)}$
+die Formel, die aus $\hat{\psi}$ entsteht, indem jedes Atom $R\bar{t}$
+(für irgendein $\bar{t}\in\mathbf{var}^{k}$) durch $\chi_{i}\left(\bar{t}\right)$
+ersetzt wird. (Der Zwischenschritt über $\bar{u}$ ist notwendig,
+weil $\bar{t}$ und $\bar{z}$ zum Teil die gleichen Variablen enthalten
+können, und daher ihr Geltungsbereich nicht überlappen darf.)
 
 
 Nun gelte:
 \[
-\hat{\varphi}\coloneqq\exists\bar{u}\left(\bar{u}=\bar{y}\wedge\hat{\psi}^{\left(n^{k}\right)}\right)
+\hat{\varphi}\coloneqq\exists\bar{z}\left(\bar{x}=\bar{z}\wedge\psi_{n^{k}}\right)
 \]
 
 \begin{description}
-\item [{Korrektheit:}]~
+\item [{Korrektheit:}] Sei $F:2^{A^{k}}\rightarrow2^{A^{k}}$ wie in Definition
+\ref{def:lfp} definiert. Außerdem sei $\left(X_{i}\right)_{i\in\mathbb{N}}$
+wie folgt: 
+\[
+X_{i}\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\psi_{i}\left[\bar{a}\right]\right\} 
+\]
+Wir weisen induktiv nach, dass $X_{i}=F^{i}\left(\emptyset\right)$.
+
+\begin{itemize}
+\item $\psi_{0}=\neg\bar{x}\dot{=}\bar{x}$ ist offensichtlich unerfüllbar,
+und erkennt daher die Relation $X_{0}=\emptyset=F^{0}\left(\emptyset\right)$.
+\item Sei $i\in\mathbb{N}$ beliebig:
+\begin{eqnarray*}
+\bar{a}\in X_{i+1} & \Leftrightarrow & \mathfrak{A}\models\psi_{i+1}\left[\bar{a}\right]\\
+ & \Leftrightarrow & \mathfrak{A}\models\hat{\psi}^{\left(\frac{R\bar{z}}{\chi_{i}\left(\bar{z}\right)}\right)}\left[\bar{a}\right]
+\end{eqnarray*}
+Per Definition gilt: 
+\[
+X_{i}\coloneqq\left\{ \bar{a}\mid\mathfrak{A}\models\psi_{i}\left[\bar{a}\right]\right\} =\left\{ \bar{a}\mid\mathfrak{A}\models\chi_{i}\left[\bar{a}\right]\right\} 
+\]
+\begin{eqnarray*}
+\bar{a}\in X_{i+1} & \Leftrightarrow & \mathfrak{A}\cup\left(A,\left(\begin{array}{c}
+R\\
+X_{i}
+\end{array}\right)\right)\models\hat{\psi}\left[\bar{a}\right]\\
+ & \overset{\mathrm{Ann.}}{\Leftrightarrow} & \mathfrak{A}\cup\left(A,\left(\begin{array}{c}
+R\\
+F^{i}\left(\emptyset\right)
+\end{array}\right)\right)\models\hat{\psi}\left[\bar{a}\right]\\
+ & \overset{\mathrm{Def.\ref{def:lfp}}}{\Leftrightarrow} & \bar{a}\in F^{i+1}\left(\emptyset\right)
+\end{eqnarray*}
+
+\end{itemize}
+
+Schließlich folgt $X_{n^{k}}=F^{n^{k}}\left(\emptyset\right)=F^{\infty}\left(\emptyset\right)$,
+da $\left|F^{\infty}\left(\emptyset\right)\right|\leqslant n^{k}$.
+Daher gilt:
+\begin{eqnarray*}
+\left\llbracket \hat{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{a}\right) & = & \left\llbracket \exists\bar{u}\left(\bar{u}=\bar{y}\wedge\psi_{n^{k}}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)\\
+ & = & \left\llbracket R\bar{y}\right\rrbracket \left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
+R\\
+F^{\infty}\left(\emptyset\right)
+\end{array}\right)\right),\bar{a}\right)\\
+ & \overset{\mathrm{Def.\ref{def:lfp}}}{=} & \left\llbracket \left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)
+\end{eqnarray*}
+
+
+\item [{Größe:}]~
 \end{description}
-
-Wir weisen induktiv nach, dass $\hat{\psi}^{\left(i\right)}\left(\mathfrak{A}\right)=F^{i}\left(\emptyset\right)$ 
-
 \end{casenv}
 \end{proof}
 Unter der Annahme, dass $\varphi_{n}^{\left(i\right)}\left(\bar{x}\right)$
@@ -3230,6 +3269,7 @@ ausgedrückt werden:
 \pagebreak{}
 
 \bibliographystyle{plain}
+\addcontentsline{toc}{section}{\refname}\nocite{*}
 \bibliography{master}
 
 \end{document}
