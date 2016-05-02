@@ -41,6 +41,8 @@
 \else
 \newtheorem{thm}{\protect\theoremname}[chapter]
 \fi
+  \theoremstyle{plain}
+  \newtheorem{cor}[thm]{\protect\corollaryname}
   \theoremstyle{definition}
   \newtheorem{defn}[thm]{\protect\definitionname}
 % labeling-like list based on enumitem's description list with
@@ -109,10 +111,16 @@ leftmargin=\lyxlabelwidth,#1]}
 \title{Logische Charakterisierungen von Symmetrischen Schaltkreisfamilien}
 
 
-\subtitle{Master-Arbeit}
+\subject{Master-Arbeit}
 
 
-\author{Christoph Burschka}
+\author{Christoph Burschka\\
+\texttt{christoph@burschka.de}}
+
+
+\publishers{Betreuerin: Prof. Dr. Nicole Schweikardt\\
+Goethe-Universität Frankfurt am Main\\
+Wintersemester 2015 / 2016}
 
 \maketitle
 \tableofcontents{}
@@ -120,27 +128,6 @@ leftmargin=\lyxlabelwidth,#1]}
 
 \chapter{Einleitung}
 
-Übersicht:
-\begin{enumerate}
-\item FP{[}<{]} $\subseteq$ SBC ($\subseteq$ P): Jede Fixpunktformel mit
-Ordnungsprädikat kann für $n\in\mathbb{N}$ in $\mathrm{poly\left(n\right)}$
-in eine FO-Formel auf $n$-Graphen transformiert werden, aus der in
-$\mathrm{poly}\left(n\right)$ ein Symmetrischer Boolescher Schaltkreis
-wird. Daher ist FP auf P-uniforme SBC-Familien reduzierbar (und diese
-auf P).
-\item FP+C $\subseteq$ SBC+MAJ ( < P): Majority gates erlauben zusätzlich
-Zählterme zu übersetzen.
-\item SBC $\subseteq$ FP{[}<{]}: Jede P-uniforme $\left[\sigma\right]$-Schaltkreisfamilie
-kann in eine $\mathrm{FP}\left[\sigma+<\right]$-Formel überführt
-werden (weil der erzeugende P-Algorithmus per Immerman-Vardi FP{[}<{]}-definierbar
-ist). Hierbei ist zu beachten, dass die $<^{\mathfrak{A}}$-Relation
-eine beliebige von $\mathfrak{A}$ unabhängige lineare Ordnung ist.
-\item SBC+MAJ $\subseteq$ FP+C: FP-Logik mit Zähltermen kann zusätzlich
-Majority gates beschreiben.
-\item Nicht-uniformes SBC $\subseteq$ FP+C+$\Upsilon$: (Vergleiche mit
-,,nicht uniformes AC0 = FO+$\Upsilon$`` aus {[}Anderson, van Melkebeek,
-Schweikardt, Segoufin{]}.)
-\end{enumerate}
 \pagebreak{}
 
 
@@ -149,7 +136,7 @@ Schweikardt, Segoufin{]}.)
 
 \section{Fixpunktlogiken und Schaltkreise}
 
-Es werden die folgenden Äquivalenzen (nach \cite{Anderson2014,anderson_et_al:LIPIcs:2014:4445})
+Es werden die folgenden Äquivalenzen (nach Anderson und Dawar 2014\cite{anderson_et_al:LIPIcs:2014:4445})
 zwischen Fixpunktlogiken und Schaltkreisklassen nachgewiesen:
 \begin{thm}
 \textbf{\label{thm:fp-ord}$\mathrm{FP}+\mathbf{ORD}$, $P$-uniforme
@@ -181,7 +168,7 @@ Zur Erinnerung: $\mathbb{B}_{\mathrm{maj}}$ enthält die boolesche
 Konjunktion, Disjunktion und den Majority-Operator $\mathrm{MAJ}=\left\{ \left(m,n\right)\mid m\leqslant n\right\} $.
 
 
-\begin{thm}
+\begin{cor}
 \textbf{\label{thm:fp-u}$\mathrm{FP}+\Upsilon$, $\mathrm{poly\left(n\right)}$-großes
 $\mathrm{SBC}$}
 
@@ -193,12 +180,12 @@ $\varphi$ definiert.
 symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
 $\mathcal{C}$ berechnet.
 \end{enumerate}
-\end{thm}
+\end{cor}
 Zur Erinnerung: $\mathbb{B}_{\mathrm{maj}}$ enthält die boolesche
 Konjunktion, Disjunktion und den Majority-Operator $\mathrm{MAJ}=\left\{ \left(m,n\right)\mid m\leqslant n\right\} $.
 
 
-\begin{thm}
+\begin{cor}
 \textbf{\label{thm:fp-u-c}$\mathrm{FP}+\Upsilon+C$, $\mathrm{poly}\left(n\right)$-großes
 $\mathrm{SBC}+\mathbf{MAJ}$}
 
@@ -210,7 +197,7 @@ $\varphi$ definiert.
 symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
 $\mathcal{C}$ berechnet.
 \end{enumerate}
-\end{thm}
+\end{cor}
 
 \section{Logik erster Stufe und Schaltkreise konstanter Tiefe}
 \begin{thm}
@@ -240,7 +227,7 @@ $\mathcal{C}$ berechnet.
 \end{enumerate}
 \end{thm}
 
-\begin{thm}
+\begin{cor}
 \label{thm:fo+u}$\mathrm{FO}+\Upsilon$, symmetrisches $\mathrm{AC}^{0}$.
 
 Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
@@ -249,8 +236,11 @@ Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
 $\varphi$ definiert.
 \item Die Anfrage $q$ wird durch eine $\mathcal{O}\left(1\right)$-tiefe,
 $\mathrm{poly}\left(n\right)$-große, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\mathcal{C}$ berechnet.\end{enumerate}
-\begin{thm}
+$\mathcal{C}$ berechnet.
+\end{enumerate}
+\end{cor}
+
+\begin{cor}
 $\mathrm{FO}+\Upsilon+C$, symmetrisches $\mathrm{AC}^{0}+\mathbf{MAJ}$.
 
 Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
@@ -261,8 +251,7 @@ $\varphi$ definiert.
 $\mathrm{poly}\left(n\right)$-große, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
 $\mathcal{C}$ berechnet.
 \end{enumerate}
-\end{thm}
-\end{thm}
+\end{cor}
 
 \section{Logik erster Stufe mit disjunktem und nicht-disjunktem Orakel}
 \begin{thm}
@@ -1240,6 +1229,9 @@ in $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$.\cite{EFT,Libkin2012,Schweika
 
 
 \chapter{Schaltkreise}
+
+
+\section{Grundlagen der Schaltkreise}
 \begin{defn}
 \textbf{Boolesche Basis:} 
 
@@ -1432,6 +1424,8 @@ E\,i\,j & \mathrm{f\ddot{u}r}\,\,g=g_{i,j}\\
 \end{figure}
 
 \end{example*}
+\pagebreak{}
+
 
 \section{Eigenschaften von Schaltkreisen}
 \begin{defn}
@@ -1563,6 +1557,13 @@ Damit ist der Schaltkreis invariant.
 \begin{proof}
 Als Gegenbeispiel wird der folgende $0$-stellige Schaltkreis $\mathcal{C}$
 über $U=\left\{ 1,2\right\} $ angeführt:
+\begin{eqnarray*}
+\mathcal{C} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)\\
+G & \coloneqq & \left\{ g_{i,j}\mid i,j\in U\right\} \cup\left\{ g_{\wedge},g_{\wedge}'\right\} \\
+W & \coloneqq & \left\{ \left(g_{1,1},g_{\wedge}\right),\left(g_{1,2},g_{\wedge}\right),\left(g_{2,1},g_{\wedge}'\right),\left(g_{2,2},g_{\wedge}'\right),\left(g_{\wedge},g_{\wedge}'\right)\right\} \\
+\Omega & \coloneqq & g_{\wedge}'
+\end{eqnarray*}
+
 
 \begin{figure}[H]
 \begin{centering}
@@ -2102,7 +2103,7 @@ so sei der Schaltkreis analog zu Fall 8 mit $\Sigma\left(g_{\bar{t}}\right)\colo
 \section{Ordnungserweiterung}
 
 Wir betrachten die Logik $\mathrm{FO}+\mathbf{ORD}$, und weisen nach,
-dass die Konstruktion aus Lemma \ref{lem:FO-Circuit} angepasst werden
+dass die Konstruktion aus Lemma \lemref{FO-Circuit} angepasst werden
 kann, ohne die Klasse der $P$-uniformen symmetrischen $\mathrm{AC}^{0}$-Schaltkreise
 zu verlassen.
 \begin{lem}
@@ -3547,7 +3548,28 @@ ausgedrückt werden:
 \pagebreak{}
 
 \bibliographystyle{plain}
-\addcontentsline{toc}{chapter}{\bibname}\nocite{*}
+\nocite{*}
 \bibliography{master}
 
+
+\pagebreak{}
+
+
+\chapter*{Eidesstattliche Erklärung}
+
+\addcontentsline{toc}{chapter}{Eidesstattliche Erklärung}
+
+Hiermit versichere ich an Eides statt, dass ich den Inhalt der vorliegenden
+Arbeit selbständig ohne fremde Hilfe angefertigt und nur die angegebenen
+Hilfsmittel verwendet habe.
+
+\vspace{2em}
+
+
+Frankfurt, den \today
+
+\vspace{5em}
+
+
+Christoph Burschka
 \end{document}

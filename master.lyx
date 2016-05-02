@@ -32,6 +32,17 @@ enumitem
 theorems-chap
 \end_modules
 \maintain_unincluded_children false
+\begin_local_layout
+Format 49
+Style Email
+Font
+Size                Larger
+Family             Typewriter
+EndFont
+LatexType      command
+LatexName    email
+End
+\end_local_layout
 \language ngerman
 \language_package default
 \inputencoding utf8
@@ -101,12 +112,33 @@ theorems-chap
 Logische Charakterisierungen von Symmetrischen Schaltkreisfamilien
 \end_layout
 
-\begin_layout Subtitle
+\begin_layout Subject
 Master-Arbeit
 \end_layout
 
 \begin_layout Author
 Christoph Burschka
+\begin_inset Newline newline
+\end_inset
+
+
+\family typewriter
+\size larger
+christoph@burschka.de
+\end_layout
+
+\begin_layout Publishers
+Betreuerin: Prof.
+ Dr.
+ Nicole Schweikardt
+\begin_inset Newline newline
+\end_inset
+
+Goethe-Universität Frankfurt am Main
+\begin_inset Newline newline
+\end_inset
+
+Wintersemester 2015 / 2016
 \end_layout
 
 \begin_layout Standard
@@ -120,105 +152,6 @@ LatexCommand tableofcontents
 
 \begin_layout Chapter
 Einleitung
-\end_layout
-
-\begin_layout Standard
-Übersicht:
-\end_layout
-
-\begin_layout Enumerate
-FP[<] 
-\begin_inset Formula $\subseteq$
-\end_inset
-
- SBC (
-\begin_inset Formula $\subseteq$
-\end_inset
-
- P): Jede Fixpunktformel mit Ordnungsprädikat kann für 
-\begin_inset Formula $n\in\mathbb{N}$
-\end_inset
-
- in 
-\begin_inset Formula $\mathrm{poly\left(n\right)}$
-\end_inset
-
- in eine FO-Formel auf 
-\begin_inset Formula $n$
-\end_inset
-
--Graphen transformiert werden, aus der in 
-\begin_inset Formula $\mathrm{poly}\left(n\right)$
-\end_inset
-
- ein Symmetrischer Boolescher Schaltkreis wird.
- Daher ist FP auf P-uniforme SBC-Familien reduzierbar (und diese auf P).
-\end_layout
-
-\begin_layout Enumerate
-FP+C 
-\begin_inset Formula $\subseteq$
-\end_inset
-
- SBC+MAJ ( < P): Majority gates erlauben zusätzlich Zählterme zu übersetzen.
-\end_layout
-
-\begin_layout Enumerate
-SBC 
-\begin_inset Formula $\subseteq$
-\end_inset
-
- FP[<]: Jede P-uniforme 
-\begin_inset Formula $\left[\sigma\right]$
-\end_inset
-
--Schaltkreisfamilie kann in eine 
-\begin_inset Formula $\mathrm{FP}\left[\sigma+<\right]$
-\end_inset
-
--Formel überführt werden (weil der erzeugende P-Algorithmus per Immerman-Vardi
- FP[<]-definierbar ist).
- Hierbei ist zu beachten, dass die 
-\begin_inset Formula $<^{\mathfrak{A}}$
-\end_inset
-
--Relation eine beliebige von 
-\begin_inset Formula $\mathfrak{A}$
-\end_inset
-
- unabhängige lineare Ordnung ist.
-\end_layout
-
-\begin_layout Enumerate
-SBC+MAJ 
-\begin_inset Formula $\subseteq$
-\end_inset
-
- FP+C: FP-Logik mit Zähltermen kann zusätzlich Majority gates beschreiben.
-\end_layout
-
-\begin_layout Enumerate
-Nicht-uniformes SBC 
-\begin_inset Formula $\subseteq$
-\end_inset
-
- FP+C+
-\begin_inset Formula $\Upsilon$
-\end_inset
-
-: (Vergleiche mit 
-\begin_inset Quotes gld
-\end_inset
-
-nicht uniformes AC0 = FO+
-\begin_inset Formula $\Upsilon$
-\end_inset
-
-
-\begin_inset Quotes grd
-\end_inset
-
- aus [Anderson, van Melkebeek, Schweikardt, Segoufin].)
 \end_layout
 
 \begin_layout Standard
@@ -237,10 +170,10 @@ Fixpunktlogiken und Schaltkreise
 \end_layout
 
 \begin_layout Standard
-Es werden die folgenden Äquivalenzen (nach 
+Es werden die folgenden Äquivalenzen (nach Anderson und Dawar 2014
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Anderson2014,anderson_et_al:LIPIcs:2014:4445"
+key "anderson_et_al:LIPIcs:2014:4445"
 
 \end_inset
 
@@ -413,7 +346,7 @@ Zur Erinnerung:
 
 \end_layout
 
-\begin_layout Theorem
+\begin_layout Corollary
 
 \series bold
 \begin_inset CommandInset label
@@ -437,7 +370,7 @@ name "thm:fp-u"
 
 \end_layout
 
-\begin_layout Theorem
+\begin_layout Corollary
 Die folgenden Aussagen sind für alle 
 \begin_inset Formula $\sigma$
 \end_inset
@@ -500,7 +433,7 @@ Zur Erinnerung:
 
 \end_layout
 
-\begin_layout Theorem
+\begin_layout Corollary
 
 \series bold
 \begin_inset CommandInset label
@@ -524,7 +457,7 @@ name "thm:fp-u-c"
 
 \end_layout
 
-\begin_layout Theorem
+\begin_layout Corollary
 Die folgenden Aussagen sind für alle 
 \begin_inset Formula $\sigma$
 \end_inset
@@ -729,7 +662,7 @@ Die Anfrage
 
 \end_layout
 
-\begin_layout Theorem
+\begin_layout Corollary
 \begin_inset CommandInset label
 LatexCommand label
 name "thm:fo+u"
@@ -747,7 +680,7 @@ name "thm:fo+u"
 .
 \end_layout
 
-\begin_layout Theorem
+\begin_layout Corollary
 Die folgenden Aussagen sind für alle 
 \begin_inset Formula $\sigma$
 \end_inset
@@ -796,7 +729,12 @@ Die Anfrage
  berechnet.
 \end_layout
 
-\begin_layout Theorem
+\end_deeper
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Corollary
 \begin_inset Formula $\mathrm{FO}+\Upsilon+C$
 \end_inset
 
@@ -807,7 +745,7 @@ Die Anfrage
 .
 \end_layout
 
-\begin_layout Theorem
+\begin_layout Corollary
 Die folgenden Aussagen sind für alle 
 \begin_inset Formula $\sigma$
 \end_inset
@@ -856,7 +794,6 @@ Die Anfrage
  berechnet.
 \end_layout
 
-\end_deeper
 \end_deeper
 \begin_layout Section
 Logik erster Stufe mit disjunktem und nicht-disjunktem Orakel
@@ -4776,6 +4713,10 @@ key "EFT,Libkin2012,Schweikardt13ashort"
 Schaltkreise
 \end_layout
 
+\begin_layout Section
+Grundlagen der Schaltkreise
+\end_layout
+
 \begin_layout Definition
 
 \series bold
@@ -5628,6 +5569,13 @@ Schaltkreis
 
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Eigenschaften von Schaltkreisen
 \end_layout
@@ -6134,6 +6082,17 @@ Als Gegenbeispiel wird der folgende
 \end_inset
 
  angeführt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{C} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)\\
+G & \coloneqq & \left\{ g_{i,j}\mid i,j\in U\right\} \cup\left\{ g_{\wedge},g_{\wedge}'\right\} \\
+W & \coloneqq & \left\{ \left(g_{1,1},g_{\wedge}\right),\left(g_{1,2},g_{\wedge}\right),\left(g_{2,1},g_{\wedge}'\right),\left(g_{2,2},g_{\wedge}'\right),\left(g_{\wedge},g_{\wedge}'\right)\right\} \\
+\Omega & \coloneqq & g_{\wedge}'
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Proof
@@ -7916,7 +7875,7 @@ Wir betrachten die Logik
 
 , und weisen nach, dass die Konstruktion aus Lemma 
 \begin_inset CommandInset ref
-LatexCommand ref
+LatexCommand formatted
 reference "lem:FO-Circuit"
 
 \end_inset
@@ -13370,11 +13329,79 @@ Nach dem Satz von Immerman-Vardi kann der Polynomialzeit-Algorithmus, der
 LatexCommand bibtex
 btprint "btPrintAll"
 bibfiles "master"
-options "bibtotoc,plain"
+options "plain"
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+Eidesstattliche Erklärung
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{chapter}{Eidesstattliche Erklärung}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hiermit versichere ich an Eides statt, dass ich den Inhalt der vorliegenden
+ Arbeit selbständig ohne fremde Hilfe angefertigt und nur die angegebenen
+ Hilfsmittel verwendet habe.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 2em
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Frankfurt, den 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+today
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 5em
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Christoph Burschka
 \end_layout
 
 \end_body
