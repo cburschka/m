@@ -116,9 +116,10 @@ Schweikardt, Segoufin{]}.)
 Es werden die folgenden Äquivalenzen (nach \cite{Anderson2014,anderson_et_al:LIPIcs:2014:4445})
 zwischen Fixpunktlogiken und Schaltkreisklassen nachgewiesen:
 \begin{thm}
-\textbf{$\mathrm{FP}+\mathbf{ORD}$, $P$-uniforme $\mathrm{SBC}$}
+\textbf{\label{thm:fp-ord}$\mathrm{FP}+\mathbf{ORD}$, $P$-uniforme
+$\mathrm{SBC}$}
 
-Die folgenden Aussagen sind äquivalent:
+Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
 \begin{enumerate}
 \item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert.
@@ -130,9 +131,9 @@ Die Fixpunktlogik mit disjunkter Ordnungserweiterung und Zählterm
 ist äquivalent zu den $P$-uniformen symmetrischen booleschen Schaltkreisfamilien
 mit Majority-Gates.
 \begin{thm}
-\textbf{$\mathrm{FP}+C$, $P$-uniforme $\mathrm{SBC}+\mathbf{MAJ}$}
+\textbf{\label{thm:fp-c}$\mathrm{FP}+C$, $P$-uniformes $\mathrm{SBC}+\mathbf{MAJ}$}
 
-Die folgenden Aussagen sind äquivalent:
+Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
 \begin{enumerate}
 \item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+C\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert.
@@ -145,10 +146,10 @@ Konjunktion, Disjunktion und den Majority-Operator $\mathrm{MAJ}=\left\{ \left(m
 
 
 \begin{thm}
-\textbf{$\mathrm{FP}+\Upsilon$, $\mathrm{poly\left(n\right)}$-große
+\textbf{\label{thm:fp-u}$\mathrm{FP}+\Upsilon$, $\mathrm{poly\left(n\right)}$-großes
 $\mathrm{SBC}$}
 
-Die folgenden Aussagen sind äquivalent:
+Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
 \begin{enumerate}
 \item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+\Upsilon\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert.
@@ -162,10 +163,10 @@ Konjunktion, Disjunktion und den Majority-Operator $\mathrm{MAJ}=\left\{ \left(m
 
 
 \begin{thm}
-\textbf{$\mathrm{FP}+\Upsilon+C$, $\mathrm{poly}\left(n\right)$-große
+\textbf{\label{thm:fp-u-c}$\mathrm{FP}+\Upsilon+C$, $\mathrm{poly}\left(n\right)$-großes
 $\mathrm{SBC}+\mathbf{MAJ}$}
 
-Die folgenden Aussagen sind äquivalent:
+Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
 \begin{enumerate}
 \item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+\Upsilon+C\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert.
@@ -174,21 +175,13 @@ symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
 $\mathcal{C}$ berechnet.
 \end{enumerate}
 \end{thm}
-eine Orakelfunktion, die jeder Zahl $n$ die Orakelstruktur $\mathbf{ARB}\left(n\right)=\mathfrak{N}_{\mid\left\{ 0,\cdots,n\right\} }$
-zuweist.
-
-Für jede $\mathrm{FO}+\mathbf{ARB}$-Formel $\varphi$ existiert eine
-arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel
-$\varphi'$, die auf allen endlichen $\sigma$-Strukturen äquivalent
-zu $\varphi$ ist, und umgekehrt.
-
 
 \subsection{Logik erster Stufe und Schaltkreise konstanter Tiefe}
 \begin{thm}
 \cite{IMMERMAN198686}\label{thm:5.5:fo-ord}$\mathrm{FO}+\mathbf{ORD}$,
 $P$-uniformes symmetrisches $\mathrm{AC}^{0}$.
 
-Die folgenden Aussagen sind äquivalent:
+Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
 \begin{enumerate}
 \item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert.
@@ -199,9 +192,9 @@ $\mathcal{C}$ berechnet.
 \end{thm}
 
 \begin{thm}
-\label{thm:5.6:fo-c}$\mathrm{FO}+C$, symmetrisches $\mathrm{AC}^{0}+\mathbf{MAJ}$.
+\label{thm:fo-c}$\mathrm{FO}+C$, symmetrisches $\mathrm{AC}^{0}+\mathbf{MAJ}$.
 
-Die folgenden Aussagen sind äquivalent:
+Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
 \begin{enumerate}
 \item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+C\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert.
@@ -212,9 +205,9 @@ $\mathcal{C}$ berechnet.
 \end{thm}
 
 \begin{thm}
-\label{thm:5.7:fo+u}$\mathrm{FO}+\Upsilon$, symmetrisches $\mathrm{AC}^{0}$.
+\label{thm:fo+u}$\mathrm{FO}+\Upsilon$, symmetrisches $\mathrm{AC}^{0}$.
 
-Die folgenden Aussagen sind äquivalent:
+Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
 \begin{enumerate}
 \item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert.
@@ -224,7 +217,7 @@ $\mathcal{C}$ berechnet.\end{enumerate}
 \begin{thm}
 $\mathrm{FO}+\Upsilon+C$, symmetrisches $\mathrm{AC}^{0}+\mathbf{MAJ}$.
 
-Die folgenden Aussagen sind äquivalent:
+Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
 \begin{enumerate}
 \item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert.
@@ -318,7 +311,7 @@ Tupel, Teilmengen und Relationen von $A$ erweitert:
 \end{eqnarray*}
 
 
-Eine Abbildung $\pi:\left\{ a_{1},\cdots,a_{n}\right\} \rightarrow B$
+Eine Abbildung $\pi:A\rightarrow B$ (mit $A=\left\{ a_{1},\cdots,a_{n}\right\} $
 wird extensional durch $\left(\begin{array}{c}
 a_{1}\\
 \pi a_{1}
@@ -326,6 +319,10 @@ a_{1}\\
 a_{n}\\
 \pi a_{n}
 \end{array}\right)$ notiert.
+
+Wenn $\bar{a}=\left(a_{1},\cdots,a_{n}\right)$ und $\bar{b}=\left(\pi a_{1},\cdots\pi a_{n}\right)\in B^{n}$,
+so wird $\pi:A\rightarrow B$ kurz durch $\left(\bar{a}\mapsto\bar{b}\right)$
+notiert.
 
 Für zwei Abbildungen $\pi_{1}:B\rightarrow C$ und $\pi_{2}:A\rightarrow B$
 sei $\pi_{1}\circ\pi_{2}:A\rightarrow C$ (kurz $\pi_{1}\pi_{2}$)
@@ -372,6 +369,8 @@ Eine Transposition sei eine Permutation, die zwei Elemente $u_{i}$
 und $u_{j}$ vertauscht und alle anderen Elemente fixiert. Diese wird
 kurz durch $\left(u_{i}u_{j}\right)$ notiert.
 \end{defn}
+\pagebreak{}
+
 
 \subsection{Relationale Strukturen}
 
@@ -531,8 +530,7 @@ und $\mathfrak{A}\in S\Leftrightarrow\pi\mathfrak{A}\in S$.
 Wir betrachten logische Sprachen auf relationalen Signaturen $\sigma$,
 deren Ausdrücke auf endlichen $\sigma$-Strukturen ausgewertet werden.
 \begin{defn}
-Sei $\mathbf{var}$ die Menge aller erststufigen Variablen. Es existiere
-implizit eine feste lineare Ordnung der Variablen.
+Sei $\mathbf{var}$ die Menge aller erststufigen Variablen.
 
 Für einen Ausdruck $\omega$ sei $\mathrm{var}\left(\omega\right)$
 die Menge der darin vorkommenden Variablen, und $\mathrm{frei}\left(\omega\right)\subseteq\mathrm{var}\left(\omega\right)$
@@ -557,14 +555,16 @@ ein Wahrheitswert.
 \end{defn}
 
 \begin{defn}
-Für einen Ausdruck $\omega$ mit $\mathrm{frei}\left(\omega\right)=\left\{ x_{1},\cdots,x_{k}\right\} $
-und $x_{1}<\cdots<x_{k}$ in der Variablen-Ordnung bezeichnen wir
-das Tupel $\bar{x}=x_{1}\cdots x_{k}$ als das \textbf{Argument }von
-$\omega$ (auch notiert durch $\omega\left(\bar{x}\right)$).
+Für eine Formel $\varphi$ und ein Tupel $\bar{x}\in\mathbf{var}^{k}$
+mit $\mathrm{frei}\left(\varphi\right)=\left\{ x_{1},\cdots,x_{k}\right\} $
+und $\left|\left\{ x_{1},\cdots,x_{k}\right\} \right|=k$ sei das
+Tupel $\bar{x}=x_{1}\cdots x_{k}$ ein \textbf{Argument }von $\varphi$.
+Die Argumente von $\varphi$ unterscheiden sich nur in der Reihenfolge
+der Variablen. Durch $\varphi\left(\bar{x}\right)$ wird ein bestimmtes
+Argument $\bar{x}$ festgelegt.
 
-Die \textbf{Stelligkeit }eines logischen Ausdrucks (beziehungsweise
-ihres Arguments) bezeichne die Anzahl der frei vorkommenden Variablen:
-$\mathrm{ar}\left(\omega\left(\bar{x}\right)\right)=\mathrm{ar}\left(\bar{x}\right)=\left|\mathrm{frei}\left(\omega\right)\right|$.
+Die \textbf{Stelligkeit }einer logischen Formel (beziehungsweise ihrer
+Argumente) bezeichne die Anzahl der frei vorkommenden Variablen: $\mathrm{ar}\left(\varphi\right)=\left|\mathrm{frei}\left(\varphi\right)\right|$.
 
 Ein \textbf{Satz} sei eine Formel ohne freie Variablen.
 \end{defn}
@@ -579,39 +579,35 @@ Variablen jedes Teilausdrucks von $\omega$:
 \end{defn}
 
 \begin{defn}
-Für eine $k$-stellige Formel $\varphi\left(\bar{x}\right)$ und eine
-Belegung $\beta:\bar{x}\rightarrow A$ schreiben wir $\mathfrak{A}\models\varphi^{\beta}$
-genau dann wenn $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1$.
+Für eine $k$-stellige Formel $\varphi$ und eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
+schreiben wir $\mathfrak{A}\models\varphi^{\beta}$ genau dann wenn
+$\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1$.
 
-Für ein Tupel $\bar{a}\in A^{k}$ sei $\beta_{\bar{a}}\coloneqq\left(\begin{array}{c}
-x_{1}\\
-a_{1}
-\end{array}\cdots\begin{array}{c}
-x_{k}\\
-a_{k}
-\end{array}\right)$. Wir schreiben $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)$
-anstelle von $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\bar{a}}\right)$,
+Für $\varphi\left(\bar{x}\right)$ und $\bar{a}\in A^{\mathrm{ar}\left(\varphi\right)}$
+schreiben wir $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)$
+anstelle von $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\left(\bar{x}\mapsto\bar{b}\right)\right)$,
 beziehungsweise $\mathfrak{A}\models\varphi\left[\bar{a}\right]$
-anstelle von $\mathfrak{A}\models\varphi^{\beta_{\bar{a}}}$.
+anstelle von $\mathfrak{A}\models\varphi^{\bar{x}\mapsto\bar{a}}$.
 
-Entsprechend sei $\varphi\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\varphi\left[\bar{a}\right]\right\} $
+Entsprechend sei $q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\varphi\left[\bar{a}\right]\right\} $
 die Relation der $\varphi$ erfüllenden Tupel. Somit beschreibt jede
-$\mathscr{L}\left[\sigma\right]$-Formel eine $\sigma$-Anfrage, und
-jeder Satz eine $\sigma$-Eigenschaft.
+$\mathscr{L}\left[\sigma\right]$-Formel $\varphi\left(\bar{x}\right)$
+eine $\sigma$-Anfrage $q_{\varphi\left(\bar{x}\right)}$, und jeder
+Satz eine $\sigma$-Eigenschaft.
+
+(Da die Reihenfolge der Spalten der Relation von der Wahl des Arguments
+$\bar{x}$ abhängt, wird es stets mit angegeben.)
 \end{defn}
 
 \begin{defn}
-Für einen Ausdruck $\omega\left(\bar{x}\right)$ und eine Belegung
-$\beta:X\rightarrow A$ mit $\mathrm{frei}\left(\omega\right)\backslash X\neq\emptyset$
-sei $\omega^{\beta}$ ein \textbf{partiell belegter} Ausdruck; es
-sei $\mathrm{frei}\left(\omega^{\beta}\right)=\mathrm{frei}\left(\omega\right)\backslash X$.
-
-Das Argument von $\omega^{\beta}$ sei $\bar{y}$ mit $\left\{ y_{1},\cdots,y_{\ell}\right\} =\left\{ x_{1},\cdots,x_{k}\right\} \backslash X$.
+Für eine Formel $\varphi$ und eine Belegung $\beta:X\rightarrow A$
+mit $X\subsetneqq\mathrm{frei}\left(\varphi\right)$ sei $\varphi^{\beta}$
+ein \textbf{partiell belegter} Ausdruck; es sei $\mathrm{frei}\left(\varphi^{\beta}\right)=\mathrm{frei}\left(\varphi\right)\backslash X$.
 
 Es stehe $\left\llbracket \varphi^{\beta}\right\rrbracket \left(\mathfrak{A},\beta'\right)$
 für die Auswertung $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\cup\beta'\right)$
 mit $\beta':\mathrm{frei}\left(\varphi^{\beta}\right)\rightarrow A$.
-Sei $q_{\varphi^{\beta}}=\left\{ \bar{a}\in A^{\ell}\mid\mathfrak{A}\models\varphi^{\beta}\left[\bar{a}\right]\right\} $
+$q_{\varphi^{\beta}\left(\bar{x}'\right)}=\left\{ \bar{a}\in A^{\ell}\mid\mathfrak{A}\models\varphi^{\beta}\left[\bar{a}\right]\right\} $
 die von $\varphi^{\beta}$ definierte $\sigma$-Anfrage.
 \end{defn}
 
@@ -626,10 +622,11 @@ erfüllt wird.
 
 Falls $\models_{n}\left(\varphi\leftrightarrow\psi\right)$, so heißen
 $\varphi$ und $\psi$ $n$-\textbf{äquivalent}. Insbesondere bedeutet
-dies, dass $\varphi\left(\bar{x}\right)$ und $\psi\left(\bar{x}\right)$
-das gleiche Argument $\bar{x}$ haben und die gleiche Anfrage $q_{\varphi}=q_{\psi}$
+dies, dass $\varphi$ und $\psi$ die gleiche Anfrage $q_{\varphi\left(\bar{x}\right)}=q_{\psi\left(\bar{x}\right)}$
 auf Strukturen der Größe $n$ definieren.
 \end{defn}
+\pagebreak{}
+
 
 \subsection{Prädikatenlogik erster Stufe}
 
@@ -729,8 +726,11 @@ a
 \end{eqnarray*}
 \end{elabeling}
 \begin{rem*}
-Im folgenden stehen $Q\bar{x}\psi$ und $\bar{x}=\bar{y}$ abgekürzt
-für $Qx_{1}\cdots Qx_{k}\psi$ und $\bigwedge_{i=1}^{k}\left(x_{i}=y_{i}\right)$.
+Im folgenden stehen $Q\bar{x}\varphi$ und $\bar{x}=\bar{y}$ abgekürzt
+für $Qx_{1}\cdots Qx_{k}\varphi$ und $\bigwedge_{i=1}^{k}\left(x_{i}=y_{i}\right)$.
+
+Ohne Beschränkung der Allgemeinheit gelte für $Qx\varphi$ stets $x\in\mathrm{frei}\left(\varphi\right)$,
+denn $Qx\varphi\equiv Qx\left(x\dot{=}x\wedge\varphi\right)$.
 \end{rem*}
 \pagebreak{}
 
@@ -793,9 +793,7 @@ eine $R$-positive $\left(\mathrm{\mathrm{FO}+\mathrm{LFP}}\right)\left[\sigma\ri
 \end{elabeling}
 \begin{rem*}
 Ohne Beschränkung der Allgemeinheit sei $\left\{ x_{1},\cdots,x_{k}\right\} \subseteq\mathrm{frei}\left(\psi\right)$,
-denn eine gebundene Variable $x_{i}$, die nicht frei in $\psi$ vorkommt,
-kann analog zu Definition \ref{def:fo} in ein neues Atom $x_{i}\dot{=}x_{i}$
-eingefügt werden.
+denn analog zu Definition \ref{def:fo} ist $\psi\equiv\left(\bar{x}=\bar{x}\wedge\psi\right)$.
 
 Die nicht durch $\bar{x}$ gebundene Variablen $\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \subseteq\mathrm{frei}\left(\varphi\right)$
 heißen \textbf{Parameter} der Fixpunkt-Operation.\end{rem*}
@@ -1644,8 +1642,8 @@ Die Formeln der Logik erster Stufe sind durch symmetrische, $P$-uniforme
 $\mathrm{AC}^{0}$-Schaltkreise berechenbar:
 \begin{lem}
 \label{lem:FO-Circuit}Jede $\mathrm{FO}\left[\sigma\right]$-Formel
-$\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
-$P$-uniformen Schaltkreis-Familie $\bar{\mathcal{C}^{\varphi}}$
+$\varphi\left(\bar{x}\right)$ definiert eine $\sigma$-Anfrage $q$,
+die von einer symmetrischen, $P$-uniformen Schaltkreis-Familie $\bar{\mathcal{C}^{\varphi}}$
 mit $3\left\Vert \varphi\right\Vert $-Tiefe und $5\left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}$-Größe
 berechnet wird.\end{lem}
 \begin{proof}
@@ -2221,7 +2219,7 @@ $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ mit $3\left\Vert \varphi\right\V
 und $5\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$-Größe
 berechnet wird.
 \end{lem}
-(Dieses Lemma bildet die erste Hälfte von Theorem \ref{thm:5.6:fo-c}.)
+(Dieses Lemma bildet die erste Hälfte von Theorem \ref{thm:fo-c}.)
 \begin{proof}
 Sei $\varphi$ eine $k$-stellige $\left(\mathrm{FO}+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel.
 Der $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreis
@@ -2412,10 +2410,10 @@ $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen
 $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
 $\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit konstanter
 Tiefe $3\left\Vert \varphi\right\Vert $-Tiefe und polynomieller Größe
-$5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)}$-Tiefe
+$5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$-Tiefe
 berechnet wird.
 \end{lem}
-(Dieses Lemma bildet die erste Hälfte von \ref{thm:5.7:fo+u}.)
+(Dieses Lemma bildet die erste Hälfte von \ref{thm:fo+u}.)
 \begin{proof}
 Sei $n\in\mathbb{N}$ beliebig und sei $\rho:\left[0,n\right]\rightarrow\left[n+1,2n+1\right]$
 wie bisher definiert. Die Struktur $\Upsilon\left(n\right)$ wird
@@ -2473,7 +2471,7 @@ Jede $\left(\mathrm{FO}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen
 $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
 $\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit $3\left\Vert \varphi\right\Vert $-Tiefe
-und $5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+c}$-Größe
+und $5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$-Größe
 für $c\in\mathbb{N}$ berechnet wird.\end{lem}
 \begin{proof}
 Zunächst wird die Konstruktion aus Lemma \ref{lem:fo-c} und angewendet,
@@ -2622,7 +2620,7 @@ und $\left\Vert \varphi\right\Vert $ ist fest und für die $\mathrm{poly}\left(n
 der Schaltkreisfamilie unbedeutend.
 \begin{lem}
 \label{lem:lfp-circ}Für jede parameter-freie $\mathrm{LFP}\left[\sigma\right]$-Formel
-$\varphi$ existiert eine $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+$\varphi$ existiert eine $P$-uniforme symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
 $\bar{\mathcal{C}^{\varphi}}$ mit $n^{k}\left(3\left\Vert \varphi\right\Vert +1\right)$-Tiefe
 und $\left(5n^{k+\mathtt{MF}\left(\varphi\right)}+1\right)$-Größe,
 so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right)$
@@ -2650,7 +2648,7 @@ k & \leqslant & m
 \end{eqnarray*}
 
 
-Per Annahme existiert ein $m$-stelliger $\left(\sigma\cup\left\{ R\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
+Per Annahme existiert ein $P$-uniformer symmetrischer $\left(\sigma\cup\left\{ R\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
 $\mathcal{C}_{n}^{\psi}$, der auf den erweiterten $\left(\sigma\cup\left\{ R\right\} \right)$-Strukturen
 $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\cup\left\{ R\right\} \right)$
 die Anfrage $q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\right)=q_{\psi}\left(\mathfrak{A}\right)$
@@ -2721,6 +2719,48 @@ F^{i}\left(\emptyset\right)
 \end{eqnarray*}
 Daher berechnet $\mathcal{C}_{n}^{\varphi}=\mathcal{D}^{n^{k}}$ die
 Anfrage $q_{\mathcal{C}_{n}^{\varphi}}\left(\mathfrak{A}\right)=F^{n^{k}}\left(\emptyset\right)=F^{\infty}\left(\emptyset\right)$.
+\item [{Symmetrie:}] Sei $\pi\in\mathrm{Sym}_{U}$ beliebig. Per Annahme
+ist $\mathcal{C}_{n}^{\psi}$ symmetrisch, also existiert der Automorphismus
+$\hat{\pi}$. Es sei für $i\in\mathbb{N}$ der Automorphismus $\hat{\pi_{i}}$
+wie folgt:
+\begin{eqnarray*}
+\hat{\pi}_{0} & \coloneqq & \left(\begin{array}{c}
+g_{0}\\
+g_{0}
+\end{array}\right)\\
+\hat{\pi}_{i+1}\left(g\right) & \coloneqq & \begin{cases}
+\hat{\pi}_{i}\left(g\right) & \mathrm{falls}\,g\in G_{i}\\
+\hat{\pi}\left(g\right) & \mathrm{sonst}
+\end{cases}
+\end{eqnarray*}
+Per Annahme sei $\hat{\pi}_{i}$ ein von $\pi$ induzierter Automorphismus
+in $\mathcal{D}^{i}$. So gilt in $\mathcal{D}^{i+1}$:
+
+\begin{enumerate}
+\item $\left(\hat{\pi}_{i+1}\right)_{\mid G_{i}}=\hat{\pi}_{i}$, und $\left(\hat{\pi}_{i+1}\right)_{\mid G_{\psi}}=\hat{\pi}$;
+damit sind die Bedingungen für $W_{i}\cup W_{\psi}$, $\Sigma_{i}$,
+$\Omega_{i+1}=\Omega_{\psi}$ und alle Gates $g\in G_{\psi}$ mit
+$\Sigma_{\psi}\notin\left\{ R\bar{t}\mid\bar{t}\in U^{m}\right\} $
+bereits erfüllt.
+\item Für die ehemaligen Inputs mit $\Sigma\left(g\right)=R\bar{t}$ gilt
+$\Sigma_{i+1}\left(\hat{\pi}g\right)=\Sigma_{i+1}\left(g\right)=\wedge$.
+\item Für jede neue Kante $\left(\Omega_{i}\left(\bar{t}\right),g\right)\in W'$
+mit $g\in G_{\psi}$ und $\Sigma_{\psi}\left(g\right)=R\bar{t}$:
+\begin{eqnarray*}
+\left(\hat{\pi}_{i+1}\Omega_{i}\left(\bar{t}\right),\hat{\pi}_{i+1}g\right) & = & \left(\hat{\pi}_{i}\Omega_{i}\left(\bar{t}\right),\hat{\pi}g\right)\\
+ & = & \left(\Omega_{i}\left(\pi\bar{t}\right),\hat{\pi}g\right)
+\end{eqnarray*}
+Per Definition ist $\Sigma_{\psi}\left(\hat{\pi}g\right)=R\pi\bar{t}$,
+und daher:
+\[
+\left(\Omega_{i}\left(\pi\bar{t}\right),\hat{\pi}g\right)\in W'
+\]
+
+\end{enumerate}
+
+Daher ist $\mathcal{D}^{i+1}$ ebenfalls symmetrisch, und es folgt
+die Symmetrie von $\mathcal{C}_{n}^{\varphi}=\mathcal{D}^{n^{k}}$.
+
 \item [{Größe:}] Es wird induktiv bewiesen, dass $T\left(\mathcal{D}^{i}\right)\leqslant\left(3\left\Vert \psi\right\Vert +1\right)i$,
 und $\left|\mathcal{D}^{i}\right|\leqslant i\cdot5n^{\mathtt{MF}\left(\psi\right)}+1$
 \begin{eqnarray*}
@@ -2749,12 +2789,90 @@ Die disjunkte Ordnungserweiterung der Fixpunktlogik nach Definition
 (aber $\mathrm{poly}\left(n\right)$-Tiefe) Schaltkreise entscheidbar:
 \begin{lem}
 \label{lem:lfp-ord}Für jede parameter-freie $\left(\mathrm{LFP}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
-$\varphi$ existiert eine $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\bar{\mathcal{C}^{\varphi}}$ mit $n^{k}\left(3\left\Vert \varphi\right\Vert +1\right)$-Tiefe
-und $\left(5n^{k+\mathtt{MF}\left(\varphi\right)}\right)$-Größe,
-so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right)$
+$\varphi\left(\bar{x}\right)$ existiert eine $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+$\bar{\mathcal{C}^{\varphi}}$ mit $T\left(n\right)$-Tiefe und $S\left(n\right)$-Größe,
+so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)$
 für alle $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ gilt.
+\begin{eqnarray*}
+T\left(n\right) & = & \left(2n+1\right)^{k}\left(3\left\Vert \varphi\right\Vert +1\right)\\
+S\left(n\right) & = & 5\left(2n+1\right)^{k+\mathtt{MF}\left(\varphi\right)}
+\end{eqnarray*}
+
 \end{lem}
+(Dies ist die erste Hälfte von Theorem \ref{thm:fp-ord}.)
+\begin{proof}
+Es wird analog zu dem Beweis von Lemma \ref{lem:lfp-circ} für jedes
+$n\in\mathbb{N}$ ein $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
+$\mathcal{C}_{2n+1}^{\varphi}$ über $U'=\left[1,\cdots,2n+1\right]$
+konstruiert, der die Anfrage $q_{\varphi}$ auf $\mathfrak{A}\uplus\Upsilon'\left(n\right)$
+für $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+und $\Upsilon'\left(n\right)=\left(\left[n+1,2n+1\right],\leqslant\right)$
+berechnet.
+
+Dieser wird analog zu dem Beweis von Lemma \ref{lem:fo-ord} in einen
+$\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis $\dot{\mathcal{C}_{n}^{\varphi}}$
+über $U=\left[1,n\right]$ umgewandelt, in dem nicht-konstante Inputs
+$R\bar{t}$ mit $R\notin\sigma$ oder $\bar{t}\notin U^{k}$ zu Konstanten
+werden.\end{proof}
+\begin{lem}
+\label{lem:fp-c}Für jede parameter-freie $\left(\mathrm{LFP}+C\right)\left[\sigma\right]$-Formel
+$\varphi\left(\bar{x}\right)$ existiert eine $P$-uniforme $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
+$\bar{\mathcal{C}^{\varphi}}$ mit $T\left(n\right)$-Tiefe und $S\left(n\right)$-Größe,
+so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)$
+für alle $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ gilt.
+\begin{eqnarray*}
+T\left(n\right) & = & \left(2n+1\right)^{k}\left(3\left\Vert \varphi\right\Vert +1\right)\\
+S\left(n\right) & = & 5\left(2n+1\right)^{k+\mathtt{MF}\left(\varphi\right)}
+\end{eqnarray*}
+
+\end{lem}
+(Dies ist die erste Hälfte von Theorem \ref{thm:fp-c}.)
+\begin{proof}
+Hier erweitern wir den Beweis von Lemma \ref{lem:lfp-circ} für $\mathrm{LFP}\left[\sigma\right]$
+um den Konstruktionsschritt aus Lemma \ref{lem:fo-c}, um den $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreis
+$\mathcal{C}_{2n+1}^{\varphi}$ zu erzeugen.
+
+Anschließend wird analog zu Lemma \ref{lem:lfp-ord} der $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreis
+$\dot{\mathcal{C}_{n}^{\varphi}}$ erzeugt.\end{proof}
+\begin{lem}
+\label{lem:fp-u}Für jede parameter-freie $\left(\mathrm{LFP}+\mathbf{ARB}\right)\left[\sigma\right]$-Formel
+$\varphi\left(\bar{x}\right)$ existiert eine $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+$\bar{\mathcal{C}^{\varphi}}$ mit $T\left(n\right)$-Tiefe und $S\left(n\right)$-Größe,
+so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)$
+für alle $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ gilt.
+\begin{eqnarray*}
+T\left(n\right) & = & \left(2n+1\right)^{k}\left(3\left\Vert \varphi\right\Vert +1\right)\\
+S\left(n\right) & = & 5\left(2n+1\right)^{k+\mathtt{MF}\left(\varphi\right)}
+\end{eqnarray*}
+
+\end{lem}
+(Dies ist die erste Hälfte von Theorem \ref{thm:fp-u}.)
+\begin{proof}
+Wie in Lemma \ref{lem:fo-u} werden einfach die Relationssymbole $R\in\eta_{\mathrm{arb}}$
+mit in den $\left(\sigma\cup\eta_{\mathrm{arb}}\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+$\mathcal{C}_{2n+1}^{\varphi}$ aufgenommen und dann durch Konstanten
+$\mathbf{0}$ oder $\mathbf{1}$ ersetzt, um $\dot{\mathcal{C}_{n}}$
+zu erzeugen.\end{proof}
+\begin{lem}
+\label{lem:fp-u-c}Für jede parameter-freie $\left(\mathrm{LFP}+\mathbf{ARB}+C\right)\left[\sigma\right]$-Formel
+$\varphi\left(\bar{x}\right)$ existiert eine $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
+$\bar{\mathcal{C}^{\varphi}}$ mit $T\left(n\right)$-Tiefe und $S\left(n\right)$-Größe,
+so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)$
+für alle $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ gilt.
+\begin{eqnarray*}
+T\left(n\right) & = & \left(2n+1\right)^{k}\left(3\left\Vert \varphi\right\Vert +1\right)\\
+S\left(n\right) & = & 5\left(2n+1\right)^{k+\mathtt{MF}\left(\varphi\right)}
+\end{eqnarray*}
+
+\end{lem}
+(Dies ist die erste Hälfte von Theorem \ref{thm:fp-u-c}.)
+\begin{proof}
+Wie in Lemma \ref{lem:fo-u} werden einfach die Relationssymbole $R\in\eta_{\mathrm{arb}}$
+mit in den $\left(\sigma\cup\eta_{\mathrm{arb}}\cup\left\{ \leqslant\right\} ,\left\{ \leqslant\right\} \right)$-Schaltkreisfamilie
+$\mathcal{C}_{2n+1}^{\varphi}$ aufgenommen und dann durch Konstanten
+$\mathbf{0}$ oder $\mathbf{1}$ ersetzt, um $\dot{\mathcal{C}_{n}}$
+zu erzeugen.
+\end{proof}
 \pagebreak{}
 
 

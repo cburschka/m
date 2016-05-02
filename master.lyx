@@ -211,6 +211,13 @@ key "Anderson2014,anderson_et_al:LIPIcs:2014:4445"
 \begin_layout Theorem
 
 \series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:fp-ord"
+
+\end_inset
+
+
 \begin_inset Formula $\mathrm{FP}+\mathbf{ORD}$
 \end_inset
 
@@ -226,7 +233,11 @@ key "Anderson2014,anderson_et_al:LIPIcs:2014:4445"
 \end_layout
 
 \begin_layout Theorem
-Die folgenden Aussagen sind äquivalent:
+Die folgenden Aussagen sind für alle 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfragen äquivalent:
 \end_layout
 
 \begin_deeper
@@ -279,6 +290,13 @@ Die Fixpunktlogik mit disjunkter Ordnungserweiterung und Zählterm ist äquivale
 \begin_layout Theorem
 
 \series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:fp-c"
+
+\end_inset
+
+
 \begin_inset Formula $\mathrm{FP}+C$
 \end_inset
 
@@ -286,7 +304,7 @@ Die Fixpunktlogik mit disjunkter Ordnungserweiterung und Zählterm ist äquivale
 \begin_inset Formula $P$
 \end_inset
 
--uniforme 
+-uniformes 
 \begin_inset Formula $\mathrm{SBC}+\mathbf{MAJ}$
 \end_inset
 
@@ -294,7 +312,11 @@ Die Fixpunktlogik mit disjunkter Ordnungserweiterung und Zählterm ist äquivale
 \end_layout
 
 \begin_layout Theorem
-Die folgenden Aussagen sind äquivalent:
+Die folgenden Aussagen sind für alle 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfragen äquivalent:
 \end_layout
 
 \begin_deeper
@@ -355,6 +377,13 @@ Zur Erinnerung:
 \begin_layout Theorem
 
 \series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:fp-u"
+
+\end_inset
+
+
 \begin_inset Formula $\mathrm{FP}+\Upsilon$
 \end_inset
 
@@ -362,7 +391,7 @@ Zur Erinnerung:
 \begin_inset Formula $\mathrm{poly\left(n\right)}$
 \end_inset
 
--große 
+-großes 
 \begin_inset Formula $\mathrm{SBC}$
 \end_inset
 
@@ -370,7 +399,11 @@ Zur Erinnerung:
 \end_layout
 
 \begin_layout Theorem
-Die folgenden Aussagen sind äquivalent:
+Die folgenden Aussagen sind für alle 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfragen äquivalent:
 \end_layout
 
 \begin_deeper
@@ -431,6 +464,13 @@ Zur Erinnerung:
 \begin_layout Theorem
 
 \series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:fp-u-c"
+
+\end_inset
+
+
 \begin_inset Formula $\mathrm{FP}+\Upsilon+C$
 \end_inset
 
@@ -438,7 +478,7 @@ Zur Erinnerung:
 \begin_inset Formula $\mathrm{poly}\left(n\right)$
 \end_inset
 
--große 
+-großes 
 \begin_inset Formula $\mathrm{SBC}+\mathbf{MAJ}$
 \end_inset
 
@@ -446,7 +486,11 @@ Zur Erinnerung:
 \end_layout
 
 \begin_layout Theorem
-Die folgenden Aussagen sind äquivalent:
+Die folgenden Aussagen sind für alle 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfragen äquivalent:
 \end_layout
 
 \begin_deeper
@@ -487,46 +531,6 @@ Die Anfrage
 \end_layout
 
 \end_deeper
-\begin_layout Standard
-eine Orakelfunktion, die jeder Zahl 
-\begin_inset Formula $n$
-\end_inset
-
- die Orakelstruktur 
-\begin_inset Formula $\mathbf{ARB}\left(n\right)=\mathfrak{N}_{\mid\left\{ 0,\cdots,n\right\} }$
-\end_inset
-
- zuweist.
-\end_layout
-
-\begin_layout Standard
-Für jede 
-\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- existiert eine arb-invariante 
-\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi'$
-\end_inset
-
-, die auf allen endlichen 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Strukturen äquivalent zu 
-\begin_inset Formula $\varphi$
-\end_inset
-
- ist, und umgekehrt.
-\end_layout
-
 \begin_layout Subsection
 Logik erster Stufe und Schaltkreise konstanter Tiefe
 \end_layout
@@ -561,7 +565,11 @@ name "thm:5.5:fo-ord"
 \end_layout
 
 \begin_layout Theorem
-Die folgenden Aussagen sind äquivalent:
+Die folgenden Aussagen sind für alle 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfragen äquivalent:
 \end_layout
 
 \begin_deeper
@@ -613,7 +621,7 @@ Die Anfrage
 \begin_layout Theorem
 \begin_inset CommandInset label
 LatexCommand label
-name "thm:5.6:fo-c"
+name "thm:fo-c"
 
 \end_inset
 
@@ -629,7 +637,11 @@ name "thm:5.6:fo-c"
 \end_layout
 
 \begin_layout Theorem
-Die folgenden Aussagen sind äquivalent:
+Die folgenden Aussagen sind für alle 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfragen äquivalent:
 \end_layout
 
 \begin_deeper
@@ -681,7 +693,7 @@ Die Anfrage
 \begin_layout Theorem
 \begin_inset CommandInset label
 LatexCommand label
-name "thm:5.7:fo+u"
+name "thm:fo+u"
 
 \end_inset
 
@@ -697,7 +709,11 @@ name "thm:5.7:fo+u"
 \end_layout
 
 \begin_layout Theorem
-Die folgenden Aussagen sind äquivalent:
+Die folgenden Aussagen sind für alle 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfragen äquivalent:
 \end_layout
 
 \begin_deeper
@@ -753,7 +769,11 @@ Die Anfrage
 \end_layout
 
 \begin_layout Theorem
-Die folgenden Aussagen sind äquivalent:
+Die folgenden Aussagen sind für alle 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfragen äquivalent:
 \end_layout
 
 \begin_deeper
@@ -1129,7 +1149,11 @@ Jede Abbildung
 
 \begin_layout Definition
 Eine Abbildung 
-\begin_inset Formula $\pi:\left\{ a_{1},\cdots,a_{n}\right\} \rightarrow B$
+\begin_inset Formula $\pi:A\rightarrow B$
+\end_inset
+
+ (mit 
+\begin_inset Formula $A=\left\{ a_{1},\cdots,a_{n}\right\} $
 \end_inset
 
  wird extensional durch 
@@ -1140,6 +1164,26 @@ a_{1}\\
 a_{n}\\
 \pi a_{n}
 \end{array}\right)$
+\end_inset
+
+ notiert.
+\end_layout
+
+\begin_layout Definition
+Wenn 
+\begin_inset Formula $\bar{a}=\left(a_{1},\cdots,a_{n}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{b}=\left(\pi a_{1},\cdots\pi a_{n}\right)\in B^{n}$
+\end_inset
+
+, so wird 
+\begin_inset Formula $\pi:A\rightarrow B$
+\end_inset
+
+ kurz durch 
+\begin_inset Formula $\left(\bar{a}\mapsto\bar{b}\right)$
 \end_inset
 
  notiert.
@@ -1295,6 +1339,13 @@ Eine Transposition sei eine Permutation, die zwei Elemente
 \end_inset
 
  notiert.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -1956,7 +2007,6 @@ Sei
 \end_inset
 
  die Menge aller erststufigen Variablen.
- Es existiere implizit eine feste lineare Ordnung der Variablen.
 \end_layout
 
 \begin_layout Definition
@@ -2065,35 +2115,49 @@ Für einen
 \end_layout
 
 \begin_layout Definition
-Für einen Ausdruck 
-\begin_inset Formula $\omega$
+Für eine Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ und ein Tupel 
+\begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
 \end_inset
 
  mit 
-\begin_inset Formula $\mathrm{frei}\left(\omega\right)=\left\{ x_{1},\cdots,x_{k}\right\} $
+\begin_inset Formula $\mathrm{frei}\left(\varphi\right)=\left\{ x_{1},\cdots,x_{k}\right\} $
 \end_inset
 
  und 
-\begin_inset Formula $x_{1}<\cdots<x_{k}$
+\begin_inset Formula $\left|\left\{ x_{1},\cdots,x_{k}\right\} \right|=k$
 \end_inset
 
- in der Variablen-Ordnung bezeichnen wir das Tupel 
+ sei das Tupel 
 \begin_inset Formula $\bar{x}=x_{1}\cdots x_{k}$
 \end_inset
 
- als das 
+ ein 
 \series bold
 Argument 
 \series default
 von 
-\begin_inset Formula $\omega$
+\begin_inset Formula $\varphi$
 \end_inset
 
- (auch notiert durch 
-\begin_inset Formula $\omega\left(\bar{x}\right)$
+.
+ Die Argumente von 
+\begin_inset Formula $\varphi$
 \end_inset
 
-).
+ unterscheiden sich nur in der Reihenfolge der Variablen.
+ Durch 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\end_inset
+
+ wird ein bestimmtes Argument 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ festgelegt.
 \end_layout
 
 \begin_layout Definition
@@ -2101,9 +2165,9 @@ Die
 \series bold
 Stelligkeit 
 \series default
-eines logischen Ausdrucks (beziehungsweise ihres Arguments) bezeichne die
- Anzahl der frei vorkommenden Variablen: 
-\begin_inset Formula $\mathrm{ar}\left(\omega\left(\bar{x}\right)\right)=\mathrm{ar}\left(\bar{x}\right)=\left|\mathrm{frei}\left(\omega\right)\right|$
+einer logischen Formel (beziehungsweise ihrer Argumente) bezeichne die Anzahl
+ der frei vorkommenden Variablen: 
+\begin_inset Formula $\mathrm{ar}\left(\varphi\right)=\left|\mathrm{frei}\left(\varphi\right)\right|$
 \end_inset
 
 .
@@ -2151,11 +2215,11 @@ Für eine
 \end_inset
 
 -stellige Formel 
-\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\begin_inset Formula $\varphi$
 \end_inset
 
  und eine Belegung 
-\begin_inset Formula $\beta:\bar{x}\rightarrow A$
+\begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
 \end_inset
 
  schreiben wir 
@@ -2170,27 +2234,20 @@ Für eine
 \end_layout
 
 \begin_layout Definition
-Für ein Tupel 
-\begin_inset Formula $\bar{a}\in A^{k}$
+Für 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
 \end_inset
 
- sei 
-\begin_inset Formula $\beta_{\bar{a}}\coloneqq\left(\begin{array}{c}
-x_{1}\\
-a_{1}
-\end{array}\cdots\begin{array}{c}
-x_{k}\\
-a_{k}
-\end{array}\right)$
+ und 
+\begin_inset Formula $\bar{a}\in A^{\mathrm{ar}\left(\varphi\right)}$
 \end_inset
 
-.
- Wir schreiben 
+ schreiben wir 
 \begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)$
 \end_inset
 
  anstelle von 
-\begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\bar{a}}\right)$
+\begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\left(\bar{x}\mapsto\bar{b}\right)\right)$
 \end_inset
 
 , beziehungsweise 
@@ -2198,7 +2255,7 @@ a_{k}
 \end_inset
 
  anstelle von 
-\begin_inset Formula $\mathfrak{A}\models\varphi^{\beta_{\bar{a}}}$
+\begin_inset Formula $\mathfrak{A}\models\varphi^{\bar{x}\mapsto\bar{a}}$
 \end_inset
 
 .
@@ -2206,7 +2263,7 @@ a_{k}
 
 \begin_layout Definition
 Entsprechend sei 
-\begin_inset Formula $\varphi\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\varphi\left[\bar{a}\right]\right\} $
+\begin_inset Formula $q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\varphi\left[\bar{a}\right]\right\} $
 \end_inset
 
  die Relation der 
@@ -2218,15 +2275,32 @@ Entsprechend sei
 \begin_inset Formula $\mathscr{L}\left[\sigma\right]$
 \end_inset
 
--Formel eine 
+-Formel 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\end_inset
+
+ eine 
 \begin_inset Formula $\sigma$
 \end_inset
 
--Anfrage, und jeder Satz eine 
+-Anfrage 
+\begin_inset Formula $q_{\varphi\left(\bar{x}\right)}$
+\end_inset
+
+, und jeder Satz eine 
 \begin_inset Formula $\sigma$
 \end_inset
 
 -Eigenschaft.
+\end_layout
+
+\begin_layout Definition
+(Da die Reihenfolge der Spalten der Relation von der Wahl des Arguments
+ 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ abhängt, wird es stets mit angegeben.)
 \end_layout
 
 \begin_layout --Separator--
@@ -2234,8 +2308,8 @@ Entsprechend sei
 \end_layout
 
 \begin_layout Definition
-Für einen Ausdruck 
-\begin_inset Formula $\omega\left(\bar{x}\right)$
+Für eine Formel 
+\begin_inset Formula $\varphi$
 \end_inset
 
  und eine Belegung 
@@ -2243,11 +2317,11 @@ Für einen Ausdruck
 \end_inset
 
  mit 
-\begin_inset Formula $\mathrm{frei}\left(\omega\right)\backslash X\neq\emptyset$
+\begin_inset Formula $X\subsetneqq\mathrm{frei}\left(\varphi\right)$
 \end_inset
 
  sei 
-\begin_inset Formula $\omega^{\beta}$
+\begin_inset Formula $\varphi^{\beta}$
 \end_inset
 
  ein 
@@ -2255,23 +2329,7 @@ Für einen Ausdruck
 partiell belegter
 \series default
  Ausdruck; es sei 
-\begin_inset Formula $\mathrm{frei}\left(\omega^{\beta}\right)=\mathrm{frei}\left(\omega\right)\backslash X$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Definition
-Das Argument von 
-\begin_inset Formula $\omega^{\beta}$
-\end_inset
-
- sei 
-\begin_inset Formula $\bar{y}$
-\end_inset
-
- mit 
-\begin_inset Formula $\left\{ y_{1},\cdots,y_{\ell}\right\} =\left\{ x_{1},\cdots,x_{k}\right\} \backslash X$
+\begin_inset Formula $\mathrm{frei}\left(\varphi^{\beta}\right)=\mathrm{frei}\left(\varphi\right)\backslash X$
 \end_inset
 
 .
@@ -2291,8 +2349,8 @@ Es stehe
 \end_inset
 
 .
- Sei 
-\begin_inset Formula $q_{\varphi^{\beta}}=\left\{ \bar{a}\in A^{\ell}\mid\mathfrak{A}\models\varphi^{\beta}\left[\bar{a}\right]\right\} $
+ 
+\begin_inset Formula $q_{\varphi^{\beta}\left(\bar{x}'\right)}=\left\{ \bar{a}\in A^{\ell}\mid\mathfrak{A}\models\varphi^{\beta}\left[\bar{a}\right]\right\} $
 \end_inset
 
  die von 
@@ -2382,19 +2440,15 @@ Falls
 \series default
 .
  Insbesondere bedeutet dies, dass 
-\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\begin_inset Formula $\varphi$
 \end_inset
 
  und 
-\begin_inset Formula $\psi\left(\bar{x}\right)$
+\begin_inset Formula $\psi$
 \end_inset
 
- das gleiche Argument 
-\begin_inset Formula $\bar{x}$
-\end_inset
-
- haben und die gleiche Anfrage 
-\begin_inset Formula $q_{\varphi}=q_{\psi}$
+ die gleiche Anfrage 
+\begin_inset Formula $q_{\varphi\left(\bar{x}\right)}=q_{\psi\left(\bar{x}\right)}$
 \end_inset
 
  auf Strukturen der Größe 
@@ -2402,6 +2456,13 @@ Falls
 \end_inset
 
  definieren.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
@@ -2742,7 +2803,7 @@ a
 
 \begin_layout Remark*
 Im folgenden stehen 
-\begin_inset Formula $Q\bar{x}\psi$
+\begin_inset Formula $Q\bar{x}\varphi$
 \end_inset
 
  und 
@@ -2750,11 +2811,27 @@ Im folgenden stehen
 \end_inset
 
  abgekürzt für 
-\begin_inset Formula $Qx_{1}\cdots Qx_{k}\psi$
+\begin_inset Formula $Qx_{1}\cdots Qx_{k}\varphi$
 \end_inset
 
  und 
 \begin_inset Formula $\bigwedge_{i=1}^{k}\left(x_{i}=y_{i}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark*
+Ohne Beschränkung der Allgemeinheit gelte für 
+\begin_inset Formula $Qx\varphi$
+\end_inset
+
+ stets 
+\begin_inset Formula $x\in\mathrm{frei}\left(\varphi\right)$
+\end_inset
+
+, denn 
+\begin_inset Formula $Qx\varphi\equiv Qx\left(x\dot{=}x\wedge\varphi\right)$
 \end_inset
 
 .
@@ -3076,26 +3153,18 @@ Ohne Beschränkung der Allgemeinheit sei
 \begin_inset Formula $\left\{ x_{1},\cdots,x_{k}\right\} \subseteq\mathrm{frei}\left(\psi\right)$
 \end_inset
 
-, denn eine gebundene Variable 
-\begin_inset Formula $x_{i}$
-\end_inset
-
-, die nicht frei in 
-\begin_inset Formula $\psi$
-\end_inset
-
- vorkommt, kann analog zu Definition 
+, denn analog zu Definition 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "def:fo"
 
 \end_inset
 
- in ein neues Atom 
-\begin_inset Formula $x_{i}\dot{=}x_{i}$
+ ist 
+\begin_inset Formula $\psi\equiv\left(\bar{x}=\bar{x}\wedge\psi\right)$
 \end_inset
 
- eingefügt werden.
+.
 \end_layout
 
 \begin_layout Remark*
@@ -6610,7 +6679,7 @@ Jede
 \end_inset
 
 -Formel 
-\begin_inset Formula $\varphi$
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
 \end_inset
 
  definiert eine 
@@ -8445,7 +8514,7 @@ Jede
 (Dieses Lemma bildet die erste Hälfte von Theorem 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "thm:5.6:fo-c"
+reference "thm:fo-c"
 
 \end_inset
 
@@ -9149,7 +9218,7 @@ Jede
 \end_inset
 
 -Tiefe und polynomieller Größe 
-\begin_inset Formula $5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)}$
+\begin_inset Formula $5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$
 \end_inset
 
 -Tiefe berechnet wird.
@@ -9159,7 +9228,7 @@ Jede
 (Dieses Lemma bildet die erste Hälfte von 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "thm:5.7:fo+u"
+reference "thm:fo+u"
 
 \end_inset
 
@@ -9382,7 +9451,7 @@ Jede
 \end_inset
 
 -Tiefe und 
-\begin_inset Formula $5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{M}\left(\varphi\right)+c}$
+\begin_inset Formula $5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$
 \end_inset
 
 -Größe für 
@@ -9973,6 +10042,10 @@ Für jede parameter-freie
 \end_inset
 
  existiert eine 
+\begin_inset Formula $P$
+\end_inset
+
+-uniforme symmetrische 
 \begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
 \end_inset
 
@@ -10116,10 +10189,10 @@ k & \leqslant & m
 
 \begin_layout Proof
 Per Annahme existiert ein 
-\begin_inset Formula $m$
+\begin_inset Formula $P$
 \end_inset
 
--stelliger 
+-uniformer symmetrischer 
 \begin_inset Formula $\left(\sigma\cup\left\{ R\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
 \end_inset
 
@@ -10355,6 +10428,158 @@ Daher berechnet
 \end_layout
 
 \begin_layout Description
+Symmetrie: Sei 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+\end_inset
+
+ beliebig.
+ Per Annahme ist 
+\begin_inset Formula $\mathcal{C}_{n}^{\psi}$
+\end_inset
+
+ symmetrisch, also existiert der Automorphismus 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+.
+ Es sei für 
+\begin_inset Formula $i\in\mathbb{N}$
+\end_inset
+
+ der Automorphismus 
+\begin_inset Formula $\hat{\pi_{i}}$
+\end_inset
+
+ wie folgt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\hat{\pi}_{0} & \coloneqq & \left(\begin{array}{c}
+g_{0}\\
+g_{0}
+\end{array}\right)\\
+\hat{\pi}_{i+1}\left(g\right) & \coloneqq & \begin{cases}
+\hat{\pi}_{i}\left(g\right) & \mathrm{falls}\,g\in G_{i}\\
+\hat{\pi}\left(g\right) & \mathrm{sonst}
+\end{cases}
+\end{eqnarray*}
+
+\end_inset
+
+Per Annahme sei 
+\begin_inset Formula $\hat{\pi}_{i}$
+\end_inset
+
+ ein von 
+\begin_inset Formula $\pi$
+\end_inset
+
+ induzierter Automorphismus in 
+\begin_inset Formula $\mathcal{D}^{i}$
+\end_inset
+
+.
+ So gilt in 
+\begin_inset Formula $\mathcal{D}^{i+1}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\left(\hat{\pi}_{i+1}\right)_{\mid G_{i}}=\hat{\pi}_{i}$
+\end_inset
+
+, und 
+\begin_inset Formula $\left(\hat{\pi}_{i+1}\right)_{\mid G_{\psi}}=\hat{\pi}$
+\end_inset
+
+; damit sind die Bedingungen für 
+\begin_inset Formula $W_{i}\cup W_{\psi}$
+\end_inset
+
+, 
+\begin_inset Formula $\Sigma_{i}$
+\end_inset
+
+, 
+\begin_inset Formula $\Omega_{i+1}=\Omega_{\psi}$
+\end_inset
+
+ und alle Gates 
+\begin_inset Formula $g\in G_{\psi}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\Sigma_{\psi}\notin\left\{ R\bar{t}\mid\bar{t}\in U^{m}\right\} $
+\end_inset
+
+ bereits erfüllt.
+\end_layout
+
+\begin_layout Enumerate
+Für die ehemaligen Inputs mit 
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\Sigma_{i+1}\left(\hat{\pi}g\right)=\Sigma_{i+1}\left(g\right)=\wedge$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Für jede neue Kante 
+\begin_inset Formula $\left(\Omega_{i}\left(\bar{t}\right),g\right)\in W'$
+\end_inset
+
+ mit 
+\begin_inset Formula $g\in G_{\psi}$
+\end_inset
+
+ und 
+\begin_inset Formula $\Sigma_{\psi}\left(g\right)=R\bar{t}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(\hat{\pi}_{i+1}\Omega_{i}\left(\bar{t}\right),\hat{\pi}_{i+1}g\right) & = & \left(\hat{\pi}_{i}\Omega_{i}\left(\bar{t}\right),\hat{\pi}g\right)\\
+ & = & \left(\Omega_{i}\left(\pi\bar{t}\right),\hat{\pi}g\right)
+\end{eqnarray*}
+
+\end_inset
+
+Per Definition ist 
+\begin_inset Formula $\Sigma_{\psi}\left(\hat{\pi}g\right)=R\pi\bar{t}$
+\end_inset
+
+, und daher:
+\begin_inset Formula 
+\[
+\left(\Omega_{i}\left(\pi\bar{t}\right),\hat{\pi}g\right)\in W'
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Daher ist 
+\begin_inset Formula $\mathcal{D}^{i+1}$
+\end_inset
+
+ ebenfalls symmetrisch, und es folgt die Symmetrie von 
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi}=\mathcal{D}^{n^{k}}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Description
 Größe: Es wird induktiv bewiesen, dass 
 \begin_inset Formula $T\left(\mathcal{D}^{i}\right)\leqslant\left(3\left\Vert \psi\right\Vert +1\right)i$
 \end_inset
@@ -10439,7 +10664,7 @@ Für jede parameter-freie
 \end_inset
 
 -Formel 
-\begin_inset Formula $\varphi$
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
 \end_inset
 
  existiert eine 
@@ -10451,15 +10676,15 @@ Für jede parameter-freie
 \end_inset
 
  mit 
-\begin_inset Formula $n^{k}\left(3\left\Vert \varphi\right\Vert +1\right)$
+\begin_inset Formula $T\left(n\right)$
 \end_inset
 
 -Tiefe und 
-\begin_inset Formula $\left(5n^{k+\mathtt{MF}\left(\varphi\right)}\right)$
+\begin_inset Formula $S\left(n\right)$
 \end_inset
 
 -Größe, so dass 
-\begin_inset Formula $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right)$
+\begin_inset Formula $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)$
 \end_inset
 
  für alle 
@@ -10467,6 +10692,413 @@ Für jede parameter-freie
 \end_inset
 
  gilt.
+\begin_inset Formula 
+\begin{eqnarray*}
+T\left(n\right) & = & \left(2n+1\right)^{k}\left(3\left\Vert \varphi\right\Vert +1\right)\\
+S\left(n\right) & = & 5\left(2n+1\right)^{k+\mathtt{MF}\left(\varphi\right)}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(Dies ist die erste Hälfte von Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:fp-ord"
+
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Proof
+Es wird analog zu dem Beweis von Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:lfp-circ"
+
+\end_inset
+
+ für jedes 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ ein 
+\begin_inset Formula $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
+\end_inset
+
+ über 
+\begin_inset Formula $U'=\left[1,\cdots,2n+1\right]$
+\end_inset
+
+ konstruiert, der die Anfrage 
+\begin_inset Formula $q_{\varphi}$
+\end_inset
+
+ auf 
+\begin_inset Formula $\mathfrak{A}\uplus\Upsilon'\left(n\right)$
+\end_inset
+
+ für 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\Upsilon'\left(n\right)=\left(\left[n+1,2n+1\right],\leqslant\right)$
+\end_inset
+
+ berechnet.
+\end_layout
+
+\begin_layout Proof
+Dieser wird analog zu dem Beweis von Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:fo-ord"
+
+\end_inset
+
+ in einen 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreis 
+\begin_inset Formula $\dot{\mathcal{C}_{n}^{\varphi}}$
+\end_inset
+
+ über 
+\begin_inset Formula $U=\left[1,n\right]$
+\end_inset
+
+ umgewandelt, in dem nicht-konstante Inputs 
+\begin_inset Formula $R\bar{t}$
+\end_inset
+
+ mit 
+\begin_inset Formula $R\notin\sigma$
+\end_inset
+
+ oder 
+\begin_inset Formula $\bar{t}\notin U^{k}$
+\end_inset
+
+ zu Konstanten werden.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:fp-c"
+
+\end_inset
+
+Für jede parameter-freie 
+\begin_inset Formula $\left(\mathrm{LFP}+C\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\end_inset
+
+ existiert eine 
+\begin_inset Formula $P$
+\end_inset
+
+-uniforme 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\bar{\mathcal{C}^{\varphi}}$
+\end_inset
+
+ mit 
+\begin_inset Formula $T\left(n\right)$
+\end_inset
+
+-Tiefe und 
+\begin_inset Formula $S\left(n\right)$
+\end_inset
+
+-Größe, so dass 
+\begin_inset Formula $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)$
+\end_inset
+
+ für alle 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ gilt.
+\begin_inset Formula 
+\begin{eqnarray*}
+T\left(n\right) & = & \left(2n+1\right)^{k}\left(3\left\Vert \varphi\right\Vert +1\right)\\
+S\left(n\right) & = & 5\left(2n+1\right)^{k+\mathtt{MF}\left(\varphi\right)}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(Dies ist die erste Hälfte von Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:fp-c"
+
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Proof
+Hier erweitern wir den Beweis von Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:lfp-circ"
+
+\end_inset
+
+ für 
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
+\end_inset
+
+ um den Konstruktionsschritt aus Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:fo-c"
+
+\end_inset
+
+, um den 
+\begin_inset Formula $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{maj}}\right)$
+\end_inset
+
+-Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
+\end_inset
+
+ zu erzeugen.
+\end_layout
+
+\begin_layout Proof
+Anschließend wird analog zu Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:lfp-ord"
+
+\end_inset
+
+ der 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
+\end_inset
+
+-Schaltkreis 
+\begin_inset Formula $\dot{\mathcal{C}_{n}^{\varphi}}$
+\end_inset
+
+ erzeugt.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:fp-u"
+
+\end_inset
+
+Für jede parameter-freie 
+\begin_inset Formula $\left(\mathrm{LFP}+\mathbf{ARB}\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\end_inset
+
+ existiert eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\bar{\mathcal{C}^{\varphi}}$
+\end_inset
+
+ mit 
+\begin_inset Formula $T\left(n\right)$
+\end_inset
+
+-Tiefe und 
+\begin_inset Formula $S\left(n\right)$
+\end_inset
+
+-Größe, so dass 
+\begin_inset Formula $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)$
+\end_inset
+
+ für alle 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ gilt.
+\begin_inset Formula 
+\begin{eqnarray*}
+T\left(n\right) & = & \left(2n+1\right)^{k}\left(3\left\Vert \varphi\right\Vert +1\right)\\
+S\left(n\right) & = & 5\left(2n+1\right)^{k+\mathtt{MF}\left(\varphi\right)}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(Dies ist die erste Hälfte von Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:fp-u"
+
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Proof
+Wie in Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:fo-u"
+
+\end_inset
+
+ werden einfach die Relationssymbole 
+\begin_inset Formula $R\in\eta_{\mathrm{arb}}$
+\end_inset
+
+ mit in den 
+\begin_inset Formula $\left(\sigma\cup\eta_{\mathrm{arb}}\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
+\end_inset
+
+ aufgenommen und dann durch Konstanten 
+\begin_inset Formula $\mathbf{0}$
+\end_inset
+
+ oder 
+\begin_inset Formula $\mathbf{1}$
+\end_inset
+
+ ersetzt, um 
+\begin_inset Formula $\dot{\mathcal{C}_{n}}$
+\end_inset
+
+ zu erzeugen.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:fp-u-c"
+
+\end_inset
+
+Für jede parameter-freie 
+\begin_inset Formula $\left(\mathrm{LFP}+\mathbf{ARB}+C\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\end_inset
+
+ existiert eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\bar{\mathcal{C}^{\varphi}}$
+\end_inset
+
+ mit 
+\begin_inset Formula $T\left(n\right)$
+\end_inset
+
+-Tiefe und 
+\begin_inset Formula $S\left(n\right)$
+\end_inset
+
+-Größe, so dass 
+\begin_inset Formula $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)$
+\end_inset
+
+ für alle 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ gilt.
+\begin_inset Formula 
+\begin{eqnarray*}
+T\left(n\right) & = & \left(2n+1\right)^{k}\left(3\left\Vert \varphi\right\Vert +1\right)\\
+S\left(n\right) & = & 5\left(2n+1\right)^{k+\mathtt{MF}\left(\varphi\right)}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(Dies ist die erste Hälfte von Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:fp-u-c"
+
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Proof
+Wie in Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:fo-u"
+
+\end_inset
+
+ werden einfach die Relationssymbole 
+\begin_inset Formula $R\in\eta_{\mathrm{arb}}$
+\end_inset
+
+ mit in den 
+\begin_inset Formula $\left(\sigma\cup\eta_{\mathrm{arb}}\cup\left\{ \leqslant\right\} ,\left\{ \leqslant\right\} \right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
+\end_inset
+
+ aufgenommen und dann durch Konstanten 
+\begin_inset Formula $\mathbf{0}$
+\end_inset
+
+ oder 
+\begin_inset Formula $\mathbf{1}$
+\end_inset
+
+ ersetzt, um 
+\begin_inset Formula $\dot{\mathcal{C}_{n}}$
+\end_inset
+
+ zu erzeugen.
 \end_layout
 
 \begin_layout Standard
