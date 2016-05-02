@@ -2,7 +2,7 @@
 \lyxformat 474
 \begin_document
 \begin_header
-\textclass article
+\textclass scrbook
 \begin_preamble
 \usepackage{tikz}
 \usepackage{hyperref}
@@ -10,8 +10,8 @@
 \use_default_options true
 \begin_modules
 theorems-ams
-theorems-sec
 enumitem
+theorems-chap
 \end_modules
 \maintain_unincluded_children false
 \language ngerman
@@ -79,7 +79,7 @@ enumitem
 
 \begin_body
 
-\begin_layout Section
+\begin_layout Chapter
 Einleitung
 \end_layout
 
@@ -189,11 +189,11 @@ nicht uniformes AC0 = FO+
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Ergebnisse
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Fixpunktlogiken und Schaltkreise
 \end_layout
 
@@ -531,7 +531,7 @@ Die Anfrage
 \end_layout
 
 \end_deeper
-\begin_layout Subsection
+\begin_layout Section
 Logik erster Stufe und Schaltkreise konstanter Tiefe
 \end_layout
 
@@ -819,7 +819,7 @@ Die Anfrage
 
 \end_deeper
 \end_deeper
-\begin_layout Subsection
+\begin_layout Section
 Logik erster Stufe mit disjunktem und nicht-disjunktem Orakel
 \end_layout
 
@@ -879,7 +879,7 @@ Es existiert eine
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Grundlagen
 \end_layout
 
@@ -889,7 +889,7 @@ Diese Arbeit verwendet verschiedene Begriffe der endlichen Modelltheorie
  Diese Begriffe werden im folgenden formal definiert.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Notationen
 \end_layout
 
@@ -1348,7 +1348,7 @@ Eine Transposition sei eine Permutation, die zwei Elemente
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Relationale Strukturen
 \end_layout
 
@@ -1985,7 +1985,7 @@ Per Definition sind alle
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Logik
 \end_layout
 
@@ -2465,7 +2465,7 @@ Falls
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Prädikatenlogik erster Stufe
 \end_layout
 
@@ -2844,7 +2844,7 @@ Ohne Beschränkung der Allgemeinheit gelte für
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Fixpunktlogik
 \end_layout
 
@@ -3471,7 +3471,7 @@ key "Zaid,Grohe2005,Dziembowski96bounded-variablefixpoint"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Logische Erweiterungen
 \end_layout
 
@@ -4729,7 +4729,7 @@ key "EFT,Libkin2012,Schweikardt13ashort"
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Schaltkreise
 \end_layout
 
@@ -5585,7 +5585,7 @@ Schaltkreis
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Eigenschaften von Schaltkreisen
 \end_layout
 
@@ -6252,7 +6252,7 @@ Der Schaltkreis ist invariant, und akzeptiert alle vollständigen
  induziert keinen Automorphismus.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Eigenschaften von Schaltkreisfamilien
 \end_layout
 
@@ -6647,11 +6647,11 @@ Tiefe
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Von Formeln zu Schaltkreisen
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Logik erster Stufe
 \end_layout
 
@@ -7862,7 +7862,7 @@ Falls
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Ordnungserweiterung
 \end_layout
 
@@ -8445,7 +8445,7 @@ Außerdem gilt ist
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Zählquantoren
 \end_layout
 
@@ -9139,7 +9139,7 @@ reference "lem:fo-ord"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Beliebige Orakel
 \end_layout
 
@@ -9387,7 +9387,7 @@ Offensichtlich ist sie jedoch immer noch
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Beliebige Orakel mit Zählquantor
 \end_layout
 
@@ -9525,7 +9525,7 @@ reference "lem:fo-u"
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Fixpunktlogik
 \end_layout
 
@@ -10629,7 +10629,7 @@ Damit gilt
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Erweiterungen der Fixpunktlogik
 \end_layout
 
@@ -11108,7 +11108,7 @@ reference "lem:fo-u"
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Exkurs in die Gruppentheorie
 \end_layout
 
@@ -11117,7 +11117,7 @@ Es werden nun mehrere Begriffe eingeführt, mit deren Hilfe wir eine symmetrisch
  Schaltkreisfamilie logisch beschreiben werden.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Partitionen
 \end_layout
 
@@ -11416,7 +11416,7 @@ Die feinste und gröbste Partition von
 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Stabilisatoren
 \end_layout
 
@@ -11660,7 +11660,7 @@ Diese Gruppe ist das Erzeugnis der Vereinigung von
 \end_layout
 
 \end_deeper
-\begin_layout Subsection
+\begin_layout Section
 Träger
 \end_layout
 
@@ -12823,7 +12823,7 @@ Sei
  dieses Gatters.)
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Träger im Schaltkreis
 \end_layout
 
@@ -12893,7 +12893,7 @@ Träger
 .
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Schaltkreise zu Logik
 \end_layout
 
@@ -12926,7 +12926,7 @@ Sei
 -Formel, die die gleiche Anfrage definiert.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Normalform
 \end_layout
 
@@ -13000,7 +13000,7 @@ Sei
  So existiert eine äquivalente Schaltkreisfamilie 
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Orakelerweiterungen
 \end_layout
 
@@ -13148,7 +13148,7 @@ Im allgemeinen ist der so entstandene Schaltkreis weder
 
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Schaltkreise zu Logik
 \end_layout
 
@@ -13181,7 +13181,7 @@ Sei
 -Formel, die die gleiche Anfrage definiert.
 \end_layout
 
-\begin_layout Subsection
+\begin_layout Section
 Normalform
 \end_layout
 
@@ -13255,7 +13255,7 @@ Sei
  So existiert eine äquivalente Schaltkreisfamilie 
 \end_layout
 
-\begin_layout Section
+\begin_layout Chapter
 Beschreibung von Symmetrischen Schaltkreis-Familien durch Fixpunktlogik
 \end_layout
 

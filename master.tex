@@ -1,8 +1,10 @@
 %% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[ngerman]{article}
+\documentclass[oneside,ngerman]{scrbook}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
 \usepackage{refstyle}
 \usepackage{float}
 \usepackage{mathrsfs}
@@ -34,7 +36,11 @@
 \usepackage{enumitem}		% customizable list environments
 \newlength{\lyxlabelwidth}      % auxiliary length 
 \theoremstyle{plain}
-\newtheorem{thm}{\protect\theoremname}[section]
+\ifx\thechapter\undefined
+\newtheorem{thm}{\protect\theoremname}
+\else
+\newtheorem{thm}{\protect\theoremname}[chapter]
+\fi
   \theoremstyle{definition}
   \newtheorem{defn}[thm]{\protect\definitionname}
 % labeling-like list based on enumitem's description list with
@@ -82,7 +88,7 @@ leftmargin=\lyxlabelwidth,#1]}
 
 \begin{document}
 
-\section{Einleitung}
+\chapter{Einleitung}
 
 Übersicht:
 \begin{enumerate}
@@ -108,10 +114,10 @@ Schweikardt, Segoufin{]}.)
 \pagebreak{}
 
 
-\section{Ergebnisse}
+\chapter{Ergebnisse}
 
 
-\subsection{Fixpunktlogiken und Schaltkreise}
+\section{Fixpunktlogiken und Schaltkreise}
 
 Es werden die folgenden Äquivalenzen (nach \cite{Anderson2014,anderson_et_al:LIPIcs:2014:4445})
 zwischen Fixpunktlogiken und Schaltkreisklassen nachgewiesen:
@@ -176,7 +182,7 @@ $\mathcal{C}$ berechnet.
 \end{enumerate}
 \end{thm}
 
-\subsection{Logik erster Stufe und Schaltkreise konstanter Tiefe}
+\section{Logik erster Stufe und Schaltkreise konstanter Tiefe}
 \begin{thm}
 \cite{IMMERMAN198686}\label{thm:5.5:fo-ord}$\mathrm{FO}+\mathbf{ORD}$,
 $P$-uniformes symmetrisches $\mathrm{AC}^{0}$.
@@ -228,7 +234,7 @@ $\mathcal{C}$ berechnet.
 \end{thm}
 \end{thm}
 
-\subsection{Logik erster Stufe mit disjunktem und nicht-disjunktem Orakel}
+\section{Logik erster Stufe mit disjunktem und nicht-disjunktem Orakel}
 \begin{thm}
 $\mathrm{FO}+\Upsilon$, invariantes $\mathrm{FO}\left(\mathrm{arb}\right)$
 \begin{enumerate}
@@ -243,14 +249,14 @@ ist.
 \pagebreak{}
 
 
-\section{Grundlagen}
+\chapter{Grundlagen}
 
 Diese Arbeit verwendet verschiedene Begriffe der endlichen Modelltheorie
 und der Graphentheorie. Diese Begriffe werden im folgenden formal
 definiert.
 
 
-\subsection{Notationen}
+\section{Notationen}
 \begin{defn}
 \textbf{Tupel}
 
@@ -372,7 +378,7 @@ kurz durch $\left(u_{i}u_{j}\right)$ notiert.
 \pagebreak{}
 
 
-\subsection{Relationale Strukturen}
+\section{Relationale Strukturen}
 
 Wir betrachten Anfragen und Eigenschaften auf Graphen und allgemeinen
 relationalen Strukturen.
@@ -525,7 +531,7 @@ und $\mathfrak{A}\in S\Leftrightarrow\pi\mathfrak{A}\in S$.
 \pagebreak{}
 
 
-\section{Logik}
+\chapter{Logik}
 
 Wir betrachten logische Sprachen auf relationalen Signaturen $\sigma$,
 deren Ausdrücke auf endlichen $\sigma$-Strukturen ausgewertet werden.
@@ -628,7 +634,7 @@ auf Strukturen der Größe $n$ definieren.
 \pagebreak{}
 
 
-\subsection{Prädikatenlogik erster Stufe}
+\section{Prädikatenlogik erster Stufe}
 
 Diese Arbeit befasst sich ausschließlich mit relationalen Logiken
 ohne Funktions- oder Konstantensymbole.
@@ -735,7 +741,7 @@ denn $Qx\varphi\equiv Qx\left(x\dot{=}x\wedge\varphi\right)$.
 \pagebreak{}
 
 
-\subsection{Fixpunktlogik}
+\section{Fixpunktlogik}
 \begin{defn}
 Eine Logik $\mathscr{L}$ erweitert die Logik $\mathscr{L}'$, wenn
 sie die Syntax und Semantik von $\mathscr{L}'$ übernimmt, und zusätzliche
@@ -875,7 +881,7 @@ $\varphi'$ übersetzt werden.\cite{Zaid,Grohe2005,Dziembowski96bounded-variablef
 \pagebreak{}
 
 
-\subsection{Logische Erweiterungen}
+\section{Logische Erweiterungen}
 
 Die Orakelerweiterung fügt einer Logik eine Anzahl von Relationssymbolen
 mit vordefinierter Interpretation hinzu.
@@ -1200,7 +1206,7 @@ in $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$.\cite{EFT,Libkin2012,Schweika
 \pagebreak{}
 
 
-\section{Schaltkreise}
+\chapter{Schaltkreise}
 \begin{defn}
 \textbf{Boolesche Basis:} 
 
@@ -1394,7 +1400,7 @@ E\,i\,j & \mathrm{f\ddot{u}r}\,\,g=g_{i,j}\\
 
 \end{example*}
 
-\subsection{Eigenschaften von Schaltkreisen}
+\section{Eigenschaften von Schaltkreisen}
 \begin{defn}
 \textbf{Größe und Tiefe}
 
@@ -1558,7 +1564,7 @@ Er ist aber nicht symmetrisch: Die Permutation $\left(\begin{array}{cc}
 \end{array}\right)$ induziert keinen Automorphismus.
 
 
-\subsection{Eigenschaften von Schaltkreisfamilien}
+\section{Eigenschaften von Schaltkreisfamilien}
 \begin{defn}
 Eine $\left(\sigma,\mathbb{B}\right)$-\textbf{Schaltkreisfamilie}
 $\bar{\mathcal{C}}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
@@ -1633,10 +1639,10 @@ $\mathrm{poly}\left(n\right)$-großen Schaltkreisfamilien.
 \pagebreak{}
 
 
-\section{Von Formeln zu Schaltkreisen}
+\chapter{Von Formeln zu Schaltkreisen}
 
 
-\subsection{Logik erster Stufe}
+\section{Logik erster Stufe}
 
 Die Formeln der Logik erster Stufe sind durch symmetrische, $P$-uniforme
 $\mathrm{AC}^{0}$-Schaltkreise berechenbar:
@@ -2060,7 +2066,7 @@ so sei der Schaltkreis analog zu Fall 8 mit $\Sigma\left(g_{\bar{t}}\right)\colo
 \pagebreak{}
 
 
-\subsection{Ordnungserweiterung}
+\section{Ordnungserweiterung}
 
 Wir betrachten die Logik $\mathrm{FO}+\mathbf{ORD}$, und weisen nach,
 dass die Konstruktion aus Lemma \ref{lem:FO-Circuit} angepasst werden
@@ -2206,7 +2212,7 @@ $q$ berechnet.
 \pagebreak{}
 
 
-\subsection{Zählquantoren}
+\section{Zählquantoren}
 
 Wir betrachten die Logik $\mathrm{FO}+C$, und weisen nach, dass die
 vorhergehende Konstruktion aus Lemma \ref{lem:fo-ord} angepasst werden
@@ -2393,7 +2399,7 @@ symmetrisch (siehe Lemma \ref{lem:fo-ord}).
 \pagebreak{}
 \end{proof}
 
-\subsection{Beliebige Orakel}
+\section{Beliebige Orakel}
 
 Wir betrachten die Logik $\mathrm{FO}+\Upsilon$ für beliebige Orakel
 $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta\right)$,
@@ -2458,7 +2464,7 @@ und daher auch $P/\mathrm{poly}$-uniform.
 \pagebreak{}
 \end{proof}
 
-\subsection{Beliebige Orakel mit Zählquantor}
+\section{Beliebige Orakel mit Zählquantor}
 
 Für eine Orakellogik mit Zählquantor $\mathrm{FO}+\Upsilon+\exists^{\geqslant}$
 werden nun die Konstruktionen aller vorhergehender Abschnitte kombiniert.
@@ -2488,7 +2494,7 @@ erzeugen.
 \pagebreak{}
 
 
-\subsection{Fixpunktlogik}
+\section{Fixpunktlogik}
 
 Die Fixpunktlogik $\mathrm{LFP}\left[\sigma\right]$ ist echt ausdrucksstärker
 als die Logik $\mathrm{FO}\left[\sigma\right]$. Beispielsweise ist
@@ -2782,7 +2788,7 @@ und $\left|\mathcal{C}_{n}^{\varphi}\right|=\left|\mathcal{D}^{n^{k}}\right|=5n^
 \pagebreak{}
 
 
-\subsection{Erweiterungen der Fixpunktlogik}
+\section{Erweiterungen der Fixpunktlogik}
 
 Die disjunkte Ordnungserweiterung der Fixpunktlogik nach Definition
 \ref{def:fo-ord} ist immer noch durch $P/\mathrm{poly}$-uniforme
@@ -2876,13 +2882,13 @@ zu erzeugen.
 \pagebreak{}
 
 
-\section{Exkurs in die Gruppentheorie}
+\chapter{Exkurs in die Gruppentheorie}
 
 Es werden nun mehrere Begriffe eingeführt, mit deren Hilfe wir eine
 symmetrische Schaltkreisfamilie logisch beschreiben werden.
 
 
-\subsection{Partitionen}
+\section{Partitionen}
 
 Sei $U$ ein beliebiges Universum.
 \begin{defn}
@@ -2949,7 +2955,7 @@ und $\mathcal{P}_{\max}\left(U\right)\coloneqq\left\{ U\right\} $.
 \pagebreak{}
 
 
-\subsection{Stabilisatoren}
+\section{Stabilisatoren}
 \begin{defn}
 Sei $x\in U$. Der \textbf{Stabilisator} von $x$ in $U$ sei die
 Untergruppe $\mathrm{Stab}_{U}\left(x\right)\subseteq\mathrm{Sym}_{U}$
@@ -3020,7 +3026,7 @@ dann gilt:
 \end{itemize}
 \end{defn}
 
-\subsection{Träger}
+\section{Träger}
 \begin{defn}
 Sei $G\subseteq\mathrm{\mathrm{Sym}}_{U}$ eine Untergruppe und $\mathcal{P}$
 eine Partition von $U$. $\mathcal{P}$ ist ein \textbf{Träger} von\textbf{
@@ -3366,7 +3372,7 @@ so ist die maximale SP eines Gatters höchstens $\frac{33}{\epsilon}\frac{\log s
 dieses Gatters.)
 \end{enumerate}
 
-\subsection{Träger im Schaltkreis}
+\section{Träger im Schaltkreis}
 \begin{defn}
 Sei $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ ein rigider, symmetrische
 Schaltkreis über dem Universum $U$. Der Stabilisator eines Gates
@@ -3382,7 +3388,7 @@ wenn sie ein Träger von $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
 ist. Sei $\mathrm{SP}\left(g\right)$ der gröbste Träger von $g$.
 \end{defn}
 
-\section{Schaltkreise zu Logik}
+\chapter{Schaltkreise zu Logik}
 \begin{lem}
 Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
 $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
@@ -3392,7 +3398,7 @@ existiert eine arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Fo
 die die gleiche Anfrage definiert.
 \end{lem}
 
-\subsection{Normalform}
+\section{Normalform}
 
 Zum Beweis dieses Lemmas werden wir eine Normalform für die Schaltkreise
 festlegen.
@@ -3415,7 +3421,7 @@ Größe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
 existiert eine äquivalente Schaltkreisfamilie 
 \end{lem}
 
-\subsection{Orakelerweiterungen}
+\section{Orakelerweiterungen}
 
 Erweitern wir die Logik $\mathrm{FO}\left[\sigma\right]$ auf arb-invariante
 $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Logik, so opfern
@@ -3456,7 +3462,7 @@ von $U$ abgeschlossen ist.
 \pagebreak{}
 
 
-\section{Schaltkreise zu Logik}
+\chapter{Schaltkreise zu Logik}
 \begin{lem}
 Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
 $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
@@ -3466,7 +3472,7 @@ existiert eine arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Fo
 die die gleiche Anfrage definiert.
 \end{lem}
 
-\subsection{Normalform}
+\section{Normalform}
 
 Zum Beweis dieses Lemmas werden wir eine Normalform für die Schaltkreise
 festlegen.
@@ -3489,7 +3495,7 @@ Größe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
 existiert eine äquivalente Schaltkreisfamilie 
 \end{lem}
 
-\section{Beschreibung von Symmetrischen Schaltkreis-Familien durch Fixpunktlogik}
+\chapter{Beschreibung von Symmetrischen Schaltkreis-Familien durch Fixpunktlogik}
 \begin{itemize}
 \item Eine P-uniforme $\left(\mathbb{B}_{\mathrm{std}},\sigma\right)$-SBC-Familie
 $\mathcal{C}$ wird zu einer $\mathrm{FP+\mathbf{ORD}}\left[\sigma\right]$-Formel.
@@ -3508,7 +3514,7 @@ ausgedrückt werden:
 \pagebreak{}
 
 \bibliographystyle{plain}
-\addcontentsline{toc}{section}{\refname}\nocite{*}
+\addcontentsline{toc}{chapter}{\bibname}\nocite{*}
 \bibliography{master}
 
 \end{document}
