@@ -3328,6 +3328,12 @@ parameter-freie
 \end_layout
 
 \begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:fp-param"
+
+\end_inset
+
 Eine 
 \begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
@@ -3356,7 +3362,14 @@ parameter-frei
 \end_layout
 
 \begin_layout Proposition
-Jede 
+J
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:fp-param"
+
+\end_inset
+
+ede 
 \begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
@@ -3375,7 +3388,7 @@ Jede
  übersetzt werden.
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Zaid"
+key "Zaid,Grohe2005,Dziembowski96bounded-variablefixpoint"
 
 \end_inset
 
@@ -3527,6 +3540,13 @@ Für eine endliche
 \begin_layout Definition
 
 \series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "def:fo-ord"
+
+\end_inset
+
+
 \begin_inset Formula $\mathcal{L}+\mathbf{ORD}$
 \end_inset
 
@@ -9883,9 +9903,6 @@ Die booleschen Schaltkreise haben jedoch nicht dieselbe Einschränkung wie
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
 Wir nutzen dies und den Beweis von Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -9893,19 +9910,51 @@ reference "lem:lfp-inf"
 
 \end_inset
 
- aus, um aus der 
+ aus, um aus einer 
 \begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
 -Formel 
-\begin_inset Formula $\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
+\begin_inset Formula $\varphi$
 \end_inset
 
  direkt einen 
 \begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
 \end_inset
 
--Schaltkreis zu erzeugen, der die gewünschte Tiefe und Größe hat:
+-Schaltkreis zu erzeugen, der die richtige Tiefe und Größe hat.
+ Hierbei wird der Einfachheit halber gefordert, dass 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ parameter-frei ist (siehe Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:fp-param"
+
+\end_inset
+
+).
+ Per Satz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:fp-param"
+
+\end_inset
+
+ schränkt dies die Allgemeinheit nicht ein: Der Zuwachs in 
+\begin_inset Formula $\mathrm{var}\left(\varphi\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\left\Vert \varphi\right\Vert $
+\end_inset
+
+ ist fest und für die 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-Größe der Schaltkreisfamilie unbedeutend.
 \end_layout
 
 \begin_layout Lemma
@@ -9915,7 +9964,7 @@ name "lem:lfp-circ"
 
 \end_inset
 
-Für jede 
+Für jede parameter-freie 
 \begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
@@ -9931,7 +9980,15 @@ Für jede
 \begin_inset Formula $\bar{\mathcal{C}^{\varphi}}$
 \end_inset
 
-, so dass 
+ mit 
+\begin_inset Formula $n^{k}\left(3\left\Vert \varphi\right\Vert +1\right)$
+\end_inset
+
+-Tiefe und 
+\begin_inset Formula $\left(5n^{k+\mathtt{MF}\left(\varphi\right)}+1\right)$
+\end_inset
+
+-Größe, so dass 
 \begin_inset Formula $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right)$
 \end_inset
 
@@ -9939,7 +9996,7 @@ Für jede
 \begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
 \end_inset
 
-.
+ gilt.
 \end_layout
 
 \begin_layout Proof
@@ -9951,7 +10008,7 @@ Sei
 \begin_inset Formula $k$
 \end_inset
 
--stellige 
+-stellige parameter-freie 
 \begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
@@ -9971,33 +10028,33 @@ reference "lem:FO-Circuit"
  um den folgenden Fall:
 \end_layout
 
-\begin_layout Case
+\begin_layout Proof
 Sei 
 \begin_inset Formula $\varphi\left(\bar{x}\right)=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
 \end_inset
 
  für eine 
-\begin_inset Formula $\ell$
+\begin_inset Formula $m$
 \end_inset
 
 -stellige Relationsvariable 
-\begin_inset Formula $R/\ell\in\mathbf{var}_{2}$
+\begin_inset Formula $R/m\in\mathbf{var}_{2}$
 \end_inset
 
 , eine 
 \begin_inset Formula $m$
 \end_inset
 
--stellige 
+-stellige parameter-freie 
 \begin_inset Formula $\mathrm{LFP}\left[\sigma\cup\left\{ R\right\} \right]$
 \end_inset
 
 -Formel 
-\begin_inset Formula $\psi\left(\bar{w}\right)$
+\begin_inset Formula $\psi\left(\bar{z}\right)$
 \end_inset
 
  und ein 
-\begin_inset Formula $\ell$
+\begin_inset Formula $m$
 \end_inset
 
 -Tupel von 
@@ -10011,15 +10068,45 @@ Sei
 .
 \end_layout
 
-\begin_deeper
-\begin_layout Standard
-Zur Übersicht:
+\begin_layout Proof
+Zur Übersicht: 
+\begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{z}\in\mathbf{var}^{m}$
+\end_inset
+
+ sind die Argumente (streng geordnete Variablentupel) von 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ und 
+\begin_inset Formula $\psi$
+\end_inset
+
+, und 
+\begin_inset Formula $\bar{y}\in\mathbf{var}^{m}$
+\end_inset
+
+ ist ein Termtupel (mit eventuellen Wiederholungen).
+ Weil 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ parameter-frei ist, enthält 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ genau die gleichen Variablen wie 
+\begin_inset Formula $\bar{y}$
+\end_inset
+
+: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\bar{x} & = & \mathbf{var}^{k},\,k=\left|\left\{ x_{1},\cdots,x_{k}\right\} \right|\\
-\bar{y},\bar{z} & \in & \mathbf{var}^{\ell},\,\ell=\left|\left\{ z_{1},\cdots,z_{\ell}\right\} \right|\geqslant\left|\left\{ y_{1},\cdots,y_{\ell}\right\} \right|\\
-\bar{w} & \in & \mathbf{var}^{m},\,m=\left|\left\{ w_{1},\cdots,w_{m}\right\} \right|\\
-\left\{ z_{1},\cdots,z_{\ell}\right\}  & \subseteq & \left\{ w_{1},\cdots,w_{m}\right\} 
+\left\{ x_{1},\cdots,x_{k}\right\}  & = & \left\{ y_{1},\cdots,y_{m}\right\} \\
+k & \leqslant & m
 \end{eqnarray*}
 
 \end_inset
@@ -10027,74 +10114,29 @@ Zur Übersicht:
 
 \end_layout
 
-\begin_layout Standard
-Wir definieren eine 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\cup\left\{ R_{1},\cdots,R_{\ell}\right\} \right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\psi'$
-\end_inset
-
-, wobei jedes Atom der Form 
-\begin_inset Formula $R\bar{t}$
-\end_inset
-
- in 
-\begin_inset Formula $\psi$
-\end_inset
-
- durch ein Atom 
-\begin_inset Formula $R_{i}\bar{t}$
-\end_inset
-
- ersetzt wird, und jedes Symbol 
-\begin_inset Formula $R_{i}$
-\end_inset
-
- nur einmal in 
-\begin_inset Formula $\psi'$
-\end_inset
-
- vorkommt.
- (Diese Umbenennung ist notwendig, da jedes Atom 
-\begin_inset Formula $R\bar{t}$
-\end_inset
-
- unterschiedliche freie Parameter aus 
-\begin_inset Formula $\bar{x}$
-\end_inset
-
- enthalten kann, und die Abbildung der Variablen 
-\begin_inset Formula $\bar{x}\bar{z}$
-\end_inset
-
- auf 
-\begin_inset Formula $\bar{t}$
-\end_inset
-
- fest kodiert werden muss.)
-\end_layout
-
-\begin_layout Standard
+\begin_layout Proof
 Per Annahme existiert ein 
-\begin_inset Formula $k$
+\begin_inset Formula $m$
 \end_inset
 
 -stelliger 
-\begin_inset Formula $\left(\sigma\cup\left\{ R_{1},\cdots,R_{\ell}\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
+\begin_inset Formula $\left(\sigma\cup\left\{ R\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
 \end_inset
 
 -Schaltkreis 
-\begin_inset Formula $\mathcal{C}_{n}^{\psi'}$
+\begin_inset Formula $\mathcal{C}_{n}^{\psi}$
 \end_inset
 
-, der auf 
+, der auf den erweiterten 
+\begin_inset Formula $\left(\sigma\cup\left\{ R\right\} \right)$
+\end_inset
+
+-Strukturen 
 \begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\cup\left\{ R\right\} \right)$
 \end_inset
 
  die Anfrage 
-\begin_inset Formula $q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\right)=q_{\psi'}\left(\mathfrak{A}\right)$
+\begin_inset Formula $q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\right)=q_{\psi}\left(\mathfrak{A}\right)$
 \end_inset
 
  berechnet.
@@ -10105,40 +10147,10 @@ Per Annahme existiert ein
 
 \end_inset
 
-Sei 
-\begin_inset Formula $\bar{z'}\coloneqq\bar{z}\bar{x}$
-\end_inset
-
- die Kombination 
-\begin_inset Formula $\bar{z}$
-\end_inset
-
- mit den freien Parametern 
-\begin_inset Formula $\bar{x}$
-\end_inset
-
-.
- Für jedes Atom 
-\begin_inset Formula $R_{i}\bar{t}$
-\end_inset
-
- sei 
-\begin_inset Formula $\rho_{i}:U^{k+m}\rightarrow U^{m}$
-\end_inset
-
- wie folgt:
-\begin_inset Formula 
-\begin{eqnarray*}
-\mathrm{Sei}\,\,\bar{j} & \in & \left[1,k+m\right]^{m}\\
-\mathrm{so\,dass}\,\,\left(t_{1},\cdots,t_{m}\right) & = & \left(z'_{\left(j_{1}\right)},\cdots,z'_{\left(j_{m}\right)}\right)\\
-\rho_{i}\bar{u} & = & \left(u_{\left(j_{1}\right)},\cdots,u_{\left(j_{m}\right)}\right)
-\end{eqnarray*}
-
-\end_inset
-
 
 \end_layout
 
+\begin_deeper
 \begin_layout Description
 Schaltkreis: Es wird eine Sequenz 
 \begin_inset Formula $\left(\mathcal{D}^{i}\right)_{i\in\mathbb{N}}$
@@ -10235,7 +10247,7 @@ W_{i+1} & \coloneqq & W_{i}\uplus W_{\psi}\uplus W'
 \begin_inset Quotes grd
 \end_inset
 
- äquivalent, da jedes Gate nur einen Vorgänger hat.) 
+ äquivalent, da jedes dieser Gates nur einen Vorgänger bekommt.) 
 \begin_inset Formula 
 \[
 \Sigma_{i+1}\left(g\right)\coloneqq\begin{cases}
@@ -10344,11 +10356,11 @@ Daher berechnet
 
 \begin_layout Description
 Größe: Es wird induktiv bewiesen, dass 
-\begin_inset Formula $T\left(\mathcal{D}^{i}\right)\leqslant3i\left\Vert \psi\right\Vert +i$
+\begin_inset Formula $T\left(\mathcal{D}^{i}\right)\leqslant\left(3\left\Vert \psi\right\Vert +1\right)i$
 \end_inset
 
 , und 
-\begin_inset Formula $\left|\mathcal{D}^{i}\right|\leqslant5n^{\mathtt{MF}\left(\psi\right)}$
+\begin_inset Formula $\left|\mathcal{D}^{i}\right|\leqslant i\cdot5n^{\mathtt{MF}\left(\psi\right)}+1$
 \end_inset
 
  
@@ -10357,148 +10369,104 @@ Größe: Es wird induktiv bewiesen, dass
 T\left(\mathcal{D}^{0}\right) & = & 0\\
 T\left(\mathcal{D}^{i+1}\right) & = & T\left(\mathcal{D}^{i}\right)+T\left(\mathcal{C}_{n}^{\psi}\right)+1\\
  & \leqslant & T\left(\mathcal{D}^{i}\right)+3\left\Vert \psi\right\Vert +1\\
- & \overset{\mathrm{Ann.}}{=} & 3i\left\Vert \psi\right\Vert +i+3\left\Vert \psi\right\Vert +1\\
- & = & 3\left(i+1\right)\left\Vert \psi\right\Vert +i+1
+ & \overset{\mathrm{Ann.}}{=} & 3i\left\Vert \psi\right\Vert +i+3\left\Vert \psi\right\Vert +1=\left(3\left\Vert \varphi\right\Vert +1\right)i
 \end{eqnarray*}
 
 \end_inset
 
 
+\begin_inset Formula 
+\begin{eqnarray*}
+\left|\mathcal{D}^{0}\right| & = & 1\\
+\left|\mathcal{D}^{i+1}\right| & = & \left|\mathcal{D}^{i}\right|+\left|\mathcal{C}_{n}^{\psi}\right|\\
+ & \leqslant & \left|\mathcal{D}^{i}\right|+5n^{\mathtt{MF}\left(\psi\right)}\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & i\cdot5n^{\mathtt{MF}\left(\psi\right)}+1+5n^{\mathtt{MF}\left(\psi\right)}=\left(i+1\right)\cdot5n^{\mathtt{MF}\left(\psi\right)}+1
+\end{eqnarray*}
+
+\end_inset
+
+Damit gilt 
+\begin_inset Formula $T\left(\mathcal{C}_{n}^{\varphi}\right)=T\left(\mathcal{D}^{n^{k}}\right)\leqslant n^{k}\left(3\left\Vert \varphi\right\Vert +1\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\left|\mathcal{C}_{n}^{\varphi}\right|=\left|\mathcal{D}^{n^{k}}\right|=5n^{k+\mathtt{MF}\left(\varphi\right)}+1$
+\end_inset
+
+.
 \end_layout
 
 \end_deeper
 \begin_layout Standard
-Mit den bereits beschriebenen Konstruktionen kann aus diesen Formeln eine
- Schaltkreisfamilie erzeugt werden, die 
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Erweiterungen der Fixpunktlogik
+\end_layout
+
+\begin_layout Standard
+Die disjunkte Ordnungserweiterung der Fixpunktlogik nach Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:fo-ord"
+
+\end_inset
+
+ ist immer noch durch 
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+-uniforme (aber 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-Tiefe) Schaltkreise entscheidbar:
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:lfp-ord"
+
+\end_inset
+
+Für jede parameter-freie 
+\begin_inset Formula $\left(\mathrm{LFP}+\mathbf{ORD}\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
 \begin_inset Formula $\varphi$
 \end_inset
 
- berechnet.
-\begin_inset Formula 
-\begin{eqnarray*}
-\mathcal{C} & \coloneqq & \left(\mathcal{C}_{n}^{\varphi_{n}}\right)_{n\in\mathbb{N}}\\
-\mathcal{C}\left(\mathfrak{A}\right) & = & \varphi\left(\mathfrak{A}\right)\,\mathrm{f.a.}\,\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)
-\end{eqnarray*}
-
+ existiert eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-Durch die Einschränkung auf eine konstante Anzahl von Variablen ist die
- Größe der Schaltkreisfamilie polynomiell durch 
-\begin_inset Formula $n^{\mathcal{O}\left(\left\Vert \varphi\right\Vert \right)}$
+-Schaltkreisfamilie 
+\begin_inset Formula $\bar{\mathcal{C}^{\varphi}}$
 \end_inset
 
- beschränkt, obwohl die 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+ mit 
+\begin_inset Formula $n^{k}\left(3\left\Vert \varphi\right\Vert +1\right)$
 \end_inset
 
--Formeln beliebig lang werden.
- Die Tiefe ist durch 
-\begin_inset Formula $T\left(\mathcal{C}_{n}^{\varphi_{n}}\right)\in\mathcal{O}\left(\left\Vert \varphi_{n}\right\Vert \right)=\mathcal{O}\left(n^{\left\Vert \varphi\right\Vert }\right)$
+-Tiefe und 
+\begin_inset Formula $\left(5n^{k+\mathtt{MF}\left(\varphi\right)}\right)$
 \end_inset
 
- allerdings nicht mehr konstant.
-\end_layout
-
-\begin_layout Standard
-Unter der Annahme, dass 
-\begin_inset Formula $\varphi_{n}^{\left(i\right)}\left(\bar{x}\right)$
+-Größe, so dass 
+\begin_inset Formula $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right)$
 \end_inset
 
- auf 
-\begin_inset Formula $\mathfrak{A}$
+ für alle 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
 \end_inset
 
- die Anfrage 
-\begin_inset Formula $q\left(\mathfrak{A}\right)=R^{\left(i\right)}$
-\end_inset
-
- definiert, definiert 
-\begin_inset Formula $\chi^{\left(n\right)}\left(\bar{z}\right)$
-\end_inset
-
- die gleiche Anfrage (mit Umbenennung von 
-\begin_inset Formula $\bar{x}$
-\end_inset
-
- in 
-\begin_inset Formula $\bar{z}$
-\end_inset
-
-).
-\end_layout
-
-\begin_layout Standard
-Daher gilt 
-\begin_inset Formula $\bar{t}\models\left\llbracket \varphi_{n}^{\left(i+1\right)}\left(\bar{x}\right)\right\rrbracket \left(\mathfrak{A}\right)$
-\end_inset
-
- genau dann wenn 
-\begin_inset Formula $\bar{t}\models\left\llbracket \psi_{n}\right\rrbracket \left(\mathfrak{A},R^{\left(i\right)}\right)$
-\end_inset
-
-, und 
-\begin_inset Formula $\varphi_{n}^{\left(i+1\right)}$
-\end_inset
-
- definiert die Anfrage 
-\begin_inset Formula $q\left(\mathfrak{A}\right)=R^{\left(i+1\right)}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Schließlich entsteht 
-\begin_inset Formula $\varphi_{n}\left(\bar{y}\right)$
-\end_inset
-
- aus 
-\begin_inset Formula $\varphi_{n}^{\left(n^{m}\right)}\left(\bar{x}\right)$
-\end_inset
-
-, indem die freien Variablen 
-\begin_inset Formula $x_{1},\cdots,x_{m}$
-\end_inset
-
- in 
-\begin_inset Formula $y_{1},\cdots,y_{m}$
-\end_inset
-
- umbenannt werden.
- Damit gilt 
-\begin_inset Formula $\varphi_{n}\equiv_{n}\varphi$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Proof
-Die so erzeugte Formel 
-\begin_inset Formula $\varphi_{n}$
-\end_inset
-
- hat höchstens 
-\begin_inset Formula $\left|\mathrm{var}\left(\varphi\right)\right|+\left\Vert \varphi\right\Vert \leqslant2\left\Vert \varphi\right\Vert $
-\end_inset
-
- Variablen: Nur in Fall 4 werden 
-\begin_inset Formula $m$
-\end_inset
-
- neue Variablen eingefügt, und für jeden solchen Induktionsschritt enthält
- 
-\begin_inset Formula $\varphi$
-\end_inset
-
- bereits ein Tupel 
-\begin_inset Formula $\bar{y}\in\mathbf{var}^{m}$
-\end_inset
-
-.
+ gilt.
 \end_layout
 
 \begin_layout Standard

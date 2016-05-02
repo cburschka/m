@@ -861,17 +861,18 @@ Fragment der Logik beschränken, was (bis auf einen Zuwachs in der
 Anzahl der Variablen und Länge der Formel) die Allgemeinheit nicht
 einschränkt.
 \begin{defn}
-Eine $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$ ist \textbf{parameter-frei},
-falls für jede Teilformel der Form $\left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
+\label{def:fp-param}Eine $\mathrm{LFP}\left[\sigma\right]$-Formel
+$\varphi$ ist \textbf{parameter-frei}, falls für jede Teilformel
+der Form $\left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
 gilt: 
 \[
 \mathrm{frei}\left(\psi\right)=\left\{ x_{1},\cdots,x_{\mathrm{ar}\left(R\right)}\right\} 
 \]
 \end{defn}
 \begin{prop}
-Jede $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$ kann in
-eine parameter-freie $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi'$
-übersetzt werden.\cite{Zaid}
+J\label{prop:fp-param}ede $\mathrm{LFP}\left[\sigma\right]$-Formel
+$\varphi$ kann in eine parameter-freie $\mathrm{LFP}\left[\sigma\right]$-Formel
+$\varphi'$ übersetzt werden.\cite{Zaid,Grohe2005,Dziembowski96bounded-variablefixpoint}
 \end{prop}
 \pagebreak{}
 
@@ -907,7 +908,7 @@ $\Upsilon\left(\left|A\right|\right)$ ausgewertet:
 \end{defn}
 
 \begin{defn}
-\textbf{$\mathcal{L}+\mathbf{ORD}$, $\mathcal{L}+\mathbf{ARB}$.}
+\textbf{\label{def:fo-ord}$\mathcal{L}+\mathbf{ORD}$, $\mathcal{L}+\mathbf{ARB}$.}
 
 Falls $\eta$ leer ist, und daher $\Upsilon\left(n\right)=\left(\left[0,n\right],\leqslant\right)$
 nur die Ordnung enthält, so wird $\mathscr{L}+\Upsilon$ auch als
@@ -2610,61 +2611,53 @@ wie $\mathrm{FO}\left[\sigma\right]$: Die Berechnung einer Teilformel
 $\psi_{i}\left(\bar{z}\right)$ kann wiederverwendet werden, ohne
 den Schaltkreis $\mathcal{C}_{n}^{\psi_{i}}$ zu vervielfältigen.
 
-\pagebreak{}Wir nutzen dies und den Beweis von Lemma \ref{lem:lfp-inf}
-aus, um aus der $\mathrm{LFP}\left[\sigma\right]$-Formel $\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
-direkt einen $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
-zu erzeugen, der die gewünschte Tiefe und Größe hat:
+Wir nutzen dies und den Beweis von Lemma \ref{lem:lfp-inf} aus, um
+aus einer $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$ direkt
+einen $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
+zu erzeugen, der die richtige Tiefe und Größe hat. Hierbei wird der
+Einfachheit halber gefordert, dass $\varphi$ parameter-frei ist (siehe
+Definition \ref{def:fp-param}). Per Satz \ref{prop:fp-param} schränkt
+dies die Allgemeinheit nicht ein: Der Zuwachs in $\mathrm{var}\left(\varphi\right)$
+und $\left\Vert \varphi\right\Vert $ ist fest und für die $\mathrm{poly}\left(n\right)$-Größe
+der Schaltkreisfamilie unbedeutend.
 \begin{lem}
-\label{lem:lfp-circ}Für jede $\mathrm{LFP}\left[\sigma\right]$-Formel
+\label{lem:lfp-circ}Für jede parameter-freie $\mathrm{LFP}\left[\sigma\right]$-Formel
 $\varphi$ existiert eine $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\bar{\mathcal{C}^{\varphi}}$, so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right)$
-für alle $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$.\end{lem}
+$\bar{\mathcal{C}^{\varphi}}$ mit $n^{k}\left(3\left\Vert \varphi\right\Vert +1\right)$-Tiefe
+und $\left(5n^{k+\mathtt{MF}\left(\varphi\right)}+1\right)$-Größe,
+so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right)$
+für alle $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ gilt.\end{lem}
 \begin{proof}
-Sei $\varphi\left(\bar{x}\right)$ eine $k$-stellige $\mathrm{LFP}\left[\sigma\right]$-Formel.
-Sei $n\in\mathbb{N}$ beliebig. Wir erweitern die Konstruktion aus
-Lemma \ref{lem:FO-Circuit} um den folgenden Fall:\end{proof}
-\begin{casenv}
-\item Sei $\varphi\left(\bar{x}\right)=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
-für eine $\ell$-stellige Relationsvariable $R/\ell\in\mathbf{var}_{2}$,
-eine $m$-stellige $\mathrm{LFP}\left[\sigma\cup\left\{ R\right\} \right]$-Formel
-$\psi\left(\bar{w}\right)$ und ein $\ell$-Tupel von $\mathrm{LFP}\left[\sigma\right]$-Termen
+Sei $\varphi\left(\bar{x}\right)$ eine $k$-stellige parameter-freie
+$\mathrm{LFP}\left[\sigma\right]$-Formel. Sei $n\in\mathbb{N}$ beliebig.
+Wir erweitern die Konstruktion aus Lemma \ref{lem:FO-Circuit} um
+den folgenden Fall:
+
+Sei $\varphi\left(\bar{x}\right)=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
+für eine $m$-stellige Relationsvariable $R/m\in\mathbf{var}_{2}$,
+eine $m$-stellige parameter-freie $\mathrm{LFP}\left[\sigma\cup\left\{ R\right\} \right]$-Formel
+$\psi\left(\bar{z}\right)$ und ein $m$-Tupel von $\mathrm{LFP}\left[\sigma\right]$-Termen
 $\bar{y}$.
 
-
-Zur Übersicht:
+Zur Übersicht: $\bar{x}\in\mathbf{var}^{k}$ und $\bar{z}\in\mathbf{var}^{m}$
+sind die Argumente (streng geordnete Variablentupel) von $\varphi$
+und $\psi$, und $\bar{y}\in\mathbf{var}^{m}$ ist ein Termtupel (mit
+eventuellen Wiederholungen). Weil $\varphi$ parameter-frei ist, enthält
+$\bar{x}$ genau die gleichen Variablen wie $\bar{y}$: 
 \begin{eqnarray*}
-\bar{x} & = & \mathbf{var}^{k},\,k=\left|\left\{ x_{1},\cdots,x_{k}\right\} \right|\\
-\bar{y},\bar{z} & \in & \mathbf{var}^{\ell},\,\ell=\left|\left\{ z_{1},\cdots,z_{\ell}\right\} \right|\geqslant\left|\left\{ y_{1},\cdots,y_{\ell}\right\} \right|\\
-\bar{w} & \in & \mathbf{var}^{m},\,m=\left|\left\{ w_{1},\cdots,w_{m}\right\} \right|\\
-\left\{ z_{1},\cdots,z_{\ell}\right\}  & \subseteq & \left\{ w_{1},\cdots,w_{m}\right\} 
+\left\{ x_{1},\cdots,x_{k}\right\}  & = & \left\{ y_{1},\cdots,y_{m}\right\} \\
+k & \leqslant & m
 \end{eqnarray*}
 
 
-
-Wir definieren eine $\mathrm{LFP}\left[\sigma\cup\left\{ R_{1},\cdots,R_{\ell}\right\} \right]$-Formel
-$\psi'$, wobei jedes Atom der Form $R\bar{t}$ in $\psi$ durch ein
-Atom $R_{i}\bar{t}$ ersetzt wird, und jedes Symbol $R_{i}$ nur einmal
-in $\psi'$ vorkommt. (Diese Umbenennung ist notwendig, da jedes Atom
-$R\bar{t}$ unterschiedliche freie Parameter aus $\bar{x}$ enthalten
-kann, und die Abbildung der Variablen $\bar{x}\bar{z}$ auf $\bar{t}$
-fest kodiert werden muss.)
-
-
-Per Annahme existiert ein $k$-stelliger $\left(\sigma\cup\left\{ R_{1},\cdots,R_{\ell}\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
-$\mathcal{C}_{n}^{\psi'}$, der auf $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\cup\left\{ R\right\} \right)$
-die Anfrage $q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\right)=q_{\psi'}\left(\mathfrak{A}\right)$
+Per Annahme existiert ein $m$-stelliger $\left(\sigma\cup\left\{ R\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
+$\mathcal{C}_{n}^{\psi}$, der auf den erweiterten $\left(\sigma\cup\left\{ R\right\} \right)$-Strukturen
+$\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\cup\left\{ R\right\} \right)$
+die Anfrage $q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\right)=q_{\psi}\left(\mathfrak{A}\right)$
 berechnet.
 \[
 \mathcal{C}_{n}^{\psi}=\left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U\right)
 \]
-Sei $\bar{z'}\coloneqq\bar{z}\bar{x}$ die Kombination $\bar{z}$
-mit den freien Parametern $\bar{x}$. Für jedes Atom $R_{i}\bar{t}$
-sei $\rho_{i}:U^{k+m}\rightarrow U^{m}$ wie folgt:
-\begin{eqnarray*}
-\mathrm{Sei}\,\,\bar{j} & \in & \left[1,k+m\right]^{m}\\
-\mathrm{so\,dass}\,\,\left(t_{1},\cdots,t_{m}\right) & = & \left(z'_{\left(j_{1}\right)},\cdots,z'_{\left(j_{m}\right)}\right)\\
-\rho_{i}\bar{u} & = & \left(u_{\left(j_{1}\right)},\cdots,u_{\left(j_{m}\right)}\right)
-\end{eqnarray*}
 
 \begin{description}
 \item [{Schaltkreis:}] Es wird eine Sequenz $\left(\mathcal{D}^{i}\right)_{i\in\mathbb{N}}$
@@ -2687,7 +2680,7 @@ W_{i+1} & \coloneqq & W_{i}\uplus W_{\psi}\uplus W'
 $\mathcal{D}^{i}$ verbindet alle mit $R\bar{t}$ markierten Inputs
 mit dem Output $\Omega_{i}\left(\bar{t}\right)$, und markiert sie
 mit ,,$\wedge$``. (Hier wäre ,,$\vee$`` äquivalent, da jedes
-Gate nur einen Vorgänger hat.) 
+dieser Gates nur einen Vorgänger bekommt.) 
 \[
 \Sigma_{i+1}\left(g\right)\coloneqq\begin{cases}
 \Sigma_{i}\left(g\right) & \mathrm{falls}\,\,g\in G_{i}\\
@@ -2728,50 +2721,40 @@ F^{i}\left(\emptyset\right)
 \end{eqnarray*}
 Daher berechnet $\mathcal{C}_{n}^{\varphi}=\mathcal{D}^{n^{k}}$ die
 Anfrage $q_{\mathcal{C}_{n}^{\varphi}}\left(\mathfrak{A}\right)=F^{n^{k}}\left(\emptyset\right)=F^{\infty}\left(\emptyset\right)$.
-\item [{Größe:}] Es wird induktiv bewiesen, dass $T\left(\mathcal{D}^{i}\right)\leqslant3i\left\Vert \psi\right\Vert +i$,
-und $\left|\mathcal{D}^{i}\right|\leqslant5n^{\mathtt{MF}\left(\psi\right)}$
+\item [{Größe:}] Es wird induktiv bewiesen, dass $T\left(\mathcal{D}^{i}\right)\leqslant\left(3\left\Vert \psi\right\Vert +1\right)i$,
+und $\left|\mathcal{D}^{i}\right|\leqslant i\cdot5n^{\mathtt{MF}\left(\psi\right)}+1$
 \begin{eqnarray*}
 T\left(\mathcal{D}^{0}\right) & = & 0\\
 T\left(\mathcal{D}^{i+1}\right) & = & T\left(\mathcal{D}^{i}\right)+T\left(\mathcal{C}_{n}^{\psi}\right)+1\\
  & \leqslant & T\left(\mathcal{D}^{i}\right)+3\left\Vert \psi\right\Vert +1\\
- & \overset{\mathrm{Ann.}}{=} & 3i\left\Vert \psi\right\Vert +i+3\left\Vert \psi\right\Vert +1\\
- & = & 3\left(i+1\right)\left\Vert \psi\right\Vert +i+1
+ & \overset{\mathrm{Ann.}}{=} & 3i\left\Vert \psi\right\Vert +i+3\left\Vert \psi\right\Vert +1=\left(3\left\Vert \varphi\right\Vert +1\right)i
 \end{eqnarray*}
-
-\end{description}
-\end{casenv}
-Mit den bereits beschriebenen Konstruktionen kann aus diesen Formeln
-eine Schaltkreisfamilie erzeugt werden, die $\varphi$ berechnet.
 \begin{eqnarray*}
-\mathcal{C} & \coloneqq & \left(\mathcal{C}_{n}^{\varphi_{n}}\right)_{n\in\mathbb{N}}\\
-\mathcal{C}\left(\mathfrak{A}\right) & = & \varphi\left(\mathfrak{A}\right)\,\mathrm{f.a.}\,\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)
+\left|\mathcal{D}^{0}\right| & = & 1\\
+\left|\mathcal{D}^{i+1}\right| & = & \left|\mathcal{D}^{i}\right|+\left|\mathcal{C}_{n}^{\psi}\right|\\
+ & \leqslant & \left|\mathcal{D}^{i}\right|+5n^{\mathtt{MF}\left(\psi\right)}\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & i\cdot5n^{\mathtt{MF}\left(\psi\right)}+1+5n^{\mathtt{MF}\left(\psi\right)}=\left(i+1\right)\cdot5n^{\mathtt{MF}\left(\psi\right)}+1
 \end{eqnarray*}
-
-
-Durch die Einschränkung auf eine konstante Anzahl von Variablen ist
-die Größe der Schaltkreisfamilie polynomiell durch $n^{\mathcal{O}\left(\left\Vert \varphi\right\Vert \right)}$
-beschränkt, obwohl die $\mathrm{FO}\left[\sigma\right]$-Formeln beliebig
-lang werden. Die Tiefe ist durch $T\left(\mathcal{C}_{n}^{\varphi_{n}}\right)\in\mathcal{O}\left(\left\Vert \varphi_{n}\right\Vert \right)=\mathcal{O}\left(n^{\left\Vert \varphi\right\Vert }\right)$
-allerdings nicht mehr konstant.
-
-Unter der Annahme, dass $\varphi_{n}^{\left(i\right)}\left(\bar{x}\right)$
-auf $\mathfrak{A}$ die Anfrage $q\left(\mathfrak{A}\right)=R^{\left(i\right)}$
-definiert, definiert $\chi^{\left(n\right)}\left(\bar{z}\right)$
-die gleiche Anfrage (mit Umbenennung von $\bar{x}$ in $\bar{z}$).
-
-Daher gilt $\bar{t}\models\left\llbracket \varphi_{n}^{\left(i+1\right)}\left(\bar{x}\right)\right\rrbracket \left(\mathfrak{A}\right)$
-genau dann wenn $\bar{t}\models\left\llbracket \psi_{n}\right\rrbracket \left(\mathfrak{A},R^{\left(i\right)}\right)$,
-und $\varphi_{n}^{\left(i+1\right)}$ definiert die Anfrage $q\left(\mathfrak{A}\right)=R^{\left(i+1\right)}$.
-
-Schließlich entsteht $\varphi_{n}\left(\bar{y}\right)$ aus $\varphi_{n}^{\left(n^{m}\right)}\left(\bar{x}\right)$,
-indem die freien Variablen $x_{1},\cdots,x_{m}$ in $y_{1},\cdots,y_{m}$
-umbenannt werden. Damit gilt $\varphi_{n}\equiv_{n}\varphi$.
-\begin{proof}
-Die so erzeugte Formel $\varphi_{n}$ hat höchstens $\left|\mathrm{var}\left(\varphi\right)\right|+\left\Vert \varphi\right\Vert \leqslant2\left\Vert \varphi\right\Vert $
-Variablen: Nur in Fall 4 werden $m$ neue Variablen eingefügt, und
-für jeden solchen Induktionsschritt enthält $\varphi$ bereits ein
-Tupel $\bar{y}\in\mathbf{var}^{m}$.
+Damit gilt $T\left(\mathcal{C}_{n}^{\varphi}\right)=T\left(\mathcal{D}^{n^{k}}\right)\leqslant n^{k}\left(3\left\Vert \varphi\right\Vert +1\right)$
+und $\left|\mathcal{C}_{n}^{\varphi}\right|=\left|\mathcal{D}^{n^{k}}\right|=5n^{k+\mathtt{MF}\left(\varphi\right)}+1$.
+\end{description}
 \end{proof}
+\pagebreak{}
+
+
+\subsection{Erweiterungen der Fixpunktlogik}
+
+Die disjunkte Ordnungserweiterung der Fixpunktlogik nach Definition
+\ref{def:fo-ord} ist immer noch durch $P/\mathrm{poly}$-uniforme
+(aber $\mathrm{poly}\left(n\right)$-Tiefe) Schaltkreise entscheidbar:
+\begin{lem}
+\label{lem:lfp-ord}Für jede parameter-freie $\left(\mathrm{LFP}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
+$\varphi$ existiert eine $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+$\bar{\mathcal{C}^{\varphi}}$ mit $n^{k}\left(3\left\Vert \varphi\right\Vert +1\right)$-Tiefe
+und $\left(5n^{k+\mathtt{MF}\left(\varphi\right)}\right)$-Größe,
+so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right)$
+für alle $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ gilt.
+\end{lem}
 \pagebreak{}
 
 
