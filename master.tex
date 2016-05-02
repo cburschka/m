@@ -636,8 +636,8 @@ auf Strukturen der Größe $n$ definieren.
 Diese Arbeit befasst sich ausschließlich mit relationalen Logiken
 ohne Funktions- oder Konstantensymbole.
 \begin{defn}
-Die Syntax und Semantik der relationalen Logik erster Stufe $\mathrm{FO}\left[\sigma\right]$
-sind wie folgt definiert.\end{defn}
+\label{def:fo}Die Syntax und Semantik der relationalen Logik erster
+Stufe $\mathrm{FO}\left[\sigma\right]$ sind wie folgt definiert.\end{defn}
 \begin{elabeling}{00.00.0000}
 \item [{(TV)}] Für jede Variable $x\in\mathbf{var}$ ist $x$ ein $\mathrm{FO}\left[\sigma\right]$-Term.
 \[
@@ -791,10 +791,18 @@ eine $R$-positive $\left(\mathrm{\mathrm{FO}+\mathrm{LFP}}\right)\left[\sigma\ri
 \mathtt{MF}\left(\varphi\right) & = & \max\left(\mathtt{MF}\left(\psi\right),\mathrm{frei}\left(\varphi\right)\right)
 \end{eqnarray*}
 \end{elabeling}
+\begin{rem*}
+Ohne Beschränkung der Allgemeinheit sei $\left\{ x_{1},\cdots,x_{k}\right\} \subseteq\mathrm{frei}\left(\psi\right)$,
+denn eine gebundene Variable $x_{i}$, die nicht frei in $\psi$ vorkommt,
+kann analog zu Definition \ref{def:fo} in ein neues Atom $x_{i}\dot{=}x_{i}$
+eingefügt werden.
+
+Die nicht durch $\bar{x}$ gebundene Variablen $\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \subseteq\mathrm{frei}\left(\varphi\right)$
+heißen \textbf{Parameter} der Fixpunkt-Operation.\end{rem*}
 \begin{description}
 \item [{Auswertung:}] Für $R/k\in\mathbf{var}_{2}$, eine $\left(\sigma\backslash\left\{ R\right\} \right)$-Struktur
 $\mathfrak{A}$, eine $R$-positive $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\sigma\right]$-Formel,
-eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \rightarrow A$
+eine Parameter-Belegung $\beta':\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \rightarrow A$
 und eine Relation $X\subseteq A^{k}$ definieren wir die $\left\{ X\right\} $-Struktur
 $\mathfrak{R}_{X}$ und die Abbildung $F:2^{A^{k}}\rightarrow2^{A^{k}}$
 wie folgt:
@@ -803,11 +811,11 @@ wie folgt:
 R\\
 X
 \end{array}\right)\right)\\
-F\left(X\right) & \coloneqq & q_{\varphi^{\beta}}\left(\mathfrak{A}\cup\mathfrak{R}_{X}\right)
+F_{\beta'}\left(X\right) & \coloneqq & q_{\varphi^{\beta'}}\left(\mathfrak{A}\cup\mathfrak{R}_{X}\right)
 \end{eqnarray*}
-Das heißt: $F\left(X\right)$ ist das Anfrageergebnis von $\varphi^{\beta}$
-auf $\mathfrak{A}$, wenn das Symbol $R$ durch die Relation $X$
-interpretiert wird.
+Das heißt: $F_{\beta'}\left(X\right)$ ist das Anfrageergebnis von
+$\varphi^{\beta'}$ auf $\mathfrak{A}$, wenn das Symbol $R$ durch
+die Relation $X$ interpretiert wird.
 
 
 Aus der $X$-Positivität folgt nach \cite{Gurevich1986,Libkin2012}
@@ -817,20 +825,23 @@ Fixpunkts $F^{\infty}\left(\emptyset\right)$:
 A\subseteq B & \Rightarrow & F\left(A\right)\subseteq F\left(B\right)
 \end{eqnarray*}
 \[
-\emptyset\subseteq F\left(\emptyset\right)\subseteq\cdots\subseteq F^{\infty}\left(\emptyset\right)\subseteq A^{k}
+\emptyset\subseteq F_{\beta'}\left(\emptyset\right)\subseteq\cdots\subseteq F_{\beta'}^{\infty}\left(\emptyset\right)\subseteq A^{k}
 \]
 
 
 
-Insbesondere ist $F^{\infty}\left(\emptyset\right)=F^{\left|A^{k}\right|}\left(\emptyset\right)$,
+Insbesondere ist $F_{\beta'}^{\infty}\left(\emptyset\right)=F^{\left|A^{k}\right|}\left(\emptyset\right)$,
 da die Iteration nach höchstens $\left|A^{k}\right|$ Iterationen
 ihren Fixpunkt erreicht.
 
 
-Die Formel prüft nun, ob die Belegung des Tupels $\bar{y}$ im Fixpunkt
-$F^{\infty}$ liegt: 
+Für eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
+prüft $\varphi=\left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
+nun, ob die Belegung des Tupels $\bar{y}$ im Fixpunkt $F^{\infty}$
+liegt. Sei $\beta'$ die Reduktion von $\beta$ auf die Parameter:
 \begin{eqnarray*}
-\left\llbracket \left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket R\bar{y}\right\rrbracket \left(\mathfrak{A}\cup\mathfrak{R}_{F^{\infty}\left(\emptyset\right)},\beta\right)
+\beta' & \coloneqq & \beta_{\mid\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} }\\
+\left\llbracket \left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket R\bar{y}\right\rrbracket \left(\mathfrak{A}\cup\mathfrak{R}_{F_{\beta'}^{\infty}\left(\emptyset\right)},\beta\right)
 \end{eqnarray*}
 
 
@@ -845,8 +856,23 @@ Weg beliebiger Länge verbunden sind:
 
 \end{example*}
 Im folgenden wird die Logik $\mathrm{FO}+\mathrm{LFP}$ abgekürzt
-als $\mathrm{LFP}$ bezeichnet.
-
+als $\mathrm{LFP}$ bezeichnet. Ferner werden wir uns auf das \emph{parameter-freie}
+Fragment der Logik beschränken, was (bis auf einen Zuwachs in der
+Anzahl der Variablen und Länge der Formel) die Allgemeinheit nicht
+einschränkt.
+\begin{defn}
+Eine $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$ ist \textbf{parameter-frei},
+falls für jede Teilformel der Form $\left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
+gilt: 
+\[
+\mathrm{frei}\left(\psi\right)=\left\{ x_{1},\cdots,x_{\mathrm{ar}\left(R\right)}\right\} 
+\]
+\end{defn}
+\begin{prop}
+Jede $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$ kann in
+eine parameter-freie $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi'$
+übersetzt werden.\cite{Zaid}
+\end{prop}
 \pagebreak{}
 
 
@@ -2433,7 +2459,7 @@ und daher auch $P/\mathrm{poly}$-uniform.
 \pagebreak{}
 \end{proof}
 
-\subsection{Beliebige Orakel mit Zählterm}
+\subsection{Beliebige Orakel mit Zählquantor}
 
 Für eine Orakellogik mit Zählquantor $\mathrm{FO}+\Upsilon+\exists^{\geqslant}$
 werden nun die Konstruktionen aller vorhergehender Abschnitte kombiniert.
@@ -2475,93 +2501,50 @@ wird diese Klasse durch die folgende Formel definiert:
 \]
  Trotzdem kann jede $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$
 durch eine Familie von $\mathrm{FO}\left[\sigma\right]$-Formeln $\left(\varphi_{n}\right)_{n\in\mathbb{N}}$
-mit polynomieller Länge und einer konstanten Anzahl Variablen definiert
-werden, so dass $\varphi_{n}$ auf den Strukturen der Größe $n$ äquivalent
-zu $\varphi$ ist. (Vergleichbar zum $k$-Variablen-Fragment der infinitären
-Logik $L_{\infty\omega}^{k}$, welches die Fixpunktlogik einschließt.\cite{Dawar1995a,Kolaitis1992a})
-
-Mit den bereits beschriebenen Konstruktionen kann aus diesen Formeln
-eine Schaltkreisfamilie erzeugt werden, die $\varphi$ berechnet.
-\begin{eqnarray*}
-\mathcal{C} & \coloneqq & \left(\mathcal{C}_{n}^{\varphi_{n}}\right)_{n\in\mathbb{N}}\\
-\mathcal{C}\left(\mathfrak{A}\right) & = & \varphi\left(\mathfrak{A}\right)\,\mathrm{f.a.}\,\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)
-\end{eqnarray*}
-
-
-Durch die Einschränkung auf eine konstante Anzahl von Variablen ist
-die Größe der Schaltkreisfamilie polynomiell durch $n^{\mathcal{O}\left(\left\Vert \varphi\right\Vert \right)}$
-beschränkt, obwohl die $\mathrm{FO}\left[\sigma\right]$-Formeln beliebig
-lang werden. Die Tiefe ist durch $T\left(\mathcal{C}_{n}^{\varphi_{n}}\right)\in\mathcal{O}\left(\left\Vert \varphi_{n}\right\Vert \right)=\mathcal{O}\left(n^{\left\Vert \varphi\right\Vert }\right)$
-allerdings nicht mehr konstant.
+mit einer konstanten Anzahl Variablen definiert werden, so dass $\varphi_{n}$
+auf den Strukturen der Größe $n$ äquivalent zu $\varphi$ ist. Dies
+ist vergleichbar zum $k$-Variablen-Fragment der infinitären Logik
+$L_{\infty\omega}^{k}$, welches die Fixpunktlogik einschließt.\cite{Dawar1995a,Kolaitis1992a}
+Hier hat jedoch jede einzelne Formel $\varphi_{n}$ eine endliche
+Länge.
 \begin{lem}
-Für jede $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$ und
-jedes $n\in\mathbb{N}$ existiert eine $\mathrm{FO}\left[\sigma\right]$-Formel
-$\hat{\varphi}$ mit $\left\Vert \hat{\varphi}\right\Vert \leqslant n^{\left\Vert \varphi\right\Vert }$
-und $\mathtt{MF}\left(\hat{\varphi}\right)\leqslant2\mathtt{MF}\left(\varphi\right)$,
+\label{lem:lfp-inf}Für jede $\mathrm{LFP}\left[\sigma\right]$-Formel
+$\varphi$ mit $\left\Vert \varphi\right\Vert =c$ und jedes $n\in\mathbb{N}$
+existiert eine $\mathrm{FO}\left[\sigma\right]$-Formel $\hat{\varphi}$
+mit $\left|\mathrm{var}\left(\varphi_{n}\right)\right|\leqslant2\left|\mathrm{var}\left(\varphi\right)\right|$,
 so dass $\models_{n}\left(\hat{\varphi}\leftrightarrow\varphi\right)$.\end{lem}
 \begin{proof}
-Sei $\varphi\left(\bar{x}\right)$ eine $k$-stellige $\mathrm{LFP}\left[\sigma\right]$-Formel
-mit dem Argument $\bar{x}\in\mathbf{var}^{k}$.
+Sei $\varphi\left(\bar{x}\right)$ eine $k$-stellige $\mathrm{LFP}\left[\sigma\right]$-Formel.
+Es wird induktiv über den Aufbau von $\varphi$ vorgegangen, wobei
+nur der Fall $\varphi=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
+nicht-trivial ist.
 
-Die Tatsache, dass jeder $\mathrm{LFP}\left[\sigma\right]$-Term $t$
-eine Variable $t\in\mathbf{var}$ ist, macht die atomaren Fälle trivial:
-\begin{casenv}
-\item Falls $\varphi=R\bar{y}$ für ein $k$-Tupel von $\mathrm{LFP}\left[\sigma\right]$-Termen
-$\bar{y}\in\mathbf{var}^{k}$ und $R/k\in\sigma$, so ist $\hat{\varphi}=\varphi$
-bereits eine $\mathrm{FO}\left[\sigma\right]$-Formel.
-\item Falls $\varphi=y_{1}\dot{=}y_{2}$ für zwei $\mathrm{LFP}\left[\sigma\right]$-Terme
-$y_{1},y_{2}\in\mathbf{var}$, so ist $\hat{\varphi}=\varphi$ bereits
-eine $\mathrm{FO}\left[\sigma\right]$-Formel.
-\item Falls $\varphi=\left(\psi_{1}\gamma\cdots\gamma\psi_{k}\right)$ für
-$k$ $\mathrm{LFP}\left[\sigma\right]$-Formeln $\psi_{1},\cdots,\psi_{k}$
-und $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $,
-so existieren per Annahme die dazu $n$-äquivalenten $\mathrm{FO}\left[\sigma\right]$-Formeln
-$\hat{\psi_{1}},\cdots,\hat{\psi_{k}}$.
-\[
-\hat{\varphi}\coloneqq\left(\hat{\psi_{1}}\gamma\cdots\gamma\hat{\psi_{k}}\right)
-\]
-
-\item Falls $\varphi=\neg\psi$ für eine $\mathrm{LFP}\left[\sigma\right]$-Formel
-$\psi$, so existiert per Annahme die $n$-äquivalente Formel $\hat{\psi}$:
-\begin{eqnarray*}
-\hat{\varphi} & \coloneqq & \neg\hat{\psi}
-\end{eqnarray*}
-
-\item Falls $\varphi=Qy\psi$ für $Q\in\left\{ \exists,\forall\right\} $,
-$y\in\mathbf{var}$ und eine $\mathrm{LFP}\left[\sigma\right]$-Formel
-$\psi$ , so existiert per Annahme die $n$-äquivalente Formel $\hat{\psi}$:
-\begin{eqnarray*}
-\hat{\varphi} & \coloneqq & Qy\hat{\psi}
-\end{eqnarray*}
-
-\item Falls $\varphi=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
+Falls $\varphi=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
 für eine $k$-stellige Relationsvariable $R\in\mathbf{var}_{2}$,
-$\bar{z}\in\mathbf{var}^{k}$, eine $\mathrm{LFP}\left[\sigma\right]$-Formel
+$\bar{z}\in\mathbf{var}^{k}$, eine $\mathrm{LFP}\left[\sigma\cup\left\{ R\right\} \right]$-Formel
 $\psi$ und ein $k$-Tupel von $\mathrm{LFP}\left[\sigma\right]$-Termen
 $\bar{y}\in\mathbf{var}^{k}$, so existiert per Annahme eine $\mathrm{FO}\left[\sigma\right]$-Formel
 $\hat{\psi}$ mit $\models_{n}\left(\hat{\psi}\leftrightarrow\psi\right)$.
-
 
 Sei $\bar{u}\in\mathbf{var}^{k}\backslash\mathrm{frei}\left(\psi\right)$
 ein Tupel von Variablen, die nicht frei in $\hat{\psi}$ vorkommen.
 Sei die Sequenz $\left(\psi_{i}\right)_{i\in\mathbb{N}}$ induktiv
 wie folgt definiert:
 \begin{eqnarray*}
-\psi_{0} & \coloneqq & \neg\bar{z}\dot{=}\bar{z}\\
-\psi_{i+1} & \coloneqq & \hat{\psi}^{\left(\frac{R\bar{t}}{\chi_{i}\left(\bar{t}\right)}\right)}\\
-\chi_{i}\left(\bar{t}\right) & \coloneqq & \exists\bar{u}\left(\bar{t}=\bar{u}\wedge\exists\bar{z}\left(\bar{u}=\bar{z}\wedge\psi_{i}\right)\right)
+\psi^{0} & \coloneqq & \neg\bar{z}\dot{=}\bar{z}\\
+\psi^{i+1} & \coloneqq & \hat{\psi}^{\left(\frac{R\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}\\
+\chi^{i}\left(\bar{t}\right) & \coloneqq & \exists\bar{u}\left(\bar{t}=\bar{u}\wedge\exists\bar{z}\left(\bar{u}=\bar{z}\wedge\psi^{i}\right)\right)
 \end{eqnarray*}
-Hierbei sei $\hat{\psi}^{\left(\frac{R\bar{t}}{\chi_{i}\left(\bar{t}\right)}\right)}$
+Hierbei sei $\hat{\psi}^{\left(\frac{R\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}$
 die Formel, die aus $\hat{\psi}$ entsteht, indem jedes Atom $R\bar{t}$
-(für irgendein $\bar{t}\in\mathbf{var}^{k}$) durch $\chi_{i}\left(\bar{t}\right)$
+(für irgendein $\bar{t}\in\mathbf{var}^{k}$) durch $\chi^{i}\left(\bar{t}\right)$
 ersetzt wird. (Der Zwischenschritt über $\bar{u}$ ist notwendig,
 weil $\bar{t}$ und $\bar{z}$ zum Teil die gleichen Variablen enthalten
 können, und daher ihr Geltungsbereich nicht überlappen darf.)
 
-
 Nun gelte:
 \[
-\hat{\varphi}\coloneqq\exists\bar{z}\left(\bar{x}=\bar{z}\wedge\psi_{n^{k}}\right)
+\hat{\varphi}\coloneqq\exists\bar{z}\left(\bar{x}=\bar{z}\wedge\psi^{n^{k}}\right)
 \]
 
 \begin{description}
@@ -2569,22 +2552,23 @@ Nun gelte:
 \ref{def:lfp} definiert. Außerdem sei $\left(X_{i}\right)_{i\in\mathbb{N}}$
 wie folgt: 
 \[
-X_{i}\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\psi_{i}\left[\bar{a}\right]\right\} 
+X_{i}\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\psi^{i}\left[\bar{a}\right]\right\} 
 \]
 Wir weisen induktiv nach, dass $X_{i}=F^{i}\left(\emptyset\right)$.
 
 \begin{itemize}
-\item $\psi_{0}=\neg\bar{x}\dot{=}\bar{x}$ ist offensichtlich unerfüllbar,
+\item $\psi^{0}=\neg\bar{x}\dot{=}\bar{x}$ ist offensichtlich unerfüllbar,
 und erkennt daher die Relation $X_{0}=\emptyset=F^{0}\left(\emptyset\right)$.
 \item Sei $i\in\mathbb{N}$ beliebig:
 \begin{eqnarray*}
-\bar{a}\in X_{i+1} & \Leftrightarrow & \mathfrak{A}\models\psi_{i+1}\left[\bar{a}\right]\\
- & \Leftrightarrow & \mathfrak{A}\models\hat{\psi}^{\left(\frac{R\bar{z}}{\chi_{i}\left(\bar{z}\right)}\right)}\left[\bar{a}\right]
+\bar{a}\in X_{i+1} & \Leftrightarrow & \mathfrak{A}\models\psi^{i+1}\left[\bar{a}\right]\\
+ & \Leftrightarrow & \mathfrak{A}\models\hat{\psi}^{\left(\frac{R\bar{z}}{\chi^{i}\left(\bar{z}\right)}\right)}\left[\bar{a}\right]
 \end{eqnarray*}
 Per Definition gilt: 
 \[
-X_{i}\coloneqq\left\{ \bar{a}\mid\mathfrak{A}\models\psi_{i}\left[\bar{a}\right]\right\} =\left\{ \bar{a}\mid\mathfrak{A}\models\chi_{i}\left[\bar{a}\right]\right\} 
+X_{i}\coloneqq\left\{ \bar{a}\mid\mathfrak{A}\models\psi^{i+1}\left[\bar{a}\right]\right\} =\left\{ \bar{a}\mid\mathfrak{A}\models\chi^{i}\left[\bar{a}\right]\right\} 
 \]
+Und daher:
 \begin{eqnarray*}
 \bar{a}\in X_{i+1} & \Leftrightarrow & \mathfrak{A}\cup\left(A,\left(\begin{array}{c}
 R\\
@@ -2603,7 +2587,7 @@ Schließlich folgt $X_{n^{k}}=F^{n^{k}}\left(\emptyset\right)=F^{\infty}\left(\e
 da $\left|F^{\infty}\left(\emptyset\right)\right|\leqslant n^{k}$.
 Daher gilt:
 \begin{eqnarray*}
-\left\llbracket \hat{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{a}\right) & = & \left\llbracket \exists\bar{u}\left(\bar{u}=\bar{y}\wedge\psi_{n^{k}}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)\\
+\left\llbracket \hat{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{a}\right) & = & \left\llbracket \exists\bar{u}\left(\bar{u}=\bar{y}\wedge\psi^{n^{k}}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)\\
  & = & \left\llbracket R\bar{y}\right\rrbracket \left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
 R\\
 F^{\infty}\left(\emptyset\right)
@@ -2612,10 +2596,164 @@ F^{\infty}\left(\emptyset\right)
 \end{eqnarray*}
 
 
-\item [{Größe:}]~
+\end{description}
+\end{proof}
+Leider sind diese Formeln zu \emph{lang}: Wenn das Symbol $R$ mehr
+als einmal in $\psi$ vorkommt, ist $\left\Vert \psi_{i+1}\right\Vert \geqslant2\left\Vert \psi_{i}\right\Vert $,
+und daher $\left\Vert \varphi\right\Vert \geqslant2^{n^{k}}$ für
+$k=\mathrm{ar}\left(R\right)$. Für $\mathcal{C}_{n}^{\varphi}=\mathcal{C}_{n}^{\varphi_{n}}$
+könnten wir daher nicht die gewünschte $\mathrm{poly}\left(n\right)$-Größe
+ableiten.
+
+Die booleschen Schaltkreise haben jedoch nicht dieselbe Einschränkung
+wie $\mathrm{FO}\left[\sigma\right]$: Die Berechnung einer Teilformel
+$\psi_{i}\left(\bar{z}\right)$ kann wiederverwendet werden, ohne
+den Schaltkreis $\mathcal{C}_{n}^{\psi_{i}}$ zu vervielfältigen.
+
+\pagebreak{}Wir nutzen dies und den Beweis von Lemma \ref{lem:lfp-inf}
+aus, um aus der $\mathrm{LFP}\left[\sigma\right]$-Formel $\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
+direkt einen $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
+zu erzeugen, der die gewünschte Tiefe und Größe hat:
+\begin{lem}
+\label{lem:lfp-circ}Für jede $\mathrm{LFP}\left[\sigma\right]$-Formel
+$\varphi$ existiert eine $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+$\bar{\mathcal{C}^{\varphi}}$, so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right)$
+für alle $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$.\end{lem}
+\begin{proof}
+Sei $\varphi\left(\bar{x}\right)$ eine $k$-stellige $\mathrm{LFP}\left[\sigma\right]$-Formel.
+Sei $n\in\mathbb{N}$ beliebig. Wir erweitern die Konstruktion aus
+Lemma \ref{lem:FO-Circuit} um den folgenden Fall:\end{proof}
+\begin{casenv}
+\item Sei $\varphi\left(\bar{x}\right)=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
+für eine $\ell$-stellige Relationsvariable $R/\ell\in\mathbf{var}_{2}$,
+eine $m$-stellige $\mathrm{LFP}\left[\sigma\cup\left\{ R\right\} \right]$-Formel
+$\psi\left(\bar{w}\right)$ und ein $\ell$-Tupel von $\mathrm{LFP}\left[\sigma\right]$-Termen
+$\bar{y}$.
+
+
+Zur Übersicht:
+\begin{eqnarray*}
+\bar{x} & = & \mathbf{var}^{k},\,k=\left|\left\{ x_{1},\cdots,x_{k}\right\} \right|\\
+\bar{y},\bar{z} & \in & \mathbf{var}^{\ell},\,\ell=\left|\left\{ z_{1},\cdots,z_{\ell}\right\} \right|\geqslant\left|\left\{ y_{1},\cdots,y_{\ell}\right\} \right|\\
+\bar{w} & \in & \mathbf{var}^{m},\,m=\left|\left\{ w_{1},\cdots,w_{m}\right\} \right|\\
+\left\{ z_{1},\cdots,z_{\ell}\right\}  & \subseteq & \left\{ w_{1},\cdots,w_{m}\right\} 
+\end{eqnarray*}
+
+
+
+Wir definieren eine $\mathrm{LFP}\left[\sigma\cup\left\{ R_{1},\cdots,R_{\ell}\right\} \right]$-Formel
+$\psi'$, wobei jedes Atom der Form $R\bar{t}$ in $\psi$ durch ein
+Atom $R_{i}\bar{t}$ ersetzt wird, und jedes Symbol $R_{i}$ nur einmal
+in $\psi'$ vorkommt. (Diese Umbenennung ist notwendig, da jedes Atom
+$R\bar{t}$ unterschiedliche freie Parameter aus $\bar{x}$ enthalten
+kann, und die Abbildung der Variablen $\bar{x}\bar{z}$ auf $\bar{t}$
+fest kodiert werden muss.)
+
+
+Per Annahme existiert ein $k$-stelliger $\left(\sigma\cup\left\{ R_{1},\cdots,R_{\ell}\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
+$\mathcal{C}_{n}^{\psi'}$, der auf $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\cup\left\{ R\right\} \right)$
+die Anfrage $q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\right)=q_{\psi'}\left(\mathfrak{A}\right)$
+berechnet.
+\[
+\mathcal{C}_{n}^{\psi}=\left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U\right)
+\]
+Sei $\bar{z'}\coloneqq\bar{z}\bar{x}$ die Kombination $\bar{z}$
+mit den freien Parametern $\bar{x}$. Für jedes Atom $R_{i}\bar{t}$
+sei $\rho_{i}:U^{k+m}\rightarrow U^{m}$ wie folgt:
+\begin{eqnarray*}
+\mathrm{Sei}\,\,\bar{j} & \in & \left[1,k+m\right]^{m}\\
+\mathrm{so\,dass}\,\,\left(t_{1},\cdots,t_{m}\right) & = & \left(z'_{\left(j_{1}\right)},\cdots,z'_{\left(j_{m}\right)}\right)\\
+\rho_{i}\bar{u} & = & \left(u_{\left(j_{1}\right)},\cdots,u_{\left(j_{m}\right)}\right)
+\end{eqnarray*}
+
+\begin{description}
+\item [{Schaltkreis:}] Es wird eine Sequenz $\left(\mathcal{D}^{i}\right)_{i\in\mathbb{N}}$
+von $k$-stelligen $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisen
+definiert.
+\[
+\mathcal{D}^{i}\coloneqq\left(G_{i},W_{i},\Sigma_{i},\Omega_{i},U\right)
+\]
+ Für $i=0$ nehmen wir nur eine $\mathbf{0}$-Konstante:
+\begin{eqnarray*}
+\mathcal{D}^{0} & \coloneqq & \left(\left\{ g_{0}\right\} ,\emptyset,\Sigma_{0},\Omega_{0},U\right)\\
+\Sigma_{0}\left(g_{0}\right)=\mathbf{0} &  & \Omega\left(\bar{t}\right)=g_{0}
+\end{eqnarray*}
+Für $i\in\mathbb{N}_{\geqslant1}$ fügen wir eine neue Kopie von $\mathcal{C}_{n}^{\psi}$
+in $\mathcal{D}^{i}$ ein:
+\begin{eqnarray*}
+G_{i+1} & \coloneqq & G_{i}\uplus G_{\psi}\\
+W_{i+1} & \coloneqq & W_{i}\uplus W_{\psi}\uplus W'
+\end{eqnarray*}
+$\mathcal{D}^{i}$ verbindet alle mit $R\bar{t}$ markierten Inputs
+mit dem Output $\Omega_{i}\left(\bar{t}\right)$, und markiert sie
+mit ,,$\wedge$``. (Hier wäre ,,$\vee$`` äquivalent, da jedes
+Gate nur einen Vorgänger hat.) 
+\[
+\Sigma_{i+1}\left(g\right)\coloneqq\begin{cases}
+\Sigma_{i}\left(g\right) & \mathrm{falls}\,\,g\in G_{i}\\
+\wedge & \mathrm{falls}\,\,g\in G_{\psi},\,\Sigma_{\psi}\left(g\right)=R\bar{t}\\
+\Sigma_{\psi}\left(g\right) & \mathrm{sonst}
+\end{cases}
+\]
+\[
+W'\coloneqq\left\{ \left(\Omega_{i}\left(\bar{t}\right),g\right)\mid g\in G_{\psi},\,\Sigma_{\psi}\left(g\right)=R\bar{t}\right\} 
+\]
+Die Outputs von $\mathcal{C}_{n}^{\psi}$ werden zu den Outputs von
+$\mathcal{D}^{i+1}$: 
+\[
+\Omega_{i+1}=\Omega_{\psi}
+\]
+Schließlich sei $\mathcal{C}_{n}^{\varphi}\coloneqq\mathcal{D}^{n^{k}}$.
+\item [{Korrektheit:}] Es wird induktiv bewiesen, dass $\mathcal{D}^{i}$
+auf $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ die $\sigma$-Anfrage
+$q_{\mathcal{D}^{i}}\left(\mathfrak{A}\right)=F^{i}\left(\emptyset\right)$
+berechnet. Der Beweis funktioniert analog zu dem von Lemma \ref{lem:lfp-inf}:
+\[
+q_{\mathcal{D}^{0}}\left(\mathfrak{A}\right)=F^{0}\left(\emptyset\right)=\emptyset
+\]
+\begin{eqnarray*}
+q_{\mathcal{D}^{i+1}}\left(\mathfrak{A}\right) & = & q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
+R\\
+q_{\mathcal{D}^{i}}\left(\mathfrak{A}\right)
+\end{array}\right)\right)\right)\\
+ & \overset{\mathrm{Ann.}}{=} & q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
+R\\
+F^{i}\left(\emptyset\right)
+\end{array}\right)\right)\right)\\
+ & = & q_{\psi}\left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
+R\\
+F^{i}\left(\emptyset\right)
+\end{array}\right)\right)\right)\\
+ & \overset{\mathrm{Def.\ref{def:lfp}}}{=} & F^{i+1}\left(\emptyset\right)
+\end{eqnarray*}
+Daher berechnet $\mathcal{C}_{n}^{\varphi}=\mathcal{D}^{n^{k}}$ die
+Anfrage $q_{\mathcal{C}_{n}^{\varphi}}\left(\mathfrak{A}\right)=F^{n^{k}}\left(\emptyset\right)=F^{\infty}\left(\emptyset\right)$.
+\item [{Größe:}] Es wird induktiv bewiesen, dass $T\left(\mathcal{D}^{i}\right)\leqslant3i\left\Vert \psi\right\Vert +i$,
+und $\left|\mathcal{D}^{i}\right|\leqslant5n^{\mathtt{MF}\left(\psi\right)}$
+\begin{eqnarray*}
+T\left(\mathcal{D}^{0}\right) & = & 0\\
+T\left(\mathcal{D}^{i+1}\right) & = & T\left(\mathcal{D}^{i}\right)+T\left(\mathcal{C}_{n}^{\psi}\right)+1\\
+ & \leqslant & T\left(\mathcal{D}^{i}\right)+3\left\Vert \psi\right\Vert +1\\
+ & \overset{\mathrm{Ann.}}{=} & 3i\left\Vert \psi\right\Vert +i+3\left\Vert \psi\right\Vert +1\\
+ & = & 3\left(i+1\right)\left\Vert \psi\right\Vert +i+1
+\end{eqnarray*}
+
 \end{description}
 \end{casenv}
-\end{proof}
+Mit den bereits beschriebenen Konstruktionen kann aus diesen Formeln
+eine Schaltkreisfamilie erzeugt werden, die $\varphi$ berechnet.
+\begin{eqnarray*}
+\mathcal{C} & \coloneqq & \left(\mathcal{C}_{n}^{\varphi_{n}}\right)_{n\in\mathbb{N}}\\
+\mathcal{C}\left(\mathfrak{A}\right) & = & \varphi\left(\mathfrak{A}\right)\,\mathrm{f.a.}\,\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)
+\end{eqnarray*}
+
+
+Durch die Einschränkung auf eine konstante Anzahl von Variablen ist
+die Größe der Schaltkreisfamilie polynomiell durch $n^{\mathcal{O}\left(\left\Vert \varphi\right\Vert \right)}$
+beschränkt, obwohl die $\mathrm{FO}\left[\sigma\right]$-Formeln beliebig
+lang werden. Die Tiefe ist durch $T\left(\mathcal{C}_{n}^{\varphi_{n}}\right)\in\mathcal{O}\left(\left\Vert \varphi_{n}\right\Vert \right)=\mathcal{O}\left(n^{\left\Vert \varphi\right\Vert }\right)$
+allerdings nicht mehr konstant.
+
 Unter der Annahme, dass $\varphi_{n}^{\left(i\right)}\left(\bar{x}\right)$
 auf $\mathfrak{A}$ die Anfrage $q\left(\mathfrak{A}\right)=R^{\left(i\right)}$
 definiert, definiert $\chi^{\left(n\right)}\left(\bar{z}\right)$

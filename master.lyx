@@ -2414,6 +2414,12 @@ Diese Arbeit befasst sich ausschließlich mit relationalen Logiken ohne Funktion
 \end_layout
 
 \begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:fo"
+
+\end_inset
+
 Die Syntax und Semantik der relationalen Logik erster Stufe 
 \begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
@@ -3065,6 +3071,49 @@ Die Fixpunktlogik
 
 \end_layout
 
+\begin_layout Remark*
+Ohne Beschränkung der Allgemeinheit sei 
+\begin_inset Formula $\left\{ x_{1},\cdots,x_{k}\right\} \subseteq\mathrm{frei}\left(\psi\right)$
+\end_inset
+
+, denn eine gebundene Variable 
+\begin_inset Formula $x_{i}$
+\end_inset
+
+, die nicht frei in 
+\begin_inset Formula $\psi$
+\end_inset
+
+ vorkommt, kann analog zu Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:fo"
+
+\end_inset
+
+ in ein neues Atom 
+\begin_inset Formula $x_{i}\dot{=}x_{i}$
+\end_inset
+
+ eingefügt werden.
+\end_layout
+
+\begin_layout Remark*
+Die nicht durch 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ gebundene Variablen 
+\begin_inset Formula $\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \subseteq\mathrm{frei}\left(\varphi\right)$
+\end_inset
+
+ heißen 
+\series bold
+Parameter
+\series default
+ der Fixpunkt-Operation.
+\end_layout
+
 \begin_layout Description
 Auswertung: Für 
 \begin_inset Formula $R/k\in\mathbf{var}_{2}$
@@ -3086,8 +3135,8 @@ Auswertung: Für
 \begin_inset Formula $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\sigma\right]$
 \end_inset
 
--Formel, eine Belegung 
-\begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \rightarrow A$
+-Formel, eine Parameter-Belegung 
+\begin_inset Formula $\beta':\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \rightarrow A$
 \end_inset
 
  und eine Relation 
@@ -3113,17 +3162,17 @@ Auswertung: Für
 R\\
 X
 \end{array}\right)\right)\\
-F\left(X\right) & \coloneqq & q_{\varphi^{\beta}}\left(\mathfrak{A}\cup\mathfrak{R}_{X}\right)
+F_{\beta'}\left(X\right) & \coloneqq & q_{\varphi^{\beta'}}\left(\mathfrak{A}\cup\mathfrak{R}_{X}\right)
 \end{eqnarray*}
 
 \end_inset
 
 Das heißt: 
-\begin_inset Formula $F\left(X\right)$
+\begin_inset Formula $F_{\beta'}\left(X\right)$
 \end_inset
 
  ist das Anfrageergebnis von 
-\begin_inset Formula $\varphi^{\beta}$
+\begin_inset Formula $\varphi^{\beta'}$
 \end_inset
 
  auf 
@@ -3173,7 +3222,7 @@ A\subseteq B & \Rightarrow & F\left(A\right)\subseteq F\left(B\right)
 
 \begin_inset Formula 
 \[
-\emptyset\subseteq F\left(\emptyset\right)\subseteq\cdots\subseteq F^{\infty}\left(\emptyset\right)\subseteq A^{k}
+\emptyset\subseteq F_{\beta'}\left(\emptyset\right)\subseteq\cdots\subseteq F_{\beta'}^{\infty}\left(\emptyset\right)\subseteq A^{k}
 \]
 
 \end_inset
@@ -3183,7 +3232,7 @@ A\subseteq B & \Rightarrow & F\left(A\right)\subseteq F\left(B\right)
 
 \begin_layout Standard
 Insbesondere ist 
-\begin_inset Formula $F^{\infty}\left(\emptyset\right)=F^{\left|A^{k}\right|}\left(\emptyset\right)$
+\begin_inset Formula $F_{\beta'}^{\infty}\left(\emptyset\right)=F^{\left|A^{k}\right|}\left(\emptyset\right)$
 \end_inset
 
 , da die Iteration nach höchstens 
@@ -3194,7 +3243,15 @@ Insbesondere ist
 \end_layout
 
 \begin_layout Standard
-Die Formel prüft nun, ob die Belegung des Tupels 
+Für eine Belegung 
+\begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
+\end_inset
+
+ prüft 
+\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
+\end_inset
+
+ nun, ob die Belegung des Tupels 
 \begin_inset Formula $\bar{y}$
 \end_inset
 
@@ -3202,10 +3259,20 @@ Die Formel prüft nun, ob die Belegung des Tupels
 \begin_inset Formula $F^{\infty}$
 \end_inset
 
- liegt: 
+ liegt.
+ Sei 
+\begin_inset Formula $\beta'$
+\end_inset
+
+ die Reduktion von 
+\begin_inset Formula $\beta$
+\end_inset
+
+ auf die Parameter: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\left\llbracket \left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket R\bar{y}\right\rrbracket \left(\mathfrak{A}\cup\mathfrak{R}_{F^{\infty}\left(\emptyset\right)},\beta\right)
+\beta' & \coloneqq & \beta_{\mid\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} }\\
+\left\llbracket \left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket R\bar{y}\right\rrbracket \left(\mathfrak{A}\cup\mathfrak{R}_{F_{\beta'}^{\infty}\left(\emptyset\right)},\beta\right)
 \end{eqnarray*}
 
 \end_inset
@@ -3252,6 +3319,67 @@ Im folgenden wird die Logik
 \end_inset
 
  bezeichnet.
+ Ferner werden wir uns auf das 
+\emph on
+parameter-freie
+\emph default
+ Fragment der Logik beschränken, was (bis auf einen Zuwachs in der Anzahl
+ der Variablen und Länge der Formel) die Allgemeinheit nicht einschränkt.
+\end_layout
+
+\begin_layout Definition
+Eine 
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ ist 
+\series bold
+parameter-frei
+\series default
+, falls für jede Teilformel der Form 
+\begin_inset Formula $\left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
+\end_inset
+
+ gilt: 
+\begin_inset Formula 
+\[
+\mathrm{frei}\left(\psi\right)=\left\{ x_{1},\cdots,x_{\mathrm{ar}\left(R\right)}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+Jede 
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ kann in eine parameter-freie 
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi'$
+\end_inset
+
+ übersetzt werden.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Zaid"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -9171,7 +9299,7 @@ Offensichtlich ist sie jedoch immer noch
 \end_layout
 
 \begin_layout Subsection
-Beliebige Orakel mit Zählterm
+Beliebige Orakel mit Zählquantor
 \end_layout
 
 \begin_layout Standard
@@ -9359,8 +9487,7 @@ key "Immerman1982,Libkin2012"
 \begin_inset Formula $\left(\varphi_{n}\right)_{n\in\mathbb{N}}$
 \end_inset
 
- mit polynomieller Länge und einer konstanten Anzahl Variablen definiert
- werden, so dass 
+ mit einer konstanten Anzahl Variablen definiert werden, so dass 
 \begin_inset Formula $\varphi_{n}$
 \end_inset
 
@@ -9373,7 +9500,7 @@ key "Immerman1982,Libkin2012"
 \end_inset
 
  ist.
- (Vergleichbar zum 
+ Dies ist vergleichbar zum 
 \begin_inset Formula $k$
 \end_inset
 
@@ -9388,9 +9515,858 @@ key "Dawar1995a,Kolaitis1992a"
 
 \end_inset
 
-)
+ Hier hat jedoch jede einzelne Formel 
+\begin_inset Formula $\varphi_{n}$
+\end_inset
+
+ eine endliche Länge.
 \end_layout
 
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:lfp-inf"
+
+\end_inset
+
+Für jede 
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ mit 
+\begin_inset Formula $\left\Vert \varphi\right\Vert =c$
+\end_inset
+
+ und jedes 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ existiert eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\hat{\varphi}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\left|\mathrm{var}\left(\varphi_{n}\right)\right|\leqslant2\left|\mathrm{var}\left(\varphi\right)\right|$
+\end_inset
+
+, so dass 
+\begin_inset Formula $\models_{n}\left(\hat{\varphi}\leftrightarrow\varphi\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\end_inset
+
+ eine 
+\begin_inset Formula $k$
+\end_inset
+
+-stellige 
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+ Es wird induktiv über den Aufbau von 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ vorgegangen, wobei nur der Fall 
+\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
+\end_inset
+
+ nicht-trivial ist.
+\end_layout
+
+\begin_layout Proof
+Falls 
+\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
+\end_inset
+
+ für eine 
+\begin_inset Formula $k$
+\end_inset
+
+-stellige Relationsvariable 
+\begin_inset Formula $R\in\mathbf{var}_{2}$
+\end_inset
+
+, 
+\begin_inset Formula $\bar{z}\in\mathbf{var}^{k}$
+\end_inset
+
+, eine 
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\cup\left\{ R\right\} \right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\psi$
+\end_inset
+
+ und ein 
+\begin_inset Formula $k$
+\end_inset
+
+-Tupel von 
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
+\end_inset
+
+-Termen 
+\begin_inset Formula $\bar{y}\in\mathbf{var}^{k}$
+\end_inset
+
+, so existiert per Annahme eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\hat{\psi}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\models_{n}\left(\hat{\psi}\leftrightarrow\psi\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\bar{u}\in\mathbf{var}^{k}\backslash\mathrm{frei}\left(\psi\right)$
+\end_inset
+
+ ein Tupel von Variablen, die nicht frei in 
+\begin_inset Formula $\hat{\psi}$
+\end_inset
+
+ vorkommen.
+ Sei die Sequenz 
+\begin_inset Formula $\left(\psi_{i}\right)_{i\in\mathbb{N}}$
+\end_inset
+
+ induktiv wie folgt definiert:
+\begin_inset Formula 
+\begin{eqnarray*}
+\psi^{0} & \coloneqq & \neg\bar{z}\dot{=}\bar{z}\\
+\psi^{i+1} & \coloneqq & \hat{\psi}^{\left(\frac{R\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}\\
+\chi^{i}\left(\bar{t}\right) & \coloneqq & \exists\bar{u}\left(\bar{t}=\bar{u}\wedge\exists\bar{z}\left(\bar{u}=\bar{z}\wedge\psi^{i}\right)\right)
+\end{eqnarray*}
+
+\end_inset
+
+Hierbei sei 
+\begin_inset Formula $\hat{\psi}^{\left(\frac{R\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}$
+\end_inset
+
+ die Formel, die aus 
+\begin_inset Formula $\hat{\psi}$
+\end_inset
+
+ entsteht, indem jedes Atom 
+\begin_inset Formula $R\bar{t}$
+\end_inset
+
+ (für irgendein 
+\begin_inset Formula $\bar{t}\in\mathbf{var}^{k}$
+\end_inset
+
+) durch 
+\begin_inset Formula $\chi^{i}\left(\bar{t}\right)$
+\end_inset
+
+ ersetzt wird.
+ (Der Zwischenschritt über 
+\begin_inset Formula $\bar{u}$
+\end_inset
+
+ ist notwendig, weil 
+\begin_inset Formula $\bar{t}$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{z}$
+\end_inset
+
+ zum Teil die gleichen Variablen enthalten können, und daher ihr Geltungsbereich
+ nicht überlappen darf.)
+\end_layout
+
+\begin_layout Proof
+Nun gelte:
+\begin_inset Formula 
+\[
+\hat{\varphi}\coloneqq\exists\bar{z}\left(\bar{x}=\bar{z}\wedge\psi^{n^{k}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Korrektheit: Sei 
+\begin_inset Formula $F:2^{A^{k}}\rightarrow2^{A^{k}}$
+\end_inset
+
+ wie in Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:lfp"
+
+\end_inset
+
+ definiert.
+ Außerdem sei 
+\begin_inset Formula $\left(X_{i}\right)_{i\in\mathbb{N}}$
+\end_inset
+
+ wie folgt: 
+\begin_inset Formula 
+\[
+X_{i}\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\psi^{i}\left[\bar{a}\right]\right\} 
+\]
+
+\end_inset
+
+Wir weisen induktiv nach, dass 
+\begin_inset Formula $X_{i}=F^{i}\left(\emptyset\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset Formula $\psi^{0}=\neg\bar{x}\dot{=}\bar{x}$
+\end_inset
+
+ ist offensichtlich unerfüllbar, und erkennt daher die Relation 
+\begin_inset Formula $X_{0}=\emptyset=F^{0}\left(\emptyset\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Sei 
+\begin_inset Formula $i\in\mathbb{N}$
+\end_inset
+
+ beliebig:
+\begin_inset Formula 
+\begin{eqnarray*}
+\bar{a}\in X_{i+1} & \Leftrightarrow & \mathfrak{A}\models\psi^{i+1}\left[\bar{a}\right]\\
+ & \Leftrightarrow & \mathfrak{A}\models\hat{\psi}^{\left(\frac{R\bar{z}}{\chi^{i}\left(\bar{z}\right)}\right)}\left[\bar{a}\right]
+\end{eqnarray*}
+
+\end_inset
+
+Per Definition gilt: 
+\begin_inset Formula 
+\[
+X_{i}\coloneqq\left\{ \bar{a}\mid\mathfrak{A}\models\psi^{i+1}\left[\bar{a}\right]\right\} =\left\{ \bar{a}\mid\mathfrak{A}\models\chi^{i}\left[\bar{a}\right]\right\} 
+\]
+
+\end_inset
+
+Und daher:
+\begin_inset Formula 
+\begin{eqnarray*}
+\bar{a}\in X_{i+1} & \Leftrightarrow & \mathfrak{A}\cup\left(A,\left(\begin{array}{c}
+R\\
+X_{i}
+\end{array}\right)\right)\models\hat{\psi}\left[\bar{a}\right]\\
+ & \overset{\mathrm{Ann.}}{\Leftrightarrow} & \mathfrak{A}\cup\left(A,\left(\begin{array}{c}
+R\\
+F^{i}\left(\emptyset\right)
+\end{array}\right)\right)\models\hat{\psi}\left[\bar{a}\right]\\
+ & \overset{\mathrm{Def.\ref{def:lfp}}}{\Leftrightarrow} & \bar{a}\in F^{i+1}\left(\emptyset\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Schließlich folgt 
+\begin_inset Formula $X_{n^{k}}=F^{n^{k}}\left(\emptyset\right)=F^{\infty}\left(\emptyset\right)$
+\end_inset
+
+, da 
+\begin_inset Formula $\left|F^{\infty}\left(\emptyset\right)\right|\leqslant n^{k}$
+\end_inset
+
+.
+ Daher gilt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\left\llbracket \hat{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{a}\right) & = & \left\llbracket \exists\bar{u}\left(\bar{u}=\bar{y}\wedge\psi^{n^{k}}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)\\
+ & = & \left\llbracket R\bar{y}\right\rrbracket \left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
+R\\
+F^{\infty}\left(\emptyset\right)
+\end{array}\right)\right),\bar{a}\right)\\
+ & \overset{\mathrm{Def.\ref{def:lfp}}}{=} & \left\llbracket \left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+Leider sind diese Formeln zu 
+\emph on
+lang
+\emph default
+: Wenn das Symbol 
+\begin_inset Formula $R$
+\end_inset
+
+ mehr als einmal in 
+\begin_inset Formula $\psi$
+\end_inset
+
+ vorkommt, ist 
+\begin_inset Formula $\left\Vert \psi_{i+1}\right\Vert \geqslant2\left\Vert \psi_{i}\right\Vert $
+\end_inset
+
+, und daher 
+\begin_inset Formula $\left\Vert \varphi\right\Vert \geqslant2^{n^{k}}$
+\end_inset
+
+ für 
+\begin_inset Formula $k=\mathrm{ar}\left(R\right)$
+\end_inset
+
+.
+ Für 
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi}=\mathcal{C}_{n}^{\varphi_{n}}$
+\end_inset
+
+ könnten wir daher nicht die gewünschte 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-Größe ableiten.
+\end_layout
+
+\begin_layout Standard
+Die booleschen Schaltkreise haben jedoch nicht dieselbe Einschränkung wie
+ 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+: Die Berechnung einer Teilformel 
+\begin_inset Formula $\psi_{i}\left(\bar{z}\right)$
+\end_inset
+
+ kann wiederverwendet werden, ohne den Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{n}^{\psi_{i}}$
+\end_inset
+
+ zu vervielfältigen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+Wir nutzen dies und den Beweis von Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:lfp-inf"
+
+\end_inset
+
+ aus, um aus der 
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
+\end_inset
+
+ direkt einen 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreis zu erzeugen, der die gewünschte Tiefe und Größe hat:
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:lfp-circ"
+
+\end_inset
+
+Für jede 
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ existiert eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\bar{\mathcal{C}^{\varphi}}$
+\end_inset
+
+, so dass 
+\begin_inset Formula $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right)$
+\end_inset
+
+ für alle 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\end_inset
+
+ eine 
+\begin_inset Formula $k$
+\end_inset
+
+-stellige 
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
+\end_inset
+
+-Formel.
+ Sei 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ beliebig.
+ Wir erweitern die Konstruktion aus Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:FO-Circuit"
+
+\end_inset
+
+ um den folgenden Fall:
+\end_layout
+
+\begin_layout Case
+Sei 
+\begin_inset Formula $\varphi\left(\bar{x}\right)=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
+\end_inset
+
+ für eine 
+\begin_inset Formula $\ell$
+\end_inset
+
+-stellige Relationsvariable 
+\begin_inset Formula $R/\ell\in\mathbf{var}_{2}$
+\end_inset
+
+, eine 
+\begin_inset Formula $m$
+\end_inset
+
+-stellige 
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\cup\left\{ R\right\} \right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\psi\left(\bar{w}\right)$
+\end_inset
+
+ und ein 
+\begin_inset Formula $\ell$
+\end_inset
+
+-Tupel von 
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
+\end_inset
+
+-Termen 
+\begin_inset Formula $\bar{y}$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Zur Übersicht:
+\begin_inset Formula 
+\begin{eqnarray*}
+\bar{x} & = & \mathbf{var}^{k},\,k=\left|\left\{ x_{1},\cdots,x_{k}\right\} \right|\\
+\bar{y},\bar{z} & \in & \mathbf{var}^{\ell},\,\ell=\left|\left\{ z_{1},\cdots,z_{\ell}\right\} \right|\geqslant\left|\left\{ y_{1},\cdots,y_{\ell}\right\} \right|\\
+\bar{w} & \in & \mathbf{var}^{m},\,m=\left|\left\{ w_{1},\cdots,w_{m}\right\} \right|\\
+\left\{ z_{1},\cdots,z_{\ell}\right\}  & \subseteq & \left\{ w_{1},\cdots,w_{m}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wir definieren eine 
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\cup\left\{ R_{1},\cdots,R_{\ell}\right\} \right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\psi'$
+\end_inset
+
+, wobei jedes Atom der Form 
+\begin_inset Formula $R\bar{t}$
+\end_inset
+
+ in 
+\begin_inset Formula $\psi$
+\end_inset
+
+ durch ein Atom 
+\begin_inset Formula $R_{i}\bar{t}$
+\end_inset
+
+ ersetzt wird, und jedes Symbol 
+\begin_inset Formula $R_{i}$
+\end_inset
+
+ nur einmal in 
+\begin_inset Formula $\psi'$
+\end_inset
+
+ vorkommt.
+ (Diese Umbenennung ist notwendig, da jedes Atom 
+\begin_inset Formula $R\bar{t}$
+\end_inset
+
+ unterschiedliche freie Parameter aus 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ enthalten kann, und die Abbildung der Variablen 
+\begin_inset Formula $\bar{x}\bar{z}$
+\end_inset
+
+ auf 
+\begin_inset Formula $\bar{t}$
+\end_inset
+
+ fest kodiert werden muss.)
+\end_layout
+
+\begin_layout Standard
+Per Annahme existiert ein 
+\begin_inset Formula $k$
+\end_inset
+
+-stelliger 
+\begin_inset Formula $\left(\sigma\cup\left\{ R_{1},\cdots,R_{\ell}\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{n}^{\psi'}$
+\end_inset
+
+, der auf 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\cup\left\{ R\right\} \right)$
+\end_inset
+
+ die Anfrage 
+\begin_inset Formula $q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\right)=q_{\psi'}\left(\mathfrak{A}\right)$
+\end_inset
+
+ berechnet.
+\begin_inset Formula 
+\[
+\mathcal{C}_{n}^{\psi}=\left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U\right)
+\]
+
+\end_inset
+
+Sei 
+\begin_inset Formula $\bar{z'}\coloneqq\bar{z}\bar{x}$
+\end_inset
+
+ die Kombination 
+\begin_inset Formula $\bar{z}$
+\end_inset
+
+ mit den freien Parametern 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+.
+ Für jedes Atom 
+\begin_inset Formula $R_{i}\bar{t}$
+\end_inset
+
+ sei 
+\begin_inset Formula $\rho_{i}:U^{k+m}\rightarrow U^{m}$
+\end_inset
+
+ wie folgt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{Sei}\,\,\bar{j} & \in & \left[1,k+m\right]^{m}\\
+\mathrm{so\,dass}\,\,\left(t_{1},\cdots,t_{m}\right) & = & \left(z'_{\left(j_{1}\right)},\cdots,z'_{\left(j_{m}\right)}\right)\\
+\rho_{i}\bar{u} & = & \left(u_{\left(j_{1}\right)},\cdots,u_{\left(j_{m}\right)}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Schaltkreis: Es wird eine Sequenz 
+\begin_inset Formula $\left(\mathcal{D}^{i}\right)_{i\in\mathbb{N}}$
+\end_inset
+
+ von 
+\begin_inset Formula $k$
+\end_inset
+
+-stelligen 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisen definiert.
+\begin_inset Formula 
+\[
+\mathcal{D}^{i}\coloneqq\left(G_{i},W_{i},\Sigma_{i},\Omega_{i},U\right)
+\]
+
+\end_inset
+
+ Für 
+\begin_inset Formula $i=0$
+\end_inset
+
+ nehmen wir nur eine 
+\begin_inset Formula $\mathbf{0}$
+\end_inset
+
+-Konstante:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{D}^{0} & \coloneqq & \left(\left\{ g_{0}\right\} ,\emptyset,\Sigma_{0},\Omega_{0},U\right)\\
+\Sigma_{0}\left(g_{0}\right)=\mathbf{0} &  & \Omega\left(\bar{t}\right)=g_{0}
+\end{eqnarray*}
+
+\end_inset
+
+Für 
+\begin_inset Formula $i\in\mathbb{N}_{\geqslant1}$
+\end_inset
+
+ fügen wir eine neue Kopie von 
+\begin_inset Formula $\mathcal{C}_{n}^{\psi}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{D}^{i}$
+\end_inset
+
+ ein:
+\begin_inset Formula 
+\begin{eqnarray*}
+G_{i+1} & \coloneqq & G_{i}\uplus G_{\psi}\\
+W_{i+1} & \coloneqq & W_{i}\uplus W_{\psi}\uplus W'
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula $\mathcal{D}^{i}$
+\end_inset
+
+ verbindet alle mit 
+\begin_inset Formula $R\bar{t}$
+\end_inset
+
+ markierten Inputs mit dem Output 
+\begin_inset Formula $\Omega_{i}\left(\bar{t}\right)$
+\end_inset
+
+, und markiert sie mit 
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $\wedge$
+\end_inset
+
+
+\begin_inset Quotes grd
+\end_inset
+
+.
+ (Hier wäre 
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $\vee$
+\end_inset
+
+
+\begin_inset Quotes grd
+\end_inset
+
+ äquivalent, da jedes Gate nur einen Vorgänger hat.) 
+\begin_inset Formula 
+\[
+\Sigma_{i+1}\left(g\right)\coloneqq\begin{cases}
+\Sigma_{i}\left(g\right) & \mathrm{falls}\,\,g\in G_{i}\\
+\wedge & \mathrm{falls}\,\,g\in G_{\psi},\,\Sigma_{\psi}\left(g\right)=R\bar{t}\\
+\Sigma_{\psi}\left(g\right) & \mathrm{sonst}
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+W'\coloneqq\left\{ \left(\Omega_{i}\left(\bar{t}\right),g\right)\mid g\in G_{\psi},\,\Sigma_{\psi}\left(g\right)=R\bar{t}\right\} 
+\]
+
+\end_inset
+
+Die Outputs von 
+\begin_inset Formula $\mathcal{C}_{n}^{\psi}$
+\end_inset
+
+ werden zu den Outputs von 
+\begin_inset Formula $\mathcal{D}^{i+1}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\Omega_{i+1}=\Omega_{\psi}
+\]
+
+\end_inset
+
+Schließlich sei 
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi}\coloneqq\mathcal{D}^{n^{k}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Korrektheit: Es wird induktiv bewiesen, dass 
+\begin_inset Formula $\mathcal{D}^{i}$
+\end_inset
+
+ auf 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ die 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage 
+\begin_inset Formula $q_{\mathcal{D}^{i}}\left(\mathfrak{A}\right)=F^{i}\left(\emptyset\right)$
+\end_inset
+
+ berechnet.
+ Der Beweis funktioniert analog zu dem von Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:lfp-inf"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+q_{\mathcal{D}^{0}}\left(\mathfrak{A}\right)=F^{0}\left(\emptyset\right)=\emptyset
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+q_{\mathcal{D}^{i+1}}\left(\mathfrak{A}\right) & = & q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
+R\\
+q_{\mathcal{D}^{i}}\left(\mathfrak{A}\right)
+\end{array}\right)\right)\right)\\
+ & \overset{\mathrm{Ann.}}{=} & q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
+R\\
+F^{i}\left(\emptyset\right)
+\end{array}\right)\right)\right)\\
+ & = & q_{\psi}\left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
+R\\
+F^{i}\left(\emptyset\right)
+\end{array}\right)\right)\right)\\
+ & \overset{\mathrm{Def.\ref{def:lfp}}}{=} & F^{i+1}\left(\emptyset\right)
+\end{eqnarray*}
+
+\end_inset
+
+Daher berechnet 
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi}=\mathcal{D}^{n^{k}}$
+\end_inset
+
+ die Anfrage 
+\begin_inset Formula $q_{\mathcal{C}_{n}^{\varphi}}\left(\mathfrak{A}\right)=F^{n^{k}}\left(\emptyset\right)=F^{\infty}\left(\emptyset\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Größe: Es wird induktiv bewiesen, dass 
+\begin_inset Formula $T\left(\mathcal{D}^{i}\right)\leqslant3i\left\Vert \psi\right\Vert +i$
+\end_inset
+
+, und 
+\begin_inset Formula $\left|\mathcal{D}^{i}\right|\leqslant5n^{\mathtt{MF}\left(\psi\right)}$
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+T\left(\mathcal{D}^{0}\right) & = & 0\\
+T\left(\mathcal{D}^{i+1}\right) & = & T\left(\mathcal{D}^{i}\right)+T\left(\mathcal{C}_{n}^{\psi}\right)+1\\
+ & \leqslant & T\left(\mathcal{D}^{i}\right)+3\left\Vert \psi\right\Vert +1\\
+ & \overset{\mathrm{Ann.}}{=} & 3i\left\Vert \psi\right\Vert +i+3\left\Vert \psi\right\Vert +1\\
+ & = & 3\left(i+1\right)\left\Vert \psi\right\Vert +i+1
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Standard
 Mit den bereits beschriebenen Konstruktionen kann aus diesen Formeln eine
  Schaltkreisfamilie erzeugt werden, die 
@@ -9427,495 +10403,6 @@ Durch die Einschränkung auf eine konstante Anzahl von Variablen ist die
  allerdings nicht mehr konstant.
 \end_layout
 
-\begin_layout Lemma
-Für jede 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- und jedes 
-\begin_inset Formula $n\in\mathbb{N}$
-\end_inset
-
- existiert eine 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\hat{\varphi}$
-\end_inset
-
- mit 
-\begin_inset Formula $\left\Vert \hat{\varphi}\right\Vert \leqslant n^{\left\Vert \varphi\right\Vert }$
-\end_inset
-
- und 
-\begin_inset Formula $\mathtt{MF}\left(\hat{\varphi}\right)\leqslant2\mathtt{MF}\left(\varphi\right)$
-\end_inset
-
-, so dass 
-\begin_inset Formula $\models_{n}\left(\hat{\varphi}\leftrightarrow\varphi\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Proof
-Sei 
-\begin_inset Formula $\varphi\left(\bar{x}\right)$
-\end_inset
-
- eine 
-\begin_inset Formula $k$
-\end_inset
-
--stellige 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
-\end_inset
-
--Formel mit dem Argument 
-\begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Proof
-Die Tatsache, dass jeder 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
-\end_inset
-
--Term 
-\begin_inset Formula $t$
-\end_inset
-
- eine Variable 
-\begin_inset Formula $t\in\mathbf{var}$
-\end_inset
-
- ist, macht die atomaren Fälle trivial:
-\end_layout
-
-\begin_deeper
-\begin_layout Case
-Falls 
-\begin_inset Formula $\varphi=R\bar{y}$
-\end_inset
-
- für ein 
-\begin_inset Formula $k$
-\end_inset
-
--Tupel von 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
-\end_inset
-
--Termen 
-\begin_inset Formula $\bar{y}\in\mathbf{var}^{k}$
-\end_inset
-
- und 
-\begin_inset Formula $R/k\in\sigma$
-\end_inset
-
-, so ist 
-\begin_inset Formula $\hat{\varphi}=\varphi$
-\end_inset
-
- bereits eine 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
--Formel.
-\end_layout
-
-\begin_layout Case
-Falls 
-\begin_inset Formula $\varphi=y_{1}\dot{=}y_{2}$
-\end_inset
-
- für zwei 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
-\end_inset
-
--Terme 
-\begin_inset Formula $y_{1},y_{2}\in\mathbf{var}$
-\end_inset
-
-, so ist 
-\begin_inset Formula $\hat{\varphi}=\varphi$
-\end_inset
-
- bereits eine 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
--Formel.
-\end_layout
-
-\begin_layout Case
-Falls 
-\begin_inset Formula $\varphi=\left(\psi_{1}\gamma\cdots\gamma\psi_{k}\right)$
-\end_inset
-
- für 
-\begin_inset Formula $k$
-\end_inset
-
- 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
-\end_inset
-
--Formeln 
-\begin_inset Formula $\psi_{1},\cdots,\psi_{k}$
-\end_inset
-
- und 
-\begin_inset Formula $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
-\end_inset
-
-, so existieren per Annahme die dazu 
-\begin_inset Formula $n$
-\end_inset
-
--äquivalenten 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
--Formeln 
-\begin_inset Formula $\hat{\psi_{1}},\cdots,\hat{\psi_{k}}$
-\end_inset
-
-.
-\begin_inset Formula 
-\[
-\hat{\varphi}\coloneqq\left(\hat{\psi_{1}}\gamma\cdots\gamma\hat{\psi_{k}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Case
-Falls 
-\begin_inset Formula $\varphi=\neg\psi$
-\end_inset
-
- für eine 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\psi$
-\end_inset
-
-, so existiert per Annahme die 
-\begin_inset Formula $n$
-\end_inset
-
--äquivalente Formel 
-\begin_inset Formula $\hat{\psi}$
-\end_inset
-
-:
-\begin_inset Formula 
-\begin{eqnarray*}
-\hat{\varphi} & \coloneqq & \neg\hat{\psi}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Case
-Falls 
-\begin_inset Formula $\varphi=Qy\psi$
-\end_inset
-
- für 
-\begin_inset Formula $Q\in\left\{ \exists,\forall\right\} $
-\end_inset
-
-, 
-\begin_inset Formula $y\in\mathbf{var}$
-\end_inset
-
- und eine 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\psi$
-\end_inset
-
- , so existiert per Annahme die 
-\begin_inset Formula $n$
-\end_inset
-
--äquivalente Formel 
-\begin_inset Formula $\hat{\psi}$
-\end_inset
-
-:
-\begin_inset Formula 
-\begin{eqnarray*}
-\hat{\varphi} & \coloneqq & Qy\hat{\psi}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Case
-Falls 
-\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
-\end_inset
-
- für eine 
-\begin_inset Formula $k$
-\end_inset
-
--stellige Relationsvariable 
-\begin_inset Formula $R\in\mathbf{var}_{2}$
-\end_inset
-
-, 
-\begin_inset Formula $\bar{z}\in\mathbf{var}^{k}$
-\end_inset
-
-, eine 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\psi$
-\end_inset
-
- und ein 
-\begin_inset Formula $k$
-\end_inset
-
--Tupel von 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
-\end_inset
-
--Termen 
-\begin_inset Formula $\bar{y}\in\mathbf{var}^{k}$
-\end_inset
-
-, so existiert per Annahme eine 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\hat{\psi}$
-\end_inset
-
- mit 
-\begin_inset Formula $\models_{n}\left(\hat{\psi}\leftrightarrow\psi\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Sei 
-\begin_inset Formula $\bar{u}\in\mathbf{var}^{k}\backslash\mathrm{frei}\left(\psi\right)$
-\end_inset
-
- ein Tupel von Variablen, die nicht frei in 
-\begin_inset Formula $\hat{\psi}$
-\end_inset
-
- vorkommen.
- Sei die Sequenz 
-\begin_inset Formula $\left(\psi_{i}\right)_{i\in\mathbb{N}}$
-\end_inset
-
- induktiv wie folgt definiert:
-\begin_inset Formula 
-\begin{eqnarray*}
-\psi_{0} & \coloneqq & \neg\bar{z}\dot{=}\bar{z}\\
-\psi_{i+1} & \coloneqq & \hat{\psi}^{\left(\frac{R\bar{t}}{\chi_{i}\left(\bar{t}\right)}\right)}\\
-\chi_{i}\left(\bar{t}\right) & \coloneqq & \exists\bar{u}\left(\bar{t}=\bar{u}\wedge\exists\bar{z}\left(\bar{u}=\bar{z}\wedge\psi_{i}\right)\right)
-\end{eqnarray*}
-
-\end_inset
-
-Hierbei sei 
-\begin_inset Formula $\hat{\psi}^{\left(\frac{R\bar{t}}{\chi_{i}\left(\bar{t}\right)}\right)}$
-\end_inset
-
- die Formel, die aus 
-\begin_inset Formula $\hat{\psi}$
-\end_inset
-
- entsteht, indem jedes Atom 
-\begin_inset Formula $R\bar{t}$
-\end_inset
-
- (für irgendein 
-\begin_inset Formula $\bar{t}\in\mathbf{var}^{k}$
-\end_inset
-
-) durch 
-\begin_inset Formula $\chi_{i}\left(\bar{t}\right)$
-\end_inset
-
- ersetzt wird.
- (Der Zwischenschritt über 
-\begin_inset Formula $\bar{u}$
-\end_inset
-
- ist notwendig, weil 
-\begin_inset Formula $\bar{t}$
-\end_inset
-
- und 
-\begin_inset Formula $\bar{z}$
-\end_inset
-
- zum Teil die gleichen Variablen enthalten können, und daher ihr Geltungsbereich
- nicht überlappen darf.)
-\end_layout
-
-\begin_layout Standard
-Nun gelte:
-\begin_inset Formula 
-\[
-\hat{\varphi}\coloneqq\exists\bar{z}\left(\bar{x}=\bar{z}\wedge\psi_{n^{k}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Description
-Korrektheit: Sei 
-\begin_inset Formula $F:2^{A^{k}}\rightarrow2^{A^{k}}$
-\end_inset
-
- wie in Definition 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "def:lfp"
-
-\end_inset
-
- definiert.
- Außerdem sei 
-\begin_inset Formula $\left(X_{i}\right)_{i\in\mathbb{N}}$
-\end_inset
-
- wie folgt: 
-\begin_inset Formula 
-\[
-X_{i}\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\psi_{i}\left[\bar{a}\right]\right\} 
-\]
-
-\end_inset
-
-Wir weisen induktiv nach, dass 
-\begin_inset Formula $X_{i}=F^{i}\left(\emptyset\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-\begin_inset Formula $\psi_{0}=\neg\bar{x}\dot{=}\bar{x}$
-\end_inset
-
- ist offensichtlich unerfüllbar, und erkennt daher die Relation 
-\begin_inset Formula $X_{0}=\emptyset=F^{0}\left(\emptyset\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Sei 
-\begin_inset Formula $i\in\mathbb{N}$
-\end_inset
-
- beliebig:
-\begin_inset Formula 
-\begin{eqnarray*}
-\bar{a}\in X_{i+1} & \Leftrightarrow & \mathfrak{A}\models\psi_{i+1}\left[\bar{a}\right]\\
- & \Leftrightarrow & \mathfrak{A}\models\hat{\psi}^{\left(\frac{R\bar{z}}{\chi_{i}\left(\bar{z}\right)}\right)}\left[\bar{a}\right]
-\end{eqnarray*}
-
-\end_inset
-
-Per Definition gilt: 
-\begin_inset Formula 
-\[
-X_{i}\coloneqq\left\{ \bar{a}\mid\mathfrak{A}\models\psi_{i}\left[\bar{a}\right]\right\} =\left\{ \bar{a}\mid\mathfrak{A}\models\chi_{i}\left[\bar{a}\right]\right\} 
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{eqnarray*}
-\bar{a}\in X_{i+1} & \Leftrightarrow & \mathfrak{A}\cup\left(A,\left(\begin{array}{c}
-R\\
-X_{i}
-\end{array}\right)\right)\models\hat{\psi}\left[\bar{a}\right]\\
- & \overset{\mathrm{Ann.}}{\Leftrightarrow} & \mathfrak{A}\cup\left(A,\left(\begin{array}{c}
-R\\
-F^{i}\left(\emptyset\right)
-\end{array}\right)\right)\models\hat{\psi}\left[\bar{a}\right]\\
- & \overset{\mathrm{Def.\ref{def:lfp}}}{\Leftrightarrow} & \bar{a}\in F^{i+1}\left(\emptyset\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Schließlich folgt 
-\begin_inset Formula $X_{n^{k}}=F^{n^{k}}\left(\emptyset\right)=F^{\infty}\left(\emptyset\right)$
-\end_inset
-
-, da 
-\begin_inset Formula $\left|F^{\infty}\left(\emptyset\right)\right|\leqslant n^{k}$
-\end_inset
-
-.
- Daher gilt:
-\begin_inset Formula 
-\begin{eqnarray*}
-\left\llbracket \hat{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{a}\right) & = & \left\llbracket \exists\bar{u}\left(\bar{u}=\bar{y}\wedge\psi_{n^{k}}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)\\
- & = & \left\llbracket R\bar{y}\right\rrbracket \left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
-R\\
-F^{\infty}\left(\emptyset\right)
-\end{array}\right)\right),\bar{a}\right)\\
- & \overset{\mathrm{Def.\ref{def:lfp}}}{=} & \left\llbracket \left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Description
-Größe: 
-\end_layout
-
-\end_deeper
-\end_deeper
 \begin_layout Standard
 Unter der Annahme, dass 
 \begin_inset Formula $\varphi_{n}^{\left(i\right)}\left(\bar{x}\right)$
