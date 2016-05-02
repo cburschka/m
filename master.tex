@@ -70,8 +70,26 @@ leftmargin=\lyxlabelwidth,#1]}
   \newtheorem*{cor*}{\protect\corollaryname}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
-\usepackage{tikz}
+\usepackage[nottoc]{tocbibind} 
 \usepackage{hyperref}
+\usepackage{tikz}
+%\tikzstyle{every node}=[circle, draw=black,inner sep=0.2em]
+%\usetikzlibrary{fixedpointarithmetic}
+%\usetikzlibrary{positioning}
+%\let\nchapter\chapter
+%\renewcommand*\chapter[1]{\nchapter*{#1}\addcontentsline{toc}{chapter}{#1}}
+%\theoremstyle{definition}
+%\newtheorem{notation}[thm]{Notation}
+%\newtheorem*{notation*}{Notation}
+%\numberwithin{thm}{chapter}
+
+\usepackage{prettyref}
+\newrefformat{chap}{\textbf{Kapitel~\ref{#1}}}
+\newrefformat{sec}{\textbf{Abschnitt~\ref{#1}}}
+\newrefformat{sub}{\textbf{Abschnitt~\ref{#1}}}
+\newrefformat{thm}{\textbf{Theorem~\ref{#1}}}
+\newrefformat{lem}{\textbf{Lemma~\ref{#1}}}
+\newrefformat{prop}{\textbf{Satz~\ref{#1}}}
 
 \makeatother
 
@@ -87,6 +105,18 @@ leftmargin=\lyxlabelwidth,#1]}
 \providecommand{\theoremname}{Theorem}
 
 \begin{document}
+
+\title{Logische Charakterisierungen von Symmetrischen Schaltkreisfamilien}
+
+
+\subtitle{Master-Arbeit}
+
+
+\author{Christoph Burschka}
+
+\maketitle
+\tableofcontents{}
+
 
 \chapter{Einleitung}
 
@@ -184,8 +214,8 @@ $\mathcal{C}$ berechnet.
 
 \section{Logik erster Stufe und Schaltkreise konstanter Tiefe}
 \begin{thm}
-\cite{IMMERMAN198686}\label{thm:5.5:fo-ord}$\mathrm{FO}+\mathbf{ORD}$,
-$P$-uniformes symmetrisches $\mathrm{AC}^{0}$.
+\label{thm:5.5:fo-ord}$\mathrm{FO}+\mathbf{ORD}$, $P$-uniformes
+symmetrisches $\mathrm{AC}^{0}$.\cite{IMMERMAN198686}
 
 Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
 \begin{enumerate}
@@ -532,6 +562,9 @@ und $\mathfrak{A}\in S\Leftrightarrow\pi\mathfrak{A}\in S$.
 
 
 \chapter{Logik}
+
+
+\section{Logische Grundlagen}
 
 Wir betrachten logische Sprachen auf relationalen Signaturen $\sigma$,
 deren Ausdrücke auf endlichen $\sigma$-Strukturen ausgewertet werden.
