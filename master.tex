@@ -41,8 +41,6 @@
 \else
 \newtheorem{thm}{\protect\theoremname}[chapter]
 \fi
-  \theoremstyle{plain}
-  \newtheorem{cor}[thm]{\protect\corollaryname}
   \theoremstyle{definition}
   \newtheorem{defn}[thm]{\protect\definitionname}
 % labeling-like list based on enumitem's description list with
@@ -52,6 +50,8 @@
 \begin{description}[font=\normalfont,style=sameline,
 leftmargin=\lyxlabelwidth,#1]}
 {\end{description}}
+  \theoremstyle{remark}
+  \newtheorem*{notation*}{\protect\notationname}
   \theoremstyle{remark}
   \newtheorem*{rem*}{\protect\remarkname}
   \theoremstyle{definition}
@@ -66,6 +66,8 @@ leftmargin=\lyxlabelwidth,#1]}
  \setlist[casenv,4]{label={{\itshape\ \casename} \arabic*.},ref=\arabic*}
   \theoremstyle{plain}
   \newtheorem{lem}[thm]{\protect\lemmaname}
+  \theoremstyle{plain}
+  \newtheorem{conjecture}[thm]{\protect\conjecturename}
   \theoremstyle{plain}
   \newtheorem{fact}[thm]{\protect\factname}
   \theoremstyle{plain}
@@ -96,11 +98,13 @@ leftmargin=\lyxlabelwidth,#1]}
 \makeatother
 
 \usepackage{babel}
+  \providecommand{\conjecturename}{Vermutung}
   \providecommand{\corollaryname}{Korollar}
   \providecommand{\definitionname}{Definition}
   \providecommand{\examplename}{Beispiel}
   \providecommand{\factname}{Fakt}
   \providecommand{\lemmaname}{Lemma}
+  \providecommand{\notationname}{Notation}
   \providecommand{\propositionname}{Satz}
   \providecommand{\remarkname}{Bemerkung}
  \providecommand{\casename}{Fall}
@@ -133,127 +137,20 @@ Wintersemester 2015 / 2016}
 
 \chapter{Ergebnisse}
 
-
-\section{Fixpunktlogiken und Schaltkreise}
-
 Es werden die folgenden Äquivalenzen (nach Anderson und Dawar 2014\cite{anderson_et_al:LIPIcs:2014:4445})
 zwischen Fixpunktlogiken und Schaltkreisklassen nachgewiesen:
 \begin{thm}
-\textbf{\label{thm:fp-ord}$\mathrm{FP}+\mathbf{ORD}$, $P$-uniforme
-$\mathrm{SBC}$}
+\textbf{\label{thm:fp}}
 
-Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
+Die folgenden Paare von Klassen von Anfragen auf endlichen Strukturen
+sind äquivalent:\end{thm}
 \begin{enumerate}
-\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert.
-\item Die Anfrage $q$ wird durch eine $P$-uniforme symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\mathcal{C}$ berechnet.
-\end{enumerate}
-\end{thm}
-Die Fixpunktlogik mit disjunkter Ordnungserweiterung und Zählterm
-ist äquivalent zu den $P$-uniformen symmetrischen booleschen Schaltkreisfamilien
-mit Majority-Gates.
-\begin{thm}
-\textbf{\label{thm:fp-c}$\mathrm{FP}+C$, $P$-uniformes $\mathrm{SBC}+\mathbf{MAJ}$}
-
-Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
-\begin{enumerate}
-\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+C\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert.
-\item Die Anfrage $q$ wird durch eine $P$-uniforme symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
-$\mathcal{C}$ berechnet.
-\end{enumerate}
-\end{thm}
-Zur Erinnerung: $\mathbb{B}_{\mathrm{maj}}$ enthält die boolesche
-Konjunktion, Disjunktion und den Majority-Operator $\mathrm{MAJ}=\left\{ \left(m,n\right)\mid m\leqslant n\right\} $.
-
-
-\begin{cor}
-\textbf{\label{thm:fp-u}$\mathrm{FP}+\Upsilon$, $\mathrm{poly\left(n\right)}$-großes
-$\mathrm{SBC}$}
-
-Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
-\begin{enumerate}
-\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+\Upsilon\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert.
-\item Die Anfrage $q$ wird durch eine $\mathrm{poly}\left(n\right)$-große
-symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\mathcal{C}$ berechnet.
-\end{enumerate}
-\end{cor}
-Zur Erinnerung: $\mathbb{B}_{\mathrm{maj}}$ enthält die boolesche
-Konjunktion, Disjunktion und den Majority-Operator $\mathrm{MAJ}=\left\{ \left(m,n\right)\mid m\leqslant n\right\} $.
-
-
-\begin{cor}
-\textbf{\label{thm:fp-u-c}$\mathrm{FP}+\Upsilon+C$, $\mathrm{poly}\left(n\right)$-großes
-$\mathrm{SBC}+\mathbf{MAJ}$}
-
-Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
-\begin{enumerate}
-\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FP}+\Upsilon+C\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert.
-\item Die Anfrage $q$ wird durch eine $\mathrm{poly}\left(n\right)$-große
-symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
-$\mathcal{C}$ berechnet.
-\end{enumerate}
-\end{cor}
-
-\section{Logik erster Stufe und Schaltkreise konstanter Tiefe}
-\begin{thm}
-\label{thm:5.5:fo-ord}$\mathrm{FO}+\mathbf{ORD}$, $P$-uniformes
-symmetrisches $\mathrm{AC}^{0}$.\cite{IMMERMAN198686}
-
-Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
-\begin{enumerate}
-\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert.
-\item Die Anfrage $q$ wird durch eine $P$-uniforme, $\mathcal{O}\left(1\right)$-tiefe,
-symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\mathcal{C}$ berechnet.
-\end{enumerate}
-\end{thm}
-
-\begin{thm}
-\label{thm:fo-c}$\mathrm{FO}+C$, symmetrisches $\mathrm{AC}^{0}+\mathbf{MAJ}$.
-
-Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
-\begin{enumerate}
-\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+C\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert.
-\item Die Anfrage $q$ wird durch eine $\mathcal{O}\left(1\right)$-tiefe,
-$\mathrm{poly}\left(n\right)$-große, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
-$\mathcal{C}$ berechnet.
-\end{enumerate}
-\end{thm}
-
-\begin{cor}
-\label{thm:fo+u}$\mathrm{FO}+\Upsilon$, symmetrisches $\mathrm{AC}^{0}$.
-
-Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
-\begin{enumerate}
-\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert.
-\item Die Anfrage $q$ wird durch eine $\mathcal{O}\left(1\right)$-tiefe,
-$\mathrm{poly}\left(n\right)$-große, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\mathcal{C}$ berechnet.
-\end{enumerate}
-\end{cor}
-
-\begin{cor}
-$\mathrm{FO}+\Upsilon+C$, symmetrisches $\mathrm{AC}^{0}+\mathbf{MAJ}$.
-
-Die folgenden Aussagen sind für alle $\sigma$-Anfragen äquivalent:
-\begin{enumerate}
-\item Die Anfrage $q$ wird durch eine $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert.
-\item Die Anfrage $q$ wird durch eine $\mathcal{O}\left(1\right)$-tiefe,
-$\mathrm{poly}\left(n\right)$-große, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
-$\mathcal{C}$ berechnet.
-\end{enumerate}
-\end{cor}
-
-\section{Logik erster Stufe mit disjunktem und nicht-disjunktem Orakel}
+\item Die Logik $\mathrm{FP}+\mathbf{ORD}$ und $P$-uniforme $\mathrm{SBC}$-Schaltkreise.
+\item Die Logik $\mathrm{FP}+C$ und $P$-uniforme $\mathrm{SBC}+\mathbf{MAJ}$-Schaltkreise.
+\item Die Logik $\mathrm{FP}+\mathbf{ARB}$ und $P/\mathrm{poly}$-uniforme
+$\mathrm{SBC}+\mathbf{MAJ}$-Schaltkreise.
+\item Die Logik $\mathrm{FP}+\mathbf{ARB}+C$ und $P/\mathrm{poly}$-uniforme
+$\mathrm{SBC+\mathbf{MAJ}}-$Schaltkreise.\end{enumerate}
 \begin{thm}
 $\mathrm{FO}+\Upsilon$, invariantes $\mathrm{FO}\left(\mathrm{arb}\right)$
 \begin{enumerate}
@@ -752,14 +649,25 @@ x\\
 a
 \end{array}\right)\right)\right)
 \end{eqnarray*}
-\end{elabeling}
-\begin{rem*}
-Im folgenden stehen $Q\bar{x}\varphi$ und $\bar{x}=\bar{y}$ abgekürzt
-für $Qx_{1}\cdots Qx_{k}\varphi$ und $\bigwedge_{i=1}^{k}\left(x_{i}=y_{i}\right)$.
-
 Ohne Beschränkung der Allgemeinheit gelte für $Qx\varphi$ stets $x\in\mathrm{frei}\left(\varphi\right)$,
-denn $Qx\varphi\equiv Qx\left(x\dot{=}x\wedge\varphi\right)$.
-\end{rem*}
+denn $Qx\varphi\equiv Qx\left(x\dot{=}x\wedge\varphi\right)$.\end{elabeling}
+\begin{notation*}
+Im folgenden stehen $Q\bar{x}\varphi$ und $\bar{x}=\bar{y}$ abgekürzt
+für $Qx_{1}\cdots Qx_{k}\varphi$ und $\bigwedge_{i=1}^{k}\left(x_{i}=y_{i}\right)$.\end{notation*}
+\begin{defn}
+Eine $\mathrm{FO}\left[\sigma\right]$-Formel sei \textbf{implikationsfrei
+}wenn sie keine Teilformel der Form $\left(\varphi\rightarrow\psi\right)$
+oder $\left(\varphi\leftrightarrow\psi\right)$ enthält.
+\end{defn}
+Weil $\left(\varphi\rightarrow\psi\right)\equiv\left(\neg\varphi\vee\psi\right)$
+und $\left(\varphi\leftrightarrow\psi\right)\equiv\left(\varphi\wedge\psi\right)\vee\left(\neg\varphi\wedge\neg\psi\right)$,
+sind alle $\mathrm{FO}\left[\sigma\right]$-Formeln äquivalent zu
+implikationsfreien $\mathrm{FO}\left[\sigma\right]$-Formeln. Im folgenden
+werden wir hauptsächlich diese behandeln. (Hierbei entsteht allerdings
+ein fester Zuwachs in der Länge der Formel $\left\Vert \varphi\right\Vert $,
+so dass die Umformung nur vorgenommen werden kann, wenn $\left\Vert \varphi\right\Vert $
+nicht eine Funktion der Eingabelänge ist.)
+
 \pagebreak{}
 
 
@@ -1627,18 +1535,17 @@ wobei $\mathtt{MAJ}$ der Majority-Operator ist.)
 \begin{defn}
 \textbf{Uniformität}
 
-Für eine Zeitfunktion $T:\mathbb{N}\rightarrow\mathbb{N}$ sei eine
-Schaltkreisfamilie $\bar{\mathcal{C}}$ $T$-\textbf{uniform}, wenn
-ein $n_{0}\in\mathbb{N}$ existiert, so dass eine deterministische
-Turingmaschine bei Eingabe einer Zahl $n\geqslant n_{0}$ eine Repräsentation
-von $\mathcal{C}_{n}$ in höchstens $T\left(n\right)$ Schritten berechnen
-kann.
+Für eine Klasse von Turingmaschinen $T$ sei eine Schaltkreisfamilie
+$\bar{\mathcal{C}}$ $T$-\textbf{uniform}, wenn ein $n_{0}\in\mathbb{N}$
+existiert, so dass eine Turingmaschine aus $T$ bei Eingabe des Worts
+$1\cdots1\in\left\{ 0,1\right\} ^{n}$ mit $n\geqslant n_{0}$ eine
+Repräsentation von $\mathcal{C}_{n}$ berechnet.
 
-Für eine Klasse von Zeitfunktionen $\mathscr{F}\subseteq\mathrm{Abb}\left(\mathbb{N},\mathbb{N}\right)$
-sei sie $\mathscr{F}$-uniform, wenn ein $T\in\mathscr{F}$ existiert,
-so dass sie $T$-uniform ist. Insbesondere sei $\mathrm{poly}\left(n\right)$
-die Klasse aller polynomiell wachsenden Funktionen, und eine $\mathrm{poly}\left(n\right)$-uniforme
-Schaltkreisfamilie heiße ,,P-uniform``.
+Insbesondere sei $P$ die Klasse aller Turingmaschinen, die bei einer
+Eingabe der Länge $n$ nach $f\left(n\right)\in n^{\mathcal{O}\left(1\right)}$
+Schritten halten, und $\mathrm{LOGSPACE}\subseteq P$ die Klasse der
+Turingmaschinen, die höchstens $f\left(n\right)\in\mathcal{O}\left(\log n\right)$
+Speicherplatz belegen.
 \end{defn}
 
 \begin{defn}
@@ -1647,24 +1554,32 @@ Schaltkreisfamilie heiße ,,P-uniform``.
 Für eine Funktion $f:\mathbb{N}\rightarrow\mathbb{N}$ habe eine Schaltkreisfamilie
 $\bar{\mathcal{C}}$ $f$-\textbf{Größe}, wenn für ein $n_{0}\in\mathbb{N}$
 und alle $n\geqslant n_{0}$ gilt, dass $\left|\mathcal{C}_{n}\right|\leqslant f\left(n\right)$.
-Der Begriff ,,$\mathscr{F}$-groß`` sei analog zu ,,$\mathscr{F}$-uniform``
-definiert.\end{defn}
-\begin{rem*}
-Statt ,,$\mathrm{poly}\left(n\right)$-groß`` wird auch der Begriff
-,,$\mathrm{P}/\mathrm{poly}$-uniform`` verwendet:
+Für eine Klasse von Funktionen $\mathcal{F}\subseteq\mathrm{Abb}\left(\mathbb{N},\mathbb{N}\right)$
+mit $f\in\mathcal{F}$ habe $\bar{C}$ $\mathcal{F}$-Größe.
 
-Eine $\mathrm{P/poly}$-Turingmaschine arbeitet mit einem polynomiell
-beschränktem Orakel in Polynomialzeit. Sie kann daher genau solche
-Schaltkreisfamilien berechnen, deren binäre Repräsentation polynomielle
-Größe hat. Unter Voraussetzung einer geeigneten Kodierung sind dies
-genau die $\mathrm{poly}\left(n\right)$-großen Schaltkreisfamilien.\cite{arora-barak}\end{rem*}
+Insbesondere sei $\mathrm{poly}\left(n\right)=n^{\mathcal{O}\left(1\right)}$
+die Klasse aller polynomiell beschränkten Funktionen.\end{defn}
+\begin{rem*}
+Statt ,,$\mathrm{poly}\left(n\right)$-groß`` wird in \cite{anderson_et_al:LIPIcs:2014:4445}
+der Begriff ,,$\mathrm{P}/\mathrm{poly}$-uniform`` verwendet:
+
+Eine $\mathrm{P/poly}$-Turingmaschine arbeitet in Polynomialzeit
+und erhält für eine Eingabe der Länge $n$ eine polynomiell beschränkte
+Orakeleingabe $\Upsilon\left(n\right)\in\left\{ 0,1\right\} ^{f\left(n\right)}$,
+$f\left(n\right)\in\mathrm{poly}\left(n\right)$. Unter Voraussetzung
+einer geeigneten Kodierung kann $\Upsilon\left(n\right)$ jede $\mathrm{poly}\left(n\right)$-große
+Schaltkreisfamilie repräsentieren.\cite{arora-barak}
+
+Daher sind die Begriffe ,,$\mathrm{poly}\left(n\right)$-groß``
+und ,,$P/\mathrm{poly}$-uniform`` äquivalent.\end{rem*}
 \begin{defn}
 \textbf{Beschränkte Tiefe}
 
 Für eine Funktion $f:\mathbb{N}\rightarrow\mathbb{N}$ habe eine Schaltkreisfamilie
 $\bar{\mathcal{C}}$ $f$-\textbf{Tiefe}, wenn $T\left(\mathcal{C}_{n}\right)\leqslant f\left(n\right)$
-für ein $n_{0}\in\mathbb{N}$ und alle $n\geqslant n_{0}$. Der Begriff
-,,$\mathscr{F}$-tief`` sei analog zu ,,$\mathscr{F}$-groß``
+für ein $n_{0}\in\mathbb{N}$ und alle $n\geqslant n_{0}$. Für eine
+Klasse $\mathcal{F}\subseteq\mathrm{Abb}\left(\mathbb{N},\mathbb{N}\right)$
+sei der Begriff ,,$\mathcal{F}$-tief`` analog zu ,,$\mathcal{F}$-groß``
 definiert.\end{defn}
 \begin{rem*}
 $\mathrm{AC}^{0}$ ist die Klasse der $\mathcal{O}\left(1\right)$-tiefen,
@@ -1678,13 +1593,13 @@ $\mathrm{poly}\left(n\right)$-großen Schaltkreisfamilien.
 
 \section{Logik erster Stufe}
 
-Die Formeln der Logik erster Stufe sind durch symmetrische, $P$-uniforme
+Die Formeln der Logik erster Stufe sind durch symmetrische $P$-uniforme
 $\mathrm{AC}^{0}$-Schaltkreise berechenbar:
 \begin{lem}
 \label{lem:FO-Circuit}Jede $\mathrm{FO}\left[\sigma\right]$-Formel
 $\varphi\left(\bar{x}\right)$ definiert eine $\sigma$-Anfrage $q$,
-die von einer symmetrischen, $P$-uniformen Schaltkreis-Familie $\bar{\mathcal{C}^{\varphi}}$
-mit $3\left\Vert \varphi\right\Vert $-Tiefe und $5\left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}$-Größe
+die von einer symmetrischen $P$-uniformen Schaltkreis-Familie $\bar{\mathcal{C}^{\varphi}}$
+mit $\left\Vert \varphi\right\Vert $-Tiefe und $\left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}$-Größe
 berechnet wird.\end{lem}
 \begin{proof}
 Sei $\sigma$ eine relationale Signatur, und sei $\varphi\left(\bar{x}\right)$
@@ -1695,7 +1610,7 @@ $k$-stellige Schaltkreis $\mathcal{C}_{n}^{\varphi}$ über dem Universum
 $U\coloneqq\left[1,n\right]$ definiert, so dass $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\Leftrightarrow\left\llbracket \mathcal{C}_{n}^{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)$
 für alle $n\in\mathbb{N}$, $\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$
 und $\bar{t}\in\left[1,n\right]^{k}$ gilt. Die Konstruktion ist in
-Polynomialzeit berechenbar. Für eine beliebige Permutation $\pi\in\mathrm{Sym}_{U}$
+berechenbar. Für eine beliebige Permutation $\pi\in\mathrm{Sym}_{U}$
 wird ein Automorphismus $\hat{\pi}$ angegeben, und damit die Symmetrie
 nachgewiesen.
 \begin{casenv}
@@ -1842,15 +1757,15 @@ und kommutiert mit der Permutation $\pi$.)
 und die Größe $\left|\mathcal{C}_{n}^{\varphi}\right|$: 
 \begin{eqnarray*}
 T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+\max_{i=1}^{m}T\left(\mathcal{C}_{n}^{\psi_{i}}\right)\\
- & \overset{\mathrm{Ann.}}{\leqslant} & 1+3\max_{i=1}^{m}\left\Vert \psi_{i}\right\Vert \\
- & \leqslant & 1+3\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert \leqslant3\left\Vert \varphi\right\Vert 
+ & \overset{\mathrm{Ann.}}{\leqslant} & 1+\max_{i=1}^{m}\left\Vert \psi_{i}\right\Vert \\
+ & \leqslant & 1+\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert \leqslant\left\Vert \varphi\right\Vert 
 \end{eqnarray*}
  
 \begin{eqnarray*}
 \left|\mathcal{C}_{n}^{\varphi}\right| & = & n^{k}+\sum_{i=1}^{m}\left|\mathcal{C}_{n}^{\psi_{i}}\right|\\
- & \overset{\mathrm{Ann.}}{\leqslant} & n^{k}+5\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert n^{\mathtt{MF}\left(\psi_{i}\right)}\\
- & \leqslant & n^{\mathtt{MF}\left(\varphi\right)}+5\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert n^{\mathtt{MF}\left(\varphi\right)}\\
- & \leqslant & 5n^{\mathtt{MF}\left(\varphi\right)}\left(1+\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert \right)\leqslant5n^{\mathtt{MF}\left(\varphi\right)}\left\Vert \varphi\right\Vert 
+ & \overset{\mathrm{Ann.}}{\leqslant} & n^{k}+\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert n^{\mathtt{MF}\left(\psi_{i}\right)}\\
+ & \leqslant & n^{\mathtt{MF}\left(\varphi\right)}+\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert n^{\mathtt{MF}\left(\varphi\right)}\\
+ & \leqslant & n^{\mathtt{MF}\left(\varphi\right)}\left(1+\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert \right)\leqslant n^{\mathtt{MF}\left(\varphi\right)}\left\Vert \varphi\right\Vert 
 \end{eqnarray*}
 
 \end{description}
@@ -1905,103 +1820,13 @@ Dann gilt:
 und die Größe $\left|\mathcal{C}_{n}^{\varphi}\right|$: 
 \begin{eqnarray*}
 T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+T\left(\mathcal{C}_{n}^{\psi}\right)\\
- & \leqslant & 1+3\left\Vert \psi\right\Vert \leqslant3\left\Vert \varphi\right\Vert 
+ & \leqslant & 1+\left\Vert \psi\right\Vert \leqslant\left\Vert \varphi\right\Vert 
 \end{eqnarray*}
 \begin{eqnarray*}
 \left|\mathcal{C}_{n}^{\varphi}\right| & = & n^{k}+\left|\mathcal{C}_{n}^{\psi}\right|\\
- & \overset{\mathrm{Ann.}}{\leqslant} & n^{k}+5\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\psi\right)}\\
- & \leqslant & 5n^{\mathtt{MF}\left(\varphi\right)}+5\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}\\
- & \leqslant & 5\left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}
-\end{eqnarray*}
-
-\end{description}
-\item Falls $\varphi\left(\bar{x}\right)=\left(\varphi_{1}\rightarrow\varphi_{2}\right)$,
-so ist der Schaltkreis $\mathcal{C}_{n}^{\varphi}\coloneqq\mathcal{C}_{n}^{\left(\neg\varphi_{1}\vee\varphi_{2}\right)}$.
-\item Falls $\varphi\left(\bar{x}\right)=\left(\varphi_{1}\left(\bar{y_{1}}\right)\leftrightarrow\varphi_{2}\left(\bar{y_{2}}\right)\right)$,
-so besteht $\mathcal{C}_{n}^{\varphi}$ aus der disjunkten Vereinigung
-von $\mathcal{C}_{n}^{\varphi_{1}}$ und $\mathcal{C}_{n}^{\varphi_{2}}$
-mit der folgenden Erweiterung:
-\begin{eqnarray*}
-\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)\\
-\mathcal{C}_{n}^{\varphi_{i}} & \coloneqq & \left(G_{i},W_{i},\Sigma_{i},\Omega_{i},U\right)
-\end{eqnarray*}
-
-
-\begin{description}
-\item [{Schaltkreis:}] Für jedes Tupel $\bar{t}\in U^{m}$ werden fünf
-neue Gates eingefügt:
-\begin{eqnarray*}
-G & \coloneqq & G_{1}\uplus G_{2}\\
- &  & \uplus\left\{ a_{\bar{t}},b_{\bar{t}},c_{\bar{t}},d_{\bar{t}},e_{\bar{t}}\mid\bar{t}\in U^{k}\right\} 
-\end{eqnarray*}
-Die Gates $a_{\bar{t}}$ und $b_{\bar{t}}$ negieren die Schaltkreise
-$\mathcal{C}_{n}^{\varphi_{1}}$ und $\mathcal{C}_{n}^{\varphi_{2}}$.
-Die Gates $\bar{c}_{t}$ und $\bar{d_{t}}$ sind Konjunktionen von
-$\left(\varphi_{1}\wedge\varphi_{2}\right)$ und $\left(\neg\varphi_{1}\wedge\neg\varphi_{2}\right)$.
-Die Gates $e_{\bar{t}}$ sind die Disjunktionen von $c_{\bar{t}}$
-und $d_{\bar{t}}$. 
-\begin{eqnarray*}
-W & \coloneqq & W_{1}\cup W_{2}\cup W_{\neg}\cup W_{\wedge}\cup W_{\vee}\\
-W_{\neg} & \coloneqq & \left\{ \left(\Omega_{1}\left(\rho_{1}\bar{t}\right),a_{\rho_{1}\bar{t}}\right),\,\left(\Omega_{2}\left(\rho_{2}\bar{t}\right),b_{\rho_{2}\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} \\
-W_{\wedge} & \coloneqq & \left\{ \begin{array}{c}
-\left(\Omega_{1}\left(\rho_{1}\bar{t}\right),c_{\bar{t}}\right),\,\left(\Omega_{2}\left(\rho_{2}\bar{t}\right),c_{\bar{t}}\right),\\
-\left(a_{\rho_{1}\bar{t}},d_{\bar{t}}\right),\,\left(b_{\rho_{2}\bar{t}},d_{\bar{t}}\right)
-\end{array}\mid\bar{t}\in U^{k}\right\} \\
-W_{\vee} & \coloneqq & \left\{ \left(c_{\bar{t}},e_{\bar{t}}\right),\,\left(d_{\bar{t}},e_{\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} 
-\end{eqnarray*}
-(Hierbei seien $\rho_{1}$ und $\rho_{2}$ analog zu Fall 3 definiert.)
-\begin{eqnarray*}
-\Sigma\left(g\right) & \coloneqq & \begin{cases}
-\neg & \mathrm{f\ddot{u}r}\,\,g\in\left\{ a_{\rho_{1}\bar{t}},b_{\rho_{2}\bar{t}}\mid\bar{t}\in U^{k}\right\} \\
-\wedge & \mathrm{f\ddot{u}r}\,\,g\in\left\{ c_{\bar{t}},d_{\bar{t}}\mid\bar{t}\in U^{k}\right\} \\
-\vee & \mathrm{f\ddot{u}r}\,\,g\in\left\{ e_{\bar{t}}\mid\bar{t}\in U^{k}\right\} \\
-\Sigma_{i}\left(g\right) & \mathrm{f\ddot{u}r}\,\,g\in G_{i}
-\end{cases}
-\end{eqnarray*}
-\[
-\Omega\left(\bar{t}\right)=e_{\bar{t}}
-\]
-
-\item [{Korrektheit:}] 
-\begin{eqnarray*}
-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \left\llbracket \left(\varphi_{1}\wedge\varphi_{2}\right)\vee\left(\neg\varphi_{1}\wedge\neg\varphi_{2}\right)\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\\
- & = & \max\left(\begin{array}{c}
-\min\left(\left\llbracket \varphi_{1}\right\rrbracket \left(\mathfrak{A},\bar{t}\right),\left\llbracket \varphi_{2}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\right),\\
-\min\left(1-\left\llbracket \varphi_{1}\right\rrbracket \left(\mathfrak{A},\bar{t}\right),1-\left\llbracket \varphi_{2}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\right)
-\end{array}\right)\\
- & = & \max\left(\begin{array}{c}
-\min\left(\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(\Omega_{1}\left(\rho_{1}\bar{t}\right)\right),\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(\Omega_{2}\left(\rho_{2}\bar{t}\right)\right)\right),\\
-\min\left(1-\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(\Omega_{1}\left(\rho_{1}\bar{t}\right)\right),1-\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(\Omega_{2}\left(\rho_{2}\bar{t}\right)\right)\right)
-\end{array}\right)\\
- & = & \max\left(\begin{array}{c}
-\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(c_{t}\right),\\
-\min\left(\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(a_{\rho_{1}\bar{t}}\right),\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(b_{\rho_{2}\bar{t}}\right)\right)
-\end{array}\right)\\
- & = & \max\left(\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(c_{t}\right),\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(d_{\bar{t}}\right)\right)\\
- & = & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(e_{\bar{t}}\right)
-\end{eqnarray*}
-
-\item [{Symmetrie:}] Es existieren per Annahme die Automorphismen $\hat{\pi_{i}}$
-für die Schaltkreise $\mathcal{C}_{n}^{\varphi_{i}}$. Diese werden
-wie folgt erweitert:
-\[
-\hat{\pi}\left(g\right)\coloneqq\begin{cases}
-\hat{\pi_{i}}\left(g\right) & \mathrm{f\ddot{u}r}\,\,g\in G_{i}\\
-g_{\pi\bar{t}} & \mathrm{f\ddot{u}r}\,\,g=g_{\bar{t}}\,\mathrm{und}\,g\in\left\{ a,b,c,d,e\right\} 
-\end{cases}
-\]
-
-\item [{Größe:}] Der Schaltkreis hat die Tiefe $T\left(\mathcal{C}_{n}^{\varphi}\right)$
-und die Größe $\left|\mathcal{C}_{n}^{\varphi}\right|$:
-\begin{eqnarray*}
-T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 3+T\left(\mathcal{C}_{n}^{\psi}\right)\\
- & \leqslant & 3+3\left\Vert \psi\right\Vert \leqslant3\left\Vert \varphi\right\Vert 
-\end{eqnarray*}
-\begin{eqnarray*}
-\left|\mathcal{C}_{n}^{\varphi}\right| & = & 5n^{k}+\left|\mathcal{C}_{n}^{\psi}\right|\\
- & \overset{\mathrm{Ann.}}{\leqslant} & 5n^{k}+5\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\psi\right)}\\
- & \leqslant & 5n^{\mathtt{MF}\left(\varphi\right)}+5\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}\\
- & \leqslant & 5\left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}
+ & \overset{\mathrm{Ann.}}{\leqslant} & n^{k}+\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\psi\right)}\\
+ & \leqslant & n^{\mathtt{MF}\left(\varphi\right)}+\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}\\
+ & \leqslant & \left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}
 \end{eqnarray*}
 
 \end{description}
@@ -2083,13 +1908,13 @@ gilt: $\left(\hat{\pi}\Omega'\left(\bar{u}\right),\hat{\pi}g_{\rho\bar{u}}\right
 und die Größe $\left|\mathcal{C}_{n}^{\varphi}\right|$:
 \begin{eqnarray*}
 T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+T\left(\mathcal{C}_{n}^{\psi}\right)\\
- & \leqslant & 1+3\left\Vert \psi\right\Vert \leqslant3\left\Vert \varphi\right\Vert 
+ & \leqslant & 1+\left\Vert \psi\right\Vert \leqslant\left\Vert \varphi\right\Vert 
 \end{eqnarray*}
 \begin{eqnarray*}
 \left|\mathcal{C}_{n}^{\varphi}\right| & = & n^{k}+\left|\mathcal{C}_{n}^{\psi}\right|\\
- & \overset{\mathrm{Ann.}}{\leqslant} & n^{k}+5\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\psi\right)}\\
- & \leqslant & 5n^{\mathtt{MF}\left(\varphi\right)}+5\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}\\
- & \leqslant & 5\left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}
+ & \overset{\mathrm{Ann.}}{\leqslant} & n^{k}+\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\psi\right)}\\
+ & \leqslant & n^{\mathtt{MF}\left(\varphi\right)}+\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}\\
+ & \leqslant & \left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}
 \end{eqnarray*}
 
 \end{description}
@@ -2097,6 +1922,14 @@ T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+T\left(\mathcal{C}_{n}^{\psi}\ri
 so sei der Schaltkreis analog zu Fall 8 mit $\Sigma\left(g_{\bar{t}}\right)\coloneqq\wedge$.
 \end{casenv}
 \end{proof}
+\begin{conjecture}
+Die obige Konstruktion ist auch $\mathrm{LOGSPACE}$-uniform.
+\end{conjecture}
+Jedes Gate $g_{\bar{t}}$ kann durch ein Tupel $i\bar{t}\in\left[1,\left\Vert \varphi\right\Vert \right]\times U^{k}$
+mit $k\log n$ Bits kodiert werden, und jeder Schritt der Konstruktion
+muss nur zwei Gates auf einmal speichern: Das Output $g_{\bar{t}}$
+für $\bar{t}\in U^{k}$ und einen seiner Vorgänger.
+
 \pagebreak{}
 
 
@@ -2110,11 +1943,9 @@ zu verlassen.
 \label{lem:fo-ord}Jede $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
 $P$-uniformen $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit $3\left\Vert \varphi\right\Vert $-Tiefe
-und $5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$-Größe
-berechnet wird.
-\end{lem}
-(Dieses Lemma bildet die erste Hälfte des Theorems \ref{thm:5.5:fo-ord}.)
+$\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit konstanter
+$\left\Vert \varphi\right\Vert $-Tiefe und polynomieller $\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$-Größe
+berechnet wird.\end{lem}
 \begin{proof}
 Sei $\varphi$ eine $k$-stellige $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel.
 Für $n\in\mathbb{N}$ und $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
@@ -2255,11 +2086,9 @@ kann, indem Majority-Gates hinzugefügt werden.
 \label{lem:fo-c}Jede $\left(\mathrm{FO}+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
 $P$-uniformen $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
-$\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ mit $3\left\Vert \varphi\right\Vert $-Tiefe
-und $5\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$-Größe
-berechnet wird.
-\end{lem}
-(Dieses Lemma bildet die erste Hälfte von Theorem \ref{thm:fo-c}.)
+$\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ mit konstanter $\left\Vert \varphi\right\Vert $-Tiefe
+und polynomieller $\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$-Größe
+berechnet wird.\end{lem}
 \begin{proof}
 Sei $\varphi$ eine $k$-stellige $\left(\mathrm{FO}+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel.
 Der $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreis
@@ -2269,14 +2098,13 @@ ein neuer Fall hinzukommt.
 
 (Zur Erinnerung: $\rho:\left[0,n\right]\rightarrow\left[n+1,2n+1\right]$
 ist die Verschiebung des Universums von $\Upsilon\left(n\right)$.)
-\begin{casenv}
-\item Falls $\varphi\left(\bar{x}\right)=\exists^{\geqslant x_{i}}y_{j}\psi\left(\bar{y}\right)$,
+
+Falls $\varphi\left(\bar{x}\right)=\exists^{\geqslant x_{i}}y_{j}\psi\left(\bar{y}\right)$,
 so sei $\mathcal{C}_{2n+1}^{\psi}$ der $k$-stellige Schaltkreis
 für die Formel $\psi$:
 \[
 \mathcal{C}_{2n+1}^{\psi}=\left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U'\right)
 \]
-
 
 \begin{description}
 \item [{Schaltkreis:}] 
@@ -2368,18 +2196,17 @@ $\hat{\pi}$ von $\mathcal{C}_{2n+1}^{\psi}$ wie folgt:
 \end{eqnarray*}
 
 \begin{enumerate}
-\item Nun gilt für $W_{\mathrm{maj}}$:
+\item Nun gilt für jede Kante $\left(\Omega_{\psi}\left(\bar{u}\right),g_{\bar{t}}\right)\in W_{\mathrm{maj}}$
+mit $\bar{t},\bar{u}\in U'^{k}$ und $\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right)$:
 \begin{eqnarray*}
-\hat{\pi}W_{\mathrm{maj}} & = & \left\{ \left(\hat{\pi}\Omega_{\psi}\left(\bar{u}\right),\hat{\pi}g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in U'^{k},\,\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right),\,u_{j}\in\left[1,n\right]\right\} \\
- & \overset{\mathrm{ind.}}{=} & \left\{ \left(\Omega_{\psi}\left(\pi'\bar{u}\right),\hat{\pi}g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in U'^{k},\,\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right),\,u_{j}\in\left[1,n\right]\right\} \\
- & \overset{\mathrm{def.}}{=} & \left\{ \left(\Omega_{\psi}\left(\pi'\bar{u}\right),g_{\pi'\bar{t}}\right)\mid\bar{t},\bar{u}\in U'^{k},\,\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right),\,u_{j}\in\left[1,n\right]\right\} 
+\left(\hat{\pi}\Omega_{\psi}\left(\bar{u}\right),\hat{\pi}g_{\bar{t}}\right) & \overset{\mathrm{Ann.}}{=} & \left(\Omega_{\psi}\left(\pi'\bar{u}\right),\hat{\pi}g_{\bar{t}}\right)\\
+ & = & \left(\Omega_{\psi}\left(\pi'\bar{u}\right),g_{\pi'\bar{t}}\right)
 \end{eqnarray*}
-und (weil $\pi'u_{j}\in\left[1,n\right]$ ist, und $\tau_{1},\tau_{2}$
-Homomorphismen sind):
-\begin{eqnarray*}
- & = & \left\{ \left(\Omega_{\psi}\left(\pi'\bar{u}\right),g_{\pi'\bar{t}}\right)\mid\bar{t},\bar{u}\in U'^{k},\,\tau_{1}\left(\pi'\bar{t}\right)=\tau_{2}\left(\pi\bar{u}\right),\,\pi'u_{j}\in\left[1,n\right]\right\} \\
- & = & W_{\mathrm{maj}}
-\end{eqnarray*}
+Und weil $\pi'\bar{t},\pi'\bar{u}\in U'^{k}$ und $\tau_{1}\left(\pi'\bar{t}\right)=\tau_{2}\left(\pi'\bar{u}\right)$
+gilt, folgt:
+\[
+\left(\Omega_{\psi}\left(\pi'\bar{u}\right),g_{\pi'\bar{t}}\right)\in W_{\mathrm{maj}}
+\]
 
 \item Für jede Kante $\left(0_{j},g_{\bar{t}}\right)\in W_{\mathrm{pad}}$
 (mit $\bar{t}\in U'^{k}$ und $t_{i}\in\left[n+1,2n+1\right]$, und
@@ -2402,23 +2229,27 @@ Das gleiche gilt analog für die Kanten $\left(\hat{\pi}1_{j},\hat{\pi}g_{\bar{t
  & = & \Sigma\left(g_{\bar{t}}\right)
 \end{eqnarray*}
 
+
+\begin{enumerate}
 \item Für $\Omega$ ist $\hat{\pi}\Omega\left(\bar{t}\right)=\hat{\pi}g_{\bar{t}}=g_{\pi'\bar{t}}=\Omega\left(\pi'\bar{t}\right)$
 per Definition gegeben.
 \end{enumerate}
+\end{enumerate}
+\begin{description}
 \item [{Größe:}] 
 \begin{eqnarray*}
 T\left(\mathcal{C}_{2n+1}^{\varphi}\right) & \leqslant & 1+T\left(\mathcal{C}_{2n+1}^{\psi}\right)\\
- & \overset{\mathrm{Ann.}}{\leqslant} & 1+3\left\Vert \psi\right\Vert \leqslant3\left\Vert \varphi\right\Vert 
+ & \overset{\mathrm{Ann.}}{\leqslant} & 1+\left\Vert \psi\right\Vert \leqslant\left\Vert \varphi\right\Vert 
 \end{eqnarray*}
 \begin{eqnarray*}
 \left|\mathcal{C}_{2n+1}^{\varphi}\right| & \leqslant & \left(2n+1\right)^{k}+2n+\left|\mathcal{C}_{2n+1}^{\psi}\right|\\
- & \overset{\mathrm{Ann.}}{\leqslant} & \left(2n+1\right)^{k}+2n+5\left\Vert \psi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\psi\right)}\\
- &  & 5\left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}+5\left\Vert \psi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}\\
- & \leqslant & 5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}
+ & \overset{\mathrm{Ann.}}{\leqslant} & \left(2n+1\right)^{k}+2n+\left\Vert \psi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\psi\right)}\\
+ &  & \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}+\left\Vert \psi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}\\
+ & \leqslant & \left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}
 \end{eqnarray*}
 
 \end{description}
-\end{casenv}
+\end{description}
 Nach der Erzeugung von $\mathcal{C}_{2n+1}^{\varphi}$ wird der Schaltkreis
 auf die bereits beschriebene Weise zu $\dot{\mathcal{C}_{n}^{\varphi}}$
 umgewandelt, in dem die nicht-konstanten Inputs mit Elementen aus
@@ -2438,7 +2269,7 @@ symmetrisch (siehe Lemma \ref{lem:fo-ord}).
 Wir betrachten die Logik $\mathrm{FO}+\Upsilon$ für beliebige Orakel
 $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta\right)$,
 und weisen nach, dass die Konstruktion aus \ref{lem:fo-ord} auf beliebige
-Prädikate erweitert werden kann, wobei die $P$-Uniformität aber nicht
+Prädikate erweitert werden kann, wobei die Uniformität, aber nicht
 die beschränkte Größe geopfert wird.
 \begin{lem}
 \label{lem:fo-u}Seien $\eta$ und $\sigma$ disjunkte Signaturen
@@ -2449,11 +2280,8 @@ Jede $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen
 $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
 $\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit konstanter
-Tiefe $3\left\Vert \varphi\right\Vert $-Tiefe und polynomieller Größe
-$5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$-Tiefe
-berechnet wird.
-\end{lem}
-(Dieses Lemma bildet die erste Hälfte von \ref{thm:fo+u}.)
+$\left\Vert \varphi\right\Vert $-Tiefe und polynomieller $\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$-Größe
+berechnet wird.\end{lem}
 \begin{proof}
 Sei $n\in\mathbb{N}$ beliebig und sei $\rho:\left[0,n\right]\rightarrow\left[n+1,2n+1\right]$
 wie bisher definiert. Die Struktur $\Upsilon\left(n\right)$ wird
@@ -2494,36 +2322,6 @@ Schaltkreisfamilie nicht mehr $P$-uniform ist.
 
 Offensichtlich ist sie jedoch immer noch $\mathrm{poly}\left(n\right)$-groß
 und daher auch $P/\mathrm{poly}$-uniform.
-
-\pagebreak{}
-\end{proof}
-
-\section{Beliebige Orakel mit Zählquantor}
-
-Für eine Orakellogik mit Zählquantor $\mathrm{FO}+\Upsilon+\exists^{\geqslant}$
-werden nun die Konstruktionen aller vorhergehender Abschnitte kombiniert.
-\begin{lem}
-\label{lem:fo-u-c}Seien $\eta$ und $\sigma$ disjunkte Signaturen
-und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta\right)$
-ein Orakel.
-
-Jede $\left(\mathrm{FO}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen
-$\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
-$\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit $3\left\Vert \varphi\right\Vert $-Tiefe
-und $5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$-Größe
-für $c\in\mathbb{N}$ berechnet wird.\end{lem}
-\begin{proof}
-Zunächst wird die Konstruktion aus Lemma \ref{lem:fo-c} und angewendet,
-um eine $P/\mathrm{poly}$-uniforme $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
-$\left(\mathcal{C}_{2n+1}^{\varphi}\right)_{n\in\mathbb{N}}$ zu erzeugen,
-die bezüglich Permutationen von $\left[1,n\right]$ symmetrisch ist.
-
-Dann werden die Konstruktionen aus Lemma \ref{lem:fo-ord} und Lemma
-\ref{lem:fo-u} kombiniert, um daraus eine symmetrische $P/\mathrm{poly}$-uniforme
-$\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
-$\left(\dot{\mathcal{C}_{n}^{\varphi}}\right)_{n\in\mathbb{N}}$ zu
-erzeugen.
 \end{proof}
 \pagebreak{}
 
@@ -2661,8 +2459,8 @@ der Schaltkreisfamilie unbedeutend.
 \begin{lem}
 \label{lem:lfp-circ}Für jede parameter-freie $\mathrm{LFP}\left[\sigma\right]$-Formel
 $\varphi$ existiert eine $P$-uniforme symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\bar{\mathcal{C}^{\varphi}}$ mit $n^{k}\left(3\left\Vert \varphi\right\Vert +1\right)$-Tiefe
-und $\left(5n^{k+\mathtt{MF}\left(\varphi\right)}+1\right)$-Größe,
+$\bar{\mathcal{C}^{\varphi}}$ mit $n^{k}\left(\left\Vert \varphi\right\Vert +1\right)$-Tiefe
+und $\left(n^{k+\mathtt{MF}\left(\varphi\right)}+1\right)$-Größe,
 so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right)$
 für alle $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ gilt.\end{lem}
 \begin{proof}
@@ -2676,17 +2474,6 @@ für eine $m$-stellige Relationsvariable $R/m\in\mathbf{var}_{2}$,
 eine $m$-stellige parameter-freie $\mathrm{LFP}\left[\sigma\cup\left\{ R\right\} \right]$-Formel
 $\psi\left(\bar{z}\right)$ und ein $m$-Tupel von $\mathrm{LFP}\left[\sigma\right]$-Termen
 $\bar{y}$.
-
-Zur Übersicht: $\bar{x}\in\mathbf{var}^{k}$ und $\bar{z}\in\mathbf{var}^{m}$
-sind die Argumente (streng geordnete Variablentupel) von $\varphi$
-und $\psi$, und $\bar{y}\in\mathbf{var}^{m}$ ist ein Termtupel (mit
-eventuellen Wiederholungen). Weil $\varphi$ parameter-frei ist, enthält
-$\bar{x}$ genau die gleichen Variablen wie $\bar{y}$: 
-\begin{eqnarray*}
-\left\{ x_{1},\cdots,x_{k}\right\}  & = & \left\{ y_{1},\cdots,y_{m}\right\} \\
-k & \leqslant & m
-\end{eqnarray*}
-
 
 Per Annahme existiert ein $P$-uniformer symmetrischer $\left(\sigma\cup\left\{ R\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
 $\mathcal{C}_{n}^{\psi}$, der auf den erweiterten $\left(\sigma\cup\left\{ R\right\} \right)$-Strukturen
@@ -2801,117 +2588,23 @@ und daher:
 Daher ist $\mathcal{D}^{i+1}$ ebenfalls symmetrisch, und es folgt
 die Symmetrie von $\mathcal{C}_{n}^{\varphi}=\mathcal{D}^{n^{k}}$.
 
-\item [{Größe:}] Es wird induktiv bewiesen, dass $T\left(\mathcal{D}^{i}\right)\leqslant\left(3\left\Vert \psi\right\Vert +1\right)i$,
-und $\left|\mathcal{D}^{i}\right|\leqslant i\cdot5n^{\mathtt{MF}\left(\psi\right)}+1$
+\item [{Größe:}] Es wird induktiv bewiesen, dass $T\left(\mathcal{D}^{i}\right)\leqslant\left(\left\Vert \psi\right\Vert +1\right)i$,
+und $\left|\mathcal{D}^{i}\right|\leqslant i\cdot n^{\mathtt{MF}\left(\psi\right)}+1$
 \begin{eqnarray*}
 T\left(\mathcal{D}^{0}\right) & = & 0\\
 T\left(\mathcal{D}^{i+1}\right) & = & T\left(\mathcal{D}^{i}\right)+T\left(\mathcal{C}_{n}^{\psi}\right)+1\\
- & \leqslant & T\left(\mathcal{D}^{i}\right)+3\left\Vert \psi\right\Vert +1\\
- & \overset{\mathrm{Ann.}}{=} & 3i\left\Vert \psi\right\Vert +i+3\left\Vert \psi\right\Vert +1=\left(3\left\Vert \varphi\right\Vert +1\right)i
+ & \leqslant & T\left(\mathcal{D}^{i}\right)+\left\Vert \psi\right\Vert +1\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & \left(\left\Vert \psi\right\Vert +1\right)i+\left\Vert \psi\right\Vert +1=\left(\left\Vert \varphi\right\Vert +1\right)\left(i+1\right)
 \end{eqnarray*}
 \begin{eqnarray*}
 \left|\mathcal{D}^{0}\right| & = & 1\\
 \left|\mathcal{D}^{i+1}\right| & = & \left|\mathcal{D}^{i}\right|+\left|\mathcal{C}_{n}^{\psi}\right|\\
- & \leqslant & \left|\mathcal{D}^{i}\right|+5n^{\mathtt{MF}\left(\psi\right)}\\
- & \overset{\mathrm{Ann.}}{\leqslant} & i\cdot5n^{\mathtt{MF}\left(\psi\right)}+1+5n^{\mathtt{MF}\left(\psi\right)}=\left(i+1\right)\cdot5n^{\mathtt{MF}\left(\psi\right)}+1
+ & \leqslant & \left|\mathcal{D}^{i}\right|+n^{\mathtt{MF}\left(\psi\right)}\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & i\cdot n^{\mathtt{MF}\left(\psi\right)}+1+n^{\mathtt{MF}\left(\psi\right)}=\left(i+1\right)\cdot n^{\mathtt{MF}\left(\psi\right)}+1
 \end{eqnarray*}
-Damit gilt $T\left(\mathcal{C}_{n}^{\varphi}\right)=T\left(\mathcal{D}^{n^{k}}\right)\leqslant n^{k}\left(3\left\Vert \varphi\right\Vert +1\right)$
-und $\left|\mathcal{C}_{n}^{\varphi}\right|=\left|\mathcal{D}^{n^{k}}\right|=5n^{k+\mathtt{MF}\left(\varphi\right)}+1$.
+Damit gilt $T\left(\mathcal{C}_{n}^{\varphi}\right)=T\left(\mathcal{D}^{n^{k}}\right)\leqslant n^{k}\left(\left\Vert \varphi\right\Vert +1\right)$
+und $\left|\mathcal{C}_{n}^{\varphi}\right|=\left|\mathcal{D}^{n^{k}}\right|=n^{k+\mathtt{MF}\left(\varphi\right)}+1$.
 \end{description}
-\end{proof}
-\pagebreak{}
-
-
-\section{Erweiterungen der Fixpunktlogik}
-
-Die disjunkte Ordnungserweiterung der Fixpunktlogik nach Definition
-\ref{def:fo-ord} ist immer noch durch $P/\mathrm{poly}$-uniforme
-(aber $\mathrm{poly}\left(n\right)$-Tiefe) Schaltkreise entscheidbar:
-\begin{lem}
-\label{lem:lfp-ord}Für jede parameter-freie $\left(\mathrm{LFP}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
-$\varphi\left(\bar{x}\right)$ existiert eine $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\bar{\mathcal{C}^{\varphi}}$ mit $T\left(n\right)$-Tiefe und $S\left(n\right)$-Größe,
-so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)$
-für alle $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ gilt.
-\begin{eqnarray*}
-T\left(n\right) & = & \left(2n+1\right)^{k}\left(3\left\Vert \varphi\right\Vert +1\right)\\
-S\left(n\right) & = & 5\left(2n+1\right)^{k+\mathtt{MF}\left(\varphi\right)}
-\end{eqnarray*}
-
-\end{lem}
-(Dies ist die erste Hälfte von Theorem \ref{thm:fp-ord}.)
-\begin{proof}
-Es wird analog zu dem Beweis von Lemma \ref{lem:lfp-circ} für jedes
-$n\in\mathbb{N}$ ein $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
-$\mathcal{C}_{2n+1}^{\varphi}$ über $U'=\left[1,\cdots,2n+1\right]$
-konstruiert, der die Anfrage $q_{\varphi}$ auf $\mathfrak{A}\uplus\Upsilon'\left(n\right)$
-für $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
-und $\Upsilon'\left(n\right)=\left(\left[n+1,2n+1\right],\leqslant\right)$
-berechnet.
-
-Dieser wird analog zu dem Beweis von Lemma \ref{lem:fo-ord} in einen
-$\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis $\dot{\mathcal{C}_{n}^{\varphi}}$
-über $U=\left[1,n\right]$ umgewandelt, in dem nicht-konstante Inputs
-$R\bar{t}$ mit $R\notin\sigma$ oder $\bar{t}\notin U^{k}$ zu Konstanten
-werden.\end{proof}
-\begin{lem}
-\label{lem:fp-c}Für jede parameter-freie $\left(\mathrm{LFP}+C\right)\left[\sigma\right]$-Formel
-$\varphi\left(\bar{x}\right)$ existiert eine $P$-uniforme $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
-$\bar{\mathcal{C}^{\varphi}}$ mit $T\left(n\right)$-Tiefe und $S\left(n\right)$-Größe,
-so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)$
-für alle $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ gilt.
-\begin{eqnarray*}
-T\left(n\right) & = & \left(2n+1\right)^{k}\left(3\left\Vert \varphi\right\Vert +1\right)\\
-S\left(n\right) & = & 5\left(2n+1\right)^{k+\mathtt{MF}\left(\varphi\right)}
-\end{eqnarray*}
-
-\end{lem}
-(Dies ist die erste Hälfte von Theorem \ref{thm:fp-c}.)
-\begin{proof}
-Hier erweitern wir den Beweis von Lemma \ref{lem:lfp-circ} für $\mathrm{LFP}\left[\sigma\right]$
-um den Konstruktionsschritt aus Lemma \ref{lem:fo-c}, um den $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreis
-$\mathcal{C}_{2n+1}^{\varphi}$ zu erzeugen.
-
-Anschließend wird analog zu Lemma \ref{lem:lfp-ord} der $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreis
-$\dot{\mathcal{C}_{n}^{\varphi}}$ erzeugt.\end{proof}
-\begin{lem}
-\label{lem:fp-u}Für jede parameter-freie $\left(\mathrm{LFP}+\mathbf{ARB}\right)\left[\sigma\right]$-Formel
-$\varphi\left(\bar{x}\right)$ existiert eine $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\bar{\mathcal{C}^{\varphi}}$ mit $T\left(n\right)$-Tiefe und $S\left(n\right)$-Größe,
-so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)$
-für alle $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ gilt.
-\begin{eqnarray*}
-T\left(n\right) & = & \left(2n+1\right)^{k}\left(3\left\Vert \varphi\right\Vert +1\right)\\
-S\left(n\right) & = & 5\left(2n+1\right)^{k+\mathtt{MF}\left(\varphi\right)}
-\end{eqnarray*}
-
-\end{lem}
-(Dies ist die erste Hälfte von Theorem \ref{thm:fp-u}.)
-\begin{proof}
-Wie in Lemma \ref{lem:fo-u} werden einfach die Relationssymbole $R\in\eta_{\mathrm{arb}}$
-mit in den $\left(\sigma\cup\eta_{\mathrm{arb}}\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\mathcal{C}_{2n+1}^{\varphi}$ aufgenommen und dann durch Konstanten
-$\mathbf{0}$ oder $\mathbf{1}$ ersetzt, um $\dot{\mathcal{C}_{n}}$
-zu erzeugen.\end{proof}
-\begin{lem}
-\label{lem:fp-u-c}Für jede parameter-freie $\left(\mathrm{LFP}+\mathbf{ARB}+C\right)\left[\sigma\right]$-Formel
-$\varphi\left(\bar{x}\right)$ existiert eine $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
-$\bar{\mathcal{C}^{\varphi}}$ mit $T\left(n\right)$-Tiefe und $S\left(n\right)$-Größe,
-so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)$
-für alle $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ gilt.
-\begin{eqnarray*}
-T\left(n\right) & = & \left(2n+1\right)^{k}\left(3\left\Vert \varphi\right\Vert +1\right)\\
-S\left(n\right) & = & 5\left(2n+1\right)^{k+\mathtt{MF}\left(\varphi\right)}
-\end{eqnarray*}
-
-\end{lem}
-(Dies ist die erste Hälfte von Theorem \ref{thm:fp-u-c}.)
-\begin{proof}
-Wie in Lemma \ref{lem:fo-u} werden einfach die Relationssymbole $R\in\eta_{\mathrm{arb}}$
-mit in den $\left(\sigma\cup\eta_{\mathrm{arb}}\cup\left\{ \leqslant\right\} ,\left\{ \leqslant\right\} \right)$-Schaltkreisfamilie
-$\mathcal{C}_{2n+1}^{\varphi}$ aufgenommen und dann durch Konstanten
-$\mathbf{0}$ oder $\mathbf{1}$ ersetzt, um $\dot{\mathcal{C}_{n}}$
-zu erzeugen.
 \end{proof}
 \pagebreak{}
 
@@ -3421,80 +3114,6 @@ Eine Partition $\mathcal{P}$ von $U$ sei \textbf{Träger} von $g$,
 wenn sie ein Träger von $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
 ist. Sei $\mathrm{SP}\left(g\right)$ der gröbste Träger von $g$.
 \end{defn}
-
-\chapter{Schaltkreise zu Logik}
-\begin{lem}
-Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
-$\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-mit konstant beschränkter Tiefe $\leqslant c$ und polynomiell beschränkter
-Größe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
-existiert eine arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel,
-die die gleiche Anfrage definiert.
-\end{lem}
-
-\section{Normalform}
-
-Zum Beweis dieses Lemmas werden wir eine Normalform für die Schaltkreise
-festlegen.
-\begin{defn}
-Ein Schaltkreis $\left(G,W,\Sigma,\Omega,U\right)$ ist in Alternierender
-Normalform, wenn er folgende Bedingungen erfüllt:\end{defn}
-\begin{enumerate}
-\item Jedes Gate hat genau einen direkten Nachfolger (somit ist $\left(G,W\right)$
-ein gerichteter Baum).
-\item Jedes mit $\Sigma\left(g\right)=\neg$ beschriftete Gate ist ein direkter
-Nachfolger eines Inputgates.
-\item Jedes Outputgate $g=\Omega\left(\bar{t}\right)$ ist mit $\Sigma\left(g\right)=\vee$
-beschriftet.
-\item Je \end{enumerate}
-\begin{lem}
-Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
-$\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-mit konstant beschränkter Tiefe $\leqslant c$ und polynomiell beschränkter
-Größe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
-existiert eine äquivalente Schaltkreisfamilie 
-\end{lem}
-
-\section{Orakelerweiterungen}
-
-Erweitern wir die Logik $\mathrm{FO}\left[\sigma\right]$ auf arb-invariante
-$\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Logik, so opfern
-wir die $P$-Uniformität und Symmetrie der Schaltkreisfamilie.
-\begin{lem}
-Jede arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel
-$\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer Schaltkreisfamilie
-$\left(\mathcal{C}_{n}^{\varphi}\right)_{n\in\mathbb{N}}$ mit konstanter
-Tiefe $\leqslant\left\Vert \varphi\right\Vert $ und Größe $\leqslant5n^{\mathrm{var}\left(\varphi\right)}$
-berechnet wird.\end{lem}
-\begin{proof}
-Der Beweis folgt direkt aus der Tatsache, dass die Struktur $\mathfrak{N}_{\mid\left\{ 1,\cdots,n\right\} }$
-nur von $n$ abhängt, und ihre Relationen daher fest im Schaltkreis
-$\mathcal{C}_{n}^{\varphi}$ eingebaut werden können. Dem Beweis von
-\lemref{FO-Circuit} fügen wir den folgenden Fall hinzu:\end{proof}
-\begin{casenv}
-\item Falls $\varphi\left(\bar{x}\right)=R\bar{y}$ für ein Relationssymbol
-$R\in\eta_{\mathrm{arb}}$, so besteht der Schaltkreis $\mathcal{C}_{n}^{\varphi}$
-aus $n^{k}$ isolierten Gates:
-\[
-\mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} ,\emptyset,\Sigma,\Omega,U\right)
-\]
-Wir betrachten die Relation $R_{\mid U}$, und legen fest:
-\[
-\Sigma\left(g_{\bar{t}}\right)\coloneqq\begin{cases}
-\mathbf{1} & \mathrm{falls}\,\bar{t}\in R_{\mid U}\\
-\mathbf{0} & \mathrm{sonst}
-\end{cases}
-\]
-
-\end{casenv}
-Im allgemeinen ist der so entstandene Schaltkreis weder $P$-uniform
-noch symmetrisch. Die Relation $R_{\mid U}$ kann unter anderem unentscheidbare
-Klassen der natürlichen Zahlen darstellen, und die Symmetrie wird
-offensichtlich verletzt, sofern $R_{\mid U}$ nicht unter Permutation
-von $U$ abgeschlossen ist.
-
-\pagebreak{}
-
 
 \chapter{Schaltkreise zu Logik}
 \begin{lem}
