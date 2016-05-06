@@ -512,6 +512,23 @@ Die Menge
 \end_inset
 
  abgekürzt.
+ Ein reelles Intervall 
+\begin_inset Formula $\left\{ i\in\mathbb{R}\mid a\leqslant i\leqslant b\right\} $
+\end_inset
+
+ oder 
+\begin_inset Formula $\left\{ i\in\mathbb{R}\mid a\leqslant i<b\right\} $
+\end_inset
+
+ wird durch 
+\begin_inset Formula $\mathbb{R}_{\left[a,b\right]}$
+\end_inset
+
+ oder 
+\begin_inset Formula $\mathbb{R}_{\left[a,b\right[}$
+\end_inset
+
+ abgekürzt.
 \end_layout
 
 \begin_layout --Separator--
@@ -9888,6 +9905,12 @@ Die Permutationen aus
 \end_layout
 
 \begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:feinheit"
+
+\end_inset
+
 Die 
 \series bold
 Feinheit 
@@ -9932,12 +9955,34 @@ der Partitionen von
 \end_layout
 
 \begin_layout Definition
+Dies ist äquivalent zu der Teilmengenbeziehung von 
+\begin_inset Formula $\sim$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{P}\preceq\mathcal{P}' & \Leftrightarrow & \mathrm{für\,alle}\,P\in\mathcal{P}\,\mathrm{existiert\,}P'\in\mathcal{P}'\,\mathrm{so\,dass}\,P\subseteq P'\\
+ & \Leftrightarrow & \mathrm{für\,alle}\,u,u'\in U\,\mathrm{gilt}\,u\sim_{\mathcal{P}}u'\,\Rightarrow u\sim_{\mathcal{P}'}u'\\
+ & \Leftrightarrow & \left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
 Die Relation 
 \begin_inset Formula $\preceq$
 \end_inset
 
- ist eine Halbordnung: Sie ist offensichtlich reflexiv, transitiv und anti-symme
-trisch.
+ ist eine Halbordnung auf 
+\begin_inset Formula $\mathrm{Part}_{U}$
+\end_inset
+
+: Sie ist offensichtlich reflexiv, transitiv und anti-symmetrisch (jedoch
+ nicht vollständig).
 \end_layout
 
 \begin_layout Definition
@@ -9945,8 +9990,14 @@ Daher bilden die Partitionen von
 \begin_inset Formula $U$
 \end_inset
 
- einen vollständigen Verband bezüglich den Infimum- und Supremum-Operationen
- 
+ einen vollständigen Verband
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Klein-Barmen1935"
+
+\end_inset
+
+ mit den Infimum- und Supremum-Operationen 
 \begin_inset Formula $\sqcap$
 \end_inset
 
@@ -9957,8 +10008,8 @@ Daher bilden die Partitionen von
 :
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{A}\sqcap\mathcal{B} & \coloneqq & \max_{\preceq}\left\{ \mathcal{P}\mid\mathcal{P}\preceq\mathcal{A}\,\mathrm{und}\,\mathcal{P}\preceq\mathcal{B}\right\} \\
-\mathcal{A}\sqcup\mathcal{B} & \coloneqq & \min_{\preceq}\left\{ \mathcal{P}\mid\mathcal{A}\preceq\mathcal{P}\,\mathrm{und}\,\mathcal{B}\preceq\mathcal{P}\right\} 
+\mathcal{A}\sqcap\mathcal{B} & \coloneqq & \max_{\preceq}\left\{ \mathcal{P}\in\mathrm{Part}_{U}\mid\mathcal{P}\preceq\mathcal{A}\,\mathrm{und}\,\mathcal{P}\preceq\mathcal{B}\right\} \\
+\mathcal{A}\sqcup\mathcal{B} & \coloneqq & \min_{\preceq}\left\{ \mathcal{P}\in\mathrm{Part}_{U}\mid\mathcal{A}\preceq\mathcal{P}\,\mathrm{und}\,\mathcal{B}\preceq\mathcal{P}\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -9995,63 +10046,68 @@ Daher bilden die Partitionen von
 \end_layout
 
 \begin_layout Fact
-Es gilt: 
+Wenn 
+\begin_inset Formula $\left[x\right]_{\sim}$
+\end_inset
+
+ die Äquivalenzklasse 
+\begin_inset Formula $\left\{ y\mid x\sim y\right\} $
+\end_inset
+
+ ist, dann gilt: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{A}\sqcap\mathcal{B} & = & \left\{ A\cap B\mid A\in\mathcal{B},\,B\in\mathcal{B},\,A\cap B\neq\emptyset\right\} \\
-\mathcal{A}\sqcup\mathcal{B} & = & \left\{ \left[x\right]_{\hat{\sim}}\mid x\in U\right\} \\
- &  & \mathrm{wobei}\,\hat{\sim}\coloneqq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)^{*}
+\mathcal{A}\sqcap\mathcal{B}=\mathcal{P}_{1} & \coloneqq & \left\{ \left[x\right]_{\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}}\mid x\in U\right\} \\
+\mathcal{A}\sqcup\mathcal{B}=\mathcal{P}_{2} & \coloneqq & \left\{ \left[x\right]_{\sim^{*}}\mid x\in U\right\} \\
+ &  & \mathrm{wobei}\,\sim\coloneqq\left(\sim_{\mathcal{A}}\right)\cup\left(\sim_{\mathcal{B}}\right)
 \end{eqnarray*}
 
 \end_inset
 
- 
+
 \end_layout
 
-\begin_deeper
-\begin_layout Enumerate
-\begin_inset Formula $\mathcal{A}\sqcap\mathcal{B}$
+\begin_layout Standard
+Die Eigenschaft 
+\begin_inset Formula $\mathcal{P}_{1}\preceq\mathcal{A},\mathcal{B}\preceq\mathcal{P}_{2}$
 \end_inset
 
- besteht aus den nicht-leeren Schnittmengen von allen Elementen von 
-\begin_inset Formula $\mathcal{A}$
-\end_inset
-
- und 
-\begin_inset Formula $\mathcal{B}$
-\end_inset
-
-, so dass 
-\begin_inset Formula $\sim_{\mathcal{A}\sqcap\mathcal{B}}=\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}$
+ folgt offensichtlich aus 
+\begin_inset Formula $\left(\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}\right)\subseteq\sim_{\mathcal{A}},\sim_{\mathcal{B}}\subseteq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)^{*}$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Enumerate
-\begin_inset Formula $\mathcal{A}\sqcup\mathcal{B}$
+ Ferner muss jede Relation 
+\begin_inset Formula $\sim_{\mathcal{P}}$
 \end_inset
 
- besteht aus den Äquivalenzklassen der transitiven Hülle von 
-\begin_inset Formula $\sim_{\mathcal{A}}$
+ mit 
+\begin_inset Formula $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{A}}\right)$
 \end_inset
 
  und 
-\begin_inset Formula $\sim_{\mathcal{B}}$
+\begin_inset Formula $\left(\sim_{\mathcal{A}}\right)\subseteq\left(\sim_{\mathcal{B}}\right)$
 \end_inset
 
-, so dass 
-\begin_inset Formula $\sim_{\mathcal{A}\sqcup\mathcal{B}}=$
+ auch in 
+\begin_inset Formula $\left(\sim_{\mathcal{A}}\right)\cap\left(\sim_{\mathcal{B}}\right)$
 \end_inset
 
-
-\begin_inset Formula $\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)^{*}$
+ enthalten sein, und jede mit 
+\begin_inset Formula $\left(\sim_{\mathcal{P}}\right)\supseteq\left(\sim_{\mathcal{A}}\right)$
 \end_inset
 
-.
+, 
+\begin_inset Formula $\left(\sim_{\mathcal{P}}\right)\supseteq\left(\sim_{\mathcal{B}}\right)$
+\end_inset
+
+ muss auch 
+\begin_inset Formula $\left(\sim_{\mathcal{A}}\right)\cup\left(\sim_{\mathcal{B}}\right)$
+\end_inset
+
+ (und dessen Abschluss) enthalten.
 \end_layout
 
-\end_deeper
 \begin_layout Definition
 Die feinste und gröbste Partition von 
 \begin_inset Formula $U$
@@ -10101,7 +10157,11 @@ Stabilisator
 \begin_inset Formula $\mathrm{Stab}_{U}\left(x\right)\subseteq\mathrm{Sym}_{U}$
 \end_inset
 
- mit 
+ aller Permutationen, die 
+\begin_inset Formula $x$
+\end_inset
+
+ fixieren: 
 \begin_inset Formula 
 \[
 \mathrm{Stab}_{U}\left(x\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi x=x\right\} 
@@ -10117,7 +10177,7 @@ Stabilisator
 \end_layout
 
 \begin_layout Definition
-Die vorige Definition wird auf Teilmengen von 
+Die letzte Definition wird auf Teilmengen von 
 \begin_inset Formula $U$
 \end_inset
 
@@ -10147,7 +10207,11 @@ von
 \begin_inset Formula $\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Sym}_{U}$
 \end_inset
 
- mit
+ der Permutationen die jedes Element 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ fixieren:
 \begin_inset Formula 
 \[
 \mathrm{Stab}_{U}\left(X\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi x=x\,\mathrm{für}\,\mathrm{alle}\,x\in X\right\} 
@@ -10187,7 +10251,11 @@ Mengenstabilisator
 \begin_inset Formula $\mathrm{Stab}_{U}\left\{ X\right\} \subseteq\mathrm{Sym}_{U}$
 \end_inset
 
- mit
+ der Permutationen, die die Menge 
+\begin_inset Formula $X$
+\end_inset
+
+ fixieren.
 \begin_inset Formula 
 \[
 \mathrm{Stab}_{U}\left\{ X\right\} \coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi X=X\right\} 
@@ -10195,7 +10263,7 @@ Mengenstabilisator
 
 \end_inset
 
-Diese Gruppe ist das Erzeugnis der Vereinigung von 
+Diese Gruppe wird durch 
 \begin_inset Formula $\mathrm{Stab}_{U}\left(X\right)$
 \end_inset
 
@@ -10203,12 +10271,36 @@ Diese Gruppe ist das Erzeugnis der Vereinigung von
 \begin_inset Formula $\mathrm{Stab}_{U}\left(U\backslash X\right)$
 \end_inset
 
-.
+ erzeugt: Jede Permutation 
+\begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left\{ X\right\} $
+\end_inset
+
+ kann in 
+\begin_inset Formula $\pi_{1}\circ\pi_{2}$
+\end_inset
+
+ zerlegt werden, wobei 
+\begin_inset Formula $\pi_{1}$
+\end_inset
+
+ nur Elemente von 
+\begin_inset Formula $X$
+\end_inset
+
+, und 
+\begin_inset Formula $\pi_{2}$
+\end_inset
+
+ nur Elemente von 
+\begin_inset Formula $U\backslash X$
+\end_inset
+
+ permutiert.
  
 \begin_inset Formula 
-\[
-\mathrm{Stab}_{U}\left\{ X\right\} =\left\langle \mathrm{Stab}_{U}\left(X\right)\cup\mathrm{Stab}_{U}\left(U\backslash X\right)\right\rangle 
-\]
+\begin{eqnarray*}
+\mathrm{Stab}_{U}\left\{ X\right\}  & = & \left\langle \mathrm{Stab}_{U}\left(X\right)\cup\mathrm{Stab}_{U}\left(U\backslash X\right)\right\rangle 
+\end{eqnarray*}
 
 \end_inset
 
@@ -10221,7 +10313,7 @@ Diese Gruppe ist das Erzeugnis der Vereinigung von
 \end_layout
 
 \begin_layout Definition
-Die vorige Definition wird auf Partitionen 
+Die letzte Definition wird auf Partitionen (Mengen von Teilmengen) 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
@@ -10250,7 +10342,11 @@ von
 \begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Sym}_{U}$
 \end_inset
 
- mit
+ aller Permutationen, die jede Menge 
+\begin_inset Formula $P_{i}\in\mathcal{P}$
+\end_inset
+
+ fixieren:
 \begin_inset Formula 
 \begin{eqnarray*}
 \mathrm{Stab}_{U}\left(\mathcal{P}\right) & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi P_{i}=P_{i}\,\mathrm{für}\,\mathrm{alle}\,P_{i}\in\mathcal{P}\right\} 
@@ -10286,7 +10382,7 @@ Der Mengenstabilisator von
 \begin_inset Formula $\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \subseteq\mathrm{Sym}_{U}$
 \end_inset
 
- mit
+ aller Permutationen, die die Partition als ganzes fixieren: 
 \begin_inset Formula 
 \[
 \mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi\mathcal{P}=\mathcal{P}\right\} 
@@ -10294,17 +10390,20 @@ Der Mengenstabilisator von
 
 \end_inset
 
-Diese Gruppe ist das Erzeugnis der Vereinigung von 
+Diese Gruppe wird durch 
 \begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
 \end_inset
 
- mit allen Permutationen von gleich-mächtigen Elementen der Partition.
- Sei für 
-\begin_inset Formula $1\leqslant n\leqslant\left|U\right|$
+ und alle Permutationen von gleich-mächtigen Elementen von 
+\begin_inset Formula $\mathcal{P}$
 \end_inset
 
- die Menge 
-\begin_inset Formula $\mathcal{P}_{\mid n}\coloneqq\left\{ P_{i}\in\mathcal{P}\mid\#P_{i}=n\right\} $
+ erzeugt: Sei 
+\begin_inset Formula $\mathcal{P}_{\mid i}\coloneqq\left\{ P_{j}\in\mathcal{P}\mid\left|P_{j}\right|=i\right\} $
+\end_inset
+
+ für 
+\begin_inset Formula $i\in\left[1,\left|U\right|\right]$
 \end_inset
 
 , dann gilt: 
@@ -10319,11 +10418,120 @@ Diese Gruppe ist das Erzeugnis der Vereinigung von
 \end_layout
 
 \end_deeper
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:feinheit-stab"
+
+\end_inset
+
+Für zwei Partitionen 
+\begin_inset Formula $\mathcal{P},\mathcal{P}'\in\mathrm{Part}_{U}$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\mathcal{P}\preceq\mathcal{P}'$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+\end_inset
+
+ beliebig, so besteht 
+\begin_inset Formula $\pi$
+\end_inset
+
+ aus einer Folge von Transpositionen:
+\begin_inset Formula 
+\[
+\pi=\left(u_{1}v_{1}\right)\circ\cdots\circ\left(u_{k}v_{k}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Jede Transposition 
+\begin_inset Formula $\left(u_{i}v_{i}\right)$
+\end_inset
+
+ vertauscht Elemente einer Menge 
+\begin_inset Formula $P_{i}\in\mathcal{P}$
+\end_inset
+
+; daher gilt 
+\begin_inset Formula $u_{i}\sim_{\mathcal{P}}v_{i}$
+\end_inset
+
+.
+ Per Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:feinheit"
+
+\end_inset
+
+ gilt außerdem 
+\begin_inset Formula $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)$
+\end_inset
+
+, und daher 
+\begin_inset Formula $\left(u_{i}v_{i}\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Umgekehrt impliziert auch 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
+\end_inset
+
+, dass alle Transpositionen 
+\begin_inset Formula $\left(u_{i}v_{i}\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
+\end_inset
+
+ enthalten sind.
+ Daraus folgt 
+\begin_inset Formula $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{P}\preceq\mathcal{P}'$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section
 Träger
 \end_layout
 
 \begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:traeger"
+
+\end_inset
+
 Sei 
 \begin_inset Formula $G\subseteq\mathrm{\mathrm{Sym}}_{U}$
 \end_inset
@@ -10362,44 +10570,75 @@ Träger
 
 \begin_layout Remark*
 Wenn 
-\begin_inset Formula $G$
-\end_inset
-
- von 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
- getragen wird, so wird 
+ ein Träger von 
 \begin_inset Formula $G$
 \end_inset
 
- auch von allen feineren Elementen 
-\begin_inset Formula $\mathcal{P}'\preceq\mathcal{P}$
-\end_inset
-
- getragen (und 
+ ist, so ist 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
- wiederum trägt alle Obergruppen 
+ auch ein Träger jeder Obermenge 
 \begin_inset Formula $G'\supseteq G$
 \end_inset
 
-).
- Dies folgt direkt daraus, dass die Grobheit von Partitionen eine Teilmengenbezi
-ehung ihrer Stabilisatorgruppen induziert:
-\begin_inset Formula 
-\[
-\mathcal{P}'\preceq\mathcal{P}\,\,\Longrightarrow\,\,\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Stab}_{U}\left(\mathcal{P}'\right)
-\]
+.
+\end_layout
+
+\begin_layout Remark*
+Außerdem sind per Satz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:feinheit-stab"
 
 \end_inset
 
+ alle feineren Partitionen 
+\begin_inset Formula $\mathcal{P}'\preceq\mathcal{P}$
+\end_inset
 
+ Träger von 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark*
+Somit ist 
+\begin_inset Formula $\mathcal{P}_{\min}=\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}_{\min}\right)=\left\{ \mathbf{id}\right\} $
+\end_inset
+
+ ein trivialer Träger jeder Untergruppe 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+, und alle Partitionen 
+\begin_inset Formula $\mathcal{P}\in\mathrm{Part}_{U}$
+\end_inset
+
+ sind Träger der Gruppe 
+\begin_inset Formula $\mathrm{Sym}_{U}=\mathrm{Stab}_{U}\left(\mathcal{P}_{\max}\right)$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Lemma
-Die Träger-Eigenschaft ist unter den Operationen 
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:traeger-abschluss"
+
+\end_inset
+
+Die Träger-Eigenschaft ist bezüglich den Operationen 
 \begin_inset Formula $\sqcap$
 \end_inset
 
@@ -10407,11 +10646,7 @@ Die Träger-Eigenschaft ist unter den Operationen
 \begin_inset Formula $\sqcup$
 \end_inset
 
- abgeschlossen.
-\end_layout
-
-\begin_layout Proof
-Seien 
+ abgeschlossen: Wenn 
 \begin_inset Formula $\mathcal{A}$
 \end_inset
 
@@ -10419,8 +10654,35 @@ Seien
 \begin_inset Formula $\mathcal{B}$
 \end_inset
 
- Träger einer Gruppe 
-\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+ Träger von 
+\begin_inset Formula $G$
+\end_inset
+
+ sind, so sind es auch 
+\begin_inset Formula $\mathcal{A}\sqcap\mathcal{B}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{A}\sqcup\mathcal{B}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Per Definition ist 
+\begin_inset Formula $\mathcal{A}\sqcap\mathcal{B}\preceq\mathcal{A}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{A}\sqcap\mathcal{B}\preceq\mathcal{B}$
+\end_inset
+
+, und daher folgt die Tatsache direkt aus Satz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:feinheit-stab"
+
 \end_inset
 
 .
@@ -10428,123 +10690,78 @@ Seien
 
 \begin_layout Proof
 Für 
-\begin_inset Formula $\sqcap$
-\end_inset
-
- ist der Beweis per 
-\begin_inset Formula $\mathcal{A}\sqcap\mathcal{B}\preceq\mathcal{A},\mathcal{B}$
-\end_inset
-
- trivial.
-\end_layout
-
-\begin_layout Proof
-Sei 
 \begin_inset Formula $\mathcal{P}\coloneqq\mathcal{A}\sqcup\mathcal{B}$
 \end_inset
 
-, und sei 
-\begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
-\end_inset
-
- beliebig:
+ gilt:
 \end_layout
 
 \begin_deeper
 \begin_layout Enumerate
-Wenn 
-\begin_inset Formula $\mathcal{P}=\left\{ P_{1},\cdots,P_{k}\right\} $
+Jede Permutation 
+\begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
 \end_inset
 
-, so existiert eine Folge von Permutationen 
-\begin_inset Formula $\pi_{1}\cdots\pi_{k}=\pi$
+ ist eine Folge von Transpositionen 
+\begin_inset Formula $\pi=\left(u_{1}v_{1}\right)\circ\cdots\circ\left(u_{k}v_{k}\right)$
 \end_inset
 
-, so dass 
-\begin_inset Formula $\pi_{i}$
-\end_inset
-
- nur Elemente von 
-\begin_inset Formula $P_{i}$
-\end_inset
-
- miteinander vertauscht:
-\begin_inset Formula 
-\[
-\pi_{i}\left(x\right)=\begin{cases}
-y\in P_{i} & \mathrm{für}\,x\in P_{i}\\
-x & \mathrm{sonst}
-\end{cases}
-\]
-
-\end_inset
-
-
+, so dass wir nur Transpositionen betrachten müssen.
 \end_layout
 
 \begin_layout Enumerate
-Für jedes 
-\begin_inset Formula $\pi_{i}$
+Die Äquivalenzrelation 
+\begin_inset Formula $\sim_{\mathcal{P}}$
 \end_inset
 
- existiert eine Folge von Transpositionen 
-\begin_inset Formula $\left(x_{i,1}y_{i,1}\right)\cdots\left(x_{i,m}y_{i,m}\right)=\pi_{i}$
-\end_inset
-
-.
-\begin_inset Formula 
-\[
-\pi=\left(x_{1,1}y_{1,1}\right)\cdots\left(x_{k,m_{k}}y_{k,m_{k}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Für jede dieser Transpositionen 
-\begin_inset Formula $\left(xy\right)$
-\end_inset
-
- gilt 
-\begin_inset Formula $x,y\in P_{i}$
-\end_inset
-
-.
- Da 
-\begin_inset Formula $P_{i}\in\mathcal{A}\sqcup\mathcal{B}$
-\end_inset
-
- eine Äquivalenzklasse der transitiven Hülle von 
+ ist die transitive Hülle von 
 \begin_inset Formula $\sim\coloneqq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)$
 \end_inset
 
- ist, existiert eine Folge von 
+.
+ Daher existiert für alle 
+\begin_inset Formula $u\sim_{\mathcal{P}}v$
+\end_inset
+
+ eine Folge von 
 \begin_inset Formula $\ell\leqslant\left|U\right|$
 \end_inset
 
  Elementen 
-\begin_inset Formula $\bar{u}\in U^{\ell}$
+\begin_inset Formula $\bar{w}\in U^{\ell}$
 \end_inset
 
- mit 
-\begin_inset Formula $u_{1}\sim\cdots\sim u_{\ell}$
+ mit
+\begin_inset Formula 
+\[
+u\sim w_{1}\sim\cdots\sim w_{\ell}\sim v
+\]
+
 \end_inset
 
-, so dass 
-\begin_inset Formula $x=u_{1}$
+
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Sei nun 
+\begin_inset Formula $\left(uv\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
 \end_inset
 
- und 
-\begin_inset Formula $y=u_{\ell}$
+ eine beliebige Transposition.
+ 
+\begin_inset Formula $\left(uv\right)$
 \end_inset
 
-.
- Es gilt 
+ lässt sich mit dem entsprechenden 
+\begin_inset Formula $\bar{w}\in\left(U\backslash\left\{ u,v\right\} \right)^{*}$
+\end_inset
+
+ in die folgenden Transpositionen zerlegen:
 \begin_inset Formula 
 \begin{eqnarray*}
-\left(xy\right) & = & \left(u_{1}u_{2}\right)\cdots\left(u_{\ell-1}u_{\ell}\right)\left(u_{\ell-1}u_{\ell-2}\right)\cdots\left(u_{2}u_{1}\right)
+\left(uv\right) & = & \left(uw_{1}\right)\left(w_{1}w_{2}\right)\cdots\left(w_{\ell-1}w_{\ell}\right)\left(w_{\ell}v\right)\\
+ &  & \circ\left(w_{\ell-1}w_{\ell-2}\right)\cdots\left(w_{2}w_{1}\right)
 \end{eqnarray*}
 
 \end_inset
@@ -10552,49 +10769,56 @@ Für jede dieser Transpositionen
 
 \end_layout
 
-\begin_layout Enumerate
-Es gilt 
-\begin_inset Formula $u_{j}\sim_{\mathcal{A}}u_{j+1}$
+\begin_layout Proof
+Insbesondere sei 
+\begin_inset Formula $\bar{w}$
 \end_inset
 
- oder 
-\begin_inset Formula $u_{j}\sim_{\mathcal{B}}u_{j+1}$
+ so gewählt, dass 
+\begin_inset Formula $u\sim w_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\left(w_{i}\sim w_{i+1}\right)_{i\in\left[1,\ell-1\right]}$
+\end_inset
+
+ und 
+\begin_inset Formula $w_{\ell}\sim v$
 \end_inset
 
 .
- Die Transposition 
-\begin_inset Formula $\left(u_{j}u_{j+1}\right)$
+ Weil 
+\begin_inset Formula $\sim=\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)$
 \end_inset
 
- ist somit entweder in 
-\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{A}\right)\subseteq G$
+, ist jede der Transpositionen entweder in 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{A}\right)$
 \end_inset
 
- oder 
-\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{B}\right)\subseteq G$
+ oder in 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{B}\right)$
 \end_inset
 
- enthalten.
-\end_layout
-
-\begin_layout Enumerate
-Also ist 
-\begin_inset Formula $\pi$
-\end_inset
-
- eine Folge von Permutationen in 
+ enthalten, und beide sind Teilmengen von 
 \begin_inset Formula $G$
 \end_inset
 
+.
+\end_layout
+
+\begin_layout Proof
+Also ist 
+\begin_inset Formula $\left(uv\right)\in G$
+\end_inset
+
 , und es folgt 
-\begin_inset Formula $\pi\in G$
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$
 \end_inset
 
 .
 \end_layout
 
-\end_deeper
-\begin_layout Corollary*
+\begin_layout Corollary
 Jede Gruppe 
 \begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
 \end_inset
@@ -10636,12 +10860,23 @@ Nun ist
 \begin_inset Formula $\mathcal{P}\sqcup\mathcal{P}'$
 \end_inset
 
+ nach Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:traeger-abschluss"
+
+\end_inset
+
  ebenfalls ein Träger von 
 \begin_inset Formula $G$
 \end_inset
 
-, und 
-\begin_inset Formula $\mathcal{P},\mathcal{P}'\preceq\mathcal{P}\sqcup\mathcal{P}'$
+, und ist mindestens so grob wie 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{P}'$
 \end_inset
 
 .
@@ -10676,7 +10911,7 @@ Für jede Gruppe
 \begin_inset Formula $\mathrm{SP}\left(G\right)$
 \end_inset
 
- die gröbste tragende Partition von 
+ der gröbste Träger von 
 \begin_inset Formula $G$
 \end_inset
 
@@ -10684,7 +10919,7 @@ Für jede Gruppe
 \end_layout
 
 \begin_layout Standard
-Wir betrachten nun die Konjugationsoperation auf 
+Wir betrachten nun die Konjugations-Operation auf 
 \begin_inset Formula $\mathrm{Sym}_{U}$
 \end_inset
 
@@ -10692,6 +10927,12 @@ Wir betrachten nun die Konjugationsoperation auf
 \end_layout
 
 \begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:konjugation"
+
+\end_inset
+
 Wenn eine Partition 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
@@ -10717,7 +10958,7 @@ Wenn eine Partition
 
 \begin_layout Proof
 Seien 
-\begin_inset Formula $\vartheta\in\mathrm{Stab}_{U}\left(\pi\mathcal{P}\right)$
+\begin_inset Formula $\rho\in\mathrm{Stab}_{U}\left(\pi\mathcal{P}\right)$
 \end_inset
 
  und 
@@ -10725,10 +10966,18 @@ Seien
 \end_inset
 
  beliebig.
- Nun gilt:
+ 
+\begin_inset Formula $\pi^{-1}\rho\pi$
+\end_inset
+
+ fixiert 
+\begin_inset Formula $P_{i}$
+\end_inset
+
+:
 \begin_inset Formula 
 \begin{eqnarray*}
-\left(\pi^{-1}\vartheta\pi\right)P_{i} & = & \pi^{-1}\left(\vartheta\left(\pi P_{i}\right)\right)\\
+\left(\pi^{-1}\rho\pi\right)P_{i} & = & \pi^{-1}\left(\rho\left(\pi P_{i}\right)\right)\\
  & = & \pi^{-1}\pi P_{i}\\
  & = & P_{i}
 \end{eqnarray*}
@@ -10740,14 +10989,14 @@ Seien
 
 \begin_layout Proof
 Daraus folgt 
-\begin_inset Formula $\left(\pi^{-1}\vartheta\pi\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$
+\begin_inset Formula $\left(\pi^{-1}\rho\pi\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$
 \end_inset
 
-, und schließlich:
+, und schließlich gilt:
 \begin_inset Formula 
 \begin{eqnarray*}
-\vartheta & = & \left(\pi\pi^{-1}\right)\vartheta\left(\pi\pi^{-1}\right)\\
- & = & \pi\left(\pi^{-1}\vartheta\pi\right)\pi^{-1}\\
+\rho & = & \left(\pi\pi^{-1}\right)\rho\left(\pi\pi^{-1}\right)\\
+ & = & \pi\left(\pi^{-1}\rho\pi\right)\pi^{-1}\\
  & \in & \pi G\pi^{-1}
 \end{eqnarray*}
 
@@ -10757,18 +11006,24 @@ Daraus folgt
 \end_layout
 
 \begin_layout Proof
-Damit trägt 
+Damit 
 \begin_inset Formula $\pi\mathcal{P}$
 \end_inset
 
- die konjugierte Gruppe 
+ ein Träger der konjugierten Gruppe 
 \begin_inset Formula $\pi G\pi^{-1}$
 \end_inset
 
 .
 \end_layout
 
-\begin_layout Corollary*
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:sp-konjugation"
+
+\end_inset
+
 Für jede Gruppe 
 \begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
 \end_inset
@@ -10785,7 +11040,14 @@ Für jede Gruppe
 \end_layout
 
 \begin_layout Proof
-Es wurde gezeigt, dass 
+Nach Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:konjugation"
+
+\end_inset
+
+ ist 
 \begin_inset Formula $\pi\mathrm{SP}\left(G\right)$
 \end_inset
 
@@ -10793,8 +11055,12 @@ Es wurde gezeigt, dass
 \begin_inset Formula $\pi G\pi^{-1}$
 \end_inset
 
- ist.
- Es folgt:
+.
+ Daher ist 
+\begin_inset Formula $\pi\mathrm{SP}\left(G\right)$
+\end_inset
+
+ mindestens so fein wie der gröbste Träger:
 \begin_inset Formula 
 \[
 \pi\mathrm{SP}\left(G\right)\preceq\mathrm{SP}\left(\pi G\pi^{-1}\right)
@@ -10834,7 +11100,7 @@ Die Relation
  bleibt unter Permutation beider Seiten erhalten:
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathrm{SP}\left(\pi G\pi^{-1}\right) & \preceq & \pi\mathrm{SP}\left(G\right)
+\pi\pi^{-1}\mathrm{SP}\left(\pi G\pi^{-1}\right) & \preceq & \pi\mathrm{SP}\left(G\right)
 \end{eqnarray*}
 
 \end_inset
@@ -10871,7 +11137,14 @@ Jede Gruppe
 \end_layout
 
 \begin_layout Proof
-Per Definition gilt bereits 
+Per Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:traeger"
+
+\end_inset
+
+ gilt bereits 
 \begin_inset Formula $\mathrm{Stab}_{U}\left(\mathrm{SP}\left(G\right)\right)\subseteq G$
 \end_inset
 
@@ -10884,12 +11157,22 @@ Sei nun
 \end_inset
 
  beliebig.
- Es gilt:
+ Weil 
+\begin_inset Formula $\pi G\pi^{-1}=G$
+\end_inset
+
+, folgt nach Korollar 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:sp-konjugation"
+
+\end_inset
+
+: 
 \begin_inset Formula 
-\begin{eqnarray*}
-\pi\mathrm{SP}\left(G\right) & = & \mathrm{SP}\left(\pi G\pi^{-1}\right)\\
- & = & \mathrm{SP}\left(G\right)
-\end{eqnarray*}
+\[
+\pi\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\pi G\pi^{-1}\right)=\mathrm{SP}\left(G\right)
+\]
 
 \end_inset
 
@@ -10897,7 +11180,15 @@ Sei nun
 \end_layout
 
 \begin_layout Proof
-Daher ist 
+Weil 
+\begin_inset Formula $\pi$
+\end_inset
+
+ die Partition 
+\begin_inset Formula $\mathrm{SP}\left(G\right)$
+\end_inset
+
+ auf sich selbst abbildet, gilt per Definition 
 \begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left\{ \mathrm{SP}\left(G\right)\right\} $
 \end_inset
 
@@ -10905,16 +11196,23 @@ Daher ist
 \end_layout
 
 \begin_layout Lemma
-Für 
-\begin_inset Formula $\epsilon\in\left[0,1\right[$
+(Lemma 19 aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anderson_et_al:LIPIcs:2014:4445"
+
+\end_inset
+
+) Für 
+\begin_inset Formula $\epsilon\in\mathbb{R}_{\left[0,1\right[}$
 \end_inset
 
 , jedes hinreichend große Universum 
-\begin_inset Formula $U$
+\begin_inset Formula $U=\left[1,n\right]$
 \end_inset
 
  mit 
-\begin_inset Formula $n\coloneqq\left|U\right|\geqslant\exp\frac{4}{\epsilon}$
+\begin_inset Formula $n\geqslant\exp\frac{4}{\epsilon}$
 \end_inset
 
  und jede Partition 
@@ -10933,10 +11231,18 @@ Falls der Index des Mengenstabilisators von
 \begin_inset Formula $n$
 \end_inset
 
- ist: 
+ ist:
 \begin_inset Formula 
 \[
-s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\leqslant2^{n^{1-\epsilon}}
+s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+n\leqslant s\leqslant2^{n^{1-\epsilon}}
 \]
 
 \end_inset
@@ -10969,17 +11275,19 @@ Dann enthält
 \end_layout
 
 \begin_layout Standard
-Diese Beziehung ist an der Repräsentation des Mengenstabilisators als 
+Diese Beziehung ist an der Repräsentation des Mengenstabilisators als Erzeugnis
+ erkennbar: 
 \begin_inset Formula 
-\[
-\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} =\left\langle \mathrm{Stab}_{U}\left(\mathcal{P}\right)\cup\bigcup_{i=1}^{\left|U\right|}\mathrm{Sym}_{\mathcal{P}_{\mid i}}\right\rangle 
-\]
+\begin{eqnarray*}
+\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\}  & = & \left\langle \mathrm{Stab}_{U}\left(\mathcal{P}\right)\cup\bigcup_{i=1}^{\left|U\right|}\mathrm{Sym}_{\mathcal{P}_{\mid i}}\right\rangle \\
+\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right| & = & \left|\mathrm{Stab}_{U}\left(\mathcal{P}\right)\right|\cdot\prod_{i=1}^{U}\left|\mathcal{P}_{\mid i}\right|!
+\end{eqnarray*}
 
 \end_inset
 
- erkennbar: Damit sein Index klein ist, muss die Gruppe selbst groß sein,
- was entweder einen großen Punktstabilisator oder eine große Anzahl gleich-mächt
-iger Elemente von 
+Damit der Index klein ist, muss die Gruppe selbst groß sein, was entweder
+ einen großen Punktstabilisator oder eine große Anzahl gleich-mächtiger
+ Elemente von 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
@@ -10988,34 +11296,25 @@ iger Elemente von
 
 \begin_layout Proof
 Sei 
-\begin_inset Formula $\epsilon\in\left[0,1\right[$
+\begin_inset Formula $\epsilon\in\mathbb{R}_{\left[0,1\right[}$
 \end_inset
 
 , 
 \begin_inset Formula $n\geqslant\exp\frac{4}{\epsilon}$
 \end_inset
 
-, und 
-\begin_inset Formula $U=\left\{ 1,\cdots,n\right\} $
+, 
+\begin_inset Formula $U\coloneqq\left[1,n\right]$
 \end_inset
 
-.
- 
-\end_layout
-
-\begin_layout Proof
-Sei 
+ und 
 \begin_inset Formula $\mathcal{P}\in\mathrm{Part}_{U}$
 \end_inset
 
- beliebig mit 
-\begin_inset Formula $k\coloneqq\left|\mathcal{P}\right|$
-\end_inset
-
-.
+ mit der folgenden Bedingung:
 \begin_inset Formula 
 \[
-n\leqslant s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\leqslant2^{n^{1-\epsilon}}
+n\leqslant\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\leqslant2^{n^{1-\epsilon}}
 \]
 
 \end_inset
@@ -11030,11 +11329,7 @@ Die Definition des Mengenstabilisators liefert eine kombinatorische Schranke
 \begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} $
 \end_inset
 
- besteht aus einer Permutation der 
-\begin_inset Formula $k$
-\end_inset
-
- Elemente von 
+ besteht aus einer Permutation der Elemente von 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
@@ -11050,7 +11345,7 @@ Die Definition des Mengenstabilisators liefert eine kombinatorische Schranke
  
 \begin_inset Formula 
 \[
-\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|\leqslant k!\prod_{P\in\mathcal{P}}\left|P\right|!
+\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|\leqslant\left|\mathcal{P}\right|!\prod_{P\in\mathcal{P}}\left|P\right|!
 \]
 
 \end_inset
@@ -11059,11 +11354,15 @@ Die Definition des Mengenstabilisators liefert eine kombinatorische Schranke
 \end_layout
 
 \begin_layout Enumerate
-Seien 
+Sei 
+\begin_inset Formula $k\coloneqq\left|\mathcal{P}\right|$
+\end_inset
+
+, seien 
 \begin_inset Formula $P_{1},\cdots,P_{k}\in\mathcal{P}$
 \end_inset
 
- die nach aufsteigender Größe geordneten Elemente von 
+ die nach aufsteigender Mächtigkeit geordneten Elemente von 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
@@ -11110,7 +11409,7 @@ Für zwei beliebige
 \begin{eqnarray*}
 \left|\mathrm{Stab}_{U}\left\{ P\right\} \right| & \leqslant & k!\prod_{i=1}^{k}p_{i}!\\
  & = & k!p_{1}!\cdots p_{i}!\cdots p_{j}!\cdots p_{k}!\\
- & \leqslant & \frac{p_{j}+1}{p_{i}}k!p_{1}!\cdots p_{i}!\cdots p_{j}!\cdots p_{k}!\\
+ & \leqslant & k!p_{1}!\cdots p_{i}!\cdots p_{j}!\cdots p_{k}!\cdot\frac{p_{j}+1}{p_{i}}\\
  & = & k!p_{1}!\cdots\left(p_{i}-1\right)!\cdots\left(p_{j}+1\right)!\cdots p_{k}!
 \end{eqnarray*}
 
@@ -11120,11 +11419,24 @@ Für zwei beliebige
 \end_layout
 
 \begin_layout Enumerate
-Durch wiederholte Anwendung folgt 
+Durch wiederholte Anwendung werden die ersten 
+\begin_inset Formula $k-1$
+\end_inset
+
+ Fakultätsterme auf 
+\begin_inset Formula $1!$
+\end_inset
+
+ reduziert.
+ Der letzte wächst auf 
+\begin_inset Formula $\left(n-\left(k-1\right)\right)!$
+\end_inset
+
+ an: 
 \begin_inset Formula 
 \begin{eqnarray*}
 \left|\mathrm{Stab}_{U}\left\{ P\right\} \right| & \leqslant & k!\cdot\underset{k-1}{\underbrace{1!\cdots1!}}\cdot\left(n-\left(k-1\right)\right)!\\
- & = & k!\left(n-k+1\right)!
+ & = & k!\left(n+1-k\right)!
 \end{eqnarray*}
 
 \end_inset
@@ -11133,19 +11445,19 @@ Durch wiederholte Anwendung folgt
 \end_layout
 
 \begin_layout Enumerate
-Nun ist 
+Daher ist 
 \begin_inset Formula $s$
 \end_inset
 
  von unten durch einen Binomialkoeffizienten beschränkt:
 \begin_inset Formula 
 \begin{eqnarray*}
-s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|} & = & \frac{n!}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\\
+s=\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|} & = & \frac{n!}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\\
  & \geqslant & \frac{n!}{k!\left(n+1-k\right)!}\\
  & = & \frac{1}{n+1}\frac{\left(n+1\right)!}{k!\left(n+1-k\right)!}\\
  & = & \frac{1}{n+1}\binom{n+1}{k}\\
  & \geqslant & \frac{1}{n+1}\binom{n}{k}\\
- & = & \frac{1}{n+1}\binom{n}{\min\left\{ n,n-k\right\} }
+ & = & \frac{1}{n+1}\binom{n}{\min\left(n,n-k\right)}
 \end{eqnarray*}
 
 \end_inset
@@ -11154,17 +11466,7 @@ s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \m
 \end_layout
 
 \begin_layout Enumerate
-Für den Binomialkoeffizienten gibt es auch eine untere Schranke:
-\begin_inset Marginal
-status open
-
-\begin_layout Plain Layout
-CITE
-\end_layout
-
-\end_inset
-
- 
+Für den Binomialkoeffizienten gibt es auch eine untere Schranke: 
 \begin_inset Formula 
 \[
 \binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}=\frac{\prod_{i=n-k+1}^{n}i}{\prod_{i=1}^{k}i}=\prod_{i=1}^{k}\frac{n-k+i}{i}
@@ -11192,11 +11494,15 @@ CITE
 \end_layout
 
 \begin_layout Enumerate
-Daher ist 
+Daher hat 
 \begin_inset Formula $s$
 \end_inset
 
- von unten beschränkt:
+ die folgende untere Schranke mit 
+\begin_inset Formula $k'\coloneqq\min\left(k,n-k\right)$
+\end_inset
+
+:
 \begin_inset Formula 
 \[
 s\geqslant\frac{1}{n+1}\left(\frac{n}{k'}\right)^{k'}
@@ -11208,7 +11514,7 @@ s\geqslant\frac{1}{n+1}\left(\frac{n}{k'}\right)^{k'}
 \end_layout
 
 \begin_layout Enumerate
-Es folgt
+Es folgt:
 \begin_inset Formula 
 \begin{eqnarray*}
 \log s & \geqslant & k'\left(\log n-\log k'\right)-\log\left(n+1\right)\\
@@ -11245,10 +11551,14 @@ Weil
 
 \begin_layout Enumerate
 Weil 
-\begin_inset Formula $\frac{n}{k'}\geqslant2$
+\begin_inset Formula $n\geqslant k'$
 \end_inset
 
-, gilt:
+, folgt 
+\begin_inset Formula $\log n\geqslant\log k'$
+\end_inset
+
+:
 \begin_inset Formula 
 \begin{eqnarray*}
 4\log s & \geqslant & k'\left(\log n-\log k'\right)\\
@@ -11268,7 +11578,8 @@ Aus der Bedingung
  folgt:
 \begin_inset Formula 
 \begin{eqnarray*}
-\log k' & \leqslant & \log\log s+2\\
+\log k' & \leqslant & \log(4\log s)\\
+ & = & \log\log s+2\\
  & \leqslant & \log\log2^{n^{1-\epsilon}}+2\\
  & = & \log n^{1-\epsilon}+2\\
  & = & \left(1-\epsilon\right)\log n+2
@@ -11284,7 +11595,7 @@ Schließlich folgt:
 \begin_inset Formula 
 \begin{eqnarray*}
 4\log s & \geqslant & k'\left(\log n-\log k'\right)\\
- & \geqslant & k'\left(\log n-\left(1-\epsilon\right)\log n-2\right)\\
+ & \geqslant & k'\left(\log n-\left(\left(1-\epsilon\right)\log n+2\right)\right)\\
  & \geqslant & k'\left(\epsilon\log n-2\right)\\
  & \geqslant & k'\frac{\epsilon\log n}{2}\\
 \frac{8\log s}{\epsilon\log n} & \geqslant & k'
@@ -11301,7 +11612,8 @@ Eine Partition, die höchstens
 \begin_inset Formula $\frac{n}{2}$
 \end_inset
 
- Teile enthält (und daher einen kleinen Nebengruppen-Index 
+ Elemente enthält (und deren Stabilisator einen subexponentiellen Index
+ 
 \begin_inset Formula $\left[\mathrm{Sym}_{U}:\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right]\leqslant2^{n^{1-\epsilon}}$
 \end_inset
 
@@ -11309,19 +11621,26 @@ Eine Partition, die höchstens
 \end_layout
 
 \begin_layout Lemma
-Für 
-\begin_inset Formula $\epsilon\in\left[0,1\right[$
+(Lemma 20 aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anderson_et_al:LIPIcs:2014:4445"
+
+\end_inset
+
+) Für 
+\begin_inset Formula $\epsilon\in\mathbb{R}_{\left[0,1\right[}$
 \end_inset
 
 , jedes hinreichend große Universum 
-\begin_inset Formula $U$
+\begin_inset Formula $U\coloneqq\left[1,n\right]$
 \end_inset
 
  mit 
-\begin_inset Formula $n\coloneqq\left|U\right|\geqslant\exp\frac{8}{\epsilon^{2}}$
+\begin_inset Formula $n\geqslant\exp\frac{8}{\epsilon^{2}}$
 \end_inset
 
- und eine Partition 
+ und jede Partition 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
@@ -11329,7 +11648,7 @@ Für
 \begin_inset Formula $\left|\mathcal{P}\right|\leqslant\frac{n}{2}$
 \end_inset
 
- Elemente gilt:
+ gilt:
 \end_layout
 
 \begin_layout Lemma
@@ -11344,7 +11663,15 @@ Falls der Index des Mengenstabilisators von
  ist: 
 \begin_inset Formula 
 \[
-s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\leqslant2^{n^{1-\epsilon}}
+s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+n\leqslant s\leqslant2^{n^{1-\epsilon}}
 \]
 
 \end_inset
@@ -11360,7 +11687,7 @@ Dann gilt für das mächtigste Element von
 : 
 \begin_inset Formula 
 \[
-\max\left\{ \#P\mid P\in\mathcal{P}\right\} \geqslant n-\frac{33}{\epsilon}\cdot\frac{\log s}{\log n}
+\max\left\{ \left|P\right|\mid P\in\mathcal{P}\right\} \geqslant n-\frac{33}{\epsilon}\cdot\frac{\log s}{\log n}
 \]
 
 \end_inset
@@ -11382,6 +11709,32 @@ Sei wieder
 \end_inset
 
 .
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right| & \leqslant & k!\prod_{P\in\mathcal{P}}\left|P\right|!\\
+ & = & k!p_{1}!\cdots p_{k}!
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Ohne Beschränkung der Annahme ist 
+\begin_inset Formula $p_{k-1}>1$
+\end_inset
+
+, denn sonst ist 
+\begin_inset Formula $p_{k}=n-\left(k-1\right)\geqslant n-\frac{n}{2}$
+\end_inset
+
+, und 
+\begin_inset Formula $\frac{n}{2}\leqslant\frac{}{}\frac{33}{\epsilon}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Proof
@@ -11398,9 +11751,10 @@ Die Umverteilung aus dem vorhergehenden Beweis wird wiederholt verwendet,
  
 \begin_inset Formula 
 \begin{eqnarray*}
-\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right| & \leqslant & k!\prod_{P\in\mathcal{P}}\left|P\right|!\\
- & = & k!p_{1}!\cdots p_{k}!\\
- & \leqslant & k!\underset{k-\ell-1}{\underbrace{1!\cdots1!}}\underset{\ell}{\underbrace{p_{k-1}!\cdots p_{k-1}!}}p_{k}!
+\\
+\\
+ & \leqslant & k!\underset{k-\ell-1}{\underbrace{1!\cdots1!}}\underset{\ell}{\underbrace{p_{k-1}!\cdots p_{k-1}!}}p_{k}!\\
+ & = & k!\left(p_{k-1}!\right)^{\ell}p_{k}!
 \end{eqnarray*}
 
 \end_inset

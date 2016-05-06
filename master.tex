@@ -71,7 +71,7 @@ leftmargin=\lyxlabelwidth,#1]}
   \theoremstyle{plain}
   \newtheorem{fact}[thm]{\protect\factname}
   \theoremstyle{plain}
-  \newtheorem*{cor*}{\protect\corollaryname}
+  \newtheorem{cor}[thm]{\protect\corollaryname}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 \usepackage[nottoc]{tocbibind} 
@@ -212,7 +212,10 @@ die folgende Funktion:
 \textbf{Intervall}
 
 Die Menge $\left\{ i\in\mathbb{N}\mid a\leqslant i\leqslant b\right\} $
-wird durch $\left[a,b\right]$ abgekürzt.
+wird durch $\left[a,b\right]$ abgekürzt. Ein reelles Intervall $\left\{ i\in\mathbb{R}\mid a\leqslant i\leqslant b\right\} $
+oder $\left\{ i\in\mathbb{R}\mid a\leqslant i<b\right\} $ wird durch
+$\mathbb{R}_{\left[a,b\right]}$ oder $\mathbb{R}_{\left[a,b\right[}$
+abgekürzt.
 \end{defn}
 
 \begin{defn}
@@ -2639,19 +2642,29 @@ Partition von $U$:
 \end{defn}
 
 \begin{defn}
-Die \textbf{Feinheit }der Partitionen von $U$ sei eine Relation $\preceq$,
-so dass $\mathcal{P}\preceq\mathcal{P}'$ (,,$\mathcal{P}$ ist feiner
-als $\mathcal{P}'$``) genau dann wenn jedes $P_{i}\in\mathcal{P}$
-eine Teilmenge eines $P'_{j}\in\mathcal{P}'$ ist.
+\label{def:feinheit}Die \textbf{Feinheit }der Partitionen von $U$
+sei eine Relation $\preceq$, so dass $\mathcal{P}\preceq\mathcal{P}'$
+(,,$\mathcal{P}$ ist feiner als $\mathcal{P}'$``) genau dann wenn
+jedes $P_{i}\in\mathcal{P}$ eine Teilmenge eines $P'_{j}\in\mathcal{P}'$
+ist.
 
-Die Relation $\preceq$ ist eine Halbordnung: Sie ist offensichtlich
-reflexiv, transitiv und anti-symmetrisch.
-
-Daher bilden die Partitionen von $U$ einen vollständigen Verband
-bezüglich den Infimum- und Supremum-Operationen $\sqcap$ und $\sqcup$:
+Dies ist äquivalent zu der Teilmengenbeziehung von $\sim$: 
 \begin{eqnarray*}
-\mathcal{A}\sqcap\mathcal{B} & \coloneqq & \max_{\preceq}\left\{ \mathcal{P}\mid\mathcal{P}\preceq\mathcal{A}\,\mathrm{und}\,\mathcal{P}\preceq\mathcal{B}\right\} \\
-\mathcal{A}\sqcup\mathcal{B} & \coloneqq & \min_{\preceq}\left\{ \mathcal{P}\mid\mathcal{A}\preceq\mathcal{P}\,\mathrm{und}\,\mathcal{B}\preceq\mathcal{P}\right\} 
+\mathcal{P}\preceq\mathcal{P}' & \Leftrightarrow & \mathrm{f\ddot{u}r\,alle}\,P\in\mathcal{P}\,\mathrm{existiert\,}P'\in\mathcal{P}'\,\mathrm{so\,dass}\,P\subseteq P'\\
+ & \Leftrightarrow & \mathrm{f\ddot{u}r\,alle}\,u,u'\in U\,\mathrm{gilt}\,u\sim_{\mathcal{P}}u'\,\Rightarrow u\sim_{\mathcal{P}'}u'\\
+ & \Leftrightarrow & \left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)
+\end{eqnarray*}
+
+
+Die Relation $\preceq$ ist eine Halbordnung auf $\mathrm{Part}_{U}$:
+Sie ist offensichtlich reflexiv, transitiv und anti-symmetrisch (jedoch
+nicht vollständig).
+
+Daher bilden die Partitionen von $U$ einen vollständigen Verband\cite{Klein-Barmen1935}
+mit den Infimum- und Supremum-Operationen $\sqcap$ und $\sqcup$:
+\begin{eqnarray*}
+\mathcal{A}\sqcap\mathcal{B} & \coloneqq & \max_{\preceq}\left\{ \mathcal{P}\in\mathrm{Part}_{U}\mid\mathcal{P}\preceq\mathcal{A}\,\mathrm{und}\,\mathcal{P}\preceq\mathcal{B}\right\} \\
+\mathcal{A}\sqcup\mathcal{B} & \coloneqq & \min_{\preceq}\left\{ \mathcal{P}\in\mathrm{Part}_{U}\mid\mathcal{A}\preceq\mathcal{P}\,\mathrm{und}\,\mathcal{B}\preceq\mathcal{P}\right\} 
 \end{eqnarray*}
 
 
@@ -2659,22 +2672,24 @@ bezüglich den Infimum- und Supremum-Operationen $\sqcap$ und $\sqcup$:
 als $\mathcal{A}$ und $\mathcal{B}$, und $\mathcal{A}\sqcup\mathcal{B}$
 die feinste gröbere Partition als $\mathcal{A}$ und $\mathcal{B}$.)\end{defn}
 \begin{fact}
-Es gilt: 
+Wenn $\left[x\right]_{\sim}$ die Äquivalenzklasse $\left\{ y\mid x\sim y\right\} $
+ist, dann gilt: 
 \begin{eqnarray*}
-\mathcal{A}\sqcap\mathcal{B} & = & \left\{ A\cap B\mid A\in\mathcal{B},\,B\in\mathcal{B},\,A\cap B\neq\emptyset\right\} \\
-\mathcal{A}\sqcup\mathcal{B} & = & \left\{ \left[x\right]_{\hat{\sim}}\mid x\in U\right\} \\
- &  & \mathrm{wobei}\,\hat{\sim}\coloneqq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)^{*}
+\mathcal{A}\sqcap\mathcal{B}=\mathcal{P}_{1} & \coloneqq & \left\{ \left[x\right]_{\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}}\mid x\in U\right\} \\
+\mathcal{A}\sqcup\mathcal{B}=\mathcal{P}_{2} & \coloneqq & \left\{ \left[x\right]_{\sim^{*}}\mid x\in U\right\} \\
+ &  & \mathrm{wobei}\,\sim\coloneqq\left(\sim_{\mathcal{A}}\right)\cup\left(\sim_{\mathcal{B}}\right)
 \end{eqnarray*}
- 
-\begin{enumerate}
-\item $\mathcal{A}\sqcap\mathcal{B}$ besteht aus den nicht-leeren Schnittmengen
-von allen Elementen von $\mathcal{A}$ und $\mathcal{B}$, so dass
-$\sim_{\mathcal{A}\sqcap\mathcal{B}}=\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}$.
-\item $\mathcal{A}\sqcup\mathcal{B}$ besteht aus den Äquivalenzklassen
-der transitiven Hülle von $\sim_{\mathcal{A}}$ und $\sim_{\mathcal{B}}$,
-so dass $\sim_{\mathcal{A}\sqcup\mathcal{B}}=$$\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)^{*}$.
-\end{enumerate}
+
 \end{fact}
+Die Eigenschaft $\mathcal{P}_{1}\preceq\mathcal{A},\mathcal{B}\preceq\mathcal{P}_{2}$
+folgt offensichtlich aus $\left(\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}\right)\subseteq\sim_{\mathcal{A}},\sim_{\mathcal{B}}\subseteq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)^{*}$.
+Ferner muss jede Relation $\sim_{\mathcal{P}}$ mit $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{A}}\right)$
+und $\left(\sim_{\mathcal{A}}\right)\subseteq\left(\sim_{\mathcal{B}}\right)$
+auch in $\left(\sim_{\mathcal{A}}\right)\cap\left(\sim_{\mathcal{B}}\right)$
+enthalten sein, und jede mit $\left(\sim_{\mathcal{P}}\right)\supseteq\left(\sim_{\mathcal{A}}\right)$,
+$\left(\sim_{\mathcal{P}}\right)\supseteq\left(\sim_{\mathcal{B}}\right)$
+muss auch $\left(\sim_{\mathcal{A}}\right)\cup\left(\sim_{\mathcal{B}}\right)$
+(und dessen Abschluss) enthalten.
 \begin{defn}
 Die feinste und gröbste Partition von $U$ seien $\mathcal{P}_{\min}\left(U\right)\coloneqq\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
 und $\mathcal{P}_{\max}\left(U\right)\coloneqq\left\{ U\right\} $.
@@ -2686,7 +2701,7 @@ und $\mathcal{P}_{\max}\left(U\right)\coloneqq\left\{ U\right\} $.
 \begin{defn}
 Sei $x\in U$. Der \textbf{Stabilisator} von $x$ in $U$ sei die
 Untergruppe $\mathrm{Stab}_{U}\left(x\right)\subseteq\mathrm{Sym}_{U}$
-mit 
+aller Permutationen, die $x$ fixieren: 
 \[
 \mathrm{Stab}_{U}\left(x\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi x=x\right\} 
 \]
@@ -2694,11 +2709,12 @@ mit
 \end{defn}
 
 \begin{defn}
-Die vorige Definition wird auf Teilmengen von $U$ erweitert. Sei
+Die letzte Definition wird auf Teilmengen von $U$ erweitert. Sei
 $X\subseteq U$:
 \begin{itemize}
 \item Der \textbf{Punktstabilisator }von $X$ in $U$ sei die Untergruppe
-$\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Sym}_{U}$ mit
+$\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Sym}_{U}$ der Permutationen
+die jedes Element $x\in X$ fixieren:
 \[
 \mathrm{Stab}_{U}\left(X\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi x=x\,\mathrm{f\ddot{u}r}\,\mathrm{alle}\,x\in X\right\} 
 \]
@@ -2708,26 +2724,30 @@ Diese Gruppe ist der Schnitt der Stabilisatoren der Elemente von $X$.
 \]
 
 \item Der \textbf{Mengenstabilisator} von $X$ in $U$ sei die Untergruppe
-$\mathrm{Stab}_{U}\left\{ X\right\} \subseteq\mathrm{Sym}_{U}$ mit
+$\mathrm{Stab}_{U}\left\{ X\right\} \subseteq\mathrm{Sym}_{U}$ der
+Permutationen, die die Menge $X$ fixieren.
 \[
 \mathrm{Stab}_{U}\left\{ X\right\} \coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi X=X\right\} 
 \]
-Diese Gruppe ist das Erzeugnis der Vereinigung von $\mathrm{Stab}_{U}\left(X\right)$
-und $\mathrm{Stab}_{U}\left(U\backslash X\right)$. 
-\[
-\mathrm{Stab}_{U}\left\{ X\right\} =\left\langle \mathrm{Stab}_{U}\left(X\right)\cup\mathrm{Stab}_{U}\left(U\backslash X\right)\right\rangle 
-\]
+Diese Gruppe wird durch $\mathrm{Stab}_{U}\left(X\right)$ und $\mathrm{Stab}_{U}\left(U\backslash X\right)$
+erzeugt: Jede Permutation $\pi\in\mathrm{Stab}_{U}\left\{ X\right\} $
+kann in $\pi_{1}\circ\pi_{2}$ zerlegt werden, wobei $\pi_{1}$ nur
+Elemente von $X$, und $\pi_{2}$ nur Elemente von $U\backslash X$
+permutiert. 
+\begin{eqnarray*}
+\mathrm{Stab}_{U}\left\{ X\right\}  & = & \left\langle \mathrm{Stab}_{U}\left(X\right)\cup\mathrm{Stab}_{U}\left(U\backslash X\right)\right\rangle 
+\end{eqnarray*}
 
 \end{itemize}
 \end{defn}
 
 \begin{defn}
-Die vorige Definition wird auf Partitionen $\mathcal{P}$ von $U$
-erweitert:
+Die letzte Definition wird auf Partitionen (Mengen von Teilmengen)
+$\mathcal{P}$ von $U$ erweitert:
 \begin{itemize}
 \item Der Punktstabilisator\textbf{ }von $\mathcal{P}$ in $U$ sei die
 Untergruppe $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Sym}_{U}$
-mit
+aller Permutationen, die jede Menge $P_{i}\in\mathcal{P}$ fixieren:
 \begin{eqnarray*}
 \mathrm{Stab}_{U}\left(\mathcal{P}\right) & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi P_{i}=P_{i}\,\mathrm{f\ddot{u}r}\,\mathrm{alle}\,P_{i}\in\mathcal{P}\right\} 
 \end{eqnarray*}
@@ -2738,84 +2758,105 @@ Dies ist der Schnitt der Mengenstabilisatoren der Elemente von $\mathcal{P}$:
 
 \item Der Mengenstabilisator von $\mathcal{P}$ in $U$ sei die Untergruppe
 $\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \subseteq\mathrm{Sym}_{U}$
-mit
+aller Permutationen, die die Partition als ganzes fixieren: 
 \[
 \mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi\mathcal{P}=\mathcal{P}\right\} 
 \]
-Diese Gruppe ist das Erzeugnis der Vereinigung von $\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
-mit allen Permutationen von gleich-mächtigen Elementen der Partition.
-Sei für $1\leqslant n\leqslant\left|U\right|$ die Menge $\mathcal{P}_{\mid n}\coloneqq\left\{ P_{i}\in\mathcal{P}\mid\#P_{i}=n\right\} $,
-dann gilt: 
+Diese Gruppe wird durch $\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+und alle Permutationen von gleich-mächtigen Elementen von $\mathcal{P}$
+erzeugt: Sei $\mathcal{P}_{\mid i}\coloneqq\left\{ P_{j}\in\mathcal{P}\mid\left|P_{j}\right|=i\right\} $
+für $i\in\left[1,\left|U\right|\right]$, dann gilt: 
 \[
 \mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} =\left\langle \mathrm{Stab}_{U}\left(\mathcal{P}\right)\cup\bigcup_{i=1}^{\left|U\right|}\mathrm{Sym}_{\mathcal{P}_{\mid i}}\right\rangle 
 \]
 
 \end{itemize}
 \end{defn}
+\begin{prop}
+\label{prop:feinheit-stab}Für zwei Partitionen $\mathcal{P},\mathcal{P}'\in\mathrm{Part}_{U}$
+gilt $\mathcal{P}\preceq\mathcal{P}'$ genau dann wenn $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$.\end{prop}
+\begin{proof}
+Sei $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$ beliebig, so
+besteht $\pi$ aus einer Folge von Transpositionen:
+\[
+\pi=\left(u_{1}v_{1}\right)\circ\cdots\circ\left(u_{k}v_{k}\right)
+\]
+
+
+Jede Transposition $\left(u_{i}v_{i}\right)$ vertauscht Elemente
+einer Menge $P_{i}\in\mathcal{P}$; daher gilt $u_{i}\sim_{\mathcal{P}}v_{i}$.
+Per Definition \ref{def:feinheit} gilt außerdem $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)$,
+und daher $\left(u_{i}v_{i}\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
+und $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$.
+
+Umgekehrt impliziert auch $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$,
+dass alle Transpositionen $\left(u_{i}v_{i}\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+in $\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$ enthalten sind. Daraus
+folgt $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)$
+und $\mathcal{P}\preceq\mathcal{P}'$.
+\end{proof}
 
 \section{Träger}
 \begin{defn}
-Sei $G\subseteq\mathrm{\mathrm{Sym}}_{U}$ eine Untergruppe und $\mathcal{P}$
-eine Partition von $U$. $\mathcal{P}$ ist ein \textbf{Träger} von\textbf{
-}$G$ genau dann wenn $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$.\end{defn}
+\label{def:traeger}Sei $G\subseteq\mathrm{\mathrm{Sym}}_{U}$ eine
+Untergruppe und $\mathcal{P}$ eine Partition von $U$. $\mathcal{P}$
+ist ein \textbf{Träger} von\textbf{ }$G$ genau dann wenn $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$.\end{defn}
 \begin{rem*}
-Wenn $G$ von $\mathcal{P}$ getragen wird, so wird $G$ auch von
-allen feineren Elementen $\mathcal{P}'\preceq\mathcal{P}$ getragen
-(und $\mathcal{P}$ wiederum trägt alle Obergruppen $G'\supseteq G$).
-Dies folgt direkt daraus, dass die Grobheit von Partitionen eine Teilmengenbeziehung
-ihrer Stabilisatorgruppen induziert:
-\[
-\mathcal{P}'\preceq\mathcal{P}\,\,\Longrightarrow\,\,\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Stab}_{U}\left(\mathcal{P}'\right)
-\]
-\end{rem*}
+Wenn $\mathcal{P}$ ein Träger von $G$ ist, so ist $\mathcal{P}$
+auch ein Träger jeder Obermenge $G'\supseteq G$.
+
+Außerdem sind per Satz \ref{prop:feinheit-stab} alle feineren Partitionen
+$\mathcal{P}'\preceq\mathcal{P}$ Träger von $G$.
+
+Somit ist $\mathcal{P}_{\min}=\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
+mit $\mathrm{Stab}_{U}\left(\mathcal{P}_{\min}\right)=\left\{ \mathbf{id}\right\} $
+ein trivialer Träger jeder Untergruppe $G\subseteq\mathrm{Sym}_{U}$,
+und alle Partitionen $\mathcal{P}\in\mathrm{Part}_{U}$ sind Träger
+der Gruppe $\mathrm{Sym}_{U}=\mathrm{Stab}_{U}\left(\mathcal{P}_{\max}\right)$.\end{rem*}
 \begin{lem}
-Die Träger-Eigenschaft ist unter den Operationen $\sqcap$ und $\sqcup$
-abgeschlossen.\end{lem}
+\label{lem:traeger-abschluss}Die Träger-Eigenschaft ist bezüglich
+den Operationen $\sqcap$ und $\sqcup$ abgeschlossen: Wenn $\mathcal{A}$
+und $\mathcal{B}$ Träger von $G$ sind, so sind es auch $\mathcal{A}\sqcap\mathcal{B}$
+und $\mathcal{A}\sqcup\mathcal{B}$.\end{lem}
 \begin{proof}
-Seien $\mathcal{A}$ und $\mathcal{B}$ Träger einer Gruppe $G\subseteq\mathrm{Sym}_{U}$.
+Per Definition ist $\mathcal{A}\sqcap\mathcal{B}\preceq\mathcal{A}$
+und $\mathcal{A}\sqcap\mathcal{B}\preceq\mathcal{B}$, und daher folgt
+die Tatsache direkt aus Satz \ref{prop:feinheit-stab}.
 
-Für $\sqcap$ ist der Beweis per $\mathcal{A}\sqcap\mathcal{B}\preceq\mathcal{A},\mathcal{B}$
-trivial.
-
-Sei $\mathcal{P}\coloneqq\mathcal{A}\sqcup\mathcal{B}$, und sei $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
-beliebig:
+Für $\mathcal{P}\coloneqq\mathcal{A}\sqcup\mathcal{B}$ gilt:
 \begin{enumerate}
-\item Wenn $\mathcal{P}=\left\{ P_{1},\cdots,P_{k}\right\} $, so existiert
-eine Folge von Permutationen $\pi_{1}\cdots\pi_{k}=\pi$, so dass
-$\pi_{i}$ nur Elemente von $P_{i}$ miteinander vertauscht:
+\item Jede Permutation $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+ist eine Folge von Transpositionen $\pi=\left(u_{1}v_{1}\right)\circ\cdots\circ\left(u_{k}v_{k}\right)$,
+so dass wir nur Transpositionen betrachten müssen.
+\item Die Äquivalenzrelation $\sim_{\mathcal{P}}$ ist die transitive Hülle
+von $\sim\coloneqq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)$.
+Daher existiert für alle $u\sim_{\mathcal{P}}v$ eine Folge von $\ell\leqslant\left|U\right|$
+Elementen $\bar{w}\in U^{\ell}$ mit
 \[
-\pi_{i}\left(x\right)=\begin{cases}
-y\in P_{i} & \mathrm{f\ddot{u}r}\,x\in P_{i}\\
-x & \mathrm{sonst}
-\end{cases}
+u\sim w_{1}\sim\cdots\sim w_{\ell}\sim v
 \]
 
-\item Für jedes $\pi_{i}$ existiert eine Folge von Transpositionen $\left(x_{i,1}y_{i,1}\right)\cdots\left(x_{i,m}y_{i,m}\right)=\pi_{i}$.
-\[
-\pi=\left(x_{1,1}y_{1,1}\right)\cdots\left(x_{k,m_{k}}y_{k,m_{k}}\right)
-\]
-
-\item Für jede dieser Transpositionen $\left(xy\right)$ gilt $x,y\in P_{i}$.
-Da $P_{i}\in\mathcal{A}\sqcup\mathcal{B}$ eine Äquivalenzklasse der
-transitiven Hülle von $\sim\coloneqq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)$
-ist, existiert eine Folge von $\ell\leqslant\left|U\right|$ Elementen
-$\bar{u}\in U^{\ell}$ mit $u_{1}\sim\cdots\sim u_{\ell}$, so dass
-$x=u_{1}$ und $y=u_{\ell}$. Es gilt 
+\end{enumerate}
+Sei nun $\left(uv\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+eine beliebige Transposition. $\left(uv\right)$ lässt sich mit dem
+entsprechenden $\bar{w}\in\left(U\backslash\left\{ u,v\right\} \right)^{*}$
+in die folgenden Transpositionen zerlegen:
 \begin{eqnarray*}
-\left(xy\right) & = & \left(u_{1}u_{2}\right)\cdots\left(u_{\ell-1}u_{\ell}\right)\left(u_{\ell-1}u_{\ell-2}\right)\cdots\left(u_{2}u_{1}\right)
+\left(uv\right) & = & \left(uw_{1}\right)\left(w_{1}w_{2}\right)\cdots\left(w_{\ell-1}w_{\ell}\right)\left(w_{\ell}v\right)\\
+ &  & \circ\left(w_{\ell-1}w_{\ell-2}\right)\cdots\left(w_{2}w_{1}\right)
 \end{eqnarray*}
 
-\item Es gilt $u_{j}\sim_{\mathcal{A}}u_{j+1}$ oder $u_{j}\sim_{\mathcal{B}}u_{j+1}$.
-Die Transposition $\left(u_{j}u_{j+1}\right)$ ist somit entweder
-in $\mathrm{Stab}_{U}\left(\mathcal{A}\right)\subseteq G$ oder $\mathrm{Stab}_{U}\left(\mathcal{B}\right)\subseteq G$
-enthalten.
-\item Also ist $\pi$ eine Folge von Permutationen in $G$, und es folgt
-$\pi\in G$.
-\end{enumerate}
-\end{proof}
-\begin{cor*}
+
+Insbesondere sei $\bar{w}$ so gewählt, dass $u\sim w_{1}$, $\left(w_{i}\sim w_{i+1}\right)_{i\in\left[1,\ell-1\right]}$
+und $w_{\ell}\sim v$. Weil $\sim=\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)$,
+ist jede der Transpositionen entweder in $\mathrm{Stab}_{U}\left(\mathcal{A}\right)$
+oder in $\mathrm{Stab}_{U}\left(\mathcal{B}\right)$ enthalten, und
+beide sind Teilmengen von $G$.
+
+Also ist $\left(uv\right)\in G$, und es folgt $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$.\end{proof}
+\begin{cor}
 Jede Gruppe $G\subseteq\mathrm{Sym}_{U}$ besitzt eine eindeutigen
-gröbsten Träger.\end{cor*}
+gröbsten Träger.\end{cor}
 \begin{proof}
 Jede Gruppe wird mindestens von $\mathcal{P}_{\min}\left(U\right)$
 mit $\mathrm{Stab}_{U}\left(\mathcal{P}_{\min}\left(U\right)\right)=\left\{ \mathbf{id}\right\} \subseteq G$
@@ -2824,47 +2865,49 @@ getragen.
 Angenommen, $\mathcal{P}$ und $\mathcal{P}'$ seien zwei gröbste
 Träger von $G$. 
 
-Nun ist $\mathcal{P}\sqcup\mathcal{P}'$ ebenfalls ein Träger von
-$G$, und $\mathcal{P},\mathcal{P}'\preceq\mathcal{P}\sqcup\mathcal{P}'$.
+Nun ist $\mathcal{P}\sqcup\mathcal{P}'$ nach Lemma \ref{lem:traeger-abschluss}
+ebenfalls ein Träger von $G$, und ist mindestens so grob wie $\mathcal{P}$
+und $\mathcal{P}'$.
 
 Da $\mathcal{P}$ und $\mathcal{P}'$ aber per Definition gröbste
 Träger von $G$ sind, muss $\mathcal{P}=\mathcal{P}\sqcup\mathcal{P}'=\mathcal{P}'$
 gelten.\end{proof}
 \begin{defn}
 Für jede Gruppe $G\subseteq\mathrm{Sym}_{U}$ sei $\mathrm{SP}\left(G\right)$
-die gröbste tragende Partition von $G$.
+der gröbste Träger von $G$.
 \end{defn}
-Wir betrachten nun die Konjugationsoperation auf $\mathrm{Sym}_{U}$.
+Wir betrachten nun die Konjugations-Operation auf $\mathrm{Sym}_{U}$.
 \begin{lem}
-Wenn eine Partition $\mathcal{P}$ ein Träger einer Gruppe $G\subseteq\mathrm{Sym}_{U}$
-ist, dann ist $\pi\mathcal{P}$ ein Träger von $\pi G\pi^{-1}$ für
-alle $\pi\in\mathrm{Sym}_{U}$.\end{lem}
+\label{lem:konjugation}Wenn eine Partition $\mathcal{P}$ ein Träger
+einer Gruppe $G\subseteq\mathrm{Sym}_{U}$ ist, dann ist $\pi\mathcal{P}$
+ein Träger von $\pi G\pi^{-1}$ für alle $\pi\in\mathrm{Sym}_{U}$.\end{lem}
 \begin{proof}
-Seien $\vartheta\in\mathrm{Stab}_{U}\left(\pi\mathcal{P}\right)$
-und $P_{i}\in\mathcal{P}$ beliebig. Nun gilt:
+Seien $\rho\in\mathrm{Stab}_{U}\left(\pi\mathcal{P}\right)$ und $P_{i}\in\mathcal{P}$
+beliebig. $\pi^{-1}\rho\pi$ fixiert $P_{i}$:
 \begin{eqnarray*}
-\left(\pi^{-1}\vartheta\pi\right)P_{i} & = & \pi^{-1}\left(\vartheta\left(\pi P_{i}\right)\right)\\
+\left(\pi^{-1}\rho\pi\right)P_{i} & = & \pi^{-1}\left(\rho\left(\pi P_{i}\right)\right)\\
  & = & \pi^{-1}\pi P_{i}\\
  & = & P_{i}
 \end{eqnarray*}
 
 
-Daraus folgt $\left(\pi^{-1}\vartheta\pi\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$,
-und schließlich:
+Daraus folgt $\left(\pi^{-1}\rho\pi\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$,
+und schließlich gilt:
 \begin{eqnarray*}
-\vartheta & = & \left(\pi\pi^{-1}\right)\vartheta\left(\pi\pi^{-1}\right)\\
- & = & \pi\left(\pi^{-1}\vartheta\pi\right)\pi^{-1}\\
+\rho & = & \left(\pi\pi^{-1}\right)\rho\left(\pi\pi^{-1}\right)\\
+ & = & \pi\left(\pi^{-1}\rho\pi\right)\pi^{-1}\\
  & \in & \pi G\pi^{-1}
 \end{eqnarray*}
 
 
-Damit trägt $\pi\mathcal{P}$ die konjugierte Gruppe $\pi G\pi^{-1}$.\end{proof}
-\begin{cor*}
-Für jede Gruppe $G\subseteq\mathrm{Sym}_{U}$ und jede Permutation
-$\pi\in\mathrm{Sym}_{U}$ ist $\pi\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\pi G\pi^{-1}\right)$.\end{cor*}
+Damit $\pi\mathcal{P}$ ein Träger der konjugierten Gruppe $\pi G\pi^{-1}$.\end{proof}
+\begin{cor}
+\label{cor:sp-konjugation}Für jede Gruppe $G\subseteq\mathrm{Sym}_{U}$
+und jede Permutation $\pi\in\mathrm{Sym}_{U}$ ist $\pi\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\pi G\pi^{-1}\right)$.\end{cor}
 \begin{proof}
-Es wurde gezeigt, dass $\pi\mathrm{SP}\left(G\right)$ ein Träger
-von $\pi G\pi^{-1}$ ist. Es folgt:
+Nach Lemma \ref{lem:konjugation} ist $\pi\mathrm{SP}\left(G\right)$
+ein Träger von $\pi G\pi^{-1}$. Daher ist $\pi\mathrm{SP}\left(G\right)$
+mindestens so fein wie der gröbste Träger:
 \[
 \pi\mathrm{SP}\left(G\right)\preceq\mathrm{SP}\left(\pi G\pi^{-1}\right)
 \]
@@ -2879,7 +2922,7 @@ ein Träger von $\pi^{-1}\pi G\pi\pi^{-1}=G$. Es folgt:
 
 Die Relation $\preceq$ bleibt unter Permutation beider Seiten erhalten:
 \begin{eqnarray*}
-\mathrm{SP}\left(\pi G\pi^{-1}\right) & \preceq & \pi\mathrm{SP}\left(G\right)
+\pi\pi^{-1}\mathrm{SP}\left(\pi G\pi^{-1}\right) & \preceq & \pi\mathrm{SP}\left(G\right)
 \end{eqnarray*}
 
 
@@ -2892,25 +2935,29 @@ von $\mathrm{SP}\left(G\right)$:
 \]
 \end{lem}
 \begin{proof}
-Per Definition gilt bereits $\mathrm{Stab}_{U}\left(\mathrm{SP}\left(G\right)\right)\subseteq G$.
+Per Definition \ref{def:traeger} gilt bereits $\mathrm{Stab}_{U}\left(\mathrm{SP}\left(G\right)\right)\subseteq G$.
 
-Sei nun $\pi\in G$ beliebig. Es gilt:
-\begin{eqnarray*}
-\pi\mathrm{SP}\left(G\right) & = & \mathrm{SP}\left(\pi G\pi^{-1}\right)\\
- & = & \mathrm{SP}\left(G\right)
-\end{eqnarray*}
+Sei nun $\pi\in G$ beliebig. Weil $\pi G\pi^{-1}=G$, folgt nach
+Korollar \ref{cor:sp-konjugation}: 
+\[
+\pi\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\pi G\pi^{-1}\right)=\mathrm{SP}\left(G\right)
+\]
 
 
-Daher ist $\pi\in\mathrm{Stab}_{U}\left\{ \mathrm{SP}\left(G\right)\right\} $.\end{proof}
+Weil $\pi$ die Partition $\mathrm{SP}\left(G\right)$ auf sich selbst
+abbildet, gilt per Definition $\pi\in\mathrm{Stab}_{U}\left\{ \mathrm{SP}\left(G\right)\right\} $.\end{proof}
 \begin{lem}
-Für $\epsilon\in\left[0,1\right[$, jedes hinreichend große Universum
-$U$ mit $n\coloneqq\left|U\right|\geqslant\exp\frac{4}{\epsilon}$
+(Lemma 19 aus \cite{anderson_et_al:LIPIcs:2014:4445}) Für $\epsilon\in\mathbb{R}_{\left[0,1\right[}$,
+jedes hinreichend große Universum $U=\left[1,n\right]$ mit $n\geqslant\exp\frac{4}{\epsilon}$
 und jede Partition $\mathcal{P}\in\mathrm{Part}_{U}$ gilt:
 
 Falls der Index des Mengenstabilisators von $\mathcal{P}$ subexponentiell
-in $n$ ist: 
+in $n$ ist:
 \[
-s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\leqslant2^{n^{1-\epsilon}}
+s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}
+\]
+\[
+n\leqslant s\leqslant2^{n^{1-\epsilon}}
 \]
 
 
@@ -2922,35 +2969,35 @@ oder $n-\mathcal{O}\left(n^{1-\epsilon}\right)$ viele Elemente:
 
 \end{lem}
 Diese Beziehung ist an der Repräsentation des Mengenstabilisators
-als 
-\[
-\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} =\left\langle \mathrm{Stab}_{U}\left(\mathcal{P}\right)\cup\bigcup_{i=1}^{\left|U\right|}\mathrm{Sym}_{\mathcal{P}_{\mid i}}\right\rangle 
-\]
- erkennbar: Damit sein Index klein ist, muss die Gruppe selbst groß
-sein, was entweder einen großen Punktstabilisator oder eine große
-Anzahl gleich-mächtiger Elemente von $\mathcal{P}$ erfordert.
+als Erzeugnis erkennbar: 
+\begin{eqnarray*}
+\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\}  & = & \left\langle \mathrm{Stab}_{U}\left(\mathcal{P}\right)\cup\bigcup_{i=1}^{\left|U\right|}\mathrm{Sym}_{\mathcal{P}_{\mid i}}\right\rangle \\
+\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right| & = & \left|\mathrm{Stab}_{U}\left(\mathcal{P}\right)\right|\cdot\prod_{i=1}^{U}\left|\mathcal{P}_{\mid i}\right|!
+\end{eqnarray*}
+Damit der Index klein ist, muss die Gruppe selbst groß sein, was entweder
+einen großen Punktstabilisator oder eine große Anzahl gleich-mächtiger
+Elemente von $\mathcal{P}$ erfordert.
 \begin{proof}
-Sei $\epsilon\in\left[0,1\right[$, $n\geqslant\exp\frac{4}{\epsilon}$,
-und $U=\left\{ 1,\cdots,n\right\} $. 
-
-Sei $\mathcal{P}\in\mathrm{Part}_{U}$ beliebig mit $k\coloneqq\left|\mathcal{P}\right|$.
+Sei $\epsilon\in\mathbb{R}_{\left[0,1\right[}$, $n\geqslant\exp\frac{4}{\epsilon}$,
+$U\coloneqq\left[1,n\right]$ und $\mathcal{P}\in\mathrm{Part}_{U}$
+mit der folgenden Bedingung:
 \[
-n\leqslant s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\leqslant2^{n^{1-\epsilon}}
+n\leqslant\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\leqslant2^{n^{1-\epsilon}}
 \]
 
 \begin{enumerate}
 \item Die Definition des Mengenstabilisators liefert eine kombinatorische
 Schranke für dessen Größe: Jede Permutation $\pi\in\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} $
-besteht aus einer Permutation der $k$ Elemente von $\mathcal{P}$,
-und einer Permutation $\pi_{i}\in\mathrm{Sym}_{P}$ für jedes Element
+besteht aus einer Permutation der Elemente von $\mathcal{P}$, und
+einer Permutation $\pi_{i}\in\mathrm{Sym}_{P}$ für jedes Element
 $P\in\mathcal{P}$. 
 \[
-\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|\leqslant k!\prod_{P\in\mathcal{P}}\left|P\right|!
+\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|\leqslant\left|\mathcal{P}\right|!\prod_{P\in\mathcal{P}}\left|P\right|!
 \]
 
-\item Seien $P_{1},\cdots,P_{k}\in\mathcal{P}$ die nach aufsteigender Größe
-geordneten Elemente von $\mathcal{P}$, und seien $p_{1}\leqslant\cdots\leqslant p_{k}$
-ihre Größen ($\sum_{i=1}^{k}p_{i}=n$). 
+\item Sei $k\coloneqq\left|\mathcal{P}\right|$, seien $P_{1},\cdots,P_{k}\in\mathcal{P}$
+die nach aufsteigender Mächtigkeit geordneten Elemente von $\mathcal{P}$,
+und seien $p_{1}\leqslant\cdots\leqslant p_{k}$ ihre Größen ($\sum_{i=1}^{k}p_{i}=n$).
 \[
 \left|\mathrm{Stab}_{U}\left\{ P\right\} \right|\leqslant k!\prod_{i=1}^{k}p_{i}!
 \]
@@ -2960,27 +3007,29 @@ und daher $\frac{p_{j}+1}{p_{i}}\geqslant1$. Es folgt:
 \begin{eqnarray*}
 \left|\mathrm{Stab}_{U}\left\{ P\right\} \right| & \leqslant & k!\prod_{i=1}^{k}p_{i}!\\
  & = & k!p_{1}!\cdots p_{i}!\cdots p_{j}!\cdots p_{k}!\\
- & \leqslant & \frac{p_{j}+1}{p_{i}}k!p_{1}!\cdots p_{i}!\cdots p_{j}!\cdots p_{k}!\\
+ & \leqslant & k!p_{1}!\cdots p_{i}!\cdots p_{j}!\cdots p_{k}!\cdot\frac{p_{j}+1}{p_{i}}\\
  & = & k!p_{1}!\cdots\left(p_{i}-1\right)!\cdots\left(p_{j}+1\right)!\cdots p_{k}!
 \end{eqnarray*}
 
-\item Durch wiederholte Anwendung folgt 
+\item Durch wiederholte Anwendung werden die ersten $k-1$ Fakultätsterme
+auf $1!$ reduziert. Der letzte wächst auf $\left(n-\left(k-1\right)\right)!$
+an: 
 \begin{eqnarray*}
 \left|\mathrm{Stab}_{U}\left\{ P\right\} \right| & \leqslant & k!\cdot\underset{k-1}{\underbrace{1!\cdots1!}}\cdot\left(n-\left(k-1\right)\right)!\\
- & = & k!\left(n-k+1\right)!
+ & = & k!\left(n+1-k\right)!
 \end{eqnarray*}
 .
-\item Nun ist $s$ von unten durch einen Binomialkoeffizienten beschränkt:
+\item Daher ist $s$ von unten durch einen Binomialkoeffizienten beschränkt:
 \begin{eqnarray*}
-s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|} & = & \frac{n!}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\\
+s=\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|} & = & \frac{n!}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\\
  & \geqslant & \frac{n!}{k!\left(n+1-k\right)!}\\
  & = & \frac{1}{n+1}\frac{\left(n+1\right)!}{k!\left(n+1-k\right)!}\\
  & = & \frac{1}{n+1}\binom{n+1}{k}\\
  & \geqslant & \frac{1}{n+1}\binom{n}{k}\\
- & = & \frac{1}{n+1}\binom{n}{\min\left\{ n,n-k\right\} }
+ & = & \frac{1}{n+1}\binom{n}{\min\left(n,n-k\right)}
 \end{eqnarray*}
 
-\item Für den Binomialkoeffizienten gibt es auch eine untere Schranke:\marginpar{CITE}
+\item Für den Binomialkoeffizienten gibt es auch eine untere Schranke: 
 \[
 \binom{n}{k}=\frac{n!}{k!\left(n-k\right)!}=\frac{\prod_{i=n-k+1}^{n}i}{\prod_{i=1}^{k}i}=\prod_{i=1}^{k}\frac{n-k+i}{i}
 \]
@@ -2992,12 +3041,12 @@ s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \m
 \binom{n}{k}\geqslant\left(\frac{n}{k}\right)^{k}
 \]
 
-\item Daher ist $s$ von unten beschränkt:
+\item Daher hat $s$ die folgende untere Schranke mit $k'\coloneqq\min\left(k,n-k\right)$:
 \[
 s\geqslant\frac{1}{n+1}\left(\frac{n}{k'}\right)^{k'}
 \]
 
-\item Es folgt
+\item Es folgt:
 \begin{eqnarray*}
 \log s & \geqslant & k'\left(\log n-\log k'\right)-\log\left(n+1\right)\\
 \log s+\log\left(n+1\right) & \geqslant & k'\left(\log n-\log k'\right)
@@ -3011,7 +3060,7 @@ s\geqslant\frac{1}{n+1}\left(\frac{n}{k'}\right)^{k'}
  & \geqslant & k'\left(\log n-\log k'\right)
 \end{eqnarray*}
 
-\item Weil $\frac{n}{k'}\geqslant2$, gilt:
+\item Weil $n\geqslant k'$, folgt $\log n\geqslant\log k'$:
 \begin{eqnarray*}
 4\log s & \geqslant & k'\left(\log n-\log k'\right)\\
  & \geqslant & k'
@@ -3019,7 +3068,8 @@ s\geqslant\frac{1}{n+1}\left(\frac{n}{k'}\right)^{k'}
 
 \item Aus der Bedingung $s\leqslant2^{n^{1-\epsilon}}$ folgt:
 \begin{eqnarray*}
-\log k' & \leqslant & \log\log s+2\\
+\log k' & \leqslant & \log(4\log s)\\
+ & = & \log\log s+2\\
  & \leqslant & \log\log2^{n^{1-\epsilon}}+2\\
  & = & \log n^{1-\epsilon}+2\\
  & = & \left(1-\epsilon\right)\log n+2
@@ -3028,7 +3078,7 @@ s\geqslant\frac{1}{n+1}\left(\frac{n}{k'}\right)^{k'}
 \item Schließlich folgt:
 \begin{eqnarray*}
 4\log s & \geqslant & k'\left(\log n-\log k'\right)\\
- & \geqslant & k'\left(\log n-\left(1-\epsilon\right)\log n-2\right)\\
+ & \geqslant & k'\left(\log n-\left(\left(1-\epsilon\right)\log n+2\right)\right)\\
  & \geqslant & k'\left(\epsilon\log n-2\right)\\
  & \geqslant & k'\frac{\epsilon\log n}{2}\\
 \frac{8\log s}{\epsilon\log n} & \geqslant & k'
@@ -3036,38 +3086,50 @@ s\geqslant\frac{1}{n+1}\left(\frac{n}{k'}\right)^{k'}
 
 \end{enumerate}
 \end{proof}
-Eine Partition, die höchstens $\frac{n}{2}$ Teile enthält (und daher
-einen kleinen Nebengruppen-Index $\left[\mathrm{Sym}_{U}:\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right]\leqslant2^{n^{1-\epsilon}}$
+Eine Partition, die höchstens $\frac{n}{2}$ Elemente enthält (und
+deren Stabilisator einen subexponentiellen Index $\left[\mathrm{Sym}_{U}:\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right]\leqslant2^{n^{1-\epsilon}}$
 hat) muss ein sehr großes Element enthalten.
 \begin{lem}
-Für $\epsilon\in\left[0,1\right[$, jedes hinreichend große Universum
-$U$ mit $n\coloneqq\left|U\right|\geqslant\exp\frac{8}{\epsilon^{2}}$
-und eine Partition $\mathcal{P}$ mit mit $\left|\mathcal{P}\right|\leqslant\frac{n}{2}$
-Elemente gilt:
+(Lemma 20 aus \cite{anderson_et_al:LIPIcs:2014:4445}) Für $\epsilon\in\mathbb{R}_{\left[0,1\right[}$,
+jedes hinreichend große Universum $U\coloneqq\left[1,n\right]$ mit
+$n\geqslant\exp\frac{8}{\epsilon^{2}}$ und jede Partition $\mathcal{P}$
+mit mit $\left|\mathcal{P}\right|\leqslant\frac{n}{2}$ gilt:
 
 Falls der Index des Mengenstabilisators von $\mathcal{P}$ subexponentiell
 in $n$ ist: 
 \[
-s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\leqslant2^{n^{1-\epsilon}}
+s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}
+\]
+\[
+n\leqslant s\leqslant2^{n^{1-\epsilon}}
 \]
 
 
 Dann gilt für das mächtigste Element von $\mathcal{P}$: 
 \[
-\max\left\{ \#P\mid P\in\mathcal{P}\right\} \geqslant n-\frac{33}{\epsilon}\cdot\frac{\log s}{\log n}
+\max\left\{ \left|P\right|\mid P\in\mathcal{P}\right\} \geqslant n-\frac{33}{\epsilon}\cdot\frac{\log s}{\log n}
 \]
 \end{lem}
 \begin{proof}
 Sei wieder $\mathcal{P}=\left\{ P_{1},\cdots,P_{k}\right\} $ mit
-$p_{i}=\left|P_{i}\right|$ und $p_{1}<\cdots<p_{k}$.
+$p_{i}=\left|P_{i}\right|$ und $p_{1}<\cdots<p_{k}$. 
+\begin{eqnarray*}
+\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right| & \leqslant & k!\prod_{P\in\mathcal{P}}\left|P\right|!\\
+ & = & k!p_{1}!\cdots p_{k}!
+\end{eqnarray*}
+
+
+Ohne Beschränkung der Annahme ist $p_{k-1}>1$, denn sonst ist $p_{k}=n-\left(k-1\right)\geqslant n-\frac{n}{2}$,
+und $\frac{n}{2}\leqslant\frac{}{}\frac{33}{\epsilon}$
 
 Die Umverteilung aus dem vorhergehenden Beweis wird wiederholt verwendet,
 um jeweils das erste Element mit $p_{i}>1$ zu Gunsten des letzten
 Elements mit $p_{j}<p_{k-1}$ zu verkleinern. 
 \begin{eqnarray*}
-\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right| & \leqslant & k!\prod_{P\in\mathcal{P}}\left|P\right|!\\
- & = & k!p_{1}!\cdots p_{k}!\\
- & \leqslant & k!\underset{k-\ell-1}{\underbrace{1!\cdots1!}}\underset{\ell}{\underbrace{p_{k-1}!\cdots p_{k-1}!}}p_{k}!
+\\
+\\
+ & \leqslant & k!\underset{k-\ell-1}{\underbrace{1!\cdots1!}}\underset{\ell}{\underbrace{p_{k-1}!\cdots p_{k-1}!}}p_{k}!\\
+ & = & k!\left(p_{k-1}!\right)^{\ell}p_{k}!
 \end{eqnarray*}
 
 
