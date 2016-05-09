@@ -43,6 +43,8 @@
 \fi
   \theoremstyle{definition}
   \newtheorem{defn}[thm]{\protect\definitionname}
+  \theoremstyle{remark}
+  \newtheorem{notation}[thm]{\protect\notationname}
 % labeling-like list based on enumitem's description list with
 % mandatory second argument (label-pattern):
 \newenvironment{elabeling}[2][]%
@@ -207,6 +209,27 @@ die folgende Funktion:
 \]
  
 \end{defn}
+
+\begin{notation}
+\textbf{Minimum / Maximum}
+
+Für eine Ordnung $\preceq$ auf einer Menge $X$ seien $\min_{\preceq}\left(X\right)\in X$
+und $\max_{\preceq}\left(X\right)\in X$ diejenigen Elemente (sofern
+vorhanden), so dass für alle Elemente $z\in X$ gilt:
+\[
+\min_{\preceq}\left(X\right)\preceq z\preceq\max_{\preceq}\left(X\right)
+\]
+
+
+Für eine Funktion $f:U\rightarrow\mathbb{R}$ und eine Menge $X\subseteq U$
+bezeichnen $\min_{x\in X}f\left(x\right)\in\mathbb{R}$ und $\max_{x\in X}f\left(x\right)\in\mathbb{R}$
+die folgende Abkürzungen:
+\begin{eqnarray*}
+\min_{x\in X}f\left(x\right) & \coloneqq & \min_{\leqslant}\left\{ f\left(x\right)\mid x\in X\right\} \\
+\max_{x\in X}f\left(x\right) & \coloneqq & \max_{\leqslant}\left\{ f\left(x\right)\mid x\in X\right\} 
+\end{eqnarray*}
+
+\end{notation}
 
 \begin{defn}
 \textbf{Intervall}
@@ -1201,7 +1224,7 @@ Gates im Bild von $\Omega$ heißen \textbf{Outputs}.
 \end{defn}
 
 \begin{defn}
-\textbf{Auswertung von Schaltkreisen}
+\textbf{\label{def:Auswertung-von-Schaltkreisen}Auswertung von Schaltkreisen}
 
 Der $\left(\sigma,\mathbb{B}\right)$-Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
 wird auf einer $\sigma$-Struktur $\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$
@@ -1507,7 +1530,60 @@ Er ist aber nicht symmetrisch: Die Permutation $\left(\begin{array}{cc}
 1 & 2\\
 2 & 1
 \end{array}\right)$ induziert keinen Automorphismus.
+\begin{defn}
+\textbf{\label{def:Rigidit=0000E4t}Rigidität}
 
+Ein $\left(\sigma,\mathbb{B}\right)$-Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+sei rigide, wenn er keine redundanten Gates besitzt. Formal dürfen
+nicht $g,g'\in G$ existieren, so dass:
+\begin{eqnarray*}
+\Sigma\left(g\right) & = & \Sigma\left(g'\right)\\
+\left\{ u\in G\mid\left(u,g\right)\in W\right\}  & = & \left\{ u\in G\mid\left(u,g'\right)\in W\right\} 
+\end{eqnarray*}
+
+
+Insbesondere heißt dies, das der Schaltkreis höchstens zwei Konstanten
+$g_{0},g_{1}$ mit $\Sigma\left(g_{0}\right)=\mathbf{0}$ und $\Sigma\left(g_{1}\right)=\mathbf{1}$
+enthält, und jedes Beschriftung $\Sigma\left(g\right)=R\bar{x}$ nur
+einmal vorkommt.
+\end{defn}
+Die Rigidität kann nicht in jeder booleschen Basis $\mathbb{B}$ problemlos
+hergestellt werden - zum Beispiel hat ein Majority-Gate $\Sigma\left(g\right)=\mathtt{MAJ}$
+unter Umständen mehrere konstante Vorgänger. Zum Ausgleich erlauben
+wir einen Multigraph:
+\begin{defn}
+\textbf{Multischaltkreis}
+
+Ein $\left(\sigma,\mathbb{B}\right)$-Multischaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+ist analog zum $\left(\sigma,\mathbb{B}\right)$-Schaltkreis definiert,
+aber $\left(G,W\right)$ bildet einen azyklischen Multigraph:
+\[
+W:G\times G\rightarrow\left[0,\left|G\right|\right]
+\]
+\[
+\sum_{h\in G}W\left(h,g\right)\leqslant\left|G\right|\,\mathrm{f\ddot{u}r\,alle}\,g\in G
+\]
+
+
+(Die Anzahl der eingehenden Kanten sei ohne Beschränkung der Allgemeinheit
+durch $\left|G\right|$ beschränkt.)
+
+Für die Auswertung eines internen Gates gilt analog zu \ref{def:Auswertung-von-Schaltkreisen}:
+\begin{eqnarray*}
+j_{1} & \coloneqq & \sum_{h\in G}\left(\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\cdot W\left(h,g\right)\right)\\
+j_{0} & \coloneqq & \sum_{h\in G}W\left(h,g\right)-j_{1}\\
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\Sigma\left(g\right)\right]\left(j_{0},j_{1}\right)
+\end{eqnarray*}
+\end{defn}
+\begin{prop}
+Jeder $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
+kann in Polynomialzeit in einen rigiden Schaltkreis umgewandelt werden.
+Jeder $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreis
+kann in Polynomialzeit zu einem rigiden Multischaltkreis umgewandelt
+werden.\end{prop}
+\begin{proof}
+D
+\end{proof}
 
 \section{Eigenschaften von Schaltkreisfamilien}
 \begin{defn}
@@ -2947,22 +3023,22 @@ Korollar \ref{cor:sp-konjugation}:
 Weil $\pi$ die Partition $\mathrm{SP}\left(G\right)$ auf sich selbst
 abbildet, gilt per Definition $\pi\in\mathrm{Stab}_{U}\left\{ \mathrm{SP}\left(G\right)\right\} $.\end{proof}
 \begin{lem}
-(Lemma 19 aus \cite{anderson_et_al:LIPIcs:2014:4445}) Für $\epsilon\in\mathbb{R}_{\left[0,1\right[}$,
-jedes hinreichend große Universum $U=\left[1,n\right]$ mit $n\geqslant\exp\frac{4}{\epsilon}$
+\label{lem:lemma-19}(Lemma 19 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+
+Für $\epsilon\in\mathbb{R}_{\left[0,1\right[}$, jedes hinreichend
+große Universum $U=\left[1,n\right]$ mit $n\geqslant\exp\frac{4}{\epsilon}$
 und jede Partition $\mathcal{P}\in\mathrm{Part}_{U}$ gilt:
 
 Falls der Index des Mengenstabilisators von $\mathcal{P}$ subexponentiell
-in $n$ ist:
+in $n$ ist,
 \[
 s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}
 \]
 \[
 n\leqslant s\leqslant2^{n^{1-\epsilon}}
 \]
-
-
-Dann enthält $\mathcal{P}$ entweder $\mathcal{O}\left(n^{1-\epsilon}\right)$
-oder $n-\mathcal{O}\left(n^{1-\epsilon}\right)$ viele Elemente:
+dann enthält $\mathcal{P}$ entweder $\mathcal{O}\left(n^{1-\epsilon}\right)$
+oder $n-\mathcal{O}\left(n^{1-\epsilon}\right)$ viele Elemente.
 \[
 \min\left\{ \left|\mathcal{P}\right|,n-\left|\mathcal{P}\right|\right\} \leqslant\frac{8}{\epsilon}\frac{\log s}{\log n}
 \]
@@ -3090,24 +3166,25 @@ Eine Partition, die höchstens $\frac{n}{2}$ Elemente enthält (und
 deren Stabilisator einen subexponentiellen Index $\left[\mathrm{Sym}_{U}:\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right]\leqslant2^{n^{1-\epsilon}}$
 hat) muss ein sehr großes Element enthalten.
 \begin{lem}
-(Lemma 20 aus \cite{anderson_et_al:LIPIcs:2014:4445}) Für $\epsilon\in\mathbb{R}_{\left[0,1\right[}$,
-jedes hinreichend große Universum $U\coloneqq\left[1,n\right]$ mit
-$n\geqslant\exp\frac{8}{\epsilon^{2}}$ und jede Partition $\mathcal{P}$
-mit mit $\left|\mathcal{P}\right|\leqslant\frac{n}{2}$ gilt:
+\label{lem:lemma-20}(Lemma 20 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+
+Für $\epsilon\in\mathbb{R}_{\left[0,1\right[}$, jedes hinreichend
+große Universum $U\coloneqq\left[1,n\right]$ mit $n\geqslant\exp\frac{8}{\epsilon^{2}}$
+und jede Partition $\mathcal{P}$ mit mit $\left|\mathcal{P}\right|\leqslant\frac{n}{2}$
+gilt:
 
 Falls der Index des Mengenstabilisators von $\mathcal{P}$ subexponentiell
-in $n$ ist: 
+in $n$ ist, 
 \[
 s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}
 \]
 \[
 n\leqslant s\leqslant2^{n^{1-\epsilon}}
 \]
-
-
-Dann gilt für das mächtigste Element von $\mathcal{P}$: 
+dann enthält das mächtigste Element von $\mathcal{P}$ alles bis auf
+einen sublinearen Teil des Universums: 
 \[
-\max\left\{ \left|P\right|\mid P\in\mathcal{P}\right\} \geqslant n-\frac{33}{\epsilon}\cdot\frac{\log s}{\log n}
+\max\left\{ \left|P\right|\mid P\in\mathcal{P}\right\} \geqslant n-\frac{33}{\epsilon}\cdot\frac{\log s}{\log n}\geqslant n-\frac{33}{\epsilon}n^{1-\epsilon}
 \]
 \end{lem}
 \begin{proof}
@@ -3119,63 +3196,265 @@ $p_{i}=\left|P_{i}\right|$ und $p_{1}<\cdots<p_{k}$.
 \end{eqnarray*}
 
 
-Ohne Beschränkung der Annahme ist $p_{k-1}>1$, denn sonst ist $p_{k}=n-\left(k-1\right)\geqslant n-\frac{n}{2}$,
-und $\frac{n}{2}\leqslant\frac{}{}\frac{33}{\epsilon}$
-
-Die Umverteilung aus dem vorhergehenden Beweis wird wiederholt verwendet,
-um jeweils das erste Element mit $p_{i}>1$ zu Gunsten des letzten
-Elements mit $p_{j}<p_{k-1}$ zu verkleinern. 
+Ohne Beschränkung der Annahme ist $p_{k-1}>1$, denn sonst ist $p_{k}=n-\left(k-1\right)$,
+und einer der folgenden Fälle tritt nach $\min\left\{ k,n-k\right\} <\frac{8}{\epsilon}\frac{\log s}{\log n}$
+ein:
+\begin{casenv}
+\item $k<\frac{8}{\epsilon}\frac{\log s}{\log n}<\frac{33}{\epsilon}\frac{\log s}{\log n}$,
+so ist $p_{k}=n-\left(k-1\right)\geqslant n-\frac{33}{\epsilon}\frac{\log s}{\log n}$.
+\item $k>n-\frac{8}{\epsilon}\frac{\log s}{\log n}\geqslant n-\frac{8}{\epsilon}\frac{n^{1-\epsilon}}{\log n}$,
+und es folgt für hinreichend große $n\geqslant\exp\frac{8}{\epsilon^{2}}$
+ein Widerspruch zu der Annahme $\left|\mathcal{P}\right|\leqslant\frac{n}{2}$:
 \begin{eqnarray*}
-\\
-\\
- & \leqslant & k!\underset{k-\ell-1}{\underbrace{1!\cdots1!}}\underset{\ell}{\underbrace{p_{k-1}!\cdots p_{k-1}!}}p_{k}!\\
- & = & k!\left(p_{k-1}!\right)^{\ell}p_{k}!
+\left|\mathcal{P}\right|=k & > & n-\epsilon n^{1-\epsilon}\\
+ & = & n-\frac{\epsilon}{n^{\epsilon}}n\\
+ & > & \frac{n}{2}
 \end{eqnarray*}
 
-
-Hierbei gilt:
+\end{casenv}
+Die Umverteilung aus dem vorhergehenden Beweis wird nun wiederholt
+verwendet, um jeweils das erste Element mit $p_{i}>1$ zu Gunsten
+des letzten Elements mit $p_{j}<p_{k-1}$ zu verkleinern, so dass
+alle Terme $p_{1}\cdots p_{k-1}$ entweder den Wert $1$ oder $p_{k-1}$
+bekommen. Der letzte Term $p_{i}$ mit $1<p_{i}<p_{k-1}$ wird zu
+$p_{k-1}$ aufgerundet.
 \[
-s\geqslant k-\ell-1+\ell p_{k-1}+p_{k}
+p\coloneqq p_{k-1}
 \]
  
-\[
-\ell
-\]
- $\ell\leqslant\frac{s-p_{k}-\left(k-1\right)}{\left(p_{k-1}-1\right)}$,
-Durch Umverteilung entstumverteilt werden, um zweitgrößte Teile und 
-
-Sei $S$ die Summe aller Teile außer dem größten: $S=\sum_{i=1}^{k-1}p_{i}$.
-$\ell-k+1$ Einsen zu erzeugen, wobei der Wert der Fakultät im Nenner
-ansteigt. 
 \begin{eqnarray*}
-s & = & \frac{n!}{\left|\mathrm{Stab}_{U}\left\{ P\right\} \right|}\geqslant\frac{1}{k!}\cdot\frac{n!}{\prod_{i=1}^{k}p_{i}}\\
- & \geqslant & \frac{1}{k!}\frac{n!}{1!\cdots1!p_{k-1}!\cdots p_{k-1}!p_{i}}\\
- & \geqslant & \frac{1}{k!}\frac{n!}{\left(p_{k-1}\right)^{\ell}}
+\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right| & \leqslant & k!p_{1}!\cdots p!p_{k}!\\
+ & \leqslant & k!\underset{k-\ell-1}{\underbrace{1!\cdots1!}}p_{i}!\underset{\ell-1}{\underbrace{p!\cdots p!}}p_{k}!\\
+ & \leqslant & k!\left(p!\right)^{\ell}p_{k}!
 \end{eqnarray*}
+
+
+Hierbei ist $\ell$ wie folgt beschränkt:
+\begin{eqnarray*}
+k-\ell-1+\ell p\leqslant & \sum_{i=1}^{k-1}p_{i} & \leqslant k-1+\left(\ell+1\right)\left(p-1\right)
+\end{eqnarray*}
+
+
+Daher gilt:
+\begin{eqnarray*}
+\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right| & \leqslant & k!\left(p!\right)^{\ell}p_{k}\\
+ & = & k!\left(p!\right)^{\ell}\left(n-\sum_{i=1}^{k-1}p_{i}\right)\\
+ & \leqslant & k!\left(p!\right)^{\ell}\left(n-\left(k-1-\ell+\ell p\right)\right)!\\
+ & = & k!\left(p!\right)^{\ell}\left(n-k-\ell\left(p-1\right)+1\right)!\\
+ & \leqslant & \left(p!\right)^{\ell}\left(n-\ell\left(p-1\right)+1\right)!
+\end{eqnarray*}
+
+
+Die Stirling-Approximation $x!\leqslant e\sqrt{x}\left(\frac{x}{e}\right)^{x}$
+erlaubt die folgende Abschätzung:
+\begin{eqnarray*}
+\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right| & \leqslant & \left(p!\right)^{\ell}e\sqrt{n}\left(\frac{n}{e}\right)^{n-\ell\left(p-1\right)+1}\\
+ & \leqslant & \left(e\sqrt{p}\left(\frac{p}{e}\right)^{p}\right)^{\ell}e\sqrt{n}\left(\frac{n}{e}\right)^{n-\ell\left(p-1\right)+1}
+\end{eqnarray*}
+
+
+Wenn diese Abschätzung in $s$ eingesetzt wird, erhalten wir die folgende
+Ungleichung:
+\begin{eqnarray*}
+s & = & \frac{n!}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\\
+ & \geqslant & \frac{\left(\frac{n}{e}\right)^{n}}{\left(e\sqrt{p}\left(\frac{p}{e}\right)^{p}\right)^{\ell}e\sqrt{n}\left(\frac{n}{e}\right)^{n-\ell\left(p-1\right)+1}}\\
+ & = & \frac{e^{p\ell}\cdot e^{n-\ell\left(p-1\right)+1}}{e^{n}\cdot e^{\ell}\cdot e}\cdot\frac{n^{n}}{\left(\sqrt{p}p^{p}\right)^{\ell}\sqrt{n}n^{n-\ell\left(p-1\right)+1}}\\
+ & = & \frac{n^{\ell\left(p-1\right)-\frac{3}{2}}}{p^{\ell\left(p+\frac{1}{2}\right)}}
+\end{eqnarray*}
+
+
+Für den Logarithmus $\log s$ gilt dann:
+\begin{eqnarray*}
+\log s & \geqslant & \log\frac{n^{\ell\left(p-1\right)-\frac{3}{2}}}{p^{\ell\left(p+\frac{1}{2}\right)}}\\
+ & \geqslant & \left(\ell\left(p-1\right)-\frac{3}{2}\right)\log n-\ell\left(p+\frac{1}{2}\right)\log p\\
+ & \geqslant & \left(\ell\left(p-1\right)-\frac{3}{2}\right)\log n-\ell\left(p+\frac{1}{2}\right)\log p\\
+ & = & \ell\left(p+\frac{1}{2}\right)\left(\log n-\log p\right)-\frac{3}{2}\left(\ell-1\right)\log n\\
+ & \geqslant & \ell p\log\frac{n}{p}-\frac{3}{2}\left(\ell-1\right)\log n
+\end{eqnarray*}
+
+
+Weil $n<s$ und $\ell\geqslant1$, folgt:
+\begin{eqnarray*}
+\frac{5}{2}\log s & \geqslant & \ell p\log\frac{n}{p}-\frac{3}{2}\ell\log n\\
+ & \geqslant & p\log\frac{n}{p}-\frac{3}{2}\log n\\
+\frac{8}{2}\log s & \geqslant & p\log\frac{n}{p}
+\end{eqnarray*}
+
+
+Und weil $p<p_{k}$ und $p+p_{k}<n$ folgt $\frac{n}{p}\geqslant2$,
+und daher $\log\frac{n}{p}\geqslant1$:
+\begin{eqnarray*}
+p & \leqslant & 4\log s
+\end{eqnarray*}
+
+
+Mit $p\leqslant4\log s\leqslant4n^{\left(1-\epsilon\right)}$ und
+$\log p\leqslant\left(1-\epsilon\right)\log n+2$ folgt dann:
+\begin{eqnarray*}
+\frac{5}{2}\log s & \geqslant & \ell p\left(\log n-\left(1-\epsilon\right)\log n-2\right)-\frac{3}{2}\ell\log n\\
+ & \geqslant & \frac{\epsilon\ell p}{2}\log n-\frac{3}{2}\ell\log n\\
+5\frac{\log s}{\log n} & \geqslant & \ell\left(p\epsilon-3\right)
+\end{eqnarray*}
+
+\begin{casenv}
+\item Wenn $3\leqslant\frac{p\epsilon}{2}$, dann folgt $\frac{10}{\epsilon}\frac{\log s}{\log n}\geqslant\ell p$.
+Es gilt: 
+\begin{eqnarray*}
+\sum_{i=1}^{k-1}p_{i} & \leqslant & k-1+\left(\ell+1\right)\left(p-1\right)\\
+ & \leqslant & k-1+2\ell p\\
+ & \leqslant & \frac{8}{\epsilon}\frac{\log s}{\log n}+\frac{20}{\epsilon}\frac{\log s}{\log n}<\frac{33}{\epsilon}\frac{\log s}{\log n}
+\end{eqnarray*}
+
+\item Sonst ist $p<\frac{6}{\epsilon}$, und es folgt $\log p<3-\log\epsilon$.
+Es gilt:
+\begin{eqnarray*}
+\frac{5}{2}\log s & \geqslant & \ell p\left(\log n-\log p\right)-\frac{3}{2}\ell\log n\\
+ & \geqslant & \ell p\left(\log n-\left(3-\log\epsilon\right)\right)-\frac{3}{2}\ell\log n
+\end{eqnarray*}
+Und nach $\log n\geqslant\frac{8}{\epsilon^{2}}\geqslant2\left(3-\log\epsilon\right)$
+folgt:
+\begin{eqnarray*}
+\frac{5}{2}\log s & \geqslant & \frac{\ell p}{2}\log n-\frac{3}{2}\ell\log n\\
+ & = & \frac{\ell\left(p-3\right)}{2}\log n
+\end{eqnarray*}
+
+
+\begin{casenv}
+\item Falls $p\geqslant5$, dann folgt $\frac{25}{2\epsilon}\frac{\log s}{\log n}\geqslant\ell p$
+und damit:
+\[
+\sum_{i=1}^{k-1}p_{i}\leqslant\frac{8}{\epsilon}\frac{\log s}{\log n}+\frac{25}{\epsilon}\frac{\log s}{\log n}=\frac{33}{\epsilon}\frac{\log s}{\log n}
+\]
+
+\item Sonst ist $p<4$, und damit:
+\begin{eqnarray*}
+\sum_{i=1}^{k-1}p_{i} & \leqslant & p\left(k-1\right)\\
+ & \leqslant & 4\cdot\frac{8}{\epsilon}\frac{\log s}{\log n}\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}
+\end{eqnarray*}
+
+\end{casenv}
+\end{casenv}
 \end{proof}
-\begin{enumerate}
-\item Sei $C$ ein symmetrischer Schaltkreis über $\left|U\right|=n$ mit
-$s=\max_{C}\left|\mathrm{Orb}\left(g\right)\right|\leqslant2^{n^{1-\epsilon}}$;
-so ist die maximale SP eines Gatters höchstens $\frac{33}{\epsilon}\frac{\log s}{\log n}$.
-(der Orbit eines Gatters entspricht dem Nebengruppen-Index des Stabilisators
-dieses Gatters.)
-\end{enumerate}
 
 \section{Träger im Schaltkreis}
 \begin{defn}
-Sei $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ ein rigider, symmetrische
-Schaltkreis über dem Universum $U$. Der Stabilisator eines Gates
-$g\in G$ sei die Gruppe aller Permutationen von $U$, deren induzierter
-Automorphismus $v$ fixiert: 
+Sei $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ ein rigider, symmetrischer
+Schaltkreis über dem Universum $U$. 
+\begin{enumerate}
+\item Der \textbf{Stabilisator} eines Gates $g\in G$ sei die Gruppe aller
+Permutationen von $U$, deren induzierter Automorphismus $v$ fixiert:
 \[
 \mathrm{Stab}_{\mathcal{C}}\left(g\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\hat{\pi}g=g\right\} 
 \]
 
-
-Eine Partition $\mathcal{P}$ von $U$ sei \textbf{Träger} von $g$,
+\item Eine Partition $\mathcal{P}$ von $U$ sei \textbf{Träger} von $g\in G$,
 wenn sie ein Träger von $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
-ist. Sei $\mathrm{SP}\left(g\right)$ der gröbste Träger von $g$.
+ist. Sei $\mathrm{SP}\left(g\right)\coloneqq\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+der gröbste Träger von $g$. (Wenn $g$ zum Beispiel von allen induzierten
+Automorphismen fixiert wird, dann ist $\mathrm{SP}\left(g\right)=\mathcal{P}_{\max}=\left\{ U\right\} $.)
+\item Der \textbf{Orbit} von $g\in G$ sei die Menge der Gates, auf die
+$g$ durch einen Automorphismus abgebildet wird:
+\[
+\mathrm{Orb}_{\mathcal{C}}\left(g\right)\coloneqq\left\{ \hat{\pi}g\mid\pi\in\mathrm{Sym}_{U}\right\} 
+\]
+ 
+\end{enumerate}
 \end{defn}
+
+\begin{defn}
+Für $X=\left\{ x_{1},\cdots,x_{k}\right\} \subseteq U$ sei $\mathcal{P}_{X}\coloneqq\left\{ \left\{ x_{1}\right\} ,\cdots,\left\{ x_{k}\right\} ,U\backslash X\right\} $
+die gröbste Partition, die jedes Element $x\in X$ von jedem anderen
+Element $u\in U$ trennt.
+
+Für eine Partition $\mathcal{P}\in\mathrm{Part}_{U}$ und jede Menge
+$P\in\mathcal{P}$ ist offensichtlich $\mathcal{P}_{U\backslash P}\preceq\mathcal{P}$
+eine feinere Partition als $\mathcal{P}$: Es bleibt $P=U\backslash\left(U\backslash P\right)\in\mathcal{P}\cap\mathcal{P}_{P}$
+erhalten, und alle übrigen Mengen werden in einzelne Elemente aufgeteilt.
+
+Sei $\left\Vert \mathcal{P}\right\Vert \coloneqq\left|U\right|-\max_{P\in\mathcal{P}}\left(P\right)$
+die Summe der Größen aller Mengen außer der größten. Somit ist $1+\left\Vert \mathcal{P}\right\Vert $
+die minimale Größe einer Partition $\mathcal{P}_{P}$, die aus $\mathcal{P}$
+entsteht: Die größte Partition bleibt unverändert, während alle kleineren
+aufgeteilt werden.
+
+Wir benutzen die Abkürzung $\mathrm{SP}\left(\mathcal{C}\right)$
+für einen Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+wie folgt:
+\[
+\mathrm{SP}\left(\mathcal{C}\right)\coloneqq\max_{g\in G}\left(\left\Vert \mathrm{SP}\left(g\right)\right\Vert \right)
+\]
+
+
+Für $X,X'\subseteq U$ gilt $X\subseteq X'\Leftrightarrow\mathcal{P}_{X'}\preceq\mathcal{P}_{X}$.
+Die größere Teilmenge $X'$ trennt mehr Elemente von $U$ voneinander,
+und ist somit feiner.
+\end{defn}
+Es wird nun Lemma \ref{lem:lemma-19} und \ref{lem:lemma-20} aus
+dem letzten Abschnitt verwendet, um eine obere Schranke für den Träger
+jedes Gates $g$ zu finden.
+\begin{lem}
+(Theorem 21 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+
+Für $\epsilon\in\mathbb{R}_{\left[\frac{2}{3},1\right]}$, $n>2^{\frac{56}{\epsilon^{2}}}$,
+$U=\left[1,n\right]$ und einen rigiden (siehe Definition \ref{def:Rigidit=0000E4t})
+symmetrischen Schaltkreis $\mathcal{C}$ über $U$ gilt:
+
+Wenn der Orbit jedes Gates subexponentiell ist (für ein $\mathcal{C}$
+mit $\mathrm{poly}\left(n\right)$-Größe garantiert),
+\[
+s\coloneqq\max_{g\in G}\left(\mathrm{Orb}_{\mathcal{C}}\left(g\right)\right)\leqslant2^{n^{1-\epsilon}}
+\]
+dann gilt $\mathrm{SP}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$. \end{lem}
+\begin{proof}
+Falls der Orbit durch $s<n$ beschränkt ist, enthält $\mathcal{C}$
+keine relationalen Inputs (weil jedes Input $g\in G$ mit $\Sigma\left(g\right)=R\bar{x}$
+und $X=\left\{ x_{1},\cdots,x_{k}\right\} $ einen Orbit der Größe
+$\mathrm{Orb}_{\mathcal{C}}\left(g\right)\geqslant n^{\left|X\right|}\geqslant n$
+haben muss). In diesem Fall induziert jede Permutation den gleichen
+Automorphismus $\mathbf{id}$, jedes Gate hat den Träger $\mathcal{P}_{\max}$
+und es gilt $\mathrm{SP}\left(\mathcal{C}\right)=\left\Vert \mathcal{P}_{\max}\right\Vert =0$.
+Daher betrachten wir nur Schaltkreise mit $s\geqslant n$.
+
+Sei $g\in G$ beliebig.
+\begin{casenv}
+\item Wenn $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $,
+dann ist auf Grund der Rigidität $\mathrm{Stab}_{\mathcal{C}}\left(g\right)=\mathrm{Sym}_{U}$,
+und $\left\Vert \mathrm{SP}\left(g\right)\right\Vert =\left\Vert \mathcal{P}_{\max}\right\Vert =0$.
+\item Wenn $\Sigma\left(g\right)=R\bar{x}$ für $R/k\in\sigma$ und $\bar{x}\in U^{k}$
+mit $X=\left\{ x_{1},\cdots,x_{k}\right\} $, dann muss jede Permutation,
+die die Elemente von $X$ fixiert, auf Grund der Rigidität einen Automorphismus
+induzieren, der $g$ fixiert: 
+\[
+\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)
+\]
+Es ist $\mathcal{P}_{X}$ ist ein Träger von $g$, und $\left\Vert \mathcal{P}_{X}\right\Vert =\left|X\right|\leqslant k$.
+Daher ist $\left\Vert \mathrm{SP}\left(g\right)\right\Vert $ durch
+die konstante Stelligkeit von $R$ beschränkt: 
+\[
+\left\Vert \mathrm{SP}\left(g\right)\right\Vert \leqslant\left\Vert \mathcal{P}_{X}\right\Vert \leqslant k
+\]
+Für hinreichend große $n$ ist $k\leqslant n^{1-\epsilon}\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$.
+\item Wenn $g$ ein internes Gate ist, dann nehmen wir an, $\mathrm{SP}\left(g\right)>\frac{n}{2}$
+und $\mathrm{SP}\left(g'\right)\leqslant\frac{n}{2}$ für alle Vorgänger
+$g'$ von $g$.
+\[
+k\coloneqq\left\lceil \frac{8}{\epsilon}\frac{\log s}{\log n}\right\rceil 
+\]
+Wir teilen das Universum $U$ in gleich große Teile der Größe $k+2$:
+\begin{eqnarray*}
+U & = & \biguplus_{i=1}^{k'}U_{i}\uplus\left[k'\left(k+2\right)+1,n\right]\\
+U_{i} & \coloneqq & \left[\left(i-1\right)\cdot\left(k+2\right)+1,i\cdot\left(k+2\right)\right]\\
+k' & \coloneqq & \left\lfloor \frac{n}{k'+2}\right\rfloor 
+\end{eqnarray*}
+
+\end{casenv}
+\end{proof}
+Sei $C$ ein symmetrischer Schaltkreis über $\left|U\right|=n$ mit
+$s=\max_{C}\left|\mathrm{Orb}\left(g\right)\right|\leqslant2^{n^{1-\epsilon}}$;
+so ist die maximale SP eines Gatters höchstens $\frac{33}{\epsilon}\frac{\log s}{\log n}$.
+(der Orbit eines Gatters entspricht dem Nebengruppen-Index des Stabilisators
+dieses Gatters.)
+
 
 \chapter{Schaltkreise zu Logik}
 \begin{lem}

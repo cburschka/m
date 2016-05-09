@@ -496,6 +496,77 @@ Für jede Relation
 
 \end_layout
 
+\begin_layout Notation
+
+\series bold
+Minimum / Maximum
+\end_layout
+
+\begin_layout Notation
+Für eine Ordnung 
+\begin_inset Formula $\preceq$
+\end_inset
+
+ auf einer Menge 
+\begin_inset Formula $X$
+\end_inset
+
+ seien 
+\begin_inset Formula $\min_{\preceq}\left(X\right)\in X$
+\end_inset
+
+ und 
+\begin_inset Formula $\max_{\preceq}\left(X\right)\in X$
+\end_inset
+
+ diejenigen Elemente (sofern vorhanden), so dass für alle Elemente 
+\begin_inset Formula $z\in X$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\[
+\min_{\preceq}\left(X\right)\preceq z\preceq\max_{\preceq}\left(X\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Notation
+Für eine Funktion 
+\begin_inset Formula $f:U\rightarrow\mathbb{R}$
+\end_inset
+
+ und eine Menge 
+\begin_inset Formula $X\subseteq U$
+\end_inset
+
+ bezeichnen 
+\begin_inset Formula $\min_{x\in X}f\left(x\right)\in\mathbb{R}$
+\end_inset
+
+ und 
+\begin_inset Formula $\max_{x\in X}f\left(x\right)\in\mathbb{R}$
+\end_inset
+
+ die folgende Abkürzungen:
+\begin_inset Formula 
+\begin{eqnarray*}
+\min_{x\in X}f\left(x\right) & \coloneqq & \min_{\leqslant}\left\{ f\left(x\right)\mid x\in X\right\} \\
+\max_{x\in X}f\left(x\right) & \coloneqq & \max_{\leqslant}\left\{ f\left(x\right)\mid x\in X\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
 \begin_layout Definition
 
 \series bold
@@ -4488,6 +4559,12 @@ Outputs
 \begin_layout Definition
 
 \series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "def:Auswertung-von-Schaltkreisen"
+
+\end_inset
+
 Auswertung von Schaltkreisen
 \end_layout
 
@@ -5775,6 +5852,168 @@ Der Schaltkreis ist invariant, und akzeptiert alle vollständigen
 \end_inset
 
  induziert keinen Automorphismus.
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "def:Rigidität"
+
+\end_inset
+
+Rigidität
+\end_layout
+
+\begin_layout Definition
+Ein 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreis 
+\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ sei rigide, wenn er keine redundanten Gates besitzt.
+ Formal dürfen nicht 
+\begin_inset Formula $g,g'\in G$
+\end_inset
+
+ existieren, so dass:
+\begin_inset Formula 
+\begin{eqnarray*}
+\Sigma\left(g\right) & = & \Sigma\left(g'\right)\\
+\left\{ u\in G\mid\left(u,g\right)\in W\right\}  & = & \left\{ u\in G\mid\left(u,g'\right)\in W\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Insbesondere heißt dies, das der Schaltkreis höchstens zwei Konstanten 
+\begin_inset Formula $g_{0},g_{1}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\Sigma\left(g_{0}\right)=\mathbf{0}$
+\end_inset
+
+ und 
+\begin_inset Formula $\Sigma\left(g_{1}\right)=\mathbf{1}$
+\end_inset
+
+ enthält, und jedes Beschriftung 
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{x}$
+\end_inset
+
+ nur einmal vorkommt.
+\end_layout
+
+\begin_layout Standard
+Die Rigidität kann nicht in jeder booleschen Basis 
+\begin_inset Formula $\mathbb{B}$
+\end_inset
+
+ problemlos hergestellt werden - zum Beispiel hat ein Majority-Gate 
+\begin_inset Formula $\Sigma\left(g\right)=\mathtt{MAJ}$
+\end_inset
+
+ unter Umständen mehrere konstante Vorgänger.
+ Zum Ausgleich erlauben wir einen Multigraph:
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Multischaltkreis
+\end_layout
+
+\begin_layout Definition
+Ein 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Multischaltkreis 
+\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ ist analog zum 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreis definiert, aber 
+\begin_inset Formula $\left(G,W\right)$
+\end_inset
+
+ bildet einen azyklischen Multigraph:
+\begin_inset Formula 
+\[
+W:G\times G\rightarrow\left[0,\left|G\right|\right]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sum_{h\in G}W\left(h,g\right)\leqslant\left|G\right|\,\mathrm{für\,alle}\,g\in G
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+(Die Anzahl der eingehenden Kanten sei ohne Beschränkung der Allgemeinheit
+ durch 
+\begin_inset Formula $\left|G\right|$
+\end_inset
+
+ beschränkt.)
+\end_layout
+
+\begin_layout Definition
+Für die Auswertung eines internen Gates gilt analog zu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:Auswertung-von-Schaltkreisen"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+j_{1} & \coloneqq & \sum_{h\in G}\left(\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\cdot W\left(h,g\right)\right)\\
+j_{0} & \coloneqq & \sum_{h\in G}W\left(h,g\right)-j_{1}\\
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\Sigma\left(g\right)\right]\left(j_{0},j_{1}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+Jeder 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreis kann in Polynomialzeit in einen rigiden Schaltkreis umgewandelt
+ werden.
+ Jeder 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
+\end_inset
+
+-Schaltkreis kann in Polynomialzeit zu einem rigiden Multischaltkreis umgewandel
+t werden.
+\end_layout
+
+\begin_layout Proof
+D
 \end_layout
 
 \begin_layout Section
@@ -11196,6 +11435,12 @@ Weil
 \end_layout
 
 \begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:lemma-19"
+
+\end_inset
+
 (Lemma 19 aus 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -11203,7 +11448,11 @@ key "anderson_et_al:LIPIcs:2014:4445"
 
 \end_inset
 
-) Für 
+)
+\end_layout
+
+\begin_layout Lemma
+Für 
 \begin_inset Formula $\epsilon\in\mathbb{R}_{\left[0,1\right[}$
 \end_inset
 
@@ -11231,7 +11480,7 @@ Falls der Index des Mengenstabilisators von
 \begin_inset Formula $n$
 \end_inset
 
- ist:
+ ist,
 \begin_inset Formula 
 \[
 s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}
@@ -11247,11 +11496,7 @@ n\leqslant s\leqslant2^{n^{1-\epsilon}}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Lemma
-Dann enthält 
+dann enthält 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
@@ -11263,7 +11508,7 @@ Dann enthält
 \begin_inset Formula $n-\mathcal{O}\left(n^{1-\epsilon}\right)$
 \end_inset
 
- viele Elemente:
+ viele Elemente.
 \begin_inset Formula 
 \[
 \min\left\{ \left|\mathcal{P}\right|,n-\left|\mathcal{P}\right|\right\} \leqslant\frac{8}{\epsilon}\frac{\log s}{\log n}
@@ -11621,6 +11866,12 @@ Eine Partition, die höchstens
 \end_layout
 
 \begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:lemma-20"
+
+\end_inset
+
 (Lemma 20 aus 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -11628,7 +11879,11 @@ key "anderson_et_al:LIPIcs:2014:4445"
 
 \end_inset
 
-) Für 
+)
+\end_layout
+
+\begin_layout Lemma
+Für 
 \begin_inset Formula $\epsilon\in\mathbb{R}_{\left[0,1\right[}$
 \end_inset
 
@@ -11660,7 +11915,7 @@ Falls der Index des Mengenstabilisators von
 \begin_inset Formula $n$
 \end_inset
 
- ist: 
+ ist, 
 \begin_inset Formula 
 \[
 s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}
@@ -11676,18 +11931,14 @@ n\leqslant s\leqslant2^{n^{1-\epsilon}}
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Lemma
-Dann gilt für das mächtigste Element von 
+dann enthält das mächtigste Element von 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
-: 
+ alles bis auf einen sublinearen Teil des Universums: 
 \begin_inset Formula 
 \[
-\max\left\{ \left|P\right|\mid P\in\mathcal{P}\right\} \geqslant n-\frac{33}{\epsilon}\cdot\frac{\log s}{\log n}
+\max\left\{ \left|P\right|\mid P\in\mathcal{P}\right\} \geqslant n-\frac{33}{\epsilon}\cdot\frac{\log s}{\log n}\geqslant n-\frac{33}{\epsilon}n^{1-\epsilon}
 \]
 
 \end_inset
@@ -11727,18 +11978,56 @@ Ohne Beschränkung der Annahme ist
 \end_inset
 
 , denn sonst ist 
-\begin_inset Formula $p_{k}=n-\left(k-1\right)\geqslant n-\frac{n}{2}$
+\begin_inset Formula $p_{k}=n-\left(k-1\right)$
 \end_inset
 
-, und 
-\begin_inset Formula $\frac{n}{2}\leqslant\frac{}{}\frac{33}{\epsilon}$
+, und einer der folgenden Fälle tritt nach 
+\begin_inset Formula $\min\left\{ k,n-k\right\} <\frac{8}{\epsilon}\frac{\log s}{\log n}$
+\end_inset
+
+ ein:
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+\begin_inset Formula $k<\frac{8}{\epsilon}\frac{\log s}{\log n}<\frac{33}{\epsilon}\frac{\log s}{\log n}$
+\end_inset
+
+, so ist 
+\begin_inset Formula $p_{k}=n-\left(k-1\right)\geqslant n-\frac{33}{\epsilon}\frac{\log s}{\log n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Case
+\begin_inset Formula $k>n-\frac{8}{\epsilon}\frac{\log s}{\log n}\geqslant n-\frac{8}{\epsilon}\frac{n^{1-\epsilon}}{\log n}$
+\end_inset
+
+, und es folgt für hinreichend große 
+\begin_inset Formula $n\geqslant\exp\frac{8}{\epsilon^{2}}$
+\end_inset
+
+ ein Widerspruch zu der Annahme 
+\begin_inset Formula $\left|\mathcal{P}\right|\leqslant\frac{n}{2}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+\left|\mathcal{P}\right|=k & > & n-\epsilon n^{1-\epsilon}\\
+ & = & n-\frac{\epsilon}{n^{\epsilon}}n\\
+ & > & \frac{n}{2}
+\end{eqnarray*}
+
 \end_inset
 
 
 \end_layout
 
+\end_deeper
 \begin_layout Proof
-Die Umverteilung aus dem vorhergehenden Beweis wird wiederholt verwendet,
+Die Umverteilung aus dem vorhergehenden Beweis wird nun wiederholt verwendet,
  um jeweils das erste Element mit 
 \begin_inset Formula $p_{i}>1$
 \end_inset
@@ -11747,95 +12036,311 @@ Die Umverteilung aus dem vorhergehenden Beweis wird wiederholt verwendet,
 \begin_inset Formula $p_{j}<p_{k-1}$
 \end_inset
 
- zu verkleinern.
- 
-\begin_inset Formula 
-\begin{eqnarray*}
-\\
-\\
- & \leqslant & k!\underset{k-\ell-1}{\underbrace{1!\cdots1!}}\underset{\ell}{\underbrace{p_{k-1}!\cdots p_{k-1}!}}p_{k}!\\
- & = & k!\left(p_{k-1}!\right)^{\ell}p_{k}!
-\end{eqnarray*}
-
+ zu verkleinern, so dass alle Terme 
+\begin_inset Formula $p_{1}\cdots p_{k-1}$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Proof
-Hierbei gilt:
-\begin_inset Formula 
-\[
-s\geqslant k-\ell-1+\ell p_{k-1}+p_{k}
-\]
-
+ entweder den Wert 
+\begin_inset Formula $1$
 \end_inset
 
- 
-\begin_inset Formula 
-\[
-\ell
-\]
-
+ oder 
+\begin_inset Formula $p_{k-1}$
 \end_inset
 
- 
-\begin_inset Formula $\ell\leqslant\frac{s-p_{k}-\left(k-1\right)}{\left(p_{k-1}-1\right)}$
-\end_inset
-
-, Durch Umverteilung entstumverteilt werden, um zweitgrößte Teile und 
-\end_layout
-
-\begin_layout Proof
-Sei 
-\begin_inset Formula $S$
-\end_inset
-
- die Summe aller Teile außer dem größten: 
-\begin_inset Formula $S=\sum_{i=1}^{k-1}p_{i}$
-\end_inset
-
-.
- 
-\begin_inset Formula $\ell-k+1$
-\end_inset
-
- Einsen zu erzeugen, wobei der Wert der Fakultät im Nenner ansteigt.
- 
-\begin_inset Formula 
-\begin{eqnarray*}
-s & = & \frac{n!}{\left|\mathrm{Stab}_{U}\left\{ P\right\} \right|}\geqslant\frac{1}{k!}\cdot\frac{n!}{\prod_{i=1}^{k}p_{i}}\\
- & \geqslant & \frac{1}{k!}\frac{n!}{1!\cdots1!p_{k-1}!\cdots p_{k-1}!p_{i}}\\
- & \geqslant & \frac{1}{k!}\frac{n!}{\left(p_{k-1}\right)^{\ell}}
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Sei 
-\begin_inset Formula $C$
-\end_inset
-
- ein symmetrischer Schaltkreis über 
-\begin_inset Formula $\left|U\right|=n$
+ bekommen.
+ Der letzte Term 
+\begin_inset Formula $p_{i}$
 \end_inset
 
  mit 
-\begin_inset Formula $s=\max_{C}\left|\mathrm{Orb}\left(g\right)\right|\leqslant2^{n^{1-\epsilon}}$
+\begin_inset Formula $1<p_{i}<p_{k-1}$
 \end_inset
 
-; so ist die maximale SP eines Gatters höchstens 
-\begin_inset Formula $\frac{33}{\epsilon}\frac{\log s}{\log n}$
+ wird zu 
+\begin_inset Formula $p_{k-1}$
+\end_inset
+
+ aufgerundet.
+\begin_inset Formula 
+\[
+p\coloneqq p_{k-1}
+\]
+
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right| & \leqslant & k!p_{1}!\cdots p!p_{k}!\\
+ & \leqslant & k!\underset{k-\ell-1}{\underbrace{1!\cdots1!}}p_{i}!\underset{\ell-1}{\underbrace{p!\cdots p!}}p_{k}!\\
+ & \leqslant & k!\left(p!\right)^{\ell}p_{k}!
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Hierbei ist 
+\begin_inset Formula $\ell$
+\end_inset
+
+ wie folgt beschränkt:
+\begin_inset Formula 
+\begin{eqnarray*}
+k-\ell-1+\ell p\leqslant & \sum_{i=1}^{k-1}p_{i} & \leqslant k-1+\left(\ell+1\right)\left(p-1\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Daher gilt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right| & \leqslant & k!\left(p!\right)^{\ell}p_{k}\\
+ & = & k!\left(p!\right)^{\ell}\left(n-\sum_{i=1}^{k-1}p_{i}\right)\\
+ & \leqslant & k!\left(p!\right)^{\ell}\left(n-\left(k-1-\ell+\ell p\right)\right)!\\
+ & = & k!\left(p!\right)^{\ell}\left(n-k-\ell\left(p-1\right)+1\right)!\\
+ & \leqslant & \left(p!\right)^{\ell}\left(n-\ell\left(p-1\right)+1\right)!
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Die Stirling-Approximation 
+\begin_inset Formula $x!\leqslant e\sqrt{x}\left(\frac{x}{e}\right)^{x}$
+\end_inset
+
+ erlaubt die folgende Abschätzung:
+\begin_inset Formula 
+\begin{eqnarray*}
+\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right| & \leqslant & \left(p!\right)^{\ell}e\sqrt{n}\left(\frac{n}{e}\right)^{n-\ell\left(p-1\right)+1}\\
+ & \leqslant & \left(e\sqrt{p}\left(\frac{p}{e}\right)^{p}\right)^{\ell}e\sqrt{n}\left(\frac{n}{e}\right)^{n-\ell\left(p-1\right)+1}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Wenn diese Abschätzung in 
+\begin_inset Formula $s$
+\end_inset
+
+ eingesetzt wird, erhalten wir die folgende Ungleichung:
+\begin_inset Formula 
+\begin{eqnarray*}
+s & = & \frac{n!}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}\\
+ & \geqslant & \frac{\left(\frac{n}{e}\right)^{n}}{\left(e\sqrt{p}\left(\frac{p}{e}\right)^{p}\right)^{\ell}e\sqrt{n}\left(\frac{n}{e}\right)^{n-\ell\left(p-1\right)+1}}\\
+ & = & \frac{e^{p\ell}\cdot e^{n-\ell\left(p-1\right)+1}}{e^{n}\cdot e^{\ell}\cdot e}\cdot\frac{n^{n}}{\left(\sqrt{p}p^{p}\right)^{\ell}\sqrt{n}n^{n-\ell\left(p-1\right)+1}}\\
+ & = & \frac{n^{\ell\left(p-1\right)-\frac{3}{2}}}{p^{\ell\left(p+\frac{1}{2}\right)}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Für den Logarithmus 
+\begin_inset Formula $\log s$
+\end_inset
+
+ gilt dann:
+\begin_inset Formula 
+\begin{eqnarray*}
+\log s & \geqslant & \log\frac{n^{\ell\left(p-1\right)-\frac{3}{2}}}{p^{\ell\left(p+\frac{1}{2}\right)}}\\
+ & \geqslant & \left(\ell\left(p-1\right)-\frac{3}{2}\right)\log n-\ell\left(p+\frac{1}{2}\right)\log p\\
+ & \geqslant & \left(\ell\left(p-1\right)-\frac{3}{2}\right)\log n-\ell\left(p+\frac{1}{2}\right)\log p\\
+ & = & \ell\left(p+\frac{1}{2}\right)\left(\log n-\log p\right)-\frac{3}{2}\left(\ell-1\right)\log n\\
+ & \geqslant & \ell p\log\frac{n}{p}-\frac{3}{2}\left(\ell-1\right)\log n
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Weil 
+\begin_inset Formula $n<s$
+\end_inset
+
+ und 
+\begin_inset Formula $\ell\geqslant1$
+\end_inset
+
+, folgt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{5}{2}\log s & \geqslant & \ell p\log\frac{n}{p}-\frac{3}{2}\ell\log n\\
+ & \geqslant & p\log\frac{n}{p}-\frac{3}{2}\log n\\
+\frac{8}{2}\log s & \geqslant & p\log\frac{n}{p}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Und weil 
+\begin_inset Formula $p<p_{k}$
+\end_inset
+
+ und 
+\begin_inset Formula $p+p_{k}<n$
+\end_inset
+
+ folgt 
+\begin_inset Formula $\frac{n}{p}\geqslant2$
+\end_inset
+
+, und daher 
+\begin_inset Formula $\log\frac{n}{p}\geqslant1$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+p & \leqslant & 4\log s
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Mit 
+\begin_inset Formula $p\leqslant4\log s\leqslant4n^{\left(1-\epsilon\right)}$
+\end_inset
+
+ und 
+\begin_inset Formula $\log p\leqslant\left(1-\epsilon\right)\log n+2$
+\end_inset
+
+ folgt dann:
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{5}{2}\log s & \geqslant & \ell p\left(\log n-\left(1-\epsilon\right)\log n-2\right)-\frac{3}{2}\ell\log n\\
+ & \geqslant & \frac{\epsilon\ell p}{2}\log n-\frac{3}{2}\ell\log n\\
+5\frac{\log s}{\log n} & \geqslant & \ell\left(p\epsilon-3\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Wenn 
+\begin_inset Formula $3\leqslant\frac{p\epsilon}{2}$
+\end_inset
+
+, dann folgt 
+\begin_inset Formula $\frac{10}{\epsilon}\frac{\log s}{\log n}\geqslant\ell p$
 \end_inset
 
 .
- (der Orbit eines Gatters entspricht dem Nebengruppen-Index des Stabilisators
- dieses Gatters.)
+ Es gilt: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\sum_{i=1}^{k-1}p_{i} & \leqslant & k-1+\left(\ell+1\right)\left(p-1\right)\\
+ & \leqslant & k-1+2\ell p\\
+ & \leqslant & \frac{8}{\epsilon}\frac{\log s}{\log n}+\frac{20}{\epsilon}\frac{\log s}{\log n}<\frac{33}{\epsilon}\frac{\log s}{\log n}
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
+\begin_layout Case
+Sonst ist 
+\begin_inset Formula $p<\frac{6}{\epsilon}$
+\end_inset
+
+, und es folgt 
+\begin_inset Formula $\log p<3-\log\epsilon$
+\end_inset
+
+.
+ Es gilt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{5}{2}\log s & \geqslant & \ell p\left(\log n-\log p\right)-\frac{3}{2}\ell\log n\\
+ & \geqslant & \ell p\left(\log n-\left(3-\log\epsilon\right)\right)-\frac{3}{2}\ell\log n
+\end{eqnarray*}
+
+\end_inset
+
+Und nach 
+\begin_inset Formula $\log n\geqslant\frac{8}{\epsilon^{2}}\geqslant2\left(3-\log\epsilon\right)$
+\end_inset
+
+ folgt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{5}{2}\log s & \geqslant & \frac{\ell p}{2}\log n-\frac{3}{2}\ell\log n\\
+ & = & \frac{\ell\left(p-3\right)}{2}\log n
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Falls 
+\begin_inset Formula $p\geqslant5$
+\end_inset
+
+, dann folgt 
+\begin_inset Formula $\frac{25}{2\epsilon}\frac{\log s}{\log n}\geqslant\ell p$
+\end_inset
+
+ und damit:
+\begin_inset Formula 
+\[
+\sum_{i=1}^{k-1}p_{i}\leqslant\frac{8}{\epsilon}\frac{\log s}{\log n}+\frac{25}{\epsilon}\frac{\log s}{\log n}=\frac{33}{\epsilon}\frac{\log s}{\log n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Sonst ist 
+\begin_inset Formula $p<4$
+\end_inset
+
+, und damit:
+\begin_inset Formula 
+\begin{eqnarray*}
+\sum_{i=1}^{k-1}p_{i} & \leqslant & p\left(k-1\right)\\
+ & \leqslant & 4\cdot\frac{8}{\epsilon}\frac{\log s}{\log n}\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
 \begin_layout Section
 Träger im Schaltkreis
 \end_layout
@@ -11845,12 +12350,21 @@ Sei
 \begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
 \end_inset
 
- ein rigider, symmetrische Schaltkreis über dem Universum 
+ ein rigider, symmetrischer Schaltkreis über dem Universum 
 \begin_inset Formula $U$
 \end_inset
 
 .
- Der Stabilisator eines Gates 
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Der 
+\series bold
+Stabilisator
+\series default
+ eines Gates 
 \begin_inset Formula $g\in G$
 \end_inset
 
@@ -11873,7 +12387,7 @@ Sei
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Enumerate
 Eine Partition 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
@@ -11887,7 +12401,7 @@ Eine Partition
 Träger
 \series default
  von 
-\begin_inset Formula $g$
+\begin_inset Formula $g\in G$
 \end_inset
 
 , wenn sie ein Träger von 
@@ -11896,7 +12410,7 @@ Träger
 
  ist.
  Sei 
-\begin_inset Formula $\mathrm{SP}\left(g\right)$
+\begin_inset Formula $\mathrm{SP}\left(g\right)\coloneqq\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
 \end_inset
 
  der gröbste Träger von 
@@ -11904,6 +12418,459 @@ Träger
 \end_inset
 
 .
+ (Wenn 
+\begin_inset Formula $g$
+\end_inset
+
+ zum Beispiel von allen induzierten Automorphismen fixiert wird, dann ist
+ 
+\begin_inset Formula $\mathrm{SP}\left(g\right)=\mathcal{P}_{\max}=\left\{ U\right\} $
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Enumerate
+Der 
+\series bold
+Orbit
+\series default
+ von 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ sei die Menge der Gates, auf die 
+\begin_inset Formula $g$
+\end_inset
+
+ durch einen Automorphismus abgebildet wird:
+\begin_inset Formula 
+\[
+\mathrm{Orb}_{\mathcal{C}}\left(g\right)\coloneqq\left\{ \hat{\pi}g\mid\pi\in\mathrm{Sym}_{U}\right\} 
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\end_deeper
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+Für 
+\begin_inset Formula $X=\left\{ x_{1},\cdots,x_{k}\right\} \subseteq U$
+\end_inset
+
+ sei 
+\begin_inset Formula $\mathcal{P}_{X}\coloneqq\left\{ \left\{ x_{1}\right\} ,\cdots,\left\{ x_{k}\right\} ,U\backslash X\right\} $
+\end_inset
+
+ die gröbste Partition, die jedes Element 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ von jedem anderen Element 
+\begin_inset Formula $u\in U$
+\end_inset
+
+ trennt.
+\end_layout
+
+\begin_layout Definition
+Für eine Partition 
+\begin_inset Formula $\mathcal{P}\in\mathrm{Part}_{U}$
+\end_inset
+
+ und jede Menge 
+\begin_inset Formula $P\in\mathcal{P}$
+\end_inset
+
+ ist offensichtlich 
+\begin_inset Formula $\mathcal{P}_{U\backslash P}\preceq\mathcal{P}$
+\end_inset
+
+ eine feinere Partition als 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+: Es bleibt 
+\begin_inset Formula $P=U\backslash\left(U\backslash P\right)\in\mathcal{P}\cap\mathcal{P}_{P}$
+\end_inset
+
+ erhalten, und alle übrigen Mengen werden in einzelne Elemente aufgeteilt.
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $\left\Vert \mathcal{P}\right\Vert \coloneqq\left|U\right|-\max_{P\in\mathcal{P}}\left(P\right)$
+\end_inset
+
+ die Summe der Größen aller Mengen außer der größten.
+ Somit ist 
+\begin_inset Formula $1+\left\Vert \mathcal{P}\right\Vert $
+\end_inset
+
+ die minimale Größe einer Partition 
+\begin_inset Formula $\mathcal{P}_{P}$
+\end_inset
+
+, die aus 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ entsteht: Die größte Partition bleibt unverändert, während alle kleineren
+ aufgeteilt werden.
+\end_layout
+
+\begin_layout Definition
+Wir benutzen die Abkürzung 
+\begin_inset Formula $\mathrm{SP}\left(\mathcal{C}\right)$
+\end_inset
+
+ für einen Schaltkreis 
+\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ wie folgt:
+\begin_inset Formula 
+\[
+\mathrm{SP}\left(\mathcal{C}\right)\coloneqq\max_{g\in G}\left(\left\Vert \mathrm{SP}\left(g\right)\right\Vert \right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Für 
+\begin_inset Formula $X,X'\subseteq U$
+\end_inset
+
+ gilt 
+\begin_inset Formula $X\subseteq X'\Leftrightarrow\mathcal{P}_{X'}\preceq\mathcal{P}_{X}$
+\end_inset
+
+.
+ Die größere Teilmenge 
+\begin_inset Formula $X'$
+\end_inset
+
+ trennt mehr Elemente von 
+\begin_inset Formula $U$
+\end_inset
+
+ voneinander, und ist somit feiner.
+\end_layout
+
+\begin_layout Standard
+Es wird nun Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:lemma-19"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:lemma-20"
+
+\end_inset
+
+ aus dem letzten Abschnitt verwendet, um eine obere Schranke für den Träger
+ jedes Gates 
+\begin_inset Formula $g$
+\end_inset
+
+ zu finden.
+\end_layout
+
+\begin_layout Lemma
+(Theorem 21 aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anderson_et_al:LIPIcs:2014:4445"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Lemma
+Für 
+\begin_inset Formula $\epsilon\in\mathbb{R}_{	\left[\frac{2}{3},1\right]}$
+\end_inset
+
+, 
+\begin_inset Formula $n>2^{\frac{56}{\epsilon^{2}}}$
+\end_inset
+
+, 
+\begin_inset Formula $U=\left[1,n\right]$
+\end_inset
+
+ und einen rigiden (siehe Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:Rigidität"
+
+\end_inset
+
+) symmetrischen Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ über 
+\begin_inset Formula $U$
+\end_inset
+
+ gilt:
+\end_layout
+
+\begin_layout Lemma
+Wenn der Orbit jedes Gates subexponentiell ist (für ein 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-Größe garantiert),
+\begin_inset Formula 
+\[
+s\coloneqq\max_{g\in G}\left(\mathrm{Orb}_{\mathcal{C}}\left(g\right)\right)\leqslant2^{n^{1-\epsilon}}
+\]
+
+\end_inset
+
+dann gilt 
+\begin_inset Formula $\mathrm{SP}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+Falls der Orbit durch 
+\begin_inset Formula $s<n$
+\end_inset
+
+ beschränkt ist, enthält 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ keine relationalen Inputs (weil jedes Input 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ mit 
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{x}$
+\end_inset
+
+ und 
+\begin_inset Formula $X=\left\{ x_{1},\cdots,x_{k}\right\} $
+\end_inset
+
+ einen Orbit der Größe 
+\begin_inset Formula $\mathrm{Orb}_{\mathcal{C}}\left(g\right)\geqslant n^{\left|X\right|}\geqslant n$
+\end_inset
+
+ haben muss).
+ In diesem Fall induziert jede Permutation den gleichen Automorphismus 
+\begin_inset Formula $\mathbf{id}$
+\end_inset
+
+, jedes Gate hat den Träger 
+\begin_inset Formula $\mathcal{P}_{\max}$
+\end_inset
+
+ und es gilt 
+\begin_inset Formula $\mathrm{SP}\left(\mathcal{C}\right)=\left\Vert \mathcal{P}_{\max}\right\Vert =0$
+\end_inset
+
+.
+ Daher betrachten wir nur Schaltkreise mit 
+\begin_inset Formula $s\geqslant n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ beliebig.
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Wenn 
+\begin_inset Formula $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
+\end_inset
+
+, dann ist auf Grund der Rigidität 
+\begin_inset Formula $\mathrm{Stab}_{\mathcal{C}}\left(g\right)=\mathrm{Sym}_{U}$
+\end_inset
+
+, und 
+\begin_inset Formula $\left\Vert \mathrm{SP}\left(g\right)\right\Vert =\left\Vert \mathcal{P}_{\max}\right\Vert =0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Case
+Wenn 
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{x}$
+\end_inset
+
+ für 
+\begin_inset Formula $R/k\in\sigma$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{x}\in U^{k}$
+\end_inset
+
+ mit 
+\begin_inset Formula $X=\left\{ x_{1},\cdots,x_{k}\right\} $
+\end_inset
+
+, dann muss jede Permutation, die die Elemente von 
+\begin_inset Formula $X$
+\end_inset
+
+ fixiert, auf Grund der Rigidität einen Automorphismus induzieren, der 
+\begin_inset Formula $g$
+\end_inset
+
+ fixiert: 
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)
+\]
+
+\end_inset
+
+Es ist 
+\begin_inset Formula $\mathcal{P}_{X}$
+\end_inset
+
+ ist ein Träger von 
+\begin_inset Formula $g$
+\end_inset
+
+, und 
+\begin_inset Formula $\left\Vert \mathcal{P}_{X}\right\Vert =\left|X\right|\leqslant k$
+\end_inset
+
+.
+ Daher ist 
+\begin_inset Formula $\left\Vert \mathrm{SP}\left(g\right)\right\Vert $
+\end_inset
+
+ durch die konstante Stelligkeit von 
+\begin_inset Formula $R$
+\end_inset
+
+ beschränkt: 
+\begin_inset Formula 
+\[
+\left\Vert \mathrm{SP}\left(g\right)\right\Vert \leqslant\left\Vert \mathcal{P}_{X}\right\Vert \leqslant k
+\]
+
+\end_inset
+
+Für hinreichend große 
+\begin_inset Formula $n$
+\end_inset
+
+ ist 
+\begin_inset Formula $k\leqslant n^{1-\epsilon}\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Case
+Wenn 
+\begin_inset Formula $g$
+\end_inset
+
+ ein internes Gate ist, dann nehmen wir an, 
+\begin_inset Formula $\mathrm{SP}\left(g\right)>\frac{n}{2}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathrm{SP}\left(g'\right)\leqslant\frac{n}{2}$
+\end_inset
+
+ für alle Vorgänger 
+\begin_inset Formula $g'$
+\end_inset
+
+ von 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+k\coloneqq\left\lceil \frac{8}{\epsilon}\frac{\log s}{\log n}\right\rceil 
+\]
+
+\end_inset
+
+Wir teilen das Universum 
+\begin_inset Formula $U$
+\end_inset
+
+ in gleich große Teile der Größe 
+\begin_inset Formula $k+2$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+U & = & \biguplus_{i=1}^{k'}U_{i}\uplus\left[k'\left(k+2\right)+1,n\right]\\
+U_{i} & \coloneqq & \left[\left(i-1\right)\cdot\left(k+2\right)+1,i\cdot\left(k+2\right)\right]\\
+k' & \coloneqq & \left\lfloor \frac{n}{k'+2}\right\rfloor 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Sei 
+\begin_inset Formula $C$
+\end_inset
+
+ ein symmetrischer Schaltkreis über 
+\begin_inset Formula $\left|U\right|=n$
+\end_inset
+
+ mit 
+\begin_inset Formula $s=\max_{C}\left|\mathrm{Orb}\left(g\right)\right|\leqslant2^{n^{1-\epsilon}}$
+\end_inset
+
+; so ist die maximale SP eines Gatters höchstens 
+\begin_inset Formula $\frac{33}{\epsilon}\frac{\log s}{\log n}$
+\end_inset
+
+.
+ (der Orbit eines Gatters entspricht dem Nebengruppen-Index des Stabilisators
+ dieses Gatters.)
 \end_layout
 
 \begin_layout Chapter
