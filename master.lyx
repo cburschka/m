@@ -14181,7 +14181,7 @@ Es sei
 
  getrennten Elemente; diese Menge nennen wir den 
 \series bold
-kanonischen Support
+kanonischen Träger
 \series default
  des Gates 
 \begin_inset Formula $g$
@@ -14212,15 +14212,11 @@ Wir möchten
 \begin_inset Formula $g$
 \end_inset
 
- nur von der Abbildung 
-\begin_inset Formula $\pi_{\mid\pi^{-1}\mathrm{sp}\left(g\right)}$
+ nur von der dem Teil der Abbildung 
+\begin_inset Formula $\pi$
 \end_inset
 
- abhängt, die die Teilmenge 
-\begin_inset Formula $\pi^{-1}\mathrm{sp}\left(g\right)$
-\end_inset
-
- auf 
+ abhängt, die Elemente auf 
 \begin_inset Formula $\mathrm{sp}\left(g\right)$
 \end_inset
 
@@ -14233,11 +14229,248 @@ Wir möchten
 \end_layout
 
 \begin_layout Definition
+
+\series bold
+Bildreduktion
+\end_layout
+
+\begin_layout Definition
+Für eine bijektive Funktion 
+\begin_inset Formula $f:A\rightarrow B$
+\end_inset
+
+ und eine Teilmenge 
+\begin_inset Formula $B'\subseteq B$
+\end_inset
+
+ sei 
+\begin_inset Formula $f_{\Vert B'}:f^{-1}\left(B'\right)\rightarrow B'$
+\end_inset
+
+ die Reduktion von 
+\begin_inset Formula $f$
+\end_inset
+
+ auf den Teil des Definitionsbereichs, der auf 
+\begin_inset Formula $B'$
+\end_inset
+
+ abgebildet wird:
+\begin_inset Formula 
+\begin{eqnarray*}
+f_{\Vert B'} & \coloneqq & f_{\mid f^{-1}\left(B'\right)}\\
+ & = & \left(\left(f^{-1}\right)_{\mid B'}\right)^{-1}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Konsistenz
+\end_layout
+
+\begin_layout Definition
+Zwei bijektive Abbildungen 
+\begin_inset Formula $f,f':A\rightarrow B$
+\end_inset
+
+ seien konsistent in 
+\begin_inset Formula $A'\subseteq A$
+\end_inset
+
+ (kurz 
+\begin_inset Formula $f\sim_{A'}f'$
+\end_inset
+
+), wenn sie im Teilbereich 
+\begin_inset Formula $A'$
+\end_inset
+
+ identisch sind.
+ 
+\begin_inset Formula 
+\[
+f\sim_{A'}f'\Leftrightarrow f_{\mid A'}=f'_{\mid A'}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Für 
+\begin_inset Formula $B'\subseteq B$
+\end_inset
+
+ heißen sie bildkonsistent in 
+\begin_inset Formula $B'\subseteq B$
+\end_inset
+
+, wenn 
+\begin_inset Formula $f^{-1}\sim_{B'}f^{-1}$
+\end_inset
+
+ beziehungsweise 
+\begin_inset Formula $f_{\Vert B'}=f'_{\Vert B'}$
+\end_inset
+
+ gilt.
+\end_layout
+
+\begin_layout Proposition
 Sei 
+\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ ein rigider, symmetrischer Schaltkreis mit 
+\begin_inset Formula $n=\left|U\right|$
+\end_inset
+
+, und sei 
 \begin_inset Formula $g\in G$
 \end_inset
 
- 
+ ein beliebiges Gate.
+ Sei 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+\end_inset
+
+ eine beliebige Struktur.
+ Seien 
+\begin_inset Formula $\pi_{1},\pi_{2}:A\rightarrow U$
+\end_inset
+
+ zwei beliebige Einbettungen von 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ in 
+\begin_inset Formula $U$
+\end_inset
+
+, die bildkonsistent in 
+\begin_inset Formula $\mathrm{sp}\left(g\right)$
+\end_inset
+
+ sind.
+ So gilt 
+\begin_inset Formula $\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\tau\in\mathrm{Sym}_{U}$
+\end_inset
+
+ die Permutation 
+\begin_inset Formula $\tau\coloneqq\pi_{1}\pi_{2}^{-1}$
+\end_inset
+
+, so dass 
+\begin_inset Formula $\pi_{1}=\tau\pi_{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Weil 
+\begin_inset Formula $\pi_{1}$
+\end_inset
+
+ und 
+\begin_inset Formula $\pi_{2}$
+\end_inset
+
+ bildkonsistent in 
+\begin_inset Formula $\mathrm{sp}\left(g\right)$
+\end_inset
+
+ sind, gilt 
+\begin_inset Formula $\pi_{1}^{-1}u=\pi_{2}^{-1}u$
+\end_inset
+
+ für 
+\begin_inset Formula $u\in\mathrm{sp}\left(g\right)$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{eqnarray*}
+\tau u & = & \pi_{1}\pi_{2}^{-1}u\\
+ & = & \pi_{1}\pi_{1}^{-1}u=u
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Wegen der Symmetrie und Rigidität induziert 
+\begin_inset Formula $\tau$
+\end_inset
+
+ einen eindeutigen Automorphismus 
+\begin_inset Formula $\hat{\tau}$
+\end_inset
+
+ im Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+.
+ Weil 
+\begin_inset Formula $\tau$
+\end_inset
+
+ die Elemente von 
+\begin_inset Formula $\mathrm{sp}\left(g\right)$
+\end_inset
+
+ fixiert, fixiert 
+\begin_inset Formula $\hat{\tau}$
+\end_inset
+
+ auch das Gate 
+\begin_inset Formula $g$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+\tau & \in & \mathrm{Stab}_{U}\left(\mathrm{sp}\left(g\right)\right)\\
+ & \subseteq & \mathrm{Stab}_{\mathcal{C}}\left(g\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right) & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)\\
+ & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(g\right)\\
+ & = & \mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(g\right)
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Chapter

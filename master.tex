@@ -3761,20 +3761,79 @@ ein Träger von $g$, und $\left|\mathcal{P}_{U\backslash P_{m}}\right|\coloneqq1
 
 Es sei $\mathrm{sp}\left(g\right)\coloneqq U\backslash P_{m}$ die
 Menge der in $\mathcal{P}_{U\backslash P_{m}}$ getrennten Elemente;
-diese Menge nennen wir den \textbf{kanonischen Support} des Gates
-$g$.
+diese Menge nennen wir den \textbf{kanonischen Träger} des Gates $g$.
 
 Wir möchten $\mathcal{C}_{n}$ auf beliebigen Strukturen $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 (nicht nur $\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$)
 auswerten, wofür eine beliebige Einbettung $\pi:A\rightarrow\left[1,n\right]$
 definiert werden muss. Es wird nun gezeigt, dass die Auswertung des
-Gates $g$ nur von der Abbildung $\pi_{\mid\pi^{-1}\mathrm{sp}\left(g\right)}$
-abhängt, die die Teilmenge $\pi^{-1}\mathrm{sp}\left(g\right)$ auf
-$\mathrm{sp}\left(g\right)$ abbildet. Die Abbildung der übrigen Elemente
-ist für $g$ unbedeutend.
+Gates $g$ nur von der dem Teil der Abbildung $\pi$ abhängt, die
+Elemente auf $\mathrm{sp}\left(g\right)$ abbildet. Die Abbildung
+der übrigen Elemente ist für $g$ unbedeutend.
 \begin{defn}
-Sei $g\in G$ 
+\textbf{Bildreduktion}
+
+Für eine bijektive Funktion $f:A\rightarrow B$ und eine Teilmenge
+$B'\subseteq B$ sei $f_{\Vert B'}:f^{-1}\left(B'\right)\rightarrow B'$
+die Reduktion von $f$ auf den Teil des Definitionsbereichs, der auf
+$B'$ abgebildet wird:
+\begin{eqnarray*}
+f_{\Vert B'} & \coloneqq & f_{\mid f^{-1}\left(B'\right)}\\
+ & = & \left(\left(f^{-1}\right)_{\mid B'}\right)^{-1}
+\end{eqnarray*}
+
 \end{defn}
+
+\begin{defn}
+\textbf{Konsistenz}
+
+Zwei bijektive Abbildungen $f,f':A\rightarrow B$ seien konsistent
+in $A'\subseteq A$ (kurz $f\sim_{A'}f'$), wenn sie im Teilbereich
+$A'$ identisch sind. 
+\[
+f\sim_{A'}f'\Leftrightarrow f_{\mid A'}=f'_{\mid A'}
+\]
+
+
+Für $B'\subseteq B$ heißen sie bildkonsistent in $B'\subseteq B$,
+wenn $f^{-1}\sim_{B'}f^{-1}$ beziehungsweise $f_{\Vert B'}=f'_{\Vert B'}$
+gilt.\end{defn}
+\begin{prop}
+Sei $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ ein rigider, symmetrischer
+Schaltkreis mit $n=\left|U\right|$, und sei $g\in G$ ein beliebiges
+Gate. Sei $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+eine beliebige Struktur. Seien $\pi_{1},\pi_{2}:A\rightarrow U$ zwei
+beliebige Einbettungen von $\mathfrak{A}$ in $U$, die bildkonsistent
+in $\mathrm{sp}\left(g\right)$ sind. So gilt $\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)$.\end{prop}
+\begin{proof}
+Sei $\tau\in\mathrm{Sym}_{U}$ die Permutation $\tau\coloneqq\pi_{1}\pi_{2}^{-1}$,
+so dass $\pi_{1}=\tau\pi_{2}$.
+
+Weil $\pi_{1}$ und $\pi_{2}$ bildkonsistent in $\mathrm{sp}\left(g\right)$
+sind, gilt $\pi_{1}^{-1}u=\pi_{2}^{-1}u$ für $u\in\mathrm{sp}\left(g\right)$.
+\begin{eqnarray*}
+\tau u & = & \pi_{1}\pi_{2}^{-1}u\\
+ & = & \pi_{1}\pi_{1}^{-1}u=u
+\end{eqnarray*}
+
+
+Wegen der Symmetrie und Rigidität induziert $\tau$ einen eindeutigen
+Automorphismus $\hat{\tau}$ im Schaltkreis $\mathcal{C}$. Weil $\tau$
+die Elemente von $\mathrm{sp}\left(g\right)$ fixiert, fixiert $\hat{\tau}$
+auch das Gate $g$:
+\begin{eqnarray*}
+\tau & \in & \mathrm{Stab}_{U}\left(\mathrm{sp}\left(g\right)\right)\\
+ & \subseteq & \mathrm{Stab}_{\mathcal{C}}\left(g\right)
+\end{eqnarray*}
+
+
+\begin{eqnarray*}
+\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right) & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)\\
+ & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(g\right)\\
+ & = & \mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(g\right)
+\end{eqnarray*}
+
+\end{proof}
 
 \chapter{Schluss}
 
