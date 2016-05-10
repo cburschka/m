@@ -354,7 +354,8 @@ Ein Tupel
  notiert.
 \end_layout
 
-\begin_layout Definition
+\begin_deeper
+\begin_layout Itemize
 Die 
 \series bold
 Stelligkeit
@@ -386,7 +387,7 @@ Stelligkeit
 .
 \end_layout
 
-\begin_layout Definition
+\begin_layout Itemize
 Für ein 
 \begin_inset Formula $m$
 \end_inset
@@ -418,7 +419,7 @@ Für ein
 .
 \end_layout
 
-\begin_layout Definition
+\begin_layout Itemize
 Das 
 \begin_inset Formula $0$
 \end_inset
@@ -430,6 +431,32 @@ Das
  notiert.
 \end_layout
 
+\begin_layout Itemize
+Es sei 
+\begin_inset Formula $\left[\bar{x}\right]=\left\{ x_{1},\cdots,x_{k}\right\} $
+\end_inset
+
+ die Menge der Elemente des Tupels 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+.
+ Umgekehrt sei für eine geordnete Menge 
+\begin_inset Formula $U=\left\{ u_{1},\cdots,u_{k}\right\} $
+\end_inset
+
+ das Tupel 
+\begin_inset Formula $\bar{U}=\left(u_{1},\cdots,u_{k}\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $u_{1}<\cdots<u_{k}$
+\end_inset
+
+ definiert.
+\end_layout
+
+\end_deeper
 \begin_layout --Separator--
 
 \end_layout
@@ -13937,7 +13964,7 @@ S_{i+1}\coloneqq S_{i}\cup\bigcup_{\left(uv\right)\in\mathrm{Sym}_{U}}\hat{\pi}_
 
 \end_deeper
 \begin_layout Proof
-Nach den Definitionen aus Kapitel 7 sind alle 
+Nach den Definitionen aus Kapitel 7 ist jede Partition 
 \begin_inset Formula $\mathcal{P}_{\left(uv\right)}$
 \end_inset
 
@@ -13984,7 +14011,7 @@ Nach den Definitionen aus Kapitel 7 sind alle
 \end_inset
 
  aufgenommen worden, und es gilt 
-\begin_inset Formula $\mathcal{P}_{\left(uv\right)}\preceq\mathcal{P}_{g}$
+\begin_inset Formula $\mathcal{P}_{\left(uv\right)}\preceq\mathcal{P}_{g}=\mathrm{SP}\left(g\right)$
 \end_inset
 
 .
@@ -14212,16 +14239,20 @@ Wir möchten
 \begin_inset Formula $g$
 \end_inset
 
- nur von der dem Teil der Abbildung 
+ nur von dem Teil der Abbildung 
 \begin_inset Formula $\pi$
 \end_inset
 
- abhängt, die Elemente auf 
+ abhängt, der Elemente auf 
 \begin_inset Formula $\mathrm{sp}\left(g\right)$
 \end_inset
 
  abbildet.
- Die Abbildung der übrigen Elemente ist für 
+ Die Abbildung auf die übrigen Elemente 
+\begin_inset Formula $U\backslash\mathrm{sp}\left(g\right)$
+\end_inset
+
+ ist für 
 \begin_inset Formula $g$
 \end_inset
 
@@ -14327,11 +14358,17 @@ Für
 \end_layout
 
 \begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:konsistenz"
+
+\end_inset
+
 Sei 
 \begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
 \end_inset
 
- ein rigider, symmetrischer Schaltkreis mit 
+ ein rigider, symmetrischer Multischaltkreis mit 
 \begin_inset Formula $n=\left|U\right|$
 \end_inset
 
@@ -14339,7 +14376,11 @@ Sei
 \begin_inset Formula $g\in G$
 \end_inset
 
- ein beliebiges Gate.
+ ein beliebiges Gate mit den Vorgängern 
+\begin_inset Formula $H\coloneqq\left\{ h\in G\mid\left[W\right]\left(h,g\right)>0\right\} $
+\end_inset
+
+.
  Sei 
 \begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 \end_inset
@@ -14362,11 +14403,16 @@ Sei
 \end_inset
 
  sind.
- So gilt 
-\begin_inset Formula $\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)$
+ So gilt:
+\begin_inset Formula 
+\begin{eqnarray}
+\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(g\right) & = & \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)\label{eq:cons-1}\\
+\sum_{h\in H}\left[W\right]\left(h,g\right)\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(h\right) & = & \sum_{h\in H}\left[W\right]\left(h,g\right)\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(h\right)\label{eq:cons-2}
+\end{eqnarray}
+
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Proof
@@ -14457,16 +14503,165 @@ Wegen der Symmetrie und Rigidität induziert
 
 \end_inset
 
+Damit ist Gleichung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cons-1"
 
-\end_layout
+\end_inset
 
-\begin_layout Proof
+ bewiesen:
 \begin_inset Formula 
 \begin{eqnarray*}
 \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right) & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)\\
  & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(g\right)\\
  & = & \mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(g\right)
 \end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Da 
+\begin_inset Formula $\hat{\tau}g=g$
+\end_inset
+
+, muss auch 
+\begin_inset Formula $\hat{\tau}H=H$
+\end_inset
+
+ auch für die Vorgänger gelten.
+ Außerdem hat 
+\begin_inset Formula $\hat{\tau}h$
+\end_inset
+
+ die gleiche Anzahl von Kanten zu 
+\begin_inset Formula $g$
+\end_inset
+
+ wie 
+\begin_inset Formula $\tau$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{C}\left[\pi_{2}\right]\left(h\right) & = & \mathcal{C}\left[\tau\pi_{2}\right]\left(\hat{\tau}g\right)\\
+\left[W\right]\left(h,g\right) & = & \left[W\right]\left(\hat{\tau},g\right)
+\end{eqnarray*}
+
+\end_inset
+
+Es folgt die Gleichung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cons-2"
+
+\end_inset
+
+ für das Gewicht der mit 
+\begin_inset Formula $1$
+\end_inset
+
+ belegten Vorgänger von 
+\begin_inset Formula $g$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\sum_{h\in H}\left[W\right]\left(h,g\right)\cdot\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\left[W\right]\left(h,g\right)\cdot\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(h\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für jedes Gate 
+\begin_inset Formula $g$
+\end_inset
+
+ des Schaltkreises 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ beschreiben wir die Menge der verschiedenen Einbettungen 
+\begin_inset Formula $\pi:A\rightarrow U$
+\end_inset
+
+, für die 
+\begin_inset Formula $\mathcal{C}\left[\pi\mathfrak{A}\right]\left(g\right)=1$
+\end_inset
+
+.
+ Per Satz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:konsistenz"
+
+\end_inset
+
+ müssen nur deren Bildreduktionen auf 
+\begin_inset Formula $\mathrm{sp}\left(g\right)$
+\end_inset
+
+ betrachtet werden.
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $\pi:A\rightarrow U$
+\end_inset
+
+ eine beliebige Bijektion: 
+\begin_inset Formula 
+\[
+\mathrm{EV}\left(g\right)\coloneqq\left\{ \left(\tau\pi\right)_{\Vert\mathrm{sp}\left(g\right)}\mid\tau\in\mathrm{Sym}_{U},\,\mathcal{C}\left[\tau\pi\mathfrak{A}\right]\left(g\right)=1\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $\bar{\mathrm{sp}}\left(g\right)$
+\end_inset
+
+ das geordnete Tupel der Elemente von 
+\begin_inset Formula $\mathrm{sp}\left(g\right)$
+\end_inset
+
+, und sei 
+\begin_inset Formula $\bar{\mathrm{EV}}\left(g\right)\subseteq A^{k}$
+\end_inset
+
+ eine Relation von 
+\begin_inset Formula $k$
+\end_inset
+
+-Tupeln 
+\begin_inset Formula $\bar{a}$
+\end_inset
+
+, so dass die Abbildung 
+\begin_inset Formula $\bar{a}\mapsto\bar{\mathrm{sp}}\left(g\right)$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathrm{EV}\left(g\right)$
+\end_inset
+
+ ist:
+\begin_inset Formula 
+\[
+\bar{\mathrm{EV}}\left(g\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\left(\bar{a}\mapsto\bar{\mathrm{sp}}\left(g\right)\right)\in\mathrm{EV}\left(g\right)\right\} 
+\]
 
 \end_inset
 

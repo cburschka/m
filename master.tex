@@ -181,16 +181,20 @@ definiert.
 
 Ein Tupel $\left(x_{1},\cdots,x_{n}\right)$ von Elementen einer Menge
 $U$ wird durch $\bar{x}\in U^{n}$ notiert.
-
-Die \textbf{Stelligkeit} $\mathrm{ar}\left(\bar{x}\right)$ eines
+\begin{itemize}
+\item Die \textbf{Stelligkeit} $\mathrm{ar}\left(\bar{x}\right)$ eines
 Tupels $\bar{x}$ sei die Anzahl seiner Elemente, und ein $n$-stelliges
 Tupel heiße kurz ,,$n$-Tupel``.
-
-Für ein $m$-Tupel $\bar{x}$ und ein $n$-Tupel $\bar{y}$ sei $\bar{x}\bar{y}$
+\item Für ein $m$-Tupel $\bar{x}$ und ein $n$-Tupel $\bar{y}$ sei $\bar{x}\bar{y}$
 das $\left(m+n\right)$-Tupel $\left(x_{1},\cdots,x_{m},y_{1},\cdots,y_{n}\right)$.
-
-Das $0$-stellige Tupel wird durch $\left\langle \right\rangle $
+\item Das $0$-stellige Tupel wird durch $\left\langle \right\rangle $
 notiert.
+\item Es sei $\left[\bar{x}\right]=\left\{ x_{1},\cdots,x_{k}\right\} $
+die Menge der Elemente des Tupels $\bar{x}$. Umgekehrt sei für eine
+geordnete Menge $U=\left\{ u_{1},\cdots,u_{k}\right\} $ das Tupel
+$\bar{U}=\left(u_{1},\cdots,u_{k}\right)$ mit $u_{1}<\cdots<u_{k}$
+definiert.
+\end{itemize}
 \end{defn}
 
 \begin{defn}
@@ -3715,14 +3719,14 @@ S_{i+1}\coloneqq S_{i}\cup\bigcup_{\left(uv\right)\in\mathrm{Sym}_{U}}\hat{\pi}_
 \]
 
 \end{enumerate}
-Nach den Definitionen aus Kapitel 7 sind alle $\mathcal{P}_{\left(uv\right)}$
+Nach den Definitionen aus Kapitel 7 ist jede Partition $\mathcal{P}_{\left(uv\right)}$
 Träger von $g$, wenn $\hat{\pi}_{\left(uv\right)}g=g$, und daher
 ist $\mathcal{P}_{g}$ ebenfalls ein Träger von $g$. Wenn es einen
 gröberen Träger $\mathcal{P}'$ gäbe, dann müsste dieser zwei Elemente
 $u,v\in U$ kombinieren, die in $\mathcal{P}_{g}$ getrennt sind,
 und für die $\hat{\pi}_{\left(uv\right)}g=g$ gilt. In diesem Fall
 ist aber die Partition $\mathcal{P}_{\left(uv\right)}$ mit in $\mathcal{P}_{g}$
-aufgenommen worden, und es gilt $\mathcal{P}_{\left(uv\right)}\preceq\mathcal{P}_{g}$.
+aufgenommen worden, und es gilt $\mathcal{P}_{\left(uv\right)}\preceq\mathcal{P}_{g}=\mathrm{SP}\left(g\right)$.
 
 Für die Mengen $\left(S_{i}\right)_{i\in\mathbb{N}}$ gilt $S_{i}\subseteq\mathrm{Orb}_{\mathcal{C}}\left(g\right)$,
 denn per Induktion existiert für jedes Gate $g'\in S_{i}$ eine Folge
@@ -3767,9 +3771,9 @@ Wir möchten $\mathcal{C}_{n}$ auf beliebigen Strukturen $\mathfrak{A}\in\mathbf
 (nicht nur $\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$)
 auswerten, wofür eine beliebige Einbettung $\pi:A\rightarrow\left[1,n\right]$
 definiert werden muss. Es wird nun gezeigt, dass die Auswertung des
-Gates $g$ nur von der dem Teil der Abbildung $\pi$ abhängt, die
-Elemente auf $\mathrm{sp}\left(g\right)$ abbildet. Die Abbildung
-der übrigen Elemente ist für $g$ unbedeutend.
+Gates $g$ nur von dem Teil der Abbildung $\pi$ abhängt, der Elemente
+auf $\mathrm{sp}\left(g\right)$ abbildet. Die Abbildung auf die übrigen
+Elemente $U\backslash\mathrm{sp}\left(g\right)$ ist für $g$ unbedeutend.
 \begin{defn}
 \textbf{Bildreduktion}
 
@@ -3799,12 +3803,18 @@ Für $B'\subseteq B$ heißen sie bildkonsistent in $B'\subseteq B$,
 wenn $f^{-1}\sim_{B'}f^{-1}$ beziehungsweise $f_{\Vert B'}=f'_{\Vert B'}$
 gilt.\end{defn}
 \begin{prop}
-Sei $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ ein rigider, symmetrischer
-Schaltkreis mit $n=\left|U\right|$, und sei $g\in G$ ein beliebiges
-Gate. Sei $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+\label{prop:konsistenz}Sei $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+ein rigider, symmetrischer Multischaltkreis mit $n=\left|U\right|$,
+und sei $g\in G$ ein beliebiges Gate mit den Vorgängern $H\coloneqq\left\{ h\in G\mid\left[W\right]\left(h,g\right)>0\right\} $.
+Sei $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 eine beliebige Struktur. Seien $\pi_{1},\pi_{2}:A\rightarrow U$ zwei
 beliebige Einbettungen von $\mathfrak{A}$ in $U$, die bildkonsistent
-in $\mathrm{sp}\left(g\right)$ sind. So gilt $\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)$.\end{prop}
+in $\mathrm{sp}\left(g\right)$ sind. So gilt:
+\begin{eqnarray}
+\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(g\right) & = & \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)\label{eq:cons-1}\\
+\sum_{h\in H}\left[W\right]\left(h,g\right)\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(h\right) & = & \sum_{h\in H}\left[W\right]\left(h,g\right)\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(h\right)\label{eq:cons-2}
+\end{eqnarray}
+\end{prop}
 \begin{proof}
 Sei $\tau\in\mathrm{Sym}_{U}$ die Permutation $\tau\coloneqq\pi_{1}\pi_{2}^{-1}$,
 so dass $\pi_{1}=\tau\pi_{2}$.
@@ -3825,15 +3835,49 @@ auch das Gate $g$:
 \tau & \in & \mathrm{Stab}_{U}\left(\mathrm{sp}\left(g\right)\right)\\
  & \subseteq & \mathrm{Stab}_{\mathcal{C}}\left(g\right)
 \end{eqnarray*}
-
-
+Damit ist Gleichung \ref{eq:cons-1} bewiesen:
 \begin{eqnarray*}
 \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right) & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)\\
  & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(g\right)\\
  & = & \mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(g\right)
 \end{eqnarray*}
 
+
+Da $\hat{\tau}g=g$, muss auch $\hat{\tau}H=H$ auch für die Vorgänger
+gelten. Außerdem hat $\hat{\tau}h$ die gleiche Anzahl von Kanten
+zu $g$ wie $\tau$:
+\begin{eqnarray*}
+\mathcal{C}\left[\pi_{2}\right]\left(h\right) & = & \mathcal{C}\left[\tau\pi_{2}\right]\left(\hat{\tau}g\right)\\
+\left[W\right]\left(h,g\right) & = & \left[W\right]\left(\hat{\tau},g\right)
+\end{eqnarray*}
+Es folgt die Gleichung \ref{eq:cons-2} für das Gewicht der mit $1$
+belegten Vorgänger von $g$:
+\[
+\sum_{h\in H}\left[W\right]\left(h,g\right)\cdot\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\left[W\right]\left(h,g\right)\cdot\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(h\right)
+\]
+
 \end{proof}
+Für jedes Gate $g$ des Schaltkreises $\mathcal{C}$ beschreiben wir
+die Menge der verschiedenen Einbettungen $\pi:A\rightarrow U$, für
+die $\mathcal{C}\left[\pi\mathfrak{A}\right]\left(g\right)=1$. Per
+Satz \ref{prop:konsistenz} müssen nur deren Bildreduktionen auf $\mathrm{sp}\left(g\right)$
+betrachtet werden.
+
+Sei $\pi:A\rightarrow U$ eine beliebige Bijektion: 
+\[
+\mathrm{EV}\left(g\right)\coloneqq\left\{ \left(\tau\pi\right)_{\Vert\mathrm{sp}\left(g\right)}\mid\tau\in\mathrm{Sym}_{U},\,\mathcal{C}\left[\tau\pi\mathfrak{A}\right]\left(g\right)=1\right\} 
+\]
+
+
+Sei $\bar{\mathrm{sp}}\left(g\right)$ das geordnete Tupel der Elemente
+von $\mathrm{sp}\left(g\right)$, und sei $\bar{\mathrm{EV}}\left(g\right)\subseteq A^{k}$
+eine Relation von $k$-Tupeln $\bar{a}$, so dass die Abbildung $\bar{a}\mapsto\bar{\mathrm{sp}}\left(g\right)$
+in $\mathrm{EV}\left(g\right)$ ist:
+\[
+\bar{\mathrm{EV}}\left(g\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\left(\bar{a}\mapsto\bar{\mathrm{sp}}\left(g\right)\right)\in\mathrm{EV}\left(g\right)\right\} 
+\]
+
+
 
 \chapter{Schluss}
 
