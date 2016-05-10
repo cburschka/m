@@ -1221,7 +1221,8 @@ $W\subseteq G\times G$.
 \end{eqnarray*}
 
 \item eine Ausgabefunktion\footnote{In Anderson \& Dawar 2014\cite{anderson_et_al:LIPIcs:2014:4445} wird
-zusätzlich die Injektivität von $\Omega$ verlangt.} $\Omega:U^{k}\rightarrow G$ (bei $k=0$ ist $\Omega\left(\left\langle \right\rangle \right)\in G$
+zusätzlich die Injektivität von $\Omega$ verlangt; hier können mehrere
+Tupel dem gleichen Output-Gate zugeteilt werden.} $\Omega:U^{k}\rightarrow G$ (bei $k=0$ ist $\Omega\left(\left\langle \right\rangle \right)\in G$
 ein einziges Output-Gate, und wird mit $\Omega=\Omega\left(\left\langle \right\rangle \right)$
 abgekürzt) und 
 \item ein Universum $U$ (üblicherweise $U=\left[1,n\right]$).
@@ -1560,198 +1561,17 @@ Insbesondere heißt dies, das der Schaltkreis höchstens zwei Konstanten
 $g_{0},g_{1}$ mit $\Sigma\left(g_{0}\right)=\mathbf{0}$ und $\Sigma\left(g_{1}\right)=\mathbf{1}$
 enthält, und jedes Beschriftung $\Sigma\left(g\right)=R\bar{x}$ nur
 einmal vorkommt.
-
+\end{defn}
 Die Rigidität ist hier analog zu \cite{anderson_et_al:LIPIcs:2014:4445}
 definiert, verlangt aber zusätzlich, dass zwei Gates nicht nur durch
 die Output-Markierung $\Omega$ unterschieden werden. Diese Einschränkung
-ist strenger, schränkt aber die Definition nicht bedeutend ein: Für
-zwei Gates $g,g'\in G$ mit den gleichen Vorgängern $\Sigma\left(g\right)=\Sigma\left(g'\right)$
+ist strenger, schränkt aber die Definition nicht bedeutend ein:
+
+Für zwei Gates $g,g'\in G$ mit den gleichen Vorgängern $\Sigma\left(g\right)=\Sigma\left(g'\right)$
 erlaubt die nicht-injektive Definition von $\Omega$, dass $g'$ entfernt
 wird und $\Omega'\left(\bar{t}\right)\coloneqq g$ für alle $\bar{t}\in\Omega^{-1}\left(g'\right)$
-gesetzt wird, was die Rigidität herstellt.
-\end{defn}
-Die Rigidität kann nicht in jeder booleschen Basis $\mathbb{B}$ problemlos
-hergestellt werden - zum Beispiel hat ein Majority-Gate $\Sigma\left(g\right)=\mathtt{MAJ}$
-unter Umständen mehrere konstante Vorgänger. In \cite{anderson_et_al:LIPIcs:2014:4445}
-wird dafür die Tiefe des Schaltkreises beliebig vergrößert. Hier werden
-wir dafür stattdessen einen Multigraphen einführen:
-\begin{defn}
-\textbf{Multischaltkreis}
+gesetzt wird, was die strengere Form der Rigidität herstellt.
 
-Ein $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Multischaltkreis
-$\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ ist analog zum $\left(\sigma,\mathbb{B}\right)$-Schaltkreis
-definiert, aber $\left(G,W\right)$ bildet einen azyklischen Multigraph.
-\[
-\left[W\right]:G\times G\rightarrow\mathbb{N}
-\]
-
-
-Für die Auswertung eines internen Gates gilt analog zu \ref{def:Auswertung-von-Schaltkreisen}:
-\begin{eqnarray*}
-j_{1} & \coloneqq & \sum_{h\in G}\left(\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\cdot\left[W\right]\left(h,g\right)\right)\\
-j_{0} & \coloneqq & \sum_{h\in G}\left[W\right]\left(h,g\right)-j_{1}\\
-\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\Sigma\left(g\right)\right]\left(j_{0},j_{1}\right)
-\end{eqnarray*}
-
-
-Die Größe $\left|\mathcal{C}\right|$ eines Multischaltkreises $\mathcal{C}$
-sei die Summe seiner Gates und Kanten:
-\[
-\left|\mathcal{C}\right|\coloneqq\left|G\right|+\sum_{g,g'\in G^{2}}\left[W\right]\left(g,g'\right)
-\]
-
-
-Die Symmetrie wird auf natürliche Weise angepasst: Der von $\pi$
-induzierte Automorphismus bildet $\left(G,W\right)$ auf den isomorphen
-Multigraphen $\left(\hat{\pi}G,\hat{\pi}W\right)$ mit $\left[W\right]\left(\hat{\pi}g,\hat{\pi}g'\right)=\left[W\right]\left(g,g'\right)$
-ab.\end{defn}
-\begin{lem}
-(nach Lemma 24 aus \cite{anderson_et_al:LIPIcs:2014:4445})
-
-Es existiert ein Algorithmus, der einen beliebigen $\left(\sigma,\mathbb{B}\right)$-Schaltkreis
-$\mathcal{C}$ in einen rigiden Multischaltkreis $\hat{\mathcal{C}}$
-umwandelt, wobei $T\left(\hat{\mathcal{C}}\right)=T\left(\mathcal{C}\right)$
-und $\left|\hat{\mathcal{C}}\right|\leqslant\left|\mathcal{C}\right|+\left|\mathcal{C}\right|^{2}$.
-Der Algorithmus arbeitet in Polynomialzeit $\mathrm{poly}\left(\left|G\right|+\left|U\right|\right)$.\end{lem}
-\begin{proof}
-Sei $\mathcal{D}=\left(G,W,\Sigma,\Omega,U\right)$ ein beliebiger
-$k$-stelliger Schaltkreis. Wir erzeugen zunächst den äquivalenten
-Multischaltkreis $\mathcal{C}\coloneqq\left(G,\left[W\right],\Sigma,\Omega,U\right)$,
-wobei die Tiefe unverändert bleibt und die Größe zu $\left|\mathcal{C}\right|=\left|G\right|+\left|W\right|\leqslant\left|\mathcal{D}\right|+\left|\mathcal{D}\right|^{2}$
-wird.
-
-Berechne nun die Äquivalenzrelation $\sim\subseteq G\times G$, so
-dass $g\sim g'$ genau dann wenn
-\begin{enumerate}
-\item $\Sigma\left(g\right)=\Sigma\left(g'\right)$, und
-\item für alle $h\in W$ gilt $\left[W\right]\left(h,g\right)=\left[W\right]\left(h,g'\right)$.
-\end{enumerate}
-Wenn keine Gates $g,g'\in G$ mit $g\sim g'$ existieren, so ist der
-Schaltkreis rigide, und der Algorithmus ist fertig.
-
-Ansonsten sei $E\subseteq G$ eine Äquivalenzklasse von $\sim$ mit
-mindestens zwei Gates und minimaler Tiefe $T\left(E\right)$. 
-
-Wir berechnen die Funktion $c:G\rightarrow\left[0,\left|E\right|\right]$,
-die für jedes Gate $h\in G$ die Vorgänger in $E$ zählt:
-\[
-c\left(h\right)\coloneqq\sum_{g'\in E}\left[W\right]\left(g',h\right)
-\]
-
-
-Sei $g\in E$ beliebig, und sei $f_{g,E}\left(\mathcal{C}\right)=\mathcal{C}'=\left(G',\left[W'\right],\Sigma',\Omega',U\right)$
-der folgende Multischaltkreis:
-\begin{eqnarray*}
-G' & \coloneqq & G\backslash\left(E\backslash\left\{ g\right\} \right)\\
-\Sigma' & \coloneqq & \Sigma_{\backslash E\backslash\left\{ g\right\} }
-\end{eqnarray*}
-
-\begin{enumerate}
-\item Es werden die von $E$ ausgehenden Kanten $\left(E\times G\right)\cap W$
-aus dem Schaltkreis entfernt. Außerdem werden die eingehenden Kanten
-$W\cap\left(G\times E\backslash\left\{ g\right\} \right)$ der Gates
-$E\backslash\left\{ g\right\} $ entfernt. Nun werden die folgenden
-Kanten für jedes Gate $h\in G$ eingefügt:
-\[
-\left[W'\right]\left(h,i\right)\coloneqq\begin{cases}
-c\left(i\right) & \mathrm{falls}\,h=g\\
-0 & \mathrm{falls}\,h\in E\backslash\left\{ g\right\} \\
-\left[W\right]\left(h,i\right) & \mathrm{sonst}
-\end{cases}
-\]
-
-\item Die Output-Funktion wird wie folgt angepasst:
-\[
-\Omega'\left(\bar{t}\right)\coloneqq\begin{cases}
-g & \mathrm{falls}\,\Omega\left(t\right)\in E\backslash\left\{ g\right\} \\
-\Omega\left(t\right) & \mathrm{sonst}
-\end{cases}
-\]
-
-\end{enumerate}
-Der Schaltkreis $\mathcal{C}'$ ist äquivalent zu dem Schaltkreis
-$\mathcal{C}$ über jeder Struktur $\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$,
-was induktiv über die Tiefe (ausgehend von $g$) nachgewiesen wird:
-\begin{enumerate}
-\item Offensichtlich gilt $\mathcal{C}'\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)$
-für alle $g'\in E$, da die Gates die gleichen Vorgänger und die gleiche
-Beschriftung $\Sigma'\left(g\right)=\Sigma\left(g\right)=\Sigma\left(g'\right)$
-besitzen.
-\item Für jeden direkten Nachfolger $h\in G$ eines Gates $g'\in E$ gilt:
-\begin{eqnarray*}
-j_{1} & \coloneqq & \sum_{i\in G'}\left[W\right]\left(i,h\right)\cdot\mathcal{C}\left[\mathfrak{A}\right]\\
-j_{0} & \coloneqq & \sum_{i\in G'}\left[W\right]\left(i,h\right)-j_{1}\\
-j_{1}' & \coloneqq & \sum_{i\in G'}\left[W'\right]\left(i,h\right)\cdot\mathcal{C}'\left[\mathfrak{A}\right]\\
-j_{0}' & \coloneqq & \sum_{i\in G'}\left[W'\right]\left(i,h\right)-j_{1}'
-\end{eqnarray*}
-Aus der Definition von $\left[W'\right]$ folgt $j_{1}=j_{1}'$ und
-$j_{0}=j_{0}'$, da die entfernten Vorgänger $g'\in E\backslash\left\{ g\right\} $
-durch zusätzliche Kanten $\left(g,h\right)$ ersetzt wurden, und $\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)$.
-Daher gilt: 
-\begin{eqnarray*}
-\mathcal{C}'\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\Sigma'\left(g\right)\right]\left(j_{0}',j_{1}'\right)\\
- & = & \left[\Sigma\left(g\right)\right]\left(j_{0},j_{1}\right)\\
- & = & \mathcal{C}\left[\mathfrak{A}\right]
-\end{eqnarray*}
-
-\item Für jedes übrige Gate $h\in G$ folgt die Äquivalenz aus der Induktionsannahme
-und der Tatsache, dass die Vorgänger von $h$ unverändert bleiben.
-\item Für jedes Tupel $\bar{t}\in U^{k}$ mit $\Omega\left(\bar{t}\right)=g'\in E$
-gilt:
-\begin{eqnarray*}
-\left\llbracket \mathcal{C}'\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \mathcal{C}'\left[\mathfrak{A}\right]\left(\Omega'\left(\bar{t}\right)\right)\\
- & = & \mathcal{C}'\left[\mathfrak{A}\right]\left(g\right)\\
- & = & \mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\\
- & = & \mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)\\
- & = & \mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)
-\end{eqnarray*}
-\end{enumerate}
-\begin{description}
-\item [{Größe:}] Die Umrechnung von $\mathcal{C}$ zu $f_{g,E}\left(\mathcal{C}\right)$
-lässt die Tiefe unverändert, und vergrößert den Schaltkreis nicht:
-Es werden $\sum_{h\in G}c\left(h\right)$ Kanten eingefügt und mindestens
-$\sum_{g',h'\in E\times G}$ Kanten entfernt, wobei gilt:
-\[
-\sum_{h\in G}c\left(h\right)=\sum_{h\in G}\sum_{g'\in E}\left[W\right]\left(g',h\right)=\sum_{g',h'\in E\times G}
-\]
-
-\item [{Symmetrie:}] Wenn alle Äquivalenzklassen $\bar{E}=\left(E_{1},\cdots,E_{k}\right)$
-der gleichen Tiefe reduziert werden, dann bewahrt der neue Schaltkreis
-$f_{g_{1,}E_{1}}\cdots f_{g_{k},E_{k}}\left(\mathcal{C}\right)=\mathcal{C}'$
-die Symmetrie von $\mathcal{C}$:
-
-
-Sei $\pi\in\mathrm{Sym}_{U}$ eine beliebige Permutation, und $\hat{\pi}$
-der induzierte Automorphismus. Offensichtlich muss $\hat{\pi}$ die
-Äquivalenzklassen $\bar{E}$ aufeinander abbilden, da $\hat{\pi}g\sim\hat{\pi}g'$
-für alle $g\sim g'$ gilt.
-
-
-Der Automorphismus $\hat{\pi}$ auf $\mathcal{C}$ wird wie folgt
-zu einem auf $\mathcal{C}'$ angepasst:
-\[
-\hat{\pi}'g\coloneqq\begin{cases}
-g_{i} & \mathrm{falls}\,\hat{\pi}g\in E_{i}\\
-\hat{\pi}g & \mathrm{sonst}
-\end{cases}
-\]
-
-
-
-Da $\left[W\right]\left(\hat{\pi}g,\hat{\pi}g'\right)=\left[W\right]\left(g,g'\right)$,
-folgt $\left[W'\right]\left(\hat{\pi}g,\hat{\pi}g'\right)$.
-
-\end{description}
-Die Umrechnung von $\mathcal{C}$ zu $\mathcal{C}'$ verkleinert die
-Äquivalenzklasse des Gates $g$ zu $\left\{ g\right\} $, da alle
-äquivalenten Gates entfernt werden, und lässt alle anderen Äquivalenzklassen
-der Tiefe $i\leqslant T\left(g\right)$ unverändert.
-
-Daher haben nach höchstens $\left|G\right|$ Wiederholungen alle Äquivalenzklassen
-der Tiefe $i\leqslant T\left(g\right)$ die Größe $1$, und nach höchstens
-$T\left(\mathcal{C}\right)\cdot\left|G\right|$ Wiederholungen wird
-ein äquivalenter, rigider Schaltkreis erzeugt.
-\end{proof}
 
 \section{Eigenschaften von Schaltkreisfamilien}
 \begin{defn}
@@ -3574,13 +3394,388 @@ s\coloneqq\max_{g\in G}\left(\mathrm{Orb}_{\mathcal{C}}\left(g\right)\right)\leq
 \]
 dann gilt $\mathrm{SP}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$. \end{lem}
 \begin{cor}
-(Korollar 23 aus \cite{anderson_et_al:LIPIcs:2014:4445}) Für jede
-symmetrische, rigide $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
+\label{cor:korollar-23}(Korollar 23 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+Für jede symmetrische, rigide $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
 mit $\mathrm{poly}\left(n\right)$-Größe gilt $\mathrm{SP}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$.
 \end{cor}
 
 \chapter{Von Schaltkreisfamilien zu Formeln}
 
+
+\section{Rigidität}
+
+Um die Orbits und Träger jedes Gates eines Schaltkreises zu berechnen,
+wird nun gefordert, dass der Schaltkreis \emph{rigide }gemäß Definition
+\ref{def:Rigidit=0000E4t} ist.
+
+Die Rigidität kann nicht in jeder booleschen Basis $\mathbb{B}$ problemlos
+hergestellt werden, ohne die Tiefe zu verändern - zum Beispiel hat
+ein Majority-Gate $\Sigma\left(g\right)=\mathtt{MAJ}$ unter Umständen
+mehrere konstante Vorgänger. In Anderson und Dawar 2014\cite{anderson_et_al:LIPIcs:2014:4445}
+wird dafür die Tiefe des Schaltkreises beliebig vergrößert. Hier werden
+wir stattdessen die Definition des Schaltkreises auf Multigraphen
+erweitern:
+\begin{defn}
+\textbf{Multischaltkreis}
+
+Ein $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Multischaltkreis
+$\mathcal{C}=\left(G,\left[W\right],\Sigma,\Omega,U\right)$ ist analog
+zum $\left(\sigma,\mathbb{B}\right)$-Schaltkreis definiert, aber
+$\left(G,\left[W\right]\right)$ bildet einen azyklischen Multigraphen.
+(Hier schreiben wir $\left[W\right]$, um die Multimenge von einer
+gewöhnlichen Relation zu unterscheiden. Günstigerweise entspricht
+für eine gewöhnliche Relation $W\subseteq G^{2}$ die Funktion $\left[W\right]:G^{2}\rightarrow\left\{ 0,1\right\} $
+gerade der entsprechenden Multimenge.)
+\[
+\left[W\right]:G\times G\rightarrow\mathbb{N}
+\]
+
+
+Für die Auswertung eines internen Gates gilt analog zu \ref{def:Auswertung-von-Schaltkreisen}:
+\begin{eqnarray*}
+j_{1} & \coloneqq & \sum_{h\in G}\left(\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\cdot\left[W\right]\left(h,g\right)\right)\\
+j_{0} & \coloneqq & \sum_{h\in G}\left[W\right]\left(h,g\right)-j_{1}\\
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\Sigma\left(g\right)\right]\left(j_{0},j_{1}\right)
+\end{eqnarray*}
+
+
+Die Größe $\left|\mathcal{C}\right|$ eines Multischaltkreises $\mathcal{C}$
+sei die Summe seiner Gates und Kanten:
+\[
+\left|\mathcal{C}\right|\coloneqq\left|G\right|+\sum_{g,g'\in G^{2}}\left[W\right]\left(g,g'\right)
+\]
+
+
+Die Symmetrie wird auf natürliche Weise angepasst: Der von $\pi$
+induzierte Automorphismus bildet $\left(G,W\right)$ auf den isomorphen
+Multigraphen $\left(\hat{\pi}G,\hat{\pi}W\right)$ mit $\left[W\right]\left(\hat{\pi}g,\hat{\pi}g'\right)=\left[W\right]\left(g,g'\right)$
+ab.
+
+Die Rigidität wird ebenfalls angepasst: Ein rigider Schaltkreis enthält
+keine Gates $g,g'$ mit $\Sigma\left(g\right)=\Sigma\left(g'\right)$
+und $\left[W\right]\left(h,g\right)=\left[W\right]\left(h,g'\right)$
+für alle $h\in G$.\end{defn}
+\begin{lem}
+(nach Lemma 24 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+
+Es existiert ein Algorithmus, der einen beliebigen $\left(\sigma,\mathbb{B}\right)$-Schaltkreis
+$\mathcal{C}$ in einen rigiden Multischaltkreis $\hat{\mathcal{C}}$
+umwandelt, wobei $T\left(\hat{\mathcal{C}}\right)=T\left(\mathcal{C}\right)$
+und $\left|\hat{\mathcal{C}}\right|\leqslant\left|\mathcal{C}\right|+\left|\mathcal{C}\right|^{2}$.
+Der Algorithmus arbeitet in Polynomialzeit $\mathrm{poly}\left(\left|G\right|+\left|U\right|\right)$.\end{lem}
+\begin{proof}
+Sei $\mathcal{D}=\left(G,W,\Sigma,\Omega,U\right)$ ein beliebiger
+$k$-stelliger Schaltkreis. Wir erzeugen zunächst den äquivalenten
+Multischaltkreis $\mathcal{C}\coloneqq\left(G,\left[W\right],\Sigma,\Omega,U\right)$,
+wobei die Tiefe unverändert bleibt und die Größe zu $\left|\mathcal{C}\right|=\left|G\right|+\left|W\right|\leqslant\left|\mathcal{D}\right|+\left|\mathcal{D}\right|^{2}$
+wird.
+
+Berechne nun die Äquivalenzrelation $\sim\subseteq G\times G$, so
+dass $g\sim g'$ genau dann wenn
+\begin{enumerate}
+\item $\Sigma\left(g\right)=\Sigma\left(g'\right)$, und
+\item für alle $h\in W$ gilt $\left[W\right]\left(h,g\right)=\left[W\right]\left(h,g'\right)$.
+\end{enumerate}
+Wenn keine Gates $g,g'\in G$ mit $g\sim g'$ existieren, so ist der
+Schaltkreis rigide, und der Algorithmus ist fertig.
+
+Ansonsten sei $E\subseteq G$ eine Äquivalenzklasse von $\sim$ mit
+mindestens zwei Gates und minimaler Tiefe $T\left(E\right)$. 
+
+Wir berechnen die Funktion $c:G\rightarrow\left[0,\left|E\right|\right]$,
+die für jedes Gate $h\in G$ die Vorgänger in $E$ zählt:
+\[
+c\left(h\right)\coloneqq\sum_{g'\in E}\left[W\right]\left(g',h\right)
+\]
+
+
+Sei $g\in E$ beliebig, und sei $f_{g,E}\left(\mathcal{C}\right)=\mathcal{C}'=\left(G',\left[W'\right],\Sigma',\Omega',U\right)$
+der folgende Multischaltkreis:
+\begin{eqnarray*}
+G' & \coloneqq & G\backslash\left(E\backslash\left\{ g\right\} \right)\\
+\Sigma' & \coloneqq & \Sigma_{\backslash E\backslash\left\{ g\right\} }
+\end{eqnarray*}
+
+\begin{enumerate}
+\item Es werden die von $E$ ausgehenden Kanten $\left(E\times G\right)\cap W$
+aus dem Schaltkreis entfernt. Außerdem werden die eingehenden Kanten
+$W\cap\left(G\times E\backslash\left\{ g\right\} \right)$ der Gates
+$E\backslash\left\{ g\right\} $ entfernt. Nun werden die folgenden
+Kanten für jedes Gate $h\in G$ eingefügt:
+\[
+\left[W'\right]\left(h,i\right)\coloneqq\begin{cases}
+c\left(i\right) & \mathrm{falls}\,h=g\\
+0 & \mathrm{falls}\,h\in E\backslash\left\{ g\right\} \\
+\left[W\right]\left(h,i\right) & \mathrm{sonst}
+\end{cases}
+\]
+
+\item Die Output-Funktion wird wie folgt angepasst:
+\[
+\Omega'\left(\bar{t}\right)\coloneqq\begin{cases}
+g & \mathrm{falls}\,\Omega\left(t\right)\in E\backslash\left\{ g\right\} \\
+\Omega\left(t\right) & \mathrm{sonst}
+\end{cases}
+\]
+
+\end{enumerate}
+Der Schaltkreis $\mathcal{C}'$ ist äquivalent zu dem Schaltkreis
+$\mathcal{C}$ über jeder Struktur $\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$,
+was induktiv über die Tiefe (ausgehend von $g$) nachgewiesen wird:
+\begin{enumerate}
+\item Offensichtlich gilt $\mathcal{C}'\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)$
+für alle $g'\in E$, da die Gates die gleichen Vorgänger und die gleiche
+Beschriftung $\Sigma'\left(g\right)=\Sigma\left(g\right)=\Sigma\left(g'\right)$
+besitzen.
+\item Für jeden direkten Nachfolger $h\in G$ eines Gates $g'\in E$ gilt:
+\begin{eqnarray*}
+j_{1} & \coloneqq & \sum_{i\in G'}\left[W\right]\left(i,h\right)\cdot\mathcal{C}\left[\mathfrak{A}\right]\\
+j_{0} & \coloneqq & \sum_{i\in G'}\left[W\right]\left(i,h\right)-j_{1}\\
+j_{1}' & \coloneqq & \sum_{i\in G'}\left[W'\right]\left(i,h\right)\cdot\mathcal{C}'\left[\mathfrak{A}\right]\\
+j_{0}' & \coloneqq & \sum_{i\in G'}\left[W'\right]\left(i,h\right)-j_{1}'
+\end{eqnarray*}
+Aus der Definition von $\left[W'\right]$ folgt $j_{1}=j_{1}'$ und
+$j_{0}=j_{0}'$, da die entfernten Vorgänger $g'\in E\backslash\left\{ g\right\} $
+durch zusätzliche Kanten $\left(g,h\right)$ ersetzt wurden, und $\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)$.
+Daher gilt: 
+\begin{eqnarray*}
+\mathcal{C}'\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\Sigma'\left(g\right)\right]\left(j_{0}',j_{1}'\right)\\
+ & = & \left[\Sigma\left(g\right)\right]\left(j_{0},j_{1}\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]
+\end{eqnarray*}
+
+\item Für jedes übrige Gate $h\in G$ folgt die Äquivalenz aus der Induktionsannahme
+und der Tatsache, dass die Vorgänger von $h$ unverändert bleiben.
+\item Für jedes Tupel $\bar{t}\in U^{k}$ mit $\Omega\left(\bar{t}\right)=g'\in E$
+gilt:
+\begin{eqnarray*}
+\left\llbracket \mathcal{C}'\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \mathcal{C}'\left[\mathfrak{A}\right]\left(\Omega'\left(\bar{t}\right)\right)\\
+ & = & \mathcal{C}'\left[\mathfrak{A}\right]\left(g\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)
+\end{eqnarray*}
+\end{enumerate}
+\begin{description}
+\item [{Größe:}] Die Umrechnung von $\mathcal{C}$ zu $f_{g,E}\left(\mathcal{C}\right)$
+lässt die Tiefe unverändert, und vergrößert den Schaltkreis nicht:
+Es werden $\sum_{h\in G}c\left(h\right)$ Kanten eingefügt und mindestens
+$\sum_{g',h'\in E\times G}$ Kanten entfernt, wobei gilt:
+\[
+\sum_{h\in G}c\left(h\right)=\sum_{h\in G}\sum_{g'\in E}\left[W\right]\left(g',h\right)=\sum_{g',h'\in E\times G}
+\]
+
+\item [{Symmetrie:}] Wenn alle Äquivalenzklassen $\bar{E}=\left(E_{1},\cdots,E_{k}\right)$
+der gleichen Tiefe reduziert werden, dann bewahrt der neue Schaltkreis
+$f_{g_{1,}E_{1}}\cdots f_{g_{k},E_{k}}\left(\mathcal{C}\right)=\mathcal{C}'$
+die Symmetrie von $\mathcal{C}$:
+
+
+Sei $\pi\in\mathrm{Sym}_{U}$ eine beliebige Permutation, und $\hat{\pi}$
+der induzierte Automorphismus. Offensichtlich muss $\hat{\pi}$ die
+Äquivalenzklassen $\bar{E}$ aufeinander abbilden, da $\hat{\pi}g\sim\hat{\pi}g'$
+für alle $g\sim g'$ gilt.
+
+
+Der Automorphismus $\hat{\pi}$ auf $\mathcal{C}$ wird wie folgt
+zu einem auf $\mathcal{C}'$ angepasst:
+\[
+\hat{\pi}'g\coloneqq\begin{cases}
+g_{i} & \mathrm{falls}\,\hat{\pi}g\in E_{i}\\
+\hat{\pi}g & \mathrm{sonst}
+\end{cases}
+\]
+
+
+
+Da $\left[W\right]\left(\hat{\pi}g,\hat{\pi}g'\right)=\left[W\right]\left(g,g'\right)$,
+folgt $\left[W'\right]\left(\hat{\pi}g,\hat{\pi}g'\right)$.
+
+\end{description}
+Die Umrechnung von $\mathcal{C}$ zu $\mathcal{C}'$ verkleinert die
+Äquivalenzklasse des Gates $g$ zu $\left\{ g\right\} $, da alle
+äquivalenten Gates entfernt werden, und lässt alle anderen Äquivalenzklassen
+der Tiefe $i\leqslant T\left(g\right)$ unverändert.
+
+Daher haben nach höchstens $\left|G\right|$ Wiederholungen alle Äquivalenzklassen
+der Tiefe $i\leqslant T\left(g\right)$ die Größe $1$, und nach höchstens
+$T\left(\mathcal{C}\right)\cdot\left|G\right|$ Wiederholungen wird
+ein äquivalenter, rigider Schaltkreis erzeugt.
+\end{proof}
+
+\section{Berechnung der Orbits}
+\begin{lem}
+\label{lem:rigide-eindeutig}(nach Satz 9 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+
+Sei $\mathcal{C}$ ein rigider $\left(\sigma,\mathbb{B}\right)$-Multischaltkreis
+über $U$. Sei $\pi\in\mathrm{Sym}_{U}$ beliebig.
+
+Falls $\pi$ einen Automorphismus in $\mathcal{C}$ induziert, dann
+ist dieser eindeutig.\end{lem}
+\begin{proof}
+Sei $\mathcal{C}=\left(G,\left[W\right],\Sigma,\Omega,U\right)$ und
+$\pi\in\mathrm{Sym}_{U}$ beliebig. Seien $\hat{\pi}_{1},\hat{\pi}_{2}:\mathcal{C}\tilde{\rightarrow}\mathcal{C}$
+zwei von $\pi$ induzierte Automorphismen.
+
+Durch Induktion über die Tiefe wird bewiesen, dass $\hat{\pi}_{1}g=\hat{\pi}_{2}g$
+für jedes Gate $g\in G$ gilt.
+\begin{description}
+\item [{Anfang:}] Wenn $g$ eine Konstante mit $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
+ist, dann ist $g$ das einzige Gate mit der Beschriftung $\Sigma\left(g\right)$:
+\[
+\hat{\pi}_{1}g=g=\hat{\pi}_{2}
+\]
+Wenn $g$ ein relationales Input mit $\Sigma\left(g\right)=R\bar{t}$,
+$R/k\in\sigma$ und $\bar{t}\in U^{k}$ ist, dann existiert auf Grund
+der Rigidität nur ein Gate $g'\in G$ mit $\Sigma\left(g'\right)=R\pi\bar{t}$:
+\[
+\hat{\pi}_{1}g=g'=\hat{\pi}_{2}g
+\]
+
+\item [{Schritt:}] Wenn $g$ ein internes Gate mit $\Sigma\left(g\right)\in\mathbb{B}$
+ist, dann muss gelten:
+\begin{eqnarray*}
+\Sigma\left(\hat{\pi}_{1}g\right) & = & \Sigma\left(\hat{\pi}_{2}g\right)=\Sigma\left(g\right)\\
+\left[W\right]\left(\hat{\pi}_{1}h,\hat{\pi}_{1}g\right) & = & \left[W\right]\left(\hat{\pi}_{2}h,\hat{\pi}_{2}g\right)=\left[W\right]\left(h,g\right)\\
+ &  & \mathrm{f.a.}\,h\in G
+\end{eqnarray*}
+Auf Grund der Rigidität von $\mathcal{C}$ muss $\hat{\pi}_{1}g=\hat{\pi}_{2}g$
+gelten.
+\end{description}
+\end{proof}
+\pagebreak{}
+\begin{lem}
+\label{lem:algo-auto}(nach Lemma 25 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+
+Es existiert ein deterministischer Algorithmus, der bei Eingabe eines
+rigiden $\left(\sigma,\mathbb{B}\right)$-Multischaltkreises $\mathcal{C}=\left(G,\left[W\right],\Sigma,\Omega,U\right)$
+und einer Permutation $\pi\in\mathrm{Sym}_{U}$ in $\mathrm{poly}\left(\left|\mathcal{C}\right|\right)$-Zeit
+für jedes Gate $g\in G$ das Gate $\hat{\pi}g$ ausgibt, falls $\hat{\pi}$
+existiert.\end{lem}
+\begin{proof}
+Analog zu dem Beweis von Lemma \ref{lem:rigide-eindeutig} wird gezeigt,
+dass der eindeutige Automorphismus in Polynomialzeit bestimmt wird:
+\begin{enumerate}
+\item Zunächst sei für jedes konstante Gate $\hat{\pi}g\coloneqq g$. Für
+jedes relationale Input $g\in G$ mit $\Sigma\left(g\right)=R\bar{t}$
+finde das einzige Gate $g'\in G$ mit $\Sigma\left(g\right)=R\pi\bar{t}$
+und gib $\hat{\pi}g\coloneqq g'$ aus.
+\item Finde ein beliebiges Gate $g\in G$, für dessen Vorgänger $h\in G$
+mit $\left[W\right]\left(h,g\right)>0$ bereits $\hat{\pi}h=h'$ ausgegeben
+wurde.
+\item Finde ein Gate $g'\in G$ mit $\Sigma\left(g\right)=\Sigma\left(g'\right)$
+und $\left[W\right]\left(\hat{\pi}h,g'\right)=\left[W\right]\left(h,g\right)$
+für die Vorgänger $h\in G$, so dass $g'$ sonst keine Vorgänger hat.
+(Wegen der Rigidität gibt es höchstens eines.) Gib $\hat{\pi}g=g'$
+aus.
+\item Wiederhole die Schritte 2 bis 3 solange bis $\hat{\pi}$ für jedes
+Gate $g\in G$ berechnet wurde. (Wenn zu irgendeinem $g$ kein Gate
+gefunden wird, ist der Schaltkreis nicht symmetrisch und der Algorithmus
+bricht ab.)
+\end{enumerate}
+Die Schritte 2 bis 3 werden höchstens $\left|G\right|$-mal wiederholt,
+und jeder Schritt erfordert $\left|G\right|^{2}$-Zeit, so dass der
+Algorithmus in $\left|G\right|^{3}$-Zeit arbeitet.\end{proof}
+\begin{lem}
+(nach Lemma 26 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+
+Es existiert ein deterministischer Algorithmus, der bei Eingabe eines
+rigiden $\left(\sigma,\mathbb{B}\right)$-Multischaltkreises $\mathcal{C}=\left(G,\left[W\right],\Sigma,\Omega,U\right)$
+in $\mathrm{poly}\left(\left|\mathcal{C}\right|\right)$ entscheidet,
+ob dieser symmetrisch ist, und gegebenenfalls die Orbits $\mathrm{Orb}_{\mathcal{C}}\left(g\right)$
+und Träger $\mathrm{SP}\left(g\right)$ jedes Gates $g\in G$ ausgibt.\end{lem}
+\begin{proof}
+Um die Symmetrie nachzuweisen, genügt es, den Algorithmus aus Lemma
+\ref{lem:algo-auto} für jede Transposition $\left(uv\right)\in\mathrm{Sym}_{U}$
+durchzuführen. Diese Transpositionen erzeugen die gesamte Symmetriegruppe
+$\mathrm{Sym}_{U}$, und daher ist für jede Permutation $\pi=\left(u_{1}v_{1}\right)\cdots\left(u_{k}v_{k}\right)\in\mathrm{Sym}_{U}$
+die Abbildung $\hat{\pi}=\hat{\pi}_{\left(u_{1}v_{1}\right)}\cdots\hat{\pi}_{\left(u_{k}v_{k}\right)}$
+ein von $\pi$ induzierter Automorphismus.
+\begin{enumerate}
+\item Berechne den von $\left(uv\right)\in\mathrm{Sym}_{U}$ induzierten
+Automorphismus $\hat{\pi}_{\left(uv\right)}$ für jedes Paar $u,v\in U$
+mit $u\neq v$. Wenn nicht alle Automorphismen existieren, ist der
+Schaltkreis nicht symmetrisch; es wird abgebrochen.
+\item Für jedes Gate $g\in G$ wird der Träger $\mathrm{SP}\left(g\right)$
+aufgebaut, in dem für jede Transposition $\left(uv\right)\in\mathrm{Sym}_{U}$
+geprüft wird, ob $\hat{\pi}_{\left(uv\right)}$ das Gate $g$ fixiert.
+In diesem Fall werden die Elemente $u,v$ in der Partition kombiniert:
+\begin{eqnarray*}
+\mathcal{P}_{\left(uv\right)} & \coloneqq & \left\{ \left\{ u,v\right\} \right\} \cup\left\{ \left\{ w\right\} \mid w\in U\backslash\left\{ u,v\right\} \right\} \\
+\mathcal{P}_{g} & \coloneqq & \bigsqcup_{\begin{subarray}{c}
+\left(uv\right)\in\mathrm{Sym}_{U}\\
+\hat{\pi}_{\left(uv\right)}g=g
+\end{subarray}}\mathcal{P}_{\left(uv\right)}
+\end{eqnarray*}
+
+\item Für jedes Gate $g\in G$ sei $S_{0}\coloneqq\left\{ g\right\} $.
+Iterativ wird der Orbit von $g$ wie folgt aufgebaut, bis mit $S_{i+1}=S_{i}$
+ein Fixpunkt erreicht wird (spätestens bei $S_{\left|U\right|}$):
+\[
+S_{i+1}\coloneqq S_{i}\cup\bigcup_{\left(uv\right)\in\mathrm{Sym}_{U}}\hat{\pi}_{\left(uv\right)}S_{i}
+\]
+
+\end{enumerate}
+Nach den Definitionen aus Kapitel 7 sind alle $\mathcal{P}_{\left(uv\right)}$
+Träger von $g$, wenn $\hat{\pi}_{\left(uv\right)}g=g$, und daher
+ist $\mathcal{P}_{g}$ ebenfalls ein Träger von $g$. Wenn es einen
+gröberen Träger $\mathcal{P}'$ gäbe, dann müsste dieser zwei Elemente
+$u,v\in U$ kombinieren, die in $\mathcal{P}_{g}$ getrennt sind,
+und für die $\hat{\pi}_{\left(uv\right)}g=g$ gilt. In diesem Fall
+ist aber die Partition $\mathcal{P}_{\left(uv\right)}$ mit in $\mathcal{P}_{g}$
+aufgenommen worden, und es gilt $\mathcal{P}_{\left(uv\right)}\preceq\mathcal{P}_{g}$.
+
+Für die Mengen $\left(S_{i}\right)_{i\in\mathbb{N}}$ gilt $S_{i}\subseteq\mathrm{Orb}_{\mathcal{C}}\left(g\right)$,
+denn per Induktion existiert für jedes Gate $g'\in S_{i}$ eine Folge
+von $i$ Transpositionen $\pi_{1}\cdots\pi_{i}$, so dass $\hat{\pi}_{1}\cdots\hat{\pi}_{i}$
+das Gate $g$ auf $g'$ abbildet. Ferner besteht jede Permutation
+$\pi$ aus einer Folge von höchstens $\left|U\right|$ Transpositionen,
+so dass $S_{\left|U\right|}\supseteq\mathrm{Orb}_{\mathcal{C}}\left(g\right)$
+den gesamten Orbit von $g$ enthält.
+
+Es existieren weniger als $\left|U\right|^{2}$ Transpositionen, so
+dass der Schritt 1 in $\left|G\right|^{3}\left|U\right|^{2}$-Zeit
+abgeschlossen wird. Ebenso wird Schritt 2 in $\left|U\right|^{3}$-Zeit
+abgeschlossen (die Operation $\mathcal{P}\sqcup\mathcal{P}'$ für
+Partitionen ist durch eine Union-Find-Datenstruktur effektiv in $\left|U\right|$-Zeit
+berechenbar). Schritt 3 erfordert eine Iteration bis $S_{\left|U\right|}$,
+wobei jeder Durchlauf $\left|U\right|^{2}$-Zeit benötigt. Insgesamt
+läuft der Algorithmus in $\left|G\right|^{3}\left|U\right|^{3}$-Zeit.
+\end{proof}
+
+\section{Auswertung}
+
+Für eine rigide, symmetrische $k$-stellige $\left(\sigma,\mathbb{B}\right)$-Multischaltkreisfamilie
+$\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ gilt nach Korollar
+\ref{cor:korollar-23} $\mathrm{SP}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$.
+Seien also $n_{0},c\in\mathbb{N}$ so gewählt, dass $\mathrm{SP}\left(\mathcal{C}_{n}\right)\leqslant c$
+für $n\geqslant n_{0}$.
+
+Zur Erinnerung: $\mathrm{SP}\left(\mathcal{C}\right)$ misst die maximale
+Größe der Vereinigung aller nicht-größten Teile $U\backslash P_{m}$
+des gröbsten Trägers $\mathrm{SP}\left(g\right)=\left\{ P_{1},\cdots,P_{m}\right\} $,
+$\left|P_{1}\right|\leqslant\cdots\leqslant\left|P_{m}\right|$ jedes
+Gates $g$ von $\mathcal{C}$.
+
+Per Definition ist $\mathcal{P}_{U\backslash P_{m}}=\left\{ \left\{ u\right\} \mid u\in U\backslash P_{m}\right\} \cup\left\{ P_{m}\right\} \preceq\mathrm{SP}\left(g\right)$
+ein Träger von $g$, und $\left|\mathcal{P}_{U\backslash P_{m}}\right|\coloneqq1+\left|U\backslash P_{m}\right|\leqslant1+c$.
+
+Es sei $\mathrm{sp}\left(g\right)\coloneqq U\backslash P_{m}$ die
+Menge der in $\mathcal{P}_{U\backslash P_{m}}$ getrennten Elemente;
+diese Menge nennen wir den \textbf{kanonischen Support} des Gates
+$g$.
+
+Wir möchten $\mathcal{C}_{n}$ auf beliebigen Strukturen $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+(nicht nur $\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$)
+auswerten, wofür eine beliebige Einbettung $\pi:A\rightarrow\left[1,n\right]$
+definiert werden muss. Es wird nun gezeigt, dass die Auswertung des
+Gates $g$ nur von der Abbildung $\pi_{\mid\pi^{-1}\mathrm{sp}\left(g\right)}$
+abhängt, die die Teilmenge $\pi^{-1}\mathrm{sp}\left(g\right)$ auf
+$\mathrm{sp}\left(g\right)$ abbildet. Die Abbildung der übrigen Elemente
+ist für $g$ unbedeutend.
+\begin{defn}
+Sei $g\in G$ 
+\end{defn}
 
 \chapter{Schluss}
 

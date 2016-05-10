@@ -4520,7 +4520,8 @@ key "anderson_et_al:LIPIcs:2014:4445"
 \begin_inset Formula $\Omega$
 \end_inset
 
- verlangt.
+ verlangt; hier können mehrere Tupel dem gleichen Output-Gate zugeteilt
+ werden.
 \end_layout
 
 \end_inset
@@ -5995,7 +5996,7 @@ Insbesondere heißt dies, das der Schaltkreis höchstens zwei Konstanten
  nur einmal vorkommt.
 \end_layout
 
-\begin_layout Definition
+\begin_layout Standard
 Die Rigidität ist hier analog zu 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -6010,7 +6011,11 @@ key "anderson_et_al:LIPIcs:2014:4445"
 
  unterschieden werden.
  Diese Einschränkung ist strenger, schränkt aber die Definition nicht bedeutend
- ein: Für zwei Gates 
+ ein:
+\end_layout
+
+\begin_layout Standard
+Für zwei Gates 
 \begin_inset Formula $g,g'\in G$
 \end_inset
 
@@ -6034,640 +6039,7 @@ key "anderson_et_al:LIPIcs:2014:4445"
 \begin_inset Formula $\bar{t}\in\Omega^{-1}\left(g'\right)$
 \end_inset
 
- gesetzt wird, was die Rigidität herstellt.
-\end_layout
-
-\begin_layout Standard
-Die Rigidität kann nicht in jeder booleschen Basis 
-\begin_inset Formula $\mathbb{B}$
-\end_inset
-
- problemlos hergestellt werden - zum Beispiel hat ein Majority-Gate 
-\begin_inset Formula $\Sigma\left(g\right)=\mathtt{MAJ}$
-\end_inset
-
- unter Umständen mehrere konstante Vorgänger.
- In 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
-
-\end_inset
-
- wird dafür die Tiefe des Schaltkreises beliebig vergrößert.
- Hier werden wir dafür stattdessen einen Multigraphen einführen:
-\end_layout
-
-\begin_layout Definition
-
-\series bold
-Multischaltkreis
-\end_layout
-
-\begin_layout Definition
-Ein 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
-\end_inset
-
--Multischaltkreis 
-\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
-\end_inset
-
- ist analog zum 
-\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
-\end_inset
-
--Schaltkreis definiert, aber 
-\begin_inset Formula $\left(G,W\right)$
-\end_inset
-
- bildet einen azyklischen Multigraph.
-\begin_inset Formula 
-\[
-\left[W\right]:G\times G\rightarrow\mathbb{N}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-Für die Auswertung eines internen Gates gilt analog zu 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "def:Auswertung-von-Schaltkreisen"
-
-\end_inset
-
-:
-\begin_inset Formula 
-\begin{eqnarray*}
-j_{1} & \coloneqq & \sum_{h\in G}\left(\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\cdot\left[W\right]\left(h,g\right)\right)\\
-j_{0} & \coloneqq & \sum_{h\in G}\left[W\right]\left(h,g\right)-j_{1}\\
-\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\Sigma\left(g\right)\right]\left(j_{0},j_{1}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-Die Größe 
-\begin_inset Formula $\left|\mathcal{C}\right|$
-\end_inset
-
- eines Multischaltkreises 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- sei die Summe seiner Gates und Kanten:
-\begin_inset Formula 
-\[
-\left|\mathcal{C}\right|\coloneqq\left|G\right|+\sum_{g,g'\in G^{2}}\left[W\right]\left(g,g'\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-Die Symmetrie wird auf natürliche Weise angepasst: Der von 
-\begin_inset Formula $\pi$
-\end_inset
-
- induzierte Automorphismus bildet 
-\begin_inset Formula $\left(G,W\right)$
-\end_inset
-
- auf den isomorphen Multigraphen 
-\begin_inset Formula $\left(\hat{\pi}G,\hat{\pi}W\right)$
-\end_inset
-
- mit 
-\begin_inset Formula $\left[W\right]\left(\hat{\pi}g,\hat{\pi}g'\right)=\left[W\right]\left(g,g'\right)$
-\end_inset
-
- ab.
-\end_layout
-
-\begin_layout Lemma
-(nach Lemma 24 aus 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Lemma
-Es existiert ein Algorithmus, der einen beliebigen 
-\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
-\end_inset
-
--Schaltkreis 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- in einen rigiden Multischaltkreis 
-\begin_inset Formula $\hat{\mathcal{C}}$
-\end_inset
-
- umwandelt, wobei 
-\begin_inset Formula $T\left(\hat{\mathcal{C}}\right)=T\left(\mathcal{C}\right)$
-\end_inset
-
- und 
-\begin_inset Formula $\left|\hat{\mathcal{C}}\right|\leqslant\left|\mathcal{C}\right|+\left|\mathcal{C}\right|^{2}$
-\end_inset
-
-.
- Der Algorithmus arbeitet in Polynomialzeit 
-\begin_inset Formula $\mathrm{poly}\left(\left|G\right|+\left|U\right|\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Proof
-Sei 
-\begin_inset Formula $\mathcal{D}=\left(G,W,\Sigma,\Omega,U\right)$
-\end_inset
-
- ein beliebiger 
-\begin_inset Formula $k$
-\end_inset
-
--stelliger Schaltkreis.
- Wir erzeugen zunächst den äquivalenten Multischaltkreis 
-\begin_inset Formula $\mathcal{C}\coloneqq\left(G,\left[W\right],\Sigma,\Omega,U\right)$
-\end_inset
-
-, wobei die Tiefe unverändert bleibt und die Größe zu 
-\begin_inset Formula $\left|\mathcal{C}\right|=\left|G\right|+\left|W\right|\leqslant\left|\mathcal{D}\right|+\left|\mathcal{D}\right|^{2}$
-\end_inset
-
- wird.
-\end_layout
-
-\begin_layout Proof
-Berechne nun die Äquivalenzrelation 
-\begin_inset Formula $\sim\subseteq G\times G$
-\end_inset
-
-, so dass 
-\begin_inset Formula $g\sim g'$
-\end_inset
-
- genau dann wenn
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-\begin_inset Formula $\Sigma\left(g\right)=\Sigma\left(g'\right)$
-\end_inset
-
-, und
-\end_layout
-
-\begin_layout Enumerate
-für alle 
-\begin_inset Formula $h\in W$
-\end_inset
-
- gilt 
-\begin_inset Formula $\left[W\right]\left(h,g\right)=\left[W\right]\left(h,g'\right)$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\begin_layout Proof
-Wenn keine Gates 
-\begin_inset Formula $g,g'\in G$
-\end_inset
-
- mit 
-\begin_inset Formula $g\sim g'$
-\end_inset
-
- existieren, so ist der Schaltkreis rigide, und der Algorithmus ist fertig.
-\end_layout
-
-\begin_layout Proof
-Ansonsten sei 
-\begin_inset Formula $E\subseteq G$
-\end_inset
-
- eine Äquivalenzklasse von 
-\begin_inset Formula $\sim$
-\end_inset
-
- mit mindestens zwei Gates und minimaler Tiefe 
-\begin_inset Formula $T\left(E\right)$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Proof
-Wir berechnen die Funktion 
-\begin_inset Formula $c:G\rightarrow\left[0,\left|E\right|\right]$
-\end_inset
-
-, die für jedes Gate 
-\begin_inset Formula $h\in G$
-\end_inset
-
- die Vorgänger in 
-\begin_inset Formula $E$
-\end_inset
-
- zählt:
-\begin_inset Formula 
-\[
-c\left(h\right)\coloneqq\sum_{g'\in E}\left[W\right]\left(g',h\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
-Sei 
-\begin_inset Formula $g\in E$
-\end_inset
-
- beliebig, und sei 
-\begin_inset Formula $f_{g,E}\left(\mathcal{C}\right)=\mathcal{C}'=\left(G',\left[W'\right],\Sigma',\Omega',U\right)$
-\end_inset
-
- der folgende Multischaltkreis:
-\begin_inset Formula 
-\begin{eqnarray*}
-G' & \coloneqq & G\backslash\left(E\backslash\left\{ g\right\} \right)\\
-\Sigma' & \coloneqq & \Sigma_{\backslash E\backslash\left\{ g\right\} }
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Es werden die von 
-\begin_inset Formula $E$
-\end_inset
-
- ausgehenden Kanten 
-\begin_inset Formula $\left(E\times G\right)\cap W$
-\end_inset
-
- aus dem Schaltkreis entfernt.
- Außerdem werden die eingehenden Kanten 
-\begin_inset Formula $W\cap\left(G\times E\backslash\left\{ g\right\} \right)$
-\end_inset
-
- der Gates 
-\begin_inset Formula $E\backslash\left\{ g\right\} $
-\end_inset
-
- entfernt.
- Nun werden die folgenden Kanten für jedes Gate 
-\begin_inset Formula $h\in G$
-\end_inset
-
- eingefügt:
-\begin_inset Formula 
-\[
-\left[W'\right]\left(h,i\right)\coloneqq\begin{cases}
-c\left(i\right) & \mathrm{falls}\,h=g\\
-0 & \mathrm{falls}\,h\in E\backslash\left\{ g\right\} \\
-\left[W\right]\left(h,i\right) & \mathrm{sonst}
-\end{cases}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Die Output-Funktion wird wie folgt angepasst:
-\begin_inset Formula 
-\[
-\Omega'\left(\bar{t}\right)\coloneqq\begin{cases}
-g & \mathrm{falls}\,\Omega\left(t\right)\in E\backslash\left\{ g\right\} \\
-\Omega\left(t\right) & \mathrm{sonst}
-\end{cases}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Proof
-Der Schaltkreis 
-\begin_inset Formula $\mathcal{C}'$
-\end_inset
-
- ist äquivalent zu dem Schaltkreis 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- über jeder Struktur 
-\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$
-\end_inset
-
-, was induktiv über die Tiefe (ausgehend von 
-\begin_inset Formula $g$
-\end_inset
-
-) nachgewiesen wird:
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Offensichtlich gilt 
-\begin_inset Formula $\mathcal{C}'\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)$
-\end_inset
-
- für alle 
-\begin_inset Formula $g'\in E$
-\end_inset
-
-, da die Gates die gleichen Vorgänger und die gleiche Beschriftung 
-\begin_inset Formula $\Sigma'\left(g\right)=\Sigma\left(g\right)=\Sigma\left(g'\right)$
-\end_inset
-
- besitzen.
-\end_layout
-
-\begin_layout Enumerate
-Für jeden direkten Nachfolger 
-\begin_inset Formula $h\in G$
-\end_inset
-
- eines Gates 
-\begin_inset Formula $g'\in E$
-\end_inset
-
- gilt:
-\begin_inset Formula 
-\begin{eqnarray*}
-j_{1} & \coloneqq & \sum_{i\in G'}\left[W\right]\left(i,h\right)\cdot\mathcal{C}\left[\mathfrak{A}\right]\\
-j_{0} & \coloneqq & \sum_{i\in G'}\left[W\right]\left(i,h\right)-j_{1}\\
-j_{1}' & \coloneqq & \sum_{i\in G'}\left[W'\right]\left(i,h\right)\cdot\mathcal{C}'\left[\mathfrak{A}\right]\\
-j_{0}' & \coloneqq & \sum_{i\in G'}\left[W'\right]\left(i,h\right)-j_{1}'
-\end{eqnarray*}
-
-\end_inset
-
-Aus der Definition von 
-\begin_inset Formula $\left[W'\right]$
-\end_inset
-
- folgt 
-\begin_inset Formula $j_{1}=j_{1}'$
-\end_inset
-
- und 
-\begin_inset Formula $j_{0}=j_{0}'$
-\end_inset
-
-, da die entfernten Vorgänger 
-\begin_inset Formula $g'\in E\backslash\left\{ g\right\} $
-\end_inset
-
- durch zusätzliche Kanten 
-\begin_inset Formula $\left(g,h\right)$
-\end_inset
-
- ersetzt wurden, und 
-\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)$
-\end_inset
-
-.
- Daher gilt: 
-\begin_inset Formula 
-\begin{eqnarray*}
-\mathcal{C}'\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\Sigma'\left(g\right)\right]\left(j_{0}',j_{1}'\right)\\
- & = & \left[\Sigma\left(g\right)\right]\left(j_{0},j_{1}\right)\\
- & = & \mathcal{C}\left[\mathfrak{A}\right]
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Für jedes übrige Gate 
-\begin_inset Formula $h\in G$
-\end_inset
-
- folgt die Äquivalenz aus der Induktionsannahme und der Tatsache, dass die
- Vorgänger von 
-\begin_inset Formula $h$
-\end_inset
-
- unverändert bleiben.
-\end_layout
-
-\begin_layout Enumerate
-Für jedes Tupel 
-\begin_inset Formula $\bar{t}\in U^{k}$
-\end_inset
-
- mit 
-\begin_inset Formula $\Omega\left(\bar{t}\right)=g'\in E$
-\end_inset
-
- gilt:
-\begin_inset Formula 
-\begin{eqnarray*}
-\left\llbracket \mathcal{C}'\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \mathcal{C}'\left[\mathfrak{A}\right]\left(\Omega'\left(\bar{t}\right)\right)\\
- & = & \mathcal{C}'\left[\mathfrak{A}\right]\left(g\right)\\
- & = & \mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\\
- & = & \mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)\\
- & = & \mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Description
-Größe: Die Umrechnung von 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- zu 
-\begin_inset Formula $f_{g,E}\left(\mathcal{C}\right)$
-\end_inset
-
- lässt die Tiefe unverändert, und vergrößert den Schaltkreis nicht: Es werden
- 
-\begin_inset Formula $\sum_{h\in G}c\left(h\right)$
-\end_inset
-
- Kanten eingefügt und mindestens 
-\begin_inset Formula $\sum_{g',h'\in E\times G}$
-\end_inset
-
- Kanten entfernt, wobei gilt:
-\begin_inset Formula 
-\[
-\sum_{h\in G}c\left(h\right)=\sum_{h\in G}\sum_{g'\in E}\left[W\right]\left(g',h\right)=\sum_{g',h'\in E\times G}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Description
-Symmetrie: Wenn alle Äquivalenzklassen 
-\begin_inset Formula $\bar{E}=\left(E_{1},\cdots,E_{k}\right)$
-\end_inset
-
- der gleichen Tiefe reduziert werden, dann bewahrt der neue Schaltkreis
- 
-\begin_inset Formula $f_{g_{1,}E_{1}}\cdots f_{g_{k},E_{k}}\left(\mathcal{C}\right)=\mathcal{C}'$
-\end_inset
-
- die Symmetrie von 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
-:
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Sei 
-\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
-\end_inset
-
- eine beliebige Permutation, und 
-\begin_inset Formula $\hat{\pi}$
-\end_inset
-
- der induzierte Automorphismus.
- Offensichtlich muss 
-\begin_inset Formula $\hat{\pi}$
-\end_inset
-
- die Äquivalenzklassen 
-\begin_inset Formula $\bar{E}$
-\end_inset
-
- aufeinander abbilden, da 
-\begin_inset Formula $\hat{\pi}g\sim\hat{\pi}g'$
-\end_inset
-
- für alle 
-\begin_inset Formula $g\sim g'$
-\end_inset
-
- gilt.
-\end_layout
-
-\begin_layout Standard
-Der Automorphismus 
-\begin_inset Formula $\hat{\pi}$
-\end_inset
-
- auf 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- wird wie folgt zu einem auf 
-\begin_inset Formula $\mathcal{C}'$
-\end_inset
-
- angepasst:
-\begin_inset Formula 
-\[
-\hat{\pi}'g\coloneqq\begin{cases}
-g_{i} & \mathrm{falls}\,\hat{\pi}g\in E_{i}\\
-\hat{\pi}g & \mathrm{sonst}
-\end{cases}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Da 
-\begin_inset Formula $\left[W\right]\left(\hat{\pi}g,\hat{\pi}g'\right)=\left[W\right]\left(g,g'\right)$
-\end_inset
-
-, folgt 
-\begin_inset Formula $\left[W'\right]\left(\hat{\pi}g,\hat{\pi}g'\right)$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Proof
-Die Umrechnung von 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- zu 
-\begin_inset Formula $\mathcal{C}'$
-\end_inset
-
- verkleinert die Äquivalenzklasse des Gates 
-\begin_inset Formula $g$
-\end_inset
-
- zu 
-\begin_inset Formula $\left\{ g\right\} $
-\end_inset
-
-, da alle äquivalenten Gates entfernt werden, und lässt alle anderen Äquivalenzk
-lassen der Tiefe 
-\begin_inset Formula $i\leqslant T\left(g\right)$
-\end_inset
-
- unverändert.
-\end_layout
-
-\begin_layout Proof
-Daher haben nach höchstens 
-\begin_inset Formula $\left|G\right|$
-\end_inset
-
- Wiederholungen alle Äquivalenzklassen der Tiefe 
-\begin_inset Formula $i\leqslant T\left(g\right)$
-\end_inset
-
- die Größe 
-\begin_inset Formula $1$
-\end_inset
-
-, und nach höchstens 
-\begin_inset Formula $T\left(\mathcal{C}\right)\cdot\left|G\right|$
-\end_inset
-
- Wiederholungen wird ein äquivalenter, rigider Schaltkreis erzeugt.
+ gesetzt wird, was die strengere Form der Rigidität herstellt.
 \end_layout
 
 \begin_layout Section
@@ -13310,6 +12682,12 @@ dann gilt
 \end_layout
 
 \begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:korollar-23"
+
+\end_inset
+
 (Korollar 23 aus 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -13334,6 +12712,1532 @@ key "anderson_et_al:LIPIcs:2014:4445"
 
 \begin_layout Chapter
 Von Schaltkreisfamilien zu Formeln
+\end_layout
+
+\begin_layout Section
+Rigidität
+\end_layout
+
+\begin_layout Standard
+Um die Orbits und Träger jedes Gates eines Schaltkreises zu berechnen, wird
+ nun gefordert, dass der Schaltkreis 
+\emph on
+rigide 
+\emph default
+gemäß Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:Rigidität"
+
+\end_inset
+
+ ist.
+\end_layout
+
+\begin_layout Standard
+Die Rigidität kann nicht in jeder booleschen Basis 
+\begin_inset Formula $\mathbb{B}$
+\end_inset
+
+ problemlos hergestellt werden, ohne die Tiefe zu verändern - zum Beispiel
+ hat ein Majority-Gate 
+\begin_inset Formula $\Sigma\left(g\right)=\mathtt{MAJ}$
+\end_inset
+
+ unter Umständen mehrere konstante Vorgänger.
+ In Anderson und Dawar 2014
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anderson_et_al:LIPIcs:2014:4445"
+
+\end_inset
+
+ wird dafür die Tiefe des Schaltkreises beliebig vergrößert.
+ Hier werden wir stattdessen die Definition des Schaltkreises auf Multigraphen
+ erweitern:
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Multischaltkreis
+\end_layout
+
+\begin_layout Definition
+Ein 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Multischaltkreis 
+\begin_inset Formula $\mathcal{C}=\left(G,\left[W\right],\Sigma,\Omega,U\right)$
+\end_inset
+
+ ist analog zum 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreis definiert, aber 
+\begin_inset Formula $\left(G,\left[W\right]\right)$
+\end_inset
+
+ bildet einen azyklischen Multigraphen.
+ (Hier schreiben wir 
+\begin_inset Formula $\left[W\right]$
+\end_inset
+
+, um die Multimenge von einer gewöhnlichen Relation zu unterscheiden.
+ Günstigerweise entspricht für eine gewöhnliche Relation 
+\begin_inset Formula $W\subseteq G^{2}$
+\end_inset
+
+ die Funktion 
+\begin_inset Formula $\left[W\right]:G^{2}\rightarrow\left\{ 0,1\right\} $
+\end_inset
+
+ gerade der entsprechenden Multimenge.)
+\begin_inset Formula 
+\[
+\left[W\right]:G\times G\rightarrow\mathbb{N}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Für die Auswertung eines internen Gates gilt analog zu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:Auswertung-von-Schaltkreisen"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+j_{1} & \coloneqq & \sum_{h\in G}\left(\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\cdot\left[W\right]\left(h,g\right)\right)\\
+j_{0} & \coloneqq & \sum_{h\in G}\left[W\right]\left(h,g\right)-j_{1}\\
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\Sigma\left(g\right)\right]\left(j_{0},j_{1}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Die Größe 
+\begin_inset Formula $\left|\mathcal{C}\right|$
+\end_inset
+
+ eines Multischaltkreises 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ sei die Summe seiner Gates und Kanten:
+\begin_inset Formula 
+\[
+\left|\mathcal{C}\right|\coloneqq\left|G\right|+\sum_{g,g'\in G^{2}}\left[W\right]\left(g,g'\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Die Symmetrie wird auf natürliche Weise angepasst: Der von 
+\begin_inset Formula $\pi$
+\end_inset
+
+ induzierte Automorphismus bildet 
+\begin_inset Formula $\left(G,W\right)$
+\end_inset
+
+ auf den isomorphen Multigraphen 
+\begin_inset Formula $\left(\hat{\pi}G,\hat{\pi}W\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $\left[W\right]\left(\hat{\pi}g,\hat{\pi}g'\right)=\left[W\right]\left(g,g'\right)$
+\end_inset
+
+ ab.
+\end_layout
+
+\begin_layout Definition
+Die Rigidität wird ebenfalls angepasst: Ein rigider Schaltkreis enthält
+ keine Gates 
+\begin_inset Formula $g,g'$
+\end_inset
+
+ mit 
+\begin_inset Formula $\Sigma\left(g\right)=\Sigma\left(g'\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\left[W\right]\left(h,g\right)=\left[W\right]\left(h,g'\right)$
+\end_inset
+
+ für alle 
+\begin_inset Formula $h\in G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+(nach Lemma 24 aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anderson_et_al:LIPIcs:2014:4445"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Lemma
+Es existiert ein Algorithmus, der einen beliebigen 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ in einen rigiden Multischaltkreis 
+\begin_inset Formula $\hat{\mathcal{C}}$
+\end_inset
+
+ umwandelt, wobei 
+\begin_inset Formula $T\left(\hat{\mathcal{C}}\right)=T\left(\mathcal{C}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\left|\hat{\mathcal{C}}\right|\leqslant\left|\mathcal{C}\right|+\left|\mathcal{C}\right|^{2}$
+\end_inset
+
+.
+ Der Algorithmus arbeitet in Polynomialzeit 
+\begin_inset Formula $\mathrm{poly}\left(\left|G\right|+\left|U\right|\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\mathcal{D}=\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ ein beliebiger 
+\begin_inset Formula $k$
+\end_inset
+
+-stelliger Schaltkreis.
+ Wir erzeugen zunächst den äquivalenten Multischaltkreis 
+\begin_inset Formula $\mathcal{C}\coloneqq\left(G,\left[W\right],\Sigma,\Omega,U\right)$
+\end_inset
+
+, wobei die Tiefe unverändert bleibt und die Größe zu 
+\begin_inset Formula $\left|\mathcal{C}\right|=\left|G\right|+\left|W\right|\leqslant\left|\mathcal{D}\right|+\left|\mathcal{D}\right|^{2}$
+\end_inset
+
+ wird.
+\end_layout
+
+\begin_layout Proof
+Berechne nun die Äquivalenzrelation 
+\begin_inset Formula $\sim\subseteq G\times G$
+\end_inset
+
+, so dass 
+\begin_inset Formula $g\sim g'$
+\end_inset
+
+ genau dann wenn
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\Sigma\left(g\right)=\Sigma\left(g'\right)$
+\end_inset
+
+, und
+\end_layout
+
+\begin_layout Enumerate
+für alle 
+\begin_inset Formula $h\in W$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\left[W\right]\left(h,g\right)=\left[W\right]\left(h,g'\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Wenn keine Gates 
+\begin_inset Formula $g,g'\in G$
+\end_inset
+
+ mit 
+\begin_inset Formula $g\sim g'$
+\end_inset
+
+ existieren, so ist der Schaltkreis rigide, und der Algorithmus ist fertig.
+\end_layout
+
+\begin_layout Proof
+Ansonsten sei 
+\begin_inset Formula $E\subseteq G$
+\end_inset
+
+ eine Äquivalenzklasse von 
+\begin_inset Formula $\sim$
+\end_inset
+
+ mit mindestens zwei Gates und minimaler Tiefe 
+\begin_inset Formula $T\left(E\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Proof
+Wir berechnen die Funktion 
+\begin_inset Formula $c:G\rightarrow\left[0,\left|E\right|\right]$
+\end_inset
+
+, die für jedes Gate 
+\begin_inset Formula $h\in G$
+\end_inset
+
+ die Vorgänger in 
+\begin_inset Formula $E$
+\end_inset
+
+ zählt:
+\begin_inset Formula 
+\[
+c\left(h\right)\coloneqq\sum_{g'\in E}\left[W\right]\left(g',h\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $g\in E$
+\end_inset
+
+ beliebig, und sei 
+\begin_inset Formula $f_{g,E}\left(\mathcal{C}\right)=\mathcal{C}'=\left(G',\left[W'\right],\Sigma',\Omega',U\right)$
+\end_inset
+
+ der folgende Multischaltkreis:
+\begin_inset Formula 
+\begin{eqnarray*}
+G' & \coloneqq & G\backslash\left(E\backslash\left\{ g\right\} \right)\\
+\Sigma' & \coloneqq & \Sigma_{\backslash E\backslash\left\{ g\right\} }
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Es werden die von 
+\begin_inset Formula $E$
+\end_inset
+
+ ausgehenden Kanten 
+\begin_inset Formula $\left(E\times G\right)\cap W$
+\end_inset
+
+ aus dem Schaltkreis entfernt.
+ Außerdem werden die eingehenden Kanten 
+\begin_inset Formula $W\cap\left(G\times E\backslash\left\{ g\right\} \right)$
+\end_inset
+
+ der Gates 
+\begin_inset Formula $E\backslash\left\{ g\right\} $
+\end_inset
+
+ entfernt.
+ Nun werden die folgenden Kanten für jedes Gate 
+\begin_inset Formula $h\in G$
+\end_inset
+
+ eingefügt:
+\begin_inset Formula 
+\[
+\left[W'\right]\left(h,i\right)\coloneqq\begin{cases}
+c\left(i\right) & \mathrm{falls}\,h=g\\
+0 & \mathrm{falls}\,h\in E\backslash\left\{ g\right\} \\
+\left[W\right]\left(h,i\right) & \mathrm{sonst}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Die Output-Funktion wird wie folgt angepasst:
+\begin_inset Formula 
+\[
+\Omega'\left(\bar{t}\right)\coloneqq\begin{cases}
+g & \mathrm{falls}\,\Omega\left(t\right)\in E\backslash\left\{ g\right\} \\
+\Omega\left(t\right) & \mathrm{sonst}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Der Schaltkreis 
+\begin_inset Formula $\mathcal{C}'$
+\end_inset
+
+ ist äquivalent zu dem Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ über jeder Struktur 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$
+\end_inset
+
+, was induktiv über die Tiefe (ausgehend von 
+\begin_inset Formula $g$
+\end_inset
+
+) nachgewiesen wird:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Offensichtlich gilt 
+\begin_inset Formula $\mathcal{C}'\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)$
+\end_inset
+
+ für alle 
+\begin_inset Formula $g'\in E$
+\end_inset
+
+, da die Gates die gleichen Vorgänger und die gleiche Beschriftung 
+\begin_inset Formula $\Sigma'\left(g\right)=\Sigma\left(g\right)=\Sigma\left(g'\right)$
+\end_inset
+
+ besitzen.
+\end_layout
+
+\begin_layout Enumerate
+Für jeden direkten Nachfolger 
+\begin_inset Formula $h\in G$
+\end_inset
+
+ eines Gates 
+\begin_inset Formula $g'\in E$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{eqnarray*}
+j_{1} & \coloneqq & \sum_{i\in G'}\left[W\right]\left(i,h\right)\cdot\mathcal{C}\left[\mathfrak{A}\right]\\
+j_{0} & \coloneqq & \sum_{i\in G'}\left[W\right]\left(i,h\right)-j_{1}\\
+j_{1}' & \coloneqq & \sum_{i\in G'}\left[W'\right]\left(i,h\right)\cdot\mathcal{C}'\left[\mathfrak{A}\right]\\
+j_{0}' & \coloneqq & \sum_{i\in G'}\left[W'\right]\left(i,h\right)-j_{1}'
+\end{eqnarray*}
+
+\end_inset
+
+Aus der Definition von 
+\begin_inset Formula $\left[W'\right]$
+\end_inset
+
+ folgt 
+\begin_inset Formula $j_{1}=j_{1}'$
+\end_inset
+
+ und 
+\begin_inset Formula $j_{0}=j_{0}'$
+\end_inset
+
+, da die entfernten Vorgänger 
+\begin_inset Formula $g'\in E\backslash\left\{ g\right\} $
+\end_inset
+
+ durch zusätzliche Kanten 
+\begin_inset Formula $\left(g,h\right)$
+\end_inset
+
+ ersetzt wurden, und 
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)$
+\end_inset
+
+.
+ Daher gilt: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{C}'\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\Sigma'\left(g\right)\right]\left(j_{0}',j_{1}'\right)\\
+ & = & \left[\Sigma\left(g\right)\right]\left(j_{0},j_{1}\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Für jedes übrige Gate 
+\begin_inset Formula $h\in G$
+\end_inset
+
+ folgt die Äquivalenz aus der Induktionsannahme und der Tatsache, dass die
+ Vorgänger von 
+\begin_inset Formula $h$
+\end_inset
+
+ unverändert bleiben.
+\end_layout
+
+\begin_layout Enumerate
+Für jedes Tupel 
+\begin_inset Formula $\bar{t}\in U^{k}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\Omega\left(\bar{t}\right)=g'\in E$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\left\llbracket \mathcal{C}'\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \mathcal{C}'\left[\mathfrak{A}\right]\left(\Omega'\left(\bar{t}\right)\right)\\
+ & = & \mathcal{C}'\left[\mathfrak{A}\right]\left(g\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Größe: Die Umrechnung von 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ zu 
+\begin_inset Formula $f_{g,E}\left(\mathcal{C}\right)$
+\end_inset
+
+ lässt die Tiefe unverändert, und vergrößert den Schaltkreis nicht: Es werden
+ 
+\begin_inset Formula $\sum_{h\in G}c\left(h\right)$
+\end_inset
+
+ Kanten eingefügt und mindestens 
+\begin_inset Formula $\sum_{g',h'\in E\times G}$
+\end_inset
+
+ Kanten entfernt, wobei gilt:
+\begin_inset Formula 
+\[
+\sum_{h\in G}c\left(h\right)=\sum_{h\in G}\sum_{g'\in E}\left[W\right]\left(g',h\right)=\sum_{g',h'\in E\times G}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Symmetrie: Wenn alle Äquivalenzklassen 
+\begin_inset Formula $\bar{E}=\left(E_{1},\cdots,E_{k}\right)$
+\end_inset
+
+ der gleichen Tiefe reduziert werden, dann bewahrt der neue Schaltkreis
+ 
+\begin_inset Formula $f_{g_{1,}E_{1}}\cdots f_{g_{k},E_{k}}\left(\mathcal{C}\right)=\mathcal{C}'$
+\end_inset
+
+ die Symmetrie von 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sei 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+\end_inset
+
+ eine beliebige Permutation, und 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+ der induzierte Automorphismus.
+ Offensichtlich muss 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+ die Äquivalenzklassen 
+\begin_inset Formula $\bar{E}$
+\end_inset
+
+ aufeinander abbilden, da 
+\begin_inset Formula $\hat{\pi}g\sim\hat{\pi}g'$
+\end_inset
+
+ für alle 
+\begin_inset Formula $g\sim g'$
+\end_inset
+
+ gilt.
+\end_layout
+
+\begin_layout Standard
+Der Automorphismus 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+ auf 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ wird wie folgt zu einem auf 
+\begin_inset Formula $\mathcal{C}'$
+\end_inset
+
+ angepasst:
+\begin_inset Formula 
+\[
+\hat{\pi}'g\coloneqq\begin{cases}
+g_{i} & \mathrm{falls}\,\hat{\pi}g\in E_{i}\\
+\hat{\pi}g & \mathrm{sonst}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $\left[W\right]\left(\hat{\pi}g,\hat{\pi}g'\right)=\left[W\right]\left(g,g'\right)$
+\end_inset
+
+, folgt 
+\begin_inset Formula $\left[W'\right]\left(\hat{\pi}g,\hat{\pi}g'\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Proof
+Die Umrechnung von 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ zu 
+\begin_inset Formula $\mathcal{C}'$
+\end_inset
+
+ verkleinert die Äquivalenzklasse des Gates 
+\begin_inset Formula $g$
+\end_inset
+
+ zu 
+\begin_inset Formula $\left\{ g\right\} $
+\end_inset
+
+, da alle äquivalenten Gates entfernt werden, und lässt alle anderen Äquivalenzk
+lassen der Tiefe 
+\begin_inset Formula $i\leqslant T\left(g\right)$
+\end_inset
+
+ unverändert.
+\end_layout
+
+\begin_layout Proof
+Daher haben nach höchstens 
+\begin_inset Formula $\left|G\right|$
+\end_inset
+
+ Wiederholungen alle Äquivalenzklassen der Tiefe 
+\begin_inset Formula $i\leqslant T\left(g\right)$
+\end_inset
+
+ die Größe 
+\begin_inset Formula $1$
+\end_inset
+
+, und nach höchstens 
+\begin_inset Formula $T\left(\mathcal{C}\right)\cdot\left|G\right|$
+\end_inset
+
+ Wiederholungen wird ein äquivalenter, rigider Schaltkreis erzeugt.
+\end_layout
+
+\begin_layout Section
+Berechnung der Orbits
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:rigide-eindeutig"
+
+\end_inset
+
+(nach Satz 9 aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anderson_et_al:LIPIcs:2014:4445"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Lemma
+Sei 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ ein rigider 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Multischaltkreis über 
+\begin_inset Formula $U$
+\end_inset
+
+.
+ Sei 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+\end_inset
+
+ beliebig.
+\end_layout
+
+\begin_layout Lemma
+Falls 
+\begin_inset Formula $\pi$
+\end_inset
+
+ einen Automorphismus in 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ induziert, dann ist dieser eindeutig.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\mathcal{C}=\left(G,\left[W\right],\Sigma,\Omega,U\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+\end_inset
+
+ beliebig.
+ Seien 
+\begin_inset Formula $\hat{\pi}_{1},\hat{\pi}_{2}:\mathcal{C}\tilde{\rightarrow}\mathcal{C}$
+\end_inset
+
+ zwei von 
+\begin_inset Formula $\pi$
+\end_inset
+
+ induzierte Automorphismen.
+\end_layout
+
+\begin_layout Proof
+Durch Induktion über die Tiefe wird bewiesen, dass 
+\begin_inset Formula $\hat{\pi}_{1}g=\hat{\pi}_{2}g$
+\end_inset
+
+ für jedes Gate 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ gilt.
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Anfang: Wenn 
+\begin_inset Formula $g$
+\end_inset
+
+ eine Konstante mit 
+\begin_inset Formula $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
+\end_inset
+
+ ist, dann ist 
+\begin_inset Formula $g$
+\end_inset
+
+ das einzige Gate mit der Beschriftung 
+\begin_inset Formula $\Sigma\left(g\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\hat{\pi}_{1}g=g=\hat{\pi}_{2}
+\]
+
+\end_inset
+
+Wenn 
+\begin_inset Formula $g$
+\end_inset
+
+ ein relationales Input mit 
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
+\end_inset
+
+, 
+\begin_inset Formula $R/k\in\sigma$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{t}\in U^{k}$
+\end_inset
+
+ ist, dann existiert auf Grund der Rigidität nur ein Gate 
+\begin_inset Formula $g'\in G$
+\end_inset
+
+ mit 
+\begin_inset Formula $\Sigma\left(g'\right)=R\pi\bar{t}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\hat{\pi}_{1}g=g'=\hat{\pi}_{2}g
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Schritt: Wenn 
+\begin_inset Formula $g$
+\end_inset
+
+ ein internes Gate mit 
+\begin_inset Formula $\Sigma\left(g\right)\in\mathbb{B}$
+\end_inset
+
+ ist, dann muss gelten:
+\begin_inset Formula 
+\begin{eqnarray*}
+\Sigma\left(\hat{\pi}_{1}g\right) & = & \Sigma\left(\hat{\pi}_{2}g\right)=\Sigma\left(g\right)\\
+\left[W\right]\left(\hat{\pi}_{1}h,\hat{\pi}_{1}g\right) & = & \left[W\right]\left(\hat{\pi}_{2}h,\hat{\pi}_{2}g\right)=\left[W\right]\left(h,g\right)\\
+ &  & \mathrm{f.a.}\,h\in G
+\end{eqnarray*}
+
+\end_inset
+
+Auf Grund der Rigidität von 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ muss 
+\begin_inset Formula $\hat{\pi}_{1}g=\hat{\pi}_{2}g$
+\end_inset
+
+ gelten.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:algo-auto"
+
+\end_inset
+
+(nach Lemma 25 aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anderson_et_al:LIPIcs:2014:4445"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Lemma
+Es existiert ein deterministischer Algorithmus, der bei Eingabe eines rigiden
+ 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Multischaltkreises 
+\begin_inset Formula $\mathcal{C}=\left(G,\left[W\right],\Sigma,\Omega,U\right)$
+\end_inset
+
+ und einer Permutation 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathrm{poly}\left(\left|\mathcal{C}\right|\right)$
+\end_inset
+
+-Zeit für jedes Gate 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ das Gate 
+\begin_inset Formula $\hat{\pi}g$
+\end_inset
+
+ ausgibt, falls 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+ existiert.
+\end_layout
+
+\begin_layout Proof
+Analog zu dem Beweis von Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:rigide-eindeutig"
+
+\end_inset
+
+ wird gezeigt, dass der eindeutige Automorphismus in Polynomialzeit bestimmt
+ wird:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Zunächst sei für jedes konstante Gate 
+\begin_inset Formula $\hat{\pi}g\coloneqq g$
+\end_inset
+
+.
+ Für jedes relationale Input 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ mit 
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
+\end_inset
+
+ finde das einzige Gate 
+\begin_inset Formula $g'\in G$
+\end_inset
+
+ mit 
+\begin_inset Formula $\Sigma\left(g\right)=R\pi\bar{t}$
+\end_inset
+
+ und gib 
+\begin_inset Formula $\hat{\pi}g\coloneqq g'$
+\end_inset
+
+ aus.
+\end_layout
+
+\begin_layout Enumerate
+Finde ein beliebiges Gate 
+\begin_inset Formula $g\in G$
+\end_inset
+
+, für dessen Vorgänger 
+\begin_inset Formula $h\in G$
+\end_inset
+
+ mit 
+\begin_inset Formula $\left[W\right]\left(h,g\right)>0$
+\end_inset
+
+ bereits 
+\begin_inset Formula $\hat{\pi}h=h'$
+\end_inset
+
+ ausgegeben wurde.
+\end_layout
+
+\begin_layout Enumerate
+Finde ein Gate 
+\begin_inset Formula $g'\in G$
+\end_inset
+
+ mit 
+\begin_inset Formula $\Sigma\left(g\right)=\Sigma\left(g'\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\left[W\right]\left(\hat{\pi}h,g'\right)=\left[W\right]\left(h,g\right)$
+\end_inset
+
+ für die Vorgänger 
+\begin_inset Formula $h\in G$
+\end_inset
+
+, so dass 
+\begin_inset Formula $g'$
+\end_inset
+
+ sonst keine Vorgänger hat.
+ (Wegen der Rigidität gibt es höchstens eines.) Gib 
+\begin_inset Formula $\hat{\pi}g=g'$
+\end_inset
+
+ aus.
+\end_layout
+
+\begin_layout Enumerate
+Wiederhole die Schritte 2 bis 3 solange bis 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+ für jedes Gate 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ berechnet wurde.
+ (Wenn zu irgendeinem 
+\begin_inset Formula $g$
+\end_inset
+
+ kein Gate gefunden wird, ist der Schaltkreis nicht symmetrisch und der
+ Algorithmus bricht ab.)
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Die Schritte 2 bis 3 werden höchstens 
+\begin_inset Formula $\left|G\right|$
+\end_inset
+
+-mal wiederholt, und jeder Schritt erfordert 
+\begin_inset Formula $\left|G\right|^{2}$
+\end_inset
+
+-Zeit, so dass der Algorithmus in 
+\begin_inset Formula $\left|G\right|^{3}$
+\end_inset
+
+-Zeit arbeitet.
+\end_layout
+
+\begin_layout Lemma
+(nach Lemma 26 aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anderson_et_al:LIPIcs:2014:4445"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Lemma
+Es existiert ein deterministischer Algorithmus, der bei Eingabe eines rigiden
+ 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Multischaltkreises 
+\begin_inset Formula $\mathcal{C}=\left(G,\left[W\right],\Sigma,\Omega,U\right)$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathrm{poly}\left(\left|\mathcal{C}\right|\right)$
+\end_inset
+
+ entscheidet, ob dieser symmetrisch ist, und gegebenenfalls die Orbits 
+\begin_inset Formula $\mathrm{Orb}_{\mathcal{C}}\left(g\right)$
+\end_inset
+
+ und Träger 
+\begin_inset Formula $\mathrm{SP}\left(g\right)$
+\end_inset
+
+ jedes Gates 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ ausgibt.
+\end_layout
+
+\begin_layout Proof
+Um die Symmetrie nachzuweisen, genügt es, den Algorithmus aus Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:algo-auto"
+
+\end_inset
+
+ für jede Transposition 
+\begin_inset Formula $\left(uv\right)\in\mathrm{Sym}_{U}$
+\end_inset
+
+ durchzuführen.
+ Diese Transpositionen erzeugen die gesamte Symmetriegruppe 
+\begin_inset Formula $\mathrm{Sym}_{U}$
+\end_inset
+
+, und daher ist für jede Permutation 
+\begin_inset Formula $\pi=\left(u_{1}v_{1}\right)\cdots\left(u_{k}v_{k}\right)\in\mathrm{Sym}_{U}$
+\end_inset
+
+ die Abbildung 
+\begin_inset Formula $\hat{\pi}=\hat{\pi}_{\left(u_{1}v_{1}\right)}\cdots\hat{\pi}_{\left(u_{k}v_{k}\right)}$
+\end_inset
+
+ ein von 
+\begin_inset Formula $\pi$
+\end_inset
+
+ induzierter Automorphismus.
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Berechne den von 
+\begin_inset Formula $\left(uv\right)\in\mathrm{Sym}_{U}$
+\end_inset
+
+ induzierten Automorphismus 
+\begin_inset Formula $\hat{\pi}_{\left(uv\right)}$
+\end_inset
+
+ für jedes Paar 
+\begin_inset Formula $u,v\in U$
+\end_inset
+
+ mit 
+\begin_inset Formula $u\neq v$
+\end_inset
+
+.
+ Wenn nicht alle Automorphismen existieren, ist der Schaltkreis nicht symmetrisc
+h; es wird abgebrochen.
+\end_layout
+
+\begin_layout Enumerate
+Für jedes Gate 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ wird der Träger 
+\begin_inset Formula $\mathrm{SP}\left(g\right)$
+\end_inset
+
+ aufgebaut, in dem für jede Transposition 
+\begin_inset Formula $\left(uv\right)\in\mathrm{Sym}_{U}$
+\end_inset
+
+ geprüft wird, ob 
+\begin_inset Formula $\hat{\pi}_{\left(uv\right)}$
+\end_inset
+
+ das Gate 
+\begin_inset Formula $g$
+\end_inset
+
+ fixiert.
+ In diesem Fall werden die Elemente 
+\begin_inset Formula $u,v$
+\end_inset
+
+ in der Partition kombiniert: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{P}_{\left(uv\right)} & \coloneqq & \left\{ \left\{ u,v\right\} \right\} \cup\left\{ \left\{ w\right\} \mid w\in U\backslash\left\{ u,v\right\} \right\} \\
+\mathcal{P}_{g} & \coloneqq & \bigsqcup_{\begin{subarray}{c}
+\left(uv\right)\in\mathrm{Sym}_{U}\\
+\hat{\pi}_{\left(uv\right)}g=g
+\end{subarray}}\mathcal{P}_{\left(uv\right)}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Für jedes Gate 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ sei 
+\begin_inset Formula $S_{0}\coloneqq\left\{ g\right\} $
+\end_inset
+
+.
+ Iterativ wird der Orbit von 
+\begin_inset Formula $g$
+\end_inset
+
+ wie folgt aufgebaut, bis mit 
+\begin_inset Formula $S_{i+1}=S_{i}$
+\end_inset
+
+ ein Fixpunkt erreicht wird (spätestens bei 
+\begin_inset Formula $S_{\left|U\right|}$
+\end_inset
+
+):
+\begin_inset Formula 
+\[
+S_{i+1}\coloneqq S_{i}\cup\bigcup_{\left(uv\right)\in\mathrm{Sym}_{U}}\hat{\pi}_{\left(uv\right)}S_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Nach den Definitionen aus Kapitel 7 sind alle 
+\begin_inset Formula $\mathcal{P}_{\left(uv\right)}$
+\end_inset
+
+ Träger von 
+\begin_inset Formula $g$
+\end_inset
+
+, wenn 
+\begin_inset Formula $\hat{\pi}_{\left(uv\right)}g=g$
+\end_inset
+
+, und daher ist 
+\begin_inset Formula $\mathcal{P}_{g}$
+\end_inset
+
+ ebenfalls ein Träger von 
+\begin_inset Formula $g$
+\end_inset
+
+.
+ Wenn es einen gröberen Träger 
+\begin_inset Formula $\mathcal{P}'$
+\end_inset
+
+ gäbe, dann müsste dieser zwei Elemente 
+\begin_inset Formula $u,v\in U$
+\end_inset
+
+ kombinieren, die in 
+\begin_inset Formula $\mathcal{P}_{g}$
+\end_inset
+
+ getrennt sind, und für die 
+\begin_inset Formula $\hat{\pi}_{\left(uv\right)}g=g$
+\end_inset
+
+ gilt.
+ In diesem Fall ist aber die Partition 
+\begin_inset Formula $\mathcal{P}_{\left(uv\right)}$
+\end_inset
+
+ mit in 
+\begin_inset Formula $\mathcal{P}_{g}$
+\end_inset
+
+ aufgenommen worden, und es gilt 
+\begin_inset Formula $\mathcal{P}_{\left(uv\right)}\preceq\mathcal{P}_{g}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Für die Mengen 
+\begin_inset Formula $\left(S_{i}\right)_{i\in\mathbb{N}}$
+\end_inset
+
+ gilt 
+\begin_inset Formula $S_{i}\subseteq\mathrm{Orb}_{\mathcal{C}}\left(g\right)$
+\end_inset
+
+, denn per Induktion existiert für jedes Gate 
+\begin_inset Formula $g'\in S_{i}$
+\end_inset
+
+ eine Folge von 
+\begin_inset Formula $i$
+\end_inset
+
+ Transpositionen 
+\begin_inset Formula $\pi_{1}\cdots\pi_{i}$
+\end_inset
+
+, so dass 
+\begin_inset Formula $\hat{\pi}_{1}\cdots\hat{\pi}_{i}$
+\end_inset
+
+ das Gate 
+\begin_inset Formula $g$
+\end_inset
+
+ auf 
+\begin_inset Formula $g'$
+\end_inset
+
+ abbildet.
+ Ferner besteht jede Permutation 
+\begin_inset Formula $\pi$
+\end_inset
+
+ aus einer Folge von höchstens 
+\begin_inset Formula $\left|U\right|$
+\end_inset
+
+ Transpositionen, so dass 
+\begin_inset Formula $S_{\left|U\right|}\supseteq\mathrm{Orb}_{\mathcal{C}}\left(g\right)$
+\end_inset
+
+ den gesamten Orbit von 
+\begin_inset Formula $g$
+\end_inset
+
+ enthält.
+\end_layout
+
+\begin_layout Proof
+Es existieren weniger als 
+\begin_inset Formula $\left|U\right|^{2}$
+\end_inset
+
+ Transpositionen, so dass der Schritt 1 in 
+\begin_inset Formula $\left|G\right|^{3}\left|U\right|^{2}$
+\end_inset
+
+-Zeit abgeschlossen wird.
+ Ebenso wird Schritt 2 in 
+\begin_inset Formula $\left|U\right|^{3}$
+\end_inset
+
+-Zeit abgeschlossen (die Operation 
+\begin_inset Formula $\mathcal{P}\sqcup\mathcal{P}'$
+\end_inset
+
+ für Partitionen ist durch eine Union-Find-Datenstruktur effektiv in 
+\begin_inset Formula $\left|U\right|$
+\end_inset
+
+-Zeit berechenbar).
+ Schritt 3 erfordert eine Iteration bis 
+\begin_inset Formula $S_{\left|U\right|}$
+\end_inset
+
+, wobei jeder Durchlauf 
+\begin_inset Formula $\left|U\right|^{2}$
+\end_inset
+
+-Zeit benötigt.
+ Insgesamt läuft der Algorithmus in 
+\begin_inset Formula $\left|G\right|^{3}\left|U\right|^{3}$
+\end_inset
+
+-Zeit.
+\end_layout
+
+\begin_layout Section
+Auswertung
+\end_layout
+
+\begin_layout Standard
+Für eine rigide, symmetrische 
+\begin_inset Formula $k$
+\end_inset
+
+-stellige 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Multischaltkreisfamilie 
+\begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ gilt nach Korollar 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:korollar-23"
+
+\end_inset
+
+ 
+\begin_inset Formula $\mathrm{SP}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$
+\end_inset
+
+.
+ Seien also 
+\begin_inset Formula $n_{0},c\in\mathbb{N}$
+\end_inset
+
+ so gewählt, dass 
+\begin_inset Formula $\mathrm{SP}\left(\mathcal{C}_{n}\right)\leqslant c$
+\end_inset
+
+ für 
+\begin_inset Formula $n\geqslant n_{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Zur Erinnerung: 
+\begin_inset Formula $\mathrm{SP}\left(\mathcal{C}\right)$
+\end_inset
+
+ misst die maximale Größe der Vereinigung aller nicht-größten Teile 
+\begin_inset Formula $U\backslash P_{m}$
+\end_inset
+
+ des gröbsten Trägers 
+\begin_inset Formula $\mathrm{SP}\left(g\right)=\left\{ P_{1},\cdots,P_{m}\right\} $
+\end_inset
+
+, 
+\begin_inset Formula $\left|P_{1}\right|\leqslant\cdots\leqslant\left|P_{m}\right|$
+\end_inset
+
+ jedes Gates 
+\begin_inset Formula $g$
+\end_inset
+
+ von 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Per Definition ist 
+\begin_inset Formula $\mathcal{P}_{U\backslash P_{m}}=\left\{ \left\{ u\right\} \mid u\in U\backslash P_{m}\right\} \cup\left\{ P_{m}\right\} \preceq\mathrm{SP}\left(g\right)$
+\end_inset
+
+ ein Träger von 
+\begin_inset Formula $g$
+\end_inset
+
+, und 
+\begin_inset Formula $\left|\mathcal{P}_{U\backslash P_{m}}\right|\coloneqq1+\left|U\backslash P_{m}\right|\leqslant1+c$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Es sei 
+\begin_inset Formula $\mathrm{sp}\left(g\right)\coloneqq U\backslash P_{m}$
+\end_inset
+
+ die Menge der in 
+\begin_inset Formula $\mathcal{P}_{U\backslash P_{m}}$
+\end_inset
+
+ getrennten Elemente; diese Menge nennen wir den 
+\series bold
+kanonischen Support
+\series default
+ des Gates 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Wir möchten 
+\begin_inset Formula $\mathcal{C}_{n}$
+\end_inset
+
+ auf beliebigen Strukturen 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+\end_inset
+
+ (nicht nur 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$
+\end_inset
+
+) auswerten, wofür eine beliebige Einbettung 
+\begin_inset Formula $\pi:A\rightarrow\left[1,n\right]$
+\end_inset
+
+ definiert werden muss.
+ Es wird nun gezeigt, dass die Auswertung des Gates 
+\begin_inset Formula $g$
+\end_inset
+
+ nur von der Abbildung 
+\begin_inset Formula $\pi_{\mid\pi^{-1}\mathrm{sp}\left(g\right)}$
+\end_inset
+
+ abhängt, die die Teilmenge 
+\begin_inset Formula $\pi^{-1}\mathrm{sp}\left(g\right)$
+\end_inset
+
+ auf 
+\begin_inset Formula $\mathrm{sp}\left(g\right)$
+\end_inset
+
+ abbildet.
+ Die Abbildung der übrigen Elemente ist für 
+\begin_inset Formula $g$
+\end_inset
+
+ unbedeutend.
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ 
 \end_layout
 
 \begin_layout Chapter
