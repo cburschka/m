@@ -1652,15 +1652,15 @@ Die Auswertungsfunktion für eine Struktur
 
 \begin_layout Definition
 Eine Logik 
-\begin_inset Formula $\mathscr{L}\left[\sigma\right]$
+\begin_inset Formula $\mathcal{L}\left[\sigma\right]$
 \end_inset
 
  besteht aus der Sprache der 
-\begin_inset Formula $\mathscr{L}\left[\sigma\right]$
+\begin_inset Formula $\mathcal{L}\left[\sigma\right]$
 \end_inset
 
 -Terme, der Sprache der 
-\begin_inset Formula $\mathscr{L}\left[\sigma\right]$
+\begin_inset Formula $\mathcal{L}\left[\sigma\right]$
 \end_inset
 
 -Formeln, und der Auswertungsfunktion 
@@ -1672,7 +1672,7 @@ Eine Logik
 
 \begin_layout Definition
 Für einen 
-\begin_inset Formula $\mathscr{L}\left[\sigma\right]$
+\begin_inset Formula $\mathcal{L}\left[\sigma\right]$
 \end_inset
 
 -Term 
@@ -1685,7 +1685,7 @@ Für einen
 
  ein Element des Universums.
  Für eine 
-\begin_inset Formula $\mathscr{L}\left[\sigma\right]$
+\begin_inset Formula $\mathcal{L}\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -1861,7 +1861,7 @@ Entsprechend sei
 
  erfüllenden Tupel.
  Somit beschreibt jede 
-\begin_inset Formula $\mathscr{L}\left[\sigma\right]$
+\begin_inset Formula $\mathcal{L}\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -1959,7 +1959,7 @@ Es stehe
 
 \begin_layout Definition
 Für eine 
-\begin_inset Formula $\mathscr{L}\left[\sigma\right]$
+\begin_inset Formula $\mathcal{L}\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -2486,15 +2486,15 @@ Fixpunktlogik
 
 \begin_layout Definition
 Eine Logik 
-\begin_inset Formula $\mathscr{L}$
+\begin_inset Formula $\mathcal{L}$
 \end_inset
 
  erweitert die Logik 
-\begin_inset Formula $\mathscr{L}'$
+\begin_inset Formula $\mathcal{L}'$
 \end_inset
 
 , wenn sie die Syntax und Semantik von 
-\begin_inset Formula $\mathscr{L}'$
+\begin_inset Formula $\mathcal{L}'$
 \end_inset
 
  übernimmt, und zusätzliche Produktionen einführt.
@@ -2561,7 +2561,7 @@ Wir definieren die Klasse der
 
 \begin_layout Enumerate
 Jede 
-\begin_inset Formula $\mathscr{L}\left[\sigma\backslash\left\{ P\right\} \right]$
+\begin_inset Formula $\mathcal{L}\left[\sigma\backslash\left\{ P\right\} \right]$
 \end_inset
 
 -Formel 
@@ -3123,7 +3123,7 @@ Die Orakelerweiterung fügt einer Logik eine Anzahl von Relationssymbolen
 \end_inset
 
 -Orakel, 
-\begin_inset Formula $\mathscr{L}+\Upsilon$
+\begin_inset Formula $\mathcal{L}+\Upsilon$
 \end_inset
 
 -Logik
@@ -3172,7 +3172,7 @@ Sei
 \end_inset
 
  disjunkte relationale Signatur und 
-\begin_inset Formula $\mathscr{L}$
+\begin_inset Formula $\mathcal{L}$
 \end_inset
 
  eine Logik (zum Beispiel 
@@ -3188,11 +3188,11 @@ Sei
 
 \begin_layout Definition
 Die Syntax der 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$
 \end_inset
 
 -Logik ist die der Logik 
-\begin_inset Formula $\mathscr{L}\left[\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right]$
+\begin_inset Formula $\mathcal{L}\left[\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right]$
 \end_inset
 
 .
@@ -3216,7 +3216,7 @@ Für eine endliche
 \end_inset
 
  werden 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon\right)$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon\right)$
 \end_inset
 
 -Ausdrücke auf der disjunkten Vereinigung von 
@@ -3272,11 +3272,11 @@ Falls
 \end_inset
 
  nur die Ordnung enthält, so wird 
-\begin_inset Formula $\mathscr{L}+\Upsilon$
+\begin_inset Formula $\mathcal{L}+\Upsilon$
 \end_inset
 
  auch als 
-\begin_inset Formula $\mathscr{L}+\mathbf{ORD}$
+\begin_inset Formula $\mathcal{L}+\mathbf{ORD}$
 \end_inset
 
  bezeichnet.
@@ -3329,7 +3329,7 @@ X
 
 \begin_layout Definition
 Die Logik 
-\begin_inset Formula $\mathscr{L}+\Upsilon_{\mathrm{arb}}$
+\begin_inset Formula $\mathcal{L}+\Upsilon_{\mathrm{arb}}$
 \end_inset
 
  werde auch als 
@@ -3390,7 +3390,7 @@ Der Zählterm ist eine zusätzliche Termproduktion, die die erfüllenden Belegun
 
 \begin_layout Definition
 Sei 
-\begin_inset Formula $\mathscr{L}$
+\begin_inset Formula $\mathcal{L}$
 \end_inset
 
  eine beliebige Logik, 
@@ -3410,11 +3410,11 @@ Sei
 
 \begin_layout Definition
 Die 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\#\right)$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+\#\right)$
 \end_inset
 
 -Logik erweitert die 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon\right)$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon\right)$
 \end_inset
 
 -Logik um die folgende Regel:
@@ -3424,7 +3424,7 @@ Die
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 (TC) Für eine 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\#\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -3440,7 +3440,7 @@ Die
 \end_inset
 
  ein 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\#\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$
 \end_inset
 
 -Term.
@@ -3530,7 +3530,7 @@ Der Zählquantor ist eine zusätzlicher Quantor, der die Zahl der erfüllenden
 
 \begin_layout Definition
 Sei 
-\begin_inset Formula $\mathscr{L}$
+\begin_inset Formula $\mathcal{L}$
 \end_inset
 
  eine beliebige Logik, 
@@ -3550,11 +3550,11 @@ Sei
 
 \begin_layout Definition
 Die 
-\begin_inset Formula $\mathscr{L}+\Upsilon+\exists^{=}$
+\begin_inset Formula $\mathcal{L}+\Upsilon+\exists^{=}$
 \end_inset
 
 -Logik erweitert die 
-\begin_inset Formula $\mathscr{L}+\Upsilon$
+\begin_inset Formula $\mathcal{L}+\Upsilon$
 \end_inset
 
 -Logik um die folgende Regel:
@@ -3564,7 +3564,7 @@ Die
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 (QC) Für eine 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -3580,7 +3580,7 @@ Die
 \end_inset
 
  eine 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$
 \end_inset
 
 -Formel.
@@ -3648,7 +3648,7 @@ Der Majority-Quantor funktioniert wie der Zählquantor und prüft, ob die
 
 \begin_layout Definition
 Sei 
-\begin_inset Formula $\mathscr{L}$
+\begin_inset Formula $\mathcal{L}$
 \end_inset
 
  eine beliebige Logik, 
@@ -3668,11 +3668,11 @@ Sei
 
 \begin_layout Definition
 Die 
-\begin_inset Formula $\mathscr{L}+\Upsilon+\exists^{\geqslant}$
+\begin_inset Formula $\mathcal{L}+\Upsilon+\exists^{\geqslant}$
 \end_inset
 
 -Logik erweitert die 
-\begin_inset Formula $\mathscr{L}+\Upsilon$
+\begin_inset Formula $\mathcal{L}+\Upsilon$
 \end_inset
 
 -Logik um die folgende Regel:
@@ -3682,7 +3682,7 @@ Die
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 (QM) Für eine 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -3698,7 +3698,7 @@ Die
 \end_inset
 
  eine 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$
 \end_inset
 
 -Formel.
@@ -3745,15 +3745,15 @@ Auf einer endlichen Struktur
 \end_deeper
 \begin_layout Proposition
 Die Logiken 
-\begin_inset Formula $\mathscr{L}+\Upsilon+\#$
+\begin_inset Formula $\mathcal{L}+\Upsilon+\#$
 \end_inset
 
  und 
-\begin_inset Formula $\mathscr{L}+\Upsilon+\exists^{=}$
+\begin_inset Formula $\mathcal{L}+\Upsilon+\exists^{=}$
 \end_inset
 
  und 
-\begin_inset Formula $\mathscr{L}+\Upsilon+\exists^{\geqslant}$
+\begin_inset Formula $\mathcal{L}+\Upsilon+\exists^{\geqslant}$
 \end_inset
 
  sind äquivalent:
@@ -3761,7 +3761,7 @@ Die Logiken
 
 \begin_layout Proof
 Jede 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\#\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -3769,7 +3769,7 @@ Jede
 \end_inset
 
  ist äquivalent zu einer 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -3791,7 +3791,7 @@ Falls
 \end_inset
 
  eine 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$
 \end_inset
 
 -Formel ohne Zählterm ist, so sei 
@@ -3900,7 +3900,7 @@ Falls
 \end_inset
 
 -Tupel von 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\#\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$
 \end_inset
 
 -Termen 
@@ -3929,7 +3929,7 @@ y_{i}=x_{i} & \mathrm{sonst}
 \end_deeper
 \begin_layout Proof
 Jede 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -3937,7 +3937,7 @@ Jede
 \end_inset
 
  ist äquivalent zu einer 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -3962,7 +3962,7 @@ Falls
 \end_inset
 
  äquivalente 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$
 \end_inset
 
 -Formel, 
@@ -4003,7 +4003,7 @@ Die Formel
 \end_deeper
 \begin_layout Proof
 Schließlich ist jede 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -4011,7 +4011,7 @@ Schließlich ist jede
 \end_inset
 
  äquivalent zu einer 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\#\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -4032,7 +4032,7 @@ Falls
 \end_inset
 
  eine 
-\begin_inset Formula $\left(\mathscr{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$
 \end_inset
 
 -Formel mit 
@@ -4053,7 +4053,7 @@ Falls
 \end_deeper
 \begin_layout Standard
 Im folgenden wird mit 
-\begin_inset Formula $\mathscr{L}+\Upsilon+C$
+\begin_inset Formula $\mathcal{L}+\Upsilon+C$
 \end_inset
 
  stets eine dieser äquivalenten Zähl-Logiken bezeichnet.
@@ -4069,11 +4069,11 @@ Falls
 \end_inset
 
 , so heiße 
-\begin_inset Formula $\mathscr{L}+\Upsilon+C$
+\begin_inset Formula $\mathcal{L}+\Upsilon+C$
 \end_inset
 
  kurz 
-\begin_inset Formula $\mathscr{L}+C$
+\begin_inset Formula $\mathcal{L}+C$
 \end_inset
 
 .

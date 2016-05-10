@@ -7,7 +7,6 @@
 \setcounter{tocdepth}{3}
 \usepackage{refstyle}
 \usepackage{float}
-\usepackage{mathrsfs}
 \usepackage{mathtools}
 \usepackage{enumitem}
 \usepackage{amsmath}
@@ -509,12 +508,12 @@ Die Auswertungsfunktion für eine Struktur $\mathfrak{A}$ und eine
 Belegung $\beta$ wird durch $\left\llbracket \cdot\right\rrbracket \left(\mathfrak{A},\beta\right)$
 notiert.
 \begin{defn}
-Eine Logik $\mathscr{L}\left[\sigma\right]$ besteht aus der Sprache
-der $\mathscr{L}\left[\sigma\right]$-Terme, der Sprache der $\mathscr{L}\left[\sigma\right]$-Formeln,
+Eine Logik $\mathcal{L}\left[\sigma\right]$ besteht aus der Sprache
+der $\mathcal{L}\left[\sigma\right]$-Terme, der Sprache der $\mathcal{L}\left[\sigma\right]$-Formeln,
 und der Auswertungsfunktion $\left\llbracket \cdot\right\rrbracket $.
 
-Für einen $\mathscr{L}\left[\sigma\right]$-Term $t$ ist $\left\llbracket t\right\rrbracket \left(\mathfrak{A},\beta\right)\in A$
-ein Element des Universums. Für eine $\mathscr{L}\left[\sigma\right]$-Formel
+Für einen $\mathcal{L}\left[\sigma\right]$-Term $t$ ist $\left\llbracket t\right\rrbracket \left(\mathfrak{A},\beta\right)\in A$
+ein Element des Universums. Für eine $\mathcal{L}\left[\sigma\right]$-Formel
 $\varphi$ ist $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\in\left\{ 0,1\right\} $
 ein Wahrheitswert.
 \end{defn}
@@ -556,7 +555,7 @@ anstelle von $\mathfrak{A}\models\varphi^{\bar{x}\mapsto\bar{a}}$.
 
 Entsprechend sei $q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\varphi\left[\bar{a}\right]\right\} $
 die Relation der $\varphi$ erfüllenden Tupel. Somit beschreibt jede
-$\mathscr{L}\left[\sigma\right]$-Formel $\varphi\left(\bar{x}\right)$
+$\mathcal{L}\left[\sigma\right]$-Formel $\varphi\left(\bar{x}\right)$
 eine $\sigma$-Anfrage $q_{\varphi\left(\bar{x}\right)}$, und jeder
 Satz eine $\sigma$-Eigenschaft.
 
@@ -577,7 +576,7 @@ die von $\varphi^{\beta}$ definierte $\sigma$-Anfrage.
 \end{defn}
 
 \begin{defn}
-Für eine $\mathscr{L}\left[\sigma\right]$-Formel $\varphi$ und $n\in\mathbb{N}$
+Für eine $\mathcal{L}\left[\sigma\right]$-Formel $\varphi$ und $n\in\mathbb{N}$
 drücke $\models_{n}\varphi$ aus, dass diese von allen $\sigma$-Strukturen
 $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 der Größe $n$ unter allen Belegungen erfüllt wird. Die Notation $\models_{\mathrm{fin}}\varphi$
@@ -713,8 +712,8 @@ nicht eine Funktion der Eingabelänge ist.)
 
 \section{Fixpunktlogik}
 \begin{defn}
-Eine Logik $\mathscr{L}$ erweitert die Logik $\mathscr{L}'$, wenn
-sie die Syntax und Semantik von $\mathscr{L}'$ übernimmt, und zusätzliche
+Eine Logik $\mathcal{L}$ erweitert die Logik $\mathcal{L}'$, wenn
+sie die Syntax und Semantik von $\mathcal{L}'$ übernimmt, und zusätzliche
 Produktionen einführt.
 \end{defn}
 
@@ -733,7 +732,7 @@ Relationssymbolen und Relationsvariablen zu verstehen.
 Wir definieren die Klasse der $P$-positiven und $P$-negativen Formeln
 für $P\in\sigma$ wie folgt:\end{defn}
 \begin{enumerate}
-\item Jede $\mathscr{L}\left[\sigma\backslash\left\{ P\right\} \right]$-Formel
+\item Jede $\mathcal{L}\left[\sigma\backslash\left\{ P\right\} \right]$-Formel
 $\varphi$ ist sowohl $P$-positiv als auch $P$-negativ, da sie $P$
 nicht enthält.
 \item Für $P/k\in\sigma$ und jedes $k$-Tupel von $P$-positiven Termen
@@ -856,7 +855,7 @@ $\varphi'$ übersetzt werden.\cite{Zaid,Grohe2005,Dziembowski96bounded-variablef
 Die Orakelerweiterung fügt einer Logik eine Anzahl von Relationssymbolen
 mit vordefinierter Interpretation hinzu.
 \begin{defn}
-\textbf{$\eta$-Orakel, $\mathscr{L}+\Upsilon$-Logik}
+\textbf{$\eta$-Orakel, $\mathcal{L}+\Upsilon$-Logik}
 
 Sei $\eta$ eine relationale Signatur. Ein $\eta$-Orakel $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta\right)$
 ist eine Funktion, die jeder natürlichen Zahl $n$ eine geordnete
@@ -864,15 +863,15 @@ $\left(\eta\uplus\left\{ \leqslant\right\} \right)$-Struktur $\Upsilon\left(n\ri
 über $\left[0,n\right]$ zuweist.
 
 Sei $\sigma$ eine von $\eta\uplus\left\{ \leqslant\right\} $ disjunkte
-relationale Signatur und $\mathscr{L}$ eine Logik (zum Beispiel $\mathrm{FO}$
+relationale Signatur und $\mathcal{L}$ eine Logik (zum Beispiel $\mathrm{FO}$
 oder $\mathrm{LFP}$).
 
-Die Syntax der $\left(\mathscr{L}+\Upsilon\right)\left[\sigma\right]$-Logik
-ist die der Logik $\mathscr{L}\left[\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right]$.
+Die Syntax der $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$-Logik
+ist die der Logik $\mathcal{L}\left[\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right]$.
 
 Für eine endliche $\sigma$-Struktur $\mathfrak{A}$ mit $A\cap\left[0,n\right]=\emptyset$
 und eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
-werden $\left(\mathscr{L}+\Upsilon\right)$-Ausdrücke auf der disjunkten
+werden $\left(\mathcal{L}+\Upsilon\right)$-Ausdrücke auf der disjunkten
 Vereinigung von $\mathfrak{A}$ mit der entsprechenden Orakelstruktur
 $\Upsilon\left(\left|A\right|\right)$ ausgewertet:
 \[
@@ -885,8 +884,8 @@ $\Upsilon\left(\left|A\right|\right)$ ausgewertet:
 \textbf{\label{def:fo-ord}$\mathcal{L}+\mathbf{ORD}$, $\mathcal{L}+\mathbf{ARB}$.}
 
 Falls $\eta$ leer ist, und daher $\Upsilon\left(n\right)=\left(\left[0,n\right],\leqslant\right)$
-nur die Ordnung enthält, so wird $\mathscr{L}+\Upsilon$ auch als
-$\mathscr{L}+\mathbf{ORD}$ bezeichnet.
+nur die Ordnung enthält, so wird $\mathcal{L}+\Upsilon$ auch als
+$\mathcal{L}+\mathbf{ORD}$ bezeichnet.
 
 Die unendliche Signatur $\eta_{\mathrm{arb}}=\left\{ R_{X}\mid X\in\bigcup_{k\in\mathbb{N}}2^{\mathbb{N}^{k}}\right\} $
 enthalte ein Symbol für jede beliebige Relation auf den natürlichen
@@ -904,7 +903,7 @@ X
 \end{eqnarray*}
 
 
-Die Logik $\mathscr{L}+\Upsilon_{\mathrm{arb}}$ werde auch als $\mathcal{L}+\mathbf{ARB}$
+Die Logik $\mathcal{L}+\Upsilon_{\mathrm{arb}}$ werde auch als $\mathcal{L}+\mathbf{ARB}$
 bezeichnet.
 \end{defn}
 Wir führen mehrere syntaktische Erweiterungen der Logik $\mathrm{FO}+\Upsilon$
@@ -919,16 +918,16 @@ haben.
 Der Zählterm ist eine zusätzliche Termproduktion, die die erfüllenden
 Belegungen einer Formel zählt.
 
-Sei $\mathscr{L}$ eine beliebige Logik, $\eta$ eine relationale
+Sei $\mathcal{L}$ eine beliebige Logik, $\eta$ eine relationale
 Signatur, und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}\left(\eta\right)$
 ein $\eta$-Orakel.
 
-Die $\left(\mathscr{L}+\Upsilon+\#\right)$-Logik erweitert die $\left(\mathscr{L}+\Upsilon\right)$-Logik
+Die $\left(\mathcal{L}+\Upsilon+\#\right)$-Logik erweitert die $\left(\mathcal{L}+\Upsilon\right)$-Logik
 um die folgende Regel:
 \begin{elabeling}{00.00.0000}
-\item [{(TC)}] Für eine $\left(\mathscr{L}+\Upsilon+\#\right)\left[\sigma\right]$-Formel
+\item [{(TC)}] Für eine $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$-Formel
 $\varphi$ und eine Variable $x\in\mathbf{var}$ ist $\#x\varphi$
-ein $\left(\mathscr{L}+\Upsilon+\#\right)\left[\sigma\right]$-Term.
+ein $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$-Term.
 \begin{eqnarray*}
 \mathrm{frei}\left(\#x\varphi\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(\#x\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
 \end{eqnarray*}
@@ -961,16 +960,16 @@ aber mit disjunktem Orakel)
 Der Zählquantor ist eine zusätzlicher Quantor, der die Zahl der erfüllenden
 Belegungen einer Formel mit einer Variable vergleicht.
 
-Sei $\mathscr{L}$ eine beliebige Logik, $\eta$ eine relationale
+Sei $\mathcal{L}$ eine beliebige Logik, $\eta$ eine relationale
 Signatur, und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta\right)$
 ein $\eta$-Orakel.
 
-Die $\mathscr{L}+\Upsilon+\exists^{=}$-Logik erweitert die $\mathscr{L}+\Upsilon$-Logik
+Die $\mathcal{L}+\Upsilon+\exists^{=}$-Logik erweitert die $\mathcal{L}+\Upsilon$-Logik
 um die folgende Regel:
 \begin{elabeling}{00.00.0000}
-\item [{(QC)}] Für eine $\left(\mathscr{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel
+\item [{(QC)}] Für eine $\left(\mathcal{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel
 $\varphi$ und zwei Variablen $x,y\in\mathbf{var}$ ist $\exists^{=y}x\varphi$
-eine $\left(\mathscr{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel.
+eine $\left(\mathcal{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
 \mathrm{frei}\left(\exists^{=y}x\varphi\right)=\left\{ y\right\} \cup\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right) &  & \mathrm{var}\left(\exists^{=y}x\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x,y\right\} 
 \end{eqnarray*}
@@ -1001,16 +1000,16 @@ Der Majority-Quantor funktioniert wie der Zählquantor und prüft, ob
 die Zahl der erfüllenden Belegungen mindestens den Wert einer Variable
 erreicht.
 
-Sei $\mathscr{L}$ eine beliebige Logik, $\eta$ eine relationale
+Sei $\mathcal{L}$ eine beliebige Logik, $\eta$ eine relationale
 Signatur, und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta\right)$
 ein $\eta$-Orakel.
 
-Die $\mathscr{L}+\Upsilon+\exists^{\geqslant}$-Logik erweitert die
-$\mathscr{L}+\Upsilon$-Logik um die folgende Regel:
+Die $\mathcal{L}+\Upsilon+\exists^{\geqslant}$-Logik erweitert die
+$\mathcal{L}+\Upsilon$-Logik um die folgende Regel:
 \begin{elabeling}{00.00.0000}
-\item [{(QM)}] Für eine $\left(\mathscr{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
+\item [{(QM)}] Für eine $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
 $\varphi$ und zwei Variablen $x,y\in\mathbf{var}$ ist $\exists^{\geqslant y}x\varphi$
-eine $\left(\mathscr{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel.
+eine $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
 \mathrm{frei}\left(\exists^{\geqslant y}x\varphi\right)=\left\{ y\right\} \cup\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right) &  & \mathrm{var}\left(\exists^{\geqslant y}x\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x,y\right\} 
 \end{eqnarray*}
@@ -1034,15 +1033,15 @@ mit einer Belegung
 \end{elabeling}
 \end{defn}
 \begin{prop}
-Die Logiken $\mathscr{L}+\Upsilon+\#$ und $\mathscr{L}+\Upsilon+\exists^{=}$
-und $\mathscr{L}+\Upsilon+\exists^{\geqslant}$ sind äquivalent:\end{prop}
+Die Logiken $\mathcal{L}+\Upsilon+\#$ und $\mathcal{L}+\Upsilon+\exists^{=}$
+und $\mathcal{L}+\Upsilon+\exists^{\geqslant}$ sind äquivalent:\end{prop}
 \begin{proof}
-Jede $\left(\mathscr{L}+\Upsilon+\#\right)\left[\sigma\right]$-Formel
-$\varphi$ ist äquivalent zu einer $\left(\mathscr{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel
+Jede $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$-Formel
+$\varphi$ ist äquivalent zu einer $\left(\mathcal{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel
 $\varphi'$. Dies wird per Induktion über den Aufbau von $\varphi$
 gezeigt.
 \begin{casenv}
-\item Falls $\varphi$ eine $\left(\mathscr{L}+\Upsilon\right)\left[\sigma\right]$-Formel
+\item Falls $\varphi$ eine $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$-Formel
 ohne Zählterm ist, so sei $\varphi'\coloneqq\varphi$.
 \item Falls $\varphi$ von der Form $\neg\psi$ oder $\left(\psi_{1}\gamma\cdots\gamma\psi_{k}\right)$
 oder $Qx\psi$ ist, so existieren per Induktionsannahme die äquivalenten
@@ -1059,7 +1058,7 @@ eine neue Variable, und:
 \]
 
 \item Falls $\varphi=R\bar{x}$ für $R/k\in\sigma\cup\eta\cup\left\{ \leqslant\right\} $
-und ein $k$-Tupel von $\left(\mathscr{L}+\Upsilon+\#\right)\left[\sigma\right]$-Termen
+und ein $k$-Tupel von $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$-Termen
 $\bar{x}$ ist, so sei $\bar{y}\in\left(\mathbf{var}\backslash\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right)\right)^{k}$
 ein Tupel von neuen Variablen, und:
 \begin{eqnarray*}
@@ -1071,12 +1070,12 @@ y_{i}=x_{i} & \mathrm{sonst}
 \end{eqnarray*}
 
 \end{casenv}
-Jede $\left(\mathscr{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel
-$\varphi$ ist äquivalent zu einer $\left(\mathscr{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
+Jede $\left(\mathcal{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel
+$\varphi$ ist äquivalent zu einer $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
 $\varphi'$:
 \begin{casenv}
 \item Falls $\varphi=\exists^{=y}x\psi$, so sei $\psi'$ eine zu $\psi$
-äquivalente $\left(\mathscr{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel,
+äquivalente $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel,
 $z\in\mathbf{var}\backslash\mathrm{frei}\left(\psi\right)$ eine neue
 Variable, und: 
 \[
@@ -1087,12 +1086,12 @@ erfüllt, genau dann wenn gilt: Die Formel $\exists^{\geqslant z}x\psi$
 ist für alle $\beta\left(z\right)\in\left[0,n\right]$ erfüllt, genau
 dann wenn $\beta\left(z\right)\leqslant\beta\left(y\right)$.
 \end{casenv}
-Schließlich ist jede $\left(\mathscr{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
-$\varphi$ äquivalent zu einer $\left(\mathscr{L}+\Upsilon+\#\right)\left[\sigma\right]$-Formel
+Schließlich ist jede $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
+$\varphi$ äquivalent zu einer $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$-Formel
 $\varphi'$:
 \begin{casenv}
 \item Falls $\varphi=\exists^{\geqslant y}x\psi$, so sei $\psi'$ eine
-$\left(\mathscr{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
+$\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
 mit $\psi\equiv\psi'$, und:
 \[
 \varphi'\coloneqq y\leqslant\#x\psi
@@ -1100,11 +1099,11 @@ mit $\psi\equiv\psi'$, und:
 
 \end{casenv}
 \end{proof}
-Im folgenden wird mit $\mathscr{L}+\Upsilon+C$ stets eine dieser
+Im folgenden wird mit $\mathcal{L}+\Upsilon+C$ stets eine dieser
 äquivalenten Zähl-Logiken bezeichnet.
 \begin{defn}
 Falls $\eta$ leer ist, und daher $\Upsilon\left(n\right)=\left(\left\{ 0,\cdots,n\right\} ,\leqslant\right)$,
-so heiße $\mathscr{L}+\Upsilon+C$ kurz $\mathscr{L}+C$.\end{defn}
+so heiße $\mathcal{L}+\Upsilon+C$ kurz $\mathcal{L}+C$.\end{defn}
 \begin{example*}
 Die Logik $\mathrm{FO}+C$ kann ausdrücken, dass die $\sigma$-Struktur
 eine gerade Größe hat. Bekanntlich ist diese $\sigma$-Eigenschaft
