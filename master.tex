@@ -134,6 +134,8 @@ Wintersemester 2015 / 2016}
 
 \chapter{Einleitung}
 
+Wir betrachten die logische Charakterisierung von Booleschen Schaltkreisklassen.
+
 \pagebreak{}
 
 
@@ -221,8 +223,8 @@ vorhanden), so dass für alle Elemente $z\in X$ gilt:
 \]
 
 
-Für eine Funktion $f:U\rightarrow\mathbb{R}$ und eine Menge $X\subseteq U$
-bezeichnen $\min_{x\in X}f\left(x\right)\in\mathbb{R}$ und $\max_{x\in X}f\left(x\right)\in\mathbb{R}$
+Für eine Funktion $f:U\rightarrow\mathbb{N}$ und eine Menge $X\subseteq U$
+bezeichnen $\min_{x\in X}f\left(x\right)\in\mathbb{N}$ und $\max_{x\in X}f\left(x\right)\in\mathbb{N}$
 die folgende Abkürzungen:
 \begin{eqnarray*}
 \min_{x\in X}f\left(x\right) & \coloneqq & \min_{\leqslant}\left\{ f\left(x\right)\mid x\in X\right\} \\
@@ -230,6 +232,18 @@ die folgende Abkürzungen:
 \end{eqnarray*}
 
 \end{notation}
+
+\begin{defn}
+\textbf{Asymptotische Klassen}
+
+Für jede Funktion $f:\mathbb{N}\rightarrow\mathbb{N}$ definieren
+wir die Funktionsklassen $\mathcal{O}\left(f\right),\Omega\left(f\right)\subseteq\mathrm{Abb}\left(\mathbb{N},\mathbb{N}\right)$: \end{defn}
+\begin{itemize}
+\item Es gelte $g\in\mathcal{O}\left(f\right)$ genau dann wenn für ein
+$n_{0}\in\mathbb{N}$, ein $c\in\mathbb{N}$ und alle $n\geqslant n_{0}$
+gilt: $g\left(n\right)\leqslant c\cdot f\left(n\right)$.
+\item Es gelte $g\in\Omega\left(f\right)$ genau dann wenn $f\in\mathcal{O}\left(g\right)$.
+\end{itemize}
 
 \begin{defn}
 \textbf{Intervall}
@@ -1206,9 +1220,9 @@ $W\subseteq G\times G$.
  & \cup & \left\{ R\bar{t}\mid R\in\sigma,\bar{t}\in U^{\mathrm{ar}\left(R\right)}\right\} 
 \end{eqnarray*}
 
-\item eine Ausgabefunktion $\Omega:U^{k}\rightarrow G$ (bei $k=0$ ist
-$\Omega\left(\left\langle \right\rangle \right)\in G$ ein einziges
-Output-Gate, und wird mit $\Omega=\Omega\left(\left\langle \right\rangle \right)$
+\item eine Ausgabefunktion\footnote{In Anderson \& Dawar 2014\cite{anderson_et_al:LIPIcs:2014:4445} wird
+zusätzlich die Injektivität von $\Omega$ verlangt.} $\Omega:U^{k}\rightarrow G$ (bei $k=0$ ist $\Omega\left(\left\langle \right\rangle \right)\in G$
+ein einziges Output-Gate, und wird mit $\Omega=\Omega\left(\left\langle \right\rangle \right)$
 abgekürzt) und 
 \item ein Universum $U$ (üblicherweise $U=\left[1,n\right]$).
 \end{enumerate}
@@ -1253,8 +1267,8 @@ gilt
 
 \item Für $\Sigma\left(g\right)=\phi\in\mathbb{B}$ gilt: 
 \begin{eqnarray*}
-j_{1} & \coloneqq & \sum_{\left(h,g\right)\in E}\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\\
-j_{0} & \coloneqq & \left|\left\{ h\mid\left(h,g\right)\in E\right\} \right|-j_{1}\\
+j_{1} & \coloneqq & \sum_{\left(h,g\right)\in W}\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\\
+j_{0} & \coloneqq & \left|\left\{ h\mid\left(h,g\right)\in W\right\} \right|-j_{1}\\
 \\
 \mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\phi\right]\left(j_{0},j_{1}\right)
 \end{eqnarray*}
@@ -1533,7 +1547,7 @@ Er ist aber nicht symmetrisch: Die Permutation $\left(\begin{array}{cc}
 \begin{defn}
 \textbf{\label{def:Rigidit=0000E4t}Rigidität}
 
-Ein $\left(\sigma,\mathbb{B}\right)$-Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+Ein $\left(\sigma,\mathbb{B}\right)$-Schaltkreis $\mathcal{C}=\left(G,\left[W\right],\Sigma,\Omega,U\right)$
 sei rigide, wenn er keine redundanten Gates besitzt. Formal dürfen
 nicht $g,g'\in G$ existieren, so dass:
 \begin{eqnarray*}
@@ -1546,43 +1560,197 @@ Insbesondere heißt dies, das der Schaltkreis höchstens zwei Konstanten
 $g_{0},g_{1}$ mit $\Sigma\left(g_{0}\right)=\mathbf{0}$ und $\Sigma\left(g_{1}\right)=\mathbf{1}$
 enthält, und jedes Beschriftung $\Sigma\left(g\right)=R\bar{x}$ nur
 einmal vorkommt.
+
+Die Rigidität ist hier analog zu \cite{anderson_et_al:LIPIcs:2014:4445}
+definiert, verlangt aber zusätzlich, dass zwei Gates nicht nur durch
+die Output-Markierung $\Omega$ unterschieden werden. Diese Einschränkung
+ist strenger, schränkt aber die Definition nicht bedeutend ein: Für
+zwei Gates $g,g'\in G$ mit den gleichen Vorgängern $\Sigma\left(g\right)=\Sigma\left(g'\right)$
+erlaubt die nicht-injektive Definition von $\Omega$, dass $g'$ entfernt
+wird und $\Omega'\left(\bar{t}\right)\coloneqq g$ für alle $\bar{t}\in\Omega^{-1}\left(g'\right)$
+gesetzt wird, was die Rigidität herstellt.
 \end{defn}
 Die Rigidität kann nicht in jeder booleschen Basis $\mathbb{B}$ problemlos
 hergestellt werden - zum Beispiel hat ein Majority-Gate $\Sigma\left(g\right)=\mathtt{MAJ}$
-unter Umständen mehrere konstante Vorgänger. Zum Ausgleich erlauben
-wir einen Multigraph:
+unter Umständen mehrere konstante Vorgänger. In \cite{anderson_et_al:LIPIcs:2014:4445}
+wird dafür die Tiefe des Schaltkreises beliebig vergrößert. Hier werden
+wir dafür stattdessen einen Multigraphen einführen:
 \begin{defn}
 \textbf{Multischaltkreis}
 
-Ein $\left(\sigma,\mathbb{B}\right)$-Multischaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
-ist analog zum $\left(\sigma,\mathbb{B}\right)$-Schaltkreis definiert,
-aber $\left(G,W\right)$ bildet einen azyklischen Multigraph:
+Ein $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Multischaltkreis
+$\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ ist analog zum $\left(\sigma,\mathbb{B}\right)$-Schaltkreis
+definiert, aber $\left(G,W\right)$ bildet einen azyklischen Multigraph.
 \[
-W:G\times G\rightarrow\left[0,\left|G\right|\right]
-\]
-\[
-\sum_{h\in G}W\left(h,g\right)\leqslant\left|G\right|\,\mathrm{f\ddot{u}r\,alle}\,g\in G
+\left[W\right]:G\times G\rightarrow\mathbb{N}
 \]
 
-
-(Die Anzahl der eingehenden Kanten sei ohne Beschränkung der Allgemeinheit
-durch $\left|G\right|$ beschränkt.)
 
 Für die Auswertung eines internen Gates gilt analog zu \ref{def:Auswertung-von-Schaltkreisen}:
 \begin{eqnarray*}
-j_{1} & \coloneqq & \sum_{h\in G}\left(\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\cdot W\left(h,g\right)\right)\\
-j_{0} & \coloneqq & \sum_{h\in G}W\left(h,g\right)-j_{1}\\
+j_{1} & \coloneqq & \sum_{h\in G}\left(\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\cdot\left[W\right]\left(h,g\right)\right)\\
+j_{0} & \coloneqq & \sum_{h\in G}\left[W\right]\left(h,g\right)-j_{1}\\
 \mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\Sigma\left(g\right)\right]\left(j_{0},j_{1}\right)
 \end{eqnarray*}
-\end{defn}
-\begin{prop}
-Jeder $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
-kann in Polynomialzeit in einen rigiden Schaltkreis umgewandelt werden.
-Jeder $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreis
-kann in Polynomialzeit zu einem rigiden Multischaltkreis umgewandelt
-werden.\end{prop}
+
+
+Die Größe $\left|\mathcal{C}\right|$ eines Multischaltkreises $\mathcal{C}$
+sei die Summe seiner Gates und Kanten:
+\[
+\left|\mathcal{C}\right|\coloneqq\left|G\right|+\sum_{g,g'\in G^{2}}\left[W\right]\left(g,g'\right)
+\]
+
+
+Die Symmetrie wird auf natürliche Weise angepasst: Der von $\pi$
+induzierte Automorphismus bildet $\left(G,W\right)$ auf den isomorphen
+Multigraphen $\left(\hat{\pi}G,\hat{\pi}W\right)$ mit $\left[W\right]\left(\hat{\pi}g,\hat{\pi}g'\right)=\left[W\right]\left(g,g'\right)$
+ab.\end{defn}
+\begin{lem}
+(nach Lemma 24 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+
+Es existiert ein Algorithmus, der einen beliebigen $\left(\sigma,\mathbb{B}\right)$-Schaltkreis
+$\mathcal{C}$ in einen rigiden Multischaltkreis $\hat{\mathcal{C}}$
+umwandelt, wobei $T\left(\hat{\mathcal{C}}\right)=T\left(\mathcal{C}\right)$
+und $\left|\hat{\mathcal{C}}\right|\leqslant\left|\mathcal{C}\right|+\left|\mathcal{C}\right|^{2}$.
+Der Algorithmus arbeitet in Polynomialzeit $\mathrm{poly}\left(\left|G\right|+\left|U\right|\right)$.\end{lem}
 \begin{proof}
-D
+Sei $\mathcal{D}=\left(G,W,\Sigma,\Omega,U\right)$ ein beliebiger
+$k$-stelliger Schaltkreis. Wir erzeugen zunächst den äquivalenten
+Multischaltkreis $\mathcal{C}\coloneqq\left(G,\left[W\right],\Sigma,\Omega,U\right)$,
+wobei die Tiefe unverändert bleibt und die Größe zu $\left|\mathcal{C}\right|=\left|G\right|+\left|W\right|\leqslant\left|\mathcal{D}\right|+\left|\mathcal{D}\right|^{2}$
+wird.
+
+Berechne nun die Äquivalenzrelation $\sim\subseteq G\times G$, so
+dass $g\sim g'$ genau dann wenn
+\begin{enumerate}
+\item $\Sigma\left(g\right)=\Sigma\left(g'\right)$, und
+\item für alle $h\in W$ gilt $\left[W\right]\left(h,g\right)=\left[W\right]\left(h,g'\right)$.
+\end{enumerate}
+Wenn keine Gates $g,g'\in G$ mit $g\sim g'$ existieren, so ist der
+Schaltkreis rigide, und der Algorithmus ist fertig.
+
+Ansonsten sei $E\subseteq G$ eine Äquivalenzklasse von $\sim$ mit
+mindestens zwei Gates und minimaler Tiefe $T\left(E\right)$. 
+
+Wir berechnen die Funktion $c:G\rightarrow\left[0,\left|E\right|\right]$,
+die für jedes Gate $h\in G$ die Vorgänger in $E$ zählt:
+\[
+c\left(h\right)\coloneqq\sum_{g'\in E}\left[W\right]\left(g',h\right)
+\]
+
+
+Sei $g\in E$ beliebig, und sei $f_{g,E}\left(\mathcal{C}\right)=\mathcal{C}'=\left(G',\left[W'\right],\Sigma',\Omega',U\right)$
+der folgende Multischaltkreis:
+\begin{eqnarray*}
+G' & \coloneqq & G\backslash\left(E\backslash\left\{ g\right\} \right)\\
+\Sigma' & \coloneqq & \Sigma_{\backslash E\backslash\left\{ g\right\} }
+\end{eqnarray*}
+
+\begin{enumerate}
+\item Es werden die von $E$ ausgehenden Kanten $\left(E\times G\right)\cap W$
+aus dem Schaltkreis entfernt. Außerdem werden die eingehenden Kanten
+$W\cap\left(G\times E\backslash\left\{ g\right\} \right)$ der Gates
+$E\backslash\left\{ g\right\} $ entfernt. Nun werden die folgenden
+Kanten für jedes Gate $h\in G$ eingefügt:
+\[
+\left[W'\right]\left(h,i\right)\coloneqq\begin{cases}
+c\left(i\right) & \mathrm{falls}\,h=g\\
+0 & \mathrm{falls}\,h\in E\backslash\left\{ g\right\} \\
+\left[W\right]\left(h,i\right) & \mathrm{sonst}
+\end{cases}
+\]
+
+\item Die Output-Funktion wird wie folgt angepasst:
+\[
+\Omega'\left(\bar{t}\right)\coloneqq\begin{cases}
+g & \mathrm{falls}\,\Omega\left(t\right)\in E\backslash\left\{ g\right\} \\
+\Omega\left(t\right) & \mathrm{sonst}
+\end{cases}
+\]
+
+\end{enumerate}
+Der Schaltkreis $\mathcal{C}'$ ist äquivalent zu dem Schaltkreis
+$\mathcal{C}$ über jeder Struktur $\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$,
+was induktiv über die Tiefe (ausgehend von $g$) nachgewiesen wird:
+\begin{enumerate}
+\item Offensichtlich gilt $\mathcal{C}'\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)$
+für alle $g'\in E$, da die Gates die gleichen Vorgänger und die gleiche
+Beschriftung $\Sigma'\left(g\right)=\Sigma\left(g\right)=\Sigma\left(g'\right)$
+besitzen.
+\item Für jeden direkten Nachfolger $h\in G$ eines Gates $g'\in E$ gilt:
+\begin{eqnarray*}
+j_{1} & \coloneqq & \sum_{i\in G'}\left[W\right]\left(i,h\right)\cdot\mathcal{C}\left[\mathfrak{A}\right]\\
+j_{0} & \coloneqq & \sum_{i\in G'}\left[W\right]\left(i,h\right)-j_{1}\\
+j_{1}' & \coloneqq & \sum_{i\in G'}\left[W'\right]\left(i,h\right)\cdot\mathcal{C}'\left[\mathfrak{A}\right]\\
+j_{0}' & \coloneqq & \sum_{i\in G'}\left[W'\right]\left(i,h\right)-j_{1}'
+\end{eqnarray*}
+Aus der Definition von $\left[W'\right]$ folgt $j_{1}=j_{1}'$ und
+$j_{0}=j_{0}'$, da die entfernten Vorgänger $g'\in E\backslash\left\{ g\right\} $
+durch zusätzliche Kanten $\left(g,h\right)$ ersetzt wurden, und $\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)$.
+Daher gilt: 
+\begin{eqnarray*}
+\mathcal{C}'\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\Sigma'\left(g\right)\right]\left(j_{0}',j_{1}'\right)\\
+ & = & \left[\Sigma\left(g\right)\right]\left(j_{0},j_{1}\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]
+\end{eqnarray*}
+
+\item Für jedes übrige Gate $h\in G$ folgt die Äquivalenz aus der Induktionsannahme
+und der Tatsache, dass die Vorgänger von $h$ unverändert bleiben.
+\item Für jedes Tupel $\bar{t}\in U^{k}$ mit $\Omega\left(\bar{t}\right)=g'\in E$
+gilt:
+\begin{eqnarray*}
+\left\llbracket \mathcal{C}'\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \mathcal{C}'\left[\mathfrak{A}\right]\left(\Omega'\left(\bar{t}\right)\right)\\
+ & = & \mathcal{C}'\left[\mathfrak{A}\right]\left(g\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)
+\end{eqnarray*}
+\end{enumerate}
+\begin{description}
+\item [{Größe:}] Die Umrechnung von $\mathcal{C}$ zu $f_{g,E}\left(\mathcal{C}\right)$
+lässt die Tiefe unverändert, und vergrößert den Schaltkreis nicht:
+Es werden $\sum_{h\in G}c\left(h\right)$ Kanten eingefügt und mindestens
+$\sum_{g',h'\in E\times G}$ Kanten entfernt, wobei gilt:
+\[
+\sum_{h\in G}c\left(h\right)=\sum_{h\in G}\sum_{g'\in E}\left[W\right]\left(g',h\right)=\sum_{g',h'\in E\times G}
+\]
+
+\item [{Symmetrie:}] Wenn alle Äquivalenzklassen $\bar{E}=\left(E_{1},\cdots,E_{k}\right)$
+der gleichen Tiefe reduziert werden, dann bewahrt der neue Schaltkreis
+$f_{g_{1,}E_{1}}\cdots f_{g_{k},E_{k}}\left(\mathcal{C}\right)=\mathcal{C}'$
+die Symmetrie von $\mathcal{C}$:
+
+
+Sei $\pi\in\mathrm{Sym}_{U}$ eine beliebige Permutation, und $\hat{\pi}$
+der induzierte Automorphismus. Offensichtlich muss $\hat{\pi}$ die
+Äquivalenzklassen $\bar{E}$ aufeinander abbilden, da $\hat{\pi}g\sim\hat{\pi}g'$
+für alle $g\sim g'$ gilt.
+
+
+Der Automorphismus $\hat{\pi}$ auf $\mathcal{C}$ wird wie folgt
+zu einem auf $\mathcal{C}'$ angepasst:
+\[
+\hat{\pi}'g\coloneqq\begin{cases}
+g_{i} & \mathrm{falls}\,\hat{\pi}g\in E_{i}\\
+\hat{\pi}g & \mathrm{sonst}
+\end{cases}
+\]
+
+
+
+Da $\left[W\right]\left(\hat{\pi}g,\hat{\pi}g'\right)=\left[W\right]\left(g,g'\right)$,
+folgt $\left[W'\right]\left(\hat{\pi}g,\hat{\pi}g'\right)$.
+
+\end{description}
+Die Umrechnung von $\mathcal{C}$ zu $\mathcal{C}'$ verkleinert die
+Äquivalenzklasse des Gates $g$ zu $\left\{ g\right\} $, da alle
+äquivalenten Gates entfernt werden, und lässt alle anderen Äquivalenzklassen
+der Tiefe $i\leqslant T\left(g\right)$ unverändert.
+
+Daher haben nach höchstens $\left|G\right|$ Wiederholungen alle Äquivalenzklassen
+der Tiefe $i\leqslant T\left(g\right)$ die Größe $1$, und nach höchstens
+$T\left(\mathcal{C}\right)\cdot\left|G\right|$ Wiederholungen wird
+ein äquivalenter, rigider Schaltkreis erzeugt.
 \end{proof}
 
 \section{Eigenschaften von Schaltkreisfamilien}
@@ -1667,7 +1835,7 @@ $\mathrm{poly}\left(n\right)$-großen Schaltkreisfamilien.
 \pagebreak{}
 
 
-\chapter{Von Formeln zu Schaltkreisen}
+\chapter{Von Formeln zu Schaltkreisfamilien}
 
 
 \section{Logik erster Stufe}
@@ -3389,9 +3557,9 @@ Für $X,X'\subseteq U$ gilt $X\subseteq X'\Leftrightarrow\mathcal{P}_{X'}\preceq
 Die größere Teilmenge $X'$ trennt mehr Elemente von $U$ voneinander,
 und ist somit feiner.
 \end{defn}
-Es wird nun Lemma \ref{lem:lemma-19} und \ref{lem:lemma-20} aus
-dem letzten Abschnitt verwendet, um eine obere Schranke für den Träger
-jedes Gates $g$ zu finden.
+Anderson und Dawar verwenden die beschriebenden Lemmata (\ref{lem:lemma-19}
+und \ref{lem:lemma-20}), um eine obere Schranke für den Träger jedes
+Gates $g$ nachzuweisen:
 \begin{lem}
 (Theorem 21 aus \cite{anderson_et_al:LIPIcs:2014:4445})
 
@@ -3405,105 +3573,16 @@ mit $\mathrm{poly}\left(n\right)$-Größe garantiert),
 s\coloneqq\max_{g\in G}\left(\mathrm{Orb}_{\mathcal{C}}\left(g\right)\right)\leqslant2^{n^{1-\epsilon}}
 \]
 dann gilt $\mathrm{SP}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$. \end{lem}
-\begin{proof}
-Falls der Orbit durch $s<n$ beschränkt ist, enthält $\mathcal{C}$
-keine relationalen Inputs (weil jedes Input $g\in G$ mit $\Sigma\left(g\right)=R\bar{x}$
-und $X=\left\{ x_{1},\cdots,x_{k}\right\} $ einen Orbit der Größe
-$\mathrm{Orb}_{\mathcal{C}}\left(g\right)\geqslant n^{\left|X\right|}\geqslant n$
-haben muss). In diesem Fall induziert jede Permutation den gleichen
-Automorphismus $\mathbf{id}$, jedes Gate hat den Träger $\mathcal{P}_{\max}$
-und es gilt $\mathrm{SP}\left(\mathcal{C}\right)=\left\Vert \mathcal{P}_{\max}\right\Vert =0$.
-Daher betrachten wir nur Schaltkreise mit $s\geqslant n$.
+\begin{cor}
+(Korollar 23 aus \cite{anderson_et_al:LIPIcs:2014:4445}) Für jede
+symmetrische, rigide $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
+mit $\mathrm{poly}\left(n\right)$-Größe gilt $\mathrm{SP}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$.
+\end{cor}
 
-Sei $g\in G$ beliebig.
-\begin{casenv}
-\item Wenn $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $,
-dann ist auf Grund der Rigidität $\mathrm{Stab}_{\mathcal{C}}\left(g\right)=\mathrm{Sym}_{U}$,
-und $\left\Vert \mathrm{SP}\left(g\right)\right\Vert =\left\Vert \mathcal{P}_{\max}\right\Vert =0$.
-\item Wenn $\Sigma\left(g\right)=R\bar{x}$ für $R/k\in\sigma$ und $\bar{x}\in U^{k}$
-mit $X=\left\{ x_{1},\cdots,x_{k}\right\} $, dann muss jede Permutation,
-die die Elemente von $X$ fixiert, auf Grund der Rigidität einen Automorphismus
-induzieren, der $g$ fixiert: 
-\[
-\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)
-\]
-Es ist $\mathcal{P}_{X}$ ist ein Träger von $g$, und $\left\Vert \mathcal{P}_{X}\right\Vert =\left|X\right|\leqslant k$.
-Daher ist $\left\Vert \mathrm{SP}\left(g\right)\right\Vert $ durch
-die konstante Stelligkeit von $R$ beschränkt: 
-\[
-\left\Vert \mathrm{SP}\left(g\right)\right\Vert \leqslant\left\Vert \mathcal{P}_{X}\right\Vert \leqslant k
-\]
-Für hinreichend große $n$ ist $k\leqslant n^{1-\epsilon}\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$.
-\item Wenn $g$ ein internes Gate ist, dann nehmen wir an, $\mathrm{SP}\left(g\right)>\frac{n}{2}$
-und $\mathrm{SP}\left(g'\right)\leqslant\frac{n}{2}$ für alle Vorgänger
-$g'$ von $g$.
-\[
-k\coloneqq\left\lceil \frac{8}{\epsilon}\frac{\log s}{\log n}\right\rceil 
-\]
-Wir teilen das Universum $U$ in gleich große Teile der Größe $k+2$:
-\begin{eqnarray*}
-U & = & \biguplus_{i=1}^{k'}U_{i}\uplus\left[k'\left(k+2\right)+1,n\right]\\
-U_{i} & \coloneqq & \left[\left(i-1\right)\cdot\left(k+2\right)+1,i\cdot\left(k+2\right)\right]\\
-k' & \coloneqq & \left\lfloor \frac{n}{k'+2}\right\rfloor 
-\end{eqnarray*}
-
-\end{casenv}
-\end{proof}
-Sei $C$ ein symmetrischer Schaltkreis über $\left|U\right|=n$ mit
-$s=\max_{C}\left|\mathrm{Orb}\left(g\right)\right|\leqslant2^{n^{1-\epsilon}}$;
-so ist die maximale SP eines Gatters höchstens $\frac{33}{\epsilon}\frac{\log s}{\log n}$.
-(der Orbit eines Gatters entspricht dem Nebengruppen-Index des Stabilisators
-dieses Gatters.)
+\chapter{Von Schaltkreisfamilien zu Formeln}
 
 
-\chapter{Schaltkreise zu Logik}
-\begin{lem}
-Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
-$\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-mit konstant beschränkter Tiefe $\leqslant c$ und polynomiell beschränkter
-Größe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
-existiert eine arb-invariante $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel,
-die die gleiche Anfrage definiert.
-\end{lem}
-
-\section{Normalform}
-
-Zum Beweis dieses Lemmas werden wir eine Normalform für die Schaltkreise
-festlegen.
-\begin{defn}
-Ein Schaltkreis $\left(G,W,\Sigma,\Omega,U\right)$ ist in Alternierender
-Normalform, wenn er folgende Bedingungen erfüllt:\end{defn}
-\begin{enumerate}
-\item Jedes Gate hat genau einen direkten Nachfolger (somit ist $\left(G,W\right)$
-ein gerichteter Baum).
-\item Jedes mit $\Sigma\left(g\right)=\neg$ beschriftete Gate ist ein direkter
-Nachfolger eines Inputgates.
-\item Jedes Outputgate $g=\Omega\left(\bar{t}\right)$ ist mit $\Sigma\left(g\right)=\vee$
-beschriftet.
-\item Je \end{enumerate}
-\begin{lem}
-Sei $\mathcal{C}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine
-$\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-mit konstant beschränkter Tiefe $\leqslant c$ und polynomiell beschränkter
-Größe $\leqslant n^{k}$, die eine $\sigma$-Anfrage berechnet. So
-existiert eine äquivalente Schaltkreisfamilie 
-\end{lem}
-
-\chapter{Beschreibung von Symmetrischen Schaltkreis-Familien durch Fixpunktlogik}
-\begin{itemize}
-\item Eine P-uniforme $\left(\mathbb{B}_{\mathrm{std}},\sigma\right)$-SBC-Familie
-$\mathcal{C}$ wird zu einer $\mathrm{FP+\mathbf{ORD}}\left[\sigma\right]$-Formel.
-\item Eine P-uniforme $\left(\mathbb{B}_{\mathrm{maj}},\sigma\right)$-SBC-Familie
-$\mathcal{C}$ wird zu einer $\mathrm{FP}+C\left[\sigma\right]$-Formel.
-\end{itemize}
-Nach dem Satz von Immerman-Vardi kann der Polynomialzeit-Algorithmus,
-der $\mathcal{C}$ erzeugt, als Sequenz von $\mathrm{FP}\left[\leqslant\right]$-Formeln
-ausgedrückt werden:
-
-\[
-\left(\varphi_{G},\varphi_{W},\varphi_{\Omega},\varphi_{\mathbf{0}},\varphi_{\mathbf{1}},\varphi_{\neg},\varphi_{\phi}\,\phi\in\mathbb{B},\varphi_{\Lambda}\right)
-\]
-
+\chapter{Schluss}
 
 \pagebreak{}
 
