@@ -3482,7 +3482,7 @@ keine Gates $g,g'$ mit $\Sigma\left(g\right)=\Sigma\left(g'\right)$
 und $\mathcal{W}\left(h,g\right)=\mathcal{W}\left(h,g'\right)$ für
 alle $h\in G$.\end{defn}
 \begin{lem}
-(nach Lemma 24 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+\label{lem:algo-rigide}(nach Lemma 24 aus \cite{anderson_et_al:LIPIcs:2014:4445})
 
 Es existiert ein Algorithmus, der einen beliebigen $\left(\sigma,\mathbb{B}\right)$-Schaltkreis
 $\mathcal{C}$ in einen rigiden Multischaltkreis $\hat{\mathcal{C}}$
@@ -4072,9 +4072,53 @@ q_{\mathcal{C}}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\ma
 
 \section{Kodierung}
 
-eine $\mathrm{LFP}\left[\sigma\cup\left\{ \mathrm{EV}\left(h\right)\mid h\in H\right\} \right]$-Formel
-$\varphi_{\mathrm{EV}\left(g\right)}\left(\bar{x}\right)$ aufbauen,
-die die Relation $\bar{\mathrm{EV}}\left(g\right)$ definiert.
+Sei $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine $k$-stellige,
+rigide, symmetrische, $P$-uniforme $\left(\sigma,\mathbb{B}\right)$-Multischaltkreisfamilie,
+wobei $\mathbb{B}\in\left\{ \mathbb{B}_{\mathrm{std}},\mathbb{B}_{\mathrm{maj}}\right\} $.
+Wir möchten eine $\left(\mathrm{LFP}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
+beziehungsweise $\left(\mathrm{LFP}+C\right)\left[\sigma\right]$-Formel
+$\varphi$ aufbauen, so dass für $n\in\mathbb{N}$ und $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+die Formel die gleiche Anfrage definiert wie $\mathcal{C}_{n}$:
+
+\[
+q_{\mathcal{C}_{n}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right)
+\]
+
+
+Da $\mathcal{C}$ $P$-uniform ist, existiert nach dem Immerman-Vardi-Theorem\cite{Vardi:1982:CRQ:800070.802186,IMMERMAN198686}
+und Lemma \ref{lem:algo-rigide} eine Sammlung von $\mathrm{LFP}\left[\leqslant\right]$-Formeln
+$\Phi$, die auf der Struktur $\Upsilon\left(n\right)\in\mathbf{FIN}_{<}\left(\sigma\right)$
+ausgewertet den Schaltkreis $\mathcal{C}_{n}$ beschreiben:
+\[
+\Phi\coloneqq\left(\varphi_{G},\varphi_{\mathcal{W}},\varphi_{\Omega},\left(\varphi_{\phi}\right)_{\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\neg\right\} },\left(\varphi_{R}\right)_{R\in\sigma}\right)
+\]
+
+
+Hierbei sei $f_{G}:G\rightarrow\left[1,n\right]^{c}$ eine geeignete
+Kodierung der höchstens $n^{c}$ Gates von $\mathcal{C}_{n}$, und
+$f_{W}:\left[1,n^{c}\right]\rightarrow\left[1,n\right]^{c}$ eine
+Kodierung von Zahlen, so dass für $\bar{g},\bar{h},\bar{w}\in\left[0,n\right]^{c}$:
+\begin{eqnarray*}
+\Upsilon\left(n\right)\models\varphi_{G}\left[\bar{g}\right] & \Leftrightarrow & f_{G}^{-1}\left(\bar{g}\right)\in G\\
+\Upsilon\left(n\right)\models\varphi_{W}\left[\bar{h}\bar{g}\bar{w}\right] & \Leftrightarrow & \mathcal{W}\left(f_{G}^{-1}\left(\bar{h}\right),f_{G}^{-1}\left(\bar{g}\right)\right)=f_{W}^{-1}\left(\bar{w}\right)\\
+\Upsilon\left(n\right)\models\varphi_{\Omega}\left[\bar{t}\bar{g}\right] & \Leftrightarrow & \Omega\left(\bar{t}\right)=f_{G}^{-1}\left(\bar{g}\right)\\
+ &  & \mathrm{f\ddot{u}r}\,\bar{t}\in\left[1,n\right]^{k}\\
+\Upsilon\left(n\right)\models\varphi_{\phi}\left[\bar{g}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\left(\bar{g}\right)\right)=\phi\\
+ &  & \mathrm{f\ddot{u}r}\,\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\neg\right\} \\
+\Upsilon\left(n\right)\models\varphi_{R}\left[\bar{g}\bar{x}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\left(\bar{g}\right)\right)=R\bar{x}\\
+ &  & \mathrm{f\ddot{u}r}\,R/m\in\sigma,\,\bar{x}\in\left[1,n\right]^{m}
+\end{eqnarray*}
+
+
+Für $n<n_{0}$ gibt es nur eine endliche Anzahl von Schaltkreisen
+konstanter Tiefe und Größe $\mathcal{C}_{n}$. Jeder dieser Schaltkreise
+ist durch eine $\mathrm{FO}\left[\sigma\right]$-Formel kodierbar:
+Sei $\psi_{n}\left(\bar{x}\right)$ eine Formel, die prüft, ob $\left|A\right|=n$,
+und dann für jede der $n!$ Bijektionen $\pi:A\rightarrow U$ prüft,
+ob $\mathcal{C}\left[\pi\mathfrak{A}\right]\left(\Omega\left(\pi\beta\bar{x}\right)\right)$
+mit $\beta:\bar{x}\rightarrow A$.
+
+
 
 
 \chapter{Schluss}

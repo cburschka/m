@@ -13030,6 +13030,12 @@ Die Rigidität wird ebenfalls angepasst: Ein rigider Schaltkreis enthält
 \end_layout
 
 \begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:algo-rigide"
+
+\end_inset
+
 (nach Lemma 24 aus 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -15423,19 +15429,198 @@ Kodierung
 \end_layout
 
 \begin_layout Standard
-eine 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\cup\left\{ \mathrm{EV}\left(h\right)\mid h\in H\right\} \right]$
+Sei 
+\begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ eine 
+\begin_inset Formula $k$
+\end_inset
+
+-stellige, rigide, symmetrische, 
+\begin_inset Formula $P$
+\end_inset
+
+-uniforme 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Multischaltkreisfamilie, wobei 
+\begin_inset Formula $\mathbb{B}\in\left\{ \mathbb{B}_{\mathrm{std}},\mathbb{B}_{\mathrm{maj}}\right\} $
+\end_inset
+
+.
+ Wir möchten eine 
+\begin_inset Formula $\left(\mathrm{LFP}+\mathbf{ORD}\right)\left[\sigma\right]$
+\end_inset
+
+-Formel beziehungsweise 
+\begin_inset Formula $\left(\mathrm{LFP}+C\right)\left[\sigma\right]$
 \end_inset
 
 -Formel 
-\begin_inset Formula $\varphi_{\mathrm{EV}\left(g\right)}\left(\bar{x}\right)$
+\begin_inset Formula $\varphi$
 \end_inset
 
- aufbauen, die die Relation 
-\begin_inset Formula $\bar{\mathrm{EV}}\left(g\right)$
+ aufbauen, so dass für 
+\begin_inset Formula $n\in\mathbb{N}$
 \end_inset
 
- definiert.
+ und 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+\end_inset
+
+ die Formel die gleiche Anfrage definiert wie 
+\begin_inset Formula $\mathcal{C}_{n}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+q_{\mathcal{C}_{n}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ 
+\begin_inset Formula $P$
+\end_inset
+
+-uniform ist, existiert nach dem Immerman-Vardi-Theorem
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Vardi:1982:CRQ:800070.802186,IMMERMAN198686"
+
+\end_inset
+
+ und Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:algo-rigide"
+
+\end_inset
+
+ eine Sammlung von 
+\begin_inset Formula $\mathrm{LFP}\left[\leqslant\right]$
+\end_inset
+
+-Formeln 
+\begin_inset Formula $\Phi$
+\end_inset
+
+, die auf der Struktur 
+\begin_inset Formula $\Upsilon\left(n\right)\in\mathbf{FIN}_{<}\left(\sigma\right)$
+\end_inset
+
+ ausgewertet den Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{n}$
+\end_inset
+
+ beschreiben:
+\begin_inset Formula 
+\[
+\Phi\coloneqq\left(\varphi_{G},\varphi_{\mathcal{W}},\varphi_{\Omega},\left(\varphi_{\phi}\right)_{\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\neg\right\} },\left(\varphi_{R}\right)_{R\in\sigma}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hierbei sei 
+\begin_inset Formula $f_{G}:G\rightarrow\left[1,n\right]^{c}$
+\end_inset
+
+ eine geeignete Kodierung der höchstens 
+\begin_inset Formula $n^{c}$
+\end_inset
+
+ Gates von 
+\begin_inset Formula $\mathcal{C}_{n}$
+\end_inset
+
+, und 
+\begin_inset Formula $f_{W}:\left[1,n^{c}\right]\rightarrow\left[1,n\right]^{c}$
+\end_inset
+
+ eine Kodierung von Zahlen, so dass für 
+\begin_inset Formula $\bar{g},\bar{h},\bar{w}\in\left[0,n\right]^{c}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+\Upsilon\left(n\right)\models\varphi_{G}\left[\bar{g}\right] & \Leftrightarrow & f_{G}^{-1}\left(\bar{g}\right)\in G\\
+\Upsilon\left(n\right)\models\varphi_{W}\left[\bar{h}\bar{g}\bar{w}\right] & \Leftrightarrow & \mathcal{W}\left(f_{G}^{-1}\left(\bar{h}\right),f_{G}^{-1}\left(\bar{g}\right)\right)=f_{W}^{-1}\left(\bar{w}\right)\\
+\Upsilon\left(n\right)\models\varphi_{\Omega}\left[\bar{t}\bar{g}\right] & \Leftrightarrow & \Omega\left(\bar{t}\right)=f_{G}^{-1}\left(\bar{g}\right)\\
+ &  & \mathrm{für}\,\bar{t}\in\left[1,n\right]^{k}\\
+\Upsilon\left(n\right)\models\varphi_{\phi}\left[\bar{g}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\left(\bar{g}\right)\right)=\phi\\
+ &  & \mathrm{für}\,\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\neg\right\} \\
+\Upsilon\left(n\right)\models\varphi_{R}\left[\bar{g}\bar{x}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\left(\bar{g}\right)\right)=R\bar{x}\\
+ &  & \mathrm{für}\,R/m\in\sigma,\,\bar{x}\in\left[1,n\right]^{m}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $n<n_{0}$
+\end_inset
+
+ gibt es nur eine endliche Anzahl von Schaltkreisen konstanter Tiefe und
+ Größe 
+\begin_inset Formula $\mathcal{C}_{n}$
+\end_inset
+
+.
+ Jeder dieser Schaltkreise ist durch eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formel kodierbar: Sei 
+\begin_inset Formula $\psi_{n}\left(\bar{x}\right)$
+\end_inset
+
+ eine Formel, die prüft, ob 
+\begin_inset Formula $\left|A\right|=n$
+\end_inset
+
+, und dann für jede der 
+\begin_inset Formula $n!$
+\end_inset
+
+ Bijektionen 
+\begin_inset Formula $\pi:A\rightarrow U$
+\end_inset
+
+ prüft, ob 
+\begin_inset Formula $\mathcal{C}\left[\pi\mathfrak{A}\right]\left(\Omega\left(\pi\beta\bar{x}\right)\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $\beta:\bar{x}\rightarrow A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
 \end_layout
 
 \begin_layout Chapter
