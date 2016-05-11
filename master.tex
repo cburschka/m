@@ -1819,7 +1819,7 @@ Für die Gates und Kanten der Schaltkreise $\mathcal{C}_{n}^{\varphi_{i}}$
 ist $\hat{\pi}$ per Annahme bereits korrekt.
 
 \begin{enumerate}
-\item Für jede neue Kante $\left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\in W_{\wedge}$
+\item Für jede neue Kante $\left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\in W_{\mathtt{AND}}$
 gilt nach Voraussetzung: 
 \begin{eqnarray*}
 \left(\hat{\pi}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right) & = & \left(\hat{\pi}_{i}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\\
@@ -1848,7 +1848,7 @@ T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+\max_{i=1}^{m}T\left(\mathcal{C}
 
 \end{description}
 \item Falls $\varphi\left(\bar{x}\right)=\varphi_{1}\vee\cdots\vee\varphi_{\ell}$,
-so ist der Schaltkreis analog zu Fall 3 mit $\Sigma\left(g_{\bar{t}}\right)=\vee$.
+so ist der Schaltkreis analog zu Fall 3 mit $\Sigma\left(g_{\bar{t}}\right)=\mathtt{OR}$.
 \item Falls $\varphi\left(\bar{x}\right)=\neg\psi$, so wird der Schaltkreis
 $\mathcal{C}_{n}^{\psi}$ wie folgt erweitert:
 
@@ -1940,11 +1940,11 @@ W_{\exists} & \coloneqq & \left\{ \left(\Omega'\left(\bar{u}\right),g_{\rho\bar{
 
 
 
-Die neuen Outputs werden mit $\vee$ markiert.
+Die neuen Outputs werden mit $\mathtt{OR}$ markiert.
 \begin{eqnarray*}
 \Sigma\left(g\right) & \coloneqq & \begin{cases}
 \Sigma'\left(g\right) & \mathrm{f\ddot{u}r}\,g\in G'\\
-\vee & \mathrm{sonst}
+\mathtt{OR} & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
 \[
@@ -1979,7 +1979,7 @@ Annahme treu zu $\pi$.
 \begin{enumerate}
 \item Für die neuen Kanten $\left(\Omega'\left(\bar{u}\right),g_{\rho\bar{u}}\right)\in W$
 gilt: $\left(\hat{\pi}\Omega'\left(\bar{u}\right),\hat{\pi}g_{\rho\bar{u}}\right)=\left(\Omega'\left(\pi\bar{u}\right),g_{\rho\pi\bar{u}}\right)\in W$.
-\item $\hat{\pi}\Sigma\left(g_{\bar{t}}\right)=\Sigma\left(g_{\bar{t}}\right)=\vee$.
+\item $\hat{\pi}\Sigma\left(g_{\bar{t}}\right)=\Sigma\left(g_{\bar{t}}\right)=\mathtt{OR}$.
 \item $\Omega\left(\pi\bar{t}\right)=g_{\pi\bar{t}}=\hat{\pi}g_{\bar{t}}=\hat{\pi}\Omega\left(\bar{t}\right)$.
 \end{enumerate}
 \item [{Größe:}] Der Schaltkreis hat die Tiefe $T\left(\mathcal{C}_{n}^{\varphi}\right)$
@@ -1997,7 +1997,7 @@ T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+T\left(\mathcal{C}_{n}^{\psi}\ri
 
 \end{description}
 \item Falls $\varphi\left(\bar{x}\right)=\forall y_{1}\cdots\forall y_{m}\psi\left(\bar{z}\right)$,
-so sei der Schaltkreis analog zu Fall 8 mit $\Sigma\left(g_{\bar{t}}\right)\coloneqq\wedge$.
+so sei der Schaltkreis analog zu Fall 8 mit $\Sigma\left(g_{\bar{t}}\right)\coloneqq\mathtt{AND}$.
 \end{casenv}
 \end{proof}
 \begin{conjecture}
@@ -2193,7 +2193,7 @@ Es wird für jedes Tupel $\bar{t}\in U'^{k}$ ein neuer Output $g_{\bar{t}}$
 eingefügt; ferner werden $2n$ Konstanten eingefügt: 
 \begin{eqnarray*}
 G & = & G_{\psi}\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U'^{k}\right\} \uplus\left\{ 0_{j},1_{j}\mid1\leqslant j\leqslant n\right\} \\
-W & = & W_{\psi}\uplus W_{\mathrm{maj}}\uplus_{\mathrm{pad}}
+W & = & W_{\psi}\uplus W_{\mathtt{MAJ}}\uplus W_{\mathrm{pad}}
 \end{eqnarray*}
 Die neuen Outputs werden mit $\mathtt{MAJ}$ markiert, falls $t_{i}$
 (der Wert der Variable $x_{i}$) einer der numerischen Werte (im Bereich
@@ -2230,7 +2230,7 @@ Dazu wird jedes Gate $g_{\bar{t}}$ mit $t_{i}\in\left[n+1,2n+1\right]$
 zunächst mit den entsprechenden Outputs von $\mathcal{C}_{2n+1}^{\psi}$
 verknüpft: 
 \[
-W_{\mathrm{maj}}=\left\{ \left(\Omega_{\psi}\left(\bar{u}\right),g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in U'^{k},\,\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right),\,u_{j}\in\left[1,n\right]\right\} 
+W_{\mathtt{MAJ}}=\left\{ \left(\Omega_{\psi}\left(\bar{u}\right),g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in U'^{k},\,\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right),\,u_{j}\in\left[1,n\right]\right\} 
 \]
 Momentan hat es genau $n$ Eingänge (für jeden Wert $u_{j}\in\left[1,n\right]$).
 Daher gibt es $1$ aus, wenn $f\left(\bar{t}\right)\geqslant\frac{n}{2}$.
@@ -2283,7 +2283,7 @@ mit $\bar{t},\bar{u}\in U'^{k}$ und $\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(
 Und weil $\pi'\bar{t},\pi'\bar{u}\in U'^{k}$ und $\tau_{1}\left(\pi'\bar{t}\right)=\tau_{2}\left(\pi'\bar{u}\right)$
 gilt, folgt:
 \[
-\left(\Omega_{\psi}\left(\pi'\bar{u}\right),g_{\pi'\bar{t}}\right)\in W_{\mathrm{maj}}
+\left(\Omega_{\psi}\left(\pi'\bar{u}\right),g_{\pi'\bar{t}}\right)\in W_{\mathtt{MAJ}}
 \]
 
 \item Für jede Kante $\left(0_{j},g_{\bar{t}}\right)\in W_{\mathrm{pad}}$
@@ -2582,12 +2582,12 @@ W_{i+1} & \coloneqq & W_{i}\uplus W_{\psi}\uplus W'
 \end{eqnarray*}
 $\mathcal{D}^{i}$ verbindet alle mit $R\bar{t}$ markierten Inputs
 mit dem Output $\Omega_{i}\left(\bar{t}\right)$, und markiert sie
-mit ,,$\wedge$``. (Hier wäre ,,$\vee$`` äquivalent, da jedes
-dieser Gates nur einen Vorgänger bekommt.) 
+mit ,,$\mathtt{AND}$``. (Hier wäre ,,$\mathtt{OR}$`` äquivalent,
+da jedes dieser Gates nur einen Vorgänger bekommt.) 
 \[
 \Sigma_{i+1}\left(g\right)\coloneqq\begin{cases}
 \Sigma_{i}\left(g\right) & \mathrm{falls}\,\,g\in G_{i}\\
-\wedge & \mathrm{falls}\,\,g\in G_{\psi},\,\Sigma_{\psi}\left(g\right)=R\bar{t}\\
+\mathtt{AND} & \mathrm{falls}\,\,g\in G_{\psi},\,\Sigma_{\psi}\left(g\right)=R\bar{t}\\
 \Sigma_{\psi}\left(g\right) & \mathrm{sonst}
 \end{cases}
 \]
@@ -2648,7 +2648,7 @@ $\Omega_{i+1}=\Omega_{\psi}$ und alle Gates $g\in G_{\psi}$ mit
 $\Sigma_{\psi}\notin\left\{ R\bar{t}\mid\bar{t}\in U^{m}\right\} $
 bereits erfüllt.
 \item Für die ehemaligen Inputs mit $\Sigma\left(g\right)=R\bar{t}$ gilt
-$\Sigma_{i+1}\left(\hat{\pi}g\right)=\Sigma_{i+1}\left(g\right)=\wedge$.
+$\Sigma_{i+1}\left(\hat{\pi}g\right)=\Sigma_{i+1}\left(g\right)=\mathtt{AND}$.
 \item Für jede neue Kante $\left(\Omega_{i}\left(\bar{t}\right),g\right)\in W'$
 mit $g\in G_{\psi}$ und $\Sigma_{\psi}\left(g\right)=R\bar{t}$:
 \begin{eqnarray*}
@@ -3389,7 +3389,7 @@ Für $X,X'\subseteq U$ gilt $X\subseteq X'\Leftrightarrow\mathcal{P}_{X'}\preceq
 Die größere Teilmenge $X'$ trennt mehr Elemente von $U$ voneinander,
 und ist somit feiner.
 \end{defn}
-Anderson und Dawar verwenden die beschriebenden Lemmata (\ref{lem:lemma-19}
+Anderson und Dawar verwenden die beschriebenen Lemmata (\ref{lem:lemma-19}
 und \ref{lem:lemma-20}), um eine obere Schranke für den Träger jedes
 Gates $g$ nachzuweisen:
 \begin{lem}

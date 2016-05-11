@@ -7061,7 +7061,7 @@ Für die Gates und Kanten der Schaltkreise
 \begin_deeper
 \begin_layout Enumerate
 Für jede neue Kante 
-\begin_inset Formula $\left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\in W_{\wedge}$
+\begin_inset Formula $\left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\in W_{\mathtt{AND}}$
 \end_inset
 
  gilt nach Voraussetzung: 
@@ -7142,7 +7142,7 @@ Falls
 \end_inset
 
 , so ist der Schaltkreis analog zu Fall 3 mit 
-\begin_inset Formula $\Sigma\left(g_{\bar{t}}\right)=\vee$
+\begin_inset Formula $\Sigma\left(g_{\bar{t}}\right)=\mathtt{OR}$
 \end_inset
 
 .
@@ -7363,7 +7363,7 @@ W_{\exists} & \coloneqq & \left\{ \left(\Omega'\left(\bar{u}\right),g_{\rho\bar{
 
 \begin_layout Standard
 Die neuen Outputs werden mit 
-\begin_inset Formula $\vee$
+\begin_inset Formula $\mathtt{OR}$
 \end_inset
 
  markiert.
@@ -7371,7 +7371,7 @@ Die neuen Outputs werden mit
 \begin{eqnarray*}
 \Sigma\left(g\right) & \coloneqq & \begin{cases}
 \Sigma'\left(g\right) & \mathrm{für}\,g\in G'\\
-\vee & \mathrm{sonst}
+\mathtt{OR} & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
 
@@ -7458,7 +7458,7 @@ Für die neuen Kanten
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $\hat{\pi}\Sigma\left(g_{\bar{t}}\right)=\Sigma\left(g_{\bar{t}}\right)=\vee$
+\begin_inset Formula $\hat{\pi}\Sigma\left(g_{\bar{t}}\right)=\Sigma\left(g_{\bar{t}}\right)=\mathtt{OR}$
 \end_inset
 
 .
@@ -7511,7 +7511,7 @@ Falls
 \end_inset
 
 , so sei der Schaltkreis analog zu Fall 8 mit 
-\begin_inset Formula $\Sigma\left(g_{\bar{t}}\right)\coloneqq\wedge$
+\begin_inset Formula $\Sigma\left(g_{\bar{t}}\right)\coloneqq\mathtt{AND}$
 \end_inset
 
 .
@@ -8297,7 +8297,7 @@ Es wird für jedes Tupel
 \begin_inset Formula 
 \begin{eqnarray*}
 G & = & G_{\psi}\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U'^{k}\right\} \uplus\left\{ 0_{j},1_{j}\mid1\leqslant j\leqslant n\right\} \\
-W & = & W_{\psi}\uplus W_{\mathrm{maj}}\uplus_{\mathrm{pad}}
+W & = & W_{\psi}\uplus W_{\mathtt{MAJ}}\uplus W_{\mathrm{pad}}
 \end{eqnarray*}
 
 \end_inset
@@ -8440,7 +8440,7 @@ Dazu wird jedes Gate
  verknüpft: 
 \begin_inset Formula 
 \[
-W_{\mathrm{maj}}=\left\{ \left(\Omega_{\psi}\left(\bar{u}\right),g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in U'^{k},\,\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right),\,u_{j}\in\left[1,n\right]\right\} 
+W_{\mathtt{MAJ}}=\left\{ \left(\Omega_{\psi}\left(\bar{u}\right),g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in U'^{k},\,\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right),\,u_{j}\in\left[1,n\right]\right\} 
 \]
 
 \end_inset
@@ -8651,7 +8651,7 @@ Und weil
  gilt, folgt:
 \begin_inset Formula 
 \[
-\left(\Omega_{\psi}\left(\pi'\bar{u}\right),g_{\pi'\bar{t}}\right)\in W_{\mathrm{maj}}
+\left(\Omega_{\psi}\left(\pi'\bar{u}\right),g_{\pi'\bar{t}}\right)\in W_{\mathtt{MAJ}}
 \]
 
 \end_inset
@@ -9782,7 +9782,7 @@ W_{i+1} & \coloneqq & W_{i}\uplus W_{\psi}\uplus W'
 \end_inset
 
 
-\begin_inset Formula $\wedge$
+\begin_inset Formula $\mathtt{AND}$
 \end_inset
 
 
@@ -9795,7 +9795,7 @@ W_{i+1} & \coloneqq & W_{i}\uplus W_{\psi}\uplus W'
 \end_inset
 
 
-\begin_inset Formula $\vee$
+\begin_inset Formula $\mathtt{OR}$
 \end_inset
 
 
@@ -9807,7 +9807,7 @@ W_{i+1} & \coloneqq & W_{i}\uplus W_{\psi}\uplus W'
 \[
 \Sigma_{i+1}\left(g\right)\coloneqq\begin{cases}
 \Sigma_{i}\left(g\right) & \mathrm{falls}\,\,g\in G_{i}\\
-\wedge & \mathrm{falls}\,\,g\in G_{\psi},\,\Sigma_{\psi}\left(g\right)=R\bar{t}\\
+\mathtt{AND} & \mathrm{falls}\,\,g\in G_{\psi},\,\Sigma_{\psi}\left(g\right)=R\bar{t}\\
 \Sigma_{\psi}\left(g\right) & \mathrm{sonst}
 \end{cases}
 \]
@@ -10005,7 +10005,7 @@ Für die ehemaligen Inputs mit
 \end_inset
 
  gilt 
-\begin_inset Formula $\Sigma_{i+1}\left(\hat{\pi}g\right)=\Sigma_{i+1}\left(g\right)=\wedge$
+\begin_inset Formula $\Sigma_{i+1}\left(\hat{\pi}g\right)=\Sigma_{i+1}\left(g\right)=\mathtt{AND}$
 \end_inset
 
 .
@@ -12655,7 +12655,7 @@ Für
 \end_layout
 
 \begin_layout Standard
-Anderson und Dawar verwenden die beschriebenden Lemmata (
+Anderson und Dawar verwenden die beschriebenen Lemmata (
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:lemma-19"
