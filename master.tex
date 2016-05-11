@@ -3831,7 +3831,8 @@ f\sim_{A'}f'\Leftrightarrow f_{\mid A'}=f'_{\mid A'}
 
 
 Für $B'\subseteq B$ heißen sie bildkonsistent in $B'$, wenn $f^{-1}\sim_{B'}f^{-1}$
-beziehungsweise $f_{\Vert B'}=f'_{\Vert B'}$ gilt.\end{defn}
+beziehungsweise wenn $f=\tau f'$ mit einer Permutation $\tau\in\mathrm{Stab}_{B}\left(B'\right)$,
+die die Elemente von $B'$ fixiert.\end{defn}
 \begin{prop}
 \label{prop:konsistenz}Sei $\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$
 ein rigider, symmetrischer Multischaltkreis mit $n=\left|U\right|$,
@@ -3885,125 +3886,192 @@ belegten Vorgänger von $g$:
 \[
 \sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(h\right)
 \]
-
 \end{proof}
-Für jedes Gate $g$ des Schaltkreises $\mathcal{C}$ beschreiben wir
-die Menge der verschiedenen Einbettungen $\pi:A\rightarrow U$, für
-die $\mathcal{C}\left[\pi\mathfrak{A}\right]\left(g\right)=1$. Per
-Satz \ref{prop:konsistenz} müssen nur deren Bildreduktionen auf $\mathrm{sp}\left(g\right)$
-betrachtet werden.
+\begin{defn}
+Für jedes Gate $g$ des Schaltkreises $\mathcal{C}$ über dem Universum
+$U$ beschreiben wir die Menge der verschiedenen Bijektionen $\pi:U\rightarrow A$,
+für die $\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(g\right)=1$.
+Per Satz \ref{prop:konsistenz} müssen nur deren Reduktionen auf $\mathrm{sp}\left(g\right)$
+betrachtet werden. Sei $\mathrm{EV}\left(g\right)$ die Menge dieser
+Belegungen von $\mathrm{sp}\left(g\right)$:
 
-Sei $\pi:A\rightarrow U$ eine beliebige Bijektion: 
 \[
-\mathrm{EV}\left(g\right)\coloneqq\left\{ \pi'_{\Vert\mathrm{sp}\left(g\right)}\mid\pi'\in\mathrm{Abb}\left(A,U\right),\,\mathcal{C}\left[\pi'\mathfrak{A}\right]\left(g\right)=1\right\} 
+\mathrm{EV}\left(g\right)\coloneqq\left\{ \pi{}_{\mid\mathrm{sp}\left(g\right)}\mid\pi\in\mathrm{Abb}\left(U,A\right),\,\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(g\right)=1\right\} 
 \]
 
 
-Die Menge $\mathrm{EV}\left(g\right)$ kann rekursiv konstruiert werden:
+Für jede injektive Funktion $\rho:\mathrm{sp}\left(g\right)\rightarrow A$
+sei $M_{\rho}$ die Menge der zu $\rho$ konsistenten Bijektionen
+$\pi:U\rightarrow A$ :
+\[
+M_{\rho}\coloneqq\left\{ \pi\in\mathrm{Abb}\left(U,A\right)\mid\pi_{\mid\mathrm{sp}\left(g\right)}=\rho\right\} 
+\]
+
+
+Zusätzlich beschreiben wir für jeden Vorgänger $h\in H$ von $g$
+und jede injektive Funktion $\rho:\mathrm{sp}\left(g\right)\rightarrow A$
+die Menge $\Pi_{\rho}\left(h\right)$ der unterschiedlichen $\mathrm{sp}\left(h\right)$-Reduktionen
+von Bijektionen $\pi:U\rightarrow A$, die auf $\mathrm{sp}\left(g\right)$
+konsistent zu $\pi$ sind: 
+\[
+\Pi_{\rho}\left(h\right)\coloneqq\left\{ \pi_{\mid\mathrm{sp}\left(h\right)}\mid\pi\in M_{\rho}\right\} 
+\]
+\end{defn}
 \begin{claim}
-(nach Behauptung 28 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+\label{claim:claim-28}(nach Behauptung 28 aus \cite{anderson_et_al:LIPIcs:2014:4445})
 
-Sei $\pi:A\rightarrow U$ eine Bijektion. Sei $\Pi_{\pi}\left(h\right)$
-die Menge der unterschiedlichen $\mathrm{sp}\left(h\right)$-Bildreduktionen
-von Bijektionen, die auf $\mathrm{sp}\left(g\right)$ bildkonsistent
-zu $\pi$ sind: 
-\[
-\Pi_{\pi}\left(h\right)\coloneqq\left\{ \pi'_{\Vert\mathrm{sp}\left(h\right)}\mid\pi':A\rightarrow U,\,\pi'^{-1}\sim_{\mathrm{sp}\left(g\right)}\pi^{-1}\right\} 
-\]
-
-
-So ist das Gesamtgewicht der unter $\pi\mathfrak{A}$ erfüllten Gates
-$h\in H$ gleich der gewichteten Summe von $\frac{\left|\Pi\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi\left(h\right)\right|}$,
-dem Anteil der erfüllenden Bijektionen in $\Pi_{\pi}\left(h\right)$.
+Sei $\pi:U\rightarrow A$ eine beliebige Bijektion, und $\rho\coloneqq\pi_{\mid\mathrm{sp}\left(g\right)}$.
+Das Gesamtgewicht der unter $\pi^{-1}\mathfrak{A}$ erfüllten Vorgänger
+$h\in H$ gleicht der gewichteten Summe von $\frac{\left|\Pi_{\rho}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi_{\rho}\left(h\right)\right|}$,
+dem Anteil der erfüllenden Bijektionen in $\Pi_{\rho}\left(h\right)$:
 
 \begin{equation}
-\sum_{h\in H}\mathcal{W}\left(h,g\right)\mathcal{C}\left[\pi\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\Pi_{\pi}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi_{\pi}\left(h\right)\right|}\label{eq:behauptung-28}
+r\coloneqq\sum_{h\in H}\mathcal{W}\left(h,g\right)\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\Pi_{\rho}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi_{\rho}\left(h\right)\right|}\label{eq:behauptung-28}
 \end{equation}
 \end{claim}
 \begin{proof}
-Sei $M_{\pi}$ die Menge der zu $\pi$ in $\mathrm{sp}\left(g\right)$
-bildkonsistenten Bijektionen:
-\[
-M_{\pi}\coloneqq\left\{ \pi'\in\mathrm{Abb}\left(A,U\right)\mid\pi'^{-1}\sim_{\mathrm{sp}\left(g\right)}\pi^{-1}\right\} 
-\]
+Nach Gleichung \ref{eq:cons-2} ist das Gesamtgewicht der unter $\pi'^{-1}\mathfrak{A}$
+erfüllten Gates $h\in G$ für alle $\pi'\in M_{\rho}$ gleich, so
+dass $\left|M_{\rho}\right|r$ die Summe der Gesamtgewichte für jede
+Belegung $\pi'\in M_{\rho}$ ist.
 
-
-Nach Gleichung \ref{eq:cons-2} ist das Gesamtgewicht der unter $\pi'\mathfrak{A}$
-erfüllten Gates $h\in G$ für alle $\pi'\in M_{\pi}$ gleich, und
-daher gilt: 
+Weiterhin können wir für jeden Vorgänger $h\in H$ die Belegungen
+$M_{\rho}$ in Äquivalenzklassen bezüglich der Konsistenz zu einer
+Belegung $\rho'\in\Pi_{\rho}\left(h\right)$ von $\mathrm{sp}\left(h\right)$
+partitionieren: 
 \begin{eqnarray*}
-\left|M_{\pi}\right|\sum_{h\in H}\mathcal{W}\left(h,g\right)\mathcal{C}\left[\pi\mathfrak{A}\right]\left(h\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\pi'\in M_{\pi}}\mathcal{C}\left[\pi'\mathfrak{A}\right]\left(h\right)
+\left|M_{\rho}\right|r & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\pi'\in M_{\rho}}\mathcal{C}\left[\pi'\mathfrak{^{-1}A}\right]\left(h\right)\\
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\Pi_{\rho}\left(h\right)}\sum_{\begin{subarray}{c}
+\pi'\in M_{\rho}\\
+\pi'_{\mid\mathrm{sp}\left(h\right)}=\rho'
+\end{subarray}}\mathcal{C}\left[\pi'^{-1}\mathfrak{A}\right]\left(h\right)
 \end{eqnarray*}
 
 
-Weiterhin können wir für jedes Gate $h\in H$ die Menge $M_{\pi}$
-in Äquivalenzklassen bezüglich $\rho\in\Pi_{\pi}\left(h\right)$ partitionieren:
-\[
-=\sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho\in\Pi_{\pi}\left(h\right)}\sum_{\begin{subarray}{c}
-\pi'\in M_{\pi}\\
-\pi'_{\Vert\mathrm{sp}\left(h\right)}=\rho
-\end{subarray}}\mathcal{C}\left[\pi'\right]\left(h\right)
-\]
-
-
-Nach der Definition der Menge $\mathrm{EV}\left(h\right)$ gilt $\mathcal{C}\left[\pi'\right]\left(h\right)=\left[\mathrm{EV}\left(h\right)\right]\left(\rho\right)$
-für alle $\pi'$ mit $\rho=\pi'_{\Vert\mathrm{sp}\left(h\right)}$:
+Nach der Definition der Menge $\mathrm{EV}\left(h\right)$ gilt für
+alle Belegungen $\pi':U\rightarrow A$, dass $\mathcal{C}\left[\pi'^{-1}\mathfrak{A}\right]\left(h\right)=1$
+genau dann wenn $\pi'_{\mid\mathrm{sp}\left(h\right)}\in\mathrm{EV}\left(h\right)$.
+Daher können wir $\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\in\left\{ 0,1\right\} $
+einfach mit der Größe von $\left\{ \pi'\in M_{\rho}\mid\pi'_{\mid\mathrm{sp}\left(h\right)}=\rho'\right\} $
+multiplizieren: 
 \begin{eqnarray*}
- & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho\in\Pi_{\pi}\left(h\right)}\sum_{\begin{subarray}{c}
-\pi'\in M_{\pi}\\
-\pi'_{\Vert\mathrm{sp}\left(h\right)}=\rho
-\end{subarray}}\left[\mathrm{EV}\left(h\right)\right]\left(\rho\right)\\
- & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho\in\Pi_{\pi}\left(h\right)}\left[\mathrm{EV}\left(h\right)\right]\left(\rho\right)\left|\left\{ \pi'\in M_{\pi},\,\pi'_{\Vert\mathrm{sp}\left(h\right)}=\rho\right\} \right|
+\left|M_{\rho}\right|r & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\Pi_{\rho}\left(h\right)}\sum_{\begin{subarray}{c}
+\pi'\in M_{\rho}\\
+\pi'_{\mid\mathrm{sp}\left(h\right)}=\rho'
+\end{subarray}}\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\\
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\Pi_{\rho}\left(h\right)}\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\left|\left\{ \pi'\in M_{\rho},\,\pi'_{\mid\mathrm{sp}\left(h\right)}=\rho'\right\} \right|
 \end{eqnarray*}
 
 
-Weil die Partitionierung $M_{\pi}=\biguplus_{\rho\in\Pi_{\pi}\left(h\right)}\left\{ \pi'\in M_{\pi},\,\pi'_{\Vert\mathrm{sp}\left(h\right)}=\rho\right\} $
-$M_{\pi}$ in isomorphe Klassen teilt, gilt $\left|\left\{ \pi'\in M_{\pi},\,\pi'_{\Vert\mathrm{sp}\left(h\right)}=\rho\right\} \right|=\frac{\left|M_{\pi}\right|}{\left|\Pi_{\pi}\left(h\right)\right|}$
-für $\rho\in\Pi_{\pi}\left(h\right)$.
+Weil die Partitionierung $M_{\rho}=\biguplus_{\rho'\in\Pi_{\pi}\left(h\right)}\left\{ \pi'\in M_{\rho},\,\pi'_{\mid\mathrm{sp}\left(h\right)}=\rho'\right\} $
+die Menge $M_{\rho}$ in isomorphe Klassen teilt, gilt $\left|\left\{ \pi'\in M_{\rho},\,\pi'_{\mid\mathrm{sp}\left(h\right)}=\rho'\right\} \right|=\frac{\left|M_{\rho}\right|}{\left|\Pi_{\rho}\left(h\right)\right|}$
+für $\rho'\in\Pi_{\rho}\left(h\right)$.
 
 \begin{eqnarray*}
- & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho\in\Pi_{\pi}\left(h\right)}\left[\mathrm{EV}\left(h\right)\right]\left(\rho\right)\frac{\left|M_{\pi}\right|}{\left|\Pi_{\pi}\left(h\right)\right|}\\
- & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\mathrm{EV}\left(h\right)\cap\Pi_{\pi}\left(h\right)\right|\left|M_{\pi}\right|}{\left|\Pi_{\pi}\left(h\right)\right|}
+\left|M_{\rho}\right|r & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\Pi_{\rho}\left(h\right)}\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\frac{\left|M_{\rho}\right|}{\left|\Pi_{\rho}\left(h\right)\right|}\\
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\Pi_{\rho}\left(h\right)\cap\mathrm{EV}\left(h\right)}\frac{\left|M_{\rho}\right|}{\left|\Pi_{\rho}\left(h\right)\right|}\\
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\Pi_{\rho}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|\left|M_{\rho}\right|}{\left|\Pi_{\rho}\left(h\right)\right|}
 \end{eqnarray*}
 
 
-Durch das Kürzen von $\left|M_{\pi}\right|$ entsteht die Gleichung
-\ref{eq:behauptung-28}.
+Durch das Kürzen von $\left|M_{\rho}\right|$ entsteht die Gleichung
+\ref{eq:behauptung-28} aus der Behauptung.
 \end{proof}
-Sei nach Definition \ref{def:Tupel} $\bar{\mathrm{sp}}\left(g\right)$
-das geordnete Tupel der Elemente von $\mathrm{sp}\left(g\right)$,
-und sei $\bar{\mathrm{EV}}\left(g\right)\subseteq A^{k}$ die Relation
-der $k$-Tupel $\bar{a}$, die von den Bijektionen in $\mathrm{EV}\left(g\right)$
-auf $\bar{\mathrm{sp}}\left(g\right)$ abgebildet werden: 
-\[
-\bar{\mathrm{EV}}\left(g\right)\coloneqq\left\{ \pi^{-1}\bar{\mathrm{sp}}\left(g\right)\in A^{k}\mid\pi\in\mathrm{EV}\left(g\right)\right\} 
-\]
+Sei nach Definition \ref{def:Tupel} $\bar{U}$ das geordnete Tupel
+aller Elemente des Universums, und $\bar{\mathrm{sp}}\left(g\right)$
+das Tupel der Elemente von $\mathrm{sp}\left(g\right)$.
+
+Sei $\bar{M}_{\rho}\subseteq A^{n}$ die Relation der $n$-Tupel $\pi\bar{U}$
+für $\pi\in M_{\rho}$, sei $\bar{\Pi}_{\rho}\left(h\right)\subseteq A^{\left|\mathrm{sp}\left(h\right)\right|}$
+die Relation der Tupel $\rho\bar{\mathrm{sp}}\left(h\right)$ für
+$\rho\in\Pi_{\rho}\left(h\right)$, und sei $\bar{\mathrm{EV}}\left(g\right)\subseteq A^{\left|\mathrm{sp}\left(g\right)\right|}$
+die Relation der Tupel $\rho\bar{\mathrm{sp}}\left(g\right)$ für
+$\rho\in\mathrm{EV}\left(g\right)$. 
+\begin{eqnarray*}
+\bar{M}_{\rho} & \coloneqq & \left\{ \pi\bar{U}\mid\pi\in M_{\rho}\right\} \\
+\bar{\mathrm{EV}}\left(g\right) & \coloneqq & \left\{ \rho\bar{\mathrm{sp}}\left(g\right)\mid\rho\in\mathrm{EV}\left(g\right)\right\} 
+\end{eqnarray*}
 
 
 Wir werden nun für jedes Gate $g\in G$ mit den Vorgängern $H\subseteq G$
-die Menge $\mathrm{EV}\left(g\right)$ rekursiv über $\left(\mathrm{EV}\left(h\right)\right)_{h\in H}$
-und $\mathfrak{A}$ definieren:
+die Menge $\bar{\mathrm{EV}}\left(g\right)$ rekursiv durch $\left(\bar{\mathrm{EV}}\left(h\right)\right)_{h\in H}$
+und $\mathfrak{A}$ definieren, wobei $\rho_{\bar{a}}:\mathrm{sp}\left(g\right)\rightarrow A$
+für $\bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}$ die Abbildung
+$\rho_{\bar{a}}=\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{a}\right)$
+bezeichne.
 \begin{casenv}
 \item Falls $g$ eine Konstante mit $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
 ist, dann ist $\mathrm{sp}\left(g\right)=\emptyset$, da $g$ ein
 Fixpunkt aller Automorphismen ist. In diesem Fall gilt:
 \[
-\mathrm{EV}\left(g\right)\coloneqq\begin{cases}
+\bar{\mathrm{EV}}\left(g\right)=\begin{cases}
 \emptyset & \mathrm{falls}\,\Sigma\left(g\right)=\mathbf{0}\\
 \left\{ \left\langle \right\rangle \right\}  & \mathrm{falls}\,\Sigma\left(g\right)=\mathbf{1}
 \end{cases}
 \]
 
-\item Falls $g$ ein relationales Input mit $\Sigma\left(g\right)=R\bar{t}$
-und $R/k\in\sigma$ ist, dann sei $\rho_{\bar{a}}:\mathrm{sp}\left(g\right)\rightarrow A$
-durch die Abbildung $\rho_{\bar{a}}=\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{a}\right)$
-definiert:
+\item Falls $g$ ein relationales Input mit $\Sigma\left(g\right)=R\bar{t}$,
+$R/k\in\sigma$ und $\bar{t}\in\mathrm{sp}\left(g\right)^{k}$ ist,
+dann gilt:
 \[
-\mathrm{EV}\left(g\right)\coloneqq R^{\mathfrak{A}}\cap\left\{ \rho_{\bar{a}}\bar{t}\mid\bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}\right\} 
+\bar{\mathrm{EV}}\left(g\right)=R^{\mathfrak{A}}\cap\left\{ \rho_{\bar{a}}\bar{t}\mid\bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}\right\} 
 \]
 
-\item Falls $\Sigma\left(g\right)=\wedge$ ist, 
+\item Falls $\Sigma\left(g\right)=\mathtt{AND}$ ist, dann gilt für jedes
+Tupel $\bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}$ , dass
+$\rho_{\bar{a}}\in\mathrm{EV}\left(g\right)$ genau dann wenn jede
+zu $\rho_{\bar{a}}$ konsistente Bijektion $\pi\in M_{\rho_{\bar{a}}}$
+alle Vorgänger $h\in H$ erfüllt: 
+\begin{eqnarray*}
+\sum_{h\in H}\mathcal{W}\left(h,g\right)\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(h\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)
+\end{eqnarray*}
+Beziehungsweise nach Behauptung \ref{claim:claim-28}:
+\[
+\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\Pi_{\rho_{\bar{a}}}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi_{\rho_{\bar{a}}}\left(h\right)\right|}=\sum_{h\in H}\mathcal{W}\left(h,g\right)
+\]
+Dies ist gleichbedeutend mit $\Pi_{\rho_{\bar{a}}}\left(h\right)\subseteq\mathrm{EV}\left(h\right)$.
+Demnach gilt:
+\[
+\bar{\mathrm{EV}}\left(g\right)=\left\{ \bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}\mid\bigwedge_{h\in H}\bar{\Pi}_{\rho_{\bar{a}}}\left(h\right)\subseteq\bar{\mathrm{EV}}\left(h\right)\right\} 
+\]
+
+\item Falls $\Sigma\left(g\right)=\mathtt{OR}$ ist, dann ist $\rho_{\bar{a}}\in\mathrm{EV}\left(g\right)$
+genau dann wenn mindestens eine Bijektion $\pi\in M_{\rho}$ mindestens
+einen Vorgänger $h\in H$ erfüllt:
+\[
+\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\Pi_{\rho_{\bar{a}}}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi_{\rho_{\bar{a}}}\left(h\right)\right|}>0
+\]
+\[
+\bar{\mathrm{EV}}\left(g\right)=\left\{ \bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}\mid\bigvee_{h\in H}\left(\bar{\Pi}_{\rho_{\bar{a}}}\left(h\right)\cap\bar{\mathrm{EV}}\left(h\right)\neq\emptyset\right)\right\} 
+\]
+
+\item Falls $\Sigma\left(g\right)=\mathtt{MAJ}$ ist, dann ist $\rho_{\bar{a}}\in\mathrm{EV}\left(g\right)$
+genau dann wenn mindestens die Hälfte der Vorgänger erfüllt sind:
+\[
+\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\Pi_{\rho\bar{a}}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi_{\rho_{\bar{a}}}\left(h\right)\right|}\geqslant\frac{1}{2}\sum_{h\in H}\mathcal{W}\left(h,g\right)
+\]
+
+\item Falls $\Sigma\left(g\right)=\neg$, dann hat $g$ per Definition des
+Schaltkreises genau einen Vorgänger $h$, es gilt $\mathrm{sp}\left(g\right)=\mathrm{sp}\left(h\right)$
+und $\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(g\right)=1-\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(h\right)$.
+Also:
+\[
+\bar{\mathrm{EV}}\left(g\right)=A^{\left|\mathrm{sp}\left(g\right)\right|}\backslash\bar{\mathrm{EV}}\left(h\right)
+\]
+
 \end{casenv}
+Die vom Schaltkreis $\mathcal{C}$ berechnete Anfrage $q_{\mathcal{C}}$
+ist äquivalent zu der folgenden Relation:
+\[
+q_{\mathcal{C}}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathrm{ex.}\,\bar{t}\in U^{k}\,\mathrm{mit}\,\bar{a}\in\mathrm{EV}\left(\Omega\left(\bar{t}\right)\right)\right\} 
+\]
+
+
+\pagebreak{}
+
+
+\section{Kodierung}
+
 eine $\mathrm{LFP}\left[\sigma\cup\left\{ \mathrm{EV}\left(h\right)\mid h\in H\right\} \right]$-Formel
 $\varphi_{\mathrm{EV}\left(g\right)}\left(\bar{x}\right)$ aufbauen,
 die die Relation $\bar{\mathrm{EV}}\left(g\right)$ definiert.
