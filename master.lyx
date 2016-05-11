@@ -335,6 +335,12 @@ Notationen
 \begin_layout Definition
 
 \series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "def:Tupel"
+
+\end_inset
+
 Tupel
 \end_layout
 
@@ -464,6 +470,12 @@ Es sei
 \begin_layout Definition
 
 \series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "def:Relation"
+
+\end_inset
+
 Relation
 \end_layout
 
@@ -610,12 +622,13 @@ Für jede Funktion
 \end_inset
 
  definieren wir die Funktionsklassen 
-\begin_inset Formula $\mathcal{O}\left(f\right),\Omega\left(f\right)\subseteq\mathrm{Abb}\left(\mathbb{N},\mathbb{N}\right)$
+\begin_inset Formula $\mathcal{O}\left(f\right),\Omega\left(f\right)$
 \end_inset
 
-: 
+:
 \end_layout
 
+\begin_deeper
 \begin_layout Itemize
 Es gelte 
 \begin_inset Formula $g\in\mathcal{O}\left(f\right)$
@@ -652,6 +665,7 @@ Es gelte
 .
 \end_layout
 
+\end_deeper
 \begin_layout --Separator--
 
 \end_layout
@@ -880,6 +894,26 @@ Für
 \end_inset
 
  die Reduktion auf das Komplement.
+\end_layout
+
+\begin_layout Definition
+Die Menge 
+\begin_inset Formula $\mathrm{Abb}\left(A,B\right)$
+\end_inset
+
+ bezeichne für 
+\begin_inset Formula $\left|A\right|=\left|B\right|$
+\end_inset
+
+ alle 
+\begin_inset Formula $n!$
+\end_inset
+
+ Bijektionen 
+\begin_inset Formula $\pi:A\rightarrow B$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout --Separator--
@@ -4433,8 +4467,8 @@ Eine boolesche Basis
 Als Beispiel seien die folgenden booleschen Junktoren gegeben: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\wedge & \coloneqq & \left\{ 0\right\} \times\mathbb{N}\\
-\vee & \coloneqq & \mathbb{N}\times\left(\mathbb{N}\backslash\left\{ 0\right\} \right)\\
+\mathtt{AND} & \coloneqq & \left\{ 0\right\} \times\mathbb{N}\\
+\mathtt{OR} & \coloneqq & \mathbb{N}\times\left(\mathbb{N}\backslash\left\{ 0\right\} \right)\\
 \mathtt{MAJ} & \coloneqq & \left\{ \left(m,n\right)\in\mathbb{N}\times\mathbb{N}\mid m\leqslant n\right\} \\
 \mathtt{XOR} & \coloneqq & \mathbb{N}\times\left(\mathbb{N}\backslash2\mathbb{N}\right)
 \end{eqnarray*}
@@ -4446,11 +4480,11 @@ Als Beispiel seien die folgenden booleschen Junktoren gegeben:
 
 \begin_layout Definition
 Im folgenden stehe 
-\begin_inset Formula $\mathbb{B}_{\mathrm{std}}\coloneqq\left\{ \wedge,\vee\right\} $
+\begin_inset Formula $\mathbb{B}_{\mathrm{std}}\coloneqq\left\{ \mathtt{AND},\mathtt{OR}\right\} $
 \end_inset
 
  für die Basis mit boolescher Konjunktion und Disjunktion, und 
-\begin_inset Formula $\mathbb{B}_{\mathrm{maj}}\coloneqq\left\{ \wedge,\vee,\mathtt{MAJ}\right\} $
+\begin_inset Formula $\mathbb{B}_{\mathrm{maj}}\coloneqq\mathbb{B}_{\mathrm{std}}\cup\left\{ \mathtt{MAJ}\right\} $
 \end_inset
 
  für die Basis mit Konjunktion, Disjunktion und Majority.
@@ -4894,8 +4928,8 @@ E & \coloneqq & \left\{ \left(g_{i,j},g_{\left\{ i,j\right\} }\right)\mid i,j\in
 \[
 \Sigma\left(g\right)=\begin{cases}
 E\,i\,j & \mathrm{für}\,\,g=g_{i,j}\\
-\wedge & \mathrm{für}\,\,g=g_{\left\{ i,j\right\} }\\
-\vee & \mathrm{für}\,\,g=g_{i}
+\mathtt{AND} & \mathrm{für}\,\,g=g_{\left\{ i,j\right\} }\\
+\mathtt{OR} & \mathrm{für}\,\,g=g_{i}
 \end{cases}
 \]
 
@@ -5798,6 +5832,7 @@ Als Gegenbeispiel wird der folgende
 \mathcal{C} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)\\
 G & \coloneqq & \left\{ g_{i,j}\mid i,j\in U\right\} \cup\left\{ g_{\wedge},g_{\wedge}'\right\} \\
 W & \coloneqq & \left\{ \left(g_{1,1},g_{\wedge}\right),\left(g_{1,2},g_{\wedge}\right),\left(g_{2,1},g_{\wedge}'\right),\left(g_{2,2},g_{\wedge}'\right),\left(g_{\wedge},g_{\wedge}'\right)\right\} \\
+\Sigma\left(g\right) & \coloneqq & \mathtt{AND}\\
 \Omega & \coloneqq & g_{\wedge}'
 \end{eqnarray*}
 
@@ -5983,7 +6018,7 @@ Ein
 \end_inset
 
 -Schaltkreis 
-\begin_inset Formula $\mathcal{C}=\left(G,\left[W\right],\Sigma,\Omega,U\right)$
+\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
 \end_inset
 
  sei rigide, wenn er keine redundanten Gates besitzt.
@@ -6363,7 +6398,7 @@ Eine
 \begin_inset Formula $n$
 \end_inset
 
- eine polynomiell beschränkte Orakeleingabe 
+ eine polynomiell beschränkte Orakel-Eingabe 
 \begin_inset Formula $\Upsilon\left(n\right)\in\left\{ 0,1\right\} ^{f\left(n\right)}$
 \end_inset
 
@@ -6948,8 +6983,8 @@ Die Outputs werden entsprechend mit denen von
 
 \begin_inset Formula 
 \begin{eqnarray*}
-W & \coloneqq & \bigcup_{i=1}^{m}W_{i}\cup W_{\wedge}\\
-W_{\wedge} & \coloneqq & \left\{ \left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\mid1\leqslant i\leqslant m,\,\bar{t}\in U^{k}\right\} 
+W & \coloneqq & \bigcup_{i=1}^{m}W_{i}\cup W_{\mathtt{AND}}\\
+W_{\mathtt{AND}} & \coloneqq & \left\{ \left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\mid1\leqslant i\leqslant m,\,\bar{t}\in U^{k}\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -6959,7 +6994,7 @@ Die Gates werden entsprechend beschriftet:
 \begin{eqnarray*}
 \Sigma\left(g\right) & \coloneqq & \begin{cases}
 \Sigma_{i}\left(g\right) & \mathrm{für}\,\,g\in G_{i}\\
-\wedge & \mathrm{sonst}
+\mathtt{AND} & \mathrm{sonst}
 \end{cases}\\
 \Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}\,\,\mathrm{für\,alle\,\,}\bar{t}\in U^{k}
 \end{eqnarray*}
@@ -7034,7 +7069,7 @@ Für jede neue Kante
 \begin{eqnarray*}
 \left(\hat{\pi}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right) & = & \left(\hat{\pi}_{i}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\\
  & = & \left(\Omega_{i}\left(\rho_{i}\pi\bar{t}\right),g_{\pi\bar{t}}\right)\\
- & \in & W_{\wedge}
+ & \in & W_{\mathtt{AND}}
 \end{eqnarray*}
 
 \end_inset
@@ -7052,7 +7087,7 @@ Für jede neue Kante
 
 \begin_layout Enumerate
 Es gilt 
-\begin_inset Formula $\Sigma\left(\hat{\pi}g_{\bar{t}}\right)=\Sigma\left(g_{\bar{t}}\right)=\wedge$
+\begin_inset Formula $\Sigma\left(\hat{\pi}g_{\bar{t}}\right)=\Sigma\left(g_{\bar{t}}\right)=\mathtt{AND}$
 \end_inset
 
 .
@@ -10077,12 +10112,12 @@ Damit gilt
 \end_layout
 
 \begin_layout Chapter
-Exkurs in die Gruppentheorie
+Partitionen und Träger
 \end_layout
 
 \begin_layout Standard
-Es werden nun mehrere Begriffe eingeführt, mit deren Hilfe wir eine symmetrische
- Schaltkreisfamilie logisch beschreiben werden.
+Es werden nun mehrere Begriffe aus der Gruppentheorie eingeführt, mit deren
+ Hilfe wir eine symmetrische Schaltkreisfamilie logisch beschreiben werden.
 \end_layout
 
 \begin_layout Section
@@ -12766,22 +12801,116 @@ Die Rigidität kann nicht in jeder booleschen Basis
 \begin_inset Formula $\mathbb{B}$
 \end_inset
 
- problemlos hergestellt werden, ohne die Tiefe zu verändern - zum Beispiel
- hat ein Majority-Gate 
-\begin_inset Formula $\Sigma\left(g\right)=\mathtt{MAJ}$
+ problemlos hergestellt werden, ohne die Tiefe zu verändern - während redundante
+ Vorgänger von 
+\begin_inset Formula $\mathtt{AND}$
 \end_inset
 
- unter Umständen mehrere konstante Vorgänger.
- In Anderson und Dawar 2014
+- und 
+\begin_inset Formula $\mathtt{OR}$
+\end_inset
+
+-Gates ohne Beschränkung der Annahme entfernt werden können, ist dies zum
+ Beispiel bei 
+\begin_inset Formula $\mathtt{MAJ}$
+\end_inset
+
+- und 
+\begin_inset Formula $\mathtt{XOR}$
+\end_inset
+
+-Gates nicht möglich.
+\end_layout
+
+\begin_layout Standard
+In 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "anderson_et_al:LIPIcs:2014:4445"
 
 \end_inset
 
- wird dafür die Tiefe des Schaltkreises beliebig vergrößert.
- Hier werden wir stattdessen die Definition des Schaltkreises auf Multigraphen
+ werden redundante Gates 
+\begin_inset Formula $H=\left(g_{1},\cdots,g_{k}\right)$
+\end_inset
+
+ 
+\begin_inset Quotes gld
+\end_inset
+
+in Reihe
+\begin_inset Quotes grd
+\end_inset
+
+ geschaltet, so dass jedes Gate 
+\begin_inset Formula $g_{i}\in H\backslash\left\{ g_{1}\right\} $
+\end_inset
+
+ durch ein 
+\begin_inset Formula $\mathtt{AND}$
+\end_inset
+
+-Gate mit dem Vorgänger 
+\begin_inset Formula $g_{i-1}$
+\end_inset
+
+ ersetzt wird.
+ Dies vergrößert jedoch die Tiefe des Schaltkreises unbeschränkt.
+\end_layout
+
+\begin_layout Standard
+Hier werden wir stattdessen die Definition des Schaltkreises auf Multigraphen
  erweitern:
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Multimenge
+\end_layout
+
+\begin_layout Definition
+Eine Multimenge 
+\begin_inset Formula $\mathcal{W}:W\rightarrow\mathbb{N}$
+\end_inset
+
+ sei eine Abbildung einer Menge auf 
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+, wobei 
+\begin_inset Formula $\mathcal{W}\left(x\right)$
+\end_inset
+
+ die Vielfachheit von 
+\begin_inset Formula $x$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{W}$
+\end_inset
+
+ angibt.
+ Nach der in Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:Relation"
+
+\end_inset
+
+ eingeführten Notation entspricht für eine gewöhnliche Relation 
+\begin_inset Formula $W\subseteq G^{2}$
+\end_inset
+
+ die Funktion 
+\begin_inset Formula $\left[W\right]:G^{2}\rightarrow\left\{ 0,1\right\} $
+\end_inset
+
+ gerade der äquivalenten Multimenge.
+\end_layout
+
+\begin_layout --Separator--
+
 \end_layout
 
 \begin_layout Definition
@@ -12796,7 +12925,7 @@ Ein
 \end_inset
 
 -Multischaltkreis 
-\begin_inset Formula $\mathcal{C}=\left(G,\left[W\right],\Sigma,\Omega,U\right)$
+\begin_inset Formula $\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$
 \end_inset
 
  ist analog zum 
@@ -12804,27 +12933,13 @@ Ein
 \end_inset
 
 -Schaltkreis definiert, aber 
-\begin_inset Formula $\left(G,\left[W\right]\right)$
+\begin_inset Formula $\left(G,\mathcal{W}\right)$
 \end_inset
 
- bildet einen azyklischen Multigraphen.
- (Hier schreiben wir 
-\begin_inset Formula $\left[W\right]$
-\end_inset
-
-, um die Multimenge von einer gewöhnlichen Relation zu unterscheiden.
- Günstigerweise entspricht für eine gewöhnliche Relation 
-\begin_inset Formula $W\subseteq G^{2}$
-\end_inset
-
- die Funktion 
-\begin_inset Formula $\left[W\right]:G^{2}\rightarrow\left\{ 0,1\right\} $
-\end_inset
-
- gerade der entsprechenden Multimenge.)
+ bildet einen azyklischen Multigraphen:
 \begin_inset Formula 
 \[
-\left[W\right]:G\times G\rightarrow\mathbb{N}
+\mathcal{W}:G\times G\rightarrow\mathbb{N}
 \]
 
 \end_inset
@@ -12843,8 +12958,8 @@ reference "def:Auswertung-von-Schaltkreisen"
 :
 \begin_inset Formula 
 \begin{eqnarray*}
-j_{1} & \coloneqq & \sum_{h\in G}\left(\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\cdot\left[W\right]\left(h,g\right)\right)\\
-j_{0} & \coloneqq & \sum_{h\in G}\left[W\right]\left(h,g\right)-j_{1}\\
+j_{1} & \coloneqq & \sum_{h\in G}\left(\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\cdot\mathcal{W}\left(h,g\right)\right)\\
+j_{0} & \coloneqq & \sum_{h\in G}\mathcal{W}\left(h,g\right)-j_{1}\\
 \mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\Sigma\left(g\right)\right]\left(j_{0},j_{1}\right)
 \end{eqnarray*}
 
@@ -12865,7 +12980,7 @@ Die Größe
  sei die Summe seiner Gates und Kanten:
 \begin_inset Formula 
 \[
-\left|\mathcal{C}\right|\coloneqq\left|G\right|+\sum_{g,g'\in G^{2}}\left[W\right]\left(g,g'\right)
+\left|\mathcal{C}\right|\coloneqq\left|G\right|+\sum_{g,g'\in G^{2}}\mathcal{W}\left(g,g'\right)
 \]
 
 \end_inset
@@ -12887,7 +13002,7 @@ Die Symmetrie wird auf natürliche Weise angepasst: Der von
 \end_inset
 
  mit 
-\begin_inset Formula $\left[W\right]\left(\hat{\pi}g,\hat{\pi}g'\right)=\left[W\right]\left(g,g'\right)$
+\begin_inset Formula $\mathcal{W}\left(\hat{\pi}g,\hat{\pi}g'\right)=\mathcal{W}\left(g,g'\right)$
 \end_inset
 
  ab.
@@ -12904,7 +13019,7 @@ Die Rigidität wird ebenfalls angepasst: Ein rigider Schaltkreis enthält
 \end_inset
 
  und 
-\begin_inset Formula $\left[W\right]\left(h,g\right)=\left[W\right]\left(h,g'\right)$
+\begin_inset Formula $\mathcal{W}\left(h,g\right)=\mathcal{W}\left(h,g'\right)$
 \end_inset
 
  für alle 
@@ -12956,7 +13071,7 @@ Es existiert ein Algorithmus, der einen beliebigen
 
 \begin_layout Proof
 Sei 
-\begin_inset Formula $\mathcal{D}=\left(G,W,\Sigma,\Omega,U\right)$
+\begin_inset Formula $\mathcal{C}''=\left(G,W,\Sigma,\Omega,U\right)$
 \end_inset
 
  ein beliebiger 
@@ -12965,23 +13080,32 @@ Sei
 
 -stelliger Schaltkreis.
  Wir erzeugen zunächst den äquivalenten Multischaltkreis 
-\begin_inset Formula $\mathcal{C}\coloneqq\left(G,\left[W\right],\Sigma,\Omega,U\right)$
+\begin_inset Formula $\mathcal{C}\coloneqq\left(G,\mathcal{W},\Sigma,\Omega,U\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathcal{W}\coloneqq\left[W\right]$
 \end_inset
 
 , wobei die Tiefe unverändert bleibt und die Größe zu 
-\begin_inset Formula $\left|\mathcal{C}\right|=\left|G\right|+\left|W\right|\leqslant\left|\mathcal{D}\right|+\left|\mathcal{D}\right|^{2}$
+\begin_inset Formula $\left|\mathcal{C}\right|=\left|G\right|+\left|W\right|\leqslant\left|\mathcal{C}''\right|+\left|\mathcal{C}''\right|^{2}$
 \end_inset
 
  wird.
 \end_layout
 
 \begin_layout Proof
-Berechne nun die Äquivalenzrelation 
-\begin_inset Formula $\sim\subseteq G\times G$
+Der Multischaltkreis 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ wird nun wiederholt reduziert, bis er rigide ist: Berechne dazu die Äquivalenzr
+elation 
+\begin_inset Formula $\sim_{\mathcal{C}}\subseteq G\times G$
 \end_inset
 
 , so dass 
-\begin_inset Formula $g\sim g'$
+\begin_inset Formula $g\sim_{\mathcal{C}}g'$
 \end_inset
 
  genau dann wenn
@@ -13001,7 +13125,7 @@ für alle
 \end_inset
 
  gilt 
-\begin_inset Formula $\left[W\right]\left(h,g\right)=\left[W\right]\left(h,g'\right)$
+\begin_inset Formula $\mathcal{W}\left(h,g\right)=\mathcal{W}\left(h,g'\right)$
 \end_inset
 
 .
@@ -13014,10 +13138,11 @@ Wenn keine Gates
 \end_inset
 
  mit 
-\begin_inset Formula $g\sim g'$
+\begin_inset Formula $g\sim_{\mathcal{C}}g'$
 \end_inset
 
- existieren, so ist der Schaltkreis rigide, und der Algorithmus ist fertig.
+ mehr existieren, so ist der Schaltkreis rigide, und der Algorithmus ist
+ fertig.
 \end_layout
 
 \begin_layout Proof
@@ -13026,7 +13151,7 @@ Ansonsten sei
 \end_inset
 
  eine Äquivalenzklasse von 
-\begin_inset Formula $\sim$
+\begin_inset Formula $\sim_{\mathcal{C}}$
 \end_inset
 
  mit mindestens zwei Gates und minimaler Tiefe 
@@ -13053,7 +13178,7 @@ Wir berechnen die Funktion
  zählt:
 \begin_inset Formula 
 \[
-c\left(h\right)\coloneqq\sum_{g'\in E}\left[W\right]\left(g',h\right)
+c\left(h\right)\coloneqq\sum_{g'\in E}\mathcal{W}\left(g',h\right)
 \]
 
 \end_inset
@@ -13067,7 +13192,7 @@ Sei
 \end_inset
 
  beliebig, und sei 
-\begin_inset Formula $f_{g,E}\left(\mathcal{C}\right)=\mathcal{C}'=\left(G',\left[W'\right],\Sigma',\Omega',U\right)$
+\begin_inset Formula $f_{g,E}\left(\mathcal{C}\right)\coloneqq\left(G',\mathcal{W}',\Sigma',\Omega',U\right)$
 \end_inset
 
  der folgende Multischaltkreis:
@@ -13084,35 +13209,27 @@ G' & \coloneqq & G\backslash\left(E\backslash\left\{ g\right\} \right)\\
 
 \begin_deeper
 \begin_layout Enumerate
-Es werden die von 
-\begin_inset Formula $E$
-\end_inset
-
- ausgehenden Kanten 
-\begin_inset Formula $\left(E\times G\right)\cap W$
-\end_inset
-
- aus dem Schaltkreis entfernt.
- Außerdem werden die eingehenden Kanten 
-\begin_inset Formula $W\cap\left(G\times E\backslash\left\{ g\right\} \right)$
-\end_inset
-
- der Gates 
+Es werden die eingehenden Kanten der Gates 
 \begin_inset Formula $E\backslash\left\{ g\right\} $
 \end_inset
 
  entfernt.
- Nun werden die folgenden Kanten für jedes Gate 
-\begin_inset Formula $h\in G$
+ Außerdem werden die von 
+\begin_inset Formula $E$
 \end_inset
 
- eingefügt:
+ ausgehenden Kanten entfernt und durch Kanten von 
+\begin_inset Formula $g$
+\end_inset
+
+ ersetzt:
 \begin_inset Formula 
 \[
-\left[W'\right]\left(h,i\right)\coloneqq\begin{cases}
+\mathcal{W}'\left(h,i\right)\coloneqq\begin{cases}
 c\left(i\right) & \mathrm{falls}\,h=g\\
 0 & \mathrm{falls}\,h\in E\backslash\left\{ g\right\} \\
-\left[W\right]\left(h,i\right) & \mathrm{sonst}
+0 & \mathrm{falls}\,i\in E\backslash\left\{ g\right\} \\
+\mathcal{W}\left(h,i\right) & \mathrm{sonst}
 \end{cases}
 \]
 
@@ -13139,7 +13256,7 @@ g & \mathrm{falls}\,\Omega\left(t\right)\in E\backslash\left\{ g\right\} \\
 \end_deeper
 \begin_layout Proof
 Der Schaltkreis 
-\begin_inset Formula $\mathcal{C}'$
+\begin_inset Formula $\mathcal{C}'\coloneqq f_{g,E}\left(\mathcal{C}\right)$
 \end_inset
 
  ist äquivalent zu dem Schaltkreis 
@@ -13186,16 +13303,16 @@ Für jeden direkten Nachfolger
  gilt:
 \begin_inset Formula 
 \begin{eqnarray*}
-j_{1} & \coloneqq & \sum_{i\in G'}\left[W\right]\left(i,h\right)\cdot\mathcal{C}\left[\mathfrak{A}\right]\\
-j_{0} & \coloneqq & \sum_{i\in G'}\left[W\right]\left(i,h\right)-j_{1}\\
-j_{1}' & \coloneqq & \sum_{i\in G'}\left[W'\right]\left(i,h\right)\cdot\mathcal{C}'\left[\mathfrak{A}\right]\\
-j_{0}' & \coloneqq & \sum_{i\in G'}\left[W'\right]\left(i,h\right)-j_{1}'
+j_{1} & \coloneqq & \sum_{i\in G'}\mathcal{W}\left(i,h\right)\cdot\mathcal{C}\left[\mathfrak{A}\right]\\
+j_{0} & \coloneqq & \sum_{i\in G'}\mathcal{W}\left(i,h\right)-j_{1}\\
+j_{1}' & \coloneqq & \sum_{i\in G'}\mathcal{W}'\left(i,h\right)\cdot\mathcal{C}'\left[\mathfrak{A}\right]\\
+j_{0}' & \coloneqq & \sum_{i\in G'}\mathcal{W}'\left(i,h\right)-j_{1}'
 \end{eqnarray*}
 
 \end_inset
 
 Aus der Definition von 
-\begin_inset Formula $\left[W'\right]$
+\begin_inset Formula $\mathcal{W}'$
 \end_inset
 
  folgt 
@@ -13206,15 +13323,23 @@ Aus der Definition von
 \begin_inset Formula $j_{0}=j_{0}'$
 \end_inset
 
-, da die entfernten Vorgänger 
+, da die 
+\begin_inset Formula $c\left(h\right)-1$
+\end_inset
+
+ entfernten Vorgänger 
 \begin_inset Formula $g'\in E\backslash\left\{ g\right\} $
 \end_inset
 
- durch zusätzliche Kanten 
+ durch 
+\begin_inset Formula $c\left(h\right)-1$
+\end_inset
+
+ zusätzliche 
 \begin_inset Formula $\left(g,h\right)$
 \end_inset
 
- ersetzt wurden, und 
+-Kanten ersetzt wurden, und 
 \begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)$
 \end_inset
 
@@ -13245,7 +13370,7 @@ Für jedes übrige Gate
  unverändert bleiben.
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Standard
 Für jedes Tupel 
 \begin_inset Formula $\bar{t}\in U^{k}$
 \end_inset
@@ -13254,7 +13379,7 @@ Für jedes Tupel
 \begin_inset Formula $\Omega\left(\bar{t}\right)=g'\in E$
 \end_inset
 
- gilt:
+ gilt nun:
 \begin_inset Formula 
 \begin{eqnarray*}
 \left\llbracket \mathcal{C}'\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \mathcal{C}'\left[\mathfrak{A}\right]\left(\Omega'\left(\bar{t}\right)\right)\\
@@ -13290,7 +13415,7 @@ Größe: Die Umrechnung von
  Kanten entfernt, wobei gilt:
 \begin_inset Formula 
 \[
-\sum_{h\in G}c\left(h\right)=\sum_{h\in G}\sum_{g'\in E}\left[W\right]\left(g',h\right)=\sum_{g',h'\in E\times G}
+\sum_{h\in G}c\left(h\right)=\sum_{h\in G}\sum_{g'\in E}\mathcal{W}\left(g',h\right)=\sum_{g',h'\in E\times G}
 \]
 
 \end_inset
@@ -13300,12 +13425,12 @@ Größe: Die Umrechnung von
 
 \begin_layout Description
 Symmetrie: Wenn alle Äquivalenzklassen 
-\begin_inset Formula $\bar{E}=\left(E_{1},\cdots,E_{k}\right)$
+\begin_inset Formula $\bar{E}=\left(E_{1},\cdots,E_{m}\right)$
 \end_inset
 
  der gleichen Tiefe reduziert werden, dann bewahrt der neue Schaltkreis
  
-\begin_inset Formula $f_{g_{1,}E_{1}}\cdots f_{g_{k},E_{k}}\left(\mathcal{C}\right)=\mathcal{C}'$
+\begin_inset Formula $f_{g_{1,}E_{1}}\cdots f_{g_{m},E_{m}}\left(\mathcal{C}\right)=\mathcal{C}'$
 \end_inset
 
  die Symmetrie von 
@@ -13325,7 +13450,7 @@ Sei
 \begin_inset Formula $\hat{\pi}$
 \end_inset
 
- der induzierte Automorphismus.
+ ein induzierter Automorphismus.
  Offensichtlich muss 
 \begin_inset Formula $\hat{\pi}$
 \end_inset
@@ -13335,11 +13460,11 @@ Sei
 \end_inset
 
  aufeinander abbilden, da 
-\begin_inset Formula $\hat{\pi}g\sim\hat{\pi}g'$
+\begin_inset Formula $\hat{\pi}g\sim_{\mathcal{C}}\hat{\pi}g'$
 \end_inset
 
  für alle 
-\begin_inset Formula $g\sim g'$
+\begin_inset Formula $g\sim_{\mathcal{C}}g'$
 \end_inset
 
  gilt.
@@ -13374,11 +13499,11 @@ g_{i} & \mathrm{falls}\,\hat{\pi}g\in E_{i}\\
 
 \begin_layout Standard
 Da 
-\begin_inset Formula $\left[W\right]\left(\hat{\pi}g,\hat{\pi}g'\right)=\left[W\right]\left(g,g'\right)$
+\begin_inset Formula $\mathcal{W}\left(\hat{\pi}g,\hat{\pi}g'\right)=\mathcal{W}\left(g,g'\right)$
 \end_inset
 
 , folgt 
-\begin_inset Formula $\left[W'\right]\left(\hat{\pi}g,\hat{\pi}g'\right)$
+\begin_inset Formula $\mathcal{W}'\left(\hat{\pi}g,\hat{\pi}g'\right)$
 \end_inset
 
 .
@@ -13487,7 +13612,7 @@ Falls
 
 \begin_layout Proof
 Sei 
-\begin_inset Formula $\mathcal{C}=\left(G,\left[W\right],\Sigma,\Omega,U\right)$
+\begin_inset Formula $\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$
 \end_inset
 
  und 
@@ -13592,7 +13717,7 @@ Schritt: Wenn
 \begin_inset Formula 
 \begin{eqnarray*}
 \Sigma\left(\hat{\pi}_{1}g\right) & = & \Sigma\left(\hat{\pi}_{2}g\right)=\Sigma\left(g\right)\\
-\left[W\right]\left(\hat{\pi}_{1}h,\hat{\pi}_{1}g\right) & = & \left[W\right]\left(\hat{\pi}_{2}h,\hat{\pi}_{2}g\right)=\left[W\right]\left(h,g\right)\\
+\mathcal{W}\left(\hat{\pi}_{1}h,\hat{\pi}_{1}g\right) & = & \mathcal{W}\left(\hat{\pi}_{2}h,\hat{\pi}_{2}g\right)=\mathcal{W}\left(h,g\right)\\
  &  & \mathrm{f.a.}\,h\in G
 \end{eqnarray*}
 
@@ -13641,7 +13766,7 @@ Es existiert ein deterministischer Algorithmus, der bei Eingabe eines rigiden
 \end_inset
 
 -Multischaltkreises 
-\begin_inset Formula $\mathcal{C}=\left(G,\left[W\right],\Sigma,\Omega,U\right)$
+\begin_inset Formula $\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$
 \end_inset
 
  und einer Permutation 
@@ -13661,10 +13786,14 @@ Es existiert ein deterministischer Algorithmus, der bei Eingabe eines rigiden
 \end_inset
 
  ausgibt, falls 
+\begin_inset Formula $\pi$
+\end_inset
+
+ einen Automorphismus 
 \begin_inset Formula $\hat{\pi}$
 \end_inset
 
- existiert.
+ induziert.
 \end_layout
 
 \begin_layout Proof
@@ -13719,7 +13848,7 @@ Finde ein beliebiges Gate
 \end_inset
 
  mit 
-\begin_inset Formula $\left[W\right]\left(h,g\right)>0$
+\begin_inset Formula $\mathcal{W}\left(h,g\right)>0$
 \end_inset
 
  bereits 
@@ -13739,7 +13868,7 @@ Finde ein Gate
 \end_inset
 
  und 
-\begin_inset Formula $\left[W\right]\left(\hat{\pi}h,g'\right)=\left[W\right]\left(h,g\right)$
+\begin_inset Formula $\mathcal{W}\left(\hat{\pi}h,g'\right)=\mathcal{W}\left(h,g\right)$
 \end_inset
 
  für die Vorgänger 
@@ -13811,7 +13940,7 @@ Es existiert ein deterministischer Algorithmus, der bei Eingabe eines rigiden
 \end_inset
 
 -Multischaltkreises 
-\begin_inset Formula $\mathcal{C}=\left(G,\left[W\right],\Sigma,\Omega,U\right)$
+\begin_inset Formula $\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$
 \end_inset
 
  in 
@@ -14259,6 +14388,17 @@ Wir möchten
  unbedeutend.
 \end_layout
 
+\begin_layout Standard
+Die Folgerung in diesem Abschnitt passt den Abschnitt 4.3 aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anderson_et_al:LIPIcs:2014:4445"
+
+\end_inset
+
+ für Multischaltkreise an.
+\end_layout
+
 \begin_layout Definition
 
 \series bold
@@ -14343,7 +14483,7 @@ Für
 \end_inset
 
  heißen sie bildkonsistent in 
-\begin_inset Formula $B'\subseteq B$
+\begin_inset Formula $B'$
 \end_inset
 
 , wenn 
@@ -14365,7 +14505,7 @@ name "prop:konsistenz"
 \end_inset
 
 Sei 
-\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+\begin_inset Formula $\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$
 \end_inset
 
  ein rigider, symmetrischer Multischaltkreis mit 
@@ -14377,7 +14517,7 @@ Sei
 \end_inset
 
  ein beliebiges Gate mit den Vorgängern 
-\begin_inset Formula $H\coloneqq\left\{ h\in G\mid\left[W\right]\left(h,g\right)>0\right\} $
+\begin_inset Formula $H\coloneqq\left\{ h\in G\mid\mathcal{W}\left(h,g\right)>0\right\} $
 \end_inset
 
 .
@@ -14407,7 +14547,7 @@ Sei
 \begin_inset Formula 
 \begin{eqnarray}
 \mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(g\right) & = & \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)\label{eq:cons-1}\\
-\sum_{h\in H}\left[W\right]\left(h,g\right)\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(h\right) & = & \sum_{h\in H}\left[W\right]\left(h,g\right)\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(h\right)\label{eq:cons-2}
+\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(h\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(h\right)\label{eq:cons-2}
 \end{eqnarray}
 
 \end_inset
@@ -14549,7 +14689,7 @@ Da
 \begin_inset Formula 
 \begin{eqnarray*}
 \mathcal{C}\left[\pi_{2}\right]\left(h\right) & = & \mathcal{C}\left[\tau\pi_{2}\right]\left(\hat{\tau}g\right)\\
-\left[W\right]\left(h,g\right) & = & \left[W\right]\left(\hat{\tau},g\right)
+\mathcal{W}\left(h,g\right) & = & \mathcal{W}\left(\hat{\tau},g\right)
 \end{eqnarray*}
 
 \end_inset
@@ -14572,7 +14712,7 @@ reference "eq:cons-2"
 :
 \begin_inset Formula 
 \[
-\sum_{h\in H}\left[W\right]\left(h,g\right)\cdot\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\left[W\right]\left(h,g\right)\cdot\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(h\right)
+\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(h\right)
 \]
 
 \end_inset
@@ -14620,7 +14760,7 @@ Sei
  eine beliebige Bijektion: 
 \begin_inset Formula 
 \[
-\mathrm{EV}\left(g\right)\coloneqq\left\{ \left(\tau\pi\right)_{\Vert\mathrm{sp}\left(g\right)}\mid\tau\in\mathrm{Sym}_{U},\,\mathcal{C}\left[\tau\pi\mathfrak{A}\right]\left(g\right)=1\right\} 
+\mathrm{EV}\left(g\right)\coloneqq\left\{ \pi'_{\Vert\mathrm{sp}\left(g\right)}\mid\pi'\in\mathrm{Abb}\left(A,U\right),\,\mathcal{C}\left[\pi'\mathfrak{A}\right]\left(g\right)=1\right\} 
 \]
 
 \end_inset
@@ -14629,7 +14769,258 @@ Sei
 \end_layout
 
 \begin_layout Standard
+Die Menge 
+\begin_inset Formula $\mathrm{EV}\left(g\right)$
+\end_inset
+
+ kann rekursiv konstruiert werden:
+\end_layout
+
+\begin_layout Claim
+(nach Behauptung 28 aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anderson_et_al:LIPIcs:2014:4445"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Claim
 Sei 
+\begin_inset Formula $\pi:A\rightarrow U$
+\end_inset
+
+ eine Bijektion.
+ Sei 
+\begin_inset Formula $\Pi_{\pi}\left(h\right)$
+\end_inset
+
+ die Menge der unterschiedlichen 
+\begin_inset Formula $\mathrm{sp}\left(h\right)$
+\end_inset
+
+-Bildreduktionen von Bijektionen, die auf 
+\begin_inset Formula $\mathrm{sp}\left(g\right)$
+\end_inset
+
+ bildkonsistent zu 
+\begin_inset Formula $\pi$
+\end_inset
+
+ sind: 
+\begin_inset Formula 
+\[
+\Pi_{\pi}\left(h\right)\coloneqq\left\{ \pi'_{\Vert\mathrm{sp}\left(h\right)}\mid\pi':A\rightarrow U,\,\pi'^{-1}\sim_{\mathrm{sp}\left(g\right)}\pi^{-1}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Claim
+So ist das Gesamtgewicht der unter 
+\begin_inset Formula $\pi\mathfrak{A}$
+\end_inset
+
+ erfüllten Gates 
+\begin_inset Formula $h\in H$
+\end_inset
+
+ gleich der gewichteten Summe von 
+\begin_inset Formula $\frac{\left|\Pi\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi\left(h\right)\right|}$
+\end_inset
+
+, dem Anteil der erfüllenden Bijektionen in 
+\begin_inset Formula $\Pi_{\pi}\left(h\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Claim
+\begin_inset Formula 
+\begin{equation}
+\sum_{h\in H}\mathcal{W}\left(h,g\right)\mathcal{C}\left[\pi\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\Pi_{\pi}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi_{\pi}\left(h\right)\right|}\label{eq:behauptung-28}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $M_{\pi}$
+\end_inset
+
+ die Menge der zu 
+\begin_inset Formula $\pi$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathrm{sp}\left(g\right)$
+\end_inset
+
+ bildkonsistenten Bijektionen:
+\begin_inset Formula 
+\[
+M_{\pi}\coloneqq\left\{ \pi'\in\mathrm{Abb}\left(A,U\right)\mid\pi'^{-1}\sim_{\mathrm{sp}\left(g\right)}\pi^{-1}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Nach Gleichung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:cons-2"
+
+\end_inset
+
+ ist das Gesamtgewicht der unter 
+\begin_inset Formula $\pi'\mathfrak{A}$
+\end_inset
+
+ erfüllten Gates 
+\begin_inset Formula $h\in G$
+\end_inset
+
+ für alle 
+\begin_inset Formula $\pi'\in M_{\pi}$
+\end_inset
+
+ gleich, und daher gilt: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\left|M_{\pi}\right|\sum_{h\in H}\mathcal{W}\left(h,g\right)\mathcal{C}\left[\pi\mathfrak{A}\right]\left(h\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\pi'\in M_{\pi}}\mathcal{C}\left[\pi'\mathfrak{A}\right]\left(h\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Weiterhin können wir für jedes Gate 
+\begin_inset Formula $h\in H$
+\end_inset
+
+ die Menge 
+\begin_inset Formula $M_{\pi}$
+\end_inset
+
+ in Äquivalenzklassen bezüglich 
+\begin_inset Formula $\rho\in\Pi_{\pi}\left(h\right)$
+\end_inset
+
+ partitionieren: 
+\begin_inset Formula 
+\[
+=\sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho\in\Pi_{\pi}\left(h\right)}\sum_{\begin{subarray}{c}
+\pi'\in M_{\pi}\\
+\pi'_{\Vert\mathrm{sp}\left(h\right)}=\rho
+\end{subarray}}\mathcal{C}\left[\pi'\right]\left(h\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Nach der Definition der Menge 
+\begin_inset Formula $\mathrm{EV}\left(h\right)$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\mathcal{C}\left[\pi'\right]\left(h\right)=\left[\mathrm{EV}\left(h\right)\right]\left(\rho\right)$
+\end_inset
+
+ für alle 
+\begin_inset Formula $\pi'$
+\end_inset
+
+ mit 
+\begin_inset Formula $\rho=\pi'_{\Vert\mathrm{sp}\left(h\right)}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho\in\Pi_{\pi}\left(h\right)}\sum_{\begin{subarray}{c}
+\pi'\in M_{\pi}\\
+\pi'_{\Vert\mathrm{sp}\left(h\right)}=\rho
+\end{subarray}}\left[\mathrm{EV}\left(h\right)\right]\left(\rho\right)\\
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho\in\Pi_{\pi}\left(h\right)}\left[\mathrm{EV}\left(h\right)\right]\left(\rho\right)\left|\left\{ \pi'\in M_{\pi},\,\pi'_{\Vert\mathrm{sp}\left(h\right)}=\rho\right\} \right|
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Weil die Partitionierung 
+\begin_inset Formula $M_{\pi}=\biguplus_{\rho\in\Pi_{\pi}\left(h\right)}\left\{ \pi'\in M_{\pi},\,\pi'_{\Vert\mathrm{sp}\left(h\right)}=\rho\right\} $
+\end_inset
+
+ 
+\begin_inset Formula $M_{\pi}$
+\end_inset
+
+ in isomorphe Klassen teilt, gilt 
+\begin_inset Formula $\left|\left\{ \pi'\in M_{\pi},\,\pi'_{\Vert\mathrm{sp}\left(h\right)}=\rho\right\} \right|=\frac{\left|M_{\pi}\right|}{\left|\Pi_{\pi}\left(h\right)\right|}$
+\end_inset
+
+ für 
+\begin_inset Formula $\rho\in\Pi_{\pi}\left(h\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{eqnarray*}
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho\in\Pi_{\pi}\left(h\right)}\left[\mathrm{EV}\left(h\right)\right]\left(\rho\right)\frac{\left|M_{\pi}\right|}{\left|\Pi_{\pi}\left(h\right)\right|}\\
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\mathrm{EV}\left(h\right)\cap\Pi_{\pi}\left(h\right)\right|\left|M_{\pi}\right|}{\left|\Pi_{\pi}\left(h\right)\right|}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Durch das Kürzen von 
+\begin_inset Formula $\left|M_{\pi}\right|$
+\end_inset
+
+ entsteht die Gleichung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:behauptung-28"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sei nach Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:Tupel"
+
+\end_inset
+
+ 
 \begin_inset Formula $\bar{\mathrm{sp}}\left(g\right)$
 \end_inset
 
@@ -14641,31 +15032,143 @@ Sei
 \begin_inset Formula $\bar{\mathrm{EV}}\left(g\right)\subseteq A^{k}$
 \end_inset
 
- eine Relation von 
+ die Relation der 
 \begin_inset Formula $k$
 \end_inset
 
--Tupeln 
+-Tupel 
 \begin_inset Formula $\bar{a}$
 \end_inset
 
-, so dass die Abbildung 
-\begin_inset Formula $\bar{a}\mapsto\bar{\mathrm{sp}}\left(g\right)$
-\end_inset
-
- in 
+, die von den Bijektionen in 
 \begin_inset Formula $\mathrm{EV}\left(g\right)$
 \end_inset
 
- ist:
+ auf 
+\begin_inset Formula $\bar{\mathrm{sp}}\left(g\right)$
+\end_inset
+
+ abgebildet werden: 
 \begin_inset Formula 
 \[
-\bar{\mathrm{EV}}\left(g\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\left(\bar{a}\mapsto\bar{\mathrm{sp}}\left(g\right)\right)\in\mathrm{EV}\left(g\right)\right\} 
+\bar{\mathrm{EV}}\left(g\right)\coloneqq\left\{ \pi^{-1}\bar{\mathrm{sp}}\left(g\right)\in A^{k}\mid\pi\in\mathrm{EV}\left(g\right)\right\} 
 \]
 
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Wir werden nun für jedes Gate 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ mit den Vorgängern 
+\begin_inset Formula $H\subseteq G$
+\end_inset
+
+ die Menge 
+\begin_inset Formula $\mathrm{EV}\left(g\right)$
+\end_inset
+
+ rekursiv über 
+\begin_inset Formula $\left(\mathrm{EV}\left(h\right)\right)_{h\in H}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ definieren:
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $g$
+\end_inset
+
+ eine Konstante mit 
+\begin_inset Formula $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
+\end_inset
+
+ ist, dann ist 
+\begin_inset Formula $\mathrm{sp}\left(g\right)=\emptyset$
+\end_inset
+
+, da 
+\begin_inset Formula $g$
+\end_inset
+
+ ein Fixpunkt aller Automorphismen ist.
+ In diesem Fall gilt:
+\begin_inset Formula 
+\[
+\mathrm{EV}\left(g\right)\coloneqq\begin{cases}
+\emptyset & \mathrm{falls}\,\Sigma\left(g\right)=\mathbf{0}\\
+\left\{ \left\langle \right\rangle \right\}  & \mathrm{falls}\,\Sigma\left(g\right)=\mathbf{1}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $g$
+\end_inset
+
+ ein relationales Input mit 
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
+\end_inset
+
+ und 
+\begin_inset Formula $R/k\in\sigma$
+\end_inset
+
+ ist, dann sei 
+\begin_inset Formula $\rho_{\bar{a}}:\mathrm{sp}\left(g\right)\rightarrow A$
+\end_inset
+
+ durch die Abbildung 
+\begin_inset Formula $\rho_{\bar{a}}=\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{a}\right)$
+\end_inset
+
+ definiert:
+\begin_inset Formula 
+\[
+\mathrm{EV}\left(g\right)\coloneqq R^{\mathfrak{A}}\cap\left\{ \rho_{\bar{a}}\bar{t}\mid\bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $\Sigma\left(g\right)=\wedge$
+\end_inset
+
+ ist, 
+\end_layout
+
+\begin_layout Standard
+eine 
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\cup\left\{ \mathrm{EV}\left(h\right)\mid h\in H\right\} \right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi_{\mathrm{EV}\left(g\right)}\left(\bar{x}\right)$
+\end_inset
+
+ aufbauen, die die Relation 
+\begin_inset Formula $\bar{\mathrm{EV}}\left(g\right)$
+\end_inset
+
+ definiert.
 \end_layout
 
 \begin_layout Chapter
