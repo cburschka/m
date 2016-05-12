@@ -67,7 +67,7 @@ End
 \spacing single
 \use_hyperref false
 \papersize default
-\use_geometry false
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -91,13 +91,14 @@ End
 \shortcut idx
 \color #008000
 \end_index
+\bottommargin 20pheight%
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
 \quotes_language german
 \papercolumns 1
-\papersides 1
+\papersides 2
 \paperpagestyle default
 \tracking_changes false
 \output_changes false
@@ -398,17 +399,97 @@ Es existiert eine
 
 \end_deeper
 \begin_layout Chapter
-Grundlagen
-\end_layout
-
-\begin_layout Standard
-Diese Arbeit verwendet verschiedene Begriffe der endlichen Modelltheorie
- und der Graphentheorie.
- Diese Begriffe werden im folgenden formal definiert.
+Grundlegende Definitionen
 \end_layout
 
 \begin_layout Section
-Notationen
+Notation
+\end_layout
+
+\begin_layout Standard
+Zunächst legen wir einige Notationen und Abkürzungen fest.
+ Im folgenden bezeichne 
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+ die Menge der natürlichen Zahlen einschließlich 
+\begin_inset Formula $0$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ die Menge der reellen Zahlen, und 
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $\leqslant$
+\end_inset
+
+
+\begin_inset Quotes grd
+\end_inset
+
+ (wenn nicht anders definiert) die natürliche Ordnung von 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+.
+ Mit 
+\begin_inset Quotes gld
+\end_inset
+
+ex.
+\begin_inset Quotes grd
+\end_inset
+
+, 
+\begin_inset Quotes gld
+\end_inset
+
+s.d.
+\begin_inset Quotes grd
+\end_inset
+
+ und 
+\begin_inset Quotes gld
+\end_inset
+
+f.a.
+\begin_inset Quotes grd
+\end_inset
+
+ kürzen wir gegebenenfalls 
+\begin_inset Quotes gld
+\end_inset
+
+es existiert
+\begin_inset Quotes grd
+\end_inset
+
+, 
+\begin_inset Quotes gld
+\end_inset
+
+so dass
+\begin_inset Quotes grd
+\end_inset
+
+ und 
+\begin_inset Quotes gld
+\end_inset
+
+für alle
+\begin_inset Quotes grd
+\end_inset
+
+ ab.
 \end_layout
 
 \begin_layout Definition
@@ -420,32 +501,62 @@ name "def:Tupel"
 
 \end_inset
 
-Tupel
+Menge und Tupel
 \end_layout
 
 \begin_layout Definition
-Ein Tupel 
-\begin_inset Formula $\left(x_{1},\cdots,x_{n}\right)$
+Mengen benennen wir im allgemeinen durch gewöhnliche Großbuchstaben wie
+ 
+\begin_inset Formula $A$
 \end_inset
 
- von Elementen einer Menge 
+, 
+\begin_inset Formula $B$
+\end_inset
+
+, 
 \begin_inset Formula $U$
 \end_inset
 
- wird durch 
-\begin_inset Formula $\bar{x}\in U^{n}$
+ oder 
+\begin_inset Formula $X$
 \end_inset
 
- notiert.
+.
+ Für eine Menge 
+\begin_inset Formula $A$
+\end_inset
+
+ bezeichne 
+\begin_inset Formula $2^{A}\coloneqq\left\{ A'\mid A'\subseteq A\right\} $
+\end_inset
+
+ die Menge aller Teilmengen von 
+\begin_inset Formula $A$
+\end_inset
+
+.
 \end_layout
 
-\begin_deeper
-\begin_layout Itemize
-Die 
-\series bold
-Stelligkeit
-\series default
- 
+\begin_layout Definition
+Tupel benennen wir durch Kleinbuchstaben mit Balken wie 
+\begin_inset Formula $\bar{a}$
+\end_inset
+
+, 
+\begin_inset Formula $\bar{b}$
+\end_inset
+
+, 
+\begin_inset Formula $\bar{u}$
+\end_inset
+
+ oder 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+.
+ Die Stelligkeit 
 \begin_inset Formula $\mathrm{ar}\left(\bar{x}\right)$
 \end_inset
 
@@ -470,9 +581,23 @@ Stelligkeit
 \end_inset
 
 .
+ Implizit gelte stets 
+\begin_inset Formula $\bar{x}=\left(x_{1},\cdots,x_{\left|\mathrm{ar}\left(x\right)\right|}\right)$
+\end_inset
+
+.
+ Die Menge aller Tupel einer bestimmten Stelligkeit 
+\begin_inset Formula $k$
+\end_inset
+
+ sei 
+\begin_inset Formula $A^{k}$
+\end_inset
+
+.
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Definition
 Für ein 
 \begin_inset Formula $m$
 \end_inset
@@ -502,10 +627,7 @@ Für ein
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Itemize
-Das 
+ Das 
 \begin_inset Formula $0$
 \end_inset
 
@@ -516,29 +638,57 @@ Das
  notiert.
 \end_layout
 
-\begin_layout Itemize
-Für eine geordnete Menge 
-\begin_inset Formula $U=\left\{ u_{1},\cdots,u_{k}\right\} $
-\end_inset
-
- sei 
-\begin_inset Formula $\bar{U}$
-\end_inset
-
- das Tupel 
-\begin_inset Formula $\left(u_{1},\cdots,u_{k}\right)$
-\end_inset
-
- mit 
-\begin_inset Formula $u_{1}<\cdots<u_{k}$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
 \begin_layout --Separator--
 
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Intervall
+\end_layout
+
+\begin_layout Definition
+Ein endliches Intervall von natürlichen Zahlen wird durch 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ abgekürzt:
+\begin_inset Formula 
+\[
+\left[a,b\right]\coloneqq\left\{ i\in\mathbb{N}\mid a\leqslant i\leqslant b\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Ein Intervall von reellen Zahlen wird durch 
+\begin_inset Formula $\mathbb{R}_{\left[a,b\right]}$
+\end_inset
+
+ oder 
+\begin_inset Formula $\mathbb{R}_{\left[a,b\right[}$
+\end_inset
+
+ abgekürzt: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathbb{R}_{\left[a,b\right]} & \coloneqq & \left\{ i\in\mathbb{R}\mid a\leqslant i\leqslant b\right\} \\
+\mathbb{R}_{\left[a,b\right[} & \coloneqq & \left\{ i\in\mathbb{R}\mid a\leqslant i<b\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Als nächstes definieren wir Relationen als Mengen von Tupeln von Elementen
+ eines Universums.
+ 
 \end_layout
 
 \begin_layout Definition
@@ -575,19 +725,7 @@ Für eine Menge
 \end_inset
 
 .
- Sei 
-\begin_inset Formula $2^{A}=\left\{ A'\mid A'\subseteq A\right\} $
-\end_inset
-
- die Potenzmenge von 
-\begin_inset Formula $A$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Definition
-Für jede Relation 
+ Für jede Relation 
 \begin_inset Formula $R\subseteq A^{k}$
 \end_inset
 
@@ -606,20 +744,29 @@ Für jede Relation
 
 \end_inset
 
- 
-\end_layout
-
-\begin_layout --Separator--
 
 \end_layout
 
-\begin_layout Notation
+\begin_layout Standard
+Die Operatoren 
+\begin_inset Formula $\min$
+\end_inset
+
+ und 
+\begin_inset Formula $\max$
+\end_inset
+
+ definieren das kleinste und größte Element einer Menge unter einer bestimmten
+ Ordnung.
+\end_layout
+
+\begin_layout Definition
 
 \series bold
-Minimum / Maximum
+Minimum und Maximum
 \end_layout
 
-\begin_layout Notation
+\begin_layout Definition
 Für eine Ordnung 
 \begin_inset Formula $\preceq$
 \end_inset
@@ -648,7 +795,7 @@ Für eine Ordnung
 
 \end_inset
 
-(Für 
+Für 
 \begin_inset Formula $X\subseteq\mathbb{R}$
 \end_inset
 
@@ -656,11 +803,8 @@ Für eine Ordnung
 \begin_inset Formula $\leqslant$
 \end_inset
 
- nicht explizit notiert.)
-\end_layout
-
-\begin_layout Notation
-Für eine Funktion 
+ nicht explizit notiert.
+ Für eine Funktion 
 \begin_inset Formula $f:U\rightarrow\mathbb{R}$
 \end_inset
 
@@ -704,7 +848,11 @@ Für jede Funktion
 \end_inset
 
  definieren wir die Funktionsklassen 
-\begin_inset Formula $\mathcal{O}\left(f\right),\Omega\left(f\right)$
+\begin_inset Formula $\mathcal{O}\left(f\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\Omega\left(f\right)$
 \end_inset
 
 :
@@ -716,15 +864,11 @@ Es gelte
 \begin_inset Formula $g\in\mathcal{O}\left(f\right)$
 \end_inset
 
- genau dann wenn für ein 
-\begin_inset Formula $n_{0}\in\mathbb{N}$
+ genau dann wenn ein 
+\begin_inset Formula $n_{0},c\in\mathbb{N}$
 \end_inset
 
-, ein 
-\begin_inset Formula $c\in\mathbb{N}$
-\end_inset
-
- und alle 
+ existieren, so dass für alle 
 \begin_inset Formula $n\geqslant n_{0}$
 \end_inset
 
@@ -781,43 +925,9 @@ Für
 
 \end_layout
 
-\begin_layout Definition
-
-\series bold
-Intervall
-\end_layout
-
-\begin_layout Definition
-Die Menge 
-\begin_inset Formula $\left\{ i\in\mathbb{N}\mid a\leqslant i\leqslant b\right\} $
-\end_inset
-
- wird durch 
-\begin_inset Formula $\left[a,b\right]$
-\end_inset
-
- abgekürzt.
- Ein reelles Intervall 
-\begin_inset Formula $\left\{ i\in\mathbb{R}\mid a\leqslant i\leqslant b\right\} $
-\end_inset
-
- oder 
-\begin_inset Formula $\left\{ i\in\mathbb{R}\mid a\leqslant i<b\right\} $
-\end_inset
-
- wird durch 
-\begin_inset Formula $\mathbb{R}_{\left[a,b\right]}$
-\end_inset
-
- oder 
-\begin_inset Formula $\mathbb{R}_{\left[a,b\right[}$
-\end_inset
-
- abgekürzt.
-\end_layout
-
-\begin_layout --Separator--
-
+\begin_layout Standard
+Wir legen mehrere einfache Operationen für Abbildungen fest, darunter die
+ Verkettung, Vereinigung und Reduktion.
 \end_layout
 
 \begin_layout Definition
@@ -835,31 +945,15 @@ Für eine Abbildung
 \begin_inset Formula $a\in A$
 \end_inset
 
- wird 
+ schreiben wir statt 
 \begin_inset Formula $\pi\left(a\right)$
 \end_inset
 
- auch durch 
+ gegebenenfalls 
 \begin_inset Formula $\pi a$
 \end_inset
 
- abgekürzt.
-\end_layout
-
-\begin_layout Definition
-Es sei 
-\begin_inset Formula $\mathbf{id}:A\rightarrow A$
-\end_inset
-
- die Identität mit 
-\begin_inset Formula $\mathbf{id}\left(a\right)=a$
-\end_inset
-
- für alle 
-\begin_inset Formula $a\in A$
-\end_inset
-
-.
+ ohne Klammern.
 \end_layout
 
 \begin_layout Definition
@@ -875,8 +969,7 @@ Jede Abbildung
 \begin_inset Formula 
 \begin{eqnarray*}
 \pi\left(x_{1},\cdots,x_{k}\right) & \coloneqq & \left(\pi x_{1},\cdots,\pi x_{n}\right)\\
-\pi\left\{ x_{1},\cdots,x_{n}\right\}  & \coloneqq & \left\{ \pi x_{1},\cdots,\pi x_{n}\right\} \\
-\pi\left\{ \left(x_{1,1},\cdots,x_{1,k}\right),\cdots,\left(x_{n,1},\cdots,x_{n,k}\right)\right\}  & \coloneqq & \left\{ \left(\pi x_{1,1},\cdots,\pi x_{1,k}\right),\cdots,\left(\pi x_{n,1},\cdots,\pi x_{n,k}\right)\right\} 
+\pi\left\{ x_{1},\cdots,x_{n}\right\}  & \coloneqq & \left\{ \pi x_{1},\cdots,\pi x_{n}\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -889,41 +982,36 @@ Eine Abbildung
 \begin_inset Formula $\pi:A\rightarrow B$
 \end_inset
 
- (mit 
+ mit 
 \begin_inset Formula $A=\left\{ a_{1},\cdots,a_{n}\right\} $
 \end_inset
 
- wird extensional durch 
-\begin_inset Formula $\left(\begin{array}{c}
+ schreiben wir gegebenenfalls extensional auf.
+ Für ein Tupel 
+\begin_inset Formula $\bar{a}=\left(a_{1},\cdots,a_{n}\right)$
+\end_inset
+
+ kürzen wir diese Abbildung auch durch 
+\begin_inset Formula $\left(\bar{a}\mapsto\pi\bar{a}\right)$
+\end_inset
+
+ ab.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\pi & \coloneqq & \left(\begin{array}{c}
 a_{1}\\
 \pi a_{1}
 \end{array}\cdots\begin{array}{c}
 a_{n}\\
 \pi a_{n}
-\end{array}\right)$
+\end{array}\right)\\
+\pi & \coloneqq & \left(\bar{a}\mapsto\pi\bar{a}\right)
+\end{eqnarray*}
+
 \end_inset
 
- notiert.
-\end_layout
 
-\begin_layout Definition
-Wenn 
-\begin_inset Formula $\bar{a}=\left(a_{1},\cdots,a_{n}\right)$
-\end_inset
-
- und 
-\begin_inset Formula $\bar{b}=\left(\pi a_{1},\cdots\pi a_{n}\right)\in B^{n}$
-\end_inset
-
-, so wird 
-\begin_inset Formula $\pi:A\rightarrow B$
-\end_inset
-
- kurz durch 
-\begin_inset Formula $\left(\bar{a}\mapsto\bar{b}\right)$
-\end_inset
-
- notiert.
 \end_layout
 
 \begin_layout Definition
@@ -946,13 +1034,7 @@ Für zwei Abbildungen
 ) die folgende Abbildung: 
 \begin_inset Formula 
 \[
-\pi_{1}\pi_{2}\coloneqq\left(\begin{array}{c}
-a_{1}\\
-\pi_{1}\left(\pi_{2}\left(a_{1}\right)\right)
-\end{array}\cdots\begin{array}{c}
-a_{n}\\
-\pi_{1}\left(\pi_{2}\left(a_{n}\right)\right)
-\end{array}\right)
+\pi_{1}\pi_{2}\coloneqq\left(\bar{a}\mapsto\pi_{1}\left(\pi_{2}\left(\bar{a}\right)\right)\right)
 \]
 
 \end_inset
@@ -969,18 +1051,23 @@ Für zwei Abbildungen
 \begin_inset Formula $\pi':A'\rightarrow B'$
 \end_inset
 
- mit disjunkten Definitionsbereichen sei 
-\begin_inset Formula $\pi\cup\pi':A\uplus A'\rightarrow B\cup B'$
+ mit disjunkten Definitionsbereichen 
+\begin_inset Formula $A\cap A'=\emptyset$
 \end_inset
 
- die folgende Abbildung:
+ sei 
+\begin_inset Formula $\pi''\coloneqq\pi\cup\pi'$
+\end_inset
+
+ die folgende Abbildung: 
 \begin_inset Formula 
-\[
-\left(\pi\cup\pi'\right)x\coloneqq\begin{cases}
+\begin{eqnarray*}
+\pi'' & : & A\uplus A'\rightarrow B\cup B'\\
+\pi''x & \coloneqq & \begin{cases}
 \pi x & \mathrm{falls}\,\,x\in A\\
 \pi'x & \mathrm{falls}\,\,x\in A'
 \end{cases}
-\]
+\end{eqnarray*}
 
 \end_inset
 
@@ -1000,11 +1087,40 @@ Für
 \begin_inset Formula $\pi_{\mid A'}:A'\rightarrow B$
 \end_inset
 
- die Reduktion auf eine Teilmenge des Definitionsbereichs, und 
+ die Reduktion von 
+\begin_inset Formula $\pi$
+\end_inset
+
+ auf eine Teilmenge des Definitionsbereichs, und 
 \begin_inset Formula $\pi_{\backslash A'}:A\backslash A'\rightarrow B$
 \end_inset
 
  die Reduktion auf das Komplement.
+\end_layout
+
+\begin_layout Definition
+Es sei 
+\begin_inset Formula $\mathbf{id}$
+\end_inset
+
+ die Identität mit 
+\begin_inset Formula $\mathbf{id}\left(a\right)=a$
+\end_inset
+
+ für alle Elemente 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ Mit 
+\begin_inset Formula $\mathbf{id}_{\mid X}$
+\end_inset
+
+ bezeichnen wir die Identitätsfunktion auf einer festen Menge 
+\begin_inset Formula $X$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Definition
@@ -1020,7 +1136,7 @@ Die Menge
 \begin_inset Formula $n!$
 \end_inset
 
- Bijektionen 
+ bijektiven Abbildungen 
 \begin_inset Formula $\pi:A\rightarrow B$
 \end_inset
 
@@ -1043,27 +1159,25 @@ Eine Permutation von
 \end_inset
 
  ist eine bijektive Abbildung 
-\begin_inset Formula $\pi:U\rightarrow U$
+\begin_inset Formula $\pi\in\mathrm{Abb}\left(U,U\right)$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Definition
-Die Menge aller Permutationen von 
-\begin_inset Formula $U$
+ Die Menge aller Permutationen 
+\begin_inset Formula $\mathrm{Abb}\left(U,U\right)$
 \end_inset
 
- sei 
+ bezeichnen wir auch als 
 \begin_inset Formula $\mathrm{Sym}_{U}$
 \end_inset
 
-; diese bilden eine Symmetrie-Gruppe bezüglich der Verkettung 
-\begin_inset Formula $\circ:\mathrm{Sym}_{U}\times\mathrm{Sym}_{U}\rightarrow\mathrm{Sym}_{U}$
+.
+ Diese bilden eine Symmetrie-Gruppe bezüglich der Verkettung 
+\begin_inset Formula $\circ$
 \end_inset
 
  mit dem neutralen Element 
-\begin_inset Formula $\mathbf{id}$
+\begin_inset Formula $\mathbf{id}_{\mid U}$
 \end_inset
 
 .
@@ -1075,7 +1189,7 @@ Es sei
 \end_inset
 
  die inverse Abbildung mit 
-\begin_inset Formula $\pi^{-1}\pi=\pi\pi^{-1}=\mathbf{id}$
+\begin_inset Formula $\pi^{-1}\pi=\pi\pi^{-1}=\mathbf{id}_{\mid U}$
 \end_inset
 
 .
@@ -1098,15 +1212,8 @@ Eine Transposition sei eine Permutation, die zwei Elemente
  notiert.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
-Relationale Strukturen
+Endliche relationale Strukturen
 \end_layout
 
 \begin_layout Standard
@@ -1184,24 +1291,79 @@ Eine endliche
 .
 \end_layout
 
-\begin_layout Definition
-(Die Signatur 
+\begin_deeper
+\begin_layout Itemize
+Für eine endliche Menge 
+\begin_inset Formula $U$
+\end_inset
+
+ sei 
+\begin_inset Formula $\mathbf{FIN}^{U}\left(\sigma\right)$
+\end_inset
+
+ die Menge aller 
 \begin_inset Formula $\sigma$
 \end_inset
 
- kann in Ausnahmefällen unendlich sein; da wir jedoch nur endliche 
+-Strukturen über dem Universum 
+\begin_inset Formula $U$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Für 
+\begin_inset Formula $n\in\mathbb{N}_{\geqslant1}$
+\end_inset
+
+ seien 
+\begin_inset Formula $\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+\end_inset
+
+ die 
 \begin_inset Formula $\sigma$
 \end_inset
 
--Anfragen betrachten, können diese sich nur auf einer endlichen Menge von
+-Strukturen über einem beliebigen Universum der Größe 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Seien 
+\begin_inset Formula $\mathbf{FIN}\left(\sigma\right)\coloneqq\bigcup_{n\in\mathbb{N}_{\geqslant1}}\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+\end_inset
+
+ die endlichen 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Die Signatur 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ kann in Ausnahmefällen unendlich sein; da wir jedoch nur endlich repräsentierba
+re 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfragen betrachten, können diese sich nur auf eine endlichen Menge von
  Relationssymbolen 
 \begin_inset Formula $\sigma'\subseteq_{\mathrm{fin}}\sigma$
 \end_inset
 
- beziehen.)
+ beziehen.
 \end_layout
 
-\begin_layout Definition
+\begin_layout Standard
 Wir formalisieren die Interpretation als eine Abbildung 
 \begin_inset Formula $\square^{\mathfrak{A}}:\sigma\rightarrow\bigcup_{k\in\mathbb{N}}2^{\left(A^{k}\right)}$
 \end_inset
@@ -1229,64 +1391,6 @@ R_{k}^{\mathfrak{A}}
 
 \end_layout
 
-\begin_deeper
-\begin_layout Enumerate
-Für eine endliche Menge 
-\begin_inset Formula $U$
-\end_inset
-
- sei 
-\begin_inset Formula $\mathbf{FIN}^{U}\left(\sigma\right)$
-\end_inset
-
- die Menge aller 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Strukturen über dem Universum 
-\begin_inset Formula $U$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Für 
-\begin_inset Formula $n\in\mathbb{N}_{\geqslant1}$
-\end_inset
-
- seien 
-\begin_inset Formula $\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
-\end_inset
-
- die 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Strukturen über einem beliebigen Universum der Größe 
-\begin_inset Formula $n$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Enumerate
-Seien 
-\begin_inset Formula $\mathbf{FIN}\left(\sigma\right)\coloneqq\bigcup_{n\in\mathbb{N}_{\geqslant1}}\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
-\end_inset
-
- die endlichen 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Strukturen.
-\end_layout
-
-\end_deeper
-\begin_layout --Separator--
-
-\end_layout
-
 \begin_layout Definition
 
 \series bold
@@ -1310,11 +1414,15 @@ Für
 \begin_inset Formula $a,b\in\mathbb{N}$
 \end_inset
 
- seien 
-\begin_inset Formula $\mathbf{FIN}_{\leqslant}^{\left[a,b\right]}\left(\sigma\right)\subseteq\mathbf{FIN}^{\left[a,b\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)$
+ sei 
+\begin_inset Formula 
+\[
+\mathbf{FIN}_{\leqslant}^{\left[a,b\right]}\left(\sigma\right)\subseteq\mathbf{FIN}^{\left[a,b\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)
+\]
+
 \end_inset
 
- die endlichen 
+ die Menge der endlichen 
 \begin_inset Formula $\sigma\cup\left\{ \leqslant\right\} $
 \end_inset
 
@@ -1331,10 +1439,14 @@ Für
 \end_inset
 
  interpretiert wird, und sei 
-\begin_inset Formula $\mathbf{FIN}_{\leqslant}^{a}\left(\sigma\right)\coloneqq\bigcup_{b\in\mathbb{N}}\mathbf{FIN}_{\leqslant}^{\left[a,b\right]}\left(\sigma\right)$
+\begin_inset Formula 
+\[
+\mathbf{FIN}_{\leqslant}^{a}\left(\sigma\right)\coloneqq\bigcup_{b\in\mathbb{N}}\mathbf{FIN}_{\leqslant}^{\left[a,b\right]}\left(\sigma\right)
+\]
+
 \end_inset
 
- die Klasse aller endlichen geordneten 
+ die Menge aller endlichen geordneten 
 \begin_inset Formula $\sigma\cup\left\{ \leqslant\right\} $
 \end_inset
 
@@ -1347,11 +1459,10 @@ Für
 \end_inset
 
 ).
- 
 \end_layout
 
 \begin_layout Definition
-Der Lesbarkeit halber wird die Infixnotation 
+Der Lesbarkeit halber verwenden wir die Infixnotation 
 \begin_inset Formula $a\leqslant b$
 \end_inset
 
@@ -1360,10 +1471,10 @@ Der Lesbarkeit halber wird die Infixnotation
 \end_inset
 
  oder 
-\begin_inset Formula $\leqslant\left(a,b\right)$
+\begin_inset Formula $\left[\leqslant\right]\left(a,b\right)$
 \end_inset
 
- verwendet.
+.
 \end_layout
 
 \begin_layout Definition
@@ -1383,7 +1494,7 @@ Die Symbole
 \begin_inset Formula $=$
 \end_inset
 
-, und werden der Lesbarkeit halber in Gleichungen wie 
+, und werden gegebenenfalls in Gleichungen wie 
 \begin_inset Formula $\varphi=x\dot{=}y$
 \end_inset
 
@@ -1424,7 +1535,7 @@ Für zwei
 \end_inset
 
  sei eine bijektive Abbildung 
-\begin_inset Formula $\pi:A\rightarrow B$
+\begin_inset Formula $\pi\in\mathrm{Abb}\left(A,B\right)$
 \end_inset
 
  ein Isomorphismus, falls 
@@ -1455,25 +1566,25 @@ Die Abbildung
 \end_layout
 
 \begin_layout Definition
-Der Isomorphismus wird kurz durch 
-\begin_inset Formula $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{B}$
+Die Menge aller Isomorphismen bezeichnen wir mit 
+\begin_inset Formula $\mathrm{Abb}\left(\mathfrak{A},\mathfrak{B}\right)$
 \end_inset
 
- notiert.
+.
  Zwei Strukturen heißen isomorph (kurz 
 \begin_inset Formula $\mathfrak{A}\cong\mathfrak{B}$
 \end_inset
 
-), falls ein 
-\begin_inset Formula $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{B}$
+), falls 
+\begin_inset Formula $\mathrm{Abb}\left(\mathfrak{A},\mathfrak{B}\right)$
 \end_inset
 
- existiert.
+ nicht leer ist.
 \end_layout
 
 \begin_layout Definition
 Ein Automorphismus 
-\begin_inset Formula $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{A}$
+\begin_inset Formula $\pi\in\mathrm{Abb}\left(\mathfrak{A},\mathfrak{A}\right)$
 \end_inset
 
  sei ein Isomorphismus von 
@@ -1481,20 +1592,21 @@ Ein Automorphismus
 \end_inset
 
  zu sich selbst.
- Die Menge aller Automorphismen von 
-\begin_inset Formula $\mathfrak{A}$
+ Die Menge 
+\begin_inset Formula $\mathrm{Abb}\left(\mathfrak{A},\mathfrak{A}\right)$
 \end_inset
 
- sei 
+ nennen wir 
 \begin_inset Formula $\mathrm{Aut}_{\mathfrak{A}}$
 \end_inset
 
-; diese bilden eine Gruppe bezüglich der Verkettung 
+; diese bilden (genau wie die Permutationen) eine Gruppe bezüglich der Verkettun
+g 
 \begin_inset Formula $\circ$
 \end_inset
 
  und dem neutralen Element 
-\begin_inset Formula $\mathbf{id}$
+\begin_inset Formula $\mathbf{id}_{\mid A}$
 \end_inset
 
 .

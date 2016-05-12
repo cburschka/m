@@ -1,8 +1,10 @@
 %% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[oneside,ngerman]{scrbook}
+\documentclass[ngerman]{scrbook}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,bmargin=0.2\paperheight}
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 \usepackage{refstyle}
@@ -46,8 +48,6 @@
 \fi
   \theoremstyle{definition}
   \newtheorem{defn}[thm]{\protect\definitionname}
-  \theoremstyle{remark}
-  \newtheorem{notation}[thm]{\protect\notationname}
 % labeling-like list based on enumitem's description list with
 % mandatory second argument (label-pattern):
 \newenvironment{elabeling}[2][]%
@@ -55,6 +55,8 @@
 \begin{description}[font=\normalfont,style=sameline,
 leftmargin=\lyxlabelwidth,#1]}
 {\end{description}}
+  \theoremstyle{remark}
+  \newtheorem{notation}[thm]{\protect\notationname}
   \theoremstyle{remark}
   \newtheorem*{rem*}{\protect\remarkname}
   \theoremstyle{definition}
@@ -212,52 +214,76 @@ ist.
 \end{enumerate}
 \end{thm}
 
-\chapter{Grundlagen}
-
-Diese Arbeit verwendet verschiedene Begriffe der endlichen Modelltheorie
-und der Graphentheorie. Diese Begriffe werden im folgenden formal
-definiert.
+\chapter{Grundlegende Definitionen}
 
 
-\section{Notationen}
+\section{Notation}
+
+Zunächst legen wir einige Notationen und Abkürzungen fest. Im folgenden
+bezeichne $\mathbb{N}$ die Menge der natürlichen Zahlen einschließlich
+$0$, $\mathbb{R}$ die Menge der reellen Zahlen, und ,,$\leqslant$``
+(wenn nicht anders definiert) die natürliche Ordnung von $\mathbb{R}$
+und $\mathbb{N}$. Mit ,,ex.``, ,,s.d.`` und ,,f.a.`` kürzen
+wir gegebenenfalls ,,es existiert``, ,,so dass`` und ,,für alle``
+ab.
 \begin{defn}
-\textbf{\label{def:Tupel}Tupel}
+\textbf{\label{def:Tupel}Menge und Tupel}
 
-Ein Tupel $\left(x_{1},\cdots,x_{n}\right)$ von Elementen einer Menge
-$U$ wird durch $\bar{x}\in U^{n}$ notiert.
-\begin{itemize}
-\item Die \textbf{Stelligkeit} $\mathrm{ar}\left(\bar{x}\right)$ eines
-Tupels $\bar{x}$ sei die Anzahl seiner Elemente, und ein $n$-stelliges
-Tupel heiße kurz ,,$n$-Tupel``.
-\item Für ein $m$-Tupel $\bar{x}$ und ein $n$-Tupel $\bar{y}$ sei $\bar{x}\bar{y}$
+Mengen benennen wir im allgemeinen durch gewöhnliche Großbuchstaben
+wie $A$, $B$, $U$ oder $X$. Für eine Menge $A$ bezeichne $2^{A}\coloneqq\left\{ A'\mid A'\subseteq A\right\} $
+die Menge aller Teilmengen von $A$.
+
+Tupel benennen wir durch Kleinbuchstaben mit Balken wie $\bar{a}$,
+$\bar{b}$, $\bar{u}$ oder $\bar{x}$. Die Stelligkeit $\mathrm{ar}\left(\bar{x}\right)$
+eines Tupels $\bar{x}$ sei die Anzahl seiner Elemente, und ein $n$-stelliges
+Tupel heiße kurz ,,$n$-Tupel``. Implizit gelte stets $\bar{x}=\left(x_{1},\cdots,x_{\left|\mathrm{ar}\left(x\right)\right|}\right)$.
+Die Menge aller Tupel einer bestimmten Stelligkeit $k$ sei $A^{k}$.
+
+Für ein $m$-Tupel $\bar{x}$ und ein $n$-Tupel $\bar{y}$ sei $\bar{x}\bar{y}$
 das $\left(m+n\right)$-Tupel $\left(x_{1},\cdots,x_{m},y_{1},\cdots,y_{n}\right)$.
-\item Das $0$-stellige Tupel wird durch $\left\langle \right\rangle $
+Das $0$-stellige Tupel wird durch $\left\langle \right\rangle $
 notiert.
-\item Für eine geordnete Menge $U=\left\{ u_{1},\cdots,u_{k}\right\} $
-sei $\bar{U}$ das Tupel $\left(u_{1},\cdots,u_{k}\right)$ mit $u_{1}<\cdots<u_{k}$.
-\end{itemize}
 \end{defn}
 
+\begin{defn}
+\textbf{Intervall}
+
+Ein endliches Intervall von natürlichen Zahlen wird durch $\left[a,b\right]$
+abgekürzt:
+\[
+\left[a,b\right]\coloneqq\left\{ i\in\mathbb{N}\mid a\leqslant i\leqslant b\right\} 
+\]
+
+
+Ein Intervall von reellen Zahlen wird durch $\mathbb{R}_{\left[a,b\right]}$
+oder $\mathbb{R}_{\left[a,b\right[}$ abgekürzt: 
+\begin{eqnarray*}
+\mathbb{R}_{\left[a,b\right]} & \coloneqq & \left\{ i\in\mathbb{R}\mid a\leqslant i\leqslant b\right\} \\
+\mathbb{R}_{\left[a,b\right[} & \coloneqq & \left\{ i\in\mathbb{R}\mid a\leqslant i<b\right\} 
+\end{eqnarray*}
+
+\end{defn}
+Als nächstes definieren wir Relationen als Mengen von Tupeln von Elementen
+eines Universums. 
 \begin{defn}
 \textbf{\label{def:Relation}Relation}
 
 Für eine Menge $A$ und $k\in\mathbb{N}$ sei $R\subseteq A^{k}$
-eine $k$-stellige Relation über $A$. Sei $2^{A}=\left\{ A'\mid A'\subseteq A\right\} $
-die Potenzmenge von $A$.
-
-Für jede Relation $R\subseteq A^{k}$ sei $\left[R\right]:A^{k}\rightarrow\left\{ 0,1\right\} $
-die folgende Funktion: 
+eine $k$-stellige Relation über $A$. Für jede Relation $R\subseteq A^{k}$
+sei $\left[R\right]:A^{k}\rightarrow\left\{ 0,1\right\} $ die folgende
+Funktion: 
 \[
 \left[R\right]\left(\bar{a}\right)\coloneqq\begin{cases}
 1 & \mathrm{falls}\,\,\bar{a}\in R\\
 0 & \mathrm{sonst}
 \end{cases}
 \]
- 
-\end{defn}
 
-\begin{notation}
-\textbf{Minimum / Maximum}
+\end{defn}
+Die Operatoren $\min$ und $\max$ definieren das kleinste und größte
+Element einer Menge unter einer bestimmten Ordnung.
+\begin{defn}
+\textbf{Minimum und Maximum}
 
 Für eine Ordnung $\preceq$ auf einer Menge $X$ seien $\min_{\preceq}\left(X\right)\in X$
 und $\max_{\preceq}\left(X\right)\in X$ diejenigen Elemente (sofern
@@ -265,28 +291,25 @@ vorhanden), so dass für alle Elemente $z\in X$ gilt:
 \[
 \min_{\preceq}\left(X\right)\preceq z\preceq\max_{\preceq}\left(X\right)
 \]
-(Für $X\subseteq\mathbb{R}$ wird die natürliche Ordnung $\leqslant$
-nicht explizit notiert.)
-
-Für eine Funktion $f:U\rightarrow\mathbb{R}$ und eine Menge $X\subseteq U$
-bezeichnen $\min_{x\in X}f\left(x\right)\in\mathbb{R}$ und $\max_{x\in X}f\left(x\right)\in\mathbb{R}$
-die folgende Abkürzungen:
+Für $X\subseteq\mathbb{R}$ wird die natürliche Ordnung $\leqslant$
+nicht explizit notiert. Für eine Funktion $f:U\rightarrow\mathbb{R}$
+und eine Menge $X\subseteq U$ bezeichnen $\min_{x\in X}f\left(x\right)\in\mathbb{R}$
+und $\max_{x\in X}f\left(x\right)\in\mathbb{R}$ die folgende Abkürzungen:
 \begin{eqnarray*}
 \min_{x\in X}f\left(x\right) & \coloneqq & \min\left\{ f\left(x\right)\mid x\in X\right\} \\
 \max_{x\in X}f\left(x\right) & \coloneqq & \max\left\{ f\left(x\right)\mid x\in X\right\} 
 \end{eqnarray*}
 
-\end{notation}
+\end{defn}
 
 \begin{defn}
 \textbf{Asymptotische Klassen}
 
 Für jede Funktion $f:\mathbb{N}\rightarrow\mathbb{R}$ definieren
-wir die Funktionsklassen $\mathcal{O}\left(f\right),\Omega\left(f\right)$:
+wir die Funktionsklassen $\mathcal{O}\left(f\right)$ und $\Omega\left(f\right)$:
 \begin{itemize}
-\item Es gelte $g\in\mathcal{O}\left(f\right)$ genau dann wenn für ein
-$n_{0}\in\mathbb{N}$, ein $c\in\mathbb{N}$ und alle $n\geqslant n_{0}$
-gilt: $g\left(n\right)\leqslant c\cdot f\left(n\right)$.
+\item Es gelte $g\in\mathcal{O}\left(f\right)$ genau dann wenn ein $n_{0},c\in\mathbb{N}$
+existieren, so dass für alle $n\geqslant n_{0}$ gilt: $g\left(n\right)\leqslant c\cdot f\left(n\right)$.
 \item Es gelte $g\in\Omega\left(f\right)$ genau dann wenn $f\in\mathcal{O}\left(g\right)$.
 \end{itemize}
 Für $f:\mathbb{R}\rightarrow\mathbb{R}$ und eine Klasse $\mathcal{F}$
@@ -295,99 +318,88 @@ Zum Beispiel ist $f\in2^{\mathcal{O}\left(n\right)}$ genau dann wenn
 $f\in\mathcal{O}\left(2^{kn}\right)$ für ein festes $k\in\mathbb{N}$.
 \end{defn}
 
-\begin{defn}
-\textbf{Intervall}
 
-Die Menge $\left\{ i\in\mathbb{N}\mid a\leqslant i\leqslant b\right\} $
-wird durch $\left[a,b\right]$ abgekürzt. Ein reelles Intervall $\left\{ i\in\mathbb{R}\mid a\leqslant i\leqslant b\right\} $
-oder $\left\{ i\in\mathbb{R}\mid a\leqslant i<b\right\} $ wird durch
-$\mathbb{R}_{\left[a,b\right]}$ oder $\mathbb{R}_{\left[a,b\right[}$
-abgekürzt.
-\end{defn}
-
+Wir legen mehrere einfache Operationen für Abbildungen fest, darunter
+die Verkettung, Vereinigung und Reduktion.
 \begin{defn}
 \textbf{Abbildung}
 
-Für eine Abbildung $\pi:A\rightarrow B$ und $a\in A$ wird $\pi\left(a\right)$
-auch durch $\pi a$ abgekürzt.
-
-Es sei $\mathbf{id}:A\rightarrow A$ die Identität mit $\mathbf{id}\left(a\right)=a$
-für alle $a\in A$.
+Für eine Abbildung $\pi:A\rightarrow B$ und $a\in A$ schreiben wir
+statt $\pi\left(a\right)$ gegebenenfalls $\pi a$ ohne Klammern.
 
 Jede Abbildung $\pi:A\rightarrow B$ wird auf natürliche Weise auf
 Tupel, Teilmengen und Relationen von $A$ erweitert:
 \begin{eqnarray*}
 \pi\left(x_{1},\cdots,x_{k}\right) & \coloneqq & \left(\pi x_{1},\cdots,\pi x_{n}\right)\\
-\pi\left\{ x_{1},\cdots,x_{n}\right\}  & \coloneqq & \left\{ \pi x_{1},\cdots,\pi x_{n}\right\} \\
-\pi\left\{ \left(x_{1,1},\cdots,x_{1,k}\right),\cdots,\left(x_{n,1},\cdots,x_{n,k}\right)\right\}  & \coloneqq & \left\{ \left(\pi x_{1,1},\cdots,\pi x_{1,k}\right),\cdots,\left(\pi x_{n,1},\cdots,\pi x_{n,k}\right)\right\} 
+\pi\left\{ x_{1},\cdots,x_{n}\right\}  & \coloneqq & \left\{ \pi x_{1},\cdots,\pi x_{n}\right\} 
 \end{eqnarray*}
 
 
-Eine Abbildung $\pi:A\rightarrow B$ (mit $A=\left\{ a_{1},\cdots,a_{n}\right\} $
-wird extensional durch $\left(\begin{array}{c}
+Eine Abbildung $\pi:A\rightarrow B$ mit $A=\left\{ a_{1},\cdots,a_{n}\right\} $
+schreiben wir gegebenenfalls extensional auf. Für ein Tupel $\bar{a}=\left(a_{1},\cdots,a_{n}\right)$
+kürzen wir diese Abbildung auch durch $\left(\bar{a}\mapsto\pi\bar{a}\right)$
+ab. 
+\begin{eqnarray*}
+\pi & \coloneqq & \left(\begin{array}{c}
 a_{1}\\
 \pi a_{1}
 \end{array}\cdots\begin{array}{c}
 a_{n}\\
 \pi a_{n}
-\end{array}\right)$ notiert.
+\end{array}\right)\\
+\pi & \coloneqq & \left(\bar{a}\mapsto\pi\bar{a}\right)
+\end{eqnarray*}
 
-Wenn $\bar{a}=\left(a_{1},\cdots,a_{n}\right)$ und $\bar{b}=\left(\pi a_{1},\cdots\pi a_{n}\right)\in B^{n}$,
-so wird $\pi:A\rightarrow B$ kurz durch $\left(\bar{a}\mapsto\bar{b}\right)$
-notiert.
 
 Für zwei Abbildungen $\pi_{1}:B\rightarrow C$ und $\pi_{2}:A\rightarrow B$
 sei $\pi_{1}\circ\pi_{2}:A\rightarrow C$ (kurz $\pi_{1}\pi_{2}$)
 die folgende Abbildung: 
 \[
-\pi_{1}\pi_{2}\coloneqq\left(\begin{array}{c}
-a_{1}\\
-\pi_{1}\left(\pi_{2}\left(a_{1}\right)\right)
-\end{array}\cdots\begin{array}{c}
-a_{n}\\
-\pi_{1}\left(\pi_{2}\left(a_{n}\right)\right)
-\end{array}\right)
+\pi_{1}\pi_{2}\coloneqq\left(\bar{a}\mapsto\pi_{1}\left(\pi_{2}\left(\bar{a}\right)\right)\right)
 \]
 
 
 Für zwei Abbildungen $\pi:A\rightarrow B$ und $\pi':A'\rightarrow B'$
-mit disjunkten Definitionsbereichen sei $\pi\cup\pi':A\uplus A'\rightarrow B\cup B'$
-die folgende Abbildung:
-\[
-\left(\pi\cup\pi'\right)x\coloneqq\begin{cases}
+mit disjunkten Definitionsbereichen $A\cap A'=\emptyset$ sei $\pi''\coloneqq\pi\cup\pi'$
+die folgende Abbildung: 
+\begin{eqnarray*}
+\pi'' & : & A\uplus A'\rightarrow B\cup B'\\
+\pi''x & \coloneqq & \begin{cases}
 \pi x & \mathrm{falls}\,\,x\in A\\
 \pi'x & \mathrm{falls}\,\,x\in A'
 \end{cases}
-\]
+\end{eqnarray*}
 
 
 Für $\pi:A\rightarrow B$ und $A'\subseteq A$ sei $\pi_{\mid A'}:A'\rightarrow B$
-die Reduktion auf eine Teilmenge des Definitionsbereichs, und $\pi_{\backslash A'}:A\backslash A'\rightarrow B$
-die Reduktion auf das Komplement.
+die Reduktion von $\pi$ auf eine Teilmenge des Definitionsbereichs,
+und $\pi_{\backslash A'}:A\backslash A'\rightarrow B$ die Reduktion
+auf das Komplement.
+
+Es sei $\mathbf{id}$ die Identität mit $\mathbf{id}\left(a\right)=a$
+für alle Elemente $a$. Mit $\mathbf{id}_{\mid X}$ bezeichnen wir
+die Identitätsfunktion auf einer festen Menge $X$.
 
 Die Menge $\mathrm{Abb}\left(A,B\right)$ bezeichne für $\left|A\right|=\left|B\right|$
-alle $n!$ Bijektionen $\pi:A\rightarrow B$.
+alle $n!$ bijektiven Abbildungen $\pi:A\rightarrow B$.
 \end{defn}
 
 \begin{defn}
 \textbf{Permutation}
 
-Eine Permutation von $U$ ist eine bijektive Abbildung $\pi:U\rightarrow U$.
+Eine Permutation von $U$ ist eine bijektive Abbildung $\pi\in\mathrm{Abb}\left(U,U\right)$.
+Die Menge aller Permutationen $\mathrm{Abb}\left(U,U\right)$ bezeichnen
+wir auch als $\mathrm{Sym}_{U}$. Diese bilden eine Symmetrie-Gruppe
+bezüglich der Verkettung $\circ$ mit dem neutralen Element $\mathbf{id}_{\mid U}$.
 
-Die Menge aller Permutationen von $U$ sei $\mathrm{Sym}_{U}$; diese
-bilden eine Symmetrie-Gruppe bezüglich der Verkettung $\circ:\mathrm{Sym}_{U}\times\mathrm{Sym}_{U}\rightarrow\mathrm{Sym}_{U}$
-mit dem neutralen Element $\mathbf{id}$.
-
-Es sei $\pi^{-1}$ die inverse Abbildung mit $\pi^{-1}\pi=\pi\pi^{-1}=\mathbf{id}$.
+Es sei $\pi^{-1}$ die inverse Abbildung mit $\pi^{-1}\pi=\pi\pi^{-1}=\mathbf{id}_{\mid U}$.
 
 Eine Transposition sei eine Permutation, die zwei Elemente $u_{i}$
 und $u_{j}$ vertauscht und alle anderen Elemente fixiert. Diese wird
 kurz durch $\left(u_{i}u_{j}\right)$ notiert.
 \end{defn}
-\pagebreak{}
 
-
-\section{Relationale Strukturen}
+\section{Endliche relationale Strukturen}
 
 Wir betrachten Anfragen und Eigenschaften auf Graphen und allgemeinen
 relationalen Strukturen.
@@ -408,11 +420,20 @@ Eine endliche $\sigma$-Struktur $\mathfrak{A}=\left(A,\left(R^{\mathfrak{A}}\rig
 über einer Signatur $\sigma$ besteht aus einem endlichen, nicht-leeren
 Universum $A$ und einer Interpretation $R^{\mathfrak{A}}\subseteq A^{k}$
 für jedes Symbol $R/k\in\sigma$.
-
-(Die Signatur $\sigma$ kann in Ausnahmefällen unendlich sein; da
-wir jedoch nur endliche $\sigma$-Anfragen betrachten, können diese
-sich nur auf einer endlichen Menge von Relationssymbolen $\sigma'\subseteq_{\mathrm{fin}}\sigma$
-beziehen.)
+\begin{itemize}
+\item Für eine endliche Menge $U$ sei $\mathbf{FIN}^{U}\left(\sigma\right)$
+die Menge aller $\sigma$-Strukturen über dem Universum $U$.
+\item Für $n\in\mathbb{N}_{\geqslant1}$ seien $\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+die $\sigma$-Strukturen über einem beliebigen Universum der Größe
+$n$.
+\item Seien $\mathbf{FIN}\left(\sigma\right)\coloneqq\bigcup_{n\in\mathbb{N}_{\geqslant1}}\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+die endlichen $\sigma$-Strukturen.
+\end{itemize}
+\end{defn}
+Die Signatur $\sigma$ kann in Ausnahmefällen unendlich sein; da wir
+jedoch nur endlich repräsentierbare $\sigma$-Anfragen betrachten,
+können diese sich nur auf eine endlichen Menge von Relationssymbolen
+$\sigma'\subseteq_{\mathrm{fin}}\sigma$ beziehen.
 
 Wir formalisieren die Interpretation als eine Abbildung $\square^{\mathfrak{A}}:\sigma\rightarrow\bigcup_{k\in\mathbb{N}}2^{\left(A^{k}\right)}$,
 die jedem Symbol eine Relation der entsprechenden Stelligkeit zuweist.
@@ -428,37 +449,32 @@ R_{k}^{\mathfrak{A}}
 \end{array}\right)\right)
 \]
 
-\begin{enumerate}
-\item Für eine endliche Menge $U$ sei $\mathbf{FIN}^{U}\left(\sigma\right)$
-die Menge aller $\sigma$-Strukturen über dem Universum $U$.
-\item Für $n\in\mathbb{N}_{\geqslant1}$ seien $\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
-die $\sigma$-Strukturen über einem beliebigen Universum der Größe
-$n$.
-\item Seien $\mathbf{FIN}\left(\sigma\right)\coloneqq\bigcup_{n\in\mathbb{N}_{\geqslant1}}\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
-die endlichen $\sigma$-Strukturen.
-\end{enumerate}
-\end{defn}
-
 \begin{defn}
 \textbf{Geordnete Struktur}
 
 Sei $\sigma$ eine relationale Signatur, die nicht das zweistellige
 Symbol $\leqslant$ enthält.
 
-Für $a,b\in\mathbb{N}$ seien $\mathbf{FIN}_{\leqslant}^{\left[a,b\right]}\left(\sigma\right)\subseteq\mathbf{FIN}^{\left[a,b\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)$
-die endlichen $\sigma\cup\left\{ \leqslant\right\} $-Strukturen mit
-dem Universum $\left[a,b\right]$, wobei $\leqslant$ durch die natürliche
-Ordnung von $\left[a,b\right]$ interpretiert wird, und sei $\mathbf{FIN}_{\leqslant}^{a}\left(\sigma\right)\coloneqq\bigcup_{b\in\mathbb{N}}\mathbf{FIN}_{\leqslant}^{\left[a,b\right]}\left(\sigma\right)$
-die Klasse aller endlichen geordneten $\sigma\cup\left\{ \leqslant\right\} $-Strukturen
-über Intervallen, die mit $a$ beginnen (normalerweise mit $a\in\left\{ 0,1\right\} $). 
+Für $a,b\in\mathbb{N}$ sei 
+\[
+\mathbf{FIN}_{\leqslant}^{\left[a,b\right]}\left(\sigma\right)\subseteq\mathbf{FIN}^{\left[a,b\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)
+\]
+ die Menge der endlichen $\sigma\cup\left\{ \leqslant\right\} $-Strukturen
+mit dem Universum $\left[a,b\right]$, wobei $\leqslant$ durch die
+natürliche Ordnung von $\left[a,b\right]$ interpretiert wird, und
+sei 
+\[
+\mathbf{FIN}_{\leqslant}^{a}\left(\sigma\right)\coloneqq\bigcup_{b\in\mathbb{N}}\mathbf{FIN}_{\leqslant}^{\left[a,b\right]}\left(\sigma\right)
+\]
+ die Menge aller endlichen geordneten $\sigma\cup\left\{ \leqslant\right\} $-Strukturen
+über Intervallen, die mit $a$ beginnen (normalerweise mit $a\in\left\{ 0,1\right\} $).
 
-Der Lesbarkeit halber wird die Infixnotation $a\leqslant b$ anstelle
-von $\left(a,b\right)\in\leqslant$ oder $\leqslant\left(a,b\right)$
-verwendet.
+Der Lesbarkeit halber verwenden wir die Infixnotation $a\leqslant b$
+anstelle von $\left(a,b\right)\in\leqslant$ oder $\left[\leqslant\right]\left(a,b\right)$.
 
 Die Symbole $\dot{\leqslant}$ und $\dot{=}$ seien gleichbedeutend
-mit den Symbolen $\leqslant$ und $=$, und werden der Lesbarkeit
-halber in Gleichungen wie $\varphi=x\dot{=}y$ und $\varphi=x\dot{\leqslant}y$
+mit den Symbolen $\leqslant$ und $=$, und werden gegebenenfalls
+in Gleichungen wie $\varphi=x\dot{=}y$ und $\varphi=x\dot{\leqslant}y$
 verwendet.
 \end{defn}
 
@@ -466,9 +482,9 @@ verwendet.
 \textbf{\label{def:Isomorphismus}Isomorphismus}
 
 Für zwei $\sigma$-Strukturen $\mathfrak{A}$ und $\mathfrak{B}$
-sei eine bijektive Abbildung $\pi:A\rightarrow B$ ein Isomorphismus,
-falls $\pi R^{\mathfrak{A}}=R^{\mathfrak{B}}$ für alle Symbole $R\in\sigma$
-gilt.
+sei eine bijektive Abbildung $\pi\in\mathrm{Abb}\left(A,B\right)$
+ein Isomorphismus, falls $\pi R^{\mathfrak{A}}=R^{\mathfrak{B}}$
+für alle Symbole $R\in\sigma$ gilt.
 
 Die Abbildung $\pi$ wird auf natürliche Weise auf Strukturen erweitert:
 \[
@@ -476,15 +492,16 @@ Die Abbildung $\pi$ wird auf natürliche Weise auf Strukturen erweitert:
 \]
 
 
-Der Isomorphismus wird kurz durch $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{B}$
-notiert. Zwei Strukturen heißen isomorph (kurz $\mathfrak{A}\cong\mathfrak{B}$),
-falls ein $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{B}$ existiert.
+Die Menge aller Isomorphismen bezeichnen wir mit $\mathrm{Abb}\left(\mathfrak{A},\mathfrak{B}\right)$.
+Zwei Strukturen heißen isomorph (kurz $\mathfrak{A}\cong\mathfrak{B}$),
+falls $\mathrm{Abb}\left(\mathfrak{A},\mathfrak{B}\right)$ nicht
+leer ist.
 
-Ein Automorphismus $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{A}$
+Ein Automorphismus $\pi\in\mathrm{Abb}\left(\mathfrak{A},\mathfrak{A}\right)$
 sei ein Isomorphismus von $\mathfrak{A}$ zu sich selbst. Die Menge
-aller Automorphismen von $\mathfrak{A}$ sei $\mathrm{Aut}_{\mathfrak{A}}$;
-diese bilden eine Gruppe bezüglich der Verkettung $\circ$ und dem
-neutralen Element $\mathbf{id}$.
+$\mathrm{Abb}\left(\mathfrak{A},\mathfrak{A}\right)$ nennen wir $\mathrm{Aut}_{\mathfrak{A}}$;
+diese bilden (genau wie die Permutationen) eine Gruppe bezüglich der
+Verkettung $\circ$ und dem neutralen Element $\mathbf{id}_{\mid A}$.
 \end{defn}
 
 \begin{defn}
