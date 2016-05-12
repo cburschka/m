@@ -4658,7 +4658,7 @@ eine Gate-Markierung
 \begin_inset Formula 
 \begin{eqnarray*}
 \Sigma:G & \rightarrow & \mathbb{B}\\
- & \cup & \left\{ \mathbf{0},\mathbf{1},\neg\right\} \\
+ & \cup & \left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} \\
  & \cup & \left\{ R\bar{t}\mid R\in\sigma,\bar{t}\in U^{\mathrm{ar}\left(R\right)}\right\} 
 \end{eqnarray*}
 
@@ -4754,7 +4754,7 @@ Alle hier betrachteten Schaltkreise haben einen unbeschränkten Fan-In.
  
 \series default
 Vorgänger, und alle mit 
-\begin_inset Formula $\neg$
+\begin_inset Formula $\mathtt{NOT}$
 \end_inset
 
  markierten Gates genau
@@ -4891,7 +4891,7 @@ Für
 
 \begin_layout Case
 Für 
-\begin_inset Formula $\Sigma\left(g\right)=\neg$
+\begin_inset Formula $\Sigma\left(g\right)=\mathtt{NOT}$
 \end_inset
 
  und 
@@ -7291,11 +7291,11 @@ Für jedes Tupel
 \begin_inset Formula 
 \begin{eqnarray*}
 G & \coloneqq & G'\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} \\
-W & \coloneqq & W'\cup W_{\neg}\\
-W_{\neg} & \coloneqq & \left\{ \left(\Omega'\left(\bar{t}\right),g_{\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} \\
+W & \coloneqq & W'\cup W_{\mathtt{NOT}}\\
+W_{\mathtt{NOT}} & \coloneqq & \left\{ \left(\Omega'\left(\bar{t}\right),g_{\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} \\
 \Sigma\left(g\right) & \coloneqq & \begin{cases}
 \Sigma'\left(g\right) & \mathrm{falls}\,\,g\in G'\\
-\neg & \mathrm{sonst}
+\mathtt{NOT} & \mathrm{sonst}
 \end{cases}\\
 \Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}
 \end{eqnarray*}
@@ -7339,9 +7339,9 @@ g_{\pi\bar{t}} & \mathrm{falls}\,\,g=g_{\bar{t}}
 Dann gilt:
 \begin_inset Formula 
 \begin{eqnarray*}
-\hat{\pi}W_{\neg} & = & \left\{ \left(\hat{\pi}\Omega'\left(\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} \\
- & = & \left\{ \left(\Omega'\left(\pi\bar{t}\right),g_{\pi\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} =W_{\neg}\\
-\Sigma\left(\hat{\pi}g_{\bar{t}}\right) & = & \Sigma\left(g_{\bar{t}}\right)=\neg
+\hat{\pi}W_{\mathtt{NOT}} & = & \left\{ \left(\hat{\pi}\Omega'\left(\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} \\
+ & = & \left\{ \left(\Omega'\left(\pi\bar{t}\right),g_{\pi\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} =W_{\mathtt{NOT}}\\
+\Sigma\left(\hat{\pi}g_{\bar{t}}\right) & = & \Sigma\left(g_{\bar{t}}\right)=\mathtt{NOT}
 \end{eqnarray*}
 
 \end_inset
@@ -7625,14 +7625,15 @@ Speicherplatz Die beschriebene Konstruktion wird von einem
 \end_inset
 
 -platzbeschränkten Algorithmus berechnet.
- Sei 
-\begin_inset Formula $\varphi$
-\end_inset
-
- in einer geeigneten Form kodiert:
 \end_layout
 
-\begin_deeper
+\end_deeper
+\begin_layout Proof
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
 \begin_layout LyX-Code
 Berechne(
 \begin_inset Formula $\varphi\left(\bar{x}\right)$
@@ -7741,8 +7742,35 @@ Verknüpfe
 \end_deeper
 \end_deeper
 \end_deeper
-\end_deeper
-\end_deeper
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Berechnung von 
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi}$
+\end_inset
+
+ für 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Formeln.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Proof
 Jeder Aufruf von 
 \begin_inset Formula $\mathtt{Berechne}\left(\varphi\left(\bar{x}\right)\right)$
@@ -15604,7 +15632,7 @@ Falls
 
 \begin_layout Case
 Falls 
-\begin_inset Formula $\Sigma\left(g\right)=\neg$
+\begin_inset Formula $\Sigma\left(g\right)=\mathtt{NOT}$
 \end_inset
 
 , dann hat 
@@ -15768,7 +15796,7 @@ reference "lem:algo-rigide"
  beschreiben:
 \begin_inset Formula 
 \[
-\Phi\coloneqq\left(\varphi_{G},\varphi_{\mathcal{W}},\varphi_{\Omega},\left(\varphi_{\phi}\right)_{\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\neg\right\} },\left(\varphi_{R}\right)_{R\in\sigma}\right)
+\Phi\coloneqq\left(\varphi_{G},\varphi_{\mathcal{W}},\varphi_{\Omega},\left(\varphi_{\phi}\right)_{\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} },\left(\varphi_{R}\right)_{R\in\sigma}\right)
 \]
 
 \end_inset
@@ -15805,7 +15833,7 @@ Hierbei sei
 \Upsilon\left(n\right)\models\varphi_{\Omega}\left[\bar{t}\bar{g}\right] & \Leftrightarrow & \Omega\left(\bar{t}\right)=f_{G}^{-1}\left(\bar{g}\right)\\
  &  & \mathrm{für}\,\bar{t}\in\left[1,n\right]^{k}\\
 \Upsilon\left(n\right)\models\varphi_{\phi}\left[\bar{g}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\left(\bar{g}\right)\right)=\phi\\
- &  & \mathrm{für}\,\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\neg\right\} \\
+ &  & \mathrm{für}\,\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} \\
 \Upsilon\left(n\right)\models\varphi_{R}\left[\bar{g}\bar{x}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\left(\bar{g}\right)\right)=R\bar{x}\\
  &  & \mathrm{für}\,R/m\in\sigma,\,\bar{x}\in\left[1,n\right]^{m}
 \end{eqnarray*}
