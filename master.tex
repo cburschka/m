@@ -1335,7 +1335,7 @@ q_{\mathcal{C}}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{t}\in U^{k}\mid\le
 
 \begin{example*}
 Sei $\mathcal{C}_{4}=\left(G,W,\Sigma,\Omega,\left[4\right]\right)$
-ein $1$-stelliger $\left(\left\{ E\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis,
+(siehe Abbildung \ref{fig:circuit}) ein $1$-stelliger $\left(\left\{ E\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis,
 der alle Knoten eines gerichteten Graphen findet, die Teil eines einfachen
 Kreises der Länge $2$ sind:
 
@@ -1410,7 +1410,7 @@ E\,i\,j & \mathrm{f\ddot{u}r}\,\,g=g_{i,j}\\
 \end{tikzpicture}
 \par\end{centering}
 
-\caption{Schaltkreis $\mathcal{C}_{4}$}
+\caption{\label{fig:circuit}Schaltkreis $\mathcal{C}_{4}$}
 
 
 \end{figure}
@@ -1428,7 +1428,7 @@ $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ sei die Anzahl seiner
 Gates, $\left|G\right|$.
 
 Die \textbf{Tiefe} $T\left(\mathcal{C}\right)$ sei die maximale Länge
-eines einfachen Wegs durch den Graphen $\left(G,W\right)$.
+eines Wegs durch den Graphen $\left(G,W\right)$.
 \end{defn}
 
 \begin{defn}
@@ -1457,14 +1457,14 @@ mit einer beliebigen Bijektion $\pi:A\rightarrow U$:
 \textbf{Symmetrie}
 
 Für einen $k$-stelliger Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$,
-eine Permutation $\pi\in\mathrm{Sym}_{U}$ und Automorphismus $\rho:\mathcal{C}\tilde{\rightarrow}\mathcal{C}$
-heiße $\rho$ \textbf{induziert} von $\pi$, wenn $\rho_{\mid U}=\pi$.
-(Nach den Definitionen \ref{def:formal} und \ref{def:Isomorphismus}
-ist $\rho\in\mathrm{Sym}_{U\uplus G}$ eine Permutation des Universums
-von $\mathcal{C}$.) Wir können aus der formalen Definition des Schaltkreises
-als $\tau_{\sigma,\mathbb{B},k}$-Struktur ableiten, dass ein von
-$\pi$ induzierter Automorphismus $\rho$ die folgenden Bedingungen
-erfüllt:
+eine Permutation $\pi\in\mathrm{Sym}_{U}$ und einen Automorphismus
+$\rho:\mathcal{C}\tilde{\rightarrow}\mathcal{C}$ mit $\rho_{\mid U}=\pi$
+nennen wir $\rho$ von $\pi$ \textbf{induziert}. (Nach den Definitionen
+\ref{def:formal} und \ref{def:Isomorphismus} ist $\rho\in\mathrm{Sym}_{U\uplus G}$
+eine Permutation des Universums von $\mathcal{C}$.) Wir können aus
+der formalen Definition des Schaltkreises als $\tau_{\sigma,\mathbb{B},k}$-Struktur
+ableiten, dass ein von $\pi$ induzierter Automorphismus $\rho$ die
+folgenden Bedingungen erfüllt:
 \begin{enumerate}
 \item Die Kanten sind isomorph: $\rho W=W$.
 \item Für alle Inputs $g$ mit $\Sigma\left(g\right)=R\bar{x}$ gilt $\Sigma\left(\rho g\right)=R\,\bar{x'}$,
@@ -1476,40 +1476,37 @@ Der Schaltkreis heiße \textbf{symmetrisch}, genau dann wenn jede Permutation
 des Universums $\pi\in\mathrm{Sym}_{U}$ einen Automorphismus $\hat{\pi}\in\mathrm{Aut}_{\mathcal{C}}$
 des Schaltkreises induziert. (In Zukunft betrachten wir der Einfachheit
 halber nur den Teil $\hat{\pi}_{\mid G}$, der die Gates des Schaltkreises
-permutiert, da $\hat{\pi}=\hat{\pi}_{\mid G}\uplus\pi$.)\end{defn}
+permutiert, da der Rest des Automorphismus $\hat{\pi}=\hat{\pi}_{\mid G}\uplus\pi$
+lediglich die Permutation $\pi$ ist.)\end{defn}
 \begin{prop}
 Symmetrie ist eine hinreichende, aber nicht notwendige, Bedingung
 für die Invarianz eines Schaltkreises.\end{prop}
 \begin{proof}
 Sei $\mathcal{C}$ ein symmetrischer $k$-stelliger $\left(\sigma,\mathbb{B}\right)$-Schaltkreis
-über $U$, und $\mathfrak{A}\in\mathbf{FIN}^{\left(\left|U\right|\right)}\left(\sigma\right)$.
-Seien $\pi_{1},\pi_{2}:A\rightarrow U$ zwei beliebige Bijektionen,
-und sei $\bar{a}\in A^{k}$ ein beliebiges Tupel. Es ist zu zeigen,
-dass: 
+über $U$, und $\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$.
+Sei $\pi\in\mathrm{Sym}_{U}$ eine beliebige Permutation, und sei
+$\bar{t}\in U^{k}$ ein beliebiges Tupel. Es ist zu zeigen, dass:
 \begin{eqnarray*}
-\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right) & = & \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\pi_{2}\bar{a}\right)\right)
+\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \left\llbracket \mathcal{C}\right\rrbracket \left(\pi\mathfrak{A},\pi\bar{t}\right)
 \end{eqnarray*}
 
 
-Wir definieren die Permutation $\tau\in\mathrm{Sym}_{U}$ als $\tau\coloneqq\pi_{1}\pi_{2}^{-1}$,
-so dass $\pi_{1}=\tau\pi_{2}$.
-
-Wegen der Symmetrie induziert $\tau$ einen Automorphismus $\hat{\tau}$
+Wegen der Symmetrie induziert $\pi$ einen Automorphismus $\hat{\pi}$
 auf $\mathcal{C}$: 
 \begin{eqnarray*}
-\hat{\tau}\left(W\right) & = & W\\
-\Sigma\left(\hat{\tau}g\right) & = & \begin{cases}
-R\tau\bar{x} & \mathrm{f\ddot{u}r}\,\,\Sigma\left(g\right)=R\bar{x}\\
+\hat{\pi}\left(W\right) & = & W\\
+\Sigma\left(\hat{\pi}g\right) & = & \begin{cases}
+R\pi\bar{x} & \mathrm{f\ddot{u}r}\,\,\Sigma\left(g\right)=R\bar{x}\\
 \Sigma\left(g\right) & \mathrm{sonst}
 \end{cases}\\
-\Omega\left(\tau\bar{x}\right) & = & \hat{\tau}\Omega\left(\bar{x}\right)\,\mathrm{f\ddot{u}r\,alle}\,\bar{x}\in U^{\mathrm{ar}\left(\mathcal{C}\right)}
+\Omega\left(\pi\bar{x}\right) & = & \hat{\pi}\Omega\left(\bar{x}\right)\,\mathrm{f\ddot{u}r\,alle}\,\bar{x}\in U^{\mathrm{ar}\left(\mathcal{C}\right)}
 \end{eqnarray*}
 
 
 Per Induktion über die Tiefe $T\left(g\right)$ des Gates $g$\footnote{Die Tiefe $T:G\rightarrow\mathbb{N}$ sei die maximale Länge eines
 Weges von einer Quelle zum Gate $g$.} wird gezeigt: 
 \begin{eqnarray*}
-\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right) &  & \mathrm{f\ddot{u}r\,alle}\,g\in G
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}g\right) &  & \mathrm{f\ddot{u}r\,alle}\,g\in G
 \end{eqnarray*}
 
 \begin{description}
@@ -1517,41 +1514,41 @@ Weges von einer Quelle zum Gate $g$.} wird gezeigt:
 mit $\Sigma\left(g\right)=R\bar{x}$. Per Definition von $\tau$ und
 $\hat{\tau}$ gilt:
 \begin{eqnarray*}
-\Sigma\left(\hat{\tau}g\right) & = & R\tau\bar{x}\\
-\tau\bar{x}\in\tau\pi_{2}R^{\mathfrak{A}} & \Longleftrightarrow & \bar{x}\in\pi_{2}R^{\mathfrak{A}}
+\Sigma\left(\hat{\pi}g\right) & = & R\pi\bar{x}\\
+\pi\bar{x}\in\pi R^{\mathfrak{A}} & \Longleftrightarrow & \bar{x}\in\pi_{2}R^{\mathfrak{A}}
 \end{eqnarray*}
  Es folgt: 
 \begin{eqnarray*}
-\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right) & = & \left[\tau\pi_{2}R^{\mathfrak{A}}\right]\left(\tau\bar{x}\right)\\
- & = & \left[\pi_{2}R^{\mathfrak{A}}\right]\left(\bar{x}\right)\\
- & = & \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)
+\mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}g\right) & = & \left[\pi R^{\mathfrak{A}}\right]\left(\pi\bar{x}\right)\\
+ & = & \left[R^{\mathfrak{A}}\right]\left(\bar{x}\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]\left(g\right)
 \end{eqnarray*}
 (Falls $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $,
-folgt die Behauptung direkt aus $\Sigma\left(\hat{\tau}g\right)=\Sigma\left(g\right)$.)
+folgt die Behauptung direkt aus $\Sigma\left(\hat{\pi}g\right)=\Sigma\left(g\right)$.)
 \item [{Induktionsschritt~$n\mapsto n+1$:}]~
 
 \begin{description}
 \item [{Annahme:}] Für alle Gates $g\in G$ mit Tiefe $T\left(g\right)\leqslant n$
-gilt $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)$.
+gilt $\mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)$.
 \end{description}
 
 So gilt für jedes Gatter $g'\in G$ mit $T\left(g'\right)=n+1$: 
 \begin{enumerate}
-\item Die Beschriftungen $\Sigma\left(\hat{\tau}g'\right)=\Sigma\left(g'\right)=\phi$
+\item Die Beschriftungen $\Sigma\left(\hat{\pi}g'\right)=\Sigma\left(g'\right)=\phi$
 sind gleich.
-\item $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)$
+\item $\mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)$
 für alle $\left(g,g'\right)\in W$.
 \end{enumerate}
 
-Es folgt $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g'\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g'\right)$.
+Es folgt $\mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}g'\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)$.
 
 \end{description}
-Schließlich gilt für jedes Tupel $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$:
+Schließlich gilt für jedes Tupel $\bar{t}\in U^{\mathrm{ar}\left(\mathcal{C}\right)}$:
 
 \begin{eqnarray*}
-\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right) & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\tau\pi_{2}\bar{a}\right)\right)\\
- & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}\Omega\left(\pi_{2}\bar{a}\right)\right)\\
- & = & \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\pi_{2}\bar{a}\right)\right)
+\left\llbracket \mathcal{C}\right\rrbracket \left(\pi\mathfrak{A},\pi\bar{t}\right) & = & \mathcal{C}\left[\pi\mathfrak{A}\right]\left(\Omega\left(\pi\bar{t}\right)\right)\\
+ & = & \mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}\Omega\left(\bar{t}\right)\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)
 \end{eqnarray*}
 
 
@@ -1559,8 +1556,8 @@ Damit ist der Schaltkreis invariant.
 \end{proof}
 
 \begin{proof}
-Als Gegenbeispiel wird der folgende $0$-stellige Schaltkreis $\mathcal{C}$
-über $U=\left\{ 1,2\right\} $ angeführt:
+Als Gegenbeispiel wird der folgende $0$-stellige Schaltkreis $\mathcal{C}_{2}$
+(siehe Abbildung \ref{fig:symm}) über $U=\left\{ 1,2\right\} $ angeführt:
 \begin{eqnarray*}
 \mathcal{C} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)\\
 G & \coloneqq & \left\{ g_{i,j}\mid i,j\in U\right\} \cup\left\{ g_{\wedge},g_{\wedge}'\right\} \\
@@ -1592,7 +1589,7 @@ W & \coloneqq & \left\{ \left(g_{1,1},g_{\wedge}\right),\left(g_{1,2},g_{\wedge}
 \par\end{center}
 \par\end{centering}
 
-\caption{Schaltkreis}
+\caption{\label{fig:symm}Schaltkreis $\mathcal{C}_{2}$}
 \end{figure}
 
 \end{proof}

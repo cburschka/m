@@ -5040,7 +5040,14 @@ Sei
 \begin_inset Formula $\mathcal{C}_{4}=\left(G,W,\Sigma,\Omega,\left[4\right]\right)$
 \end_inset
 
- ein 
+ (siehe Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:circuit"
+
+\end_inset
+
+) ein 
 \begin_inset Formula $1$
 \end_inset
 
@@ -5445,6 +5452,12 @@ end{tikzpicture}
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:circuit"
+
+\end_inset
+
 Schaltkreis 
 \begin_inset Formula $\mathcal{C}_{4}$
 \end_inset
@@ -5512,7 +5525,7 @@ Tiefe
 \begin_inset Formula $T\left(\mathcal{C}\right)$
 \end_inset
 
- sei die maximale Länge eines einfachen Wegs durch den Graphen 
+ sei die maximale Länge eines Wegs durch den Graphen 
 \begin_inset Formula $\left(G,W\right)$
 \end_inset
 
@@ -5624,26 +5637,26 @@ Für einen
 \begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
 \end_inset
 
- und Automorphismus 
+ und einen Automorphismus 
 \begin_inset Formula $\rho:\mathcal{C}\tilde{\rightarrow}\mathcal{C}$
 \end_inset
 
- heiße 
+ mit 
+\begin_inset Formula $\rho_{\mid U}=\pi$
+\end_inset
+
+ nennen wir 
 \begin_inset Formula $\rho$
+\end_inset
+
+ von 
+\begin_inset Formula $\pi$
 \end_inset
 
  
 \series bold
 induziert
 \series default
- von 
-\begin_inset Formula $\pi$
-\end_inset
-
-, wenn 
-\begin_inset Formula $\rho_{\mid U}=\pi$
-\end_inset
-
 .
  (Nach den Definitionen 
 \begin_inset CommandInset ref
@@ -5750,11 +5763,16 @@ symmetrisch
 \begin_inset Formula $\hat{\pi}_{\mid G}$
 \end_inset
 
-, der die Gates des Schaltkreises permutiert, da 
+, der die Gates des Schaltkreises permutiert, da der Rest des Automorphismus
+ 
 \begin_inset Formula $\hat{\pi}=\hat{\pi}_{\mid G}\uplus\pi$
 \end_inset
 
-.)
+ lediglich die Permutation 
+\begin_inset Formula $\pi$
+\end_inset
+
+ ist.)
 \end_layout
 
 \begin_layout Proposition
@@ -5780,23 +5798,23 @@ Sei
 \end_inset
 
 , und 
-\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(\left|U\right|\right)}\left(\sigma\right)$
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$
 \end_inset
 
 .
- Seien 
-\begin_inset Formula $\pi_{1},\pi_{2}:A\rightarrow U$
+ Sei 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
 \end_inset
 
- zwei beliebige Bijektionen, und sei 
-\begin_inset Formula $\bar{a}\in A^{k}$
+ eine beliebige Permutation, und sei 
+\begin_inset Formula $\bar{t}\in U^{k}$
 \end_inset
 
  ein beliebiges Tupel.
  Es ist zu zeigen, dass: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right) & = & \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\pi_{2}\bar{a}\right)\right)
+\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \left\llbracket \mathcal{C}\right\rrbracket \left(\pi\mathfrak{A},\pi\bar{t}\right)
 \end{eqnarray*}
 
 \end_inset
@@ -5805,28 +5823,12 @@ Sei
 \end_layout
 
 \begin_layout Proof
-Wir definieren die Permutation 
-\begin_inset Formula $\tau\in\mathrm{Sym}_{U}$
-\end_inset
-
- als 
-\begin_inset Formula $\tau\coloneqq\pi_{1}\pi_{2}^{-1}$
-\end_inset
-
-, so dass 
-\begin_inset Formula $\pi_{1}=\tau\pi_{2}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Proof
 Wegen der Symmetrie induziert 
-\begin_inset Formula $\tau$
+\begin_inset Formula $\pi$
 \end_inset
 
  einen Automorphismus 
-\begin_inset Formula $\hat{\tau}$
+\begin_inset Formula $\hat{\pi}$
 \end_inset
 
  auf 
@@ -5836,12 +5838,12 @@ Wegen der Symmetrie induziert
 : 
 \begin_inset Formula 
 \begin{eqnarray*}
-\hat{\tau}\left(W\right) & = & W\\
-\Sigma\left(\hat{\tau}g\right) & = & \begin{cases}
-R\tau\bar{x} & \mathrm{für}\,\,\Sigma\left(g\right)=R\bar{x}\\
+\hat{\pi}\left(W\right) & = & W\\
+\Sigma\left(\hat{\pi}g\right) & = & \begin{cases}
+R\pi\bar{x} & \mathrm{für}\,\,\Sigma\left(g\right)=R\bar{x}\\
 \Sigma\left(g\right) & \mathrm{sonst}
 \end{cases}\\
-\Omega\left(\tau\bar{x}\right) & = & \hat{\tau}\Omega\left(\bar{x}\right)\,\mathrm{für\,alle}\,\bar{x}\in U^{\mathrm{ar}\left(\mathcal{C}\right)}
+\Omega\left(\pi\bar{x}\right) & = & \hat{\pi}\Omega\left(\bar{x}\right)\,\mathrm{für\,alle}\,\bar{x}\in U^{\mathrm{ar}\left(\mathcal{C}\right)}
 \end{eqnarray*}
 
 \end_inset
@@ -5879,7 +5881,7 @@ Die Tiefe
  wird gezeigt: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right) &  & \mathrm{für\,alle}\,g\in G
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}g\right) &  & \mathrm{für\,alle}\,g\in G
 \end{eqnarray*}
 
 \end_inset
@@ -5917,8 +5919,8 @@ Induktionsanfang
  gilt:
 \begin_inset Formula 
 \begin{eqnarray*}
-\Sigma\left(\hat{\tau}g\right) & = & R\tau\bar{x}\\
-\tau\bar{x}\in\tau\pi_{2}R^{\mathfrak{A}} & \Longleftrightarrow & \bar{x}\in\pi_{2}R^{\mathfrak{A}}
+\Sigma\left(\hat{\pi}g\right) & = & R\pi\bar{x}\\
+\pi\bar{x}\in\pi R^{\mathfrak{A}} & \Longleftrightarrow & \bar{x}\in\pi_{2}R^{\mathfrak{A}}
 \end{eqnarray*}
 
 \end_inset
@@ -5926,9 +5928,9 @@ Induktionsanfang
  Es folgt: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right) & = & \left[\tau\pi_{2}R^{\mathfrak{A}}\right]\left(\tau\bar{x}\right)\\
- & = & \left[\pi_{2}R^{\mathfrak{A}}\right]\left(\bar{x}\right)\\
- & = & \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)
+\mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}g\right) & = & \left[\pi R^{\mathfrak{A}}\right]\left(\pi\bar{x}\right)\\
+ & = & \left[R^{\mathfrak{A}}\right]\left(\bar{x}\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]\left(g\right)
 \end{eqnarray*}
 
 \end_inset
@@ -5938,7 +5940,7 @@ Induktionsanfang
 \end_inset
 
 , folgt die Behauptung direkt aus 
-\begin_inset Formula $\Sigma\left(\hat{\tau}g\right)=\Sigma\left(g\right)$
+\begin_inset Formula $\Sigma\left(\hat{\pi}g\right)=\Sigma\left(g\right)$
 \end_inset
 
 .)
@@ -5967,7 +5969,7 @@ Annahme: Für alle Gates
 \end_inset
 
  gilt 
-\begin_inset Formula $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)$
+\begin_inset Formula $\mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)$
 \end_inset
 
 .
@@ -5987,14 +5989,14 @@ So gilt für jedes Gatter
 
 \begin_layout Enumerate
 Die Beschriftungen 
-\begin_inset Formula $\Sigma\left(\hat{\tau}g'\right)=\Sigma\left(g'\right)=\phi$
+\begin_inset Formula $\Sigma\left(\hat{\pi}g'\right)=\Sigma\left(g'\right)=\phi$
 \end_inset
 
  sind gleich.
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)$
+\begin_inset Formula $\mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)$
 \end_inset
 
  für alle 
@@ -6006,7 +6008,7 @@ Die Beschriftungen
 
 \begin_layout Standard
 Es folgt 
-\begin_inset Formula $\mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g'\right)=\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g'\right)$
+\begin_inset Formula $\mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}g'\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)$
 \end_inset
 
 .
@@ -6016,7 +6018,7 @@ Es folgt
 \end_deeper
 \begin_layout Proof
 Schließlich gilt für jedes Tupel 
-\begin_inset Formula $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$
+\begin_inset Formula $\bar{t}\in U^{\mathrm{ar}\left(\mathcal{C}\right)}$
 \end_inset
 
 :
@@ -6025,9 +6027,9 @@ Schließlich gilt für jedes Tupel
 \begin_layout Proof
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(\Omega\left(\pi_{1}\bar{a}\right)\right) & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\tau\pi_{2}\bar{a}\right)\right)\\
- & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}\Omega\left(\pi_{2}\bar{a}\right)\right)\\
- & = & \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(\Omega\left(\pi_{2}\bar{a}\right)\right)
+\left\llbracket \mathcal{C}\right\rrbracket \left(\pi\mathfrak{A},\pi\bar{t}\right) & = & \mathcal{C}\left[\pi\mathfrak{A}\right]\left(\Omega\left(\pi\bar{t}\right)\right)\\
+ & = & \mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}\Omega\left(\bar{t}\right)\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)
 \end{eqnarray*}
 
 \end_inset
@@ -6049,10 +6051,17 @@ Als Gegenbeispiel wird der folgende
 \end_inset
 
 -stellige Schaltkreis 
-\begin_inset Formula $\mathcal{C}$
+\begin_inset Formula $\mathcal{C}_{2}$
 \end_inset
 
- über 
+ (siehe Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:symm"
+
+\end_inset
+
+) über 
 \begin_inset Formula $U=\left\{ 1,2\right\} $
 \end_inset
 
@@ -6201,7 +6210,17 @@ end{tikzpicture}
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Schaltkreis
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:symm"
+
+\end_inset
+
+Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{2}$
+\end_inset
+
+
 \end_layout
 
 \end_inset
