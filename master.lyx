@@ -159,26 +159,8 @@ Einleitung
 Wir betrachten die logische Charakterisierung von Booleschen Schaltkreisklassen.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Chapter
 Ergebnisse
-\end_layout
-
-\begin_layout Standard
-Es werden die folgenden Äquivalenzen (nach Anderson und Dawar 2014
-\begin_inset CommandInset citation
-LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
-
-\end_inset
-
-) zwischen Fixpunktlogiken und Schaltkreisklassen nachgewiesen:
 \end_layout
 
 \begin_layout Theorem
@@ -190,14 +172,24 @@ name "thm:fp"
 
 \end_inset
 
+Anderson und Dawar 2014
+\series default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anderson_et_al:LIPIcs:2014:4445"
+
+\end_inset
+
 
 \end_layout
 
 \begin_layout Theorem
-Die folgenden Paare von Klassen von Anfragen auf endlichen Strukturen sind
- äquivalent:
+Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen äquivalent
+:
 \end_layout
 
+\begin_deeper
 \begin_layout Enumerate
 Die Logik 
 \begin_inset Formula $\mathrm{FP}+\mathbf{ORD}$
@@ -211,7 +203,7 @@ Die Logik
 \begin_inset Formula $\mathrm{SBC}$
 \end_inset
 
--Schaltkreise.
+-Schaltkreisfamilien.
 \end_layout
 
 \begin_layout Enumerate
@@ -227,7 +219,7 @@ Die Logik
 \begin_inset Formula $\mathrm{SBC}+\mathbf{MAJ}$
 \end_inset
 
--Schaltkreise.
+-Schaltkreisfamilien.
 \end_layout
 
 \begin_layout Enumerate
@@ -240,10 +232,10 @@ Die Logik
 \end_inset
 
 -uniforme 
-\begin_inset Formula $\mathrm{SBC}+\mathbf{MAJ}$
+\begin_inset Formula $\mathrm{SBC}$
 \end_inset
 
--Schaltkreise.
+-Schaltkreisfamilien.
 \end_layout
 
 \begin_layout Enumerate
@@ -259,11 +251,60 @@ Die Logik
 \begin_inset Formula $\mathrm{SBC+\mathbf{MAJ}}-$
 \end_inset
 
-Schaltkreise.
+Schaltkreisfamilien.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Das Ergebnis wird für Schaltkreisfamilien konstanter Tiefe angepasst, in
+ dem die technischen Resultate des Artikels mit Hinblick auf die Tiefe abgeänder
+t werden.
+ Diese Schaltkreisfamilien werden durch die Logik erster Stufe ohne Fixpunktoper
+ator charakterisiert.
 \end_layout
 
 \begin_layout Theorem
-\begin_inset Formula $\mathrm{FO}+\Upsilon$
+Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen äquivalent
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Die Logik 
+\begin_inset Formula $\mathrm{FO}+\mathbf{BIT}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+-uniforme symmetrische 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+-Schaltkreisfamilien.
+\end_layout
+
+\begin_layout Enumerate
+Die Logik 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+ und symmetrische 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+-Schaltkreisfamilien.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Schließlich werden zwei Erweiterungen der Logik erster Stufe verglichen
+ und ein echter Einschluss mit Hilfe der Schaltkreisfamilien nachgewiesen.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
 \end_inset
 
 , invariantes 
@@ -276,7 +317,7 @@ Schaltkreise.
 \begin_deeper
 \begin_layout Enumerate
 Jede 
-\begin_inset Formula $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -304,20 +345,13 @@ Es existiert eine
 \end_inset
 
 -Logik definierbar ist, aber nicht 
-\begin_inset Formula $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[\sigma\right]$
 \end_inset
 
 -definierbar ist.
 \end_layout
 
 \end_deeper
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Chapter
 Grundlagen
 \end_layout
@@ -574,12 +608,20 @@ Für eine Ordnung
 
 \end_inset
 
+(Für 
+\begin_inset Formula $X\subseteq\mathbb{R}$
+\end_inset
 
+ wird die natürliche Ordnung 
+\begin_inset Formula $\leqslant$
+\end_inset
+
+ nicht explizit notiert.)
 \end_layout
 
 \begin_layout Notation
 Für eine Funktion 
-\begin_inset Formula $f:U\rightarrow\mathbb{N}$
+\begin_inset Formula $f:U\rightarrow\mathbb{R}$
 \end_inset
 
  und eine Menge 
@@ -587,18 +629,18 @@ Für eine Funktion
 \end_inset
 
  bezeichnen 
-\begin_inset Formula $\min_{x\in X}f\left(x\right)\in\mathbb{N}$
+\begin_inset Formula $\min_{x\in X}f\left(x\right)\in\mathbb{R}$
 \end_inset
 
  und 
-\begin_inset Formula $\max_{x\in X}f\left(x\right)\in\mathbb{N}$
+\begin_inset Formula $\max_{x\in X}f\left(x\right)\in\mathbb{R}$
 \end_inset
 
  die folgende Abkürzungen:
 \begin_inset Formula 
 \begin{eqnarray*}
-\min_{x\in X}f\left(x\right) & \coloneqq & \min_{\leqslant}\left\{ f\left(x\right)\mid x\in X\right\} \\
-\max_{x\in X}f\left(x\right) & \coloneqq & \max_{\leqslant}\left\{ f\left(x\right)\mid x\in X\right\} 
+\min_{x\in X}f\left(x\right) & \coloneqq & \min\left\{ f\left(x\right)\mid x\in X\right\} \\
+\max_{x\in X}f\left(x\right) & \coloneqq & \max\left\{ f\left(x\right)\mid x\in X\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -618,7 +660,7 @@ Asymptotische Klassen
 
 \begin_layout Definition
 Für jede Funktion 
-\begin_inset Formula $f:\mathbb{N}\rightarrow\mathbb{N}$
+\begin_inset Formula $f:\mathbb{N}\rightarrow\mathbb{R}$
 \end_inset
 
  definieren wir die Funktionsklassen 
@@ -666,6 +708,35 @@ Es gelte
 \end_layout
 
 \end_deeper
+\begin_layout Definition
+Für 
+\begin_inset Formula $f:\mathbb{R}\rightarrow\mathbb{R}$
+\end_inset
+
+ und eine Klasse 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ sei 
+\begin_inset Formula $f\left(\mathcal{F}\right)\coloneqq\left\{ f\circ g\mid g\in\mathcal{F}\right\} $
+\end_inset
+
+.
+ Zum Beispiel ist 
+\begin_inset Formula $f\in2^{\mathcal{O}\left(n\right)}$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $f\in\mathcal{O}\left(2^{kn}\right)$
+\end_inset
+
+ für ein festes 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout --Separator--
 
 \end_layout
@@ -1622,13 +1693,6 @@ Per Definition sind alle
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
 \end_layout
 
 \begin_layout Chapter
@@ -3317,6 +3381,10 @@ name "def:fo-ord"
 \end_inset
 
 , 
+\begin_inset Formula $\mathcal{L}+\mathbf{BIT}$
+\end_inset
+
+, 
 \begin_inset Formula $\mathcal{L}+\mathbf{ARB}$
 \end_inset
 
@@ -3324,23 +3392,65 @@ name "def:fo-ord"
 \end_layout
 
 \begin_layout Definition
-Falls 
-\begin_inset Formula $\eta$
+Für 
+\begin_inset Formula $\eta=\emptyset$
 \end_inset
 
- leer ist, und daher 
-\begin_inset Formula $\Upsilon\left(n\right)=\left(\left[0,n\right],\leqslant\right)$
+ und 
+\begin_inset Formula $\Upsilon_{\leqslant}\left(n\right)\coloneqq\left(\left[0,n\right],\leqslant_{\mid\left[0,n\right]}\right)\in\mathbf{FIN}_{<}\left(\emptyset\right)$
 \end_inset
 
- nur die Ordnung enthält, so wird 
-\begin_inset Formula $\mathcal{L}+\Upsilon$
+ wird 
+\begin_inset Formula $\mathcal{L}+\Upsilon_{\leqslant}$
 \end_inset
 
- auch als 
+ als 
 \begin_inset Formula $\mathcal{L}+\mathbf{ORD}$
 \end_inset
 
  bezeichnet.
+\end_layout
+
+\begin_layout Definition
+Für 
+\begin_inset Formula $\eta=\left\{ \mathtt{BIT}\right\} $
+\end_inset
+
+, wobei 
+\begin_inset Formula $\mathtt{BIT}\left(a,b\right)$
+\end_inset
+
+ ausdrückt, dass das 
+\begin_inset Formula $b$
+\end_inset
+
+te Bit der Binärdarstellung von 
+\begin_inset Formula $a$
+\end_inset
+
+ den Wert 
+\begin_inset Formula $1$
+\end_inset
+
+ hat, wird 
+\begin_inset Formula $\mathcal{L}+\Upsilon_{\mathtt{BIT}}$
+\end_inset
+
+ als 
+\begin_inset Formula $\mathcal{L}+\mathbf{BIT}$
+\end_inset
+
+ bezeichnet.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathtt{BIT} & \coloneqq & \left\{ \left(a,b\right)\in\mathbb{N}^{2}\mid a=\Sigma_{i=0}^{\left\lceil \log a\right\rceil }x_{i}2^{i},\,\bar{x}\in\left\{ 0,1\right\} ^{\left\lceil \log a\right\rceil },\,x_{b}=1\right\} \\
+\Upsilon_{\mathtt{BIT}}\left(n\right) & \coloneqq & \left(\left[0,n\right],\leqslant_{\mid\left[0,n\right]},\mathtt{BIT}_{\mid\left[0,n\right]}\right)\in\mathbf{FIN}_{<}\left(\left\{ \mathtt{BIT}\right\} \right)
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Definition
@@ -4419,13 +4529,6 @@ key "EFT,Libkin2012,Schweikardt13ashort"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Chapter
 Schaltkreise
 \end_layout
@@ -4570,7 +4673,7 @@ eine Ausgabefunktion
 status open
 
 \begin_layout Plain Layout
-In Anderson & Dawar 2014
+In Anderson und Dawar 2014
 \begin_inset CommandInset citation
 LatexCommand cite
 key "anderson_et_al:LIPIcs:2014:4445"
@@ -4581,7 +4684,7 @@ key "anderson_et_al:LIPIcs:2014:4445"
 \begin_inset Formula $\Omega$
 \end_inset
 
- verlangt; hier können mehrere Tupel dem gleichen Output-Gate zugeteilt
+ verlangt; hier können aber mehrere Tupel dem gleichen Output-Gate zugeteilt
  werden.
 \end_layout
 
@@ -6067,7 +6170,7 @@ key "anderson_et_al:LIPIcs:2014:4445"
 \end_inset
 
  definiert, verlangt aber zusätzlich, dass zwei Gates nicht nur durch die
- Output-Markierung 
+ (hier nicht injektive) Output-Markierung 
 \begin_inset Formula $\Omega$
 \end_inset
 
@@ -6102,6 +6205,13 @@ Für zwei Gates
 \end_inset
 
  gesetzt wird, was die strengere Form der Rigidität herstellt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -6535,13 +6645,6 @@ Tiefe
 -großen Schaltkreisfamilien.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Chapter
 Von Formeln zu Schaltkreisfamilien
 \end_layout
@@ -6552,7 +6655,7 @@ Logik erster Stufe
 
 \begin_layout Standard
 Die Formeln der Logik erster Stufe sind durch symmetrische 
-\begin_inset Formula $P$
+\begin_inset Formula $\mathrm{LOGSPACE}$
 \end_inset
 
 -uniforme 
@@ -6586,7 +6689,7 @@ Jede
 \end_inset
 
 , die von einer symmetrischen 
-\begin_inset Formula $P$
+\begin_inset Formula $\mathrm{LOGSPACE}$
 \end_inset
 
 -uniformen Schaltkreis-Familie 
@@ -6658,7 +6761,6 @@ Per induktiver Konstruktion über den Aufbau von
 \end_inset
 
  gilt.
- Die Konstruktion ist in berechenbar.
  Für eine beliebige Permutation 
 \begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
 \end_inset
@@ -7517,38 +7619,153 @@ Falls
 .
 \end_layout
 
-\end_deeper
-\begin_layout Conjecture
-Die obige Konstruktion ist auch 
-\begin_inset Formula $\mathrm{LOGSPACE}$
+\begin_layout Description
+Speicherplatz Die beschriebene Konstruktion wird von einem 
+\begin_inset Formula $\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log n$
 \end_inset
 
--uniform.
+-platzbeschränkten Algorithmus berechnet.
+ Sei 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ in einer geeigneten Form kodiert:
 \end_layout
 
-\begin_layout Standard
-Jedes Gate 
-\begin_inset Formula $g_{\bar{t}}$
+\begin_deeper
+\begin_layout LyX-Code
+Berechne(
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
 \end_inset
 
- kann durch ein Tupel 
-\begin_inset Formula $i\bar{t}\in\left[1,\left\Vert \varphi\right\Vert \right]\times U^{k}$
+):
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Für jedes 
+\begin_inset Formula $\bar{t}\in\left[1,n\right]^{\mathrm{ar}\left(\bar{x}\right)}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Gib Gate 
+\begin_inset Formula $g_{\varphi\left(\bar{t}\right)}$
+\end_inset
+
+ und 
+\begin_inset Formula $\Omega_{\varphi}\left(\bar{t}\right)\coloneqq g_{\varphi\left(\bar{t}\right)}$
+\end_inset
+
+ aus.
+\end_layout
+
+\begin_layout LyX-Code
+Gib 
+\begin_inset Formula $\Sigma_{\varphi}\left(g_{\varphi\left(\bar{t}\right)}\right)$
+\end_inset
+
+ entsprechend der Konstruktion aus.
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+Für jede direkte Teilformel 
+\begin_inset Formula $\psi\left(\bar{y}\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Berechne(
+\begin_inset Formula $\psi\left(\bar{y}\right)$
+\end_inset
+
+).
+\end_layout
+
+\begin_layout LyX-Code
+Für jedes 
+\begin_inset Formula $\bar{t}\in\left[1,n\right]^{\mathrm{ar}\left(\bar{x}\right)}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Für jedes 
+\begin_inset Formula $\bar{t}'\in\left[1,n\right]^{\mathrm{ar}\left(\bar{y}\right)}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Falls 
+\begin_inset Formula $t_{i}=t'_{j}$
+\end_inset
+
+ für alle 
+\begin_inset Formula $i\in\left[1,\mathrm{ar}\left(\bar{x}\right)\right],j\in\left[1,\mathrm{ar}\left(\bar{y}\right)\right]$
 \end_inset
 
  mit 
-\begin_inset Formula $k\log n$
+\begin_inset Formula $x_{i}=y_{j}$
 \end_inset
 
- Bits kodiert werden, und jeder Schritt der Konstruktion muss nur zwei Gates
- auf einmal speichern: Das Output 
-\begin_inset Formula $g_{\bar{t}}$
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Verknüpfe 
+\begin_inset Formula $\Omega_{\psi}\left(\bar{t}'\right)$
 \end_inset
 
- für 
-\begin_inset Formula $\bar{t}\in U^{k}$
+ mit 
+\begin_inset Formula $g_{\varphi\left(\bar{t}\right)}$
 \end_inset
 
- und einen seiner Vorgänger.
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\end_deeper
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Proof
+Jeder Aufruf von 
+\begin_inset Formula $\mathtt{Berechne}\left(\varphi\left(\bar{x}\right)\right)$
+\end_inset
+
+ iteriert über Variablen 
+\begin_inset Formula $\bar{t}\in U^{\mathrm{var}\left(\varphi\right)}$
+\end_inset
+
+, die 
+\begin_inset Formula $\mathrm{var}\left(\varphi\right)\log n$
+\end_inset
+
+ Bits belegen.
+ Da die maximale Tiefe der Rekursion durch 
+\begin_inset Formula $\left\Vert \varphi\right\Vert $
+\end_inset
+
+ beschränkt ist, werden insgesamt 
+\begin_inset Formula $\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log n$
+\end_inset
+
+ Bits benötigt.
 \end_layout
 
 \begin_layout Standard
@@ -7609,7 +7826,7 @@ Jede
 \end_inset
 
 , die von einer symmetrischen, 
-\begin_inset Formula $P$
+\begin_inset Formula $\mathrm{LOGSPACE}$
 \end_inset
 
 -uniformen 
@@ -7812,6 +8029,11 @@ Wir konstruieren nun zunächst einen
 \end_inset
 
 .
+ Die Konstruktion erfordert 
+\begin_inset Formula $\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log\left(2n+1\right)$
+\end_inset
+
+ Speicherplatz.
 \end_layout
 
 \begin_layout Proof
@@ -7849,6 +8071,15 @@ U & \coloneqq & \left[1,n\right]
 \end_inset
 
  reduziert wird.
+ Das ist eine einfache Iteration über die Gates 
+\begin_inset Formula $G$
+\end_inset
+
+ des Schaltkreises, die nur einen Zähler der Größe 
+\begin_inset Formula $\log\left|G\right|\leqslant\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log n$
+\end_inset
+
+ benötigt.
 \end_layout
 
 \begin_deeper
@@ -8109,7 +8340,7 @@ Außerdem gilt ist
 \end_inset
 
  eine symmetrische, 
-\begin_inset Formula $P$
+\begin_inset Formula $\mathrm{LOGSPACE}$
 \end_inset
 
 -uniforme Schaltkreisfamilie in 
@@ -8173,7 +8404,7 @@ Jede
 \end_inset
 
 , die von einer symmetrischen, 
-\begin_inset Formula $P$
+\begin_inset Formula $\mathrm{LOGSPACE}$
 \end_inset
 
 -uniformen 
@@ -10104,13 +10335,6 @@ Damit gilt
 \end_layout
 
 \end_deeper
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Chapter
 Partitionen und Träger
 \end_layout
@@ -13562,6 +13786,13 @@ Daher haben nach höchstens
  Wiederholungen wird ein äquivalenter, rigider Schaltkreis erzeugt.
 \end_layout
 
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
 \begin_layout Section
 Berechnung der Orbits
 \end_layout
@@ -14242,6 +14473,13 @@ Es existieren weniger als
 \end_inset
 
 -Zeit.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -15620,7 +15858,14 @@ Für
 \end_layout
 
 \begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
 
+
+\end_layout
+
+\begin_layout Section
+Konstante Tiefe
 \end_layout
 
 \begin_layout Chapter
