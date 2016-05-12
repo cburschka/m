@@ -151,27 +151,41 @@ Wintersemester 2015 / 2016}
 \section{Übersicht}
 
 Wir betrachten die logische Charakterisierung von Booleschen Schaltkreisklassen.
+{[}...{]}
 
 
 \section{Ergebnisse}
+
+Für den $P$-uniformen Teil der Klasse $\mathrm{SBC}$ von symmetrischen
+booleschen Schaltkreisfamilien wird eine logische Charakterisierung
+durch die Fixpunktlogik mit disjunktem Ordnungsprädikat $\mathrm{LFP+\mathbf{ORD}}$
+beschrieben.
+
+Es wird gezeigt, dass die logische Zählerweiterung $\mathrm{LFP}+C$
+zusätzlich die Schaltkreisfamilien mit einem Majority-Operator charakterisiert.
+
+Schließlich wird gezeigt, dass die Erweiterung der Logik um beliebige
+numerische Prädikate alle symmetrischen $P/\mathrm{poly}$-uniformen
+Schaltkreisfamilien charakterisiert. (Dieses Resultat ist mit dem
+für die Zählerweiterung kombinierbar.)
 \begin{thm}
 \textbf{\label{thm:fp}Anderson und Dawar 2014}\cite{anderson_et_al:LIPIcs:2014:4445}
 
 Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen
 äquivalent:
 \begin{enumerate}
-\item Die Logik $\mathrm{FP}+\mathbf{ORD}$ und $P$-uniforme $\mathrm{SBC}$-Schaltkreisfamilien.
-\item Die Logik $\mathrm{FP}+C$ und $P$-uniforme $\mathrm{SBC}+\mathbf{MAJ}$-Schaltkreisfamilien.
-\item Die Logik $\mathrm{FP}+\mathbf{ARB}$ und $P/\mathrm{poly}$-uniforme
+\item Die Logik $\mathrm{LFP}+\mathbf{ORD}$ und $P$-uniforme $\mathrm{SBC}$-Schaltkreisfamilien.
+\item Die Logik $\mathrm{LFP}+C$ und $P$-uniforme $\mathrm{SBC}+\mathbf{MAJ}$-Schaltkreisfamilien.
+\item Die Logik $\mathrm{LFP}+\mathbf{ARB}$ und $P/\mathrm{poly}$-uniforme
 $\mathrm{SBC}$-Schaltkreisfamilien.
-\item Die Logik $\mathrm{FP}+\mathbf{ARB}+C$ und $P/\mathrm{poly}$-uniforme
-$\mathrm{SBC}+\mathbf{MAJ}-$Schaltkreisfamilien.
 \end{enumerate}
 \end{thm}
 Das Ergebnis wird für Schaltkreisfamilien konstanter Tiefe angepasst,
-in dem die technischen Resultate des Artikels mit Hinblick auf die
-Tiefe abgeändert werden. Diese Schaltkreisfamilien werden durch die
-Logik erster Stufe ohne Fixpunktoperator charakterisiert.
+in dem die technischen Resultate von Anderson und Dawar mit Hinblick
+auf den Erhalt der Schaltkreistiefe abgeändert werden. Es wird eine
+Charakterisierung der symmetrischen $\mathrm{AC}^{0}$-Schaltkreisfamilien
+durch die Logik $\mathrm{FO}+\mathbf{BIT}$ mit disjunktem $\mathtt{BIT}$-Prädikat
+nachgewiesen.
 \begin{thm}
 Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen
 äquivalent:
@@ -181,8 +195,11 @@ symmetrische $\mathrm{AC}^{0}$-Schaltkreisfamilien.
 \item Die Logik $\mathrm{FO}+\mathbf{ARB}$ und symmetrische $\mathrm{AC}^{0}$-Schaltkreisfamilien.
 \end{enumerate}
 \end{thm}
-Schließlich werden zwei Erweiterungen der Logik erster Stufe verglichen
-und ein echter Einschluss mit Hilfe der Schaltkreisfamilien nachgewiesen.
+Die Einschränkung auf symmetrische Schaltkreisfamilien bringt eine
+echte Reduktion der Ausdrucksstärke mit sich. Zum Nachweis für $\mathrm{AC}^{0}$
+verwenden wir die obige Charakterisierung und ein Resultat, dass die
+Logik $\mathrm{FO}+\mathbf{ARB}$ mit disjunktem Orakel von der arb-invarianten
+Logik mit nicht-disjunktem Orakel trennt.
 \begin{thm}
 $\mathrm{FO}+\mathbf{ARB}$, invariantes $\mathrm{FO}\left(\mathrm{arb}\right)$
 \begin{enumerate}
@@ -534,7 +551,7 @@ und $\mathfrak{A}\in S\Leftrightarrow\pi\mathfrak{A}\in S$.
 \chapter{Logik}
 
 
-\section{Logische Grundlagen}
+\section{Grundlagen der relationalen Logik}
 
 Wir betrachten logische Sprachen auf relationalen Signaturen $\sigma$,
 deren Ausdrücke auf endlichen $\sigma$-Strukturen ausgewertet werden.
@@ -639,7 +656,7 @@ auf Strukturen der Größe $n$ definieren.
 \pagebreak{}
 
 
-\section{Relationale Logik erster Stufe}
+\section{Logik erster Stufe}
 
 Diese Arbeit befasst sich ausschließlich mit relationalen Logiken
 ohne Funktions- oder Konstantensymbole.
@@ -758,7 +775,7 @@ betrachten.)
 \pagebreak{}
 
 
-\section{Fixpunktlogik}
+\section{Fixpunkt-Erweiterung}
 \begin{defn}
 Eine Logik $\mathcal{L}$ erweitert die Logik $\mathcal{L}'$, wenn
 sie die Syntax und Semantik von $\mathcal{L}'$ übernimmt, und zusätzliche
@@ -900,12 +917,12 @@ parameter-freie $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi'$
 \pagebreak{}
 
 
-\section{Logische Erweiterungen}
+\section{Numerische Erweiterungen}
 
-Die disjunkte Orakelerweiterung fügt einer Logik eine Anzahl von Relationssymbolen
-hinzu, die für $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ eine
-feste Interpretation über einem von $A$ disjunkten numerischen Universum
-erhalten.
+Eine Erweiterung um ein numerisches Orakel fügt einer Logik eine Anzahl
+von Relationssymbolen hinzu, die für $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+eine feste Interpretation über einem von $A$ disjunkten numerischen
+Universum erhalten.
 \begin{defn}
 \textbf{$\eta$-Orakel, $\mathcal{L}+\Upsilon$-Logik}
 
@@ -1503,8 +1520,8 @@ R\pi\bar{x} & \mathrm{f\ddot{u}r}\,\,\Sigma\left(g\right)=R\bar{x}\\
 \end{eqnarray*}
 
 
-Per Induktion über die Tiefe $T\left(g\right)$ des Gates $g$\footnote{Die Tiefe $T:G\rightarrow\mathbb{N}$ sei die maximale Länge eines
-Weges von einer Quelle zum Gate $g$.} wird gezeigt: 
+Per Induktion über die Tiefe\footnote{Die Tiefe $T:G\rightarrow\mathbb{N}$ sei die maximale Länge eines
+Weges von einer Quelle zum Gate $g$.} $T\left(g\right)$ des Gates $g$ wird gezeigt: 
 \begin{eqnarray*}
 \mathcal{C}\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}g\right) &  & \mathrm{f\ddot{u}r\,alle}\,g\in G
 \end{eqnarray*}
@@ -1553,11 +1570,10 @@ Schließlich gilt für jedes Tupel $\bar{t}\in U^{\mathrm{ar}\left(\mathcal{C}\r
 
 
 Damit ist der Schaltkreis invariant.
-\end{proof}
 
-\begin{proof}
-Als Gegenbeispiel wird der folgende $0$-stellige Schaltkreis $\mathcal{C}_{2}$
-(siehe Abbildung \ref{fig:symm}) über $U=\left\{ 1,2\right\} $ angeführt:
+Um die Umkehrrichtung zu widerlegen, wird als Gegenbeispiel der folgende
+$0$-stellige Schaltkreis $\mathcal{C}_{2}$ (siehe Abbildung \ref{fig:symm})
+über $U=\left\{ 1,2\right\} $ angeführt:
 \begin{eqnarray*}
 \mathcal{C} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)\\
 G & \coloneqq & \left\{ g_{i,j}\mid i,j\in U\right\} \cup\left\{ g_{\wedge},g_{\wedge}'\right\} \\
@@ -1615,7 +1631,7 @@ $g_{0},g_{1}$ mit $\Sigma\left(g_{0}\right)=\mathbf{0}$ und $\Sigma\left(g_{1}\r
 enthält, und jedes Beschriftung $\Sigma\left(g\right)=R\bar{x}$ nur
 einmal vorkommt.
 \end{defn}
-Die Rigidität ist hier analog zu \cite{anderson_et_al:LIPIcs:2014:4445}
+Die Rigidität ist hier analog zu der Arbeit von Anderson und Dawar\cite{anderson_et_al:LIPIcs:2014:4445}
 definiert, verlangt aber zusätzlich, dass zwei Gates nicht nur durch
 die (hier nicht injektive) Output-Markierung $\Omega$ unterschieden
 werden. Diese Einschränkung ist strenger, schränkt aber die Definition
@@ -4351,6 +4367,8 @@ Kodierung von Zahlen, so dass für $\bar{g},\bar{h},\bar{w}\in\left[0,n\right]^{
 \end{proof}
 
 \chapter{Schluss}
+
+{[}...{]}
 
 \pagebreak{}
 

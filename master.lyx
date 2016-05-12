@@ -160,10 +160,46 @@ Einleitung
 
 \begin_layout Standard
 Wir betrachten die logische Charakterisierung von Booleschen Schaltkreisklassen.
+ [...]
 \end_layout
 
 \begin_layout Section
 Ergebnisse
+\end_layout
+
+\begin_layout Standard
+Für den 
+\begin_inset Formula $P$
+\end_inset
+
+-uniformen Teil der Klasse 
+\begin_inset Formula $\mathrm{SBC}$
+\end_inset
+
+ von symmetrischen booleschen Schaltkreisfamilien wird eine logische Charakteris
+ierung durch die Fixpunktlogik mit disjunktem Ordnungsprädikat 
+\begin_inset Formula $\mathrm{LFP+\mathbf{ORD}}$
+\end_inset
+
+ beschrieben.
+\end_layout
+
+\begin_layout Standard
+Es wird gezeigt, dass die logische Zählerweiterung 
+\begin_inset Formula $\mathrm{LFP}+C$
+\end_inset
+
+ zusätzlich die Schaltkreisfamilien mit einem Majority-Operator charakterisiert.
+\end_layout
+
+\begin_layout Standard
+Schließlich wird gezeigt, dass die Erweiterung der Logik um beliebige numerische
+ Prädikate alle symmetrischen 
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+-uniformen Schaltkreisfamilien charakterisiert.
+ (Dieses Resultat ist mit dem für die Zählerweiterung kombinierbar.)
 \end_layout
 
 \begin_layout Theorem
@@ -195,7 +231,7 @@ Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen äquivalen
 \begin_deeper
 \begin_layout Enumerate
 Die Logik 
-\begin_inset Formula $\mathrm{FP}+\mathbf{ORD}$
+\begin_inset Formula $\mathrm{LFP}+\mathbf{ORD}$
 \end_inset
 
  und 
@@ -211,7 +247,7 @@ Die Logik
 
 \begin_layout Enumerate
 Die Logik 
-\begin_inset Formula $\mathrm{FP}+C$
+\begin_inset Formula $\mathrm{LFP}+C$
 \end_inset
 
  und 
@@ -227,7 +263,7 @@ Die Logik
 
 \begin_layout Enumerate
 Die Logik 
-\begin_inset Formula $\mathrm{FP}+\mathbf{ARB}$
+\begin_inset Formula $\mathrm{LFP}+\mathbf{ARB}$
 \end_inset
 
  und 
@@ -241,29 +277,24 @@ Die Logik
 -Schaltkreisfamilien.
 \end_layout
 
-\begin_layout Enumerate
-Die Logik 
-\begin_inset Formula $\mathrm{FP}+\mathbf{ARB}+C$
-\end_inset
-
- und 
-\begin_inset Formula $P/\mathrm{poly}$
-\end_inset
-
--uniforme 
-\begin_inset Formula $\mathrm{SBC}+\mathbf{MAJ}-$
-\end_inset
-
-Schaltkreisfamilien.
-\end_layout
-
 \end_deeper
 \begin_layout Standard
 Das Ergebnis wird für Schaltkreisfamilien konstanter Tiefe angepasst, in
- dem die technischen Resultate des Artikels mit Hinblick auf die Tiefe abgeänder
-t werden.
- Diese Schaltkreisfamilien werden durch die Logik erster Stufe ohne Fixpunktoper
-ator charakterisiert.
+ dem die technischen Resultate von Anderson und Dawar mit Hinblick auf den
+ Erhalt der Schaltkreistiefe abgeändert werden.
+ Es wird eine Charakterisierung der symmetrischen 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+-Schaltkreisfamilien durch die Logik 
+\begin_inset Formula $\mathrm{FO}+\mathbf{BIT}$
+\end_inset
+
+ mit disjunktem 
+\begin_inset Formula $\mathtt{BIT}$
+\end_inset
+
+-Prädikat nachgewiesen.
 \end_layout
 
 \begin_layout Theorem
@@ -302,8 +333,19 @@ Die Logik
 
 \end_deeper
 \begin_layout Standard
-Schließlich werden zwei Erweiterungen der Logik erster Stufe verglichen
- und ein echter Einschluss mit Hilfe der Schaltkreisfamilien nachgewiesen.
+Die Einschränkung auf symmetrische Schaltkreisfamilien bringt eine echte
+ Reduktion der Ausdrucksstärke mit sich.
+ Zum Nachweis für 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+ verwenden wir die obige Charakterisierung und ein Resultat, dass die Logik
+ 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+ mit disjunktem Orakel von der arb-invarianten Logik mit nicht-disjunktem
+ Orakel trennt.
 \end_layout
 
 \begin_layout Theorem
@@ -1734,7 +1776,7 @@ Logik
 \end_layout
 
 \begin_layout Section
-Logische Grundlagen
+Grundlagen der relationalen Logik
 \end_layout
 
 \begin_layout Standard
@@ -2226,7 +2268,7 @@ Falls
 \end_layout
 
 \begin_layout Section
-Relationale Logik erster Stufe
+Logik erster Stufe
 \end_layout
 
 \begin_layout Standard
@@ -2652,7 +2694,7 @@ Weil
 \end_layout
 
 \begin_layout Section
-Fixpunktlogik
+Fixpunkt-Erweiterung
 \end_layout
 
 \begin_layout Definition
@@ -3283,12 +3325,12 @@ key "Zaid,Grohe2005,Dziembowski96bounded-variablefixpoint"
 \end_layout
 
 \begin_layout Section
-Logische Erweiterungen
+Numerische Erweiterungen
 \end_layout
 
 \begin_layout Standard
-Die disjunkte Orakelerweiterung fügt einer Logik eine Anzahl von Relationssymbol
-en hinzu, die für 
+Eine Erweiterung um ein numerisches Orakel fügt einer Logik eine Anzahl
+ von Relationssymbolen hinzu, die für 
 \begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
 \end_inset
 
@@ -5852,15 +5894,7 @@ R\pi\bar{x} & \mathrm{für}\,\,\Sigma\left(g\right)=R\bar{x}\\
 \end_layout
 
 \begin_layout Proof
-Per Induktion über die Tiefe 
-\begin_inset Formula $T\left(g\right)$
-\end_inset
-
- des Gates 
-\begin_inset Formula $g$
-\end_inset
-
-
+Per Induktion über die Tiefe
 \begin_inset Foot
 status open
 
@@ -5876,6 +5910,14 @@ Die Tiefe
 .
 \end_layout
 
+\end_inset
+
+ 
+\begin_inset Formula $T\left(g\right)$
+\end_inset
+
+ des Gates 
+\begin_inset Formula $g$
 \end_inset
 
  wird gezeigt: 
@@ -6041,12 +6083,9 @@ Schließlich gilt für jedes Tupel
 Damit ist der Schaltkreis invariant.
 \end_layout
 
-\begin_layout --Separator--
-
-\end_layout
-
 \begin_layout Proof
-Als Gegenbeispiel wird der folgende 
+Um die Umkehrrichtung zu widerlegen, wird als Gegenbeispiel der folgende
+ 
 \begin_inset Formula $0$
 \end_inset
 
@@ -6308,7 +6347,7 @@ Insbesondere heißt dies, das der Schaltkreis höchstens zwei Konstanten
 \end_layout
 
 \begin_layout Standard
-Die Rigidität ist hier analog zu 
+Die Rigidität ist hier analog zu der Arbeit von Anderson und Dawar
 \begin_inset CommandInset citation
 LatexCommand cite
 key "anderson_et_al:LIPIcs:2014:4445"
@@ -16655,6 +16694,10 @@ Hierbei sei
 
 \begin_layout Chapter
 Schluss
+\end_layout
+
+\begin_layout Standard
+[...]
 \end_layout
 
 \begin_layout Standard
