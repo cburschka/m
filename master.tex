@@ -1,6 +1,6 @@
 %% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[ngerman]{scrbook}
+\documentclass[english,ngerman]{scrbook}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
@@ -55,10 +55,6 @@
 \begin{description}[font=\normalfont,style=sameline,
 leftmargin=\lyxlabelwidth,#1]}
 {\end{description}}
-  \theoremstyle{remark}
-  \newtheorem{notation}[thm]{\protect\notationname}
-  \theoremstyle{remark}
-  \newtheorem*{rem*}{\protect\remarkname}
   \theoremstyle{definition}
   \newtheorem*{example*}{\protect\examplename}
   \theoremstyle{plain}
@@ -71,6 +67,8 @@ leftmargin=\lyxlabelwidth,#1]}
  \setlist[casenv,4]{label={{\itshape\ \casename} \arabic*.},ref=\arabic*}
   \theoremstyle{definition}
   \newtheorem{example}[thm]{\protect\examplename}
+  \theoremstyle{remark}
+  \newtheorem*{rem*}{\protect\remarkname}
   \theoremstyle{plain}
   \newtheorem{lem}[thm]{\protect\lemmaname}
 \newenvironment{lyxcode}
@@ -104,27 +102,48 @@ leftmargin=\lyxlabelwidth,#1]}
 %\newtheorem*{notation*}{Notation}
 %\numberwithin{thm}{chapter}
 
-\usepackage{prettyref}
-\newrefformat{chap}{\textbf{Kapitel~\ref{#1}}}
-\newrefformat{sec}{\textbf{Abschnitt~\ref{#1}}}
-\newrefformat{sub}{\textbf{Abschnitt~\ref{#1}}}
-\newrefformat{thm}{\textbf{Theorem~\ref{#1}}}
-\newrefformat{lem}{\textbf{Lemma~\ref{#1}}}
-\newrefformat{prop}{\textbf{Satz~\ref{#1}}}
+%\usepackage{prettyref}
+%\newrefformat{chap}{\textbf{Kapitel~\ref{#1}}}
+%\newrefformat{sec}{\textbf{Abschnitt~\ref{#1}}}
+%\newrefformat{sub}{\textbf{Abschnitt~\ref{#1}}}
+%\newrefformat{thm}{\textbf{Theorem~\ref{#1}}}
+%\newrefformat{lem}{\textbf{Lemma~\ref{#1}}}
+%\newrefformat{prop}{\textbf{Satz~\ref{#1}}}
 
 \makeatother
 
 \usepackage{babel}
+  \addto\captionsenglish{\renewcommand{\claimname}{Claim}}
+  \addto\captionsenglish{\renewcommand{\corollaryname}{Corollary}}
+  \addto\captionsenglish{\renewcommand{\definitionname}{Definition}}
+  \addto\captionsenglish{\renewcommand{\examplename}{Example}}
+  \addto\captionsenglish{\renewcommand{\factname}{Fact}}
+  \addto\captionsenglish{\renewcommand{\lemmaname}{Lemma}}
+  \addto\captionsenglish{\renewcommand{\propositionname}{Proposition}}
+  \addto\captionsenglish{\renewcommand{\remarkname}{Remark}}
+  \addto\captionsenglish{\renewcommand{\theoremname}{Theorem}}
+  \addto\captionsngerman{\renewcommand{\claimname}{Behauptung}}
+  \addto\captionsngerman{\renewcommand{\corollaryname}{Korollar}}
+  \addto\captionsngerman{\renewcommand{\definitionname}{Definition}}
+  \addto\captionsngerman{\renewcommand{\examplename}{Beispiel}}
+  \addto\captionsngerman{\renewcommand{\factname}{Fakt}}
+  \addto\captionsngerman{\renewcommand{\lemmaname}{Lemma}}
+  \addto\captionsngerman{\renewcommand{\propositionname}{Satz}}
+  \addto\captionsngerman{\renewcommand{\remarkname}{Bemerkung}}
+  \addto\captionsngerman{\renewcommand{\theoremname}{Theorem}}
   \providecommand{\claimname}{Behauptung}
   \providecommand{\corollaryname}{Korollar}
   \providecommand{\definitionname}{Definition}
   \providecommand{\examplename}{Beispiel}
   \providecommand{\factname}{Fakt}
   \providecommand{\lemmaname}{Lemma}
-  \providecommand{\notationname}{Notation}
   \providecommand{\propositionname}{Satz}
   \providecommand{\remarkname}{Bemerkung}
+ \addto\captionsenglish{\renewcommand{\casename}{Case}}
+ \addto\captionsngerman{\renewcommand{\casename}{Fall}}
  \providecommand{\casename}{Fall}
+\addto\captionsenglish{\renewcommand{\algorithmname}{Algorithm}}
+\addto\captionsngerman{\renewcommand{\algorithmname}{Algorithmus}}
 \providecommand{\theoremname}{Theorem}
 
 \begin{document}
@@ -336,9 +355,9 @@ Tupel, Teilmengen und Relationen von $A$ erweitert:
 
 
 Eine Abbildung $\pi:A\rightarrow B$ mit $A=\left\{ a_{1},\cdots,a_{n}\right\} $
-schreiben wir gegebenenfalls extensional auf. Für ein Tupel $\bar{a}=\left(a_{1},\cdots,a_{n}\right)$
-kürzen wir diese Abbildung auch durch $\left(\bar{a}\mapsto\pi\bar{a}\right)$
-ab. 
+schreiben wir gegebenenfalls extensional durch auf. Für ein Tupel
+$\bar{a}=\left(a_{1},\cdots,a_{n}\right)$ kürzen wir diese Abbildung
+auch durch $\left(\bar{a}\mapsto\pi\bar{a}\right)$ ab. 
 \begin{eqnarray*}
 \pi & \coloneqq & \left(\begin{array}{c}
 a_{1}\\
@@ -468,16 +487,13 @@ sei
 \]
  die Menge aller endlichen geordneten $\sigma\cup\left\{ \leqslant\right\} $-Strukturen
 über Intervallen, die mit $a$ beginnen (normalerweise mit $a\in\left\{ 0,1\right\} $).
-
+\end{defn}
 Der Lesbarkeit halber verwenden wir die Infixnotation $a\leqslant b$
 anstelle von $\left(a,b\right)\in\leqslant$ oder $\left[\leqslant\right]\left(a,b\right)$.
-
 Die Symbole $\dot{\leqslant}$ und $\dot{=}$ seien gleichbedeutend
 mit den Symbolen $\leqslant$ und $=$, und werden gegebenenfalls
 in Gleichungen wie $\varphi=x\dot{=}y$ und $\varphi=x\dot{\leqslant}y$
 verwendet.
-\end{defn}
-
 \begin{defn}
 \textbf{\label{def:Isomorphismus}Isomorphismus}
 
@@ -534,22 +550,20 @@ die \textbf{disjunkte Vereinigung} der Strukturen.
 
 Für eine Relation $R\subseteq A^{k}$ und eine Teilmenge $A'\subseteq A$
 sei $R_{\mid A'}\coloneqq R\cap\left(A'\right)^{k}$ die von $A'$
-induzierte Teilrelation.
-
-Für eine $\sigma$-Struktur $\mathfrak{A}$ sei $\mathfrak{A}_{\mid A'}\coloneqq\left(A',\left(R_{\mid A'}^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
+induzierte Teilrelation. Für eine $\sigma$-Struktur $\mathfrak{A}$
+sei $\mathfrak{A}_{\mid A'}\coloneqq\left(A',\left(R_{\mid A'}^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
 die von der Teilmenge $A'$ in $\mathfrak{A}$ induzierte Teilstruktur.
 \end{defn}
 
 \begin{defn}
 \textbf{Anfrage}
 
-Eine $k$-stellige $\sigma$\textbf{-Anfrage} $q$ sei eine Abbildung
-jeder endlichen $\sigma$-Struktur $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
-auf eine $k$-stellige Relation $q\left(\mathfrak{A}\right)\subseteq A^{k}$.
-Wir schreiben auch $\mathrm{ar}\left(q\right)=k$.
+Eine $\sigma$\textbf{-Anfrage} $q$ mit der Stelligkeit $\mathrm{ar}\left(q\right)=k$
+sei eine Abbildung jeder endlichen $\sigma$-Struktur $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+auf eine Relation $q\left(\mathfrak{A}\right)\subseteq A^{k}$.
 
 Eine $\sigma$\textbf{-Eigenschaft} $S\subseteq\mathbf{FIN}\left(\sigma\right)$
-sei eine Klasse von $\sigma$-Strukturen und entspreche der 0-stelligen
+sei eine Menge von $\sigma$-Strukturen und entspreche der 0-stelligen
 Anfrage $q_{S}$:
 \begin{eqnarray*}
 q_{S}\left(\mathfrak{A}\right) & \coloneqq & \begin{cases}
@@ -560,9 +574,9 @@ q_{S}\left(\mathfrak{A}\right) & \coloneqq & \begin{cases}
 
 
 Per Definition sind alle $\sigma$-Anfragen und $\sigma$-Eigenschaften
-unter Isomorphismen abgeschlossen: Für $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{B}$
-gilt $\pi q\left(\mathfrak{A}\right)=q\left(\pi\mathfrak{A}\right)$
-und $\mathfrak{A}\in S\Leftrightarrow\pi\mathfrak{A}\in S$.
+unter Isomorphismen abgeschlossen: Für $\mathfrak{A}\cong\mathfrak{B}$
+und $\pi\in\mathrm{Abb}\left(\mathfrak{A},\mathfrak{B}\right)$ gilt
+$\pi q\left(\mathfrak{A}\right)=q\left(\mathfrak{B}\right)$ und $\mathfrak{A}\in S\Leftrightarrow\mathfrak{B}\in S$.
 \end{defn}
 
 \chapter{Logik}
@@ -572,24 +586,24 @@ und $\mathfrak{A}\in S\Leftrightarrow\pi\mathfrak{A}\in S$.
 
 Wir betrachten logische Sprachen auf relationalen Signaturen $\sigma$,
 deren Ausdrücke auf endlichen $\sigma$-Strukturen ausgewertet werden.
-\begin{defn}
-Sei $\mathbf{var}$ die Menge aller erststufigen Variablen.
 
-Für einen Ausdruck $\omega$ sei $\mathrm{var}\left(\omega\right)$
+Zunächst definieren wir $\mathbf{var}$ als die Menge aller erststufigen
+Variablen. Für einen Ausdruck $\omega$ sei $\mathrm{var}\left(\omega\right)$
 die Menge der darin vorkommenden Variablen, und $\mathrm{frei}\left(\omega\right)\subseteq\mathrm{var}\left(\omega\right)$
 die Menge der freien Variablen.
 
-Für eine Struktur $\mathfrak{A}$ sei eine \textbf{Belegung} $\beta$
+In einer Struktur $\mathfrak{A}$ sei eine \textbf{Belegung} $\beta$
 eine partielle Abbildung $\beta:\mathbf{var}\rightarrow A$ von Variablen
 auf Elemente des Universums.
-\end{defn}
-Die Auswertungsfunktion für eine Struktur $\mathfrak{A}$ und eine
+
+Eine Auswertungsfunktion für eine Struktur $\mathfrak{A}$ und eine
 Belegung $\beta$ wird durch $\left\llbracket \cdot\right\rrbracket \left(\mathfrak{A},\beta\right)$
 notiert.
 \begin{defn}
 Eine Logik $\mathcal{L}\left[\sigma\right]$ besteht aus der Sprache
 der $\mathcal{L}\left[\sigma\right]$-Terme, der Sprache der $\mathcal{L}\left[\sigma\right]$-Formeln,
-und der Auswertungsfunktion $\left\llbracket \cdot\right\rrbracket $.
+und einer Auswertungsfunktion $\left\llbracket \cdot\right\rrbracket \left(\mathfrak{A},\beta\right)$
+für jede Struktur $\mathfrak{A}$ und Belegung $\beta$.
 
 Für einen $\mathcal{L}\left[\sigma\right]$-Term $t$ ist $\left\llbracket t\right\rrbracket \left(\mathfrak{A},\beta\right)\in A$
 ein Element des Universums. Für eine $\mathcal{L}\left[\sigma\right]$-Formel
@@ -600,28 +614,24 @@ ein Wahrheitswert.
 \begin{defn}
 Für eine Formel $\varphi$ und ein Tupel $\bar{x}\in\mathbf{var}^{k}$
 mit $\mathrm{frei}\left(\varphi\right)=\left\{ x_{1},\cdots,x_{k}\right\} $
-und $\left|\left\{ x_{1},\cdots,x_{k}\right\} \right|=k$ sei das
-Tupel $\bar{x}=x_{1}\cdots x_{k}$ ein \textbf{Argument }von $\varphi$.
+und $\left|\left\{ x_{1},\cdots,x_{k}\right\} \right|=k$ nennen wir
+das Tupel $\bar{x}=x_{1}\cdots x_{k}$ ein \textbf{Argument }von $\varphi$.
 Verschiedene Argumente von $\varphi$ unterscheiden sich nur in der
 Reihenfolge der Variablen. Durch die Notation $\varphi\left(\bar{x}\right)$
 legen wir ein beliebiges Argument $\bar{x}$ für $\varphi$ fest.
 
 Die \textbf{Stelligkeit }einer logischen Formel (beziehungsweise ihrer
 Argumente) bezeichne die Anzahl der frei vorkommenden Variablen: Für
-$\varphi\left(\bar{x}\right)$ gelte $\mathrm{ar}\left(\varphi\right)=\mathrm{ar}\left(\bar{x}\right)=\left|\mathrm{frei}\left(\varphi\right)\right|$.
+$\varphi\left(\bar{x}\right)$ gelte: 
+\[
+\mathrm{ar}\left(\varphi\right)=\mathrm{ar}\left(\bar{x}\right)=\left|\mathrm{frei}\left(\varphi\right)\right|
+\]
+
 
 Ein \textbf{Satz} sei eine Formel ohne freie Variablen.
 \end{defn}
-
-\begin{defn}
-Es sei $\mathtt{MF}\left(\omega\right)$ die maximale Anzahl freier
-Variablen jedes Teilausdrucks von $\omega$: 
-\begin{eqnarray*}
-\mathtt{MF}\left(\omega\right) & \coloneqq & \max\left\{ \mathrm{ar}\left(\omega'\right)\mid\omega'\,\mbox{ist Teilausdruck von}\,\omega\right\} 
-\end{eqnarray*}
-
-\end{defn}
-
+Mit $\mathtt{MF}\left(\omega\right)$ bezeichnen wir die maximale
+Anzahl freier Variablen jedes Teilausdrucks von $\omega$.
 \begin{defn}
 Für eine $k$-stellige Formel $\varphi$ und eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
 schreiben wir $\mathfrak{A}\models\varphi^{\beta}$ genau dann wenn
@@ -630,30 +640,33 @@ $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1$.
 Für $\varphi\left(\bar{x}\right)$ und $\bar{a}\in A^{\mathrm{ar}\left(\bar{x}\right)}$
 schreiben wir $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)$
 anstelle von $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\left(\bar{x}\mapsto\bar{b}\right)\right)$,
-beziehungsweise $\mathfrak{A}\models\varphi\left[\bar{a}\right]$
-anstelle von $\mathfrak{A}\models\varphi^{\bar{x}\mapsto\bar{a}}$.
+und $\mathfrak{A}\models\varphi\left[\bar{a}\right]$ anstelle von
+$\mathfrak{A}\models\varphi^{\bar{x}\mapsto\bar{a}}$.
 
-Entsprechend sei $q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{\mathrm{ar}\left(\bar{x}\right)}\mid\mathfrak{A}\models\varphi\left[\bar{a}\right]\right\} $
-die Relation der $\varphi$ erfüllenden Tupel. Somit beschreibt jede
-$\mathcal{L}\left[\sigma\right]$-Formel $\varphi\left(\bar{x}\right)$
-eine $\sigma$-Anfrage $q_{\varphi\left(\bar{x}\right)}$, und jeder
-Satz eine $\sigma$-Eigenschaft.
-
-(Da die Reihenfolge der Spalten der Relation von der Wahl des Arguments
-$\bar{x}$ abhängt, wird es durch $q_{\varphi\left(\bar{x}\right)}$
-mit angegeben.)
+Entsprechend sei 
+\[
+q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{\mathrm{ar}\left(\bar{x}\right)}\mid\mathfrak{A}\models\varphi\left[\bar{a}\right]\right\} 
+\]
+die Relation aller $\varphi$ erfüllenden Tupel.
 \end{defn}
-
+Somit beschreibt jede $\mathcal{L}\left[\sigma\right]$-Formel $\varphi\left(\bar{x}\right)$
+eine $\sigma$-Anfrage $q_{\varphi\left(\bar{x}\right)}$, und jeder
+Satz eine $\sigma$-Eigenschaft. Da die Reihenfolge der Spalten der
+Relation von der Wahl des Arguments $\bar{x}$ abhängt, wird es durch
+$q_{\varphi\left(\bar{x}\right)}$ mit angegeben.
 \begin{defn}
 Für eine Formel $\varphi$ und eine Belegung $\beta:X\rightarrow A$
 mit $X\subsetneqq\mathrm{frei}\left(\varphi\right)$ sei $\varphi^{\beta}$
 ein \textbf{partiell belegter} Ausdruck; es sei $\mathrm{frei}\left(\varphi^{\beta}\right)=\mathrm{frei}\left(\varphi\right)\backslash X$.
 
-Es stehe $\left\llbracket \varphi^{\beta}\right\rrbracket \left(\mathfrak{A},\beta'\right)$
-für die Auswertung $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\cup\beta'\right)$
-mit $\beta':\mathrm{frei}\left(\varphi^{\beta}\right)\rightarrow A$.
-$q_{\varphi^{\beta}\left(\bar{x}'\right)}=\left\{ \bar{a}\in A^{\ell}\mid\mathfrak{A}\models\varphi^{\beta}\left[\bar{a}\right]\right\} $
-die von $\varphi^{\beta}$ definierte $\sigma$-Anfrage.
+Für $\beta':\mathrm{frei}\left(\varphi^{\beta}\right)\rightarrow A$
+bezeichne $\left\llbracket \varphi^{\beta}\right\rrbracket \left(\mathfrak{A},\beta'\right)$
+die Auswertung $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\cup\beta'\right)$.
+Es sei 
+\[
+q_{\varphi^{\beta}\left(\bar{x}'\right)}\coloneqq\left\{ \bar{a}\in A^{\ell}\mid\mathfrak{A}\models\varphi^{\beta}\left[\bar{a}\right]\right\} 
+\]
+ die von $\varphi^{\beta}$ definierte $\sigma$-Anfrage.
 \end{defn}
 
 \begin{defn}
@@ -670,51 +683,38 @@ $\varphi$ und $\psi$ $n$-\textbf{äquivalent}. Insbesondere bedeutet
 dies, dass $\varphi$ und $\psi$ die gleiche Anfrage $q_{\varphi\left(\bar{x}\right)}=q_{\psi\left(\bar{x}\right)}$
 auf Strukturen der Größe $n$ definieren.
 \end{defn}
-\pagebreak{}
 
-
-\section{Logik erster Stufe}
-
-Diese Arbeit befasst sich ausschließlich mit relationalen Logiken
-ohne Funktions- oder Konstantensymbole.
+\section{Die Logik erster Stufe}
 \begin{defn}
-\label{def:fo}Die Syntax und Semantik der relationalen Logik erster
-Stufe $\mathrm{FO}\left[\sigma\right]$ sind wie folgt definiert.\end{defn}
+\label{def:fo}Für eine relationale Signatur $\sigma$ sind die Syntax
+und Semantik der Logik erster Stufe $\mathrm{FO}\left[\sigma\right]$
+wie folgt definiert.\end{defn}
 \begin{elabeling}{00.00.0000}
 \item [{(TV)}] Für jede Variable $x\in\mathbf{var}$ ist $x$ ein $\mathrm{FO}\left[\sigma\right]$-Term.
 \[
-\mathrm{frei}\left(x\right)=\mathrm{var}\left(x\right)=\left\{ x\right\} 
+\mathrm{frei}\left(x\right)=\mathrm{var}\left(x\right)\coloneqq\left\{ x\right\} 
 \]
 \[
-\mathtt{MF}\left(x\right)=1
-\]
-\[
-\left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\beta x
+\left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\beta x
 \]
 
 \item [{(AR)}] Für jedes Relationssymbol $R/k\in\sigma$ und jedes $k$-Tupel
 von $\mathrm{FO}\left[\sigma\right]$-Termen $\bar{x}$ ist $R\bar{x}$
 eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
-\mathrm{frei}\left(R\bar{x}\right)=\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(R\bar{x}\right)=\bigcup_{i=1}^{k}\mathrm{var}\left(x_{i}\right)
+\mathrm{frei}\left(R\bar{x}\right)\coloneqq\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(R\bar{x}\right)\coloneqq\bigcup_{i=1}^{k}\mathrm{var}\left(x_{i}\right)
 \end{eqnarray*}
-\[
-\mathtt{MF}\left(R\bar{x}\right)=\max\left(\max_{i=1}^{k}\mathtt{MF}\left(x_{i}\right),\left|\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right)\right|\right)
-\]
 \begin{eqnarray*}
-\left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left[R^{\mathfrak{A}}\right]\left(\left\llbracket x_{1}\right\rrbracket \left(\mathfrak{A},\beta\right),\cdots,\left\llbracket x_{k}\right\rrbracket \left(\mathfrak{A},\beta\right)\right)
+\left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left[R^{\mathfrak{A}}\right]\left(\left\llbracket x_{1}\right\rrbracket \left(\mathfrak{A},\beta\right),\cdots,\left\llbracket x_{k}\right\rrbracket \left(\mathfrak{A},\beta\right)\right)
 \end{eqnarray*}
 
 \item [{(AE)}] Für zwei $\mathrm{FO}\left[\sigma\right]$-Terme $x_{1},x_{2}$
 ist $x_{1}\dot{=}x_{2}$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
-\mathrm{frei}\left(x_{1}\dot{=}x_{2}\right)=\bigcup_{i=1}^{2}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(x_{1}\dot{=}x_{2}\right)=\bigcup_{i=1}^{2}\mathrm{var}\left(x_{i}\right)
+\mathrm{frei}\left(x_{1}\dot{=}x_{2}\right)\coloneqq\bigcup_{i=1}^{2}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(x_{1}\dot{=}x_{2}\right)\coloneqq\bigcup_{i=1}^{2}\mathrm{var}\left(x_{i}\right)
 \end{eqnarray*}
-\[
-\mathtt{MF}\left(x_{1}\dot{=}x_{2}\right)=\max\left(\max_{i=1}^{2}\mathtt{MF}\left(x_{i}\right),\left|\bigcup_{i=1}^{2}\mathrm{frei}\left(x_{i}\right)\right|\right)
-\]
 \begin{eqnarray*}
-\left\llbracket x\dot{=}y\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \begin{cases}
+\left\llbracket x\dot{=}y\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \begin{cases}
 1 & \mathrm{falls}\,\left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket y\right\rrbracket \left(\mathfrak{A},\beta\right)\\
 0 & \mathrm{sonst}
 \end{cases}
@@ -723,13 +723,10 @@ ist $x_{1}\dot{=}x_{2}$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \item [{(N)}] Für eine $\mathrm{FO}\left[\sigma\right]$-Formel $\varphi$
 ist $\neg\varphi$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
-\mathrm{frei}\left(\neg\varphi\right)=\mathrm{frei}\left(\varphi\right) &  & \mathrm{var}\left(\neg\varphi\right)=\mathrm{var}\left(\varphi\right)
+\mathrm{frei}\left(\neg\varphi\right)\coloneqq\mathrm{frei}\left(\varphi\right) &  & \mathrm{var}\left(\neg\varphi\right)\coloneqq\mathrm{var}\left(\varphi\right)
 \end{eqnarray*}
 \[
-\mathtt{MF}\left(\neg\varphi\right)=\mathtt{MF}\left(\varphi\right)
-\]
-\[
-\left\llbracket \neg\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)
+\left\llbracket \neg\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq1-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)
 \]
 
 \item [{(J)}] Für $k\geqslant2$ $\mathrm{FO}\left[\sigma\right]$-Formeln
@@ -738,42 +735,38 @@ $\varphi_{1},\cdots,\varphi_{k}$ und einen Junktor $\gamma\in\left\{ \wedge,\vee
 ist auch $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)$
 eine $\mathrm{FO}\left[\sigma\right]$-Formel. 
 \begin{eqnarray*}
-\mathrm{frei}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)=\bigcup_{i=1}^{k}\mathrm{frei}\left(\varphi_{i}\right) &  & \mathrm{var}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)=\bigcup_{i=1}^{k}\mathrm{var}\left(\varphi_{i}\right)
+\mathrm{frei}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)\coloneqq\bigcup_{i=1}^{k}\mathrm{frei}\left(\varphi_{i}\right) &  & \mathrm{var}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)\coloneqq\bigcup_{i=1}^{k}\mathrm{var}\left(\varphi_{i}\right)
 \end{eqnarray*}
-\[
-\mathtt{MF}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)=\max\left(\max_{i=1}^{k}\mathtt{MF}\left(\varphi_{i}\right),\left|\bigcup_{i=1}^{k}\mathrm{frei}\left(\varphi_{i}\right)\right|\right)
-\]
 \begin{eqnarray*}
-\left\llbracket \varphi_{1}\wedge\cdots\wedge\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \min_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
-\left\llbracket \varphi_{1}\vee\cdots\vee\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \max_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
-\left\llbracket \varphi_{1}\rightarrow\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left\llbracket \neg\varphi_{1}\vee\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
-\left\llbracket \varphi_{1}\leftrightarrow\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left\llbracket \left(\varphi_{1}\rightarrow\varphi_{2}\right)\wedge\left(\varphi_{2}\rightarrow\varphi_{1}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)
+\left\llbracket \varphi_{1}\wedge\cdots\wedge\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \min_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
+\left\llbracket \varphi_{1}\vee\cdots\vee\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \max_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
+\left\llbracket \varphi_{1}\rightarrow\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket \neg\varphi_{1}\vee\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
+\left\llbracket \varphi_{1}\leftrightarrow\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket \left(\varphi_{1}\rightarrow\varphi_{2}\right)\wedge\left(\varphi_{2}\rightarrow\varphi_{1}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)
 \end{eqnarray*}
 
 \item [{(Q)}] Für einen Quantor $Q\in\left\{ \exists,\forall\right\} $,
 eine Variable $x\in\mathbf{var}$ und eine $\mathrm{FO}\left[\sigma\right]$-Formel
 $\varphi$ ist $Qx\varphi$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
-\mathrm{frei}\left(Qx\varphi\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(Qx\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
+\mathrm{frei}\left(Qx\varphi\right)\coloneqq\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(Qx\varphi\right)\coloneqq\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
 \end{eqnarray*}
-\[
-\mathtt{MF}\left(Qx\varphi\right)=\mathtt{MF}\left(\varphi\right)
-\]
 \begin{eqnarray*}
-\left\llbracket \exists x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \max_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\uplus\left(\begin{array}{c}
+\left\llbracket \exists x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \max_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\uplus\left(\begin{array}{c}
 x\\
 a
 \end{array}\right)\right)\right)\\
-\left\llbracket \forall x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \min_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\uplus\left(\begin{array}{c}
+\left\llbracket \forall x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \min_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\uplus\left(\begin{array}{c}
 x\\
 a
 \end{array}\right)\right)\right)
 \end{eqnarray*}
 Ohne Beschränkung der Allgemeinheit gelte für $Qx\varphi$ stets $x\in\mathrm{frei}\left(\varphi\right)$,
-denn $Qx\varphi\equiv Qx\left(x\dot{=}x\wedge\varphi\right)$.\end{elabeling}
-\begin{notation}
-Im folgenden stehen $Q\bar{x}\varphi$ und $\bar{x}=\bar{y}$ abgekürzt
-für $Qx_{1}\cdots Qx_{k}\varphi$ und $\bigwedge_{i=1}^{k}\left(x_{i}=y_{i}\right)$.\end{notation}
+denn $Qx\varphi\equiv Qx\left(x\dot{=}x\wedge\varphi\right)$.
+\end{elabeling}
+Wir kürzen $Qx_{1}\cdots Qx_{k}\varphi$ durch $Q\bar{x}\varphi$
+und $\bigwedge_{i=1}^{k}\left(x_{i}=y_{i}\right)$ durch $\bar{x}=\bar{y}$
+ab. Im folgenden werden wir außerdem Formeln ohne Implikations-Pfeile
+betrachten.
 \begin{defn}
 Eine $\mathrm{FO}\left[\sigma\right]$-Formel sei \textbf{implikationsfrei
 }wenn sie keine Teilformel der Form $\left(\varphi\rightarrow\psi\right)$
@@ -782,96 +775,105 @@ oder $\left(\varphi\leftrightarrow\psi\right)$ enthält.
 Weil $\left(\varphi\rightarrow\psi\right)\equiv\left(\neg\varphi\vee\psi\right)$
 und $\left(\varphi\leftrightarrow\psi\right)\equiv\left(\varphi\wedge\psi\right)\vee\left(\neg\varphi\wedge\neg\psi\right)$,
 sind alle $\mathrm{FO}\left[\sigma\right]$-Formeln äquivalent zu
-implikationsfreien $\mathrm{FO}\left[\sigma\right]$-Formeln. Im folgenden
-werden wir hauptsächlich diese behandeln. (Hierbei entsteht ein fester
-Zuwachs in der Länge der Formel $\left\Vert \varphi\right\Vert $,
+implikationsfreien $\mathrm{FO}\left[\sigma\right]$-Formeln. Hierbei
+entsteht ein fester Zuwachs in der Länge der Formel $\left\Vert \varphi\right\Vert $,
 so dass die Voraussetzung nur gemacht werden kann, wenn wir bezüglich
 $\left\Vert \varphi\right\Vert $ parametrisierte Komplexitätsklassen
-betrachten.)
-
-\pagebreak{}
+betrachten.
 
 
-\section{Fixpunkt-Erweiterung}
+\section{Logiken mit Fixpunkt-Erweiterung}
+
+Wir führen eine Erweiterung ein, die es erlaubt, den iterativen Fixpunkt
+einer selbstbezüglichen logischen Formel zu definieren.
 \begin{defn}
 Eine Logik $\mathcal{L}$ erweitert die Logik $\mathcal{L}'$, wenn
 sie die Syntax und Semantik von $\mathcal{L}'$ übernimmt, und zusätzliche
 Produktionen einführt.
 \end{defn}
-
+Als erstes definieren wir einen neuen Typ von Variablen.
 \begin{defn}
 Sei $\mathbf{var}_{2}$ die Menge aller Relationsvariablen. Jede solche
-Variable $R\in\mathbf{var}_{2}$ besitzt eine Stelligkeit $\mathrm{ar}\left(R\right)=k\in\mathbb{N}_{\geqslant1}$;
-diese wird auch durch $R/k\in\mathbf{var}_{2}$ notiert.
+Variable $X\in\mathbf{var}_{2}$ besitzt eine Stelligkeit $\mathrm{ar}\left(X\right)=k\in\mathbb{N}_{\geqslant1}$;
+diese wird auch durch $X/k\in\mathbf{var}_{2}$ notiert. Die Funktionen
+$\mathrm{frei}$ und $\mathrm{var}$, so wie die Belegungen $\beta$,
+werden auf $\mathbf{var}\uplus\mathbf{var}_{2}$ erweitert.
+\begin{eqnarray*}
+\beta:\mathrm{frei}\left(\varphi\right) & \rightarrow & A\cup\bigcup_{k\in\mathbb{N}}A^{k}\\
+\beta X & \subseteq & A^{\mathrm{ar}\left(X\right)}\,\mathrm{f\ddot{u}r}\,X\in\mathbf{var}_{2}
+\end{eqnarray*}
 
-Im folgenden sei jede Signatur $\sigma$ als eine Kombination von
-Relationssymbolen und Relationsvariablen zu verstehen.
 \end{defn}
-
+Wir möchten syntaktisch garantieren, dass der Fixpunkt der selbstbezüglichen
+Formel monoton wächst. Dafür wird verlangt, dass der Selbstbezug nicht
+negiert vorkommt.
 \begin{defn}
 \textbf{Positivität}
 
-Wir definieren die Klasse der $P$-positiven und $P$-negativen Formeln
-für $P\in\sigma$ wie folgt:\end{defn}
-\begin{enumerate}
-\item Jede $\mathcal{L}\left[\sigma\backslash\left\{ P\right\} \right]$-Formel
-$\varphi$ ist sowohl $P$-positiv als auch $P$-negativ, da sie $P$
-nicht enthält.
-\item Für $P/k\in\sigma$ und jedes $k$-Tupel von $P$-positiven Termen
-$x_{1},\cdots,x_{k}$ ist auch $P\bar{x}$ eine $P$-positive Formel.
-\item Für jede $P$-positive Formel $\varphi$ ist $\neg\varphi$ $P$-negativ,
+Wir definieren die (nicht disjunkten) Mengen der $X$-positiven und
+$X$-negativen $\mathcal{L}\left[\sigma\right]$-Formeln für $X\in\mathbf{var}_{2}$
+wie folgt:
+\begin{itemize}
+\item Jede $\mathcal{L}\left[\sigma\right]$-Formel $\varphi$ mit $X\notin\mathrm{frei}\left(\varphi\right)$
+ist sowohl $X$-positiv als auch $X$-negativ.
+\item Für jede $X$-positive Formel $\varphi$ ist $\neg\varphi$ $X$-negativ,
 und umgekehrt.
 \item Für einen Junktor $\gamma\in\left\{ \wedge,\vee\right\} $ und $k\geqslant2$
-$P$-positive (beziehungsweise $P$-negative) Formeln $\varphi_{1},\cdots,\varphi_{k}$
+$X$-positive (beziehungsweise $X$-negative) Formeln $\varphi_{1},\cdots,\varphi_{k}$
 ist $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)$ ebenfalls
-$P$-positiv (beziehungsweise $P$-negativ).
+$X$-positiv (beziehungsweise $X$-negativ).
 \item Für einen Quantor $Q\in\left\{ \exists,\forall\right\} $, eine Variable
-$x\in\mathbf{var}$ und eine $P$-positive (beziehungsweise $P$-negative)
-Formel $\varphi$ ist $Qx\varphi$ ebenfalls $P$-positiv (beziehungsweise
-$P$-negativ).
-\end{enumerate}
-
+$x\in\mathbf{var}$ und eine $X$-positive (beziehungsweise $X$-negative)
+Formel $\varphi$ ist $Qx\varphi$ ebenfalls $X$-positiv (beziehungsweise
+$X$-negativ).
+\end{itemize}
+\end{defn}
+Nun definieren wir die Fixpunkt-Erweiterung einer Logik.
 \begin{defn}
-\label{def:lfp}Die Fixpunktlogik $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\sigma\right]$
-erweitert die Logik $\mathrm{FO}\left[\sigma\right]$ um den folgenden
-Fixpunkt-Operator:\end{defn}
+\label{def:lfp}Für eine Logik $\mathcal{L}$ und eine relationale
+Signatur $\sigma$ erweitert $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\sigma\right]$
+die Logik $\mathcal{L}\left[\sigma\right]$ wie folgt:\end{defn}
 \begin{elabeling}{00.00.0000}
-\item [{(LFP)}] Für eine Relationsvariable $R/k\in\mathbf{var}_{2}$, eine
-$R$-positive $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\sigma\right]$-Formel
-$\psi$, ein Tupel $\bar{x}\in\mathbf{var}^{k}$ und ein $k$-Tupel
-$\bar{y}$ von $\mathrm{\left(\mathrm{FO}+\mathrm{LFP}\right)}\left[\sigma\right]$-Termen
-ist $\varphi=\left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
-eine $R$-positive $\left(\mathrm{\mathrm{FO}+\mathrm{LFP}}\right)\left[\sigma\right]$-Formel.
+\item [{(AV)}] Für eine Relationsvariable $X/k\in\mathbf{var}_{2}$ und
+ein $k$-Tupel $\bar{x}$ von $X$-positiven $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\sigma\right]$-Termen
+ist $X\bar{x}$ eine $X$-positive $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\sigma\right]$-Formel.\foreignlanguage{english}{
 \begin{eqnarray*}
-\mathrm{frei}\left(\varphi\right) & = & \mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \cup\bigcup_{i=1}^{k}\mathrm{frei}\left(y_{i}\right)\\
-\mathrm{var}\left(\varphi\right) & = & \mathrm{var}\left(\psi\right)\cup\left\{ x_{1},\cdots,x_{k}\right\} \cup\bigcup_{i=1}^{k}\mathrm{var}\left(y_{i}\right)\\
-\mathtt{MF}\left(\varphi\right) & = & \max\left(\mathtt{MF}\left(\psi\right),\mathrm{frei}\left(\varphi\right)\right)
+\mathrm{frei}\left(X\bar{x}\right) & \coloneqq & \left\{ X\right\} \cup\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right)\\
+\mathrm{var}\left(X\bar{x}\right) & \coloneqq & \left\{ X\right\} \cup\bigcup_{i=1}^{k}\mathrm{var}\left(x_{i}\right)\\
+\left\llbracket X\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left[\beta X\right]\left(\beta\bar{x}\right)
 \end{eqnarray*}
+}
+\item [{(LFP)}] Für eine Relationsvariable $X/k\in\mathbf{var}_{2}$, eine
+$X$-positive $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\sigma\right]$-Formel
+$\psi$, ein Tupel $\bar{x}\in\mathbf{var}^{k}$ und ein $k$-Tupel
+$\bar{y}$ von $X$-positiven $\mathrm{\left(\mathrm{FO}+\mathrm{LFP}\right)}\left[\sigma\right]$-Termen
+ist $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
+eine $X$-positive $\left(\mathrm{\mathcal{L}+\mathrm{LFP}}\right)\left[\sigma\right]$-Formel.
+\begin{eqnarray*}
+\mathrm{frei}\left(\varphi\right) & = & \mathrm{frei}\left(\psi\right)\backslash\left\{ X,x_{1},\cdots,x_{k}\right\} \cup\bigcup_{i=1}^{k}\mathrm{frei}\left(y_{i}\right)\\
+\mathrm{var}\left(\varphi\right) & = & \mathrm{var}\left(\psi\right)\cup\left\{ X,x_{1},\cdots,x_{k}\right\} \cup\bigcup_{i=1}^{k}\mathrm{var}\left(y_{i}\right)
+\end{eqnarray*}
+
 \end{elabeling}
-\begin{rem*}
 Ohne Beschränkung der Allgemeinheit sei $\left\{ x_{1},\cdots,x_{k}\right\} \subseteq\mathrm{frei}\left(\psi\right)$,
 denn analog zu Definition \ref{def:fo} ist $\psi\equiv\left(\bar{x}=\bar{x}\wedge\psi\right)$.
 
 Die nicht durch den Operator gebundenen Variablen $\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \subseteq\mathrm{frei}\left(\varphi\right)$
-heißen \textbf{Parameter} der Fixpunkt-Operation.\end{rem*}
-\begin{description}
-\item [{Auswertung:}] Für $R/k\in\mathbf{var}_{2}$, eine $\left(\sigma\backslash\left\{ R\right\} \right)$-Struktur
-$\mathfrak{A}$, eine $R$-positive $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\sigma\right]$-Formel,
-eine Parameter-Belegung $\beta':\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \rightarrow A$
-und eine Relation $X\subseteq A^{k}$ definieren wir die $\left\{ X\right\} $-Struktur
-$\mathfrak{R}_{X}$ und die Abbildung $F:2^{A^{k}}\rightarrow2^{A^{k}}$
-wie folgt:
-\begin{eqnarray*}
-\mathfrak{R}_{X} & \coloneqq & \left(A,\left(\begin{array}{c}
-R\\
-X
-\end{array}\right)\right)\\
-F_{\beta'}\left(X\right) & \coloneqq & q_{\varphi^{\beta'}}\left(\mathfrak{A}\cup\mathfrak{R}_{X}\right)
-\end{eqnarray*}
-Das heißt: $F_{\beta'}\left(X\right)$ ist das Anfrageergebnis von
-$\varphi^{\beta'}$ auf $\mathfrak{A}$, wenn das Symbol $R$ durch
-die Relation $X$ interpretiert wird.
+heißen \textbf{Parameter} der Fixpunkt-Operation.
 
+Für $X/k\in\mathbf{var}_{2}$, eine $\sigma$-Struktur $\mathfrak{A}$,
+eine $X$-positive $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\sigma\right]$-Formel,
+und eine Parameter-Belegung 
+\[
+\beta:\mathrm{frei}\left(\psi\right)\backslash\left\{ X,x_{1},\cdots,x_{k}\right\} \rightarrow A
+\]
+sei $F_{\beta}$ die folgende Abbildung: 
+\begin{eqnarray*}
+F_{\beta} & : & 2^{A^{k}}\rightarrow2^{A^{k}}\\
+F_{\beta}\left(Y\right) & \coloneqq & \left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\varphi^{\beta\cup\left(X\mapsto Y\right)}\right\} 
+\end{eqnarray*}
+Das heißt: $F_{\beta}\left(Y\right)$ ist das Anfrageergebnis von
+$\varphi^{\beta\cup\left(X\mapsto Y\right)}$ auf $\mathfrak{A}$.
 
 Aus der $X$-Positivität folgt nach \cite{Gurevich1986,Libkin2012}
 die Monotonie von $F$, und daher induktiv die Existenz eines kleinsten
@@ -880,66 +882,61 @@ Fixpunkts $F^{\infty}\left(\emptyset\right)$:
 A\subseteq B & \Rightarrow & F\left(A\right)\subseteq F\left(B\right)
 \end{eqnarray*}
 \[
-\emptyset\subseteq F_{\beta'}\left(\emptyset\right)\subseteq\cdots\subseteq F_{\beta'}^{\infty}\left(\emptyset\right)\subseteq A^{k}
+\emptyset\subseteq F_{\beta}\left(\emptyset\right)\subseteq\cdots\subseteq F_{\beta}^{\infty}\left(\emptyset\right)\subseteq A^{k}
 \]
 
 
-
-Insbesondere ist $F_{\beta'}^{\infty}\left(\emptyset\right)=F^{\left|A^{k}\right|}\left(\emptyset\right)$,
+Insbesondere ist $F_{\beta}^{\infty}\left(\emptyset\right)=F^{\left|A^{k}\right|}\left(\emptyset\right)$,
 da die Iteration nach höchstens $\left|A^{k}\right|$ Iterationen
 ihren Fixpunkt erreicht.
 
-
 Für eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
-prüft $\varphi=\left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
-nun, ob die Belegung des Tupels $\bar{y}$ im Fixpunkt $F^{\infty}$
-liegt. Sei $\beta'$ die Reduktion von $\beta$ auf die Parameter:
+prüft $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
+nun, ob die Belegung des Tupels $\bar{y}$ im Fixpunkt $F_{\beta'}^{\infty}$
+liegt, wobei $\beta'$ die Reduktion von $\beta$ auf die Parameter
+ist: 
 \begin{eqnarray*}
-\beta' & \coloneqq & \beta_{\mid\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} }\\
-\left\llbracket \left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket R\bar{y}\right\rrbracket \left(\mathfrak{A}\cup\mathfrak{R}_{F_{\beta'}^{\infty}\left(\emptyset\right)},\beta\right)
+\beta' & \coloneqq & \beta_{\mid\mathrm{frei}\left(\psi\right)\backslash\left\{ X,x_{1},\cdots,x_{k}\right\} }\\
+\left\llbracket \left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket X\bar{y}\right\rrbracket \left(\mathfrak{A},\beta\cup\left(X\mapsto F_{\beta'}^{\infty}\left(\emptyset\right)\right)\right)
 \end{eqnarray*}
 
-
-\end{description}
 \begin{example*}
 Die folgende $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\left\{ E\right\} \right]$-Formel
 $\varphi\left(u,v\right)$ ist erfüllt, wenn $u$ und $v$ durch einen
 Weg beliebiger Länge verbunden sind: 
 \[
-\varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x\dot{=}y\right)\right]\left(u,v\right)
+\varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{T,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge T\left(z,y\right)\right)\vee x\dot{=}y\right)\right]\left(u,v\right)
 \]
 
 \end{example*}
 Im folgenden wird die Logik $\mathrm{FO}+\mathrm{LFP}$ abgekürzt
-als $\mathrm{LFP}$ bezeichnet. Ferner werden wir uns auf das \emph{parameter-freie}
+als $\mathrm{LFP}$ bezeichnet. Ferner werden wir uns auf das \emph{parameterfreie}
 Fragment der Logik beschränken, was (bis auf einen Zuwachs in der
 Anzahl der Variablen und Länge der Formel) die Allgemeinheit nicht
 einschränkt.
 \begin{defn}
 \label{def:fp-param}Eine $\mathrm{LFP}\left[\sigma\right]$-Formel
-$\varphi$ ist \textbf{parameter-frei}, falls der Fixpunktoperator
+$\varphi$ ist \textbf{parameterfrei}, falls der Fixpunktoperator
 stets alle Variablen bindet - das heißt, für jede Teilformel der Form
-$\left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$ gilt:
+$\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$ gilt:
 \[
-\mathrm{frei}\left(\psi\right)\subseteq\left\{ x_{1},\cdots,x_{\mathrm{ar}\left(\bar{x}\right)}\right\} 
+\mathrm{frei}\left(\psi\right)\subseteq\left\{ X,x_{1},\cdots,x_{\mathrm{ar}\left(X\right)}\right\} 
 \]
 \end{defn}
 \begin{prop}
 \label{prop:fp-param}Jede $\mathrm{LFP}\left[\sigma\right]$-Formel
 $\varphi$ kann (unter Zuwachs der Länge $\left\Vert \varphi\right\Vert $
 und Größe $\left|\mathrm{var}\left(\varphi\right)\right|$) in eine
-parameter-freie $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi'$
+parameterfreie $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi'$
 übersetzt werden.\cite{Zaid,Grohe2005,Dziembowski96bounded-variablefixpoint}
 \end{prop}
-\pagebreak{}
 
-
-\section{Numerische Erweiterungen}
+\section{Logiken mit disjunkten numerischen Erweiterungen}
 
 Eine Erweiterung um ein numerisches Orakel fügt einer Logik eine Anzahl
 von Relationssymbolen hinzu, die für $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
 eine feste Interpretation über einem von $A$ disjunkten numerischen
-Universum erhalten.
+Universum $\left[0,\left|A\right|\right]$ erhalten.
 \begin{defn}
 \textbf{$\eta$-Orakel, $\mathcal{L}+\Upsilon$-Logik}
 
@@ -954,8 +951,8 @@ oder $\mathrm{LFP}$). Für ein $\eta$-Orakel $\Upsilon$ ist die
 Syntax der $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$-Logik
 die der Logik $\mathcal{L}\left[\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right]$.
 
-Für eine endliche $\sigma$-Struktur $\mathfrak{A}$ mit $A\cap\left[0,n\right]=\emptyset$
-und eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
+Für eine endliche $\sigma$-Struktur $\mathfrak{A}$ mit $A\cap\left[0,\left|A\right|\right]=\emptyset$
+und eine Belegung $\beta:\mathbf{var}\rightarrow A\uplus\left[0,\left|A\right|\right]$
 werden $\left(\mathcal{L}+\Upsilon\right)$-Ausdrücke auf der disjunkten
 Vereinigung von $\mathfrak{A}$ mit der entsprechenden Orakelstruktur
 $\Upsilon\left(\left|A\right|\right)$ ausgewertet:
@@ -964,37 +961,43 @@ $\Upsilon\left(\left|A\right|\right)$ ausgewertet:
 \]
 
 \end{defn}
+Wir definieren die folgenden drei numerischen Orakel für die reine
+Ordnung, für Arithmetik, und für nicht berechenbare Prädikate.
+\begin{defn}
+\textbf{\label{def:ord}}Sei $\mathbf{ORD}:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\emptyset\right)$
+ein $\emptyset$-Orakel, das für $n\in\mathbb{N}$ die geordnete $\emptyset$-Struktur
+\[
+\mathbf{ORD}\left(n\right)\coloneqq\left(\left[0,n\right],\leqslant_{\mid\left[0,n\right]}\right)\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\emptyset\right)
+\]
+erzeugt.
+\end{defn}
 
 \begin{defn}
-\textbf{\label{def:fo-ord}$\mathcal{L}+\mathbf{ORD}$, $\mathcal{L}+\mathbf{BIT}$,
-$\mathcal{L}+\mathbf{ARB}$.}
-\begin{enumerate}
-\item Sei $\mathbf{ORD}:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\emptyset\right)$
-ein $\emptyset$-Orakel, das für $n\in\mathbb{N}$ die geordnete $\emptyset$-Struktur
-$\mathbf{ORD}\left(n\right)\coloneqq\left(\left[0,n\right],\leqslant_{\mid\left[0,n\right]}\right)\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\emptyset\right)$
-ausgibt.
-\item Sei $\mathbf{BIT}:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\left\{ \mathtt{BIT}\right\} \right)$
+\textbf{\label{def:bit}}Sei $\mathbf{BIT}:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\left\{ \mathtt{BIT}\right\} \right)$
 ein $\left\{ \mathtt{BIT}\right\} $-Orakel, wobei das Prädikat $\mathtt{BIT}\left(a,b\right)$
 ausdrückt, dass das $b$te Bit der Binärdarstellung von $a$ den Wert
 $1$ hat. 
 \begin{eqnarray*}
+\mathcal{N}_{\mathrm{bit}} & \coloneqq & \left(\mathbb{N},\leqslant,\mathtt{BIT}^{\mathcal{N}}\right)\\
 \mathtt{BIT}^{\mathcal{N}} & \coloneqq & \left\{ \left(a,b\right)\in\mathbb{N}^{2}\mid a=\Sigma_{i=0}^{\left\lceil \log a\right\rceil }x_{i}2^{i},\,\bar{x}\in\left\{ 0,1\right\} ^{\left\lceil \log a\right\rceil },\,x_{b}=1\right\} \\
-\mathbf{BIT}\left(n\right) & \coloneqq & \left(\left[0,n\right],\leqslant_{\mid\left[0,n\right]},\mathtt{BIT}_{\mid\left[0,n\right]}^{\mathcal{N}}\right)\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\left\{ \mathtt{BIT}\right\} \right)
+\mathbf{BIT}\left(n\right) & \coloneqq & \left(\mathcal{N}_{\mathrm{bit}}\right)_{\mid\left[0,n\right]}\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\left\{ \mathtt{BIT}\right\} \right)
 \end{eqnarray*}
 
-\item Sei $\eta_{\mathrm{arb}}=\left\{ R_{X}\mid X\in\bigcup_{k\in\mathbb{N}}2^{\mathbb{N}^{k}}\right\} $
+\end{defn}
+
+\begin{defn}
+\label{def:arb}Sei $\eta_{\mathrm{arb}}=\left\{ R_{X}\mid X\in\bigcup_{k\in\mathbb{N}}2^{\mathbb{N}^{k}}\right\} $
 eine unendliche Signatur, die für jede beliebige Relation $X\subseteq\mathbb{N}^{k}$
 mit $k\in\mathbb{N}$ auf den natürlichen Zahlen ein Symbol $R_{X}/k$
 enthält. Sei $\mathbf{ARB}:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\eta_{\mathrm{arb}}\right)$
 ein $\eta_{\mathrm{arb}}$-Orakel, das die endlichen Anfangsstücke
 dieser Relationen ausgibt:
 \begin{eqnarray*}
-\mathcal{N}_{\mathrm{arb}} & \coloneqq & \left(\mathbb{N},\,\left(R_{X}^{\mathcal{N}}\right)_{R_{X}\in\eta_{\mathrm{arb}}}\right)\\
+\mathcal{N}_{\mathrm{arb}} & \coloneqq & \left(\mathbb{N},\leqslant,\left(R_{X}^{\mathcal{N}}\right)_{R_{X}\in\eta_{\mathrm{arb}}}\right)\\
 R_{X}^{\mathcal{N}} & \coloneqq & X\\
-\mathbf{ARB}\left(n\right) & \coloneqq & \left(\mathcal{N}_{\mathrm{arb}}\right)_{\mid\left[0,n\right]}
+\mathbf{ARB}\left(n\right) & \coloneqq & \left(\mathcal{N}_{\mathrm{arb}}\right)_{\mid\left[0,n\right]}\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta_{\mathrm{arb}}\right)
 \end{eqnarray*}
 
-\end{enumerate}
 \end{defn}
 Wir führen mehrere syntaktische Erweiterungen der Logik $\mathrm{FO}+\Upsilon$
 ein: Den Zählterm $\#$, den Zählquantor $\exists^{=}$, und den Majority-Quantor
@@ -1194,7 +1197,7 @@ ungeordneten Strukturen definierbar\cite{Ebbinghaus,Libkin2012}:\end{example}
 \textbf{Arb-invariante Logik erster Stufe }(nach \cite{Schweikardt13ashort})
 
 Die unendliche Signatur $\eta_{\mathrm{arb}}$ und die Struktur $\mathcal{N}_{\mathrm{arb}}$
-sei wie in Definition \ref{def:fo-ord} definiert.
+sei wie in Definition \ref{def:ord} definiert.
 
 Für eine beliebige von $\eta_{\mathrm{arb}}$ disjunkte relationale
 Signatur $\sigma$ sei $\mathrm{FO}\left[\sigma\uplus\eta_{\mathrm{arb}}\right]$

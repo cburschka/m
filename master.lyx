@@ -17,13 +17,13 @@
 %\newtheorem*{notation*}{Notation}
 %\numberwithin{thm}{chapter}
 
-\usepackage{prettyref}
-\newrefformat{chap}{\textbf{Kapitel~\ref{#1}}}
-\newrefformat{sec}{\textbf{Abschnitt~\ref{#1}}}
-\newrefformat{sub}{\textbf{Abschnitt~\ref{#1}}}
-\newrefformat{thm}{\textbf{Theorem~\ref{#1}}}
-\newrefformat{lem}{\textbf{Lemma~\ref{#1}}}
-\newrefformat{prop}{\textbf{Satz~\ref{#1}}}
+%\usepackage{prettyref}
+%\newrefformat{chap}{\textbf{Kapitel~\ref{#1}}}
+%\newrefformat{sec}{\textbf{Abschnitt~\ref{#1}}}
+%\newrefformat{sub}{\textbf{Abschnitt~\ref{#1}}}
+%\newrefformat{thm}{\textbf{Theorem~\ref{#1}}}
+%\newrefformat{lem}{\textbf{Lemma~\ref{#1}}}
+%\newrefformat{prop}{\textbf{Satz~\ref{#1}}}
 \end_preamble
 \use_default_options true
 \begin_modules
@@ -986,7 +986,7 @@ Eine Abbildung
 \begin_inset Formula $A=\left\{ a_{1},\cdots,a_{n}\right\} $
 \end_inset
 
- schreiben wir gegebenenfalls extensional auf.
+ schreiben wir gegebenenfalls extensional durch auf.
  Für ein Tupel 
 \begin_inset Formula $\bar{a}=\left(a_{1},\cdots,a_{n}\right)$
 \end_inset
@@ -1461,7 +1461,7 @@ Für
 ).
 \end_layout
 
-\begin_layout Definition
+\begin_layout Standard
 Der Lesbarkeit halber verwenden wir die Infixnotation 
 \begin_inset Formula $a\leqslant b$
 \end_inset
@@ -1475,10 +1475,7 @@ Der Lesbarkeit halber verwenden wir die Infixnotation
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Definition
-Die Symbole 
+ Die Symbole 
 \begin_inset Formula $\dot{\leqslant}$
 \end_inset
 
@@ -1503,10 +1500,6 @@ Die Symbole
 \end_inset
 
  verwendet.
-\end_layout
-
-\begin_layout --Separator--
-
 \end_layout
 
 \begin_layout Definition
@@ -1747,10 +1740,7 @@ Für eine Relation
 \end_inset
 
  induzierte Teilrelation.
-\end_layout
-
-\begin_layout Definition
-Für eine 
+ Für eine 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -1785,10 +1775,6 @@ Anfrage
 
 \begin_layout Definition
 Eine 
-\begin_inset Formula $k$
-\end_inset
-
--stellige 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -1800,6 +1786,10 @@ Eine
 \begin_inset Formula $q$
 \end_inset
 
+ mit der Stelligkeit 
+\begin_inset Formula $\mathrm{ar}\left(q\right)=k$
+\end_inset
+
  sei eine Abbildung jeder endlichen 
 \begin_inset Formula $\sigma$
 \end_inset
@@ -1808,17 +1798,8 @@ Eine
 \begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
 \end_inset
 
- auf eine 
-\begin_inset Formula $k$
-\end_inset
-
--stellige Relation 
+ auf eine Relation 
 \begin_inset Formula $q\left(\mathfrak{A}\right)\subseteq A^{k}$
-\end_inset
-
-.
- Wir schreiben auch 
-\begin_inset Formula $\mathrm{ar}\left(q\right)=k$
 \end_inset
 
 .
@@ -1837,7 +1818,7 @@ Eine
 \begin_inset Formula $S\subseteq\mathbf{FIN}\left(\sigma\right)$
 \end_inset
 
- sei eine Klasse von 
+ sei eine Menge von 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -1869,15 +1850,19 @@ Per Definition sind alle
 \end_inset
 
 -Eigenschaften unter Isomorphismen abgeschlossen: Für 
-\begin_inset Formula $\pi:\mathfrak{A}\tilde{\rightarrow}\mathfrak{B}$
-\end_inset
-
- gilt 
-\begin_inset Formula $\pi q\left(\mathfrak{A}\right)=q\left(\pi\mathfrak{A}\right)$
+\begin_inset Formula $\mathfrak{A}\cong\mathfrak{B}$
 \end_inset
 
  und 
-\begin_inset Formula $\mathfrak{A}\in S\Leftrightarrow\pi\mathfrak{A}\in S$
+\begin_inset Formula $\pi\in\mathrm{Abb}\left(\mathfrak{A},\mathfrak{B}\right)$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\pi q\left(\mathfrak{A}\right)=q\left(\mathfrak{B}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{A}\in S\Leftrightarrow\mathfrak{B}\in S$
 \end_inset
 
 .
@@ -1903,16 +1888,13 @@ Wir betrachten logische Sprachen auf relationalen Signaturen
 -Strukturen ausgewertet werden.
 \end_layout
 
-\begin_layout Definition
-Sei 
+\begin_layout Standard
+Zunächst definieren wir 
 \begin_inset Formula $\mathbf{var}$
 \end_inset
 
- die Menge aller erststufigen Variablen.
-\end_layout
-
-\begin_layout Definition
-Für einen Ausdruck 
+ als die Menge aller erststufigen Variablen.
+ Für einen Ausdruck 
 \begin_inset Formula $\omega$
 \end_inset
 
@@ -1927,8 +1909,8 @@ Für einen Ausdruck
  die Menge der freien Variablen.
 \end_layout
 
-\begin_layout Definition
-Für eine Struktur 
+\begin_layout Standard
+In einer Struktur 
 \begin_inset Formula $\mathfrak{A}$
 \end_inset
 
@@ -1948,7 +1930,7 @@ Belegung
 \end_layout
 
 \begin_layout Standard
-Die Auswertungsfunktion für eine Struktur 
+Eine Auswertungsfunktion für eine Struktur 
 \begin_inset Formula $\mathfrak{A}$
 \end_inset
 
@@ -1976,8 +1958,16 @@ Eine Logik
 \begin_inset Formula $\mathcal{L}\left[\sigma\right]$
 \end_inset
 
--Formeln, und der Auswertungsfunktion 
-\begin_inset Formula $\left\llbracket \cdot\right\rrbracket $
+-Formeln, und einer Auswertungsfunktion 
+\begin_inset Formula $\left\llbracket \cdot\right\rrbracket \left(\mathfrak{A},\beta\right)$
+\end_inset
+
+ für jede Struktur 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ und Belegung 
+\begin_inset Formula $\beta$
 \end_inset
 
 .
@@ -2033,7 +2023,7 @@ Für eine Formel
 \begin_inset Formula $\left|\left\{ x_{1},\cdots,x_{k}\right\} \right|=k$
 \end_inset
 
- sei das Tupel 
+ nennen wir das Tupel 
 \begin_inset Formula $\bar{x}=x_{1}\cdots x_{k}$
 \end_inset
 
@@ -2076,11 +2066,15 @@ einer logischen Formel (beziehungsweise ihrer Argumente) bezeichne die Anzahl
 \begin_inset Formula $\varphi\left(\bar{x}\right)$
 \end_inset
 
- gelte 
-\begin_inset Formula $\mathrm{ar}\left(\varphi\right)=\mathrm{ar}\left(\bar{x}\right)=\left|\mathrm{frei}\left(\varphi\right)\right|$
+ gelte: 
+\begin_inset Formula 
+\[
+\mathrm{ar}\left(\varphi\right)=\mathrm{ar}\left(\bar{x}\right)=\left|\mathrm{frei}\left(\varphi\right)\right|
+\]
+
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Definition
@@ -2091,32 +2085,17 @@ Satz
  sei eine Formel ohne freie Variablen.
 \end_layout
 
-\begin_layout --Separator--
-
-\end_layout
-
-\begin_layout Definition
-Es sei 
+\begin_layout Standard
+Mit 
 \begin_inset Formula $\mathtt{MF}\left(\omega\right)$
 \end_inset
 
- die maximale Anzahl freier Variablen jedes Teilausdrucks von 
+ bezeichnen wir die maximale Anzahl freier Variablen jedes Teilausdrucks
+ von 
 \begin_inset Formula $\omega$
 \end_inset
 
-: 
-\begin_inset Formula 
-\begin{eqnarray*}
-\mathtt{MF}\left(\omega\right) & \coloneqq & \max\left\{ \mathrm{ar}\left(\omega'\right)\mid\omega'\,\mbox{ist Teilausdruck von}\,\omega\right\} 
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout --Separator--
-
+.
 \end_layout
 
 \begin_layout Definition
@@ -2160,7 +2139,7 @@ Für
 \begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\left(\bar{x}\mapsto\bar{b}\right)\right)$
 \end_inset
 
-, beziehungsweise 
+, und 
 \begin_inset Formula $\mathfrak{A}\models\varphi\left[\bar{a}\right]$
 \end_inset
 
@@ -2173,15 +2152,22 @@ Für
 
 \begin_layout Definition
 Entsprechend sei 
-\begin_inset Formula $q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{\mathrm{ar}\left(\bar{x}\right)}\mid\mathfrak{A}\models\varphi\left[\bar{a}\right]\right\} $
+\begin_inset Formula 
+\[
+q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{\mathrm{ar}\left(\bar{x}\right)}\mid\mathfrak{A}\models\varphi\left[\bar{a}\right]\right\} 
+\]
+
 \end_inset
 
- die Relation der 
+die Relation aller 
 \begin_inset Formula $\varphi$
 \end_inset
 
  erfüllenden Tupel.
- Somit beschreibt jede 
+\end_layout
+
+\begin_layout Standard
+Somit beschreibt jede 
 \begin_inset Formula $\mathcal{L}\left[\sigma\right]$
 \end_inset
 
@@ -2202,10 +2188,7 @@ Entsprechend sei
 \end_inset
 
 -Eigenschaft.
-\end_layout
-
-\begin_layout Definition
-(Da die Reihenfolge der Spalten der Relation von der Wahl des Arguments
+ Da die Reihenfolge der Spalten der Relation von der Wahl des Arguments
  
 \begin_inset Formula $\bar{x}$
 \end_inset
@@ -2214,11 +2197,7 @@ Entsprechend sei
 \begin_inset Formula $q_{\varphi\left(\bar{x}\right)}$
 \end_inset
 
- mit angegeben.)
-\end_layout
-
-\begin_layout --Separator--
-
+ mit angegeben.
 \end_layout
 
 \begin_layout Definition
@@ -2250,21 +2229,25 @@ partiell belegter
 \end_layout
 
 \begin_layout Definition
-Es stehe 
-\begin_inset Formula $\left\llbracket \varphi^{\beta}\right\rrbracket \left(\mathfrak{A},\beta'\right)$
-\end_inset
-
- für die Auswertung 
-\begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\cup\beta'\right)$
-\end_inset
-
- mit 
+Für 
 \begin_inset Formula $\beta':\mathrm{frei}\left(\varphi^{\beta}\right)\rightarrow A$
 \end_inset
 
+ bezeichne 
+\begin_inset Formula $\left\llbracket \varphi^{\beta}\right\rrbracket \left(\mathfrak{A},\beta'\right)$
+\end_inset
+
+ die Auswertung 
+\begin_inset Formula $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\cup\beta'\right)$
+\end_inset
+
 .
- 
-\begin_inset Formula $q_{\varphi^{\beta}\left(\bar{x}'\right)}=\left\{ \bar{a}\in A^{\ell}\mid\mathfrak{A}\models\varphi^{\beta}\left[\bar{a}\right]\right\} $
+ Es sei 
+\begin_inset Formula 
+\[
+q_{\varphi^{\beta}\left(\bar{x}'\right)}\coloneqq\left\{ \bar{a}\in A^{\ell}\mid\mathfrak{A}\models\varphi^{\beta}\left[\bar{a}\right]\right\} 
+\]
+
 \end_inset
 
  die von 
@@ -2372,20 +2355,8 @@ Falls
  definieren.
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
-Logik erster Stufe
-\end_layout
-
-\begin_layout Standard
-Diese Arbeit befasst sich ausschließlich mit relationalen Logiken ohne Funktions
-- oder Konstantensymbole.
+Die Logik erster Stufe
 \end_layout
 
 \begin_layout Definition
@@ -2395,11 +2366,15 @@ name "def:fo"
 
 \end_inset
 
-Die Syntax und Semantik der relationalen Logik erster Stufe 
+Für eine relationale Signatur 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ sind die Syntax und Semantik der Logik erster Stufe 
 \begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
- sind wie folgt definiert.
+ wie folgt definiert.
 \end_layout
 
 \begin_layout Labeling
@@ -2420,7 +2395,7 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
  
 \begin_inset Formula 
 \[
-\mathrm{frei}\left(x\right)=\mathrm{var}\left(x\right)=\left\{ x\right\} 
+\mathrm{frei}\left(x\right)=\mathrm{var}\left(x\right)\coloneqq\left\{ x\right\} 
 \]
 
 \end_inset
@@ -2428,15 +2403,7 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 
 \begin_inset Formula 
 \[
-\mathtt{MF}\left(x\right)=1
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\beta x
+\left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\beta x
 \]
 
 \end_inset
@@ -2473,23 +2440,15 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 -Formel.
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathrm{frei}\left(R\bar{x}\right)=\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(R\bar{x}\right)=\bigcup_{i=1}^{k}\mathrm{var}\left(x_{i}\right)
+\mathrm{frei}\left(R\bar{x}\right)\coloneqq\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(R\bar{x}\right)\coloneqq\bigcup_{i=1}^{k}\mathrm{var}\left(x_{i}\right)
 \end{eqnarray*}
 
 \end_inset
 
 
 \begin_inset Formula 
-\[
-\mathtt{MF}\left(R\bar{x}\right)=\max\left(\max_{i=1}^{k}\mathtt{MF}\left(x_{i}\right),\left|\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right)\right|\right)
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
 \begin{eqnarray*}
-\left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left[R^{\mathfrak{A}}\right]\left(\left\llbracket x_{1}\right\rrbracket \left(\mathfrak{A},\beta\right),\cdots,\left\llbracket x_{k}\right\rrbracket \left(\mathfrak{A},\beta\right)\right)
+\left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left[R^{\mathfrak{A}}\right]\left(\left\llbracket x_{1}\right\rrbracket \left(\mathfrak{A},\beta\right),\cdots,\left\llbracket x_{k}\right\rrbracket \left(\mathfrak{A},\beta\right)\right)
 \end{eqnarray*}
 
 \end_inset
@@ -2518,23 +2477,15 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 -Formel.
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathrm{frei}\left(x_{1}\dot{=}x_{2}\right)=\bigcup_{i=1}^{2}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(x_{1}\dot{=}x_{2}\right)=\bigcup_{i=1}^{2}\mathrm{var}\left(x_{i}\right)
+\mathrm{frei}\left(x_{1}\dot{=}x_{2}\right)\coloneqq\bigcup_{i=1}^{2}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(x_{1}\dot{=}x_{2}\right)\coloneqq\bigcup_{i=1}^{2}\mathrm{var}\left(x_{i}\right)
 \end{eqnarray*}
 
 \end_inset
 
 
 \begin_inset Formula 
-\[
-\mathtt{MF}\left(x_{1}\dot{=}x_{2}\right)=\max\left(\max_{i=1}^{2}\mathtt{MF}\left(x_{i}\right),\left|\bigcup_{i=1}^{2}\mathrm{frei}\left(x_{i}\right)\right|\right)
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
 \begin{eqnarray*}
-\left\llbracket x\dot{=}y\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \begin{cases}
+\left\llbracket x\dot{=}y\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \begin{cases}
 1 & \mathrm{falls}\,\left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket y\right\rrbracket \left(\mathfrak{A},\beta\right)\\
 0 & \mathrm{sonst}
 \end{cases}
@@ -2566,7 +2517,7 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 -Formel.
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathrm{frei}\left(\neg\varphi\right)=\mathrm{frei}\left(\varphi\right) &  & \mathrm{var}\left(\neg\varphi\right)=\mathrm{var}\left(\varphi\right)
+\mathrm{frei}\left(\neg\varphi\right)\coloneqq\mathrm{frei}\left(\varphi\right) &  & \mathrm{var}\left(\neg\varphi\right)\coloneqq\mathrm{var}\left(\varphi\right)
 \end{eqnarray*}
 
 \end_inset
@@ -2574,15 +2525,7 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 
 \begin_inset Formula 
 \[
-\mathtt{MF}\left(\neg\varphi\right)=\mathtt{MF}\left(\varphi\right)
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\left\llbracket \neg\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)
+\left\llbracket \neg\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq1-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)
 \]
 
 \end_inset
@@ -2628,26 +2571,18 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
  
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathrm{frei}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)=\bigcup_{i=1}^{k}\mathrm{frei}\left(\varphi_{i}\right) &  & \mathrm{var}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)=\bigcup_{i=1}^{k}\mathrm{var}\left(\varphi_{i}\right)
+\mathrm{frei}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)\coloneqq\bigcup_{i=1}^{k}\mathrm{frei}\left(\varphi_{i}\right) &  & \mathrm{var}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)\coloneqq\bigcup_{i=1}^{k}\mathrm{var}\left(\varphi_{i}\right)
 \end{eqnarray*}
 
 \end_inset
 
 
 \begin_inset Formula 
-\[
-\mathtt{MF}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)=\max\left(\max_{i=1}^{k}\mathtt{MF}\left(\varphi_{i}\right),\left|\bigcup_{i=1}^{k}\mathrm{frei}\left(\varphi_{i}\right)\right|\right)
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
 \begin{eqnarray*}
-\left\llbracket \varphi_{1}\wedge\cdots\wedge\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \min_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
-\left\llbracket \varphi_{1}\vee\cdots\vee\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \max_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
-\left\llbracket \varphi_{1}\rightarrow\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left\llbracket \neg\varphi_{1}\vee\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
-\left\llbracket \varphi_{1}\leftrightarrow\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \left\llbracket \left(\varphi_{1}\rightarrow\varphi_{2}\right)\wedge\left(\varphi_{2}\rightarrow\varphi_{1}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)
+\left\llbracket \varphi_{1}\wedge\cdots\wedge\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \min_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
+\left\llbracket \varphi_{1}\vee\cdots\vee\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \max_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
+\left\llbracket \varphi_{1}\rightarrow\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket \neg\varphi_{1}\vee\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
+\left\llbracket \varphi_{1}\leftrightarrow\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket \left(\varphi_{1}\rightarrow\varphi_{2}\right)\wedge\left(\varphi_{2}\rightarrow\varphi_{1}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)
 \end{eqnarray*}
 
 \end_inset
@@ -2684,27 +2619,19 @@ Die Syntax und Semantik der relationalen Logik erster Stufe
 -Formel.
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathrm{frei}\left(Qx\varphi\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(Qx\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
+\mathrm{frei}\left(Qx\varphi\right)\coloneqq\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(Qx\varphi\right)\coloneqq\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
 \end{eqnarray*}
 
 \end_inset
 
 
 \begin_inset Formula 
-\[
-\mathtt{MF}\left(Qx\varphi\right)=\mathtt{MF}\left(\varphi\right)
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
 \begin{eqnarray*}
-\left\llbracket \exists x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \max_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\uplus\left(\begin{array}{c}
+\left\llbracket \exists x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \max_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\uplus\left(\begin{array}{c}
 x\\
 a
 \end{array}\right)\right)\right)\\
-\left\llbracket \forall x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & = & \min_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\uplus\left(\begin{array}{c}
+\left\llbracket \forall x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \min_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\uplus\left(\begin{array}{c}
 x\\
 a
 \end{array}\right)\right)\right)
@@ -2727,24 +2654,25 @@ Ohne Beschränkung der Allgemeinheit gelte für
 .
 \end_layout
 
-\begin_layout Notation
-Im folgenden stehen 
-\begin_inset Formula $Q\bar{x}\varphi$
-\end_inset
-
- und 
-\begin_inset Formula $\bar{x}=\bar{y}$
-\end_inset
-
- abgekürzt für 
+\begin_layout Standard
+Wir kürzen 
 \begin_inset Formula $Qx_{1}\cdots Qx_{k}\varphi$
+\end_inset
+
+ durch 
+\begin_inset Formula $Q\bar{x}\varphi$
 \end_inset
 
  und 
 \begin_inset Formula $\bigwedge_{i=1}^{k}\left(x_{i}=y_{i}\right)$
 \end_inset
 
-.
+ durch 
+\begin_inset Formula $\bar{x}=\bar{y}$
+\end_inset
+
+ ab.
+ Im folgenden werden wir außerdem Formeln ohne Implikations-Pfeile betrachten.
 \end_layout
 
 \begin_layout Definition
@@ -2785,8 +2713,7 @@ Weil
 \end_inset
 
 -Formeln.
- Im folgenden werden wir hauptsächlich diese behandeln.
- (Hierbei entsteht ein fester Zuwachs in der Länge der Formel 
+ Hierbei entsteht ein fester Zuwachs in der Länge der Formel 
 \begin_inset Formula $\left\Vert \varphi\right\Vert $
 \end_inset
 
@@ -2795,18 +2722,16 @@ Weil
 \begin_inset Formula $\left\Vert \varphi\right\Vert $
 \end_inset
 
- parametrisierte Komplexitätsklassen betrachten.)
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
+ parametrisierte Komplexitätsklassen betrachten.
 \end_layout
 
 \begin_layout Section
-Fixpunkt-Erweiterung
+Logiken mit Fixpunkt-Erweiterung
+\end_layout
+
+\begin_layout Standard
+Wir führen eine Erweiterung ein, die es erlaubt, den iterativen Fixpunkt
+ einer selbstbezüglichen logischen Formel zu definieren.
 \end_layout
 
 \begin_layout Definition
@@ -2825,8 +2750,8 @@ Eine Logik
  übernimmt, und zusätzliche Produktionen einführt.
 \end_layout
 
-\begin_layout --Separator--
-
+\begin_layout Standard
+Als erstes definieren wir einen neuen Typ von Variablen.
 \end_layout
 
 \begin_layout Definition
@@ -2836,30 +2761,50 @@ Sei
 
  die Menge aller Relationsvariablen.
  Jede solche Variable 
-\begin_inset Formula $R\in\mathbf{var}_{2}$
+\begin_inset Formula $X\in\mathbf{var}_{2}$
 \end_inset
 
  besitzt eine Stelligkeit 
-\begin_inset Formula $\mathrm{ar}\left(R\right)=k\in\mathbb{N}_{\geqslant1}$
+\begin_inset Formula $\mathrm{ar}\left(X\right)=k\in\mathbb{N}_{\geqslant1}$
 \end_inset
 
 ; diese wird auch durch 
-\begin_inset Formula $R/k\in\mathbf{var}_{2}$
+\begin_inset Formula $X/k\in\mathbf{var}_{2}$
 \end_inset
 
  notiert.
-\end_layout
-
-\begin_layout Definition
-Im folgenden sei jede Signatur 
-\begin_inset Formula $\sigma$
+ Die Funktionen 
+\begin_inset Formula $\mathrm{frei}$
 \end_inset
 
- als eine Kombination von Relationssymbolen und Relationsvariablen zu verstehen.
+ und 
+\begin_inset Formula $\mathrm{var}$
+\end_inset
+
+, so wie die Belegungen 
+\begin_inset Formula $\beta$
+\end_inset
+
+, werden auf 
+\begin_inset Formula $\mathbf{var}\uplus\mathbf{var}_{2}$
+\end_inset
+
+ erweitert.
+\begin_inset Formula 
+\begin{eqnarray*}
+\beta:\mathrm{frei}\left(\varphi\right) & \rightarrow & A\cup\bigcup_{k\in\mathbb{N}}A^{k}\\
+\beta X & \subseteq & A^{\mathrm{ar}\left(X\right)}\,\mathrm{für}\,X\in\mathbf{var}_{2}
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
-\begin_layout --Separator--
-
+\begin_layout Standard
+Wir möchten syntaktisch garantieren, dass der Fixpunkt der selbstbezüglichen
+ Formel monoton wächst.
+ Dafür wird verlangt, dass der Selbstbezug nicht negiert vorkommt.
 \end_layout
 
 \begin_layout Definition
@@ -2869,76 +2814,53 @@ Positivität
 \end_layout
 
 \begin_layout Definition
-Wir definieren die Klasse der 
-\begin_inset Formula $P$
+Wir definieren die (nicht disjunkten) Mengen der 
+\begin_inset Formula $X$
 \end_inset
 
 -positiven und 
-\begin_inset Formula $P$
+\begin_inset Formula $X$
 \end_inset
 
--negativen Formeln für 
-\begin_inset Formula $P\in\sigma$
+-negativen 
+\begin_inset Formula $\mathcal{L}\left[\sigma\right]$
+\end_inset
+
+-Formeln für 
+\begin_inset Formula $X\in\mathbf{var}_{2}$
 \end_inset
 
  wie folgt:
 \end_layout
 
-\begin_layout Enumerate
+\begin_deeper
+\begin_layout Itemize
 Jede 
-\begin_inset Formula $\mathcal{L}\left[\sigma\backslash\left\{ P\right\} \right]$
+\begin_inset Formula $\mathcal{L}\left[\sigma\right]$
 \end_inset
 
 -Formel 
 \begin_inset Formula $\varphi$
 \end_inset
 
+ mit 
+\begin_inset Formula $X\notin\mathrm{frei}\left(\varphi\right)$
+\end_inset
+
  ist sowohl 
-\begin_inset Formula $P$
+\begin_inset Formula $X$
 \end_inset
 
 -positiv als auch 
-\begin_inset Formula $P$
+\begin_inset Formula $X$
 \end_inset
 
--negativ, da sie 
-\begin_inset Formula $P$
-\end_inset
-
- nicht enthält.
+-negativ.
 \end_layout
 
-\begin_layout Enumerate
-Für 
-\begin_inset Formula $P/k\in\sigma$
-\end_inset
-
- und jedes 
-\begin_inset Formula $k$
-\end_inset
-
--Tupel von 
-\begin_inset Formula $P$
-\end_inset
-
--positiven Termen 
-\begin_inset Formula $x_{1},\cdots,x_{k}$
-\end_inset
-
- ist auch 
-\begin_inset Formula $P\bar{x}$
-\end_inset
-
- eine 
-\begin_inset Formula $P$
-\end_inset
-
--positive Formel.
-\end_layout
-
-\begin_layout Enumerate
+\begin_layout Itemize
 Für jede 
-\begin_inset Formula $P$
+\begin_inset Formula $X$
 \end_inset
 
 -positive Formel 
@@ -2950,13 +2872,13 @@ Für jede
 \end_inset
 
  
-\begin_inset Formula $P$
+\begin_inset Formula $X$
 \end_inset
 
 -negativ, und umgekehrt.
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 Für einen Junktor 
 \begin_inset Formula $\gamma\in\left\{ \wedge,\vee\right\} $
 \end_inset
@@ -2966,11 +2888,11 @@ Für einen Junktor
 \end_inset
 
  
-\begin_inset Formula $P$
+\begin_inset Formula $X$
 \end_inset
 
 -positive (beziehungsweise 
-\begin_inset Formula $P$
+\begin_inset Formula $X$
 \end_inset
 
 -negative) Formeln 
@@ -2982,17 +2904,17 @@ Für einen Junktor
 \end_inset
 
  ebenfalls 
-\begin_inset Formula $P$
+\begin_inset Formula $X$
 \end_inset
 
 -positiv (beziehungsweise 
-\begin_inset Formula $P$
+\begin_inset Formula $X$
 \end_inset
 
 -negativ).
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout Itemize
 Für einen Quantor 
 \begin_inset Formula $Q\in\left\{ \exists,\forall\right\} $
 \end_inset
@@ -3002,11 +2924,11 @@ Für einen Quantor
 \end_inset
 
  und eine 
-\begin_inset Formula $P$
+\begin_inset Formula $X$
 \end_inset
 
 -positive (beziehungsweise 
-\begin_inset Formula $P$
+\begin_inset Formula $X$
 \end_inset
 
 -negative) Formel 
@@ -3018,18 +2940,19 @@ Für einen Quantor
 \end_inset
 
  ebenfalls 
-\begin_inset Formula $P$
+\begin_inset Formula $X$
 \end_inset
 
 -positiv (beziehungsweise 
-\begin_inset Formula $P$
+\begin_inset Formula $X$
 \end_inset
 
 -negativ).
 \end_layout
 
-\begin_layout --Separator--
-
+\end_deeper
+\begin_layout Standard
+Nun definieren wir die Fixpunkt-Erweiterung einer Logik.
 \end_layout
 
 \begin_layout Definition
@@ -3039,29 +2962,86 @@ name "def:lfp"
 
 \end_inset
 
-Die Fixpunktlogik 
-\begin_inset Formula $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\sigma\right]$
+Für eine Logik 
+\begin_inset Formula $\mathcal{L}$
 \end_inset
 
- erweitert die Logik 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+ und eine relationale Signatur 
+\begin_inset Formula $\sigma$
 \end_inset
 
- um den folgenden Fixpunkt-Operator:
+ erweitert 
+\begin_inset Formula $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\sigma\right]$
+\end_inset
+
+ die Logik 
+\begin_inset Formula $\mathcal{L}\left[\sigma\right]$
+\end_inset
+
+ wie folgt:
+\end_layout
+
+\begin_layout Labeling
+\labelwidthstring 00.00.0000
+(AV) Für eine Relationsvariable 
+\begin_inset Formula $X/k\in\mathbf{var}_{2}$
+\end_inset
+
+ und ein 
+\begin_inset Formula $k$
+\end_inset
+
+-Tupel 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ von 
+\begin_inset Formula $X$
+\end_inset
+
+-positiven 
+\begin_inset Formula $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\sigma\right]$
+\end_inset
+
+-Termen ist 
+\begin_inset Formula $X\bar{x}$
+\end_inset
+
+ eine 
+\begin_inset Formula $X$
+\end_inset
+
+-positive 
+\begin_inset Formula $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\sigma\right]$
+\end_inset
+
+-Formel.
+\lang english
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{frei}\left(X\bar{x}\right) & \coloneqq & \left\{ X\right\} \cup\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right)\\
+\mathrm{var}\left(X\bar{x}\right) & \coloneqq & \left\{ X\right\} \cup\bigcup_{i=1}^{k}\mathrm{var}\left(x_{i}\right)\\
+\left\llbracket X\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left[\beta X\right]\left(\beta\bar{x}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Labeling
 \labelwidthstring 00.00.0000
 (LFP) Für eine Relationsvariable 
-\begin_inset Formula $R/k\in\mathbf{var}_{2}$
+\begin_inset Formula $X/k\in\mathbf{var}_{2}$
 \end_inset
 
 , eine 
-\begin_inset Formula $R$
+\begin_inset Formula $X$
 \end_inset
 
 -positive 
-\begin_inset Formula $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -3081,27 +3061,30 @@ Die Fixpunktlogik
 \end_inset
 
  von 
+\begin_inset Formula $X$
+\end_inset
+
+-positiven 
 \begin_inset Formula $\mathrm{\left(\mathrm{FO}+\mathrm{LFP}\right)}\left[\sigma\right]$
 \end_inset
 
 -Termen ist 
-\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
+\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
 \end_inset
 
  eine 
-\begin_inset Formula $R$
+\begin_inset Formula $X$
 \end_inset
 
 -positive 
-\begin_inset Formula $\left(\mathrm{\mathrm{FO}+\mathrm{LFP}}\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathrm{\mathcal{L}+\mathrm{LFP}}\right)\left[\sigma\right]$
 \end_inset
 
 -Formel.
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathrm{frei}\left(\varphi\right) & = & \mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \cup\bigcup_{i=1}^{k}\mathrm{frei}\left(y_{i}\right)\\
-\mathrm{var}\left(\varphi\right) & = & \mathrm{var}\left(\psi\right)\cup\left\{ x_{1},\cdots,x_{k}\right\} \cup\bigcup_{i=1}^{k}\mathrm{var}\left(y_{i}\right)\\
-\mathtt{MF}\left(\varphi\right) & = & \max\left(\mathtt{MF}\left(\psi\right),\mathrm{frei}\left(\varphi\right)\right)
+\mathrm{frei}\left(\varphi\right) & = & \mathrm{frei}\left(\psi\right)\backslash\left\{ X,x_{1},\cdots,x_{k}\right\} \cup\bigcup_{i=1}^{k}\mathrm{frei}\left(y_{i}\right)\\
+\mathrm{var}\left(\varphi\right) & = & \mathrm{var}\left(\psi\right)\cup\left\{ X,x_{1},\cdots,x_{k}\right\} \cup\bigcup_{i=1}^{k}\mathrm{var}\left(y_{i}\right)
 \end{eqnarray*}
 
 \end_inset
@@ -3109,7 +3092,7 @@ Die Fixpunktlogik
 
 \end_layout
 
-\begin_layout Remark*
+\begin_layout Standard
 Ohne Beschränkung der Allgemeinheit sei 
 \begin_inset Formula $\left\{ x_{1},\cdots,x_{k}\right\} \subseteq\mathrm{frei}\left(\psi\right)$
 \end_inset
@@ -3128,7 +3111,7 @@ reference "def:fo"
 .
 \end_layout
 
-\begin_layout Remark*
+\begin_layout Standard
 Die nicht durch den Operator gebundenen Variablen 
 \begin_inset Formula $\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \subseteq\mathrm{frei}\left(\varphi\right)$
 \end_inset
@@ -3140,13 +3123,13 @@ Parameter
  der Fixpunkt-Operation.
 \end_layout
 
-\begin_layout Description
-Auswertung: Für 
-\begin_inset Formula $R/k\in\mathbf{var}_{2}$
+\begin_layout Standard
+Für 
+\begin_inset Formula $X/k\in\mathbf{var}_{2}$
 \end_inset
 
 , eine 
-\begin_inset Formula $\left(\sigma\backslash\left\{ R\right\} \right)$
+\begin_inset Formula $\sigma$
 \end_inset
 
 -Struktur 
@@ -3154,69 +3137,49 @@ Auswertung: Für
 \end_inset
 
 , eine 
-\begin_inset Formula $R$
+\begin_inset Formula $X$
 \end_inset
 
 -positive 
 \begin_inset Formula $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\sigma\right]$
 \end_inset
 
--Formel, eine Parameter-Belegung 
-\begin_inset Formula $\beta':\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \rightarrow A$
+-Formel, und eine Parameter-Belegung 
+\begin_inset Formula 
+\[
+\beta:\mathrm{frei}\left(\psi\right)\backslash\left\{ X,x_{1},\cdots,x_{k}\right\} \rightarrow A
+\]
+
 \end_inset
 
- und eine Relation 
-\begin_inset Formula $X\subseteq A^{k}$
+sei 
+\begin_inset Formula $F_{\beta}$
 \end_inset
 
- definieren wir die 
-\begin_inset Formula $\left\{ X\right\} $
-\end_inset
-
--Struktur 
-\begin_inset Formula $\mathfrak{R}_{X}$
-\end_inset
-
- und die Abbildung 
-\begin_inset Formula $F:2^{A^{k}}\rightarrow2^{A^{k}}$
-\end_inset
-
- wie folgt:
+ die folgende Abbildung: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathfrak{R}_{X} & \coloneqq & \left(A,\left(\begin{array}{c}
-R\\
-X
-\end{array}\right)\right)\\
-F_{\beta'}\left(X\right) & \coloneqq & q_{\varphi^{\beta'}}\left(\mathfrak{A}\cup\mathfrak{R}_{X}\right)
+F_{\beta} & : & 2^{A^{k}}\rightarrow2^{A^{k}}\\
+F_{\beta}\left(Y\right) & \coloneqq & \left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\varphi^{\beta\cup\left(X\mapsto Y\right)}\right\} 
 \end{eqnarray*}
 
 \end_inset
 
 Das heißt: 
-\begin_inset Formula $F_{\beta'}\left(X\right)$
+\begin_inset Formula $F_{\beta}\left(Y\right)$
 \end_inset
 
  ist das Anfrageergebnis von 
-\begin_inset Formula $\varphi^{\beta'}$
+\begin_inset Formula $\varphi^{\beta\cup\left(X\mapsto Y\right)}$
 \end_inset
 
  auf 
 \begin_inset Formula $\mathfrak{A}$
 \end_inset
 
-, wenn das Symbol 
-\begin_inset Formula $R$
-\end_inset
-
- durch die Relation 
-\begin_inset Formula $X$
-\end_inset
-
- interpretiert wird.
+.
 \end_layout
 
-\begin_deeper
 \begin_layout Standard
 Aus der 
 \begin_inset Formula $X$
@@ -3248,7 +3211,7 @@ A\subseteq B & \Rightarrow & F\left(A\right)\subseteq F\left(B\right)
 
 \begin_inset Formula 
 \[
-\emptyset\subseteq F_{\beta'}\left(\emptyset\right)\subseteq\cdots\subseteq F_{\beta'}^{\infty}\left(\emptyset\right)\subseteq A^{k}
+\emptyset\subseteq F_{\beta}\left(\emptyset\right)\subseteq\cdots\subseteq F_{\beta}^{\infty}\left(\emptyset\right)\subseteq A^{k}
 \]
 
 \end_inset
@@ -3258,7 +3221,7 @@ A\subseteq B & \Rightarrow & F\left(A\right)\subseteq F\left(B\right)
 
 \begin_layout Standard
 Insbesondere ist 
-\begin_inset Formula $F_{\beta'}^{\infty}\left(\emptyset\right)=F^{\left|A^{k}\right|}\left(\emptyset\right)$
+\begin_inset Formula $F_{\beta}^{\infty}\left(\emptyset\right)=F^{\left|A^{k}\right|}\left(\emptyset\right)$
 \end_inset
 
 , da die Iteration nach höchstens 
@@ -3274,7 +3237,7 @@ Für eine Belegung
 \end_inset
 
  prüft 
-\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
+\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
 \end_inset
 
  nun, ob die Belegung des Tupels 
@@ -3282,11 +3245,10 @@ Für eine Belegung
 \end_inset
 
  im Fixpunkt 
-\begin_inset Formula $F^{\infty}$
+\begin_inset Formula $F_{\beta'}^{\infty}$
 \end_inset
 
- liegt.
- Sei 
+ liegt, wobei 
 \begin_inset Formula $\beta'$
 \end_inset
 
@@ -3294,11 +3256,11 @@ Für eine Belegung
 \begin_inset Formula $\beta$
 \end_inset
 
- auf die Parameter: 
+ auf die Parameter ist: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\beta' & \coloneqq & \beta_{\mid\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} }\\
-\left\llbracket \left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket R\bar{y}\right\rrbracket \left(\mathfrak{A}\cup\mathfrak{R}_{F_{\beta'}^{\infty}\left(\emptyset\right)},\beta\right)
+\beta' & \coloneqq & \beta_{\mid\mathrm{frei}\left(\psi\right)\backslash\left\{ X,x_{1},\cdots,x_{k}\right\} }\\
+\left\llbracket \left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket X\bar{y}\right\rrbracket \left(\mathfrak{A},\beta\cup\left(X\mapsto F_{\beta'}^{\infty}\left(\emptyset\right)\right)\right)
 \end{eqnarray*}
 
 \end_inset
@@ -3306,7 +3268,6 @@ Für eine Belegung
 
 \end_layout
 
-\end_deeper
 \begin_layout Example*
 Die folgende 
 \begin_inset Formula $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\left\{ E\right\} \right]$
@@ -3327,7 +3288,7 @@ Die folgende
  durch einen Weg beliebiger Länge verbunden sind: 
 \begin_inset Formula 
 \[
-\varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x\dot{=}y\right)\right]\left(u,v\right)
+\varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{T,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge T\left(z,y\right)\right)\vee x\dot{=}y\right)\right]\left(u,v\right)
 \]
 
 \end_inset
@@ -3347,7 +3308,7 @@ Im folgenden wird die Logik
  bezeichnet.
  Ferner werden wir uns auf das 
 \emph on
-parameter-freie
+parameterfreie
 \emph default
  Fragment der Logik beschränken, was (bis auf einen Zuwachs in der Anzahl
  der Variablen und Länge der Formel) die Allgemeinheit nicht einschränkt.
@@ -3370,17 +3331,17 @@ Eine
 
  ist 
 \series bold
-parameter-frei
+parameterfrei
 \series default
 , falls der Fixpunktoperator stets alle Variablen bindet - das heißt, für
  jede Teilformel der Form 
-\begin_inset Formula $\left[\mathrm{lfp}_{R,\bar{x}}\psi\right]\left(\bar{y}\right)$
+\begin_inset Formula $\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
 \end_inset
 
  gilt: 
 \begin_inset Formula 
 \[
-\mathrm{frei}\left(\psi\right)\subseteq\left\{ x_{1},\cdots,x_{\mathrm{ar}\left(\bar{x}\right)}\right\} 
+\mathrm{frei}\left(\psi\right)\subseteq\left\{ X,x_{1},\cdots,x_{\mathrm{ar}\left(X\right)}\right\} 
 \]
 
 \end_inset
@@ -3411,7 +3372,7 @@ Jede
 \begin_inset Formula $\left|\mathrm{var}\left(\varphi\right)\right|$
 \end_inset
 
-) in eine parameter-freie 
+) in eine parameterfreie 
 \begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
@@ -3429,15 +3390,8 @@ key "Zaid,Grohe2005,Dziembowski96bounded-variablefixpoint"
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
-Numerische Erweiterungen
+Logiken mit disjunkten numerischen Erweiterungen
 \end_layout
 
 \begin_layout Standard
@@ -3450,7 +3404,11 @@ Eine Erweiterung um ein numerisches Orakel fügt einer Logik eine Anzahl
 \begin_inset Formula $A$
 \end_inset
 
- disjunkten numerischen Universum erhalten.
+ disjunkten numerischen Universum 
+\begin_inset Formula $\left[0,\left|A\right|\right]$
+\end_inset
+
+ erhalten.
 \end_layout
 
 \begin_layout Definition
@@ -3550,11 +3508,11 @@ Für eine endliche
 \end_inset
 
  mit 
-\begin_inset Formula $A\cap\left[0,n\right]=\emptyset$
+\begin_inset Formula $A\cap\left[0,\left|A\right|\right]=\emptyset$
 \end_inset
 
  und eine Belegung 
-\begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
+\begin_inset Formula $\beta:\mathbf{var}\rightarrow A\uplus\left[0,\left|A\right|\right]$
 \end_inset
 
  werden 
@@ -3580,8 +3538,9 @@ Für eine endliche
 
 \end_layout
 
-\begin_layout --Separator--
-
+\begin_layout Standard
+Wir definieren die folgenden drei numerischen Orakel für die reine Ordnung,
+ für Arithmetik, und für nicht berechenbare Prädikate.
 \end_layout
 
 \begin_layout Definition
@@ -3589,27 +3548,12 @@ Für eine endliche
 \series bold
 \begin_inset CommandInset label
 LatexCommand label
-name "def:fo-ord"
+name "def:ord"
 
 \end_inset
 
 
-\begin_inset Formula $\mathcal{L}+\mathbf{ORD}$
-\end_inset
-
-, 
-\begin_inset Formula $\mathcal{L}+\mathbf{BIT}$
-\end_inset
-
-, 
-\begin_inset Formula $\mathcal{L}+\mathbf{ARB}$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
+\series default
 Sei 
 \begin_inset Formula $\mathbf{ORD}:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\emptyset\right)$
 \end_inset
@@ -3627,13 +3571,31 @@ Sei
 \end_inset
 
 -Struktur 
-\begin_inset Formula $\mathbf{ORD}\left(n\right)\coloneqq\left(\left[0,n\right],\leqslant_{\mid\left[0,n\right]}\right)\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\emptyset\right)$
+\begin_inset Formula 
+\[
+\mathbf{ORD}\left(n\right)\coloneqq\left(\left[0,n\right],\leqslant_{\mid\left[0,n\right]}\right)\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\emptyset\right)
+\]
+
 \end_inset
 
- ausgibt.
+erzeugt.
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "def:bit"
+
+\end_inset
+
+
+\series default
 Sei 
 \begin_inset Formula $\mathbf{BIT}:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\left\{ \mathtt{BIT}\right\} \right)$
 \end_inset
@@ -3662,8 +3624,9 @@ te Bit der Binärdarstellung von
  
 \begin_inset Formula 
 \begin{eqnarray*}
+\mathcal{N}_{\mathrm{bit}} & \coloneqq & \left(\mathbb{N},\leqslant,\mathtt{BIT}^{\mathcal{N}}\right)\\
 \mathtt{BIT}^{\mathcal{N}} & \coloneqq & \left\{ \left(a,b\right)\in\mathbb{N}^{2}\mid a=\Sigma_{i=0}^{\left\lceil \log a\right\rceil }x_{i}2^{i},\,\bar{x}\in\left\{ 0,1\right\} ^{\left\lceil \log a\right\rceil },\,x_{b}=1\right\} \\
-\mathbf{BIT}\left(n\right) & \coloneqq & \left(\left[0,n\right],\leqslant_{\mid\left[0,n\right]},\mathtt{BIT}_{\mid\left[0,n\right]}^{\mathcal{N}}\right)\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\left\{ \mathtt{BIT}\right\} \right)
+\mathbf{BIT}\left(n\right) & \coloneqq & \left(\mathcal{N}_{\mathrm{bit}}\right)_{\mid\left[0,n\right]}\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\left\{ \mathtt{BIT}\right\} \right)
 \end{eqnarray*}
 
 \end_inset
@@ -3671,7 +3634,17 @@ te Bit der Binärdarstellung von
 
 \end_layout
 
-\begin_layout Enumerate
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:arb"
+
+\end_inset
+
 Sei 
 \begin_inset Formula $\eta_{\mathrm{arb}}=\left\{ R_{X}\mid X\in\bigcup_{k\in\mathbb{N}}2^{\mathbb{N}^{k}}\right\} $
 \end_inset
@@ -3700,9 +3673,9 @@ Sei
 -Orakel, das die endlichen Anfangsstücke dieser Relationen ausgibt:
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{N}_{\mathrm{arb}} & \coloneqq & \left(\mathbb{N},\,\left(R_{X}^{\mathcal{N}}\right)_{R_{X}\in\eta_{\mathrm{arb}}}\right)\\
+\mathcal{N}_{\mathrm{arb}} & \coloneqq & \left(\mathbb{N},\leqslant,\left(R_{X}^{\mathcal{N}}\right)_{R_{X}\in\eta_{\mathrm{arb}}}\right)\\
 R_{X}^{\mathcal{N}} & \coloneqq & X\\
-\mathbf{ARB}\left(n\right) & \coloneqq & \left(\mathcal{N}_{\mathrm{arb}}\right)_{\mid\left[0,n\right]}
+\mathbf{ARB}\left(n\right) & \coloneqq & \left(\mathcal{N}_{\mathrm{arb}}\right)_{\mid\left[0,n\right]}\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta_{\mathrm{arb}}\right)
 \end{eqnarray*}
 
 \end_inset
@@ -3710,7 +3683,6 @@ R_{X}^{\mathcal{N}} & \coloneqq & X\\
 
 \end_layout
 
-\end_deeper
 \begin_layout Standard
 Wir führen mehrere syntaktische Erweiterungen der Logik 
 \begin_inset Formula $\mathrm{FO}+\Upsilon$
@@ -4492,7 +4464,7 @@ Die unendliche Signatur
  sei wie in Definition 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "def:fo-ord"
+reference "def:ord"
 
 \end_inset
 
