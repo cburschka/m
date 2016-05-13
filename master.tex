@@ -169,7 +169,7 @@ leftmargin=\lyxlabelwidth,#1]}
 
 
 \publishers{\textsc{Goethe-Universität Frankfurt am Main}\\
-Betreuerin: Prof. Dr. Nicole Schweikardt}
+\textsc{\normalsize{}Institut für Informatik}}
 
 \maketitle
 \tableofcontents{}
@@ -179,24 +179,36 @@ Betreuerin: Prof. Dr. Nicole Schweikardt}
 
 Wir modellieren Graphen und Datenbanken als Strukturen, die ein Schema
 von relationalen Prädikaten über einem endlichen Universum interpretieren.
-Eine Datenbank-Anfrage auf einem solchen Schema wird als Funktion
-modelliert, die jede endliche Struktur auf eine Relation abbildet.
+Eine Datenbank-Anfrage in einem solchen Schema wird als Funktion modelliert,
+die jede endliche Struktur auf eine Relation abbildet.
 
 Von besonderem Interesse ist die Daten-Komplexität solcher Anfragen:
-Die Komplexität der Auswertung einer festen Anfrage in Abhängigkeit
-von der Größe der eingegebenen Struktur. Wir betrachten hierbei Klassen
-von Anfragen, die durch boolesche Schaltkreisfamilien oder Formeln
-einer relationalen Logik beschrieben werden können.
+Die Zeit- und Platzkomplexität der Auswertung einer festen Anfrage
+in Abhängigkeit von der Größe der eingegebenen Struktur. Wir betrachten
+zwei Modelle, in denen alle beschreibbaren Anfragen eine beschränkte
+Datenkomplexität besitzen:
+\begin{enumerate}
+\item Klassen von booleschen Schaltkreisfamilien (mit $\mathtt{AND}$-,
+$\mathtt{OR}$-, $\mathtt{NOT}$-, und gegebenenfalls Majority-Gates),
+deren Datenkomplexität auf $T_{n}\cdot\mathcal{O}\left(\log S_{n}\right)$-Platz
+und $S_{n}$-Zeit beschränkt ist, wobei $T_{n}$ und $S_{n}$ die
+Tiefe und Größe der Schaltkreise sind.
+\item Formeln der Prädikatenlogik erster Stufe (beziehungsweise deren Erweiterungen),
+deren Datenkomplexität für eine Formel $\varphi$ auf $\mathcal{O}\left(\log n\right)$-Platz
+und $\mathrm{poly}\left(n\right)$-Zeit beschränkt ist.
+\end{enumerate}
+Weil boolesche Schaltkreise von Natur aus auf geordneten Strukturen
+arbeiten, wird gefordert, dass ihr Ergebnis invariant bezüglich der
+gewählten Ordnung ist. Wir führen mit der Symmetrie eine strukturelle
+Einschränkung der Schaltkreise ein, die diese Invarianz garantiert.
 
 Da eine Schaltkreisfamilie eine unendliche Sequenz von Schaltkreisen
-bildet, wird gewöhnlich gefordert, dass diese Schaltkreise effizient
-für jede Eingabegröße $n\in\mathbb{N}$ berechnet werden können. Sind
-sie in Polynomialzeit $P$ berechenbar, dann nennen wir sie $P$-uniform.
-
-Weil boolesche Schaltkreise von Natur aus auf geordneten Strukturen
-arbeiten, wird außerdem gefordert, dass ihr Ergebnis invariant bezüglich
-der gewählten Ordnung ist. Wir führen eine strukturelle Einschränkung
-der Schaltkreise ein, die diese Ordnungsinvarianz garantiert.
+für jede Eingabegröße $n\in\mathbb{N}$ ist, kann diese Sequenz an
+sich auch unentscheidbare Klassen in den natürlichen Zahlen kodieren.
+In der Praxis ist es erwünscht, dass diese Schaltkreise von einem
+effizienten Algorithmus berechnet werden: Sind sie zum Beispiel in
+Polynomialzeit oder mit logarithmischem Platz (in Abhängigkeit von
+$n$) berechenbar, dann nennen wir sie $P$- beziehungsweise $\mathrm{LOGSPACE}$-uniform.
 
 Die Logik erster Stufe ist in der Praxis zu eingeschränkt: Selbst
 einfache Probleme wie die Frage, ob eine Struktur eine gerade Anzahl
@@ -208,16 +220,16 @@ Prädikate \emph{disjunkt} von dem Universum der eigentlichen Struktur
 interpretiert werden, und weisen nach, dass solche Logiken gerade
 die verschiedenen Klassen symmetrischer Schaltkreisfamilien charakterisieren.
 
-Konkret ist die Klasse der symmetrischen booleschen Schaltkreisfamilien
-äquivalent zu der Logik erster Stufe mit Fixpunkt-Operator und disjunktem
-Ordnungsprädikat $\mathrm{LFP}+\mathbf{ORD}$. Das Ergebnis wurde
-2014 von Matthew Anderson und Anuj Dawar\cite{anderson_et_al:LIPIcs:2014:4445}
-veröffentlicht, und bildet die Grundlage dieser Arbeit.
+Konkret ist die Klasse der symmetrischen $P$-uniformen booleschen
+Schaltkreisfamilien $\mathrm{SBC}$ äquivalent zu der Logik erster
+Stufe mit Fixpunkt-Operator und disjunktem Ordnungsprädikat $\mathrm{LFP}+\mathbf{ORD}$.
+Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar veröffentlicht,
+und bildet die Grundlage dieser Arbeit.
 
-Die logische Zählerweiterung $\mathrm{LFP}+C$ charakterisiert zusätzlich
-die symmetrischen Schaltkreisfamilien mit einem Majority-Operator,
+Die logische Zählerweiterung $\mathrm{LFP}+C$ charakterisiert die
+symmetrischen Schaltkreisfamilien mit einem Majority-Operator $\mathrm{SBC}+\mathbf{MAJ}$,
 und die Erweiterung der Logik um beliebige numerische Prädikate opfert
-nur die $P$-Uniformität.
+nur die $P$-Uniformität. Diese beiden Erweiterungen sind kombinierbar.
 \begin{thm}
 \textbf{\label{thm:fp}Anderson und Dawar (2014)}\cite{anderson_et_al:LIPIcs:2014:4445}
 
@@ -241,14 +253,18 @@ Strukturen äquivalent:
 \begin{enumerate}
 \item Die Logik $\mathrm{FO}+\mathbf{BIT}$ und $\mathrm{LOGSPACE}$-uniforme
 symmetrische $\mathrm{AC}^{0}$-Schaltkreisfamilien.
+\item Die Logik $\mathrm{FO}+C$ und $\mathrm{LOGSPACE}$-uniforme symmetrische
+$\mathrm{AC}^{0}+\mathbf{MAJ}$-Schaltkreisfamilien.
 \item Die Logik $\mathrm{FO}+\mathbf{ARB}$ und symmetrische $\mathrm{AC}^{0}$-Schaltkreisfamilien.
 \end{enumerate}
 \end{thm}
-Die Einschränkung auf symmetrische Schaltkreisfamilien bringt eine
-echte Reduktion der Ausdrucksstärke mit sich. Um dies für $\mathrm{AC}^{0}$
-verwenden wir die obige Charakterisierung und ein Resultat, dass die
-Logik $\mathrm{FO}+\mathbf{ARB}$ mit disjunktem Orakel von der arb-invarianten
-Logik mit nicht-disjunktem Orakel trennt.
+Die Einschränkung auf symmetrische Schaltkreisfamilien bringt im Allgemeinen
+eine Reduktion der Ausdrucksstärke mit sich. Insbesondere wird (nach
+Matthew Anderson, Dieter van Melkebeek, Nicole Schweikardt und Luc
+Segoufin, 2012\cite{AMSS-locality}) $\mathrm{AC}^{0}$ ohne Symmetrie
+durch die arb-invariante Logik mit nicht-disjunktem Ordnungsprädikat
+charakterisiert. Diese Logik ist jedoch echt ausdrucksstärker als
+die disjunkte Variante $\mathrm{FO}+\mathbf{ARB}$.
 \begin{thm}
 \label{thm:fo-arb}$\mathrm{FO}+\mathbf{ARB}$, invariantes $\mathrm{FO}\left(\mathrm{arb}\right)$
 \begin{enumerate}

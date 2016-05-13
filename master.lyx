@@ -136,10 +136,8 @@ Goethe-Universität Frankfurt am Main
 \end_inset
 
 
-\shape default
-Betreuerin: Prof.
- Dr.
- Nicole Schweikardt
+\size normal
+Institut für Informatik
 \end_layout
 
 \begin_layout Standard
@@ -158,43 +156,98 @@ Einleitung
 \begin_layout Standard
 Wir modellieren Graphen und Datenbanken als Strukturen, die ein Schema von
  relationalen Prädikaten über einem endlichen Universum interpretieren.
- Eine Datenbank-Anfrage auf einem solchen Schema wird als Funktion modelliert,
+ Eine Datenbank-Anfrage in einem solchen Schema wird als Funktion modelliert,
  die jede endliche Struktur auf eine Relation abbildet.
 \end_layout
 
 \begin_layout Standard
 Von besonderem Interesse ist die Daten-Komplexität solcher Anfragen: Die
- Komplexität der Auswertung einer festen Anfrage in Abhängigkeit von der
- Größe der eingegebenen Struktur.
- Wir betrachten hierbei Klassen von Anfragen, die durch boolesche Schaltkreisfam
-ilien oder Formeln einer relationalen Logik beschrieben werden können.
+ Zeit- und Platzkomplexität der Auswertung einer festen Anfrage in Abhängigkeit
+ von der Größe der eingegebenen Struktur.
+ Wir betrachten zwei Modelle, in denen alle beschreibbaren Anfragen eine
+ beschränkte Datenkomplexität besitzen:
 \end_layout
 
-\begin_layout Standard
-Da eine Schaltkreisfamilie eine unendliche Sequenz von Schaltkreisen bildet,
- wird gewöhnlich gefordert, dass diese Schaltkreise effizient für jede Eingabegr
-öße 
-\begin_inset Formula $n\in\mathbb{N}$
+\begin_layout Enumerate
+Klassen von booleschen Schaltkreisfamilien (mit 
+\begin_inset Formula $\mathtt{AND}$
 \end_inset
 
- berechnet werden können.
- Sind sie in Polynomialzeit 
-\begin_inset Formula $P$
+-, 
+\begin_inset Formula $\mathtt{OR}$
 \end_inset
 
- berechenbar, dann nennen wir sie 
-\begin_inset Formula $P$
+-, 
+\begin_inset Formula $\mathtt{NOT}$
 \end_inset
 
--uniform.
+-, und gegebenenfalls Majority-Gates), deren Datenkomplexität auf 
+\begin_inset Formula $T_{n}\cdot\mathcal{O}\left(\log S_{n}\right)$
+\end_inset
+
+-Platz und 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+-Zeit beschränkt ist, wobei 
+\begin_inset Formula $T_{n}$
+\end_inset
+
+ und 
+\begin_inset Formula $S_{n}$
+\end_inset
+
+ die Tiefe und Größe der Schaltkreise sind.
+\end_layout
+
+\begin_layout Enumerate
+Formeln der Prädikatenlogik erster Stufe (beziehungsweise deren Erweiterungen),
+ deren Datenkomplexität für eine Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ auf 
+\begin_inset Formula $\mathcal{O}\left(\log n\right)$
+\end_inset
+
+-Platz und 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-Zeit beschränkt ist.
 \end_layout
 
 \begin_layout Standard
 Weil boolesche Schaltkreise von Natur aus auf geordneten Strukturen arbeiten,
- wird außerdem gefordert, dass ihr Ergebnis invariant bezüglich der gewählten
- Ordnung ist.
- Wir führen eine strukturelle Einschränkung der Schaltkreise ein, die diese
- Ordnungsinvarianz garantiert.
+ wird gefordert, dass ihr Ergebnis invariant bezüglich der gewählten Ordnung
+ ist.
+ Wir führen mit der Symmetrie eine strukturelle Einschränkung der Schaltkreise
+ ein, die diese Invarianz garantiert.
+\end_layout
+
+\begin_layout Standard
+Da eine Schaltkreisfamilie eine unendliche Sequenz von Schaltkreisen für
+ jede Eingabegröße 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ ist, kann diese Sequenz an sich auch unentscheidbare Klassen in den natürlichen
+ Zahlen kodieren.
+ In der Praxis ist es erwünscht, dass diese Schaltkreise von einem effizienten
+ Algorithmus berechnet werden: Sind sie zum Beispiel in Polynomialzeit oder
+ mit logarithmischem Platz (in Abhängigkeit von 
+\begin_inset Formula $n$
+\end_inset
+
+) berechenbar, dann nennen wir sie 
+\begin_inset Formula $P$
+\end_inset
+
+- beziehungsweise 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+-uniform.
 \end_layout
 
 \begin_layout Standard
@@ -221,21 +274,22 @@ disjunkt
 \end_layout
 
 \begin_layout Standard
-Konkret ist die Klasse der symmetrischen booleschen Schaltkreisfamilien
+Konkret ist die Klasse der symmetrischen 
+\begin_inset Formula $P$
+\end_inset
+
+-uniformen booleschen Schaltkreisfamilien 
+\begin_inset Formula $\mathrm{SBC}$
+\end_inset
+
  äquivalent zu der Logik erster Stufe mit Fixpunkt-Operator und disjunktem
  Ordnungsprädikat 
 \begin_inset Formula $\mathrm{LFP}+\mathbf{ORD}$
 \end_inset
 
 .
- Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar
-\begin_inset CommandInset citation
-LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
-
-\end_inset
-
- veröffentlicht, und bildet die Grundlage dieser Arbeit.
+ Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar veröffentlicht,
+ und bildet die Grundlage dieser Arbeit.
 \end_layout
 
 \begin_layout Standard
@@ -243,13 +297,18 @@ Die logische Zählerweiterung
 \begin_inset Formula $\mathrm{LFP}+C$
 \end_inset
 
- charakterisiert zusätzlich die symmetrischen Schaltkreisfamilien mit einem
- Majority-Operator, und die Erweiterung der Logik um beliebige numerische
- Prädikate opfert nur die 
+ charakterisiert die symmetrischen Schaltkreisfamilien mit einem Majority-Operat
+or 
+\begin_inset Formula $\mathrm{SBC}+\mathbf{MAJ}$
+\end_inset
+
+, und die Erweiterung der Logik um beliebige numerische Prädikate opfert
+ nur die 
 \begin_inset Formula $P$
 \end_inset
 
 -Uniformität.
+ Diese beiden Erweiterungen sind kombinierbar.
 \end_layout
 
 \begin_layout Theorem
@@ -379,6 +438,22 @@ Die Logik
 
 \begin_layout Enumerate
 Die Logik 
+\begin_inset Formula $\mathrm{FO}+C$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+-uniforme symmetrische 
+\begin_inset Formula $\mathrm{AC}^{0}+\mathbf{MAJ}$
+\end_inset
+
+-Schaltkreisfamilien.
+\end_layout
+
+\begin_layout Enumerate
+Die Logik 
 \begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
 \end_inset
 
@@ -391,19 +466,28 @@ Die Logik
 
 \end_deeper
 \begin_layout Standard
-Die Einschränkung auf symmetrische Schaltkreisfamilien bringt eine echte
- Reduktion der Ausdrucksstärke mit sich.
- Um dies für 
+Die Einschränkung auf symmetrische Schaltkreisfamilien bringt im Allgemeinen
+ eine Reduktion der Ausdrucksstärke mit sich.
+ Insbesondere wird (nach Matthew Anderson, Dieter van Melkebeek, Nicole
+ Schweikardt und Luc Segoufin, 2012
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AMSS-locality"
+
+\end_inset
+
+) 
 \begin_inset Formula $\mathrm{AC}^{0}$
 \end_inset
 
- verwenden wir die obige Charakterisierung und ein Resultat, dass die Logik
+ ohne Symmetrie durch die arb-invariante Logik mit nicht-disjunktem Ordnungspräd
+ikat charakterisiert.
+ Diese Logik ist jedoch echt ausdrucksstärker als die disjunkte Variante
  
 \begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
 \end_inset
 
- mit disjunktem Orakel von der arb-invarianten Logik mit nicht-disjunktem
- Orakel trennt.
+.
 \end_layout
 
 \begin_layout Theorem
