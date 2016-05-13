@@ -261,7 +261,7 @@ name "thm:fp"
 
 \end_inset
 
-Anderson und Dawar 2014
+Anderson und Dawar (2014)
 \series default
 
 \begin_inset CommandInset citation
@@ -350,6 +350,12 @@ Wir erweitern dieses Ergebnis für Schaltkreisfamilien konstanter Tiefe.
 \end_layout
 
 \begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:fo"
+
+\end_inset
+
 Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen äquivalent
 :
 \end_layout
@@ -16811,6 +16817,169 @@ Hierbei sei
 \end_inset
 
 
+\end_layout
+
+\begin_layout Chapter
+Grenzen der Symmetrischen Schaltkreisfamilien
+\end_layout
+
+\begin_layout Standard
+Wir weisen nach, dass die symmetrischen 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+-Schaltkreisfamilien eine echte Teilmenge der Anfragen beschreiben, die
+ durch 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+ definierbar sind.
+\end_layout
+
+\begin_layout Standard
+Hierfür verwenden wir die Charakterisierung aus Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:fo"
+
+\end_inset
+
+ von symmetrischem 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+ durch die Logik 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+, die Charakterisierung von 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+ durch die arb-invariante 
+\begin_inset Formula $\mathrm{FO}\left(\mathrm{arb}\right)$
+\end_inset
+
+-Logik, und ein Problem, dass die Ausdrucksstärke dieser beiden Logiken
+ voneinander trennt.
+\end_layout
+
+\begin_layout Lemma
+
+\series bold
+Anderson, Melkebeek, Schweikardt und Segoufin (2012)
+\series default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AMSS-locality"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+Die Klasse 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+ ist äquivalent zu der Klasse der durch arb-invariante 
+\begin_inset Formula $\mathrm{FO}\left(\mathrm{arb}\right)$
+\end_inset
+
+-Logik definierbaren Anfragen.
+\end_layout
+
+\begin_layout Standard
+Der schwere Teil des Beweises (hier nicht ausgeführt) ist die Konstruktion
+ der Formel für eine beliebige 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+-Schaltkreisfamilie.
+ Dazu wird jeder Schaltkreis in eine alternierende Normalform gebracht,
+ wonach jeder der 
+\begin_inset Formula $\left|\mathcal{C}\right|^{T\left(\mathcal{C}\right)}$
+\end_inset
+
+ Wege von einem Input zu einem Output durch ein numerisches Tupel kodiert
+ wird (die Relation dieser Wege ist ein numerisches Prädikat und daher in
+ 
+\begin_inset Formula $\mathrm{FO}\left(\mathrm{arb}\right)$
+\end_inset
+
+-Logik verwendbar).
+ Die Formel muss dann nur noch über jede der alternierenden Ebenen des Schaltkre
+ises quantifizieren (mit 
+\begin_inset Formula $\exists$
+\end_inset
+
+ für 
+\begin_inset Formula $\mathtt{OR}$
+\end_inset
+
+, und 
+\begin_inset Formula $\forall$
+\end_inset
+
+ für 
+\begin_inset Formula $\mathtt{AND}$
+\end_inset
+
+), und berechnet so die Auswertung.
+\end_layout
+
+\begin_layout Standard
+Aus dem Lemma lesen wir zusätzlich ab, dass 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+ in der arb-invarianten 
+\begin_inset Formula $\mathrm{FO}\left(\mathrm{arb}\right)$
+\end_inset
+
+-Logik enthalten ist: Eine 
+\begin_inset Formula $\left(\mathrm{FO}+\mathbf{ARB}\right)$
+\end_inset
+
+-Formel ist durch eine symmetrische 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+-Schaltkreisfamilie berechenbar, und die symmetrischen 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+-Schaltkreise sind in 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+ enthalten.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Lemma
+Es existiert eine Graph-Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+, die durch eine arb-invariante 
+\begin_inset Formula $\mathrm{FO}\left(\mathrm{arb}\right)$
+\end_inset
+
+-Formel beschrieben wird, jedoch nicht durch 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+ definierbar ist.
+\end_layout
+
+\begin_layout Proof
+Es sei 
 \end_layout
 
 \begin_layout Chapter

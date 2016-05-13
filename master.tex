@@ -213,7 +213,7 @@ die symmetrischen Schaltkreisfamilien mit einem Majority-Operator,
 und die Erweiterung der Logik um beliebige numerische Prädikate opfert
 nur die $P$-Uniformität.
 \begin{thm}
-\textbf{\label{thm:fp}Anderson und Dawar 2014}\cite{anderson_et_al:LIPIcs:2014:4445}
+\textbf{\label{thm:fp}Anderson und Dawar (2014)}\cite{anderson_et_al:LIPIcs:2014:4445}
 
 Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen
 äquivalent:
@@ -230,8 +230,8 @@ symmetrischen $\mathrm{AC}^{0}$-Schaltkreisfamilien durch die Logik
 $\mathrm{FO}+\mathbf{BIT}$ mit disjunktem $\mathtt{BIT}$-Prädikat
 nachgewiesen.
 \begin{thm}
-Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen
-äquivalent:
+\label{thm:fo}Die folgenden Paare von Anfragenklassen sind auf endlichen
+Strukturen äquivalent:
 \begin{enumerate}
 \item Die Logik $\mathrm{FO}+\mathbf{BIT}$ und $\mathrm{LOGSPACE}$-uniforme
 symmetrische $\mathrm{AC}^{0}$-Schaltkreisfamilien.
@@ -4397,6 +4397,51 @@ Kodierung von Zahlen, so dass für $\bar{g},\bar{h},\bar{w}\in\left[0,n\right]^{
  &  & \mathrm{f\ddot{u}r}\,R/m\in\sigma,\,\bar{x}\in\left[1,n\right]^{m}
 \end{eqnarray*}
 
+\end{proof}
+
+\chapter{Grenzen der Symmetrischen Schaltkreisfamilien}
+
+Wir weisen nach, dass die symmetrischen $\mathrm{AC}^{0}$-Schaltkreisfamilien
+eine echte Teilmenge der Anfragen beschreiben, die durch $\mathrm{AC}^{0}$
+definierbar sind.
+
+Hierfür verwenden wir die Charakterisierung aus Theorem \ref{thm:fo}
+von symmetrischem $\mathrm{AC}^{0}$ durch die Logik $\mathrm{FO}+\mathbf{ARB}$,
+die Charakterisierung von $\mathrm{AC}^{0}$ durch die arb-invariante
+$\mathrm{FO}\left(\mathrm{arb}\right)$-Logik, und ein Problem, dass
+die Ausdrucksstärke dieser beiden Logiken voneinander trennt.
+\begin{lem}
+\textbf{Anderson, Melkebeek, Schweikardt und Segoufin (2012)}\cite{AMSS-locality}
+
+Die Klasse $\mathrm{AC}^{0}$ ist äquivalent zu der Klasse der durch
+arb-invariante $\mathrm{FO}\left(\mathrm{arb}\right)$-Logik definierbaren
+Anfragen.
+\end{lem}
+Der schwere Teil des Beweises (hier nicht ausgeführt) ist die Konstruktion
+der Formel für eine beliebige $\mathrm{AC}^{0}$-Schaltkreisfamilie.
+Dazu wird jeder Schaltkreis in eine alternierende Normalform gebracht,
+wonach jeder der $\left|\mathcal{C}\right|^{T\left(\mathcal{C}\right)}$
+Wege von einem Input zu einem Output durch ein numerisches Tupel kodiert
+wird (die Relation dieser Wege ist ein numerisches Prädikat und daher
+in $\mathrm{FO}\left(\mathrm{arb}\right)$-Logik verwendbar). Die
+Formel muss dann nur noch über jede der alternierenden Ebenen des
+Schaltkreises quantifizieren (mit $\exists$ für $\mathtt{OR}$, und
+$\forall$ für $\mathtt{AND}$), und berechnet so die Auswertung.
+
+Aus dem Lemma lesen wir zusätzlich ab, dass $\mathrm{FO}+\mathbf{ARB}$
+in der arb-invarianten $\mathrm{FO}\left(\mathrm{arb}\right)$-Logik
+enthalten ist: Eine $\left(\mathrm{FO}+\mathbf{ARB}\right)$-Formel
+ist durch eine symmetrische $\mathrm{AC}^{0}$-Schaltkreisfamilie
+berechenbar, und die symmetrischen $\mathrm{AC}^{0}$-Schaltkreise
+sind in $\mathrm{AC}^{0}$ enthalten.
+
+
+\begin{lem}
+Es existiert eine Graph-Anfrage $q$, die durch eine arb-invariante
+$\mathrm{FO}\left(\mathrm{arb}\right)$-Formel beschrieben wird, jedoch
+nicht durch $\mathrm{FO}+\mathbf{ARB}$ definierbar ist.\end{lem}
+\begin{proof}
+Es sei 
 \end{proof}
 
 \chapter{Schluss}
