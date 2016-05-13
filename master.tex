@@ -3547,19 +3547,19 @@ dass jedes Gate $g_{i}\in H\backslash\left\{ g_{1}\right\} $ durch
 ein $\mathtt{AND}$-Gate mit dem Vorgänger $g_{i-1}$ ersetzt wird.
 Dies vergrößert jedoch die Tiefe des Schaltkreises unbeschränkt.
 
-Hier werden wir stattdessen die Definition des Schaltkreises auf Multigraphen
-erweitern:
+Um die Tiefe als Parameter zu erhalten, werden wir stattdessen die
+Definition des Schaltkreises auf Multigraphen erweitern:
 \begin{defn}
 \textbf{Multimenge}
 
 Eine Multimenge $\mathcal{W}:W\rightarrow\mathbb{N}$ sei eine Abbildung
 einer Menge auf $\mathbb{N}$, wobei $\mathcal{W}\left(x\right)$
-die Vielfachheit von $x$ in $\mathcal{W}$ angibt. Nach der in Definition
-\ref{def:Relation} eingeführten Notation entspricht für eine gewöhnliche
-Relation $W\subseteq G^{2}$ die Funktion $\left[W\right]:G^{2}\rightarrow\left\{ 0,1\right\} $
-gerade der äquivalenten Multimenge.
+die Vielfachheit von $x$ in $\mathcal{W}$ angibt.
 \end{defn}
-
+Nach der in Definition \ref{def:Relation} eingeführten Notation entspricht
+für eine gewöhnliche Relation $W\subseteq G^{2}$ die Funktion $\left[W\right]:G^{2}\rightarrow\left\{ 0,1\right\} $
+gerade der äquivalenten Multimenge. Die Größe der Multimenge $\left|\mathcal{W}\right|\coloneqq\sum_{w\in\mathcal{W}}\mathcal{W}\left(x\right)$
+sei die Summe der Vielfachheiten aller Elemente.
 \begin{defn}
 \textbf{Multischaltkreis}
 
@@ -3572,6 +3572,16 @@ $\left(G,\mathcal{W}\right)$ bildet einen azyklischen Multigraphen:
 \]
 
 
+Formal beschreiben wir den Multischaltkreis durch eine $\tau_{\sigma,\mathbb{B},k}$-Struktur
+$\mathcal{C}$ über einem Universum $G\uplus U\uplus\left[0,\left|\mathcal{W}\right|\right]$
+ausgewertet:
+\begin{eqnarray*}
+\tau_{\sigma,\mathbb{B},k}' & \coloneqq & \left\{ W/3,\left(\Sigma_{s}/1\right)_{s\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} },\left(\Sigma_{R}/1+k\right)_{R/k\in\sigma},\Omega/k+1\right\} \\
+\mathrm{ar}\left(W\right) & \coloneqq & 3\\
+W^{\mathcal{C}} & = & \left\{ \left(g,g',n\right)\in G^{2}\times\left[0,\left|\mathcal{W}\right|\right]\mid\mathcal{W}\left(g,g'\right)=n\right\} 
+\end{eqnarray*}
+
+
 Für die Auswertung eines internen Gates gilt analog zu \ref{def:Auswertung-von-Schaltkreisen}:
 \begin{eqnarray*}
 j_{1} & \coloneqq & \sum_{h\in G}\left(\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\cdot\mathcal{W}\left(h,g\right)\right)\\
@@ -3579,7 +3589,7 @@ j_{0} & \coloneqq & \sum_{h\in G}\mathcal{W}\left(h,g\right)-j_{1}\\
 \mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\Sigma\left(g\right)\right]\left(j_{0},j_{1}\right)
 \end{eqnarray*}
 
-
+\end{defn}
 Die Größe $\left|\mathcal{C}\right|$ eines Multischaltkreises $\mathcal{C}$
 sei die Summe seiner Gates und Kanten:
 \[
@@ -3588,14 +3598,15 @@ sei die Summe seiner Gates und Kanten:
 
 
 Die Symmetrie wird auf natürliche Weise angepasst: Der von $\pi$
-induzierte Automorphismus bildet $\left(G,W\right)$ auf den isomorphen
-Multigraphen $\left(\hat{\pi}G,\hat{\pi}W\right)$ mit $\mathcal{W}\left(\hat{\pi}g,\hat{\pi}g'\right)=\mathcal{W}\left(g,g'\right)$
+induzierte Automorphismus $\hat{\pi}\in\mathrm{Aut}_{\mathcal{C}}$
+bildet $\left(G,\mathcal{W}\right)$ auf den isomorphen Multigraphen
+$\left(\hat{\pi}G,\hat{\pi}\mathcal{W}\right)$ mit $\mathcal{W}\left(\hat{\pi}g,\hat{\pi}g'\right)=\mathcal{W}\left(g,g'\right)$
 ab.
 
 Die Rigidität wird ebenfalls angepasst: Ein rigider Schaltkreis enthält
 keine Gates $g,g'$ mit $\Sigma\left(g\right)=\Sigma\left(g'\right)$
 und $\mathcal{W}\left(h,g\right)=\mathcal{W}\left(h,g'\right)$ für
-alle $h\in G$.\end{defn}
+alle $h\in G$.
 \begin{lem}
 \label{lem:algo-rigide}(nach Lemma 24 aus \cite{anderson_et_al:LIPIcs:2014:4445})
 
@@ -3760,20 +3771,20 @@ Sei $\sim^{*}$ eine rekursive Erweiterung von $\sim$, die alle Paare
 von Gates $g,g'$ enthält, die aus jeder Äquivalenzklasse bezüglich
 $\sim^{*}$ die gleiche Anzahl Vorgänger besitzen.
 
-Der beschriebene Algorithmus wird ein Gate und seine ausgehenden Kanten
-erst ausgeben, nachdem sichergestellt ist, dass es das erste Gate
-(in der Ordnung von $G$) seiner Äquivalenzklasse bezüglich $\sim^{*}$
-ist. Danach werden alle weiteren Gates der gleichen Klasse übersprungen,
-und ihre Nachfolger (jeweils die ersten ihrer Äquivalenzklasse) stattdessen
-mit $g$ verbunden.
+Der beschriebene Algorithmus wird $\mathtt{Rigid}\left(g\right)$
+nur aufrufen, wenn $g$ das erste Gate (in der Ordnung von $G$) seiner
+Äquivalenzklasse bezüglich $\sim^{*}$ ist. $\mathtt{Rigid}\left(g\right)$
+gibt $g$ mit seinen Markierungen aus, sucht dann für jeden Vorgänger
+das erste Gate seiner Äquivalenzklasse, und zählt die dazu äquivalenten
+Vorgänger.
 
 Da die Funktionen $\mathtt{Rigid}$ und $\mathtt{Equiv}$ jeweils
 nur konstant viele Variablen der Größe $\mathcal{O}\left(\log n\right)$
 verwenden, ist der Algorithmus platzbeschränkt durch $T\cdot\mathcal{O}\left(\log n\right)$,
-wobei $T$ die maximale Rekursionstiefe von $\mathtt{Rigid}$ und
-$\mathtt{Equiv}$ ist. Weil jeder Aufruf für $g$ nur Aufrufe für
-Vorgänger von $g$ auslöst, ist $T=T\left(\mathcal{C}\right)$ die
-Tiefe des Schaltkreises $\mathcal{C}$.
+wobei $T$ die maximale Rekursionstiefe von $\mathtt{Equiv}$ ist.
+Weil jeder Aufruf $\mathtt{Equiv}\left(g\right)$ nur Aufrufe $\mathtt{Equiv}\left(h,h'\right)$
+für Vorgänger $h,h'$ von $g$ auslöst, ist $T=T\left(\mathcal{C}\right)$
+die Tiefe des Schaltkreises $\mathcal{C}$.
 \end{proof}
 \begin{algorithm}
 \begin{lyxcode}
@@ -3795,30 +3806,24 @@ Rigid($g$):
 \begin{lyxcode}
 Gib~$g$~und~$\Sigma\left(g\right)$~aus.
 
-Gib~alle~ausgehenden~Kanten~$\left(g,h\right)$~aus.
-
-Gib~$\Omega\left(\bar{t}\right)=g$~für~alle~$\bar{t}\in\Omega^{-1}\left(g\right)$~aus.
-
-Für~jedes~Gate~$g'>g$:
-\begin{lyxcode}
-Falls~Equiv($g,g'$):
-\begin{lyxcode}
-Für~alle~Nachfolger~$h$~von~$g'$:
-\begin{lyxcode}
-Existiert~kein~Gate~$h'<h$~mit~Equiv($h,h'$)?
-\begin{lyxcode}
-Dann~gib~die~Kante~$\left(g,h\right)$~aus.
-\end{lyxcode}
-\end{lyxcode}
-Für~$\bar{t}\in\Omega^{-1}\left(g'\right)$:
+Für~alle~$\bar{t}\in U^{k}$~mit~$\Omega\left(\bar{t}\right)=g$:
 \begin{lyxcode}
 Gib~$\Omega\left(\bar{t}\right)=g$~aus.
 \end{lyxcode}
-\end{lyxcode}
-\end{lyxcode}
 Für~alle~Vorgänger~$h$~von~$g$:
 \begin{lyxcode}
-Rigid($h$).
+Falls~kein~Vorgänger~$h'<h$~mit~Equiv($h,h'$)~existiert:
+\begin{lyxcode}
+Finde~das~erste~Gate~$h'\in G$~mit~Equiv($h,h'$).
+
+$i\leftarrow1$.
+
+Für~alle~Vorgänger~$h''>h$~mit~Equiv($h,h'')$.
+\begin{lyxcode}
+$i\leftarrow i+1$.
+\end{lyxcode}
+Gib~$\mathcal{W}\left(h,g\right)=i$~aus.
+\end{lyxcode}
 \end{lyxcode}
 \end{lyxcode}
 

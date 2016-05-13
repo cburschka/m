@@ -13380,8 +13380,8 @@ in Reihe
 \end_layout
 
 \begin_layout Standard
-Hier werden wir stattdessen die Definition des Schaltkreises auf Multigraphen
- erweitern:
+Um die Tiefe als Parameter zu erhalten, werden wir stattdessen die Definition
+ des Schaltkreises auf Multigraphen erweitern:
 \end_layout
 
 \begin_layout Definition
@@ -13412,7 +13412,10 @@ Eine Multimenge
 \end_inset
 
  angibt.
- Nach der in Definition 
+\end_layout
+
+\begin_layout Standard
+Nach der in Definition 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "def:Relation"
@@ -13428,10 +13431,11 @@ reference "def:Relation"
 \end_inset
 
  gerade der äquivalenten Multimenge.
-\end_layout
+ Die Größe der Multimenge 
+\begin_inset Formula $\left|\mathcal{W}\right|\coloneqq\sum_{w\in\mathcal{W}}\mathcal{W}\left(x\right)$
+\end_inset
 
-\begin_layout --Separator--
-
+ sei die Summe der Vielfachheiten aller Elemente.
 \end_layout
 
 \begin_layout Definition
@@ -13469,6 +13473,32 @@ Ein
 \end_layout
 
 \begin_layout Definition
+Formal beschreiben wir den Multischaltkreis durch eine 
+\begin_inset Formula $\tau_{\sigma,\mathbb{B},k}$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ über einem Universum 
+\begin_inset Formula $G\uplus U\uplus\left[0,\left|\mathcal{W}\right|\right]$
+\end_inset
+
+ ausgewertet:
+\begin_inset Formula 
+\begin{eqnarray*}
+\tau_{\sigma,\mathbb{B},k}' & \coloneqq & \left\{ W/3,\left(\Sigma_{s}/1\right)_{s\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} },\left(\Sigma_{R}/1+k\right)_{R/k\in\sigma},\Omega/k+1\right\} \\
+\mathrm{ar}\left(W\right) & \coloneqq & 3\\
+W^{\mathcal{C}} & = & \left\{ \left(g,g',n\right)\in G^{2}\times\left[0,\left|\mathcal{W}\right|\right]\mid\mathcal{W}\left(g,g'\right)=n\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
 Für die Auswertung eines internen Gates gilt analog zu 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -13489,7 +13519,7 @@ j_{0} & \coloneqq & \sum_{h\in G}\mathcal{W}\left(h,g\right)-j_{1}\\
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Standard
 Die Größe 
 \begin_inset Formula $\left|\mathcal{C}\right|$
 \end_inset
@@ -13509,17 +13539,21 @@ Die Größe
 
 \end_layout
 
-\begin_layout Definition
+\begin_layout Standard
 Die Symmetrie wird auf natürliche Weise angepasst: Der von 
 \begin_inset Formula $\pi$
 \end_inset
 
- induzierte Automorphismus bildet 
-\begin_inset Formula $\left(G,W\right)$
+ induzierte Automorphismus 
+\begin_inset Formula $\hat{\pi}\in\mathrm{Aut}_{\mathcal{C}}$
+\end_inset
+
+ bildet 
+\begin_inset Formula $\left(G,\mathcal{W}\right)$
 \end_inset
 
  auf den isomorphen Multigraphen 
-\begin_inset Formula $\left(\hat{\pi}G,\hat{\pi}W\right)$
+\begin_inset Formula $\left(\hat{\pi}G,\hat{\pi}\mathcal{W}\right)$
 \end_inset
 
  mit 
@@ -13529,7 +13563,7 @@ Die Symmetrie wird auf natürliche Weise angepasst: Der von
  ab.
 \end_layout
 
-\begin_layout Definition
+\begin_layout Standard
 Die Rigidität wird ebenfalls angepasst: Ein rigider Schaltkreis enthält
  keine Gates 
 \begin_inset Formula $g,g'$
@@ -14133,9 +14167,15 @@ Sei
 \end_layout
 
 \begin_layout Proof
-Der beschriebene Algorithmus wird ein Gate und seine ausgehenden Kanten
- erst ausgeben, nachdem sichergestellt ist, dass es das erste Gate (in der
- Ordnung von 
+Der beschriebene Algorithmus wird 
+\begin_inset Formula $\mathtt{Rigid}\left(g\right)$
+\end_inset
+
+ nur aufrufen, wenn 
+\begin_inset Formula $g$
+\end_inset
+
+ das erste Gate (in der Ordnung von 
 \begin_inset Formula $G$
 \end_inset
 
@@ -14144,13 +14184,16 @@ Der beschriebene Algorithmus wird ein Gate und seine ausgehenden Kanten
 \end_inset
 
  ist.
- Danach werden alle weiteren Gates der gleichen Klasse übersprungen, und
- ihre Nachfolger (jeweils die ersten ihrer Äquivalenzklasse) stattdessen
- mit 
+ 
+\begin_inset Formula $\mathtt{Rigid}\left(g\right)$
+\end_inset
+
+ gibt 
 \begin_inset Formula $g$
 \end_inset
 
- verbunden.
+ mit seinen Markierungen aus, sucht dann für jeden Vorgänger das erste Gate
+ seiner Äquivalenzklasse, und zählt die dazu äquivalenten Vorgänger.
 \end_layout
 
 \begin_layout Proof
@@ -14175,19 +14218,23 @@ Da die Funktionen
 \end_inset
 
  die maximale Rekursionstiefe von 
-\begin_inset Formula $\mathtt{Rigid}$
-\end_inset
-
- und 
 \begin_inset Formula $\mathtt{Equiv}$
 \end_inset
 
  ist.
- Weil jeder Aufruf für 
-\begin_inset Formula $g$
+ Weil jeder Aufruf 
+\begin_inset Formula $\mathtt{Equiv}\left(g\right)$
 \end_inset
 
- nur Aufrufe für Vorgänger von 
+ nur Aufrufe 
+\begin_inset Formula $\mathtt{Equiv}\left(h,h'\right)$
+\end_inset
+
+ für Vorgänger 
+\begin_inset Formula $h,h'$
+\end_inset
+
+ von 
 \begin_inset Formula $g$
 \end_inset
 
@@ -14280,82 +14327,12 @@ Gib
 \end_layout
 
 \begin_layout LyX-Code
-Gib alle ausgehenden Kanten 
-\begin_inset Formula $\left(g,h\right)$
+Für alle 
+\begin_inset Formula $\bar{t}\in U^{k}$
 \end_inset
 
- aus.
-\end_layout
-
-\begin_layout LyX-Code
-Gib 
+ mit 
 \begin_inset Formula $\Omega\left(\bar{t}\right)=g$
-\end_inset
-
- für alle 
-\begin_inset Formula $\bar{t}\in\Omega^{-1}\left(g\right)$
-\end_inset
-
- aus.
-\end_layout
-
-\begin_layout LyX-Code
-Für jedes Gate 
-\begin_inset Formula $g'>g$
-\end_inset
-
-:
-\end_layout
-
-\begin_deeper
-\begin_layout LyX-Code
-Falls Equiv(
-\begin_inset Formula $g,g'$
-\end_inset
-
-):
-\end_layout
-
-\begin_deeper
-\begin_layout LyX-Code
-Für alle Nachfolger 
-\begin_inset Formula $h$
-\end_inset
-
- von 
-\begin_inset Formula $g'$
-\end_inset
-
-:
-\end_layout
-
-\begin_deeper
-\begin_layout LyX-Code
-Existiert kein Gate 
-\begin_inset Formula $h'<h$
-\end_inset
-
- mit Equiv(
-\begin_inset Formula $h,h'$
-\end_inset
-
-)?
-\end_layout
-
-\begin_deeper
-\begin_layout LyX-Code
-Dann gib die Kante 
-\begin_inset Formula $\left(g,h\right)$
-\end_inset
-
- aus.
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout LyX-Code
-Für 
-\begin_inset Formula $\bar{t}\in\Omega^{-1}\left(g'\right)$
 \end_inset
 
 :
@@ -14370,8 +14347,6 @@ Gib
  aus.
 \end_layout
 
-\end_deeper
-\end_deeper
 \end_deeper
 \begin_layout LyX-Code
 Für alle Vorgänger 
@@ -14387,13 +14362,67 @@ Für alle Vorgänger
 
 \begin_deeper
 \begin_layout LyX-Code
-Rigid(
-\begin_inset Formula $h$
+Falls kein Vorgänger 
+\begin_inset Formula $h'<h$
+\end_inset
+
+ mit Equiv(
+\begin_inset Formula $h,h'$
+\end_inset
+
+) existiert:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Finde das erste Gate 
+\begin_inset Formula $h'\in G$
+\end_inset
+
+ mit Equiv(
+\begin_inset Formula $h,h'$
 \end_inset
 
 ).
 \end_layout
 
+\begin_layout LyX-Code
+\begin_inset Formula $i\leftarrow1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout LyX-Code
+Für alle Vorgänger 
+\begin_inset Formula $h''>h$
+\end_inset
+
+ mit Equiv(
+\begin_inset Formula $h,h'')$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+\begin_inset Formula $i\leftarrow i+1$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+Gib 
+\begin_inset Formula $\mathcal{W}\left(h,g\right)=i$
+\end_inset
+
+ aus.
+\end_layout
+
+\end_deeper
 \end_deeper
 \end_deeper
 \begin_layout LyX-Code
