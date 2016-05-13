@@ -7,6 +7,8 @@
 \geometry{verbose,bmargin=0.2\paperheight}
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
 \usepackage{refstyle}
 \usepackage{float}
 \usepackage{mathtools}
@@ -15,6 +17,8 @@
 \usepackage{amsthm}
 \usepackage{amssymb}
 \usepackage{stmaryrd}
+\usepackage{setspace}
+\onehalfspacing
 
 \makeatletter
 
@@ -158,9 +162,8 @@ leftmargin=\lyxlabelwidth,#1]}
 \texttt{christoph@burschka.de}}
 
 
-\publishers{Betreuerin: Prof. Dr. Nicole Schweikardt\\
-Goethe-Universität Frankfurt am Main\\
-Wintersemester 2015 / 2016}
+\publishers{\textsc{Goethe-Universität Frankfurt am Main}\\
+Betreuerin: Prof. Dr. Nicole Schweikardt}
 
 \maketitle
 \tableofcontents{}
@@ -168,27 +171,47 @@ Wintersemester 2015 / 2016}
 
 \chapter{Einleitung}
 
+Wir modellieren Graphen und Datenbanken als Strukturen, die ein Schema
+von relationalen Prädikaten über einem endlichen Universum interpretieren.
+Eine Datenbank-Anfrage auf einem solchen Schema wird als Funktion
+modelliert, die jede endliche Struktur auf eine Relation abbildet.
 
-\section{Übersicht}
+Von besonderem Interesse ist die Daten-Komplexität solcher Anfragen:
+Die Komplexität der Auswertung einer festen Anfrage in Abhängigkeit
+von der Größe der eingegebenen Struktur. Wir betrachten hierbei Klassen
+von Anfragen, die durch boolesche Schaltkreisfamilien oder Formeln
+einer relationalen Logik beschrieben werden können.
 
-Wir betrachten die logische Charakterisierung von Booleschen Schaltkreisklassen.
-{[}...{]}
+Da eine Schaltkreisfamilie eine unendliche Sequenz von Schaltkreisen
+bildet, wird gewöhnlich gefordert, dass diese Schaltkreise effizient
+für jede Eingabegröße $n\in\mathbb{N}$ berechnet werden können. Sind
+sie in Polynomialzeit $P$ berechenbar, dann nennen wir sie $P$-uniform.
 
+Weil boolesche Schaltkreise von Natur aus auf geordneten Strukturen
+arbeiten, wird außerdem gefordert, dass ihr Ergebnis invariant bezüglich
+der gewählten Ordnung ist. Wir führen eine strukturelle Einschränkung
+der Schaltkreise ein, die diese Ordnungsinvarianz garantiert.
 
-\section{Ergebnisse}
+Die Logik erster Stufe ist in der Praxis zu eingeschränkt: Selbst
+einfache Probleme wie die Frage, ob eine Struktur eine gerade Anzahl
+von Elementen enthält, oder zwei Knoten durch einen Weg beliebiger
+Länge verbunden sind, können nicht ausgedrückt werden.\cite{Libkin2012}
+Daher erweitern wir die Logik um numerische Prädikate, Fixpunkt-Operatoren
+und Zähler. Insbesondere betrachten wir Logiken, in denen die numerischen
+Prädikate \emph{disjunkt} von dem Universum der eigentlichen Struktur
+interpretiert werden, und weisen nach, dass solche Logiken gerade
+die verschiedenen Klassen symmetrischer Schaltkreisfamilien charakterisieren.
 
-Für den $P$-uniformen Teil der Klasse $\mathrm{SBC}$ von symmetrischen
-booleschen Schaltkreisfamilien wird eine logische Charakterisierung
-durch die Fixpunktlogik mit disjunktem Ordnungsprädikat $\mathrm{LFP+\mathbf{ORD}}$
-beschrieben.
+Konkret ist die Klasse der symmetrischen booleschen Schaltkreisfamilien
+äquivalent zu der Logik erster Stufe mit Fixpunkt-Operator und disjunktem
+Ordnungsprädikat $\mathrm{LFP}+\mathbf{ORD}$. Das Ergebnis wurde
+2014 von Matthew Anderson und Anuj Dawar\cite{anderson_et_al:LIPIcs:2014:4445}
+veröffentlicht, und bildet die Grundlage dieser Arbeit.
 
-Es wird gezeigt, dass die logische Zählerweiterung $\mathrm{LFP}+C$
-zusätzlich die Schaltkreisfamilien mit einem Majority-Operator charakterisiert.
-
-Schließlich wird gezeigt, dass die Erweiterung der Logik um beliebige
-numerische Prädikate alle symmetrischen $P/\mathrm{poly}$-uniformen
-Schaltkreisfamilien charakterisiert. (Dieses Resultat ist mit dem
-für die Zählerweiterung kombinierbar.)
+Die logische Zählerweiterung $\mathrm{LFP}+C$ charakterisiert zusätzlich
+die symmetrischen Schaltkreisfamilien mit einem Majority-Operator,
+und die Erweiterung der Logik um beliebige numerische Prädikate opfert
+nur die $P$-Uniformität.
 \begin{thm}
 \textbf{\label{thm:fp}Anderson und Dawar 2014}\cite{anderson_et_al:LIPIcs:2014:4445}
 
@@ -201,11 +224,10 @@ Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen
 $\mathrm{SBC}$-Schaltkreisfamilien.
 \end{enumerate}
 \end{thm}
-Das Ergebnis wird für Schaltkreisfamilien konstanter Tiefe angepasst,
-in dem die technischen Resultate von Anderson und Dawar mit Hinblick
-auf den Erhalt der Schaltkreistiefe abgeändert werden. Es wird eine
-Charakterisierung der symmetrischen $\mathrm{AC}^{0}$-Schaltkreisfamilien
-durch die Logik $\mathrm{FO}+\mathbf{BIT}$ mit disjunktem $\mathtt{BIT}$-Prädikat
+Wir erweitern dieses Ergebnis für Schaltkreisfamilien konstanter Tiefe.
+Es wird eine Charakterisierung der $\mathrm{LOGSPACE}$-uniformen
+symmetrischen $\mathrm{AC}^{0}$-Schaltkreisfamilien durch die Logik
+$\mathrm{FO}+\mathbf{BIT}$ mit disjunktem $\mathtt{BIT}$-Prädikat
 nachgewiesen.
 \begin{thm}
 Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen
@@ -217,7 +239,7 @@ symmetrische $\mathrm{AC}^{0}$-Schaltkreisfamilien.
 \end{enumerate}
 \end{thm}
 Die Einschränkung auf symmetrische Schaltkreisfamilien bringt eine
-echte Reduktion der Ausdrucksstärke mit sich. Zum Nachweis für $\mathrm{AC}^{0}$
+echte Reduktion der Ausdrucksstärke mit sich. Um dies für $\mathrm{AC}^{0}$
 verwenden wir die obige Charakterisierung und ein Resultat, dass die
 Logik $\mathrm{FO}+\mathbf{ARB}$ mit disjunktem Orakel von der arb-invarianten
 Logik mit nicht-disjunktem Orakel trennt.
@@ -3529,7 +3551,7 @@ mit $\mathrm{poly}\left(n\right)$-Größe gilt $\mathrm{SP}\left(\mathcal{C}_{n}
 \chapter{Von Schaltkreisfamilien zu Formeln}
 
 
-\section{Rigidität}
+\section{Berechnung von rigiden Schaltkreisen}
 
 Um die Orbits und Träger jedes Gates eines Schaltkreises zu berechnen,
 wird nun gefordert, dass der Schaltkreis \emph{rigide }gemäß Definition
@@ -3767,25 +3789,6 @@ Der Algorithmus \ref{alg:rigid} gibt die Kanten und Markierungen
 des rigiden Multischaltkreises aus, wobei eine natürliche Ordnung
 der Gates $G$ vorausgesetzt wird.
 
-Sei $\sim^{*}$ eine rekursive Erweiterung von $\sim$, die alle Paare
-von Gates $g,g'$ enthält, die aus jeder Äquivalenzklasse bezüglich
-$\sim^{*}$ die gleiche Anzahl Vorgänger besitzen.
-
-Der beschriebene Algorithmus wird $\mathtt{Rigid}\left(g\right)$
-nur aufrufen, wenn $g$ das erste Gate (in der Ordnung von $G$) seiner
-Äquivalenzklasse bezüglich $\sim^{*}$ ist. $\mathtt{Rigid}\left(g\right)$
-gibt $g$ mit seinen Markierungen aus, sucht dann für jeden Vorgänger
-das erste Gate seiner Äquivalenzklasse, und zählt die dazu äquivalenten
-Vorgänger.
-
-Da die Funktionen $\mathtt{Rigid}$ und $\mathtt{Equiv}$ jeweils
-nur konstant viele Variablen der Größe $\mathcal{O}\left(\log n\right)$
-verwenden, ist der Algorithmus platzbeschränkt durch $T\cdot\mathcal{O}\left(\log n\right)$,
-wobei $T$ die maximale Rekursionstiefe von $\mathtt{Equiv}$ ist.
-Weil jeder Aufruf $\mathtt{Equiv}\left(g\right)$ nur Aufrufe $\mathtt{Equiv}\left(h,h'\right)$
-für Vorgänger $h,h'$ von $g$ auslöst, ist $T=T\left(\mathcal{C}\right)$
-die Tiefe des Schaltkreises $\mathcal{C}$.
-\end{proof}
 \begin{algorithm}
 \begin{lyxcode}
 Input:~$\left(G,W,\Sigma,\Omega,U\right)$.
@@ -3851,15 +3854,32 @@ $\textsc{True}$
 
 \end{lyxcode}
 \caption{\label{alg:rigid}Rigider Schaltkreis in $\mathrm{LOGSPACE}$}
-
-
 \end{algorithm}
 
 
+Sei $\sim^{*}$ eine rekursive Erweiterung von $\sim$, die alle Paare
+von Gates $g,g'$ enthält, die aus jeder Äquivalenzklasse bezüglich
+$\sim^{*}$ die gleiche Anzahl Vorgänger besitzen.
+
+Der beschriebene Algorithmus wird $\mathtt{Rigid}\left(g\right)$
+nur aufrufen, wenn $g$ das erste Gate (in der Ordnung von $G$) seiner
+Äquivalenzklasse bezüglich $\sim^{*}$ ist. $\mathtt{Rigid}\left(g\right)$
+gibt $g$ mit seinen Markierungen aus, sucht dann für jeden Vorgänger
+das erste Gate seiner Äquivalenzklasse, und zählt die dazu äquivalenten
+Vorgänger.
+
+Da die Funktionen $\mathtt{Rigid}$ und $\mathtt{Equiv}$ jeweils
+nur konstant viele Variablen der Größe $\mathcal{O}\left(\log n\right)$
+verwenden, ist der Algorithmus platzbeschränkt durch $T\cdot\mathcal{O}\left(\log n\right)$,
+wobei $T$ die maximale Rekursionstiefe von $\mathtt{Equiv}$ ist.
+Weil jeder Aufruf $\mathtt{Equiv}\left(g\right)$ nur Aufrufe $\mathtt{Equiv}\left(h,h'\right)$
+für Vorgänger $h,h'$ von $g$ auslöst, ist $T=T\left(\mathcal{C}\right)$
+die Tiefe des Schaltkreises $\mathcal{C}$.
+\end{proof}
 \pagebreak{}
 
 
-\section{Berechnung der Orbits}
+\section{Berechnung der Orbits und Träger}
 \begin{lem}
 \label{lem:rigide-eindeutig}(nach Satz 9 aus \cite{anderson_et_al:LIPIcs:2014:4445})
 
@@ -4000,7 +4020,7 @@ läuft der Algorithmus in $\left|G\right|^{3}\left|U\right|^{3}$-Zeit.
 \pagebreak{}
 
 
-\section{Auswertung}
+\section{Rekursive Auswertung der Schaltkreise}
 
 Für eine rigide, symmetrische $k$-stellige $\left(\sigma,\mathbb{B}\right)$-Multischaltkreisfamilie
 $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ gilt nach Korollar
@@ -4031,19 +4051,7 @@ Elemente $U\backslash\mathrm{sp}\left(g\right)$ ist für $g$ unbedeutend.
 
 Die Folgerung in diesem Abschnitt passt den Abschnitt 4.3 aus \cite{anderson_et_al:LIPIcs:2014:4445}
 für Multischaltkreise an.
-\begin{defn}
-\textbf{Bildreduktion}
 
-Für eine bijektive Funktion $f:A\rightarrow B$ und eine Teilmenge
-$B'\subseteq B$ sei $f_{\Vert B'}:f^{-1}\left(B'\right)\rightarrow B'$
-die Reduktion von $f$ auf den Teil des Definitionsbereichs, der auf
-$B'$ abgebildet wird:
-\begin{eqnarray*}
-f_{\Vert B'} & \coloneqq & f_{\mid f^{-1}\left(B'\right)}\\
- & = & \left(\left(f^{-1}\right)_{\mid B'}\right)^{-1}
-\end{eqnarray*}
-
-\end{defn}
 
 \begin{defn}
 \textbf{Konsistenz}

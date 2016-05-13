@@ -64,7 +64,7 @@ End
 \bibtex_command default
 \index_command default
 \paperfontsize default
-\spacing single
+\spacing onehalf
 \use_hyperref false
 \papersize default
 \use_geometry true
@@ -94,8 +94,8 @@ End
 \bottommargin 20pheight%
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation indent
-\paragraph_indentation default
+\paragraph_separation skip
+\defskip medskip
 \quotes_language german
 \papercolumns 1
 \papersides 2
@@ -129,17 +129,17 @@ christoph@burschka.de
 \end_layout
 
 \begin_layout Publishers
-Betreuerin: Prof.
- Dr.
- Nicole Schweikardt
-\begin_inset Newline newline
-\end_inset
 
+\shape smallcaps
 Goethe-Universität Frankfurt am Main
 \begin_inset Newline newline
 \end_inset
 
-Wintersemester 2015 / 2016
+
+\shape default
+Betreuerin: Prof.
+ Dr.
+ Nicole Schweikardt
 \end_layout
 
 \begin_layout Standard
@@ -155,52 +155,101 @@ LatexCommand tableofcontents
 Einleitung
 \end_layout
 
-\begin_layout Section
-Übersicht
+\begin_layout Standard
+Wir modellieren Graphen und Datenbanken als Strukturen, die ein Schema von
+ relationalen Prädikaten über einem endlichen Universum interpretieren.
+ Eine Datenbank-Anfrage auf einem solchen Schema wird als Funktion modelliert,
+ die jede endliche Struktur auf eine Relation abbildet.
 \end_layout
 
 \begin_layout Standard
-Wir betrachten die logische Charakterisierung von Booleschen Schaltkreisklassen.
- [...]
-\end_layout
-
-\begin_layout Section
-Ergebnisse
+Von besonderem Interesse ist die Daten-Komplexität solcher Anfragen: Die
+ Komplexität der Auswertung einer festen Anfrage in Abhängigkeit von der
+ Größe der eingegebenen Struktur.
+ Wir betrachten hierbei Klassen von Anfragen, die durch boolesche Schaltkreisfam
+ilien oder Formeln einer relationalen Logik beschrieben werden können.
 \end_layout
 
 \begin_layout Standard
-Für den 
+Da eine Schaltkreisfamilie eine unendliche Sequenz von Schaltkreisen bildet,
+ wird gewöhnlich gefordert, dass diese Schaltkreise effizient für jede Eingabegr
+öße 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ berechnet werden können.
+ Sind sie in Polynomialzeit 
 \begin_inset Formula $P$
 \end_inset
 
--uniformen Teil der Klasse 
-\begin_inset Formula $\mathrm{SBC}$
+ berechenbar, dann nennen wir sie 
+\begin_inset Formula $P$
 \end_inset
 
- von symmetrischen booleschen Schaltkreisfamilien wird eine logische Charakteris
-ierung durch die Fixpunktlogik mit disjunktem Ordnungsprädikat 
-\begin_inset Formula $\mathrm{LFP+\mathbf{ORD}}$
-\end_inset
-
- beschrieben.
+-uniform.
 \end_layout
 
 \begin_layout Standard
-Es wird gezeigt, dass die logische Zählerweiterung 
+Weil boolesche Schaltkreise von Natur aus auf geordneten Strukturen arbeiten,
+ wird außerdem gefordert, dass ihr Ergebnis invariant bezüglich der gewählten
+ Ordnung ist.
+ Wir führen eine strukturelle Einschränkung der Schaltkreise ein, die diese
+ Ordnungsinvarianz garantiert.
+\end_layout
+
+\begin_layout Standard
+Die Logik erster Stufe ist in der Praxis zu eingeschränkt: Selbst einfache
+ Probleme wie die Frage, ob eine Struktur eine gerade Anzahl von Elementen
+ enthält, oder zwei Knoten durch einen Weg beliebiger Länge verbunden sind,
+ können nicht ausgedrückt werden.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Libkin2012"
+
+\end_inset
+
+ Daher erweitern wir die Logik um numerische Prädikate, Fixpunkt-Operatoren
+ und Zähler.
+ Insbesondere betrachten wir Logiken, in denen die numerischen Prädikate
+ 
+\emph on
+disjunkt
+\emph default
+ von dem Universum der eigentlichen Struktur interpretiert werden, und weisen
+ nach, dass solche Logiken gerade die verschiedenen Klassen symmetrischer
+ Schaltkreisfamilien charakterisieren.
+\end_layout
+
+\begin_layout Standard
+Konkret ist die Klasse der symmetrischen booleschen Schaltkreisfamilien
+ äquivalent zu der Logik erster Stufe mit Fixpunkt-Operator und disjunktem
+ Ordnungsprädikat 
+\begin_inset Formula $\mathrm{LFP}+\mathbf{ORD}$
+\end_inset
+
+.
+ Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anderson_et_al:LIPIcs:2014:4445"
+
+\end_inset
+
+ veröffentlicht, und bildet die Grundlage dieser Arbeit.
+\end_layout
+
+\begin_layout Standard
+Die logische Zählerweiterung 
 \begin_inset Formula $\mathrm{LFP}+C$
 \end_inset
 
- zusätzlich die Schaltkreisfamilien mit einem Majority-Operator charakterisiert.
-\end_layout
-
-\begin_layout Standard
-Schließlich wird gezeigt, dass die Erweiterung der Logik um beliebige numerische
- Prädikate alle symmetrischen 
-\begin_inset Formula $P/\mathrm{poly}$
+ charakterisiert zusätzlich die symmetrischen Schaltkreisfamilien mit einem
+ Majority-Operator, und die Erweiterung der Logik um beliebige numerische
+ Prädikate opfert nur die 
+\begin_inset Formula $P$
 \end_inset
 
--uniformen Schaltkreisfamilien charakterisiert.
- (Dieses Resultat ist mit dem für die Zählerweiterung kombinierbar.)
+-Uniformität.
 \end_layout
 
 \begin_layout Theorem
@@ -280,10 +329,12 @@ Die Logik
 
 \end_deeper
 \begin_layout Standard
-Das Ergebnis wird für Schaltkreisfamilien konstanter Tiefe angepasst, in
- dem die technischen Resultate von Anderson und Dawar mit Hinblick auf den
- Erhalt der Schaltkreistiefe abgeändert werden.
- Es wird eine Charakterisierung der symmetrischen 
+Wir erweitern dieses Ergebnis für Schaltkreisfamilien konstanter Tiefe.
+ Es wird eine Charakterisierung der 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+-uniformen symmetrischen 
 \begin_inset Formula $\mathrm{AC}^{0}$
 \end_inset
 
@@ -336,7 +387,7 @@ Die Logik
 \begin_layout Standard
 Die Einschränkung auf symmetrische Schaltkreisfamilien bringt eine echte
  Reduktion der Ausdrucksstärke mit sich.
- Zum Nachweis für 
+ Um dies für 
 \begin_inset Formula $\mathrm{AC}^{0}$
 \end_inset
 
@@ -13298,7 +13349,7 @@ Von Schaltkreisfamilien zu Formeln
 \end_layout
 
 \begin_layout Section
-Rigidität
+Berechnung von rigiden Schaltkreisen
 \end_layout
 
 \begin_layout Standard
@@ -14147,113 +14198,10 @@ reference "alg:rigid"
 \end_layout
 
 \begin_layout Proof
-Sei 
-\begin_inset Formula $\sim^{*}$
-\end_inset
-
- eine rekursive Erweiterung von 
-\begin_inset Formula $\sim$
-\end_inset
-
-, die alle Paare von Gates 
-\begin_inset Formula $g,g'$
-\end_inset
-
- enthält, die aus jeder Äquivalenzklasse bezüglich 
-\begin_inset Formula $\sim^{*}$
-\end_inset
-
- die gleiche Anzahl Vorgänger besitzen.
-\end_layout
-
-\begin_layout Proof
-Der beschriebene Algorithmus wird 
-\begin_inset Formula $\mathtt{Rigid}\left(g\right)$
-\end_inset
-
- nur aufrufen, wenn 
-\begin_inset Formula $g$
-\end_inset
-
- das erste Gate (in der Ordnung von 
-\begin_inset Formula $G$
-\end_inset
-
-) seiner Äquivalenzklasse bezüglich 
-\begin_inset Formula $\sim^{*}$
-\end_inset
-
- ist.
- 
-\begin_inset Formula $\mathtt{Rigid}\left(g\right)$
-\end_inset
-
- gibt 
-\begin_inset Formula $g$
-\end_inset
-
- mit seinen Markierungen aus, sucht dann für jeden Vorgänger das erste Gate
- seiner Äquivalenzklasse, und zählt die dazu äquivalenten Vorgänger.
-\end_layout
-
-\begin_layout Proof
-Da die Funktionen 
-\begin_inset Formula $\mathtt{Rigid}$
-\end_inset
-
- und 
-\begin_inset Formula $\mathtt{Equiv}$
-\end_inset
-
- jeweils nur konstant viele Variablen der Größe 
-\begin_inset Formula $\mathcal{O}\left(\log n\right)$
-\end_inset
-
- verwenden, ist der Algorithmus platzbeschränkt durch 
-\begin_inset Formula $T\cdot\mathcal{O}\left(\log n\right)$
-\end_inset
-
-, wobei 
-\begin_inset Formula $T$
-\end_inset
-
- die maximale Rekursionstiefe von 
-\begin_inset Formula $\mathtt{Equiv}$
-\end_inset
-
- ist.
- Weil jeder Aufruf 
-\begin_inset Formula $\mathtt{Equiv}\left(g\right)$
-\end_inset
-
- nur Aufrufe 
-\begin_inset Formula $\mathtt{Equiv}\left(h,h'\right)$
-\end_inset
-
- für Vorgänger 
-\begin_inset Formula $h,h'$
-\end_inset
-
- von 
-\begin_inset Formula $g$
-\end_inset
-
- auslöst, ist 
-\begin_inset Formula $T=T\left(\mathcal{C}\right)$
-\end_inset
-
- die Tiefe des Schaltkreises 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float algorithm
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout LyX-Code
 Input: 
@@ -14571,13 +14519,112 @@ Rigider Schaltkreis in
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\sim^{*}$
+\end_inset
+
+ eine rekursive Erweiterung von 
+\begin_inset Formula $\sim$
+\end_inset
+
+, die alle Paare von Gates 
+\begin_inset Formula $g,g'$
+\end_inset
+
+ enthält, die aus jeder Äquivalenzklasse bezüglich 
+\begin_inset Formula $\sim^{*}$
+\end_inset
+
+ die gleiche Anzahl Vorgänger besitzen.
+\end_layout
+
+\begin_layout Proof
+Der beschriebene Algorithmus wird 
+\begin_inset Formula $\mathtt{Rigid}\left(g\right)$
+\end_inset
+
+ nur aufrufen, wenn 
+\begin_inset Formula $g$
+\end_inset
+
+ das erste Gate (in der Ordnung von 
+\begin_inset Formula $G$
+\end_inset
+
+) seiner Äquivalenzklasse bezüglich 
+\begin_inset Formula $\sim^{*}$
+\end_inset
+
+ ist.
+ 
+\begin_inset Formula $\mathtt{Rigid}\left(g\right)$
+\end_inset
+
+ gibt 
+\begin_inset Formula $g$
+\end_inset
+
+ mit seinen Markierungen aus, sucht dann für jeden Vorgänger das erste Gate
+ seiner Äquivalenzklasse, und zählt die dazu äquivalenten Vorgänger.
+\end_layout
+
+\begin_layout Proof
+Da die Funktionen 
+\begin_inset Formula $\mathtt{Rigid}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathtt{Equiv}$
+\end_inset
+
+ jeweils nur konstant viele Variablen der Größe 
+\begin_inset Formula $\mathcal{O}\left(\log n\right)$
+\end_inset
+
+ verwenden, ist der Algorithmus platzbeschränkt durch 
+\begin_inset Formula $T\cdot\mathcal{O}\left(\log n\right)$
+\end_inset
+
+, wobei 
+\begin_inset Formula $T$
+\end_inset
+
+ die maximale Rekursionstiefe von 
+\begin_inset Formula $\mathtt{Equiv}$
+\end_inset
+
+ ist.
+ Weil jeder Aufruf 
+\begin_inset Formula $\mathtt{Equiv}\left(g\right)$
+\end_inset
+
+ nur Aufrufe 
+\begin_inset Formula $\mathtt{Equiv}\left(h,h'\right)$
+\end_inset
+
+ für Vorgänger 
+\begin_inset Formula $h,h'$
+\end_inset
+
+ von 
+\begin_inset Formula $g$
+\end_inset
+
+ auslöst, ist 
+\begin_inset Formula $T=T\left(\mathcal{C}\right)$
+\end_inset
+
+ die Tiefe des Schaltkreises 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -14588,7 +14635,7 @@ Rigider Schaltkreis in
 \end_layout
 
 \begin_layout Section
-Berechnung der Orbits
+Berechnung der Orbits und Träger
 \end_layout
 
 \begin_layout Lemma
@@ -15270,7 +15317,7 @@ Es existieren weniger als
 \end_layout
 
 \begin_layout Section
-Auswertung
+Rekursive Auswertung der Schaltkreise
 \end_layout
 
 \begin_layout Standard
@@ -15428,45 +15475,6 @@ key "anderson_et_al:LIPIcs:2014:4445"
 \end_inset
 
  für Multischaltkreise an.
-\end_layout
-
-\begin_layout Definition
-
-\series bold
-Bildreduktion
-\end_layout
-
-\begin_layout Definition
-Für eine bijektive Funktion 
-\begin_inset Formula $f:A\rightarrow B$
-\end_inset
-
- und eine Teilmenge 
-\begin_inset Formula $B'\subseteq B$
-\end_inset
-
- sei 
-\begin_inset Formula $f_{\Vert B'}:f^{-1}\left(B'\right)\rightarrow B'$
-\end_inset
-
- die Reduktion von 
-\begin_inset Formula $f$
-\end_inset
-
- auf den Teil des Definitionsbereichs, der auf 
-\begin_inset Formula $B'$
-\end_inset
-
- abgebildet wird:
-\begin_inset Formula 
-\begin{eqnarray*}
-f_{\Vert B'} & \coloneqq & f_{\mid f^{-1}\left(B'\right)}\\
- & = & \left(\left(f^{-1}\right)_{\mid B'}\right)^{-1}
-\end{eqnarray*}
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout --Separator--
