@@ -16954,6 +16954,10 @@ Für
 .
 \end_layout
 
+\begin_layout Proof
+[...]
+\end_layout
+
 \begin_layout Standard
 \begin_inset Newpage pagebreak
 \end_inset
@@ -17106,6 +17110,10 @@ Hierbei sei
 \end_inset
 
 
+\end_layout
+
+\begin_layout Proof
+[...]
 \end_layout
 
 \begin_layout Chapter
@@ -17268,15 +17276,7 @@ Es existiert eine Graph-Anfrage
 \end_layout
 
 \begin_layout Proof
-Es sei 
-\end_layout
-
-\begin_layout Chapter
-Schluss
-\end_layout
-
-\begin_layout Standard
-[...]
+Es sei [...]
 \end_layout
 
 \begin_layout Standard
@@ -17306,7 +17306,7 @@ options "plain"
 \end_layout
 
 \begin_layout Chapter*
-Eidesstattliche Erklärung
+Erklärung
 \end_layout
 
 \begin_layout Standard
@@ -17326,9 +17326,10 @@ addcontentsline{toc}{chapter}{Eidesstattliche Erklärung}
 \end_layout
 
 \begin_layout Standard
-Hiermit versichere ich an Eides statt, dass ich den Inhalt der vorliegenden
- Arbeit selbständig ohne fremde Hilfe angefertigt und nur die angegebenen
- Hilfsmittel verwendet habe.
+Gemäß der Ordnung für den Masterstudiengang Informatik, § 24 Abs.
+ 12 bestätige ich hiermit, dass ich die vorliegende Arbeit selbständig ohne
+ fremde Hilfe angefertigt und nur die angegebenen Hilfsmittel verwendet
+ habe.
 \end_layout
 
 \begin_layout Standard
