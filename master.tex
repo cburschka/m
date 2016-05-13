@@ -52,6 +52,8 @@
 \fi
   \theoremstyle{definition}
   \newtheorem{defn}[thm]{\protect\definitionname}
+  \theoremstyle{remark}
+  \newtheorem{notation}[thm]{\protect\notationname}
 % labeling-like list based on enumitem's description list with
 % mandatory second argument (label-pattern):
 \newenvironment{elabeling}[2][]%
@@ -59,18 +61,18 @@
 \begin{description}[font=\normalfont,style=sameline,
 leftmargin=\lyxlabelwidth,#1]}
 {\end{description}}
-  \theoremstyle{definition}
-  \newtheorem*{example*}{\protect\examplename}
   \theoremstyle{plain}
   \newtheorem{prop}[thm]{\protect\propositionname}
+  \theoremstyle{definition}
+  \newtheorem{example}[thm]{\protect\examplename}
+  \theoremstyle{definition}
+  \newtheorem*{example*}{\protect\examplename}
  \newlist{casenv}{enumerate}{4}
  \setlist[casenv]{leftmargin=*,align=left,widest={iiii}}
  \setlist[casenv,1]{label={{\itshape\ \casename} \arabic*.},ref=\arabic*}
  \setlist[casenv,2]{label={{\itshape\ \casename} \roman*.},ref=\roman*}
  \setlist[casenv,3]{label={{\itshape\ \casename\ \alph*.}},ref=\alph*}
  \setlist[casenv,4]{label={{\itshape\ \casename} \arabic*.},ref=\arabic*}
-  \theoremstyle{definition}
-  \newtheorem{example}[thm]{\protect\examplename}
   \theoremstyle{remark}
   \newtheorem*{rem*}{\protect\remarkname}
   \theoremstyle{plain}
@@ -123,6 +125,7 @@ leftmargin=\lyxlabelwidth,#1]}
   \addto\captionsenglish{\renewcommand{\examplename}{Example}}
   \addto\captionsenglish{\renewcommand{\factname}{Fact}}
   \addto\captionsenglish{\renewcommand{\lemmaname}{Lemma}}
+  \addto\captionsenglish{\renewcommand{\notationname}{Notation}}
   \addto\captionsenglish{\renewcommand{\propositionname}{Proposition}}
   \addto\captionsenglish{\renewcommand{\remarkname}{Remark}}
   \addto\captionsenglish{\renewcommand{\theoremname}{Theorem}}
@@ -132,6 +135,7 @@ leftmargin=\lyxlabelwidth,#1]}
   \addto\captionsngerman{\renewcommand{\examplename}{Beispiel}}
   \addto\captionsngerman{\renewcommand{\factname}{Fakt}}
   \addto\captionsngerman{\renewcommand{\lemmaname}{Lemma}}
+  \addto\captionsngerman{\renewcommand{\notationname}{Notation}}
   \addto\captionsngerman{\renewcommand{\propositionname}{Satz}}
   \addto\captionsngerman{\renewcommand{\remarkname}{Bemerkung}}
   \addto\captionsngerman{\renewcommand{\theoremname}{Theorem}}
@@ -141,6 +145,7 @@ leftmargin=\lyxlabelwidth,#1]}
   \providecommand{\examplename}{Beispiel}
   \providecommand{\factname}{Fakt}
   \providecommand{\lemmaname}{Lemma}
+  \providecommand{\notationname}{Notation}
   \providecommand{\propositionname}{Satz}
   \providecommand{\remarkname}{Bemerkung}
  \addto\captionsenglish{\renewcommand{\casename}{Case}}
@@ -630,9 +635,12 @@ für jede Struktur $\mathfrak{A}$ und Belegung $\beta$.
 Für einen $\mathcal{L}\left[\sigma\right]$-Term $t$ ist $\left\llbracket t\right\rrbracket \left(\mathfrak{A},\beta\right)\in A$
 ein Element des Universums. Für eine $\mathcal{L}\left[\sigma\right]$-Formel
 $\varphi$ ist $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\in\left\{ 0,1\right\} $
-ein Wahrheitswert.
-\end{defn}
-
+ein Wahrheitswert.\end{defn}
+\begin{notation}
+Wir verwenden den Begriff ,,Ausdruck`` als Oberbegriff der Formeln
+und Terme einer Logik, und bezeichnen Ausdrücke mit dem Buchstaben
+$\omega$. Terme werden mit kleinen Buchstaben benannt, und Formeln
+mit den Buchstaben $\varphi$, $\psi$ oder $\chi$.\end{notation}
 \begin{defn}
 Für eine Formel $\varphi$ und ein Tupel $\bar{x}\in\mathbf{var}^{k}$
 mit $\mathrm{frei}\left(\varphi\right)=\left\{ x_{1},\cdots,x_{k}\right\} $
@@ -821,14 +829,15 @@ diese wird auch durch $X/k\in\mathbf{var}_{2}$ notiert. Die Funktionen
 $\mathrm{frei}$ und $\mathrm{var}$, so wie die Belegungen $\beta$,
 werden auf $\mathbf{var}\uplus\mathbf{var}_{2}$ erweitert.
 \begin{eqnarray*}
+\mathrm{frei}\left(\varphi\right),\mathrm{var}\left(\varphi\right) & \subseteq & \mathbf{var}\uplus\mathbf{var}_{2}\\
 \beta:\mathrm{frei}\left(\varphi\right) & \rightarrow & A\cup\bigcup_{k\in\mathbb{N}}A^{k}\\
 \beta X & \subseteq & A^{\mathrm{ar}\left(X\right)}\,\mathrm{f\ddot{u}r}\,X\in\mathbf{var}_{2}
 \end{eqnarray*}
 
 \end{defn}
-Wir möchten syntaktisch garantieren, dass der Fixpunkt der selbstbezüglichen
-Formel monoton wächst. Dafür wird verlangt, dass der Selbstbezug nicht
-negiert vorkommt.
+Wir möchten syntaktisch garantieren, dass der Fixpunkt der selbstreferenziellen
+Formel monoton wächst. Dafür wird verlangt, dass die Selbstreferenz
+nicht negiert vorkommt.
 \begin{defn}
 \textbf{Positivität}
 
@@ -836,7 +845,7 @@ Wir definieren die (nicht disjunkten) Mengen der $X$-positiven und
 $X$-negativen $\mathcal{L}\left[\sigma\right]$-Formeln für $X\in\mathbf{var}_{2}$
 wie folgt:
 \begin{itemize}
-\item Jede $\mathcal{L}\left[\sigma\right]$-Formel $\varphi$ mit $X\notin\mathrm{frei}\left(\varphi\right)$
+\item Jeder $\mathcal{L}\left[\sigma\right]$-Ausdruck $\omega$ mit $X\notin\mathrm{frei}\left(\omega\right)$
 ist sowohl $X$-positiv als auch $X$-negativ.
 \item Für jede $X$-positive Formel $\varphi$ ist $\neg\varphi$ $X$-negativ,
 und umgekehrt.
@@ -850,7 +859,7 @@ Formel $\varphi$ ist $Qx\varphi$ ebenfalls $X$-positiv (beziehungsweise
 $X$-negativ).
 \end{itemize}
 \end{defn}
-Nun definieren wir die Fixpunkt-Erweiterung einer Logik.
+Nun definieren wir die Fixpunkt-Erweiterung.
 \begin{defn}
 \label{def:lfp}Für eine Logik $\mathcal{L}$ und eine relationale
 Signatur $\sigma$ erweitert $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\sigma\right]$
@@ -895,14 +904,15 @@ F_{\beta} & : & 2^{A^{k}}\rightarrow2^{A^{k}}\\
 F_{\beta}\left(Y\right) & \coloneqq & \left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\varphi^{\beta\cup\left(X\mapsto Y\right)}\right\} 
 \end{eqnarray*}
 Das heißt: $F_{\beta}\left(Y\right)$ ist das Anfrageergebnis von
-$\varphi^{\beta\cup\left(X\mapsto Y\right)}$ auf $\mathfrak{A}$.
+$\varphi$ auf $\mathfrak{A}$ unter der Belegung der Parameter mit
+$\beta$ und der Variable $X$ mit der Relation $Y$.
 
 Aus der $X$-Positivität folgt nach \cite{Gurevich1986,Libkin2012}
-die Monotonie von $F$, und daher induktiv die Existenz eines kleinsten
-Fixpunkts $F^{\infty}\left(\emptyset\right)$:
-\begin{eqnarray*}
-A\subseteq B & \Rightarrow & F\left(A\right)\subseteq F\left(B\right)
-\end{eqnarray*}
+die Monotonie von $F_{\beta}$
+\[
+A\subseteq B\Rightarrow F_{\beta}\left(A\right)\subseteq F_{\beta}\left(B\right)
+\]
+und daher induktiv die Existenz eines kleinsten Fixpunkts $F^{\infty}\left(\emptyset\right)$:
 \[
 \emptyset\subseteq F_{\beta}\left(\emptyset\right)\subseteq\cdots\subseteq F_{\beta}^{\infty}\left(\emptyset\right)\subseteq A^{k}
 \]
@@ -922,15 +932,7 @@ ist:
 \left\llbracket \left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket X\bar{y}\right\rrbracket \left(\mathfrak{A},\beta\cup\left(X\mapsto F_{\beta'}^{\infty}\left(\emptyset\right)\right)\right)
 \end{eqnarray*}
 
-\begin{example*}
-Die folgende $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\left\{ E\right\} \right]$-Formel
-$\varphi\left(u,v\right)$ ist erfüllt, wenn $u$ und $v$ durch einen
-Weg beliebiger Länge verbunden sind: 
-\[
-\varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{T,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge T\left(z,y\right)\right)\vee x\dot{=}y\right)\right]\left(u,v\right)
-\]
 
-\end{example*}
 Im folgenden wird die Logik $\mathrm{FO}+\mathrm{LFP}$ abgekürzt
 als $\mathrm{LFP}$ bezeichnet. Ferner werden wir uns auf das \emph{parameterfreie}
 Fragment der Logik beschränken, was (bis auf einen Zuwachs in der
@@ -950,8 +952,16 @@ $\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$ gilt:
 $\varphi$ kann (unter Zuwachs der Länge $\left\Vert \varphi\right\Vert $
 und Größe $\left|\mathrm{var}\left(\varphi\right)\right|$) in eine
 parameterfreie $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi'$
-übersetzt werden.\cite{Zaid,Grohe2005,Dziembowski96bounded-variablefixpoint}
-\end{prop}
+übersetzt werden.\cite{Zaid,Grohe2005,Dziembowski96bounded-variablefixpoint}\end{prop}
+\begin{example}
+Die folgende $\mathrm{LFP}\left[\left\{ E\right\} \right]$-Formel
+$\varphi\left(u,v\right)$ ist erfüllt, wenn $u$ und $v$ durch einen
+Weg beliebiger Länge verbunden sind: 
+\[
+\varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{T,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge T\left(z,y\right)\right)\vee x\dot{=}y\right)\right]\left(u,v\right)
+\]
+
+\end{example}
 
 \section{Logiken mit disjunkten numerischen Erweiterungen}
 
@@ -3797,14 +3807,12 @@ Main:
 \begin{lyxcode}
 Für~jedes~Gate~$g\in G$:
 \begin{lyxcode}
-Existiert~kein~Gate~$g'<g$~mit~Equiv($g,g'$)?
+Falls~kein~Gate~$g'<g$~mit~Equiv($g,g'$)~existiert:
 \begin{lyxcode}
 Rigid($g$).
 \end{lyxcode}
 \end{lyxcode}
 \end{lyxcode}
-
-
 Rigid($g$):
 \begin{lyxcode}
 Gib~$g$~und~$\Sigma\left(g\right)$~aus.
@@ -3813,15 +3821,13 @@ Für~alle~$\bar{t}\in U^{k}$~mit~$\Omega\left(\bar{t}\right)=g$:
 \begin{lyxcode}
 Gib~$\Omega\left(\bar{t}\right)=g$~aus.
 \end{lyxcode}
-Für~alle~Vorgänger~$h$~von~$g$:
+Für~jedes~Gate~$h\in G$:
 \begin{lyxcode}
-Falls~kein~Vorgänger~$h'<h$~mit~Equiv($h,h'$)~existiert:
+Falls~kein~Gate~$h'<h$~mit~Equiv($h,h'$)~existiert:
 \begin{lyxcode}
-Finde~das~erste~Gate~$h'\in G$~mit~Equiv($h,h'$).
+$i\leftarrow0$.
 
-$i\leftarrow1$.
-
-Für~alle~Vorgänger~$h''>h$~mit~Equiv($h,h'')$.
+Für~alle~Vorgänger~$h''$~von~$g$~mit~Equiv($h,h'')$.
 \begin{lyxcode}
 $i\leftarrow i+1$.
 \end{lyxcode}
@@ -3829,8 +3835,6 @@ Gib~$\mathcal{W}\left(h,g\right)=i$~aus.
 \end{lyxcode}
 \end{lyxcode}
 \end{lyxcode}
-
-
 Equiv($g,g'$):
 \begin{lyxcode}
 Falls~nicht~$\Sigma\left(g\right)=\Sigma\left(g'\right)$:~$\textsc{False}$
@@ -3859,17 +3863,20 @@ $\textsc{True}$
 
 Sei $\sim^{*}$ eine rekursive Erweiterung von $\sim$, die alle Paare
 von Gates $g,g'$ enthält, die aus jeder Äquivalenzklasse bezüglich
-$\sim^{*}$ die gleiche Anzahl Vorgänger besitzen.
+$\sim^{*}$ die gleiche Anzahl Vorgänger besitzen. Ferner sei $\leqslant$
+eine implizite Ordnung der Gates $G$. Ein Gate $g\in G$, für das
+$g\not\sim^{*}g'$ für alle $g'<g$ gilt, nennen wir den Repräsentanten
+seiner Äquivalenzklasse.
 
 Der beschriebene Algorithmus wird $\mathtt{Rigid}\left(g\right)$
-nur aufrufen, wenn $g$ das erste Gate (in der Ordnung von $G$) seiner
-Äquivalenzklasse bezüglich $\sim^{*}$ ist. $\mathtt{Rigid}\left(g\right)$
-gibt $g$ mit seinen Markierungen aus, sucht dann für jeden Vorgänger
-das erste Gate seiner Äquivalenzklasse, und zählt die dazu äquivalenten
-Vorgänger.
+für jeden Repräsentanten $g\in G$ aufrufen. $\mathtt{Rigid}\left(g\right)$
+gibt dann $g$ mit seinen Markierungen aus, findet dann jeden Repräsentanten
+$h\in G$, zählt die zu $h$ äquivalenten Vorgänger von $g$ und gibt
+die entsprechende Multikante $\mathcal{W}\left(h,g\right)\in\mathbb{N}$
+aus.
 
 Da die Funktionen $\mathtt{Rigid}$ und $\mathtt{Equiv}$ jeweils
-nur konstant viele Variablen der Größe $\mathcal{O}\left(\log n\right)$
+nur konstant viele lokale Variablen der Größe $\mathcal{O}\left(\log n\right)$
 verwenden, ist der Algorithmus platzbeschränkt durch $T\cdot\mathcal{O}\left(\log n\right)$,
 wobei $T$ die maximale Rekursionstiefe von $\mathtt{Equiv}$ ist.
 Weil jeder Aufruf $\mathtt{Equiv}\left(g\right)$ nur Aufrufe $\mathtt{Equiv}\left(h,h'\right)$
@@ -3951,6 +3958,56 @@ bricht ab.)
 Die Schritte 2 bis 3 werden höchstens $\left|G\right|$-mal wiederholt,
 und jeder Schritt erfordert $\left|G\right|^{2}$-Zeit, so dass der
 Algorithmus in $\left|G\right|^{3}$-Zeit arbeitet.\end{proof}
+\begin{prop}
+Die obige Konstruktion ist mit $\mathcal{O}\left(T\left(\mathcal{C}\right)\log n\right)$
+Speicherplatz berechenbar, und ist für Schaltkreisfamilien in $\mathrm{AC}^{0}$
+daher in $\mathrm{LOGSPACE}$.\end{prop}
+\begin{proof}
+Der Algorithmus \ref{alg:aut} berechnet den Automorphismus $\hat{\pi}$,
+in dem für jedes Paar von Gates $g,g'$ rekursiv geprüft wird, ob
+$\hat{\pi}g=\hat{\pi}g'$.
+
+Da jede Funktion nur konstant viele lokale Variablen der Größe $\mathcal{O}\left(\log n\right)$
+verwendet, ist der Speicherplatz durch die Funktion $T\cdot\mathcal{O}\left(\log n\right)$
+beschränkt.
+
+\begin{algorithm}
+\begin{lyxcode}
+Input:~$\left(G,W,\Sigma,\Omega,U\right)$,~$k$,~$\pi$.
+
+Main:
+\begin{lyxcode}
+Für~$g,g'\in G$:
+\begin{lyxcode}
+Falls~Aut($g,g'$):
+\begin{lyxcode}
+Gib~$\hat{\pi}\left(g\right)=g'$~aus.
+\end{lyxcode}
+\end{lyxcode}
+\end{lyxcode}
+Aut($g,g'$):
+\begin{lyxcode}
+Falls~$\Sigma\left(g\right)\neq\Sigma\left(g'\right)\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} $:~$\textsc{False}$
+
+Falls~$\Sigma\left(g\right)=R\bar{t}$,~$\Sigma\left(g'\right)\neq R\pi\bar{t}$:~False
+
+Für~$\bar{t}\in U^{k}$:
+\begin{lyxcode}
+Falls~$\Omega\left(\bar{t}\right)=g$~und~$\Omega\left(\pi\bar{t}\right)\neq g'$:~$\textsc{False}$
+\end{lyxcode}
+Für~jeden~Vorgänger~$h$~von~$g$:
+\begin{lyxcode}
+Falls~kein~Vorgänger~$h'$~von~$g'$~mit~Aut($h,h'$)~existiert:
+\begin{lyxcode}
+$\textsc{False}$
+\end{lyxcode}
+\end{lyxcode}
+$\textsc{True}$
+\end{lyxcode}
+\end{lyxcode}
+\caption{\label{alg:aut}Automorphismus in $\mathrm{LOGSPACE}$}
+\end{algorithm}
+\end{proof}
 \begin{lem}
 (nach Lemma 26 aus \cite{anderson_et_al:LIPIcs:2014:4445})
 

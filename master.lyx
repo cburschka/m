@@ -2059,8 +2059,35 @@ Für einen
  ein Wahrheitswert.
 \end_layout
 
-\begin_layout --Separator--
+\begin_layout Notation
+Wir verwenden den Begriff 
+\begin_inset Quotes gld
+\end_inset
 
+Ausdruck
+\begin_inset Quotes grd
+\end_inset
+
+ als Oberbegriff der Formeln und Terme einer Logik, und bezeichnen Ausdrücke
+ mit dem Buchstaben 
+\begin_inset Formula $\omega$
+\end_inset
+
+.
+ Terme werden mit kleinen Buchstaben benannt, und Formeln mit den Buchstaben
+ 
+\begin_inset Formula $\varphi$
+\end_inset
+
+, 
+\begin_inset Formula $\psi$
+\end_inset
+
+ oder 
+\begin_inset Formula $\chi$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Definition
@@ -2849,6 +2876,7 @@ Sei
  erweitert.
 \begin_inset Formula 
 \begin{eqnarray*}
+\mathrm{frei}\left(\varphi\right),\mathrm{var}\left(\varphi\right) & \subseteq & \mathbf{var}\uplus\mathbf{var}_{2}\\
 \beta:\mathrm{frei}\left(\varphi\right) & \rightarrow & A\cup\bigcup_{k\in\mathbb{N}}A^{k}\\
 \beta X & \subseteq & A^{\mathrm{ar}\left(X\right)}\,\mathrm{für}\,X\in\mathbf{var}_{2}
 \end{eqnarray*}
@@ -2859,9 +2887,9 @@ Sei
 \end_layout
 
 \begin_layout Standard
-Wir möchten syntaktisch garantieren, dass der Fixpunkt der selbstbezüglichen
+Wir möchten syntaktisch garantieren, dass der Fixpunkt der selbstreferenziellen
  Formel monoton wächst.
- Dafür wird verlangt, dass der Selbstbezug nicht negiert vorkommt.
+ Dafür wird verlangt, dass die Selbstreferenz nicht negiert vorkommt.
 \end_layout
 
 \begin_layout Definition
@@ -2892,16 +2920,16 @@ Wir definieren die (nicht disjunkten) Mengen der
 
 \begin_deeper
 \begin_layout Itemize
-Jede 
+Jeder 
 \begin_inset Formula $\mathcal{L}\left[\sigma\right]$
 \end_inset
 
--Formel 
-\begin_inset Formula $\varphi$
+-Ausdruck 
+\begin_inset Formula $\omega$
 \end_inset
 
  mit 
-\begin_inset Formula $X\notin\mathrm{frei}\left(\varphi\right)$
+\begin_inset Formula $X\notin\mathrm{frei}\left(\omega\right)$
 \end_inset
 
  ist sowohl 
@@ -3009,7 +3037,7 @@ Für einen Quantor
 
 \end_deeper
 \begin_layout Standard
-Nun definieren wir die Fixpunkt-Erweiterung einer Logik.
+Nun definieren wir die Fixpunkt-Erweiterung.
 \end_layout
 
 \begin_layout Definition
@@ -3227,11 +3255,23 @@ Das heißt:
 \end_inset
 
  ist das Anfrageergebnis von 
-\begin_inset Formula $\varphi^{\beta\cup\left(X\mapsto Y\right)}$
+\begin_inset Formula $\varphi$
 \end_inset
 
  auf 
 \begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ unter der Belegung der Parameter mit 
+\begin_inset Formula $\beta$
+\end_inset
+
+ und der Variable 
+\begin_inset Formula $X$
+\end_inset
+
+ mit der Relation 
+\begin_inset Formula $Y$
 \end_inset
 
 .
@@ -3250,22 +3290,22 @@ key "Gurevich1986,Libkin2012"
 \end_inset
 
  die Monotonie von 
-\begin_inset Formula $F$
+\begin_inset Formula $F_{\beta}$
 \end_inset
 
-, und daher induktiv die Existenz eines kleinsten Fixpunkts 
+
+\begin_inset Formula 
+\[
+A\subseteq B\Rightarrow F_{\beta}\left(A\right)\subseteq F_{\beta}\left(B\right)
+\]
+
+\end_inset
+
+und daher induktiv die Existenz eines kleinsten Fixpunkts 
 \begin_inset Formula $F^{\infty}\left(\emptyset\right)$
 \end_inset
 
 :
-\begin_inset Formula 
-\begin{eqnarray*}
-A\subseteq B & \Rightarrow & F\left(A\right)\subseteq F\left(B\right)
-\end{eqnarray*}
-
-\end_inset
-
-
 \begin_inset Formula 
 \[
 \emptyset\subseteq F_{\beta}\left(\emptyset\right)\subseteq\cdots\subseteq F_{\beta}^{\infty}\left(\emptyset\right)\subseteq A^{k}
@@ -3319,34 +3359,6 @@ Für eine Belegung
 \beta' & \coloneqq & \beta_{\mid\mathrm{frei}\left(\psi\right)\backslash\left\{ X,x_{1},\cdots,x_{k}\right\} }\\
 \left\llbracket \left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket X\bar{y}\right\rrbracket \left(\mathfrak{A},\beta\cup\left(X\mapsto F_{\beta'}^{\infty}\left(\emptyset\right)\right)\right)
 \end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Example*
-Die folgende 
-\begin_inset Formula $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\left\{ E\right\} \right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi\left(u,v\right)$
-\end_inset
-
- ist erfüllt, wenn 
-\begin_inset Formula $u$
-\end_inset
-
- und 
-\begin_inset Formula $v$
-\end_inset
-
- durch einen Weg beliebiger Länge verbunden sind: 
-\begin_inset Formula 
-\[
-\varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{T,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge T\left(z,y\right)\right)\vee x\dot{=}y\right)\right]\left(u,v\right)
-\]
 
 \end_inset
 
@@ -3441,6 +3453,34 @@ Jede
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Zaid,Grohe2005,Dziembowski96bounded-variablefixpoint"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example
+Die folgende 
+\begin_inset Formula $\mathrm{LFP}\left[\left\{ E\right\} \right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi\left(u,v\right)$
+\end_inset
+
+ ist erfüllt, wenn 
+\begin_inset Formula $u$
+\end_inset
+
+ und 
+\begin_inset Formula $v$
+\end_inset
+
+ durch einen Weg beliebiger Länge verbunden sind: 
+\begin_inset Formula 
+\[
+\varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{T,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge T\left(z,y\right)\right)\vee x\dot{=}y\right)\right]\left(u,v\right)
+\]
 
 \end_inset
 
@@ -14207,7 +14247,7 @@ reference "alg:rigid"
 \begin_inset Float algorithm
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout LyX-Code
 Input: 
@@ -14232,7 +14272,7 @@ Für jedes Gate
 
 \begin_deeper
 \begin_layout LyX-Code
-Existiert kein Gate 
+Falls kein Gate 
 \begin_inset Formula $g'<g$
 \end_inset
 
@@ -14240,7 +14280,7 @@ Existiert kein Gate
 \begin_inset Formula $g,g'$
 \end_inset
 
-)?
+) existiert:
 \end_layout
 
 \begin_deeper
@@ -14255,10 +14295,6 @@ Rigid(
 \end_deeper
 \end_deeper
 \end_deeper
-\begin_layout LyX-Code
-
-\end_layout
-
 \begin_layout LyX-Code
 Rigid(
 \begin_inset Formula $g$
@@ -14303,12 +14339,8 @@ Gib
 
 \end_deeper
 \begin_layout LyX-Code
-Für alle Vorgänger 
-\begin_inset Formula $h$
-\end_inset
-
- von 
-\begin_inset Formula $g$
+Für jedes Gate 
+\begin_inset Formula $h\in G$
 \end_inset
 
 :
@@ -14316,7 +14348,7 @@ Für alle Vorgänger
 
 \begin_deeper
 \begin_layout LyX-Code
-Falls kein Vorgänger 
+Falls kein Gate 
 \begin_inset Formula $h'<h$
 \end_inset
 
@@ -14329,19 +14361,7 @@ Falls kein Vorgänger
 
 \begin_deeper
 \begin_layout LyX-Code
-Finde das erste Gate 
-\begin_inset Formula $h'\in G$
-\end_inset
-
- mit Equiv(
-\begin_inset Formula $h,h'$
-\end_inset
-
-).
-\end_layout
-
-\begin_layout LyX-Code
-\begin_inset Formula $i\leftarrow1$
+\begin_inset Formula $i\leftarrow0$
 \end_inset
 
 .
@@ -14349,7 +14369,11 @@ Finde das erste Gate
 
 \begin_layout LyX-Code
 Für alle Vorgänger 
-\begin_inset Formula $h''>h$
+\begin_inset Formula $h''$
+\end_inset
+
+ von 
+\begin_inset Formula $g$
 \end_inset
 
  mit Equiv(
@@ -14379,10 +14403,6 @@ Gib
 \end_deeper
 \end_deeper
 \end_deeper
-\begin_layout LyX-Code
-
-\end_layout
-
 \begin_layout LyX-Code
 Equiv(
 \begin_inset Formula $g,g'$
@@ -14548,6 +14568,28 @@ Sei
 \end_inset
 
  die gleiche Anzahl Vorgänger besitzen.
+ Ferner sei 
+\begin_inset Formula $\leqslant$
+\end_inset
+
+ eine implizite Ordnung der Gates 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Ein Gate 
+\begin_inset Formula $g\in G$
+\end_inset
+
+, für das 
+\begin_inset Formula $g\not\sim^{*}g'$
+\end_inset
+
+ für alle 
+\begin_inset Formula $g'<g$
+\end_inset
+
+ gilt, nennen wir den Repräsentanten seiner Äquivalenzklasse.
 \end_layout
 
 \begin_layout Proof
@@ -14555,29 +14597,36 @@ Der beschriebene Algorithmus wird
 \begin_inset Formula $\mathtt{Rigid}\left(g\right)$
 \end_inset
 
- nur aufrufen, wenn 
-\begin_inset Formula $g$
+ für jeden Repräsentanten 
+\begin_inset Formula $g\in G$
 \end_inset
 
- das erste Gate (in der Ordnung von 
-\begin_inset Formula $G$
-\end_inset
-
-) seiner Äquivalenzklasse bezüglich 
-\begin_inset Formula $\sim^{*}$
-\end_inset
-
- ist.
+ aufrufen.
  
 \begin_inset Formula $\mathtt{Rigid}\left(g\right)$
 \end_inset
 
- gibt 
+ gibt dann 
 \begin_inset Formula $g$
 \end_inset
 
- mit seinen Markierungen aus, sucht dann für jeden Vorgänger das erste Gate
- seiner Äquivalenzklasse, und zählt die dazu äquivalenten Vorgänger.
+ mit seinen Markierungen aus, findet dann jeden Repräsentanten 
+\begin_inset Formula $h\in G$
+\end_inset
+
+, zählt die zu 
+\begin_inset Formula $h$
+\end_inset
+
+ äquivalenten Vorgänger von 
+\begin_inset Formula $g$
+\end_inset
+
+ und gibt die entsprechende Multikante 
+\begin_inset Formula $\mathcal{W}\left(h,g\right)\in\mathbb{N}$
+\end_inset
+
+ aus.
 \end_layout
 
 \begin_layout Proof
@@ -14589,7 +14638,7 @@ Da die Funktionen
 \begin_inset Formula $\mathtt{Equiv}$
 \end_inset
 
- jeweils nur konstant viele Variablen der Größe 
+ jeweils nur konstant viele lokale Variablen der Größe 
 \begin_inset Formula $\mathcal{O}\left(\log n\right)$
 \end_inset
 
@@ -14997,6 +15046,246 @@ Die Schritte 2 bis 3 werden höchstens
 \end_inset
 
 -Zeit arbeitet.
+\end_layout
+
+\begin_layout Proposition
+Die obige Konstruktion ist mit 
+\begin_inset Formula $\mathcal{O}\left(T\left(\mathcal{C}\right)\log n\right)$
+\end_inset
+
+ Speicherplatz berechenbar, und ist für Schaltkreisfamilien in 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+ daher in 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Der Algorithmus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:aut"
+
+\end_inset
+
+ berechnet den Automorphismus 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+, in dem für jedes Paar von Gates 
+\begin_inset Formula $g,g'$
+\end_inset
+
+ rekursiv geprüft wird, ob 
+\begin_inset Formula $\hat{\pi}g=\hat{\pi}g'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Da jede Funktion nur konstant viele lokale Variablen der Größe 
+\begin_inset Formula $\mathcal{O}\left(\log n\right)$
+\end_inset
+
+ verwendet, ist der Speicherplatz durch die Funktion 
+\begin_inset Formula $T\cdot\mathcal{O}\left(\log n\right)$
+\end_inset
+
+ beschränkt.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout LyX-Code
+Input: 
+\begin_inset Formula $\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+, 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula $\pi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout LyX-Code
+Main:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Für 
+\begin_inset Formula $g,g'\in G$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Falls Aut(
+\begin_inset Formula $g,g'$
+\end_inset
+
+):
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Gib 
+\begin_inset Formula $\hat{\pi}\left(g\right)=g'$
+\end_inset
+
+ aus.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout LyX-Code
+Aut(
+\begin_inset Formula $g,g'$
+\end_inset
+
+):
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Falls 
+\begin_inset Formula $\Sigma\left(g\right)\neq\Sigma\left(g'\right)\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} $
+\end_inset
+
+: 
+\begin_inset Formula $\textsc{False}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+Falls 
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
+\end_inset
+
+, 
+\begin_inset Formula $\Sigma\left(g'\right)\neq R\pi\bar{t}$
+\end_inset
+
+: False
+\end_layout
+
+\begin_layout LyX-Code
+Für 
+\begin_inset Formula $\bar{t}\in U^{k}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Falls 
+\begin_inset Formula $\Omega\left(\bar{t}\right)=g$
+\end_inset
+
+ und 
+\begin_inset Formula $\Omega\left(\pi\bar{t}\right)\neq g'$
+\end_inset
+
+: 
+\begin_inset Formula $\textsc{False}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+Für jeden Vorgänger 
+\begin_inset Formula $h$
+\end_inset
+
+ von 
+\begin_inset Formula $g$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Falls kein Vorgänger 
+\begin_inset Formula $h'$
+\end_inset
+
+ von 
+\begin_inset Formula $g'$
+\end_inset
+
+ mit Aut(
+\begin_inset Formula $h,h'$
+\end_inset
+
+) existiert:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+\begin_inset Formula $\textsc{False}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout LyX-Code
+\begin_inset Formula $\textsc{True}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:aut"
+
+\end_inset
+
+Automorphismus in 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Lemma
