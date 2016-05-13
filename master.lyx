@@ -407,6 +407,13 @@ Die Einschränkung auf symmetrische Schaltkreisfamilien bringt eine echte
 \end_layout
 
 \begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:fo-arb"
+
+\end_inset
+
+
 \begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
 \end_inset
 
@@ -3948,7 +3955,7 @@ Zählquantor
  (wie 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Schweikardt2002"
+key "Schweikardt:2005:AFL:1071596.1071602"
 
 \end_inset
 
@@ -9753,7 +9760,7 @@ key "Immerman1982,Libkin2012"
 , welches die Fixpunktlogik einschließt.
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Dawar1995a,Kolaitis1992a"
+key "Dawar1995c,Kolaitis1992,Kolaitis1992b"
 
 \end_inset
 
@@ -17164,6 +17171,12 @@ reference "thm:fo"
 \begin_layout Lemma
 
 \series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:Anderson,-Melkebeek,-Schweikardt"
+
+\end_inset
+
 Anderson, Melkebeek, Schweikardt und Segoufin (2012)
 \series default
 
@@ -17189,7 +17202,7 @@ Die Klasse
 \end_layout
 
 \begin_layout Standard
-Der schwere Teil des Beweises (hier nicht ausgeführt) ist die Konstruktion
+Der verwendete Teil des Beweises (hier nicht ausgeführt) ist die Konstruktion
  der Formel für eine beliebige 
 \begin_inset Formula $\mathrm{AC}^{0}$
 \end_inset
@@ -17224,11 +17237,15 @@ ises quantifizieren (mit
 \begin_inset Formula $\mathtt{AND}$
 \end_inset
 
-), und berechnet so die Auswertung.
+), und berechnet so die Auswertung von 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
-Aus dem Lemma lesen wir zusätzlich ab, dass 
+Aus dem Lemma lesen wir direkt ab, dass 
 \begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
 \end_inset
 
@@ -17236,27 +17253,79 @@ Aus dem Lemma lesen wir zusätzlich ab, dass
 \begin_inset Formula $\mathrm{FO}\left(\mathrm{arb}\right)$
 \end_inset
 
--Logik enthalten ist: Eine 
-\begin_inset Formula $\left(\mathrm{FO}+\mathbf{ARB}\right)$
+-Logik enthalten ist (und beweisen somit Teil 1 des Theorems 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:fo-arb"
+
 \end_inset
 
--Formel ist durch eine symmetrische 
+): Eine 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+-Formel ist per Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:fo"
+
+\end_inset
+
+) durch eine symmetrische 
 \begin_inset Formula $\mathrm{AC}^{0}$
 \end_inset
 
--Schaltkreisfamilie berechenbar, und die symmetrischen 
+-Schaltkreisfamilie beschreibbar, und die symmetrische 
 \begin_inset Formula $\mathrm{AC}^{0}$
 \end_inset
 
--Schaltkreise sind in 
+-Schaltkreise sind per Definition in 
 \begin_inset Formula $\mathrm{AC}^{0}$
 \end_inset
 
  enthalten.
 \end_layout
 
-\begin_layout --Separator--
+\begin_layout Standard
+Für den echten Einschluss (Teil 2 des Theorems 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:fo-arb"
 
+\end_inset
+
+) benötigen wir eine Anfrage, die durch eine arb-invariante 
+\begin_inset Formula $\mathrm{FO}\left(\mathrm{arb}\right)$
+\end_inset
+
+-Formel beschrieben wird, jedoch nicht in 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+ definierbar ist.
+ Per Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:Anderson,-Melkebeek,-Schweikardt"
+
+\end_inset
+
+ ist diese Anfrage in 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+, aber per Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:fo"
+
+\end_inset
+
+ nicht im symmetrischen Teil von 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+ beschreibbar.
 \end_layout
 
 \begin_layout Lemma
@@ -17264,15 +17333,7 @@ Es existiert eine Graph-Anfrage
 \begin_inset Formula $q$
 \end_inset
 
-, die durch eine arb-invariante 
-\begin_inset Formula $\mathrm{FO}\left(\mathrm{arb}\right)$
-\end_inset
-
--Formel beschrieben wird, jedoch nicht durch 
-\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
-\end_inset
-
- definierbar ist.
+, die durch eine definierbar ist.
 \end_layout
 
 \begin_layout Proof

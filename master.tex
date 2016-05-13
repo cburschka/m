@@ -250,7 +250,7 @@ verwenden wir die obige Charakterisierung und ein Resultat, dass die
 Logik $\mathrm{FO}+\mathbf{ARB}$ mit disjunktem Orakel von der arb-invarianten
 Logik mit nicht-disjunktem Orakel trennt.
 \begin{thm}
-$\mathrm{FO}+\mathbf{ARB}$, invariantes $\mathrm{FO}\left(\mathrm{arb}\right)$
+\label{thm:fo-arb}$\mathrm{FO}+\mathbf{ARB}$, invariantes $\mathrm{FO}\left(\mathrm{arb}\right)$
 \begin{enumerate}
 \item Jede $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[\sigma\right]$-Formel
 $\varphi$ ist äquivalent zu einer arb-invarianten $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel
@@ -1075,7 +1075,7 @@ t_{\mathrm{DIFF}}\left(x,y\right) & \coloneqq & \#_{z}\left(\neg z\leqslant x\we
 \end{eqnarray*}
 \end{example*}
 \begin{defn}
-\textbf{Zählquantor }$\exists^{=}$ (wie \cite{Schweikardt2002},
+\textbf{Zählquantor }$\exists^{=}$ (wie \cite{Schweikardt:2005:AFL:1071596.1071602},
 aber mit disjunktem Orakel)
 
 Der Zählquantor ist eine zusätzlicher Quantor, der die Zahl der erfüllenden
@@ -2569,7 +2569,7 @@ durch eine Familie von $\mathrm{FO}\left[\sigma\right]$-Formeln $\left(\varphi_{
 mit einer konstanten Anzahl Variablen definiert werden, so dass $\varphi_{n}$
 auf den Strukturen der Größe $n$ äquivalent zu $\varphi$ ist. Dies
 ist vergleichbar zum $k$-Variablen-Fragment der infinitären Logik
-$L_{\infty\omega}^{k}$, welches die Fixpunktlogik einschließt.\cite{Dawar1995a,Kolaitis1992a}
+$L_{\infty\omega}^{k}$, welches die Fixpunktlogik einschließt.\cite{Dawar1995c,Kolaitis1992,Kolaitis1992b}
 Hier hat jedoch jede einzelne Formel $\varphi_{n}$ eine endliche
 Länge.
 \begin{lem}
@@ -4473,13 +4473,14 @@ die Charakterisierung von $\mathrm{AC}^{0}$ durch die arb-invariante
 $\mathrm{FO}\left(\mathrm{arb}\right)$-Logik, und ein Problem, dass
 die Ausdrucksstärke dieser beiden Logiken voneinander trennt.
 \begin{lem}
-\textbf{Anderson, Melkebeek, Schweikardt und Segoufin (2012)}\cite{AMSS-locality}
+\textbf{\label{lem:Anderson,-Melkebeek,-Schweikardt}Anderson, Melkebeek,
+Schweikardt und Segoufin (2012)}\cite{AMSS-locality}
 
 Die Klasse $\mathrm{AC}^{0}$ ist äquivalent zu der Klasse der durch
 arb-invariante $\mathrm{FO}\left(\mathrm{arb}\right)$-Logik definierbaren
 Anfragen.
 \end{lem}
-Der schwere Teil des Beweises (hier nicht ausgeführt) ist die Konstruktion
+Der verwendete Teil des Beweises (hier nicht ausgeführt) ist die Konstruktion
 der Formel für eine beliebige $\mathrm{AC}^{0}$-Schaltkreisfamilie.
 Dazu wird jeder Schaltkreis in eine alternierende Normalform gebracht,
 wonach jeder der $\left|\mathcal{C}\right|^{T\left(\mathcal{C}\right)}$
@@ -4488,20 +4489,25 @@ wird (die Relation dieser Wege ist ein numerisches Prädikat und daher
 in $\mathrm{FO}\left(\mathrm{arb}\right)$-Logik verwendbar). Die
 Formel muss dann nur noch über jede der alternierenden Ebenen des
 Schaltkreises quantifizieren (mit $\exists$ für $\mathtt{OR}$, und
-$\forall$ für $\mathtt{AND}$), und berechnet so die Auswertung.
+$\forall$ für $\mathtt{AND}$), und berechnet so die Auswertung von
+$\mathcal{C}$.
 
-Aus dem Lemma lesen wir zusätzlich ab, dass $\mathrm{FO}+\mathbf{ARB}$
+Aus dem Lemma lesen wir direkt ab, dass $\mathrm{FO}+\mathbf{ARB}$
 in der arb-invarianten $\mathrm{FO}\left(\mathrm{arb}\right)$-Logik
-enthalten ist: Eine $\left(\mathrm{FO}+\mathbf{ARB}\right)$-Formel
-ist durch eine symmetrische $\mathrm{AC}^{0}$-Schaltkreisfamilie
-berechenbar, und die symmetrischen $\mathrm{AC}^{0}$-Schaltkreise
-sind in $\mathrm{AC}^{0}$ enthalten.
+enthalten ist (und beweisen somit Teil 1 des Theorems \ref{thm:fo-arb}):
+Eine $\mathrm{FO}+\mathbf{ARB}$-Formel ist per Theorem \ref{thm:fo})
+durch eine symmetrische $\mathrm{AC}^{0}$-Schaltkreisfamilie beschreibbar,
+und die symmetrische $\mathrm{AC}^{0}$-Schaltkreise sind per Definition
+in $\mathrm{AC}^{0}$ enthalten.
 
-
+Für den echten Einschluss (Teil 2 des Theorems \ref{thm:fo-arb})
+benötigen wir eine Anfrage, die durch eine arb-invariante $\mathrm{FO}\left(\mathrm{arb}\right)$-Formel
+beschrieben wird, jedoch nicht in $\mathrm{FO}+\mathbf{ARB}$ definierbar
+ist. Per Lemma \ref{lem:Anderson,-Melkebeek,-Schweikardt} ist diese
+Anfrage in $\mathrm{AC}^{0}$, aber per Theorem \ref{thm:fo} nicht
+im symmetrischen Teil von $\mathrm{AC}^{0}$ beschreibbar.
 \begin{lem}
-Es existiert eine Graph-Anfrage $q$, die durch eine arb-invariante
-$\mathrm{FO}\left(\mathrm{arb}\right)$-Formel beschrieben wird, jedoch
-nicht durch $\mathrm{FO}+\mathbf{ARB}$ definierbar ist.\end{lem}
+Es existiert eine Graph-Anfrage $q$, die durch eine definierbar ist.\end{lem}
 \begin{proof}
 Es sei {[}...{]}
 \end{proof}
