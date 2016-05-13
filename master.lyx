@@ -546,6 +546,11 @@ Es existiert eine
 \end_layout
 
 \end_deeper
+\begin_layout Standard
+Vermutlich gelten ähnliche Bezüge auch zwischen den symmetrischen und nicht-symm
+etrischen Teilen der übrigen Schaltkreisklassen.
+\end_layout
+
 \begin_layout Chapter
 Grundlegende Definitionen
 \end_layout
@@ -649,12 +654,11 @@ name "def:Tupel"
 
 \end_inset
 
-Menge und Tupel
+Mengen und Tupel
 \end_layout
 
 \begin_layout Definition
-Mengen benennen wir im allgemeinen durch gewöhnliche Großbuchstaben wie
- 
+Mengen benennen wir im allgemeinen durch Großbuchstaben wie 
 \begin_inset Formula $A$
 \end_inset
 
@@ -734,8 +738,12 @@ Tupel benennen wir durch Kleinbuchstaben mit Balken wie
 \end_inset
 
 .
- Die Menge aller Tupel einer bestimmten Stelligkeit 
+ Die Menge aller 
 \begin_inset Formula $k$
+\end_inset
+
+-Tupel einer Menge 
+\begin_inset Formula $A$
 \end_inset
 
  sei 
@@ -896,7 +904,7 @@ Für eine Menge
 \end_layout
 
 \begin_layout Standard
-Die Operatoren 
+Für geordnete Mengen definieren wir die Operatoren 
 \begin_inset Formula $\min$
 \end_inset
 
@@ -904,8 +912,8 @@ Die Operatoren
 \begin_inset Formula $\max$
 \end_inset
 
- definieren das kleinste und größte Element einer Menge unter einer bestimmten
- Ordnung.
+, die das kleinste und größte Element (sofern vorhanden) einer Menge unter
+ einer bestimmten Ordnung bezeichnen.
 \end_layout
 
 \begin_layout Definition
@@ -1075,7 +1083,8 @@ Für
 
 \begin_layout Standard
 Wir legen mehrere einfache Operationen für Abbildungen fest, darunter die
- Verkettung, Vereinigung und Reduktion.
+ Verkettung, Vereinigung disjunkter Definitionsbereiche und Reduktion auf
+ einen Teilbereich.
 \end_layout
 
 \begin_layout Definition
@@ -1134,7 +1143,7 @@ Eine Abbildung
 \begin_inset Formula $A=\left\{ a_{1},\cdots,a_{n}\right\} $
 \end_inset
 
- schreiben wir gegebenenfalls extensional durch auf.
+ schreiben wir gegebenenfalls extensional wie folgt auf.
  Für ein Tupel 
 \begin_inset Formula $\bar{a}=\left(a_{1},\cdots,a_{n}\right)$
 \end_inset
@@ -1264,7 +1273,7 @@ Es sei
 \begin_inset Formula $\mathbf{id}_{\mid X}$
 \end_inset
 
- bezeichnen wir die Identitätsfunktion auf einer festen Menge 
+ bezeichnen wir die Identitätsfunktion auf einer Menge 
 \begin_inset Formula $X$
 \end_inset
 
@@ -1276,7 +1285,7 @@ Die Menge
 \begin_inset Formula $\mathrm{Abb}\left(A,B\right)$
 \end_inset
 
- bezeichne für 
+ bezeichne für endliche 
 \begin_inset Formula $\left|A\right|=\left|B\right|$
 \end_inset
 
@@ -1365,14 +1374,18 @@ Endliche relationale Strukturen
 \end_layout
 
 \begin_layout Standard
-Wir betrachten Anfragen und Eigenschaften auf Graphen und allgemeinen relational
-en Strukturen.
+Wir betrachten Anfragen und Eigenschaften auf Graphen und allgemeinen endlichen
+ Strukturen über eine beliebige relationale Signatur 
+\begin_inset Formula $\sigma$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Definition
 
 \series bold
-Relationale Signatur
+Relationale Signaturen
 \end_layout
 
 \begin_layout Definition
@@ -1408,7 +1421,7 @@ Eine relationale Signatur
 \begin_layout Definition
 
 \series bold
-Endliche Struktur
+Endliche Strukturen
 \end_layout
 
 \begin_layout Definition
@@ -1424,16 +1437,25 @@ Eine endliche
 \begin_inset Formula $\sigma$
 \end_inset
 
- besteht aus einem endlichen, nicht-leeren Universum 
+ und einem endlichen nicht-leeren Universum 
 \begin_inset Formula $A$
 \end_inset
 
- und einer Interpretation 
+ besteht aus einer Interpretation 
 \begin_inset Formula $R^{\mathfrak{A}}\subseteq A^{k}$
 \end_inset
 
  für jedes Symbol 
 \begin_inset Formula $R/k\in\sigma$
+\end_inset
+
+.
+ Strukturen benennen wir im Allgemeinen durch die Frakturbuchstaben 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{B}$
 \end_inset
 
 .
@@ -1542,7 +1564,7 @@ R_{k}^{\mathfrak{A}}
 \begin_layout Definition
 
 \series bold
-Geordnete Struktur
+Geordnete Strukturen
 \end_layout
 
 \begin_layout Definition
@@ -1741,8 +1763,8 @@ Ein Automorphismus
 \begin_inset Formula $\mathrm{Aut}_{\mathfrak{A}}$
 \end_inset
 
-; diese bilden (genau wie die Permutationen) eine Gruppe bezüglich der Verkettun
-g 
+; diese bilden (so wie die Permutationen einer Menge) eine Gruppe bezüglich
+ der Verkettung 
 \begin_inset Formula $\circ$
 \end_inset
 
@@ -1918,7 +1940,10 @@ Für eine Relation
 \begin_layout Definition
 
 \series bold
-Anfrage
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfragen
 \end_layout
 
 \begin_layout Definition
@@ -1951,10 +1976,7 @@ Eine
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Definition
-Eine 
+ Eine 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -2107,7 +2129,7 @@ Eine Logik
 \end_inset
 
 -Formeln, und einer Auswertungsfunktion 
-\begin_inset Formula $\left\llbracket \cdot\right\rrbracket \left(\mathfrak{A},\beta\right)$
+\begin_inset Formula $\left\llbracket \omega\right\rrbracket \left(\mathfrak{A},\beta\right)$
 \end_inset
 
  für jede Struktur 
@@ -2115,7 +2137,15 @@ Eine Logik
 \end_inset
 
  und Belegung 
-\begin_inset Formula $\beta$
+\begin_inset Formula $\beta:X\rightarrow A$
+\end_inset
+
+ und jeden Ausdruck 
+\begin_inset Formula $\omega$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathrm{frei}\left(\omega\right)\subseteq X$
 \end_inset
 
 .
@@ -2199,7 +2229,7 @@ Für eine Formel
 \end_inset
 
  nennen wir das Tupel 
-\begin_inset Formula $\bar{x}=x_{1}\cdots x_{k}$
+\begin_inset Formula $\bar{x}=\left(x_{1}\cdots x_{k}\right)$
 \end_inset
 
  ein 
@@ -2375,6 +2405,11 @@ Somit beschreibt jede
  mit angegeben.
 \end_layout
 
+\begin_layout Standard
+In manchen Fällen möchten wir einige Variablen einer Formel belegen und
+ sie erst dann als Anfrage auswerten.
+\end_layout
+
 \begin_layout Definition
 Für eine Formel 
 \begin_inset Formula $\varphi$
@@ -2385,7 +2420,7 @@ Für eine Formel
 \end_inset
 
  mit 
-\begin_inset Formula $X\subsetneqq\mathrm{frei}\left(\varphi\right)$
+\begin_inset Formula $\mathrm{frei}\left(\varphi\right)\nsubseteq X$
 \end_inset
 
  sei 
@@ -2417,7 +2452,15 @@ Für
 \end_inset
 
 .
- Es sei 
+ Für ein Argument 
+\begin_inset Formula $\bar{x}'$
+\end_inset
+
+ von 
+\begin_inset Formula $\varphi^{\beta}$
+\end_inset
+
+ definieren wir die folgende Anfrage: 
 \begin_inset Formula 
 \[
 q_{\varphi^{\beta}\left(\bar{x}'\right)}\coloneqq\left\{ \bar{a}\in A^{\ell}\mid\mathfrak{A}\models\varphi^{\beta}\left[\bar{a}\right]\right\} 
@@ -2425,15 +2468,7 @@ q_{\varphi^{\beta}\left(\bar{x}'\right)}\coloneqq\left\{ \bar{a}\in A^{\ell}\mid
 
 \end_inset
 
- die von 
-\begin_inset Formula $\varphi^{\beta}$
-\end_inset
 
- definierte 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Anfrage.
 \end_layout
 
 \begin_layout --Separator--
@@ -2802,14 +2837,8 @@ Für eine relationale Signatur
 
 \begin_inset Formula 
 \begin{eqnarray*}
-\left\llbracket \exists x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \max_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\uplus\left(\begin{array}{c}
-x\\
-a
-\end{array}\right)\right)\right)\\
-\left\llbracket \forall x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \min_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\uplus\left(\begin{array}{c}
-x\\
-a
-\end{array}\right)\right)\right)
+\left\llbracket \exists x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \max_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\cup\left(x\mapsto a\right)\right)\right)\\
+\left\llbracket \forall x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \min_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\cup\left(x\mapsto a\right)\right)\right)
 \end{eqnarray*}
 
 \end_inset
@@ -2847,7 +2876,8 @@ Wir kürzen
 \end_inset
 
  ab.
- Im folgenden werden wir außerdem Formeln ohne Implikations-Pfeile betrachten.
+ Im folgenden werden wir im Allgemeinen Formeln ohne Implikations-Pfeile
+ betrachten.
 \end_layout
 
 \begin_layout Definition
@@ -2892,12 +2922,7 @@ Weil
 \begin_inset Formula $\left\Vert \varphi\right\Vert $
 \end_inset
 
-, so dass die Voraussetzung nur gemacht werden kann, wenn wir bezüglich
- 
-\begin_inset Formula $\left\Vert \varphi\right\Vert $
-\end_inset
-
- parametrisierte Komplexitätsklassen betrachten.
+, der die Datenkomplexität unberührt lässt.
 \end_layout
 
 \begin_layout Section
@@ -2906,7 +2931,7 @@ Logiken mit Fixpunkt-Erweiterung
 
 \begin_layout Standard
 Wir führen eine Erweiterung ein, die es erlaubt, den iterativen Fixpunkt
- einer selbstbezüglichen logischen Formel zu definieren.
+ einer selbstreferenziellen logischen Formel zu definieren.
 \end_layout
 
 \begin_layout Definition
@@ -2978,8 +3003,8 @@ Sei
 \end_layout
 
 \begin_layout Standard
-Wir möchten syntaktisch garantieren, dass der Fixpunkt der selbstreferenziellen
- Formel monoton wächst.
+Wir möchten syntaktisch garantieren, dass die Iteration der Formel eine
+ monoton wachsende Relation berechnet.
  Dafür wird verlangt, dass die Selbstreferenz nicht negiert vorkommt.
 \end_layout
 
@@ -3192,13 +3217,12 @@ Für eine Logik
 \end_inset
 
 -Formel.
-\lang english
-
 \begin_inset Formula 
 \begin{eqnarray*}
 \mathrm{frei}\left(X\bar{x}\right) & \coloneqq & \left\{ X\right\} \cup\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right)\\
 \mathrm{var}\left(X\bar{x}\right) & \coloneqq & \left\{ X\right\} \cup\bigcup_{i=1}^{k}\mathrm{var}\left(x_{i}\right)\\
-\left\llbracket X\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left[\beta X\right]\left(\beta\bar{x}\right)
+\left\llbracket X\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left[\beta X\right]\left(\beta\bar{x}\right)\\
+ &  & \mathrm{mit}\,\beta:\mathrm{frei}\left(X\bar{x}\right)\rightarrow\bigcup_{k\in\mathbb{N}}2^{A^{k}}
 \end{eqnarray*}
 
 \end_inset
@@ -3241,7 +3265,7 @@ Für eine Logik
 \end_inset
 
 -positiven 
-\begin_inset Formula $\mathrm{\left(\mathrm{FO}+\mathrm{LFP}\right)}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{\left(\mathcal{L}+\mathrm{LFP}\right)}\left[\sigma\right]$
 \end_inset
 
 -Termen ist 
