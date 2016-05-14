@@ -136,8 +136,7 @@ leftmargin=\lyxlabelwidth,#1]}
 \subject{Master-Arbeit}
 
 
-\author{Christoph Burschka\\
-\texttt{christoph@burschka.de}}
+\author{Christoph Burschka}
 
 
 \publishers{\textsc{Goethe-Universität Frankfurt am Main}\\
@@ -193,7 +192,7 @@ die verschiedenen Klassen symmetrischer Schaltkreisfamilien charakterisieren.
 Konkret ist die Klasse der symmetrischen $P$-uniformen booleschen
 Schaltkreisfamilien $\mathrm{SBC}$ äquivalent zu der Logik erster
 Stufe mit Fixpunkt-Operator und disjunktem Ordnungsprädikat $\mathrm{LFP}+\mathbf{ORD}$.
-Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar\cite{anderson_et_al:LIPIcs:2014:4445}
+Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar\cite{AD2014}
 (als Erweiterung eines Ergebnisses von Martin Otto in 1997\cite{Otto1997})
 veröffentlicht, und bildet die Grundlage dieser Arbeit.
 
@@ -233,7 +232,7 @@ $\mathrm{AC}^{0}+\mathbf{MAJ}$-Schaltkreisfamilien.
 \end{thm}
 Die Einschränkung auf symmetrische Schaltkreisfamilien bringt im Allgemeinen
 eine Reduktion der Ausdrucksstärke mit sich. Insbesondere werden (nach
-Johann Makowsky, 1997-1998 \cite{Makowsky:1997:ID:648040.744731,Makowsky1999})
+Johann Makowsky, 1997-1998 \cite{Makowsky1997-FO,Makowsky1998-LFP})
 die Klassen $\mathrm{AC}^{0}$ und $P/\mathrm{poly}$ ohne Symmetrie-Einschränkung
 durch die arb-invarianten Logiken $\mathrm{FO}\left(\mathbf{ARB}\right)$
 und $\mathrm{LFP}\left(\mathbf{ARB}\right)$ charakterisiert. $\mathrm{FO}\left(\mathbf{ARB}\right)$
@@ -268,7 +267,7 @@ und $\mathbb{N}$. Mit ,,ex.``, ,,s.d.`` und ,,f.a.`` kürzen
 wir gegebenenfalls ,,es existiert``, ,,so dass`` und ,,für alle``
 ab.
 \begin{defn}
-\textbf{\label{def:Tupel}Mengen und Tupel}
+\textbf{\label{def:tupel}Mengen und Tupel}
 
 Mengen benennen wir im allgemeinen durch Großbuchstaben wie $A$,
 $B$, $U$ oder $X$. Für eine Menge $A$ bezeichne $2^{A}\coloneqq\left\{ A'\mid A'\subseteq A\right\} $
@@ -307,7 +306,7 @@ oder $\mathbb{R}_{\left[a,b\right[}$ abgekürzt:
 Als nächstes definieren wir Relationen als Mengen von Tupeln von Elementen
 eines Universums. 
 \begin{defn}
-\textbf{\label{def:Relation}Relation}
+\textbf{\label{def:relation}Relation}
 
 Für eine Menge $A$ und $k\in\mathbb{N}$ sei $R\subseteq A^{k}$
 eine $k$-stellige Relation über $A$. Für jede Relation $R\subseteq A^{k}$
@@ -448,7 +447,7 @@ u_{j} & u_{i}
 \end{defn}
 
 \begin{defn}
-\textbf{\label{def:Orbit}Orbit}
+\textbf{\label{def:orbit}Orbit}
 
 In einer Permutationsgruppe $G\subseteq\mathrm{Sym}_{U}$ sei $\mathrm{Orb}_{G}\left(u\right)\coloneqq\left\{ \pi u\mid\pi\in G\right\} $
 die Menge aller Elemente, auf die $u$ abgebildet wird.
@@ -532,7 +531,7 @@ mit den Symbolen $\leqslant$ und $=$, und werden gegebenenfalls
 in Gleichungen wie $\varphi=x\dot{=}y$ und $\varphi=x\dot{\leqslant}y$
 verwendet.
 \begin{defn}
-\textbf{\label{def:Isomorphismus}Isomorphismus}
+\textbf{\label{def:isomorphism}Isomorphismus}
 
 Für zwei $\sigma$-Strukturen $\mathfrak{A}$ und $\mathfrak{B}$
 sei eine bijektive Abbildung $\pi:A\rightleftarrows B$ ein Isomorphismus,
@@ -557,14 +556,14 @@ nennen wir $\mathrm{Aut}_{\mathfrak{A}}$; diese bilden (so wie die
 Permutationen einer Menge) eine Gruppe bezüglich der Verkettung $\circ$
 und dem neutralen Element $\mathbf{id}_{A}$.
 
-Der Orbit eines Elements $a\in A$ sei analog zu Definition \ref{def:Orbit}
+Der Orbit eines Elements $a\in A$ sei analog zu Definition \ref{def:orbit}
 die Menge $\mathrm{Orb}_{\mathfrak{A}}\left(a\right)\coloneqq\left\{ \pi a\mid\pi\in\mathrm{Aut}_{\mathfrak{A}}\right\} $
 aller Elemente, auf die $a$ von einem Automorphismus abgebildet werden
 kann.
 \end{defn}
 
 \begin{defn}
-\textbf{\label{def:Disjunkte-Vereinigung}Vereinigung von Strukturen}
+\textbf{\label{def:disjoint-union}Vereinigung von Strukturen}
 
 Zwei Strukturen können vereinigt werden, wenn sie entweder disjunkte
 Signaturen oder die gleiche Signatur besitzen. Für eine $\sigma_{1}$-Struktur
@@ -589,7 +588,7 @@ die \textbf{disjunkte Vereinigung} der Strukturen.
 \end{defn}
 
 \begin{defn}
-\textbf{\label{def:Induzierte-Teilstruktur}Induzierte Teilstruktur}
+\textbf{\label{def:induced-structure}Induzierte Teilstruktur}
 
 Für eine Relation $R\subseteq A^{k}$ und eine Teilmenge $A'\subseteq A$
 sei $R_{\mid A'}\coloneqq R\cap\left(A'\right)^{k}$ die von $A'$
@@ -946,7 +945,7 @@ abgekürzt. Ferner werden wir uns auf das \emph{parameterfreie} Fragment
 der Logik beschränken, was (bis auf einen Zuwachs in der Anzahl der
 Variablen und Länge der Formel) die Allgemeinheit nicht einschränkt.
 \begin{defn}
-\label{def:fp-param}Eine $\mathrm{LFP}\left[\sigma\right]$-Formel
+\label{def:fp-paramfree}Eine $\mathrm{LFP}\left[\sigma\right]$-Formel
 $\varphi$ ist \textbf{parameterfrei}, falls der Fixpunktoperator
 stets alle Variablen bindet - das heißt, für jede Teilformel der Form
 $\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$ gilt:
@@ -955,7 +954,7 @@ $\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$ gilt:
 \]
 \end{defn}
 \begin{prop}
-\label{prop:fp-param}Jede $\mathrm{LFP}\left[\sigma\right]$-Formel
+\label{prop:fp-paramfree}Jede $\mathrm{LFP}\left[\sigma\right]$-Formel
 $\varphi$ kann (unter Zuwachs der Länge $\left\Vert \varphi\right\Vert $
 und Größe $\left|\mathrm{var}\left(\varphi\right)\right|$) in eine
 parameterfreie $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi'$
@@ -1051,7 +1050,7 @@ $\exists^{\geqslant}$. Es wird nachgewiesen, dass alle drei Erweiterungen
 die gleiche Ausdrucksstärke modulo einem festen Zuwachs der Formellänge
 haben.
 \begin{defn}
-\textbf{Zählterm $\#$} (wie in \cite{anderson_et_al:LIPIcs:2014:4445})
+\textbf{Zählterm $\#$} (wie in \cite{AD2014})
 
 Der Zählterm ist eine zusätzliche Termproduktion, die die erfüllenden
 Belegungen einer Formel zählt.
@@ -1282,7 +1281,7 @@ Die Logik $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
 mit dem Orakel $\mathbf{ARB}\left(n\right)\coloneqq\left(\mathcal{N}_{\mathrm{arb}}\right)_{\left[1,n\right]}$
 (mit $\mathcal{N}_{\mathrm{arb}}$ und $\eta_{\mathrm{arb}}$ wie
 in Definition \ref{def:arb}) bezeichnen wir auch als die ,,arb-invariante
-$\mathrm{FO}\left(\mathbf{ARB}\right)$-Logik`` in Anlehnung an \cite{Schweikardt13ashort,AMSS-locality}.
+$\mathrm{FO}\left(\mathbf{ARB}\right)$-Logik`` in Anlehnung an \cite{Schweikardt13ashort,AMSS2012-locality}.
 \end{notation}
 Es ist zu beachten, dass die hier betrachteten Orakel-Strukturen das
 Universum $\left[1,n\right]$ haben, und nicht $\left[0,n\right]$.
@@ -1340,9 +1339,9 @@ $W\subseteq G\times G$.
  & \cup & \left\{ R\bar{t}\mid R\in\sigma,\bar{t}\in U^{\mathrm{ar}\left(R\right)}\right\} 
 \end{eqnarray*}
 
-\item eine Ausgabefunktion\footnote{In Anderson und Dawar 2014\cite{anderson_et_al:LIPIcs:2014:4445}
-wird zusätzlich die Injektivität von $\Omega$ verlangt; hier können
-aber mehrere Tupel dem gleichen Output-Gate zugeteilt werden.} $\Omega:U^{k}\rightarrow G$ (bei $k=0$ ist $\Omega\left(\left\langle \right\rangle \right)\in G$
+\item eine Ausgabefunktion\footnote{In Anderson und Dawar 2014\cite{AD2014} wird zusätzlich die Injektivität
+von $\Omega$ verlangt; hier können aber mehrere Tupel dem gleichen
+Output-Gate zugeteilt werden.} $\Omega:U^{k}\rightarrow G$ (bei $k=0$ ist $\Omega\left(\left\langle \right\rangle \right)\in G$
 ein einziges Output-Gate, und wird mit $\Omega=\Omega\left(\left\langle \right\rangle \right)$
 abgekürzt) und 
 \item ein Universum $U$ (üblicherweise $U=\left[1,n\right]$).
@@ -1550,7 +1549,7 @@ Für einen $k$-stelliger Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\righ
 eine Permutation $\pi\in\mathrm{Sym}_{U}$ und einen Automorphismus
 $\rho\in\mathrm{Aut}_{\mathcal{C}}$ mit $\rho_{\mid U}=\pi$ nennen
 wir $\rho$ von $\pi$ \textbf{induziert}. (Nach den Definitionen
-\ref{def:formal} und \ref{def:Isomorphismus} ist $\rho\in\mathrm{Aut}_{\mathcal{C}}$
+\ref{def:formal} und \ref{def:isomorphism} ist $\rho\in\mathrm{Aut}_{\mathcal{C}}$
 eine Permutation des Universums von $\mathcal{C}$.) Wir können aus
 der formalen Definition des Schaltkreises als $\tau_{\sigma,\mathbb{B},k}$-Struktur
 ableiten, dass ein von $\pi$ induzierter Automorphismus $\rho$ die
@@ -1706,7 +1705,7 @@ $g_{0},g_{1}$ mit $\Sigma\left(g_{0}\right)=\mathbf{0}$ und $\Sigma\left(g_{1}\r
 enthält, und jede Input-Beschriftung $\Sigma\left(g\right)=R\bar{x}$
 nur einmal vorkommt.
 \end{defn}
-Die Rigidität ist hier analog zu der Arbeit von Anderson und Dawar\cite{anderson_et_al:LIPIcs:2014:4445}
+Die Rigidität ist hier analog zu der Arbeit von Anderson und Dawar\cite{AD2014}
 definiert, verlangt aber zusätzlich, dass zwei Gates nicht nur durch
 die (hier nicht injektive) Output-Markierung $\Omega$ unterschieden
 werden. Diese Einschränkung ist strenger, schränkt aber die Definition
@@ -1775,7 +1774,7 @@ mit $f\in\mathcal{F}$ habe $\bar{C}$ $\mathcal{F}$-Größe.
 Insbesondere sei $\mathrm{poly}\left(n\right)=n^{\mathcal{O}\left(1\right)}$
 die Klasse aller polynomiell beschränkten Funktionen.\end{defn}
 \begin{rem*}
-Statt ,,$\mathrm{poly}\left(n\right)$-groß`` wird in \cite{anderson_et_al:LIPIcs:2014:4445}
+Statt ,,$\mathrm{poly}\left(n\right)$-groß`` wird in \cite{AD2014}
 der Begriff ,,$\mathrm{P}/\mathrm{poly}$-uniform`` verwendet:
 
 Eine $\mathrm{P/poly}$-Turingmaschine arbeitet in Polynomialzeit
@@ -2689,8 +2688,8 @@ aus einer $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$ direkt
 einen $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
 zu erzeugen, der die richtige Tiefe und Größe hat. Hierbei wird der
 Einfachheit halber gefordert, dass $\varphi$ parameter-frei ist (siehe
-Definition \ref{def:fp-param}). Per Satz \ref{prop:fp-param} schränkt
-dies die Allgemeinheit nicht ein: Der Zuwachs in $\mathrm{var}\left(\varphi\right)$
+Definition \ref{def:fp-paramfree}). Per Satz \ref{prop:fp-paramfree}
+schränkt dies die Allgemeinheit nicht ein: Der Zuwachs in $\mathrm{var}\left(\varphi\right)$
 und $\left\Vert \varphi\right\Vert $ ist fest und für die $\mathrm{poly}\left(n\right)$-Größe
 der Schaltkreisfamilie unbedeutend.
 \begin{lem}
@@ -2845,7 +2844,7 @@ Sei $U$ ein beliebiges Universum. Wir führen die \textbf{Partition
 Sei $\mathcal{P}\coloneqq\left\{ P_{1},\cdots,P_{k}\right\} $ eine
 Menge von disjunkten nicht-leeren Mengen. Wir nennen $\mathcal{P}$
 eine Partition von $U$, wenn $\biguplus_{i=1}^{k}P_{i}=U$. Sei $\mathrm{Part}_{U}$
-die Menge aller Partitionen von $U$. Sei $\sim_{\mathcal{P}}$ die
+die Menge aller Partitionen von $U$. Sei $\sim_{\mathcal{P}}$ eine
 Äquivalenzrelation auf $U$, deren Äquivalenzklassen von $\mathcal{P}$
 repräsentiert werden.
 \end{defn}
@@ -2925,18 +2924,18 @@ Permutationen, die $u$ fixieren:
 
 Der Punktstabilisator\textbf{ }einer Teilmenge $X\subseteq U$ in
 $U$ sei die Untergruppe $\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Sym}_{U}$
-der Permutationen die jedes Element $x\in X$ fixieren:
+der Permutationen, die jedes Element $x\in X$ fixieren:
 \begin{eqnarray*}
-\mathrm{Stab}_{U}\left(X\right) & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi x=x\,\mathrm{f\ddot{u}r}\,\mathrm{alle}\,x\in X\right\} \\
+\mathrm{Stab}_{U}\left(X\right) & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi x=x\,\,\mathrm{f.a.}\,\,x\in X\right\} \\
  & = & \bigcap_{x\in X}\mathrm{Stab}_{U}\left(x\right)
 \end{eqnarray*}
 
 
 Der Mengenstabilisator von $X$ in $U$ sei die Untergruppe $\mathrm{Stab}_{U}\left\{ X\right\} \subseteq\mathrm{Sym}_{U}$
-der Permutationen, die die Menge $X$ fixieren.
+der Permutationen, die die Menge $X$ als ganzes fixieren.
 \begin{eqnarray*}
 \mathrm{Stab}_{U}\left\{ X\right\}  & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi X=X\right\} \\
- & = & \bigcup_{\pi\in\mathrm{Sym}_{X}}\left(\pi\cup\mathbf{id}_{U\backslash X}\right)\mathrm{Stab}_{U}\left(X\right)
+ & = & \bigcup_{\pi\in\mathrm{Sym}_{X}}\left(\pi\cup\mathbf{id}_{U\backslash X}\right)\left(\mathrm{Stab}_{U}\left(X\right)\right)
 \end{eqnarray*}
 
 \end{defn}
@@ -3228,26 +3227,28 @@ Das Ergebnis von Anderson und Dawar beruht auf einem Theorem, das
 eine konstante obere Schranke $\mathrm{S}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$
 für jede symmetrischen Schaltkreisfamilie $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
 polynomieller Größe nachweist. Diese konstante Größe führt zu einer
-polynomiellen Anzahl von Permutationen $\left|\mathrm{Sym}_{\mathrm{S}\left(g\right)}\right|=\left|\mathrm{S}\left(g\right)\right|!\leqslant n^{\left|S\left(g\right)\right|}$
+polynomiell beschränkten Anzahl von Permutationen $\left|\mathrm{Sym}_{\mathrm{S}\left(g\right)}\right|=\left|\mathrm{S}\left(g\right)\right|!\leqslant n^{\left|S\left(g\right)\right|}$
 jeder Trägermenge eines Gates.
 
 Wir stellen zunächst das sogenannte Support-Theorem vor:
 \begin{thm}
 \textbf{\label{thm:Support-Theorem}Support-Theorem} (Theorem 21 aus
-\cite{anderson_et_al:LIPIcs:2014:4445})
+\cite{AD2014})
 
-Für $\epsilon\in\left[\frac{2}{3},1\right]$ und einen rigiden symmetrischen
-Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ mit $\left|U\right|>2^{\frac{56}{\epsilon^{2}}}$,
-gilt: Wenn die maximalen Orbit-Größe mit $s\coloneqq\max_{g\in G}\mathrm{Orb}_{\mathcal{C}}\left(g\right)\leqslant2^{n^{1-\epsilon}}$
+Für $\epsilon\in\mathbb{R}_{\left[\frac{2}{3},1\right]}$ und einen
+rigiden symmetrischen Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+mit $\left|U\right|>2^{\frac{56}{\epsilon^{2}}}$, gilt: Wenn die
+maximalen Orbit-Größe mit $s\coloneqq\max_{g\in G}\mathrm{Orb}_{\mathcal{C}}\left(g\right)\leqslant2^{n^{1-\epsilon}}$
 subexponentiell ist, dann ist $\mathrm{S}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$.\end{thm}
 \begin{cor}
-\label{cor:korollar-23}(Korollar 23 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+\label{cor:korollar-23}(Korollar 23 aus \cite{AD2014})
 
 Für jede symmetrische, rigide $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
 mit $\mathrm{poly}\left(n\right)$-Größe gilt $\mathrm{SP}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$.\end{cor}
 \begin{proof}
 Die $\mathrm{poly}\left(n\right)$-Größe des Schaltkreises $\mathcal{C}_{n}=\left(G,W,\Sigma,\Omega,U\right)$
-impliziert für hinreichend große $n\in\mathbb{N}$ offensichtlich:
+impliziert für jedes $\epsilon<1$ und hinreichend große $n\in\mathbb{N}$
+offensichtlich: 
 \[
 s\coloneqq\max_{g\in G}\mathrm{Orb}_{\mathcal{C}}\left(g\right)\leqslant\left|\mathcal{C}_{n}\right|\leqslant n^{c}<2^{n^{1-\epsilon}}
 \]
@@ -3274,7 +3275,7 @@ oder $n-\mathcal{O}\left(n^{1-\epsilon}\right)$ viele Elemente.
 \]
 
 
-\label{lem:lemma-20}(Lemma 20 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+\label{lem:lemma-20}(Lemma 20 aus \cite{AD2014})
 
 Für $\epsilon\in\mathbb{R}_{\left[0,1\right[}$, jedes hinreichend
 große Universum $U\coloneqq\left[1,n\right]$ mit $n\geqslant\exp\frac{8}{\epsilon^{2}}$
@@ -3351,7 +3352,7 @@ Anderson und Dawar verwenden die beschriebenen Lemmata (\ref{lem:lemma-19}
 und \ref{lem:lemma-20}), um eine obere Schranke für den Träger jedes
 Gates $g$ nachzuweisen:
 \begin{lem}
-(Theorem 21 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+(Theorem 21 aus \cite{AD2014})
 
 Für $\epsilon\in\mathbb{R}_{\left[\frac{2}{3},1\right]}$, $n>2^{\frac{56}{\epsilon^{2}}}$,
 $U=\left[1,n\right]$ und einen rigiden (siehe Definition \ref{def:Rigidit=0000E4t})
@@ -3380,11 +3381,10 @@ Vorgänger von $\mathtt{AND}$- und $\mathtt{OR}$-Gates ohne Beschränkung
 der Annahme entfernt werden können, ist dies zum Beispiel bei $\mathtt{MAJ}$-
 und $\mathtt{XOR}$-Gates nicht möglich.
 
-In \cite{anderson_et_al:LIPIcs:2014:4445} werden redundante Gates
-$H=\left(g_{1},\cdots,g_{k}\right)$ ,,in Reihe`` geschaltet, so
-dass jedes Gate $g_{i}\in H\backslash\left\{ g_{1}\right\} $ durch
-ein $\mathtt{AND}$-Gate mit dem Vorgänger $g_{i-1}$ ersetzt wird.
-Dies vergrößert jedoch die Tiefe des Schaltkreises unbeschränkt.
+In \cite{AD2014} werden redundante Gates $H=\left(g_{1},\cdots,g_{k}\right)$
+,,in Reihe`` geschaltet, so dass jedes Gate $g_{i}\in H\backslash\left\{ g_{1}\right\} $
+durch ein $\mathtt{AND}$-Gate mit dem Vorgänger $g_{i-1}$ ersetzt
+wird. Dies vergrößert jedoch die Tiefe des Schaltkreises unbeschränkt.
 
 Um die Tiefe als Parameter zu erhalten, werden wir stattdessen die
 Definition des Schaltkreises auf Multigraphen erweitern:
@@ -3395,7 +3395,7 @@ Eine Multimenge $\mathcal{W}:W\rightarrow\mathbb{N}$ sei eine Abbildung
 einer Menge auf $\mathbb{N}$, wobei $\mathcal{W}\left(x\right)$
 die Vielfachheit von $x$ in $\mathcal{W}$ angibt.
 \end{defn}
-Nach der in Definition \ref{def:Relation} eingeführten Notation entspricht
+Nach der in Definition \ref{def:relation} eingeführten Notation entspricht
 für eine gewöhnliche Relation $W\subseteq G^{2}$ die Funktion $\left[W\right]:G^{2}\rightarrow\left\{ 0,1\right\} $
 gerade der äquivalenten Multimenge. Die Größe der Multimenge $\left|\mathcal{W}\right|\coloneqq\sum_{w\in\mathcal{W}}\mathcal{W}\left(x\right)$
 sei die Summe der Vielfachheiten aller Elemente.
@@ -3447,7 +3447,7 @@ keine Gates $g,g'$ mit $\Sigma\left(g\right)=\Sigma\left(g'\right)$
 und $\mathcal{W}\left(h,g\right)=\mathcal{W}\left(h,g'\right)$ für
 alle $h\in G$.
 \begin{lem}
-\label{lem:algo-rigide}(nach Lemma 24 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+\label{lem:algo-rigide}(nach Lemma 24 aus \cite{AD2014})
 
 Es existiert ein Algorithmus, der einen beliebigen $\left(\sigma,\mathbb{B}\right)$-Schaltkreis
 $\mathcal{C}$ in einen rigiden Multischaltkreis $\hat{\mathcal{C}}$
@@ -3694,14 +3694,14 @@ die Tiefe des Schaltkreises $\mathcal{C}$.
 
 
 \section{Berechnung der Orbits und Träger}
-\begin{lem}
-\label{lem:rigide-eindeutig}(nach Satz 9 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+\begin{prop}
+\label{lem:rigide-eindeutig}(nach Satz 9 aus \cite{AD2014})
 
 Sei $\mathcal{C}$ ein rigider $\left(\sigma,\mathbb{B}\right)$-Multischaltkreis
 über $U$. Sei $\pi\in\mathrm{Sym}_{U}$ beliebig.
 
 Falls $\pi$ einen Automorphismus in $\mathcal{C}$ induziert, dann
-ist dieser eindeutig.\end{lem}
+ist dieser eindeutig.\end{prop}
 \begin{proof}
 Sei $\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$ und
 $\pi\in\mathrm{Sym}_{U}$ beliebig. Seien $\hat{\pi}_{1},\hat{\pi}_{2}:\mathcal{C}\tilde{\rightarrow}\mathcal{C}$
@@ -3734,7 +3734,7 @@ gelten.
 \end{description}
 \end{proof}
 \begin{lem}
-\label{lem:algo-auto}(nach Lemma 25 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+\label{lem:algo-auto}(nach Lemma 25 aus \cite{AD2014})
 
 Es existiert ein deterministischer Algorithmus, der bei Eingabe eines
 rigiden $\left(\sigma,\mathbb{B}\right)$-Multischaltkreises $\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$
@@ -3816,7 +3816,7 @@ $\textsc{True}$
 \end{algorithm}
 \end{proof}
 \begin{lem}
-(nach Lemma 26 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+(nach Lemma 26 aus \cite{AD2014})
 
 Es existiert ein deterministischer Algorithmus, der bei Eingabe eines
 rigiden $\left(\sigma,\mathbb{B}\right)$-Multischaltkreises $\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$
@@ -3913,7 +3913,7 @@ Gates $g$ nur von dem Teil der Abbildung $\pi$ abhängt, der Elemente
 auf $\mathrm{sp}\left(g\right)$ abbildet. Die Abbildung auf die übrigen
 Elemente $U\backslash\mathrm{sp}\left(g\right)$ ist für $g$ unbedeutend.
 
-Die Folgerung in diesem Abschnitt passt den Abschnitt 4.3 aus \cite{anderson_et_al:LIPIcs:2014:4445}
+Die Folgerung in diesem Abschnitt passt den Abschnitt 4.3 aus \cite{AD2014}
 für Multischaltkreise an.
 
 
@@ -4016,7 +4016,7 @@ konsistent zu $\pi$ sind:
 \]
 \end{defn}
 \begin{claim}
-\label{claim:claim-28}(nach Behauptung 28 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+\label{claim:claim-28}(nach Behauptung 28 aus \cite{AD2014})
 
 Sei $\pi:U\rightarrow A$ eine beliebige Bijektion, und $\rho\coloneqq\pi_{\mid\mathrm{sp}\left(g\right)}$.
 Das Gesamtgewicht der unter $\pi^{-1}\mathfrak{A}$ erfüllten Vorgänger
@@ -4075,7 +4075,7 @@ für $\rho'\in\Pi_{\rho}\left(h\right)$.
 Durch das Kürzen von $\left|M_{\rho}\right|$ entsteht die Gleichung
 \ref{eq:behauptung-28} aus der Behauptung.
 \end{proof}
-Sei nach Definition \ref{def:Tupel} $\bar{U}$ das geordnete Tupel
+Sei nach Definition \ref{def:tupel} $\bar{U}$ das geordnete Tupel
 aller Elemente des Universums, und $\bar{\mathrm{sp}}\left(g\right)$
 das Tupel der Elemente von $\mathrm{sp}\left(g\right)$.
 
@@ -4279,7 +4279,7 @@ die Charakterisierung von $\mathrm{AC}^{0}$ durch die arb-invariante
 $\mathrm{FO}\left(\mathrm{arb}\right)$-Logik, und ein Problem, dass
 die Ausdrucksstärke dieser beiden Logiken voneinander trennt.
 \begin{lem}
-\textbf{\label{lem:fo-arb-ac0}Makowsky (1997)}\cite{Makowsky:1997:ID:648040.744731,AMSS-locality}
+\textbf{\label{lem:fo-arb-ac0}Makowsky (1997)}\cite{Makowsky1997-FO,AMSS2012-locality}
 
 Die Klasse $\mathrm{AC}^{0}$ ist äquivalent zu der Klasse der durch
 $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-Formeln

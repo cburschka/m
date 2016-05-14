@@ -119,13 +119,6 @@ Master-Arbeit
 
 \begin_layout Author
 Christoph Burschka
-\begin_inset Newline newline
-\end_inset
-
-
-\family typewriter
-\size larger
-christoph@burschka.de
 \end_layout
 
 \begin_layout Publishers
@@ -267,7 +260,7 @@ Konkret ist die Klasse der symmetrischen
  Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar
 \begin_inset CommandInset citation
 LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
+key "AD2014"
 
 \end_inset
 
@@ -447,7 +440,7 @@ Die Einschränkung auf symmetrische Schaltkreisfamilien bringt im Allgemeinen
  Insbesondere werden (nach Johann Makowsky, 1997-1998 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Makowsky:1997:ID:648040.744731,Makowsky1999"
+key "Makowsky1997-FO,Makowsky1998-LFP"
 
 \end_inset
 
@@ -635,7 +628,7 @@ für alle
 \series bold
 \begin_inset CommandInset label
 LatexCommand label
-name "def:Tupel"
+name "def:tupel"
 
 \end_inset
 
@@ -837,7 +830,7 @@ Als nächstes definieren wir Relationen als Mengen von Tupeln von Elementen
 \series bold
 \begin_inset CommandInset label
 LatexCommand label
-name "def:Relation"
+name "def:relation"
 
 \end_inset
 
@@ -1378,7 +1371,7 @@ u_{j} & u_{i}
 \series bold
 \begin_inset CommandInset label
 LatexCommand label
-name "def:Orbit"
+name "def:orbit"
 
 \end_inset
 
@@ -1709,7 +1702,7 @@ Der Lesbarkeit halber verwenden wir die Infixnotation
 \series bold
 \begin_inset CommandInset label
 LatexCommand label
-name "def:Isomorphismus"
+name "def:isomorphism"
 
 \end_inset
 
@@ -1815,7 +1808,7 @@ Der Orbit eines Elements
  sei analog zu Definition 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "def:Orbit"
+reference "def:orbit"
 
 \end_inset
 
@@ -1839,7 +1832,7 @@ reference "def:Orbit"
 \series bold
 \begin_inset CommandInset label
 LatexCommand label
-name "def:Disjunkte-Vereinigung"
+name "def:disjoint-union"
 
 \end_inset
 
@@ -1940,7 +1933,7 @@ disjunkte Vereinigung
 \series bold
 \begin_inset CommandInset label
 LatexCommand label
-name "def:Induzierte-Teilstruktur"
+name "def:induced-structure"
 
 \end_inset
 
@@ -3538,7 +3531,7 @@ parameterfreie
 \begin_layout Definition
 \begin_inset CommandInset label
 LatexCommand label
-name "def:fp-param"
+name "def:fp-paramfree"
 
 \end_inset
 
@@ -3573,7 +3566,7 @@ parameterfrei
 \begin_layout Proposition
 \begin_inset CommandInset label
 LatexCommand label
-name "prop:fp-param"
+name "prop:fp-paramfree"
 
 \end_inset
 
@@ -3986,7 +3979,7 @@ Zählterm
  (wie in 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
+key "AD2014"
 
 \end_inset
 
@@ -4856,7 +4849,7 @@ arb-invariante
  in Anlehnung an 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Schweikardt13ashort,AMSS-locality"
+key "Schweikardt13ashort,AMSS2012-locality"
 
 \end_inset
 
@@ -5062,7 +5055,7 @@ status open
 In Anderson und Dawar 2014
 \begin_inset CommandInset citation
 LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
+key "AD2014"
 
 \end_inset
 
@@ -6040,7 +6033,7 @@ reference "def:formal"
  und 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "def:Isomorphismus"
+reference "def:isomorphism"
 
 \end_inset
 
@@ -6680,7 +6673,7 @@ Insbesondere heißt dies, das der Schaltkreis höchstens zwei Konstanten
 Die Rigidität ist hier analog zu der Arbeit von Anderson und Dawar
 \begin_inset CommandInset citation
 LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
+key "AD2014"
 
 \end_inset
 
@@ -6998,7 +6991,7 @@ Statt
  wird in 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
+key "AD2014"
 
 \end_inset
 
@@ -10299,7 +10292,7 @@ reference "lem:lfp-inf"
  parameter-frei ist (siehe Definition 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "def:fp-param"
+reference "def:fp-paramfree"
 
 \end_inset
 
@@ -10307,7 +10300,7 @@ reference "def:fp-param"
  Per Satz 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "prop:fp-param"
+reference "prop:fp-paramfree"
 
 \end_inset
 
@@ -10930,7 +10923,7 @@ Sei
 \begin_inset Formula $\sim_{\mathcal{P}}$
 \end_inset
 
- die Äquivalenzrelation auf 
+ eine Äquivalenzrelation auf 
 \begin_inset Formula $U$
 \end_inset
 
@@ -11256,14 +11249,14 @@ einer Teilmenge
 \begin_inset Formula $\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Sym}_{U}$
 \end_inset
 
- der Permutationen die jedes Element 
+ der Permutationen, die jedes Element 
 \begin_inset Formula $x\in X$
 \end_inset
 
  fixieren:
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathrm{Stab}_{U}\left(X\right) & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi x=x\,\mathrm{für}\,\mathrm{alle}\,x\in X\right\} \\
+\mathrm{Stab}_{U}\left(X\right) & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi x=x\,\,\mathrm{f.a.}\,\,x\in X\right\} \\
  & = & \bigcap_{x\in X}\mathrm{Stab}_{U}\left(x\right)
 \end{eqnarray*}
 
@@ -11289,11 +11282,11 @@ Der Mengenstabilisator von
 \begin_inset Formula $X$
 \end_inset
 
- fixieren.
+ als ganzes fixieren.
 \begin_inset Formula 
 \begin{eqnarray*}
 \mathrm{Stab}_{U}\left\{ X\right\}  & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi X=X\right\} \\
- & = & \bigcup_{\pi\in\mathrm{Sym}_{X}}\left(\pi\cup\mathbf{id}_{U\backslash X}\right)\mathrm{Stab}_{U}\left(X\right)
+ & = & \bigcup_{\pi\in\mathrm{Sym}_{X}}\left(\pi\cup\mathbf{id}_{U\backslash X}\right)\left(\mathrm{Stab}_{U}\left(X\right)\right)
 \end{eqnarray*}
 
 \end_inset
@@ -12473,8 +12466,8 @@ Das Ergebnis von Anderson und Dawar beruht auf einem Theorem, das eine konstante
 \end_inset
 
  polynomieller Größe nachweist.
- Diese konstante Größe führt zu einer polynomiellen Anzahl von Permutationen
- 
+ Diese konstante Größe führt zu einer polynomiell beschränkten Anzahl von
+ Permutationen 
 \begin_inset Formula $\left|\mathrm{Sym}_{\mathrm{S}\left(g\right)}\right|=\left|\mathrm{S}\left(g\right)\right|!\leqslant n^{\left|S\left(g\right)\right|}$
 \end_inset
 
@@ -12499,7 +12492,7 @@ Support-Theorem
  (Theorem 21 aus 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
+key "AD2014"
 
 \end_inset
 
@@ -12508,7 +12501,7 @@ key "anderson_et_al:LIPIcs:2014:4445"
 
 \begin_layout Theorem
 Für 
-\begin_inset Formula $\epsilon\in\left[\frac{2}{3},1\right]$
+\begin_inset Formula $\epsilon\in\mathbb{R}_{\left[\frac{2}{3},1\right]}$
 \end_inset
 
  und einen rigiden symmetrischen Schaltkreis 
@@ -12540,7 +12533,7 @@ name "cor:korollar-23"
 (Korollar 23 aus 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
+key "AD2014"
 
 \end_inset
 
@@ -12572,7 +12565,11 @@ Die
 \begin_inset Formula $\mathcal{C}_{n}=\left(G,W,\Sigma,\Omega,U\right)$
 \end_inset
 
- impliziert für hinreichend große 
+ impliziert für jedes 
+\begin_inset Formula $\epsilon<1$
+\end_inset
+
+ und hinreichend große 
 \begin_inset Formula $n\in\mathbb{N}$
 \end_inset
 
@@ -12680,7 +12677,7 @@ name "lem:lemma-20"
 (Lemma 20 aus 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
+key "AD2014"
 
 \end_inset
 
@@ -12998,7 +12995,7 @@ reference "lem:lemma-20"
 (Theorem 21 aus 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
+key "AD2014"
 
 \end_inset
 
@@ -13115,7 +13112,7 @@ Die Rigidität kann nicht in jeder booleschen Basis
 In 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
+key "AD2014"
 
 \end_inset
 
@@ -13186,7 +13183,7 @@ Eine Multimenge
 Nach der in Definition 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "def:Relation"
+reference "def:relation"
 
 \end_inset
 
@@ -13362,7 +13359,7 @@ name "lem:algo-rigide"
 (nach Lemma 24 aus 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
+key "AD2014"
 
 \end_inset
 
@@ -14364,7 +14361,7 @@ Da die Funktionen
 Berechnung der Orbits und Träger
 \end_layout
 
-\begin_layout Lemma
+\begin_layout Proposition
 \begin_inset CommandInset label
 LatexCommand label
 name "lem:rigide-eindeutig"
@@ -14374,14 +14371,14 @@ name "lem:rigide-eindeutig"
 (nach Satz 9 aus 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
+key "AD2014"
 
 \end_inset
 
 )
 \end_layout
 
-\begin_layout Lemma
+\begin_layout Proposition
 Sei 
 \begin_inset Formula $\mathcal{C}$
 \end_inset
@@ -14402,7 +14399,7 @@ Sei
  beliebig.
 \end_layout
 
-\begin_layout Lemma
+\begin_layout Proposition
 Falls 
 \begin_inset Formula $\pi$
 \end_inset
@@ -14549,7 +14546,7 @@ name "lem:algo-auto"
 (nach Lemma 25 aus 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
+key "AD2014"
 
 \end_inset
 
@@ -14963,7 +14960,7 @@ Automorphismus in
 (nach Lemma 26 aus 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
+key "AD2014"
 
 \end_inset
 
@@ -15436,7 +15433,7 @@ Wir möchten
 Die Folgerung in diesem Abschnitt passt den Abschnitt 4.3 aus 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
+key "AD2014"
 
 \end_inset
 
@@ -15871,7 +15868,7 @@ name "claim:claim-28"
 (nach Behauptung 28 aus 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
+key "AD2014"
 
 \end_inset
 
@@ -16074,7 +16071,7 @@ reference "eq:behauptung-28"
 Sei nach Definition 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "def:Tupel"
+reference "def:tupel"
 
 \end_inset
 
@@ -16846,7 +16843,7 @@ Makowsky (1997)
 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Makowsky:1997:ID:648040.744731,AMSS-locality"
+key "Makowsky1997-FO,AMSS2012-locality"
 
 \end_inset
 
