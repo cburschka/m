@@ -471,7 +471,7 @@ Die Logik
 \begin_layout Standard
 Die Einschränkung auf symmetrische Schaltkreisfamilien bringt im Allgemeinen
  eine Reduktion der Ausdrucksstärke mit sich.
- Insbesondere werden (nach Johann Makowsky 
+ Insbesondere werden (nach Johann Makowsky, 1997-1998 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Makowsky:1997:ID:648040.744731,Makowsky1999"
@@ -503,7 +503,7 @@ key "Makowsky:1997:ID:648040.744731,Makowsky1999"
 \begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
 \end_inset
 
-.
+:
 \end_layout
 
 \begin_layout Theorem
@@ -1282,7 +1282,7 @@ Es sei
 
 .
  Mit 
-\begin_inset Formula $\mathbf{id}_{\mid X}$
+\begin_inset Formula $\mathbf{id}_{X}$
 \end_inset
 
  bezeichnen wir die Identitätsfunktion auf einer Menge 
@@ -1354,7 +1354,7 @@ Eine Permutation von
 \end_inset
 
  mit dem neutralen Element 
-\begin_inset Formula $\mathbf{id}_{\mid U}$
+\begin_inset Formula $\mathbf{id}_{U}$
 \end_inset
 
 .
@@ -1366,7 +1366,7 @@ Es sei
 \end_inset
 
  die inverse Abbildung mit 
-\begin_inset Formula $\pi^{-1}\pi=\pi\pi^{-1}=\mathbf{id}_{\mid U}$
+\begin_inset Formula $\pi^{-1}\pi=\pi\pi^{-1}=\mathbf{id}_{U}$
 \end_inset
 
 .
@@ -1382,7 +1382,14 @@ Eine Transposition sei eine Permutation, die zwei Elemente
 \end_inset
 
  vertauscht und alle anderen Elemente fixiert.
- Diese wird kurz durch 
+ Die Permutation 
+\begin_inset Formula $\left(\begin{array}{cc}
+u_{i} & u_{j}\\
+u_{j} & u_{i}
+\end{array}\right)\cup\mathbf{id}_{U\backslash\left\{ u_{i},u_{j}\right\} }$
+\end_inset
+
+ wird kurz durch 
 \begin_inset Formula $\left(u_{i}u_{j}\right)$
 \end_inset
 
@@ -1789,7 +1796,7 @@ Ein Automorphismus
 \end_inset
 
  und dem neutralen Element 
-\begin_inset Formula $\mathbf{id}_{\mid A}$
+\begin_inset Formula $\mathbf{id}_{A}$
 \end_inset
 
 .
@@ -8111,15 +8118,49 @@ Falls
 \end_layout
 
 \begin_layout Description
-Speicherplatz Die beschriebene Konstruktion wird von einem 
+Speicherplatz Die beschriebene Konstruktion wird von dem 
 \begin_inset Formula $\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log n$
 \end_inset
 
--platzbeschränkten Algorithmus berechnet.
+-platzbeschränkten Algorithmus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:fo-circ"
+
+\end_inset
+
+ berechnet.
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Jeder Aufruf von 
+\begin_inset Formula $\mathtt{Berechne}\left(\varphi\left(\bar{x}\right)\right)$
+\end_inset
+
+ iteriert über Variablen 
+\begin_inset Formula $\bar{t}\in U^{\mathrm{var}\left(\varphi\right)}$
+\end_inset
+
+, die 
+\begin_inset Formula $\mathrm{var}\left(\varphi\right)\log n$
+\end_inset
+
+ Bits belegen.
+ Da die maximale Tiefe der Rekursion durch 
+\begin_inset Formula $\left\Vert \varphi\right\Vert $
+\end_inset
+
+ beschränkt ist, werden insgesamt 
+\begin_inset Formula $\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log n$
+\end_inset
+
+ Bits benötigt.
 \end_layout
 
 \end_deeper
-\begin_layout Proof
+\end_deeper
+\begin_layout Standard
 \begin_inset Float algorithm
 wide false
 sideways false
@@ -8144,7 +8185,7 @@ Für jedes
 
 \begin_deeper
 \begin_layout LyX-Code
-Gi b Gate 
+Gib Gate 
 \begin_inset Formula $g_{\varphi\left(\bar{t}\right)}$
 \end_inset
 
@@ -8237,6 +8278,12 @@ Verknüpfe
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:fo-circ"
+
+\end_inset
+
 Berechnung von 
 \begin_inset Formula $\mathcal{C}_{n}^{\varphi}$
 \end_inset
@@ -8253,38 +8300,9 @@ Berechnung von
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
-\end_layout
-
-\begin_layout Proof
-Jeder Aufruf von 
-\begin_inset Formula $\mathtt{Berechne}\left(\varphi\left(\bar{x}\right)\right)$
-\end_inset
-
- iteriert über Variablen 
-\begin_inset Formula $\bar{t}\in U^{\mathrm{var}\left(\varphi\right)}$
-\end_inset
-
-, die 
-\begin_inset Formula $\mathrm{var}\left(\varphi\right)\log n$
-\end_inset
-
- Bits belegen.
- Da die maximale Tiefe der Rekursion durch 
-\begin_inset Formula $\left\Vert \varphi\right\Vert $
-\end_inset
-
- beschränkt ist, werden insgesamt 
-\begin_inset Formula $\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log n$
-\end_inset
-
- Bits benötigt.
 \end_layout
 
 \begin_layout Standard
@@ -8667,7 +8685,7 @@ Sei nun
 
 \begin_layout Proof
 Wir betrachten die Erweiterung 
-\begin_inset Formula $\pi'\coloneqq\pi\cup\mathbf{id}_{\mid\left[n+1,2n+1\right]}$
+\begin_inset Formula $\pi'\coloneqq\pi\cup\mathbf{id}_{\left[n+1,2n+1\right]}$
 \end_inset
 
 , die die Elemente von 
@@ -9317,19 +9335,20 @@ Symmetrie: Der neue Schaltkreis ist offensichtlich nicht symmetrisch bezüglich
 \begin_inset Formula $\left[n+1,2n+1\right]$
 \end_inset
 
- fixieren.
- (Da die Induktion in Lemma 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:FO-Circuit"
-
+ fixieren, denn für alle übrigen Werte von 
+\begin_inset Formula $t_{i}$
 \end_inset
 
- für eine beliebige Permutation 
-\begin_inset Formula $\pi$
+ ist das Gate 
+\begin_inset Formula $g_{\bar{t}}$
 \end_inset
 
- gilt, funktioniert sie auch für diesen Spezialfall.)
+ eine 
+\begin_inset Formula $\mathbf{0}$
+\end_inset
+
+-Konstante.
+ 
 \end_layout
 
 \begin_deeper
@@ -9541,7 +9560,7 @@ Da der Schaltkreis
 \end_inset
 
  für jede Permutation 
-\begin_inset Formula $\pi\uplus\mathbf{id}_{\left[n+1,2n+1\right]}$
+\begin_inset Formula $\pi\cup\mathbf{id}_{\left[n+1,2n+1\right]}$
 \end_inset
 
  mit 
@@ -9754,7 +9773,7 @@ Symmetrie: Wenn
 \end_inset
 
  (weil 
-\begin_inset Formula $\pi'_{\mid\left[n+1,2n+1\right]}=\mathbf{id}_{\mid\left[n+1,2n+1\right]}$
+\begin_inset Formula $\pi'_{\mid\left[n+1,2n+1\right]}=\mathbf{id}_{\left[n+1,2n+1\right]}$
 \end_inset
 
  ist).
@@ -9882,7 +9901,7 @@ key "Dawar1995c,Kolaitis1992,Kolaitis1992b"
 
 \end_inset
 
- Hier hat jedoch jede einzelne Formel 
+ In unserer Definition hat jedoch jede einzelne Formel 
 \begin_inset Formula $\varphi_{n}$
 \end_inset
 
@@ -9933,14 +9952,10 @@ Für jede
 
 \begin_layout Proof
 Sei 
-\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\begin_inset Formula $\varphi$
 \end_inset
 
  eine 
-\begin_inset Formula $k$
-\end_inset
-
--stellige 
 \begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
@@ -9950,7 +9965,7 @@ Sei
 \end_inset
 
  vorgegangen, wobei nur der Fall 
-\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
+\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
 \end_inset
 
  nicht-trivial ist.
@@ -9958,7 +9973,7 @@ Sei
 
 \begin_layout Proof
 Falls 
-\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
+\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
 \end_inset
 
  für eine 
@@ -9966,15 +9981,15 @@ Falls
 \end_inset
 
 -stellige Relationsvariable 
-\begin_inset Formula $R\in\mathbf{var}_{2}$
+\begin_inset Formula $X\in\mathbf{var}_{2}$
 \end_inset
 
 , 
-\begin_inset Formula $\bar{z}\in\mathbf{var}^{k}$
+\begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
 \end_inset
 
 , eine 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\cup\left\{ R\right\} \right]$
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -9990,7 +10005,7 @@ Falls
 \end_inset
 
 -Termen 
-\begin_inset Formula $\bar{y}\in\mathbf{var}^{k}$
+\begin_inset Formula $\bar{y}$
 \end_inset
 
 , so existiert per Annahme eine 
@@ -10025,15 +10040,15 @@ Sei
  induktiv wie folgt definiert:
 \begin_inset Formula 
 \begin{eqnarray*}
-\psi^{0} & \coloneqq & \neg\bar{z}\dot{=}\bar{z}\\
-\psi^{i+1} & \coloneqq & \hat{\psi}^{\left(\frac{R\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}\\
-\chi^{i}\left(\bar{t}\right) & \coloneqq & \exists\bar{u}\left(\bar{t}=\bar{u}\wedge\exists\bar{z}\left(\bar{u}=\bar{z}\wedge\psi^{i}\right)\right)
+\psi^{0} & \coloneqq & \neg\bar{x}\dot{=}\bar{x}\\
+\psi^{i+1} & \coloneqq & \hat{\psi}^{\left(\frac{X\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}\\
+\chi^{i}\left(\bar{t}\right) & \coloneqq & \exists\bar{u}\left(\bar{t}=\bar{u}\wedge\exists\bar{x}\left(\bar{u}=\bar{x}\wedge\psi^{i}\right)\right)
 \end{eqnarray*}
 
 \end_inset
 
 Hierbei sei 
-\begin_inset Formula $\hat{\psi}^{\left(\frac{R\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}$
+\begin_inset Formula $\hat{\psi}^{\left(\frac{X\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}$
 \end_inset
 
  die Formel, die aus 
@@ -10041,7 +10056,7 @@ Hierbei sei
 \end_inset
 
  entsteht, indem jedes Atom 
-\begin_inset Formula $R\bar{t}$
+\begin_inset Formula $X\bar{t}$
 \end_inset
 
  (für irgendein 
@@ -10065,15 +10080,22 @@ Hierbei sei
 \begin_inset Formula $\bar{z}$
 \end_inset
 
- zum Teil die gleichen Variablen enthalten können, und daher ihr Geltungsbereich
- nicht überlappen darf.)
+ zum Teil die gleichen Variablen enthalten könnten, und daher ihr Geltungsbereic
+h nicht überlappen darf.)
 \end_layout
 
 \begin_layout Proof
-Nun gelte:
+Nun definieren wir die Formel 
+\begin_inset Formula $\hat{\varphi}$
+\end_inset
+
+ wie folgt:
+\end_layout
+
+\begin_layout Proof
 \begin_inset Formula 
 \[
-\hat{\varphi}\coloneqq\exists\bar{z}\left(\bar{x}=\bar{z}\wedge\psi^{n^{k}}\right)
+\hat{\varphi}\coloneqq\exists\bar{x}\left(\bar{x}=\bar{y}\wedge\psi^{n^{k}}\right)
 \]
 
 \end_inset
@@ -10096,19 +10118,19 @@ reference "def:lfp"
 
  definiert.
  Außerdem sei 
-\begin_inset Formula $\left(X_{i}\right)_{i\in\mathbb{N}}$
+\begin_inset Formula $\left(Y_{i}\right)_{i\in\mathbb{N}}$
 \end_inset
 
  wie folgt: 
 \begin_inset Formula 
 \[
-X_{i}\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\psi^{i}\left[\bar{a}\right]\right\} 
+Y_{i}\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\psi^{i}\left[\bar{a}\right]\right\} 
 \]
 
 \end_inset
 
 Wir weisen induktiv nach, dass 
-\begin_inset Formula $X_{i}=F^{i}\left(\emptyset\right)$
+\begin_inset Formula $Y_{i}=F^{i}\left(\emptyset\right)$
 \end_inset
 
 .
@@ -10120,7 +10142,7 @@ Wir weisen induktiv nach, dass
 \end_inset
 
  ist offensichtlich unerfüllbar, und erkennt daher die Relation 
-\begin_inset Formula $X_{0}=\emptyset=F^{0}\left(\emptyset\right)$
+\begin_inset Formula $Y_{0}=\emptyset=F^{0}\left(\emptyset\right)$
 \end_inset
 
 .
@@ -10131,19 +10153,20 @@ Sei
 \begin_inset Formula $i\in\mathbb{N}$
 \end_inset
 
- beliebig:
+ beliebig.
+ Per Definition gilt:
 \begin_inset Formula 
 \begin{eqnarray*}
-\bar{a}\in X_{i+1} & \Leftrightarrow & \mathfrak{A}\models\psi^{i+1}\left[\bar{a}\right]\\
- & \Leftrightarrow & \mathfrak{A}\models\hat{\psi}^{\left(\frac{R\bar{z}}{\chi^{i}\left(\bar{z}\right)}\right)}\left[\bar{a}\right]
+\bar{a}\in Y_{i+1} & \Leftrightarrow & \mathfrak{A}\models\psi^{i+1}\left[\bar{a}\right]\\
+ & \Leftrightarrow & \mathfrak{A}\models\hat{\psi}^{\left(\frac{X\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}\left[\bar{a}\right]
 \end{eqnarray*}
 
 \end_inset
 
-Per Definition gilt: 
+
 \begin_inset Formula 
 \[
-X_{i}\coloneqq\left\{ \bar{a}\mid\mathfrak{A}\models\psi^{i+1}\left[\bar{a}\right]\right\} =\left\{ \bar{a}\mid\mathfrak{A}\models\chi^{i}\left[\bar{a}\right]\right\} 
+\left\{ \bar{a}\mid\mathfrak{A}\models\chi^{i}\left[\bar{a}\right]\right\} =\left\{ \bar{a}\mid\mathfrak{A}\models\psi^{i+1}\left[\bar{a}\right]\right\} =Y_{i}
 \]
 
 \end_inset
@@ -10151,14 +10174,8 @@ X_{i}\coloneqq\left\{ \bar{a}\mid\mathfrak{A}\models\psi^{i+1}\left[\bar{a}\righ
 Und daher:
 \begin_inset Formula 
 \begin{eqnarray*}
-\bar{a}\in X_{i+1} & \Leftrightarrow & \mathfrak{A}\cup\left(A,\left(\begin{array}{c}
-R\\
-X_{i}
-\end{array}\right)\right)\models\hat{\psi}\left[\bar{a}\right]\\
- & \overset{\mathrm{Ann.}}{\Leftrightarrow} & \mathfrak{A}\cup\left(A,\left(\begin{array}{c}
-R\\
-F^{i}\left(\emptyset\right)
-\end{array}\right)\right)\models\hat{\psi}\left[\bar{a}\right]\\
+\bar{a}\in Y_{i+1} & \Leftrightarrow & \mathfrak{A}\models\hat{\psi}^{\left(X\mapsto Y_{i}\right)}\left[\bar{a}\right]\\
+ & \overset{\mathrm{Ann.}}{\Leftrightarrow} & \mathfrak{A}\models\hat{\psi}^{\left(X\mapsto F^{i}\left(\emptyset\right)\right)}\left[\bar{a}\right]\\
  & \overset{\mathrm{Def.\ref{def:lfp}}}{\Leftrightarrow} & \bar{a}\in F^{i+1}\left(\emptyset\right)
 \end{eqnarray*}
 
@@ -10169,7 +10186,7 @@ F^{i}\left(\emptyset\right)
 
 \begin_layout Standard
 Schließlich folgt 
-\begin_inset Formula $X_{n^{k}}=F^{n^{k}}\left(\emptyset\right)=F^{\infty}\left(\emptyset\right)$
+\begin_inset Formula $Y_{n^{k}}=F^{n^{k}}\left(\emptyset\right)=F^{\infty}\left(\emptyset\right)$
 \end_inset
 
 , da 
@@ -10181,11 +10198,8 @@ Schließlich folgt
 \begin_inset Formula 
 \begin{eqnarray*}
 \left\llbracket \hat{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{a}\right) & = & \left\llbracket \exists\bar{u}\left(\bar{u}=\bar{y}\wedge\psi^{n^{k}}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)\\
- & = & \left\llbracket R\bar{y}\right\rrbracket \left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
-R\\
-F^{\infty}\left(\emptyset\right)
-\end{array}\right)\right),\bar{a}\right)\\
- & \overset{\mathrm{Def.\ref{def:lfp}}}{=} & \left\llbracket \left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)
+ & = & \left\llbracket X\bar{y}\right\rrbracket \left(\mathfrak{A},\left(X\mapsto F^{\infty}\left(\emptyset\right),\bar{y}\mapsto\bar{a}\right)\right)\\
+ & \overset{\mathrm{Def.\ref{def:lfp}}}{=} & \left\llbracket \left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)
 \end{eqnarray*}
 
 \end_inset
@@ -10196,11 +10210,7 @@ F^{\infty}\left(\emptyset\right)
 \end_deeper
 \end_deeper
 \begin_layout Standard
-Leider sind diese Formeln zu 
-\emph on
-lang
-\emph default
-: Wenn das Symbol 
+Leider sind diese Formeln zu lang: Wenn das Symbol 
 \begin_inset Formula $R$
 \end_inset
 
@@ -10212,28 +10222,25 @@ lang
 \begin_inset Formula $\left\Vert \psi_{i+1}\right\Vert \geqslant2\left\Vert \psi_{i}\right\Vert $
 \end_inset
 
-, und daher 
+, und daher wächst die Formellänge mit 
 \begin_inset Formula $\left\Vert \varphi\right\Vert \geqslant2^{n^{k}}$
 \end_inset
 
- für 
+ exponentiell für 
 \begin_inset Formula $k=\mathrm{ar}\left(R\right)$
 \end_inset
 
 .
- Für 
+ Mit 
 \begin_inset Formula $\mathcal{C}_{n}^{\varphi}=\mathcal{C}_{n}^{\varphi_{n}}$
 \end_inset
 
- könnten wir daher nicht die gewünschte 
+ könnten wir nicht die gewünschte 
 \begin_inset Formula $\mathrm{poly}\left(n\right)$
 \end_inset
 
 -Größe ableiten.
-\end_layout
-
-\begin_layout Standard
-Die booleschen Schaltkreise haben jedoch nicht dieselbe Einschränkung wie
+ Die booleschen Schaltkreise haben jedoch nicht dieselbe Einschränkung wie
  
 \begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
@@ -10352,7 +10359,7 @@ Für jede parameter-freie
 
 \begin_layout Proof
 Sei 
-\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\begin_inset Formula $\varphi$
 \end_inset
 
  eine 
@@ -10363,8 +10370,7 @@ Sei
 \begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
--Formel.
- Sei 
+-Formel, und sei 
 \begin_inset Formula $n\in\mathbb{N}$
 \end_inset
 
@@ -10380,8 +10386,8 @@ reference "lem:FO-Circuit"
 \end_layout
 
 \begin_layout Proof
-Sei 
-\begin_inset Formula $\varphi\left(\bar{x}\right)=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
+Falls 
+\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
 \end_inset
 
  für eine 
@@ -10389,7 +10395,7 @@ Sei
 \end_inset
 
 -stellige Relationsvariable 
-\begin_inset Formula $R/m\in\mathbf{var}_{2}$
+\begin_inset Formula $X/m\in\mathbf{var}_{2}$
 \end_inset
 
 , eine 
@@ -10397,11 +10403,11 @@ Sei
 \end_inset
 
 -stellige parameter-freie 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\cup\left\{ R\right\} \right]$
+\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
 -Formel 
-\begin_inset Formula $\psi\left(\bar{z}\right)$
+\begin_inset Formula $\psi\left(X,\bar{x}\right)$
 \end_inset
 
  und ein 
@@ -10416,35 +10422,36 @@ Sei
 \begin_inset Formula $\bar{y}$
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Proof
-Per Annahme existiert ein 
+ ist, dann existiert per Annahme ein 
 \begin_inset Formula $P$
 \end_inset
 
 -uniformer symmetrischer 
-\begin_inset Formula $\left(\sigma\cup\left\{ R\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
+\begin_inset Formula $\left(\sigma\cup\left\{ X\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
 \end_inset
 
 -Schaltkreis 
 \begin_inset Formula $\mathcal{C}_{n}^{\psi}$
 \end_inset
 
-, der auf den erweiterten 
-\begin_inset Formula $\left(\sigma\cup\left\{ R\right\} \right)$
+, der auf einer 
+\begin_inset Formula $\left(\sigma\cup\left\{ X\right\} \right)$
 \end_inset
 
--Strukturen 
-\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\cup\left\{ R\right\} \right)$
+-Struktur 
+\begin_inset Formula $\mathfrak{A}'\coloneqq\mathfrak{A}\cup\left(A,\left(X\mapsto Y\right)\right)$
 \end_inset
 
  die Anfrage 
-\begin_inset Formula $q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\right)=q_{\psi}\left(\mathfrak{A}\right)$
+\begin_inset Formula $q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}'\right)=q_{\psi^{\left(X\mapsto Y\right)}}\left(\mathfrak{A}\right)$
 \end_inset
 
  berechnet.
+ (Hier wird die Relationsvariable 
+\begin_inset Formula $X$
+\end_inset
+
+ als neues Symbol in die Signatur mit aufgenommen.)
 \begin_inset Formula 
 \[
 \mathcal{C}_{n}^{\psi}=\left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U\right)
@@ -10520,11 +10527,11 @@ W_{i+1} & \coloneqq & W_{i}\uplus W_{\psi}\uplus W'
 \end_inset
 
  verbindet alle mit 
-\begin_inset Formula $R\bar{t}$
+\begin_inset Formula $X\bar{u}$
 \end_inset
 
  markierten Inputs mit dem Output 
-\begin_inset Formula $\Omega_{i}\left(\bar{t}\right)$
+\begin_inset Formula $\Omega_{i}\left(\bar{u}\right)$
 \end_inset
 
 , und markiert sie mit 
@@ -10557,7 +10564,7 @@ W_{i+1} & \coloneqq & W_{i}\uplus W_{\psi}\uplus W'
 \[
 \Sigma_{i+1}\left(g\right)\coloneqq\begin{cases}
 \Sigma_{i}\left(g\right) & \mathrm{falls}\,\,g\in G_{i}\\
-\mathtt{AND} & \mathrm{falls}\,\,g\in G_{\psi},\,\Sigma_{\psi}\left(g\right)=R\bar{t}\\
+\mathtt{AND} & \mathrm{falls}\,\,g\in G_{\psi},\,\Sigma_{\psi}\left(g\right)=X\bar{u}\\
 \Sigma_{\psi}\left(g\right) & \mathrm{sonst}
 \end{cases}
 \]
@@ -10567,7 +10574,7 @@ W_{i+1} & \coloneqq & W_{i}\uplus W_{\psi}\uplus W'
 
 \begin_inset Formula 
 \[
-W'\coloneqq\left\{ \left(\Omega_{i}\left(\bar{t}\right),g\right)\mid g\in G_{\psi},\,\Sigma_{\psi}\left(g\right)=R\bar{t}\right\} 
+W'\coloneqq\left\{ \left(\Omega_{i}\left(\bar{u}\right),g\right)\mid g\in G_{\psi},\,\Sigma_{\psi}\left(g\right)=X\bar{u}\right\} 
 \]
 
 \end_inset
@@ -10631,18 +10638,9 @@ q_{\mathcal{D}^{0}}\left(\mathfrak{A}\right)=F^{0}\left(\emptyset\right)=\emptys
 
 \begin_inset Formula 
 \begin{eqnarray*}
-q_{\mathcal{D}^{i+1}}\left(\mathfrak{A}\right) & = & q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
-R\\
-q_{\mathcal{D}^{i}}\left(\mathfrak{A}\right)
-\end{array}\right)\right)\right)\\
- & \overset{\mathrm{Ann.}}{=} & q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
-R\\
-F^{i}\left(\emptyset\right)
-\end{array}\right)\right)\right)\\
- & = & q_{\psi}\left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
-R\\
-F^{i}\left(\emptyset\right)
-\end{array}\right)\right)\right)\\
+q_{\mathcal{D}^{i+1}}\left(\mathfrak{A}\right) & = & q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\cup\left(A,\left(X\mapsto q_{\mathcal{D}^{i}}\left(\mathfrak{A}\right)\right)\right)\right)\\
+ & \overset{\mathrm{Ann.}}{=} & q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\cup\left(A,\left(X\mapsto F^{i}\left(\emptyset\right)\right)\right)\right)\\
+ & = & q_{\psi^{\left(X\mapsto F^{i}\left(\emptyset\right)\right)}}\left(\mathfrak{A}\right)\\
  & \overset{\mathrm{Def.\ref{def:lfp}}}{=} & F^{i+1}\left(\emptyset\right)
 \end{eqnarray*}
 
@@ -10674,21 +10672,44 @@ Symmetrie: Sei
 \end_inset
 
 .
- Es sei für 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sei 
+\begin_inset Formula $\hat{\pi}_{0}\coloneqq\mathbf{id}_{\left\{ g_{0}\right\} }$
+\end_inset
+
+.
+ Per Annahme existiere für 
 \begin_inset Formula $i\in\mathbb{N}$
 \end_inset
 
- der Automorphismus 
-\begin_inset Formula $\hat{\pi_{i}}$
+ ein von 
+\begin_inset Formula $\pi$
 \end_inset
 
- wie folgt:
+ induzierter Automorphismus 
+\begin_inset Formula $\hat{\pi}_{i}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{D}^{i}$
+\end_inset
+
+.
+ Sei dann 
+\begin_inset Formula $\hat{\pi}_{i+1}$
+\end_inset
+
+ die folgende Abbildung in 
+\begin_inset Formula $\mathcal{D}^{i+1}$
+\end_inset
+
+:
 \begin_inset Formula 
 \begin{eqnarray*}
-\hat{\pi}_{0} & \coloneqq & \left(\begin{array}{c}
-g_{0}\\
-g_{0}
-\end{array}\right)\\
+\\
 \hat{\pi}_{i+1}\left(g\right) & \coloneqq & \begin{cases}
 \hat{\pi}_{i}\left(g\right) & \mathrm{falls}\,g\in G_{i}\\
 \hat{\pi}\left(g\right) & \mathrm{sonst}
@@ -10697,28 +10718,11 @@ g_{0}
 
 \end_inset
 
-Per Annahme sei 
-\begin_inset Formula $\hat{\pi}_{i}$
-\end_inset
 
- ein von 
-\begin_inset Formula $\pi$
-\end_inset
-
- induzierter Automorphismus in 
-\begin_inset Formula $\mathcal{D}^{i}$
-\end_inset
-
-.
- So gilt in 
-\begin_inset Formula $\mathcal{D}^{i+1}$
-\end_inset
-
-:
 \end_layout
 
-\begin_deeper
 \begin_layout Enumerate
+Es gilt 
 \begin_inset Formula $\left(\hat{\pi}_{i+1}\right)_{\mid G_{i}}=\hat{\pi}_{i}$
 \end_inset
 
@@ -10738,12 +10742,12 @@ Per Annahme sei
 \begin_inset Formula $\Omega_{i+1}=\Omega_{\psi}$
 \end_inset
 
- und alle Gates 
+ und alle internen Gates 
 \begin_inset Formula $g\in G_{\psi}$
 \end_inset
 
  mit 
-\begin_inset Formula $\Sigma_{\psi}\notin\left\{ R\bar{t}\mid\bar{t}\in U^{m}\right\} $
+\begin_inset Formula $\Sigma_{\psi}\notin\left\{ X\bar{u}\mid\bar{u}\in U^{m}\right\} $
 \end_inset
 
  bereits erfüllt.
@@ -10751,7 +10755,7 @@ Per Annahme sei
 
 \begin_layout Enumerate
 Für die ehemaligen Inputs mit 
-\begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
+\begin_inset Formula $\Sigma\left(g\right)=X\bar{u}$
 \end_inset
 
  gilt 
@@ -10763,7 +10767,7 @@ Für die ehemaligen Inputs mit
 
 \begin_layout Enumerate
 Für jede neue Kante 
-\begin_inset Formula $\left(\Omega_{i}\left(\bar{t}\right),g\right)\in W'$
+\begin_inset Formula $\left(\Omega_{i}\left(\bar{u}\right),g\right)\in W'$
 \end_inset
 
  mit 
@@ -10771,26 +10775,26 @@ Für jede neue Kante
 \end_inset
 
  und 
-\begin_inset Formula $\Sigma_{\psi}\left(g\right)=R\bar{t}$
+\begin_inset Formula $\Sigma_{\psi}\left(g\right)=X\bar{u}$
 \end_inset
 
 : 
 \begin_inset Formula 
 \begin{eqnarray*}
-\left(\hat{\pi}_{i+1}\Omega_{i}\left(\bar{t}\right),\hat{\pi}_{i+1}g\right) & = & \left(\hat{\pi}_{i}\Omega_{i}\left(\bar{t}\right),\hat{\pi}g\right)\\
- & = & \left(\Omega_{i}\left(\pi\bar{t}\right),\hat{\pi}g\right)
+\left(\hat{\pi}_{i+1}\Omega_{i}\left(\bar{u}\right),\hat{\pi}_{i+1}g\right) & = & \left(\hat{\pi}_{i}\Omega_{i}\left(\bar{u}\right),\hat{\pi}g\right)\\
+ & = & \left(\Omega_{i}\left(\pi\bar{u}\right),\hat{\pi}g\right)
 \end{eqnarray*}
 
 \end_inset
 
 Per Definition ist 
-\begin_inset Formula $\Sigma_{\psi}\left(\hat{\pi}g\right)=R\pi\bar{t}$
+\begin_inset Formula $\Sigma_{\psi}\left(\hat{\pi}g\right)=X\pi\bar{u}$
 \end_inset
 
 , und daher:
 \begin_inset Formula 
 \[
-\left(\Omega_{i}\left(\pi\bar{t}\right),\hat{\pi}g\right)\in W'
+\left(\Omega_{i}\left(\pi\bar{u}\right),\hat{\pi}g\right)\in W'
 \]
 
 \end_inset
@@ -10858,13 +10862,8 @@ Damit gilt
 Partitionen und Träger
 \end_layout
 
-\begin_layout Standard
-Es werden nun mehrere Begriffe aus der Gruppentheorie eingeführt, mit deren
- Hilfe wir eine symmetrische Schaltkreisfamilie logisch beschreiben werden.
-\end_layout
-
 \begin_layout Section
-Partitionen
+Partitionen einer Menge
 \end_layout
 
 \begin_layout Standard
@@ -10873,105 +10872,86 @@ Sei
 \end_inset
 
  ein beliebiges Universum.
+ Wir führen die 
+\series bold
+Partition 
+\series default
+als Zerlegung von 
+\begin_inset Formula $U$
+\end_inset
+
+ in disjunkte Teilmengen ein.
 \end_layout
 
 \begin_layout Definition
-Eine 
-\series bold
-Partition
-\series default
- 
+Sei 
+\begin_inset Formula $\mathcal{P}\coloneqq\left\{ P_{1},\cdots,P_{k}\right\} $
+\end_inset
+
+ eine Menge von disjunkten nicht-leeren Mengen.
+ Wir nennen 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
- von 
+ eine Partition von 
 \begin_inset Formula $U$
 \end_inset
 
- sei eine Menge 
-\begin_inset Formula $\mathcal{P}=\left\{ P_{1},\cdots,P_{k}\right\} $
-\end_inset
-
- von disjunkten nicht-leeren Teilmengen 
-\begin_inset Formula $P_{i}\subseteq U$
-\end_inset
-
-, so dass 
-\begin_inset Formula $U=\biguplus_{i=1}^{k}P_{i}$
+, wenn 
+\begin_inset Formula $\biguplus_{i=1}^{k}P_{i}=U$
 \end_inset
 
 .
- Die Menge aller Partitionen von 
-\begin_inset Formula $U$
-\end_inset
-
- sei 
+ Sei 
 \begin_inset Formula $\mathrm{Part}_{U}$
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Definition
-Die Partition 
-\begin_inset Formula $\mathcal{P}$
-\end_inset
-
- induziert eine Äquivalenzrelation 
-\begin_inset Formula $\sim_{\mathcal{P}}$
-\end_inset
-
- auf 
+ die Menge aller Partitionen von 
 \begin_inset Formula $U$
 \end_inset
 
-, wobei 
-\begin_inset Formula $x\sim_{\mathcal{P}}y$
-\end_inset
-
- genau dann wenn 
-\begin_inset Formula $\left\{ x,y\right\} \subseteq P$
-\end_inset
-
- für irgendein 
-\begin_inset Formula $P\in\mathcal{P}$
-\end_inset
-
 .
+ Sei 
+\begin_inset Formula $\sim_{\mathcal{P}}$
+\end_inset
+
+ die Äquivalenzrelation auf 
+\begin_inset Formula $U$
+\end_inset
+
+, deren Äquivalenzklassen von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ repräsentiert werden.
 \end_layout
 
-\begin_layout Definition
-Die Permutationen aus 
+\begin_layout Standard
+Die Permutationen 
 \begin_inset Formula $\mathrm{Sym}_{U}$
 \end_inset
 
  werden auf natürliche Weise auf 
-\begin_inset Formula $\mathcal{P}$
+\begin_inset Formula $\mathcal{P}\in\mathrm{Part}_{U}$
 \end_inset
 
- erweitert.
- 
-\begin_inset Formula $\pi\mathcal{P}$
-\end_inset
-
- ist ebenfalls eine Partition von 
-\begin_inset Formula $U$
-\end_inset
-
-:
+ erweitert:
 \begin_inset Formula 
 \begin{eqnarray*}
-\pi\mathcal{P} & \coloneqq & \left\{ \pi P_{i}\mid P_{i}\in\mathcal{P}\right\} \\
- & \coloneqq & \left\{ \left\{ \pi x\mid x\in P_{i}\right\} \mid P_{i}\in\mathcal{P}\right\} 
+\pi\mathcal{P} & \coloneqq & \left\{ \pi P_{i}\mid P_{i}\in\mathcal{P}\right\} \in\mathrm{Part}_{U}
 \end{eqnarray*}
 
 \end_inset
 
+Als nächstes wird die 
+\series bold
+Feinheit
+\series default
+ als Relation auf 
+\begin_inset Formula $\mathrm{Part}_{U}$
+\end_inset
 
-\end_layout
-
-\begin_layout --Separator--
-
+ eingeführt.
 \end_layout
 
 \begin_layout Definition
@@ -10981,19 +10961,7 @@ name "def:feinheit"
 
 \end_inset
 
-Die 
-\series bold
-Feinheit 
-\series default
-der Partitionen von 
-\begin_inset Formula $U$
-\end_inset
-
- sei eine Relation 
-\begin_inset Formula $\preceq$
-\end_inset
-
-, so dass 
+Sei 
 \begin_inset Formula $\mathcal{P}\preceq\mathcal{P}'$
 \end_inset
 
@@ -11026,14 +10994,18 @@ der Partitionen von
 
 \begin_layout Definition
 Dies ist äquivalent zu der Teilmengenbeziehung von 
-\begin_inset Formula $\sim$
+\begin_inset Formula $\sim_{\mathcal{P}}$
+\end_inset
+
+ und 
+\begin_inset Formula $\sim_{\mathcal{P}'}$
 \end_inset
 
 : 
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{P}\preceq\mathcal{P}' & \Leftrightarrow & \mathrm{für\,alle}\,P\in\mathcal{P}\,\mathrm{existiert\,}P'\in\mathcal{P}'\,\mathrm{so\,dass}\,P\subseteq P'\\
- & \Leftrightarrow & \mathrm{für\,alle}\,u,u'\in U\,\mathrm{gilt}\,u\sim_{\mathcal{P}}u'\,\Rightarrow u\sim_{\mathcal{P}'}u'\\
+\mathcal{P}\preceq\mathcal{P}' & \Leftrightarrow & \mathrm{f.a.}\,P\in\mathcal{P}\,\mathrm{ex.\,}P'\in\mathcal{P}'\,\mathrm{s.d.}\,P\subseteq P'\\
+ & \Leftrightarrow & \mathrm{f.a.}\,u,u'\in U\,\mathrm{gilt}\,u\sim_{\mathcal{P}}u'\,\Rightarrow u\sim_{\mathcal{P}'}u'\\
  & \Leftrightarrow & \left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)
 \end{eqnarray*}
 
@@ -11043,21 +11015,20 @@ Dies ist äquivalent zu der Teilmengenbeziehung von
 \end_layout
 
 \begin_layout Definition
-Die Relation 
+Unter Bezug auf die Teilmengenbeziehung der Äquivalenzrelation bildet 
 \begin_inset Formula $\preceq$
 \end_inset
 
- ist eine Halbordnung auf 
+ eine Halbordnung auf 
 \begin_inset Formula $\mathrm{Part}_{U}$
 \end_inset
 
-: Sie ist offensichtlich reflexiv, transitiv und anti-symmetrisch (jedoch
- nicht vollständig).
+.
 \end_layout
 
 \begin_layout Definition
-Daher bilden die Partitionen von 
-\begin_inset Formula $U$
+Daher bildet 
+\begin_inset Formula $\mathrm{Part}_{U}$
 \end_inset
 
  einen vollständigen Verband
@@ -11067,7 +11038,7 @@ key "Klein-Barmen1935"
 
 \end_inset
 
- mit den Infimum- und Supremum-Operationen 
+ mit den folgenden Infimum- und Supremum-Operationen 
 \begin_inset Formula $\sqcap$
 \end_inset
 
@@ -11124,17 +11095,29 @@ Wenn
 \begin_inset Formula $\left\{ y\mid x\sim y\right\} $
 \end_inset
 
- ist, dann gilt: 
+ ist, und 
+\begin_inset Formula $\mathcal{P}_{1},\mathcal{P}_{2}\in\mathrm{Part}_{U}$
+\end_inset
+
+ wie folgt sind, 
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{A}\sqcap\mathcal{B}=\mathcal{P}_{1} & \coloneqq & \left\{ \left[x\right]_{\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}}\mid x\in U\right\} \\
-\mathcal{A}\sqcup\mathcal{B}=\mathcal{P}_{2} & \coloneqq & \left\{ \left[x\right]_{\sim^{*}}\mid x\in U\right\} \\
+\mathcal{P}_{1} & \coloneqq & \left\{ \left[x\right]_{\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}}\mid x\in U\right\} \\
+\mathcal{P}_{2} & \coloneqq & \left\{ \left[x\right]_{\sim^{*}}\mid x\in U\right\} \\
  &  & \mathrm{wobei}\,\sim\coloneqq\left(\sim_{\mathcal{A}}\right)\cup\left(\sim_{\mathcal{B}}\right)
 \end{eqnarray*}
 
 \end_inset
 
+dann ist 
+\begin_inset Formula $\mathcal{P}_{1}=\mathcal{A}\sqcap\mathcal{B}$
+\end_inset
 
+ und 
+\begin_inset Formula $\mathcal{P}_{2}=\mathcal{A}\sqcup\mathcal{B}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -11194,29 +11177,25 @@ Die feinste und gröbste Partition von
 .
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
-Stabilisatoren
+Stabilisatoren einer Partition
 \end_layout
 
-\begin_layout Definition
-Sei 
-\begin_inset Formula $x\in U$
-\end_inset
-
-.
- Der 
+\begin_layout Standard
+Wir führen den 
 \series bold
 Stabilisator
 \series default
- von 
-\begin_inset Formula $x$
+ als Untergruppe von 
+\begin_inset Formula $\mathrm{Sym}_{U}$
+\end_inset
+
+ ein.
+\end_layout
+
+\begin_layout Definition
+Der Stabilisator eines Elements 
+\begin_inset Formula $u\in U$
 \end_inset
 
  in 
@@ -11224,17 +11203,17 @@ Stabilisator
 \end_inset
 
  sei die Untergruppe 
-\begin_inset Formula $\mathrm{Stab}_{U}\left(x\right)\subseteq\mathrm{Sym}_{U}$
+\begin_inset Formula $\mathrm{Stab}_{U}\left(u\right)\subseteq\mathrm{Sym}_{U}$
 \end_inset
 
  aller Permutationen, die 
-\begin_inset Formula $x$
+\begin_inset Formula $u$
 \end_inset
 
  fixieren: 
 \begin_inset Formula 
 \[
-\mathrm{Stab}_{U}\left(x\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi x=x\right\} 
+\mathrm{Stab}_{U}\left(u\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi u=u\right\} 
 \]
 
 \end_inset
@@ -11242,31 +11221,13 @@ Stabilisator
 
 \end_layout
 
-\begin_layout --Separator--
-
-\end_layout
-
 \begin_layout Definition
-Die letzte Definition wird auf Teilmengen von 
-\begin_inset Formula $U$
-\end_inset
-
- erweitert.
- Sei 
-\begin_inset Formula $X\subseteq U$
-\end_inset
-
-:
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
 Der 
 \series bold
 Punktstabilisator 
 \series default
-von 
-\begin_inset Formula $X$
+einer Teilmenge 
+\begin_inset Formula $X\subseteq U$
 \end_inset
 
  in 
@@ -11283,28 +11244,17 @@ von
 
  fixieren:
 \begin_inset Formula 
-\[
-\mathrm{Stab}_{U}\left(X\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi x=x\,\mathrm{für}\,\mathrm{alle}\,x\in X\right\} 
-\]
-
-\end_inset
-
-Diese Gruppe ist der Schnitt der Stabilisatoren der Elemente von 
-\begin_inset Formula $X$
-\end_inset
-
-.
-\begin_inset Formula 
-\[
-\mathrm{Stab}_{U}\left(X\right)=\bigcap_{x\in X}\mathrm{Stab}_{U}\left(x\right)
-\]
+\begin{eqnarray*}
+\mathrm{Stab}_{U}\left(X\right) & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi x=x\,\mathrm{für}\,\mathrm{alle}\,x\in X\right\} \\
+ & = & \bigcap_{x\in X}\mathrm{Stab}_{U}\left(x\right)
+\end{eqnarray*}
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Definition
 Der 
 \series bold
 Mengenstabilisator
@@ -11327,49 +11277,9 @@ Mengenstabilisator
 
  fixieren.
 \begin_inset Formula 
-\[
-\mathrm{Stab}_{U}\left\{ X\right\} \coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi X=X\right\} 
-\]
-
-\end_inset
-
-Diese Gruppe wird durch 
-\begin_inset Formula $\mathrm{Stab}_{U}\left(X\right)$
-\end_inset
-
- und 
-\begin_inset Formula $\mathrm{Stab}_{U}\left(U\backslash X\right)$
-\end_inset
-
- erzeugt: Jede Permutation 
-\begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left\{ X\right\} $
-\end_inset
-
- kann in 
-\begin_inset Formula $\pi_{1}\circ\pi_{2}$
-\end_inset
-
- zerlegt werden, wobei 
-\begin_inset Formula $\pi_{1}$
-\end_inset
-
- nur Elemente von 
-\begin_inset Formula $X$
-\end_inset
-
-, und 
-\begin_inset Formula $\pi_{2}$
-\end_inset
-
- nur Elemente von 
-\begin_inset Formula $U\backslash X$
-\end_inset
-
- permutiert.
- 
-\begin_inset Formula 
 \begin{eqnarray*}
-\mathrm{Stab}_{U}\left\{ X\right\}  & = & \left\langle \mathrm{Stab}_{U}\left(X\right)\cup\mathrm{Stab}_{U}\left(U\backslash X\right)\right\rangle 
+\mathrm{Stab}_{U}\left\{ X\right\}  & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi X=X\right\} \\
+ & = & \bigcup_{\pi\in\mathrm{Sym}_{X}}\left(\pi\cup\mathbf{id}_{U\backslash X}\right)\mathrm{Stab}_{U}\left(X\right)
 \end{eqnarray*}
 
 \end_inset
@@ -11377,25 +11287,19 @@ Diese Gruppe wird durch
 
 \end_layout
 
-\end_deeper
 \begin_layout --Separator--
 
 \end_layout
 
 \begin_layout Definition
-Die letzte Definition wird auf Partitionen (Mengen von Teilmengen) 
-\begin_inset Formula $\mathcal{P}$
-\end_inset
-
- von 
-\begin_inset Formula $U$
+Die obige Definition wird auf Partitionen 
+\begin_inset Formula $\mathcal{P}\in\mathrm{Part}_{U}$
 \end_inset
 
  erweitert:
 \end_layout
 
-\begin_deeper
-\begin_layout Itemize
+\begin_layout Definition
 Der Punktstabilisator
 \series bold
  
@@ -11419,27 +11323,16 @@ von
  fixieren:
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathrm{Stab}_{U}\left(\mathcal{P}\right) & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi P_{i}=P_{i}\,\mathrm{für}\,\mathrm{alle}\,P_{i}\in\mathcal{P}\right\} 
+\mathrm{Stab}_{U}\left(\mathcal{P}\right) & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi P_{i}=P_{i}\,\mathrm{für}\,\mathrm{alle}\,P_{i}\in\mathcal{P}\right\} \\
+ & = & \bigcap_{P_{i}\in\mathcal{P}}\mathrm{Stab}_{U}\left\{ P_{i}\right\} 
 \end{eqnarray*}
-
-\end_inset
-
-Dies ist der Schnitt der Mengenstabilisatoren der Elemente von 
-\begin_inset Formula $\mathcal{P}$
-\end_inset
-
-:
-\begin_inset Formula 
-\[
-\mathrm{Stab}_{U}\left(\mathcal{P}\right)=\bigcap_{P_{i}\in\mathcal{P}}\mathrm{Stab}_{U}\left\{ P_{i}\right\} 
-\]
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Itemize
+\begin_layout Definition
 Der Mengenstabilisator von 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
@@ -11454,9 +11347,9 @@ Der Mengenstabilisator von
 
  aller Permutationen, die die Partition als ganzes fixieren: 
 \begin_inset Formula 
-\[
-\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi\mathcal{P}=\mathcal{P}\right\} 
-\]
+\begin{eqnarray*}
+\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\}  & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi\mathcal{P}=\mathcal{P}\right\} 
+\end{eqnarray*}
 
 \end_inset
 
@@ -11479,7 +11372,10 @@ Diese Gruppe wird durch
 , dann gilt: 
 \begin_inset Formula 
 \[
-\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} =\left\langle \mathrm{Stab}_{U}\left(\mathcal{P}\right)\cup\bigcup_{i=1}^{\left|U\right|}\mathrm{Sym}_{\mathcal{P}_{\mid i}}\right\rangle 
+\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} =\bigcup_{\begin{subarray}{c}
+i\in\left[1,\left|U\right|\right]\\
+\pi\in\mathrm{Sym}_{\mathcal{P}_{\mid i}}
+\end{subarray}}\pi\mathrm{Stab}_{U}\left(\mathcal{P}\right)
 \]
 
 \end_inset
@@ -11487,7 +11383,11 @@ Diese Gruppe wird durch
 
 \end_layout
 
-\end_deeper
+\begin_layout Definition
+Die Feinheit von Partitionen ist äquivalent zu der Teilmengenbeziehung ihrer
+ Stabilisatoren.
+\end_layout
+
 \begin_layout Proposition
 \begin_inset CommandInset label
 LatexCommand label
@@ -11551,15 +11451,24 @@ reference "def:feinheit"
 
 \end_inset
 
- gilt außerdem 
+ gilt 
 \begin_inset Formula $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)$
 \end_inset
 
 , und daher 
-\begin_inset Formula $\left(u_{i}v_{i}\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
+\begin_inset Formula $u_{i}\sim_{\mathcal{P}'}v_{i}$
 \end_inset
 
  und 
+\begin_inset Formula $\left(u_{i}v_{i}\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
+\end_inset
+
+ für alle 
+\begin_inset Formula $i\in\left[1,k\right]$
+\end_inset
+
+.
+ Aus der Abgeschlossenheit des Stabilisators folgt 
 \begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
 \end_inset
 
@@ -11571,20 +11480,28 @@ Umgekehrt impliziert auch
 \begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
 \end_inset
 
-, dass alle Transpositionen 
-\begin_inset Formula $\left(u_{i}v_{i}\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+, dass für jedes Paar 
+\begin_inset Formula $u\sim_{\mathcal{P}}v$
 \end_inset
 
- in 
+ die Transposition 
+\begin_inset Formula $\left(uv\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+\end_inset
+
+ auch in 
 \begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
 \end_inset
 
- enthalten sind.
- Daraus folgt 
+ enthalten ist, und daher 
+\begin_inset Formula $u\sim_{\mathcal{P}'}v$
+\end_inset
+
+ gilt.
+ Aus 
 \begin_inset Formula $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)$
 \end_inset
 
- und 
+ folgt 
 \begin_inset Formula $\mathcal{P}\preceq\mathcal{P}'$
 \end_inset
 
@@ -11592,7 +11509,7 @@ Umgekehrt impliziert auch
 \end_layout
 
 \begin_layout Section
-Träger
+Träger einer Permutationsgruppe
 \end_layout
 
 \begin_layout Definition
@@ -12263,6 +12180,172 @@ Weil
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:lemma-19"
+
+\end_inset
+
+(Lemma 19 aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anderson_et_al:LIPIcs:2014:4445"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Lemma
+Für 
+\begin_inset Formula $\epsilon\in\mathbb{R}_{\left[0,1\right[}$
+\end_inset
+
+, jedes hinreichend große Universum 
+\begin_inset Formula $U=\left[1,n\right]$
+\end_inset
+
+ mit 
+\begin_inset Formula $n\geqslant\exp\frac{4}{\epsilon}$
+\end_inset
+
+ und jede Partition 
+\begin_inset Formula $\mathcal{P}\in\mathrm{Part}_{U}$
+\end_inset
+
+ gilt:
+\end_layout
+
+\begin_layout Lemma
+Falls der Index des Mengenstabilisators von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ subexponentiell in 
+\begin_inset Formula $n$
+\end_inset
+
+ ist,
+\begin_inset Formula 
+\[
+s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+n\leqslant s\leqslant2^{n^{1-\epsilon}}
+\]
+
+\end_inset
+
+dann enthält 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ entweder 
+\begin_inset Formula $\mathcal{O}\left(n^{1-\epsilon}\right)$
+\end_inset
+
+ oder 
+\begin_inset Formula $n-\mathcal{O}\left(n^{1-\epsilon}\right)$
+\end_inset
+
+ viele Elemente.
+\begin_inset Formula 
+\[
+\min\left\{ \left|\mathcal{P}\right|,n-\left|\mathcal{P}\right|\right\} \leqslant\frac{8}{\epsilon}\frac{\log s}{\log n}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:lemma-20"
+
+\end_inset
+
+(Lemma 20 aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anderson_et_al:LIPIcs:2014:4445"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Lemma
+Für 
+\begin_inset Formula $\epsilon\in\mathbb{R}_{\left[0,1\right[}$
+\end_inset
+
+, jedes hinreichend große Universum 
+\begin_inset Formula $U\coloneqq\left[1,n\right]$
+\end_inset
+
+ mit 
+\begin_inset Formula $n\geqslant\exp\frac{8}{\epsilon^{2}}$
+\end_inset
+
+ und jede Partition 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ mit mit 
+\begin_inset Formula $\left|\mathcal{P}\right|\leqslant\frac{n}{2}$
+\end_inset
+
+ gilt:
+\end_layout
+
+\begin_layout Lemma
+Falls der Index des Mengenstabilisators von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ subexponentiell in 
+\begin_inset Formula $n$
+\end_inset
+
+ ist, 
+\begin_inset Formula 
+\[
+s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+n\leqslant s\leqslant2^{n^{1-\epsilon}}
+\]
+
+\end_inset
+
+dann enthält das mächtigste Element von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ alles bis auf einen sublinearen Teil des Universums: 
+\begin_inset Formula 
+\[
+\max\left\{ \left|P\right|\mid P\in\mathcal{P}\right\} \geqslant n-\frac{33}{\epsilon}\cdot\frac{\log s}{\log n}\geqslant n-\frac{33}{\epsilon}n^{1-\epsilon}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section

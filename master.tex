@@ -238,11 +238,11 @@ $\mathrm{AC}^{0}+\mathbf{MAJ}$-Schaltkreisfamilien.
 \end{thm}
 Die Einschränkung auf symmetrische Schaltkreisfamilien bringt im Allgemeinen
 eine Reduktion der Ausdrucksstärke mit sich. Insbesondere werden (nach
-Johann Makowsky \cite{Makowsky:1997:ID:648040.744731,Makowsky1999})
+Johann Makowsky, 1997-1998 \cite{Makowsky:1997:ID:648040.744731,Makowsky1999})
 die Klassen $\mathrm{AC}^{0}$ und $P/\mathrm{poly}$ ohne Symmetrie-Einschränkung
 durch die arb-invarianten Logiken $\mathrm{FO}\left(\mathbf{ARB}\right)$
 und $\mathrm{LFP}\left(\mathbf{ARB}\right)$ charakterisiert. $\mathrm{FO}\left(\mathbf{ARB}\right)$
-ist jedoch echt ausdrucksstärker als die disjunkte Variante $\mathrm{FO}+\mathbf{ARB}$.
+ist jedoch echt ausdrucksstärker als die disjunkte Variante $\mathrm{FO}+\mathbf{ARB}$:
 \begin{thm}
 \label{thm:fo-arb}Für die $\mathrm{FO}+\mathbf{ARB}$-Logik und die
 arb-invariante $\mathrm{FO}\left(\mathbf{ARB}\right)$-Logik gilt:
@@ -425,8 +425,8 @@ und $\pi_{\backslash A'}:A\backslash A'\rightarrow B$ die Reduktion
 auf das Komplement.
 
 Es sei $\mathbf{id}$ die Identität mit $\mathbf{id}\left(a\right)=a$
-für alle Elemente $a$. Mit $\mathbf{id}_{\mid X}$ bezeichnen wir
-die Identitätsfunktion auf einer Menge $X$.
+für alle Elemente $a$. Mit $\mathbf{id}_{X}$ bezeichnen wir die
+Identitätsfunktion auf einer Menge $X$.
 
 Die Menge $\mathrm{Abb}\left(A,B\right)$ bezeichne alle Funktionen
 $\pi:A\rightarrow B$, und $\mathrm{Bij}\left(A,B\right)$ bezeichne
@@ -440,13 +440,16 @@ Abbildungen $\pi:A\rightleftarrows B$.
 Eine Permutation von $U$ ist eine bijektive Abbildung $\pi:U\rightleftarrows U$.
 Die Menge aller Permutationen $\mathrm{Bij}\left(U,U\right)$ bezeichnen
 wir auch als $\mathrm{Sym}_{U}$. Diese bilden eine Symmetrie-Gruppe
-bezüglich der Verkettung $\circ$ mit dem neutralen Element $\mathbf{id}_{\mid U}$.
+bezüglich der Verkettung $\circ$ mit dem neutralen Element $\mathbf{id}_{U}$.
 
-Es sei $\pi^{-1}$ die inverse Abbildung mit $\pi^{-1}\pi=\pi\pi^{-1}=\mathbf{id}_{\mid U}$.
+Es sei $\pi^{-1}$ die inverse Abbildung mit $\pi^{-1}\pi=\pi\pi^{-1}=\mathbf{id}_{U}$.
 
 Eine Transposition sei eine Permutation, die zwei Elemente $u_{i}$
-und $u_{j}$ vertauscht und alle anderen Elemente fixiert. Diese wird
-kurz durch $\left(u_{i}u_{j}\right)$ notiert.
+und $u_{j}$ vertauscht und alle anderen Elemente fixiert. Die Permutation
+$\left(\begin{array}{cc}
+u_{i} & u_{j}\\
+u_{j} & u_{i}
+\end{array}\right)\cup\mathbf{id}_{U\backslash\left\{ u_{i},u_{j}\right\} }$ wird kurz durch $\left(u_{i}u_{j}\right)$ notiert.
 \end{defn}
 
 \section{Endliche relationale Strukturen}
@@ -550,7 +553,7 @@ sei ein Isomorphismus von $\mathfrak{A}$ zu sich selbst. Die Menge
 der Automorphismen $\mathrm{Bij}\left(\mathfrak{A},\mathfrak{A}\right)$
 nennen wir $\mathrm{Aut}_{\mathfrak{A}}$; diese bilden (so wie die
 Permutationen einer Menge) eine Gruppe bezüglich der Verkettung $\circ$
-und dem neutralen Element $\mathbf{id}_{\mid A}$.
+und dem neutralen Element $\mathbf{id}_{A}$.
 \end{defn}
 
 \begin{defn}
@@ -2124,16 +2127,26 @@ T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+T\left(\mathcal{C}_{n}^{\psi}\ri
 \item Falls $\varphi\left(\bar{x}\right)=\forall y_{1}\cdots\forall y_{m}\psi\left(\bar{z}\right)$,
 so sei der Schaltkreis analog zu Fall 8 mit $\Sigma\left(g_{\bar{t}}\right)\coloneqq\mathtt{AND}$.\end{casenv}
 \begin{description}
-\item [{Speicherplatz}] Die beschriebene Konstruktion wird von einem $\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log n$-platzbeschränkten
-Algorithmus berechnet.
+\item [{Speicherplatz}] Die beschriebene Konstruktion wird von dem $\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log n$-platzbeschränkten
+Algorithmus \ref{alg:fo-circ} berechnet.
+
+
+Jeder Aufruf von $\mathtt{Berechne}\left(\varphi\left(\bar{x}\right)\right)$
+iteriert über Variablen $\bar{t}\in U^{\mathrm{var}\left(\varphi\right)}$,
+die $\mathrm{var}\left(\varphi\right)\log n$ Bits belegen. Da die
+maximale Tiefe der Rekursion durch $\left\Vert \varphi\right\Vert $
+beschränkt ist, werden insgesamt $\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log n$
+Bits benötigt.
+
 \end{description}
+\end{proof}
 \begin{algorithm}
 \begin{lyxcode}
 Berechne($\varphi\left(\bar{x}\right)$):
 \begin{lyxcode}
 Für~jedes~$\bar{t}\in\left[1,n\right]^{\mathrm{ar}\left(\bar{x}\right)}$:
 \begin{lyxcode}
-Gi~b~Gate~$g_{\varphi\left(\bar{t}\right)}$~und~$\Omega_{\varphi}\left(\bar{t}\right)\coloneqq g_{\varphi\left(\bar{t}\right)}$~aus.
+Gib~Gate~$g_{\varphi\left(\bar{t}\right)}$~und~$\Omega_{\varphi}\left(\bar{t}\right)\coloneqq g_{\varphi\left(\bar{t}\right)}$~aus.
 
 Gib~$\Sigma_{\varphi}\left(g_{\varphi\left(\bar{t}\right)}\right)$~entsprechend~der~Konstruktion~aus.
 \end{lyxcode}
@@ -2154,19 +2167,11 @@ Verknüpfe~$\Omega_{\psi}\left(\bar{t}'\right)$~mit~$g_{\varphi\left(\bar{t}\rig
 \end{lyxcode}
 \end{lyxcode}
 \end{lyxcode}
-\caption{Berechnung von $\mathcal{C}_{n}^{\varphi}$ für $\mathrm{FO}\left[\sigma\right]$-Formeln.}
-
-
+\caption{\label{alg:fo-circ}Berechnung von $\mathcal{C}_{n}^{\varphi}$ für
+$\mathrm{FO}\left[\sigma\right]$-Formeln.}
 \end{algorithm}
 
 
-Jeder Aufruf von $\mathtt{Berechne}\left(\varphi\left(\bar{x}\right)\right)$
-iteriert über Variablen $\bar{t}\in U^{\mathrm{var}\left(\varphi\right)}$,
-die $\mathrm{var}\left(\varphi\right)\log n$ Bits belegen. Da die
-maximale Tiefe der Rekursion durch $\left\Vert \varphi\right\Vert $
-beschränkt ist, werden insgesamt $\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log n$
-Bits benötigt.
-\end{proof}
 \pagebreak{}
 
 
@@ -2262,7 +2267,7 @@ fest in den Schaltkreis eingebaut:
 \end{casenv}
 Sei nun $\pi\in\mathrm{Sym}_{U}$ eine beliebige Permutation.
 
-Wir betrachten die Erweiterung $\pi'\coloneqq\pi\cup\mathbf{id}_{\mid\left[n+1,2n+1\right]}$,
+Wir betrachten die Erweiterung $\pi'\coloneqq\pi\cup\mathbf{id}_{\left[n+1,2n+1\right]}$,
 die die Elemente von $\Upsilon'\left(n\right)$ auf sich selbst abbildet.
 Offensichtlich ist $\pi'\in\mathrm{Sym}_{U'}$ eine Permutation von
 $U'=\left[1,2n+1\right]$.
@@ -2422,9 +2427,8 @@ W_{\mathrm{pad}} & = & \left\{ \left(0_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{
 bezüglich $\mathrm{Sym}_{U'}$, denn die Anzahl der konstanten Vorgänger
 von $g_{\bar{t}}$ hängt von dem Wert $t_{i}$ ab. Allerdings ist
 er symmetrisch bezüglich der Permutationen, die die Werte in $\left[n+1,2n+1\right]$
-fixieren. (Da die Induktion in Lemma \ref{lem:FO-Circuit} für eine
-beliebige Permutation $\pi$ gilt, funktioniert sie auch für diesen
-Spezialfall.)
+fixieren, denn für alle übrigen Werte von $t_{i}$ ist das Gate $g_{\bar{t}}$
+eine $\mathbf{0}$-Konstante. 
 
 
 Sei $\pi\in\mathrm{Sym}_{U}$ beliebig, und $\pi'\coloneqq\pi\cup\mathbf{id}_{\left[n+1,2n+1\right]}$
@@ -2498,7 +2502,7 @@ $\left[n+1,2n+1\right]$ zu Konstanten werden. Der neue Schritt fügt
 keine nicht-konstanten Inputs hinzu, so dass sich hierbei nichts ändert.
 
 Da der Schaltkreis $\mathcal{C}_{2n+1}^{\varphi}$ für jede Permutation
-$\pi\uplus\mathbf{id}_{\left[n+1,2n+1\right]}$ mit $\pi\in\mathrm{Sym}_{\left[1,n\right]}$
+$\pi\cup\mathbf{id}_{\left[n+1,2n+1\right]}$ mit $\pi\in\mathrm{Sym}_{\left[1,n\right]}$
 einen Automorphismus besitzt, ist der Schaltkreis $\dot{\mathcal{C}_{n}^{\varphi}}$
 symmetrisch (siehe Lemma \ref{lem:fo-ord}).
 
@@ -2552,7 +2556,7 @@ und $\bar{t}\in U'^{k}$:
 \begin{description}
 \item [{Symmetrie:}] Wenn $\dot{\Sigma}\left(g\right)=\mathbf{1}$, dann
 gilt $\bar{t}\in R^{\Upsilon'\left(n\right)}$, und $\pi'\left(\bar{t}\right)=\bar{t}$
-(weil $\pi'_{\mid\left[n+1,2n+1\right]}=\mathbf{id}_{\mid\left[n+1,2n+1\right]}$
+(weil $\pi'_{\mid\left[n+1,2n+1\right]}=\mathbf{id}_{\left[n+1,2n+1\right]}$
 ist). Daher ist $\Sigma\left(\hat{\pi}g\right)=R\pi'\bar{t}=R\bar{t}$,
 und somit gilt auch $\dot{\Sigma}\left(\hat{\pi}g\right)=\mathbf{1}$.
 \end{description}
@@ -2583,8 +2587,8 @@ mit einer konstanten Anzahl Variablen definiert werden, so dass $\varphi_{n}$
 auf den Strukturen der Größe $n$ äquivalent zu $\varphi$ ist. Dies
 ist vergleichbar zum $k$-Variablen-Fragment der infinitären Logik
 $L_{\infty\omega}^{k}$, welches die Fixpunktlogik einschließt.\cite{Dawar1995c,Kolaitis1992,Kolaitis1992b}
-Hier hat jedoch jede einzelne Formel $\varphi_{n}$ eine endliche
-Länge.
+In unserer Definition hat jedoch jede einzelne Formel $\varphi_{n}$
+eine endliche Länge.
 \begin{lem}
 \label{lem:lfp-inf}Für jede $\mathrm{LFP}\left[\sigma\right]$-Formel
 $\varphi$ mit $\left\Vert \varphi\right\Vert =c$ und jedes $n\in\mathbb{N}$
@@ -2592,16 +2596,16 @@ existiert eine $\mathrm{FO}\left[\sigma\right]$-Formel $\hat{\varphi}$
 mit $\left|\mathrm{var}\left(\varphi_{n}\right)\right|\leqslant2\left|\mathrm{var}\left(\varphi\right)\right|$,
 so dass $\models_{n}\left(\hat{\varphi}\leftrightarrow\varphi\right)$.\end{lem}
 \begin{proof}
-Sei $\varphi\left(\bar{x}\right)$ eine $k$-stellige $\mathrm{LFP}\left[\sigma\right]$-Formel.
-Es wird induktiv über den Aufbau von $\varphi$ vorgegangen, wobei
-nur der Fall $\varphi=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
+Sei $\varphi$ eine $\mathrm{LFP}\left[\sigma\right]$-Formel. Es
+wird induktiv über den Aufbau von $\varphi$ vorgegangen, wobei nur
+der Fall $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
 nicht-trivial ist.
 
-Falls $\varphi=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
-für eine $k$-stellige Relationsvariable $R\in\mathbf{var}_{2}$,
-$\bar{z}\in\mathbf{var}^{k}$, eine $\mathrm{LFP}\left[\sigma\cup\left\{ R\right\} \right]$-Formel
+Falls $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
+für eine $k$-stellige Relationsvariable $X\in\mathbf{var}_{2}$,
+$\bar{x}\in\mathbf{var}^{k}$, eine $\mathrm{LFP}\left[\sigma\right]$-Formel
 $\psi$ und ein $k$-Tupel von $\mathrm{LFP}\left[\sigma\right]$-Termen
-$\bar{y}\in\mathbf{var}^{k}$, so existiert per Annahme eine $\mathrm{FO}\left[\sigma\right]$-Formel
+$\bar{y}$, so existiert per Annahme eine $\mathrm{FO}\left[\sigma\right]$-Formel
 $\hat{\psi}$ mit $\models_{n}\left(\hat{\psi}\leftrightarrow\psi\right)$.
 
 Sei $\bar{u}\in\mathbf{var}^{k}\backslash\mathrm{frei}\left(\psi\right)$
@@ -2609,84 +2613,73 @@ ein Tupel von Variablen, die nicht frei in $\hat{\psi}$ vorkommen.
 Sei die Sequenz $\left(\psi_{i}\right)_{i\in\mathbb{N}}$ induktiv
 wie folgt definiert:
 \begin{eqnarray*}
-\psi^{0} & \coloneqq & \neg\bar{z}\dot{=}\bar{z}\\
-\psi^{i+1} & \coloneqq & \hat{\psi}^{\left(\frac{R\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}\\
-\chi^{i}\left(\bar{t}\right) & \coloneqq & \exists\bar{u}\left(\bar{t}=\bar{u}\wedge\exists\bar{z}\left(\bar{u}=\bar{z}\wedge\psi^{i}\right)\right)
+\psi^{0} & \coloneqq & \neg\bar{x}\dot{=}\bar{x}\\
+\psi^{i+1} & \coloneqq & \hat{\psi}^{\left(\frac{X\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}\\
+\chi^{i}\left(\bar{t}\right) & \coloneqq & \exists\bar{u}\left(\bar{t}=\bar{u}\wedge\exists\bar{x}\left(\bar{u}=\bar{x}\wedge\psi^{i}\right)\right)
 \end{eqnarray*}
-Hierbei sei $\hat{\psi}^{\left(\frac{R\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}$
-die Formel, die aus $\hat{\psi}$ entsteht, indem jedes Atom $R\bar{t}$
+Hierbei sei $\hat{\psi}^{\left(\frac{X\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}$
+die Formel, die aus $\hat{\psi}$ entsteht, indem jedes Atom $X\bar{t}$
 (für irgendein $\bar{t}\in\mathbf{var}^{k}$) durch $\chi^{i}\left(\bar{t}\right)$
 ersetzt wird. (Der Zwischenschritt über $\bar{u}$ ist notwendig,
 weil $\bar{t}$ und $\bar{z}$ zum Teil die gleichen Variablen enthalten
-können, und daher ihr Geltungsbereich nicht überlappen darf.)
+könnten, und daher ihr Geltungsbereich nicht überlappen darf.)
 
-Nun gelte:
+Nun definieren wir die Formel $\hat{\varphi}$ wie folgt:
+
 \[
-\hat{\varphi}\coloneqq\exists\bar{z}\left(\bar{x}=\bar{z}\wedge\psi^{n^{k}}\right)
+\hat{\varphi}\coloneqq\exists\bar{x}\left(\bar{x}=\bar{y}\wedge\psi^{n^{k}}\right)
 \]
 
 \begin{description}
 \item [{Korrektheit:}] Sei $F:2^{A^{k}}\rightarrow2^{A^{k}}$ wie in Definition
-\ref{def:lfp} definiert. Außerdem sei $\left(X_{i}\right)_{i\in\mathbb{N}}$
+\ref{def:lfp} definiert. Außerdem sei $\left(Y_{i}\right)_{i\in\mathbb{N}}$
 wie folgt: 
 \[
-X_{i}\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\psi^{i}\left[\bar{a}\right]\right\} 
+Y_{i}\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\psi^{i}\left[\bar{a}\right]\right\} 
 \]
-Wir weisen induktiv nach, dass $X_{i}=F^{i}\left(\emptyset\right)$.
+Wir weisen induktiv nach, dass $Y_{i}=F^{i}\left(\emptyset\right)$.
 
 \begin{itemize}
 \item $\psi^{0}=\neg\bar{x}\dot{=}\bar{x}$ ist offensichtlich unerfüllbar,
-und erkennt daher die Relation $X_{0}=\emptyset=F^{0}\left(\emptyset\right)$.
-\item Sei $i\in\mathbb{N}$ beliebig:
+und erkennt daher die Relation $Y_{0}=\emptyset=F^{0}\left(\emptyset\right)$.
+\item Sei $i\in\mathbb{N}$ beliebig. Per Definition gilt:
 \begin{eqnarray*}
-\bar{a}\in X_{i+1} & \Leftrightarrow & \mathfrak{A}\models\psi^{i+1}\left[\bar{a}\right]\\
- & \Leftrightarrow & \mathfrak{A}\models\hat{\psi}^{\left(\frac{R\bar{z}}{\chi^{i}\left(\bar{z}\right)}\right)}\left[\bar{a}\right]
+\bar{a}\in Y_{i+1} & \Leftrightarrow & \mathfrak{A}\models\psi^{i+1}\left[\bar{a}\right]\\
+ & \Leftrightarrow & \mathfrak{A}\models\hat{\psi}^{\left(\frac{X\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}\left[\bar{a}\right]
 \end{eqnarray*}
-Per Definition gilt: 
 \[
-X_{i}\coloneqq\left\{ \bar{a}\mid\mathfrak{A}\models\psi^{i+1}\left[\bar{a}\right]\right\} =\left\{ \bar{a}\mid\mathfrak{A}\models\chi^{i}\left[\bar{a}\right]\right\} 
+\left\{ \bar{a}\mid\mathfrak{A}\models\chi^{i}\left[\bar{a}\right]\right\} =\left\{ \bar{a}\mid\mathfrak{A}\models\psi^{i+1}\left[\bar{a}\right]\right\} =Y_{i}
 \]
 Und daher:
 \begin{eqnarray*}
-\bar{a}\in X_{i+1} & \Leftrightarrow & \mathfrak{A}\cup\left(A,\left(\begin{array}{c}
-R\\
-X_{i}
-\end{array}\right)\right)\models\hat{\psi}\left[\bar{a}\right]\\
- & \overset{\mathrm{Ann.}}{\Leftrightarrow} & \mathfrak{A}\cup\left(A,\left(\begin{array}{c}
-R\\
-F^{i}\left(\emptyset\right)
-\end{array}\right)\right)\models\hat{\psi}\left[\bar{a}\right]\\
+\bar{a}\in Y_{i+1} & \Leftrightarrow & \mathfrak{A}\models\hat{\psi}^{\left(X\mapsto Y_{i}\right)}\left[\bar{a}\right]\\
+ & \overset{\mathrm{Ann.}}{\Leftrightarrow} & \mathfrak{A}\models\hat{\psi}^{\left(X\mapsto F^{i}\left(\emptyset\right)\right)}\left[\bar{a}\right]\\
  & \overset{\mathrm{Def.\ref{def:lfp}}}{\Leftrightarrow} & \bar{a}\in F^{i+1}\left(\emptyset\right)
 \end{eqnarray*}
 
 \end{itemize}
 
-Schließlich folgt $X_{n^{k}}=F^{n^{k}}\left(\emptyset\right)=F^{\infty}\left(\emptyset\right)$,
+Schließlich folgt $Y_{n^{k}}=F^{n^{k}}\left(\emptyset\right)=F^{\infty}\left(\emptyset\right)$,
 da $\left|F^{\infty}\left(\emptyset\right)\right|\leqslant n^{k}$.
 Daher gilt:
 \begin{eqnarray*}
 \left\llbracket \hat{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{a}\right) & = & \left\llbracket \exists\bar{u}\left(\bar{u}=\bar{y}\wedge\psi^{n^{k}}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)\\
- & = & \left\llbracket R\bar{y}\right\rrbracket \left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
-R\\
-F^{\infty}\left(\emptyset\right)
-\end{array}\right)\right),\bar{a}\right)\\
- & \overset{\mathrm{Def.\ref{def:lfp}}}{=} & \left\llbracket \left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)
+ & = & \left\llbracket X\bar{y}\right\rrbracket \left(\mathfrak{A},\left(X\mapsto F^{\infty}\left(\emptyset\right),\bar{y}\mapsto\bar{a}\right)\right)\\
+ & \overset{\mathrm{Def.\ref{def:lfp}}}{=} & \left\llbracket \left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)
 \end{eqnarray*}
 
 
 \end{description}
 \end{proof}
-Leider sind diese Formeln zu \emph{lang}: Wenn das Symbol $R$ mehr
-als einmal in $\psi$ vorkommt, ist $\left\Vert \psi_{i+1}\right\Vert \geqslant2\left\Vert \psi_{i}\right\Vert $,
-und daher $\left\Vert \varphi\right\Vert \geqslant2^{n^{k}}$ für
-$k=\mathrm{ar}\left(R\right)$. Für $\mathcal{C}_{n}^{\varphi}=\mathcal{C}_{n}^{\varphi_{n}}$
-könnten wir daher nicht die gewünschte $\mathrm{poly}\left(n\right)$-Größe
-ableiten.
-
-Die booleschen Schaltkreise haben jedoch nicht dieselbe Einschränkung
-wie $\mathrm{FO}\left[\sigma\right]$: Die Berechnung einer Teilformel
-$\psi_{i}\left(\bar{z}\right)$ kann wiederverwendet werden, ohne
-den Schaltkreis $\mathcal{C}_{n}^{\psi_{i}}$ zu vervielfältigen.
+Leider sind diese Formeln zu lang: Wenn das Symbol $R$ mehr als einmal
+in $\psi$ vorkommt, ist $\left\Vert \psi_{i+1}\right\Vert \geqslant2\left\Vert \psi_{i}\right\Vert $,
+und daher wächst die Formellänge mit $\left\Vert \varphi\right\Vert \geqslant2^{n^{k}}$
+exponentiell für $k=\mathrm{ar}\left(R\right)$. Mit $\mathcal{C}_{n}^{\varphi}=\mathcal{C}_{n}^{\varphi_{n}}$
+könnten wir nicht die gewünschte $\mathrm{poly}\left(n\right)$-Größe
+ableiten. Die booleschen Schaltkreise haben jedoch nicht dieselbe
+Einschränkung wie $\mathrm{FO}\left[\sigma\right]$: Die Berechnung
+einer Teilformel $\psi_{i}\left(\bar{z}\right)$ kann wiederverwendet
+werden, ohne den Schaltkreis $\mathcal{C}_{n}^{\psi_{i}}$ zu vervielfältigen.
 
 Wir nutzen dies und den Beweis von Lemma \ref{lem:lfp-inf} aus, um
 aus einer $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$ direkt
@@ -2705,22 +2698,21 @@ und $\left(n^{k+\mathtt{MF}\left(\varphi\right)}+1\right)$-Größe,
 so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right)$
 für alle $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ gilt.\end{lem}
 \begin{proof}
-Sei $\varphi\left(\bar{x}\right)$ eine $k$-stellige parameter-freie
-$\mathrm{LFP}\left[\sigma\right]$-Formel. Sei $n\in\mathbb{N}$ beliebig.
-Wir erweitern die Konstruktion aus Lemma \ref{lem:FO-Circuit} um
-den folgenden Fall:
+Sei $\varphi$ eine $k$-stellige parameter-freie $\mathrm{LFP}\left[\sigma\right]$-Formel,
+und sei $n\in\mathbb{N}$ beliebig. Wir erweitern die Konstruktion
+aus Lemma \ref{lem:FO-Circuit} um den folgenden Fall:
 
-Sei $\varphi\left(\bar{x}\right)=\left[\mathrm{lfp}_{R,\bar{z}}\psi\right]\left(\bar{y}\right)$
-für eine $m$-stellige Relationsvariable $R/m\in\mathbf{var}_{2}$,
-eine $m$-stellige parameter-freie $\mathrm{LFP}\left[\sigma\cup\left\{ R\right\} \right]$-Formel
-$\psi\left(\bar{z}\right)$ und ein $m$-Tupel von $\mathrm{LFP}\left[\sigma\right]$-Termen
-$\bar{y}$.
-
-Per Annahme existiert ein $P$-uniformer symmetrischer $\left(\sigma\cup\left\{ R\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
-$\mathcal{C}_{n}^{\psi}$, der auf den erweiterten $\left(\sigma\cup\left\{ R\right\} \right)$-Strukturen
-$\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\cup\left\{ R\right\} \right)$
-die Anfrage $q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\right)=q_{\psi}\left(\mathfrak{A}\right)$
-berechnet.
+Falls $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
+für eine $m$-stellige Relationsvariable $X/m\in\mathbf{var}_{2}$,
+eine $m$-stellige parameter-freie $\mathrm{LFP}\left[\sigma\right]$-Formel
+$\psi\left(X,\bar{x}\right)$ und ein $m$-Tupel von $\mathrm{LFP}\left[\sigma\right]$-Termen
+$\bar{y}$ ist, dann existiert per Annahme ein $P$-uniformer symmetrischer
+$\left(\sigma\cup\left\{ X\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
+$\mathcal{C}_{n}^{\psi}$, der auf einer $\left(\sigma\cup\left\{ X\right\} \right)$-Struktur
+$\mathfrak{A}'\coloneqq\mathfrak{A}\cup\left(A,\left(X\mapsto Y\right)\right)$
+die Anfrage $q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}'\right)=q_{\psi^{\left(X\mapsto Y\right)}}\left(\mathfrak{A}\right)$
+berechnet. (Hier wird die Relationsvariable $X$ als neues Symbol
+in die Signatur mit aufgenommen.)
 \[
 \mathcal{C}_{n}^{\psi}=\left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U\right)
 \]
@@ -2743,19 +2735,19 @@ in $\mathcal{D}^{i}$ ein:
 G_{i+1} & \coloneqq & G_{i}\uplus G_{\psi}\\
 W_{i+1} & \coloneqq & W_{i}\uplus W_{\psi}\uplus W'
 \end{eqnarray*}
-$\mathcal{D}^{i}$ verbindet alle mit $R\bar{t}$ markierten Inputs
-mit dem Output $\Omega_{i}\left(\bar{t}\right)$, und markiert sie
+$\mathcal{D}^{i}$ verbindet alle mit $X\bar{u}$ markierten Inputs
+mit dem Output $\Omega_{i}\left(\bar{u}\right)$, und markiert sie
 mit ,,$\mathtt{AND}$``. (Hier wäre ,,$\mathtt{OR}$`` äquivalent,
 da jedes dieser Gates nur einen Vorgänger bekommt.) 
 \[
 \Sigma_{i+1}\left(g\right)\coloneqq\begin{cases}
 \Sigma_{i}\left(g\right) & \mathrm{falls}\,\,g\in G_{i}\\
-\mathtt{AND} & \mathrm{falls}\,\,g\in G_{\psi},\,\Sigma_{\psi}\left(g\right)=R\bar{t}\\
+\mathtt{AND} & \mathrm{falls}\,\,g\in G_{\psi},\,\Sigma_{\psi}\left(g\right)=X\bar{u}\\
 \Sigma_{\psi}\left(g\right) & \mathrm{sonst}
 \end{cases}
 \]
 \[
-W'\coloneqq\left\{ \left(\Omega_{i}\left(\bar{t}\right),g\right)\mid g\in G_{\psi},\,\Sigma_{\psi}\left(g\right)=R\bar{t}\right\} 
+W'\coloneqq\left\{ \left(\Omega_{i}\left(\bar{u}\right),g\right)\mid g\in G_{\psi},\,\Sigma_{\psi}\left(g\right)=X\bar{u}\right\} 
 \]
 Die Outputs von $\mathcal{C}_{n}^{\psi}$ werden zu den Outputs von
 $\mathcal{D}^{i+1}$: 
@@ -2771,57 +2763,48 @@ berechnet. Der Beweis funktioniert analog zu dem von Lemma \ref{lem:lfp-inf}:
 q_{\mathcal{D}^{0}}\left(\mathfrak{A}\right)=F^{0}\left(\emptyset\right)=\emptyset
 \]
 \begin{eqnarray*}
-q_{\mathcal{D}^{i+1}}\left(\mathfrak{A}\right) & = & q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
-R\\
-q_{\mathcal{D}^{i}}\left(\mathfrak{A}\right)
-\end{array}\right)\right)\right)\\
- & \overset{\mathrm{Ann.}}{=} & q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
-R\\
-F^{i}\left(\emptyset\right)
-\end{array}\right)\right)\right)\\
- & = & q_{\psi}\left(\mathfrak{A}\cup\left(A,\left(\begin{array}{c}
-R\\
-F^{i}\left(\emptyset\right)
-\end{array}\right)\right)\right)\\
+q_{\mathcal{D}^{i+1}}\left(\mathfrak{A}\right) & = & q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\cup\left(A,\left(X\mapsto q_{\mathcal{D}^{i}}\left(\mathfrak{A}\right)\right)\right)\right)\\
+ & \overset{\mathrm{Ann.}}{=} & q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\cup\left(A,\left(X\mapsto F^{i}\left(\emptyset\right)\right)\right)\right)\\
+ & = & q_{\psi^{\left(X\mapsto F^{i}\left(\emptyset\right)\right)}}\left(\mathfrak{A}\right)\\
  & \overset{\mathrm{Def.\ref{def:lfp}}}{=} & F^{i+1}\left(\emptyset\right)
 \end{eqnarray*}
 Daher berechnet $\mathcal{C}_{n}^{\varphi}=\mathcal{D}^{n^{k}}$ die
 Anfrage $q_{\mathcal{C}_{n}^{\varphi}}\left(\mathfrak{A}\right)=F^{n^{k}}\left(\emptyset\right)=F^{\infty}\left(\emptyset\right)$.
 \item [{Symmetrie:}] Sei $\pi\in\mathrm{Sym}_{U}$ beliebig. Per Annahme
 ist $\mathcal{C}_{n}^{\psi}$ symmetrisch, also existiert der Automorphismus
-$\hat{\pi}$. Es sei für $i\in\mathbb{N}$ der Automorphismus $\hat{\pi_{i}}$
-wie folgt:
+$\hat{\pi}$.
+
+
+Sei $\hat{\pi}_{0}\coloneqq\mathbf{id}_{\left\{ g_{0}\right\} }$.
+Per Annahme existiere für $i\in\mathbb{N}$ ein von $\pi$ induzierter
+Automorphismus $\hat{\pi}_{i}$ in $\mathcal{D}^{i}$. Sei dann $\hat{\pi}_{i+1}$
+die folgende Abbildung in $\mathcal{D}^{i+1}$:
 \begin{eqnarray*}
-\hat{\pi}_{0} & \coloneqq & \left(\begin{array}{c}
-g_{0}\\
-g_{0}
-\end{array}\right)\\
+\\
 \hat{\pi}_{i+1}\left(g\right) & \coloneqq & \begin{cases}
 \hat{\pi}_{i}\left(g\right) & \mathrm{falls}\,g\in G_{i}\\
 \hat{\pi}\left(g\right) & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
-Per Annahme sei $\hat{\pi}_{i}$ ein von $\pi$ induzierter Automorphismus
-in $\mathcal{D}^{i}$. So gilt in $\mathcal{D}^{i+1}$:
 
 \begin{enumerate}
-\item $\left(\hat{\pi}_{i+1}\right)_{\mid G_{i}}=\hat{\pi}_{i}$, und $\left(\hat{\pi}_{i+1}\right)_{\mid G_{\psi}}=\hat{\pi}$;
-damit sind die Bedingungen für $W_{i}\cup W_{\psi}$, $\Sigma_{i}$,
-$\Omega_{i+1}=\Omega_{\psi}$ und alle Gates $g\in G_{\psi}$ mit
-$\Sigma_{\psi}\notin\left\{ R\bar{t}\mid\bar{t}\in U^{m}\right\} $
+\item Es gilt $\left(\hat{\pi}_{i+1}\right)_{\mid G_{i}}=\hat{\pi}_{i}$,
+und $\left(\hat{\pi}_{i+1}\right)_{\mid G_{\psi}}=\hat{\pi}$; damit
+sind die Bedingungen für $W_{i}\cup W_{\psi}$, $\Sigma_{i}$, $\Omega_{i+1}=\Omega_{\psi}$
+und alle internen Gates $g\in G_{\psi}$ mit $\Sigma_{\psi}\notin\left\{ X\bar{u}\mid\bar{u}\in U^{m}\right\} $
 bereits erfüllt.
-\item Für die ehemaligen Inputs mit $\Sigma\left(g\right)=R\bar{t}$ gilt
+\item Für die ehemaligen Inputs mit $\Sigma\left(g\right)=X\bar{u}$ gilt
 $\Sigma_{i+1}\left(\hat{\pi}g\right)=\Sigma_{i+1}\left(g\right)=\mathtt{AND}$.
-\item Für jede neue Kante $\left(\Omega_{i}\left(\bar{t}\right),g\right)\in W'$
-mit $g\in G_{\psi}$ und $\Sigma_{\psi}\left(g\right)=R\bar{t}$:
+\item Für jede neue Kante $\left(\Omega_{i}\left(\bar{u}\right),g\right)\in W'$
+mit $g\in G_{\psi}$ und $\Sigma_{\psi}\left(g\right)=X\bar{u}$:
 \begin{eqnarray*}
-\left(\hat{\pi}_{i+1}\Omega_{i}\left(\bar{t}\right),\hat{\pi}_{i+1}g\right) & = & \left(\hat{\pi}_{i}\Omega_{i}\left(\bar{t}\right),\hat{\pi}g\right)\\
- & = & \left(\Omega_{i}\left(\pi\bar{t}\right),\hat{\pi}g\right)
+\left(\hat{\pi}_{i+1}\Omega_{i}\left(\bar{u}\right),\hat{\pi}_{i+1}g\right) & = & \left(\hat{\pi}_{i}\Omega_{i}\left(\bar{u}\right),\hat{\pi}g\right)\\
+ & = & \left(\Omega_{i}\left(\pi\bar{u}\right),\hat{\pi}g\right)
 \end{eqnarray*}
-Per Definition ist $\Sigma_{\psi}\left(\hat{\pi}g\right)=R\pi\bar{t}$,
+Per Definition ist $\Sigma_{\psi}\left(\hat{\pi}g\right)=X\pi\bar{u}$,
 und daher:
 \[
-\left(\Omega_{i}\left(\pi\bar{t}\right),\hat{\pi}g\right)\in W'
+\left(\Omega_{i}\left(\pi\bar{u}\right),\hat{\pi}g\right)\in W'
 \]
 
 \end{enumerate}
@@ -2850,55 +2833,46 @@ und $\left|\mathcal{C}_{n}^{\varphi}\right|=\left|\mathcal{D}^{n^{k}}\right|=n^{
 
 \chapter{Partitionen und Träger}
 
-Es werden nun mehrere Begriffe aus der Gruppentheorie eingeführt,
-mit deren Hilfe wir eine symmetrische Schaltkreisfamilie logisch beschreiben
-werden.
 
+\section{Partitionen einer Menge}
 
-\section{Partitionen}
-
-Sei $U$ ein beliebiges Universum.
+Sei $U$ ein beliebiges Universum. Wir führen die \textbf{Partition
+}als Zerlegung von $U$ in disjunkte Teilmengen ein.
 \begin{defn}
-Eine \textbf{Partition} $\mathcal{P}$ von $U$ sei eine Menge $\mathcal{P}=\left\{ P_{1},\cdots,P_{k}\right\} $
-von disjunkten nicht-leeren Teilmengen $P_{i}\subseteq U$, so dass
-$U=\biguplus_{i=1}^{k}P_{i}$. Die Menge aller Partitionen von $U$
-sei $\mathrm{Part}_{U}$.
-
-Die Partition $\mathcal{P}$ induziert eine Äquivalenzrelation $\sim_{\mathcal{P}}$
-auf $U$, wobei $x\sim_{\mathcal{P}}y$ genau dann wenn $\left\{ x,y\right\} \subseteq P$
-für irgendein $P\in\mathcal{P}$.
-
-Die Permutationen aus $\mathrm{Sym}_{U}$ werden auf natürliche Weise
-auf $\mathcal{P}$ erweitert. $\pi\mathcal{P}$ ist ebenfalls eine
-Partition von $U$:
-\begin{eqnarray*}
-\pi\mathcal{P} & \coloneqq & \left\{ \pi P_{i}\mid P_{i}\in\mathcal{P}\right\} \\
- & \coloneqq & \left\{ \left\{ \pi x\mid x\in P_{i}\right\} \mid P_{i}\in\mathcal{P}\right\} 
-\end{eqnarray*}
-
+Sei $\mathcal{P}\coloneqq\left\{ P_{1},\cdots,P_{k}\right\} $ eine
+Menge von disjunkten nicht-leeren Mengen. Wir nennen $\mathcal{P}$
+eine Partition von $U$, wenn $\biguplus_{i=1}^{k}P_{i}=U$. Sei $\mathrm{Part}_{U}$
+die Menge aller Partitionen von $U$. Sei $\sim_{\mathcal{P}}$ die
+Äquivalenzrelation auf $U$, deren Äquivalenzklassen von $\mathcal{P}$
+repräsentiert werden.
 \end{defn}
-
-\begin{defn}
-\label{def:feinheit}Die \textbf{Feinheit }der Partitionen von $U$
-sei eine Relation $\preceq$, so dass $\mathcal{P}\preceq\mathcal{P}'$
-(,,$\mathcal{P}$ ist feiner als $\mathcal{P}'$``) genau dann wenn
-jedes $P_{i}\in\mathcal{P}$ eine Teilmenge eines $P'_{j}\in\mathcal{P}'$
-ist.
-
-Dies ist äquivalent zu der Teilmengenbeziehung von $\sim$: 
+Die Permutationen $\mathrm{Sym}_{U}$ werden auf natürliche Weise
+auf $\mathcal{P}\in\mathrm{Part}_{U}$ erweitert:
 \begin{eqnarray*}
-\mathcal{P}\preceq\mathcal{P}' & \Leftrightarrow & \mathrm{f\ddot{u}r\,alle}\,P\in\mathcal{P}\,\mathrm{existiert\,}P'\in\mathcal{P}'\,\mathrm{so\,dass}\,P\subseteq P'\\
- & \Leftrightarrow & \mathrm{f\ddot{u}r\,alle}\,u,u'\in U\,\mathrm{gilt}\,u\sim_{\mathcal{P}}u'\,\Rightarrow u\sim_{\mathcal{P}'}u'\\
+\pi\mathcal{P} & \coloneqq & \left\{ \pi P_{i}\mid P_{i}\in\mathcal{P}\right\} \in\mathrm{Part}_{U}
+\end{eqnarray*}
+Als nächstes wird die \textbf{Feinheit} als Relation auf $\mathrm{Part}_{U}$
+eingeführt.
+\begin{defn}
+\label{def:feinheit}Sei $\mathcal{P}\preceq\mathcal{P}'$ (,,$\mathcal{P}$
+ist feiner als $\mathcal{P}'$``) genau dann wenn jedes $P_{i}\in\mathcal{P}$
+eine Teilmenge eines $P'_{j}\in\mathcal{P}'$ ist.
+
+Dies ist äquivalent zu der Teilmengenbeziehung von $\sim_{\mathcal{P}}$
+und $\sim_{\mathcal{P}'}$: 
+\begin{eqnarray*}
+\mathcal{P}\preceq\mathcal{P}' & \Leftrightarrow & \mathrm{f.a.}\,P\in\mathcal{P}\,\mathrm{ex.\,}P'\in\mathcal{P}'\,\mathrm{s.d.}\,P\subseteq P'\\
+ & \Leftrightarrow & \mathrm{f.a.}\,u,u'\in U\,\mathrm{gilt}\,u\sim_{\mathcal{P}}u'\,\Rightarrow u\sim_{\mathcal{P}'}u'\\
  & \Leftrightarrow & \left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)
 \end{eqnarray*}
 
 
-Die Relation $\preceq$ ist eine Halbordnung auf $\mathrm{Part}_{U}$:
-Sie ist offensichtlich reflexiv, transitiv und anti-symmetrisch (jedoch
-nicht vollständig).
+Unter Bezug auf die Teilmengenbeziehung der Äquivalenzrelation bildet
+$\preceq$ eine Halbordnung auf $\mathrm{Part}_{U}$.
 
-Daher bilden die Partitionen von $U$ einen vollständigen Verband\cite{Klein-Barmen1935}
-mit den Infimum- und Supremum-Operationen $\sqcap$ und $\sqcup$:
+Daher bildet $\mathrm{Part}_{U}$ einen vollständigen Verband\cite{Klein-Barmen1935}
+mit den folgenden Infimum- und Supremum-Operationen $\sqcap$ und
+$\sqcup$:
 \begin{eqnarray*}
 \mathcal{A}\sqcap\mathcal{B} & \coloneqq & \max_{\preceq}\left\{ \mathcal{P}\in\mathrm{Part}_{U}\mid\mathcal{P}\preceq\mathcal{A}\,\mathrm{und}\,\mathcal{P}\preceq\mathcal{B}\right\} \\
 \mathcal{A}\sqcup\mathcal{B} & \coloneqq & \min_{\preceq}\left\{ \mathcal{P}\in\mathrm{Part}_{U}\mid\mathcal{A}\preceq\mathcal{P}\,\mathrm{und}\,\mathcal{B}\preceq\mathcal{P}\right\} 
@@ -2910,13 +2884,14 @@ als $\mathcal{A}$ und $\mathcal{B}$, und $\mathcal{A}\sqcup\mathcal{B}$
 die feinste gröbere Partition als $\mathcal{A}$ und $\mathcal{B}$.)\end{defn}
 \begin{fact}
 Wenn $\left[x\right]_{\sim}$ die Äquivalenzklasse $\left\{ y\mid x\sim y\right\} $
-ist, dann gilt: 
+ist, und $\mathcal{P}_{1},\mathcal{P}_{2}\in\mathrm{Part}_{U}$ wie
+folgt sind, 
 \begin{eqnarray*}
-\mathcal{A}\sqcap\mathcal{B}=\mathcal{P}_{1} & \coloneqq & \left\{ \left[x\right]_{\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}}\mid x\in U\right\} \\
-\mathcal{A}\sqcup\mathcal{B}=\mathcal{P}_{2} & \coloneqq & \left\{ \left[x\right]_{\sim^{*}}\mid x\in U\right\} \\
+\mathcal{P}_{1} & \coloneqq & \left\{ \left[x\right]_{\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}}\mid x\in U\right\} \\
+\mathcal{P}_{2} & \coloneqq & \left\{ \left[x\right]_{\sim^{*}}\mid x\in U\right\} \\
  &  & \mathrm{wobei}\,\sim\coloneqq\left(\sim_{\mathcal{A}}\right)\cup\left(\sim_{\mathcal{B}}\right)
 \end{eqnarray*}
-
+dann ist $\mathcal{P}_{1}=\mathcal{A}\sqcap\mathcal{B}$ und $\mathcal{P}_{2}=\mathcal{A}\sqcup\mathcal{B}$.
 \end{fact}
 Die Eigenschaft $\mathcal{P}_{1}\preceq\mathcal{A},\mathcal{B}\preceq\mathcal{P}_{2}$
 folgt offensichtlich aus $\left(\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}\right)\subseteq\sim_{\mathcal{A}},\sim_{\mathcal{B}}\subseteq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)^{*}$.
@@ -2931,84 +2906,72 @@ muss auch $\left(\sim_{\mathcal{A}}\right)\cup\left(\sim_{\mathcal{B}}\right)$
 Die feinste und gröbste Partition von $U$ seien $\mathcal{P}_{\min}\left(U\right)\coloneqq\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
 und $\mathcal{P}_{\max}\left(U\right)\coloneqq\left\{ U\right\} $.
 \end{defn}
-\pagebreak{}
 
+\section{Stabilisatoren einer Partition}
 
-\section{Stabilisatoren}
+Wir führen den \textbf{Stabilisator} als Untergruppe von $\mathrm{Sym}_{U}$
+ein.
 \begin{defn}
-Sei $x\in U$. Der \textbf{Stabilisator} von $x$ in $U$ sei die
-Untergruppe $\mathrm{Stab}_{U}\left(x\right)\subseteq\mathrm{Sym}_{U}$
-aller Permutationen, die $x$ fixieren: 
+Der Stabilisator eines Elements $u\in U$ in $U$ sei die Untergruppe
+$\mathrm{Stab}_{U}\left(u\right)\subseteq\mathrm{Sym}_{U}$ aller
+Permutationen, die $u$ fixieren: 
 \[
-\mathrm{Stab}_{U}\left(x\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi x=x\right\} 
+\mathrm{Stab}_{U}\left(u\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi u=u\right\} 
 \]
 
-\end{defn}
 
-\begin{defn}
-Die letzte Definition wird auf Teilmengen von $U$ erweitert. Sei
-$X\subseteq U$:
-\begin{itemize}
-\item Der \textbf{Punktstabilisator }von $X$ in $U$ sei die Untergruppe
-$\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Sym}_{U}$ der Permutationen
-die jedes Element $x\in X$ fixieren:
-\[
-\mathrm{Stab}_{U}\left(X\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi x=x\,\mathrm{f\ddot{u}r}\,\mathrm{alle}\,x\in X\right\} 
-\]
-Diese Gruppe ist der Schnitt der Stabilisatoren der Elemente von $X$.
-\[
-\mathrm{Stab}_{U}\left(X\right)=\bigcap_{x\in X}\mathrm{Stab}_{U}\left(x\right)
-\]
-
-\item Der \textbf{Mengenstabilisator} von $X$ in $U$ sei die Untergruppe
-$\mathrm{Stab}_{U}\left\{ X\right\} \subseteq\mathrm{Sym}_{U}$ der
-Permutationen, die die Menge $X$ fixieren.
-\[
-\mathrm{Stab}_{U}\left\{ X\right\} \coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi X=X\right\} 
-\]
-Diese Gruppe wird durch $\mathrm{Stab}_{U}\left(X\right)$ und $\mathrm{Stab}_{U}\left(U\backslash X\right)$
-erzeugt: Jede Permutation $\pi\in\mathrm{Stab}_{U}\left\{ X\right\} $
-kann in $\pi_{1}\circ\pi_{2}$ zerlegt werden, wobei $\pi_{1}$ nur
-Elemente von $X$, und $\pi_{2}$ nur Elemente von $U\backslash X$
-permutiert. 
+Der \textbf{Punktstabilisator }einer Teilmenge $X\subseteq U$ in
+$U$ sei die Untergruppe $\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Sym}_{U}$
+der Permutationen die jedes Element $x\in X$ fixieren:
 \begin{eqnarray*}
-\mathrm{Stab}_{U}\left\{ X\right\}  & = & \left\langle \mathrm{Stab}_{U}\left(X\right)\cup\mathrm{Stab}_{U}\left(U\backslash X\right)\right\rangle 
+\mathrm{Stab}_{U}\left(X\right) & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi x=x\,\mathrm{f\ddot{u}r}\,\mathrm{alle}\,x\in X\right\} \\
+ & = & \bigcap_{x\in X}\mathrm{Stab}_{U}\left(x\right)
 \end{eqnarray*}
 
-\end{itemize}
+
+Der \textbf{Mengenstabilisator} von $X$ in $U$ sei die Untergruppe
+$\mathrm{Stab}_{U}\left\{ X\right\} \subseteq\mathrm{Sym}_{U}$ der
+Permutationen, die die Menge $X$ fixieren.
+\begin{eqnarray*}
+\mathrm{Stab}_{U}\left\{ X\right\}  & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi X=X\right\} \\
+ & = & \bigcup_{\pi\in\mathrm{Sym}_{X}}\left(\pi\cup\mathbf{id}_{U\backslash X}\right)\mathrm{Stab}_{U}\left(X\right)
+\end{eqnarray*}
+
 \end{defn}
 
 \begin{defn}
-Die letzte Definition wird auf Partitionen (Mengen von Teilmengen)
-$\mathcal{P}$ von $U$ erweitert:
-\begin{itemize}
-\item Der Punktstabilisator\textbf{ }von $\mathcal{P}$ in $U$ sei die
+Die obige Definition wird auf Partitionen $\mathcal{P}\in\mathrm{Part}_{U}$
+erweitert:
+
+Der Punktstabilisator\textbf{ }von $\mathcal{P}$ in $U$ sei die
 Untergruppe $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Sym}_{U}$
 aller Permutationen, die jede Menge $P_{i}\in\mathcal{P}$ fixieren:
 \begin{eqnarray*}
-\mathrm{Stab}_{U}\left(\mathcal{P}\right) & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi P_{i}=P_{i}\,\mathrm{f\ddot{u}r}\,\mathrm{alle}\,P_{i}\in\mathcal{P}\right\} 
+\mathrm{Stab}_{U}\left(\mathcal{P}\right) & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi P_{i}=P_{i}\,\mathrm{f\ddot{u}r}\,\mathrm{alle}\,P_{i}\in\mathcal{P}\right\} \\
+ & = & \bigcap_{P_{i}\in\mathcal{P}}\mathrm{Stab}_{U}\left\{ P_{i}\right\} 
 \end{eqnarray*}
-Dies ist der Schnitt der Mengenstabilisatoren der Elemente von $\mathcal{P}$:
-\[
-\mathrm{Stab}_{U}\left(\mathcal{P}\right)=\bigcap_{P_{i}\in\mathcal{P}}\mathrm{Stab}_{U}\left\{ P_{i}\right\} 
-\]
 
-\item Der Mengenstabilisator von $\mathcal{P}$ in $U$ sei die Untergruppe
+
+Der Mengenstabilisator von $\mathcal{P}$ in $U$ sei die Untergruppe
 $\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \subseteq\mathrm{Sym}_{U}$
 aller Permutationen, die die Partition als ganzes fixieren: 
-\[
-\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi\mathcal{P}=\mathcal{P}\right\} 
-\]
+\begin{eqnarray*}
+\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\}  & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi\mathcal{P}=\mathcal{P}\right\} 
+\end{eqnarray*}
 Diese Gruppe wird durch $\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
 und alle Permutationen von gleich-mächtigen Elementen von $\mathcal{P}$
 erzeugt: Sei $\mathcal{P}_{\mid i}\coloneqq\left\{ P_{j}\in\mathcal{P}\mid\left|P_{j}\right|=i\right\} $
 für $i\in\left[1,\left|U\right|\right]$, dann gilt: 
 \[
-\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} =\left\langle \mathrm{Stab}_{U}\left(\mathcal{P}\right)\cup\bigcup_{i=1}^{\left|U\right|}\mathrm{Sym}_{\mathcal{P}_{\mid i}}\right\rangle 
+\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} =\bigcup_{\begin{subarray}{c}
+i\in\left[1,\left|U\right|\right]\\
+\pi\in\mathrm{Sym}_{\mathcal{P}_{\mid i}}
+\end{subarray}}\pi\mathrm{Stab}_{U}\left(\mathcal{P}\right)
 \]
 
-\end{itemize}
-\end{defn}
+
+Die Feinheit von Partitionen ist äquivalent zu der Teilmengenbeziehung
+ihrer Stabilisatoren.\end{defn}
 \begin{prop}
 \label{prop:feinheit-stab}Für zwei Partitionen $\mathcal{P},\mathcal{P}'\in\mathrm{Part}_{U}$
 gilt $\mathcal{P}\preceq\mathcal{P}'$ genau dann wenn $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$.\end{prop}
@@ -3022,18 +2985,19 @@ besteht $\pi$ aus einer Folge von Transpositionen:
 
 Jede Transposition $\left(u_{i}v_{i}\right)$ vertauscht Elemente
 einer Menge $P_{i}\in\mathcal{P}$; daher gilt $u_{i}\sim_{\mathcal{P}}v_{i}$.
-Per Definition \ref{def:feinheit} gilt außerdem $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)$,
-und daher $\left(u_{i}v_{i}\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
-und $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$.
+Per Definition \ref{def:feinheit} gilt $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)$,
+und daher $u_{i}\sim_{\mathcal{P}'}v_{i}$ und $\left(u_{i}v_{i}\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
+für alle $i\in\left[1,k\right]$. Aus der Abgeschlossenheit des Stabilisators
+folgt $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$.
 
 Umgekehrt impliziert auch $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$,
-dass alle Transpositionen $\left(u_{i}v_{i}\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
-in $\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$ enthalten sind. Daraus
-folgt $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)$
-und $\mathcal{P}\preceq\mathcal{P}'$.
+dass für jedes Paar $u\sim_{\mathcal{P}}v$ die Transposition $\left(uv\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+auch in $\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$ enthalten ist,
+und daher $u\sim_{\mathcal{P}'}v$ gilt. Aus $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)$
+folgt $\mathcal{P}\preceq\mathcal{P}'$.
 \end{proof}
 
-\section{Träger}
+\section{Träger einer Permutationsgruppe}
 \begin{defn}
 \label{def:traeger}Sei $G\subseteq\mathrm{\mathrm{Sym}}_{U}$ eine
 Untergruppe und $\mathcal{P}$ eine Partition von $U$. $\mathcal{P}$
@@ -3182,8 +3146,51 @@ Korollar \ref{cor:sp-konjugation}:
 
 
 Weil $\pi$ die Partition $\mathrm{SP}\left(G\right)$ auf sich selbst
-abbildet, gilt per Definition $\pi\in\mathrm{Stab}_{U}\left\{ \mathrm{SP}\left(G\right)\right\} $.
-\end{proof}
+abbildet, gilt per Definition $\pi\in\mathrm{Stab}_{U}\left\{ \mathrm{SP}\left(G\right)\right\} $.\end{proof}
+\begin{lem}
+\label{lem:lemma-19}(Lemma 19 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+
+Für $\epsilon\in\mathbb{R}_{\left[0,1\right[}$, jedes hinreichend
+große Universum $U=\left[1,n\right]$ mit $n\geqslant\exp\frac{4}{\epsilon}$
+und jede Partition $\mathcal{P}\in\mathrm{Part}_{U}$ gilt:
+
+Falls der Index des Mengenstabilisators von $\mathcal{P}$ subexponentiell
+in $n$ ist,
+\[
+s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}
+\]
+\[
+n\leqslant s\leqslant2^{n^{1-\epsilon}}
+\]
+dann enthält $\mathcal{P}$ entweder $\mathcal{O}\left(n^{1-\epsilon}\right)$
+oder $n-\mathcal{O}\left(n^{1-\epsilon}\right)$ viele Elemente.
+\[
+\min\left\{ \left|\mathcal{P}\right|,n-\left|\mathcal{P}\right|\right\} \leqslant\frac{8}{\epsilon}\frac{\log s}{\log n}
+\]
+
+
+\label{lem:lemma-20}(Lemma 20 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+
+Für $\epsilon\in\mathbb{R}_{\left[0,1\right[}$, jedes hinreichend
+große Universum $U\coloneqq\left[1,n\right]$ mit $n\geqslant\exp\frac{8}{\epsilon^{2}}$
+und jede Partition $\mathcal{P}$ mit mit $\left|\mathcal{P}\right|\leqslant\frac{n}{2}$
+gilt:
+
+Falls der Index des Mengenstabilisators von $\mathcal{P}$ subexponentiell
+in $n$ ist, 
+\[
+s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}
+\]
+\[
+n\leqslant s\leqslant2^{n^{1-\epsilon}}
+\]
+dann enthält das mächtigste Element von $\mathcal{P}$ alles bis auf
+einen sublinearen Teil des Universums: 
+\[
+\max\left\{ \left|P\right|\mid P\in\mathcal{P}\right\} \geqslant n-\frac{33}{\epsilon}\cdot\frac{\log s}{\log n}\geqslant n-\frac{33}{\epsilon}n^{1-\epsilon}
+\]
+
+\end{lem}
 
 \section{Träger im Schaltkreis}
 \begin{defn}
