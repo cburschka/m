@@ -160,26 +160,21 @@ in Abhängigkeit von der Größe der eingegebenen Struktur. Wir betrachten
 zwei Modelle, in denen alle beschreibbaren Anfragen eine beschränkte
 Datenkomplexität besitzen:
 \begin{enumerate}
-\item Klassen von uniformen booleschen Schaltkreisfamilien $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\item Klassen von booleschen Schaltkreisfamilien $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
 (mit $\mathtt{AND}$-, $\mathtt{OR}$-, $\mathtt{NOT}$-, und gegebenenfalls
-Majority-Gates) beschreiben Anfragen, deren Datenkomplexität auf $T_{n}\cdot\mathcal{O}\left(\log S_{n}\right)$-Platz
-und $S_{n}$-Zeit beschränkt ist, wobei $T_{n}$ und $S_{n}$ die
-Tiefe und Größe jedes Schaltkreises sind.
-\item Formeln der Prädikatenlogik erster Stufe (beziehungsweise deren Erweiterungen)
-beschreiben Anfragen, deren Datenkomplexität für eine Formel $\varphi$
-auf $\mathcal{O}\left(\log n\right)$-Platz und $\mathrm{poly}\left(n\right)$-Zeit
-beschränkt ist.
+Majority-Gates).
+\item Formeln der Prädikatenlogik erster Stufe (beziehungsweise deren Erweiterungen).
 \end{enumerate}
-Boolesche Schaltkreise arbeiten per Definition aus auf einer geordneten
-Struktur. Für ungeordnete Strukturen wird eine beliebige Ordnung gewählt
-und gefordert, dass das Ergebnis bezüglich der Ordnung invariant ist.
-Wir führen mit der Symmetrie eine strukturelle Einschränkung der Schaltkreise
+Boolesche Schaltkreise arbeiten per Definition auf einer geordneten
+Struktur. Für ungeordnete Strukturen wird deshalb eine beliebige Ordnung
+gewählt und gefordert, dass das Ergebnis bezüglich der Ordnung invariant
+ist. Wir führen eine strukturelle Einschränkung (Symmetrie) der Schaltkreise
 ein, die diese Invarianz garantiert.
 
 Die Schaltkreisfamilie besteht aus einer unendlichen Sequenz von Schaltkreisen
 für jede Eingabegröße $n\in\mathbb{N}$ ist. Ohne Einschränkung kann
-eine solche Sequenz auch unentscheidbare Klassen in den natürlichen
-Zahlen kodieren. In der Praxis ist es daher erwünscht, dass die Schaltkreise
+eine solche Sequenz auch unentscheidbare Klassen von natürlichen Zahlen
+kodieren. In der Praxis ist es daher erwünscht, dass die Schaltkreise
 von einem effizienten Algorithmus berechnet werden: Ist zum Beispiel
 jeder Schaltkreis in Polynomialzeit oder mit logarithmischem Platz
 (in Abhängigkeit von $n$) berechenbar, dann nennen wir die Schaltkreisfamilie
@@ -198,16 +193,16 @@ die verschiedenen Klassen symmetrischer Schaltkreisfamilien charakterisieren.
 Konkret ist die Klasse der symmetrischen $P$-uniformen booleschen
 Schaltkreisfamilien $\mathrm{SBC}$ äquivalent zu der Logik erster
 Stufe mit Fixpunkt-Operator und disjunktem Ordnungsprädikat $\mathrm{LFP}+\mathbf{ORD}$.
-Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar (als Erweiterung
-eines Ergebnisses von Martin Otto in 1997\cite{Otto1997}) veröffentlicht,
-und bildet die Grundlage dieser Arbeit.
+Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar\cite{anderson_et_al:LIPIcs:2014:4445}
+(als Erweiterung eines Ergebnisses von Martin Otto in 1997\cite{Otto1997})
+veröffentlicht, und bildet die Grundlage dieser Arbeit.
 
 Die logische Zählerweiterung $\mathrm{LFP}+C$ charakterisiert die
 symmetrischen Schaltkreisfamilien mit einem Majority-Operator $\mathrm{SBC}+\mathbf{MAJ}$,
 und die Erweiterung der Logik um beliebige numerische Prädikate opfert
 nur die $P$-Uniformität. Diese beiden Erweiterungen sind kombinierbar.
 \begin{thm}
-\textbf{\label{thm:fp}Anderson und Dawar (2014)}\cite{anderson_et_al:LIPIcs:2014:4445}
+\textbf{\label{thm:fp}Anderson und Dawar (2014)}
 
 Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen
 äquivalent:
@@ -452,6 +447,13 @@ u_{j} & u_{i}
 \end{array}\right)\cup\mathbf{id}_{U\backslash\left\{ u_{i},u_{j}\right\} }$ wird kurz durch $\left(u_{i}u_{j}\right)$ notiert.
 \end{defn}
 
+\begin{defn}
+\textbf{\label{def:Orbit}Orbit}
+
+In einer Permutationsgruppe $G\subseteq\mathrm{Sym}_{U}$ sei $\mathrm{Orb}_{G}\left(u\right)\coloneqq\left\{ \pi u\mid\pi\in G\right\} $
+die Menge aller Elemente, auf die $u$ abgebildet wird.
+\end{defn}
+
 \section{Endliche relationale Strukturen}
 
 Wir betrachten Anfragen und Eigenschaften auf Graphen und allgemeinen
@@ -554,6 +556,11 @@ der Automorphismen $\mathrm{Bij}\left(\mathfrak{A},\mathfrak{A}\right)$
 nennen wir $\mathrm{Aut}_{\mathfrak{A}}$; diese bilden (so wie die
 Permutationen einer Menge) eine Gruppe bezüglich der Verkettung $\circ$
 und dem neutralen Element $\mathbf{id}_{A}$.
+
+Der Orbit eines Elements $a\in A$ sei analog zu Definition \ref{def:Orbit}
+die Menge $\mathrm{Orb}_{\mathfrak{A}}\left(a\right)\coloneqq\left\{ \pi a\mid\pi\in\mathrm{Aut}_{\mathfrak{A}}\right\} $
+aller Elemente, auf die $a$ von einem Automorphismus abgebildet werden
+kann.
 \end{defn}
 
 \begin{defn}
@@ -1231,7 +1238,7 @@ ungeordneten Strukturen definierbar\cite{Ebbinghaus,Libkin2012}:
 
 \end{example}
 
-\subsection{Nicht-disjunkte numerische Erweiterungen}
+\subsection{Nicht-disjunkte Orakel}
 
 Eine alternative Erweiterung definiert über einer Struktur $\mathfrak{A}$
 eine beliebige Bijektion $\pi:\left[1,n\right]\rightleftarrows A$
@@ -1509,19 +1516,16 @@ E\,i\,j & \mathrm{f\ddot{u}r}\,\,g=g_{i,j}\\
 \begin{defn}
 \textbf{Größe und Tiefe}
 
-Die \textbf{Größe} $\left|\mathcal{C}\right|$ eines Schaltkreises
-$\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ sei die Anzahl seiner
-Gates, $\left|G\right|$.
-
-Die \textbf{Tiefe} $T\left(\mathcal{C}\right)$ sei die maximale Länge
-eines Wegs durch den Graphen $\left(G,W\right)$.
+Die Größe $\left|\mathcal{C}\right|$ eines Schaltkreises $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+sei die Anzahl seiner Gates, $\left|G\right|$. Die Tiefe $T\left(\mathcal{C}\right)$
+sei die maximale Länge eines Wegs durch den Graphen $\left(G,W\right)$.
 \end{defn}
 
 \begin{defn}
 \textbf{Invarianz}
 
 Ein $\left(\sigma,\mathbb{B}\right)$-Schaltkreis $\mathcal{C}$ mit
-dem Universum $U$ heiße \textbf{invariant} wenn für alle $\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$,
+dem Universum $U$ heiße \textbf{invariant}, wenn für alle $\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$,
 alle $\bar{t}\in U^{\mathrm{ar}\left(\mathcal{C}\right)}$, und jede
 Permutation $\pi\in\mathrm{Sym}_{U}$ gilt:
 \[
@@ -1683,12 +1687,14 @@ Er ist aber nicht symmetrisch: Die Permutation $\left(\begin{array}{cc}
 1 & 2\\
 2 & 1
 \end{array}\right)$ induziert keinen Automorphismus.
+
+
 \begin{defn}
 \textbf{\label{def:Rigidit=0000E4t}Rigidität}
 
-Ein $\left(\sigma,\mathbb{B}\right)$-Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
-sei rigide, wenn er keine redundanten Gates besitzt. Formal dürfen
-nicht $g,g'\in G$ existieren, so dass:
+Ein Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ sei
+rigide, wenn er keine redundanten Gates besitzt. Formal dürfen nicht
+$g,g'\in G$ existieren, so dass:
 \begin{eqnarray*}
 \Sigma\left(g\right) & = & \Sigma\left(g'\right)\\
 \left\{ u\in G\mid\left(u,g\right)\in W\right\}  & = & \left\{ u\in G\mid\left(u,g'\right)\in W\right\} 
@@ -1697,8 +1703,8 @@ nicht $g,g'\in G$ existieren, so dass:
 
 Insbesondere heißt dies, das der Schaltkreis höchstens zwei Konstanten
 $g_{0},g_{1}$ mit $\Sigma\left(g_{0}\right)=\mathbf{0}$ und $\Sigma\left(g_{1}\right)=\mathbf{1}$
-enthält, und jedes Beschriftung $\Sigma\left(g\right)=R\bar{x}$ nur
-einmal vorkommt.
+enthält, und jede Input-Beschriftung $\Sigma\left(g\right)=R\bar{x}$
+nur einmal vorkommt.
 \end{defn}
 Die Rigidität ist hier analog zu der Arbeit von Anderson und Dawar\cite{anderson_et_al:LIPIcs:2014:4445}
 definiert, verlangt aber zusätzlich, dass zwei Gates nicht nur durch
@@ -1706,10 +1712,11 @@ die (hier nicht injektive) Output-Markierung $\Omega$ unterschieden
 werden. Diese Einschränkung ist strenger, schränkt aber die Definition
 nicht bedeutend ein:
 
-Für zwei Gates $g,g'\in G$ mit den gleichen Vorgängern $\Sigma\left(g\right)=\Sigma\left(g'\right)$
+Für zwei Gates $g,g'\in G$ mit den gleichen Vorgängern, der gleichen
+Markierung $\Sigma\left(g\right)=\Sigma\left(g'\right)$ und $\Omega^{-1}\left(g\right)\neq\Omega^{-1}\left(g'\right)$
 erlaubt die nicht-injektive Definition von $\Omega$, dass $g'$ entfernt
-wird und $\Omega'\left(\bar{t}\right)\coloneqq g$ für alle $\bar{t}\in\Omega^{-1}\left(g'\right)$
-gesetzt wird, was die strengere Form der Rigidität herstellt.
+wird und für alle $\bar{t}\in\Omega^{-1}\left(g'\right)$ stattdessen
+$\Omega\left(\bar{t}\right)\coloneqq g$ gesetzt wird.
 
 \pagebreak{}
 
@@ -1829,10 +1836,8 @@ $\mathcal{C}_{n}^{\varphi}$ aus $n^{k}$ Gates.
 \[
 \mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} ,\emptyset,\Sigma,\Omega,U\right)
 \]
-Für jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\begin{array}{c}
-\bar{x}\\
-\bar{t}
-\end{array}\right)$ die Belegung der Variablen $\bar{x}$ mit $\bar{t}$:
+Für jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\bar{x}\mapsto\bar{t}\right)$
+die Belegung der Variablen $\bar{x}$ mit $\bar{t}$:
 \begin{eqnarray*}
 \Sigma\left(g_{\bar{t}}\right) & \coloneqq & R\beta_{\bar{t}}\left(\bar{y}\right)\\
 \Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}
@@ -1863,10 +1868,8 @@ $k\in\left\{ 1,2\right\} $).
 \[
 \mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} ,\emptyset,\Sigma,\Omega,U\right)
 \]
-Für jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\begin{array}{c}
-\bar{x}\\
-\bar{t}
-\end{array}\right)$ die entsprechende Belegung:
+Für jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\bar{x}\mapsto\bar{t}\right)$
+die entsprechende Belegung:
 \begin{eqnarray*}
 \Sigma\left(g_{\bar{t}}\right) & \coloneqq & \begin{cases}
 \mathbf{1} & \mathrm{falls}\,\,\beta\left(y_{1}\right)=\beta\left(y_{2}\right)\\
@@ -2909,8 +2912,8 @@ und $\mathcal{P}_{\max}\left(U\right)\coloneqq\left\{ U\right\} $.
 
 \section{Stabilisatoren einer Partition}
 
-Wir führen den \textbf{Stabilisator} als Untergruppe von $\mathrm{Sym}_{U}$
-ein.
+Wir führen die Stabilisatoren von Elementen, Teilmengen und Partitionen
+eines Universums $U$ ein.
 \begin{defn}
 Der Stabilisator eines Elements $u\in U$ in $U$ sei die Untergruppe
 $\mathrm{Stab}_{U}\left(u\right)\subseteq\mathrm{Sym}_{U}$ aller
@@ -2920,7 +2923,7 @@ Permutationen, die $u$ fixieren:
 \]
 
 
-Der \textbf{Punktstabilisator }einer Teilmenge $X\subseteq U$ in
+Der Punktstabilisator\textbf{ }einer Teilmenge $X\subseteq U$ in
 $U$ sei die Untergruppe $\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Sym}_{U}$
 der Permutationen die jedes Element $x\in X$ fixieren:
 \begin{eqnarray*}
@@ -2929,9 +2932,8 @@ der Permutationen die jedes Element $x\in X$ fixieren:
 \end{eqnarray*}
 
 
-Der \textbf{Mengenstabilisator} von $X$ in $U$ sei die Untergruppe
-$\mathrm{Stab}_{U}\left\{ X\right\} \subseteq\mathrm{Sym}_{U}$ der
-Permutationen, die die Menge $X$ fixieren.
+Der Mengenstabilisator von $X$ in $U$ sei die Untergruppe $\mathrm{Stab}_{U}\left\{ X\right\} \subseteq\mathrm{Sym}_{U}$
+der Permutationen, die die Menge $X$ fixieren.
 \begin{eqnarray*}
 \mathrm{Stab}_{U}\left\{ X\right\}  & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi X=X\right\} \\
  & = & \bigcup_{\pi\in\mathrm{Sym}_{X}}\left(\pi\cup\mathbf{id}_{U\backslash X}\right)\mathrm{Stab}_{U}\left(X\right)
@@ -2997,25 +2999,28 @@ und daher $u\sim_{\mathcal{P}'}v$ gilt. Aus $\left(\sim_{\mathcal{P}}\right)\sub
 folgt $\mathcal{P}\preceq\mathcal{P}'$.
 \end{proof}
 
-\section{Träger einer Permutationsgruppe}
+\section{Träger}
+
+
+\subsection{Trägerpartitionen einer Permutationsgruppe}
 \begin{defn}
 \label{def:traeger}Sei $G\subseteq\mathrm{\mathrm{Sym}}_{U}$ eine
 Untergruppe und $\mathcal{P}$ eine Partition von $U$. $\mathcal{P}$
-sei ein \textbf{Träger} von\textbf{ }$G$ genau dann wenn $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$.
+sei eine \textbf{Trägerpartition} von\textbf{ }$G$ genau dann wenn
+$\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$.
 \end{defn}
-Wenn $\mathcal{P}$ ein Träger von $G$ ist, so ist $\mathcal{P}$
-auch ein Träger jeder Obermenge $G'\supseteq G$. Außerdem sind per
-Satz \ref{prop:feinheit-stab} alle feineren Partitionen $\mathcal{P}'\preceq\mathcal{P}$
-Träger von $G$. Somit ist $\mathcal{P}_{\min}=\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
+Wenn die Partition $\mathcal{P}$ eine Trägerpartition von $G$ ist,
+dann ist sie es auch von jeder Obermenge $G'\supseteq G$. Außerdem
+sind per Satz \ref{prop:feinheit-stab} alle feineren $\mathcal{P}'\preceq\mathcal{P}$
+Trägerpartitionen von $G$. Somit ist $\mathcal{P}_{\min}=\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
 mit $\mathrm{Stab}_{U}\left(\mathcal{P}_{\min}\right)=\left\{ \mathbf{id}\right\} $
-ein trivialer Träger jeder Untergruppe $G\subseteq\mathrm{Sym}_{U}$,
-und alle Partitionen $\mathcal{P}\in\mathrm{Part}_{U}$ sind Träger
+eine triviale Trägerpartition jeder Untergruppe $G\subseteq\mathrm{Sym}_{U}$,
+und alle $\mathcal{P}\in\mathrm{Part}_{U}$ sind Trägerpartitionen
 der Gruppe $\mathrm{Sym}_{U}=\mathrm{Stab}_{U}\left(\mathcal{P}_{\max}\right)$.
-\begin{lem}
-\label{lem:traeger-abschluss}Die Träger-Eigenschaft ist bezüglich
-den Operationen $\sqcap$ und $\sqcup$ abgeschlossen: Wenn $\mathcal{A}$
-und $\mathcal{B}$ Träger von $G$ sind, so sind es auch $\mathcal{A}\sqcap\mathcal{B}$
-und $\mathcal{A}\sqcup\mathcal{B}$.\end{lem}
+\begin{prop}
+\label{prop:traeger-abschluss}Wenn $\mathcal{A}$ und $\mathcal{B}$
+Trägerpartitionen von $G$ sind, so sind es auch $\mathcal{A}\sqcap\mathcal{B}$
+und $\mathcal{A}\sqcup\mathcal{B}$.\end{prop}
 \begin{proof}
 Per Definition ist $\mathcal{A}\sqcap\mathcal{B}\preceq\mathcal{A}$
 und $\mathcal{A}\sqcap\mathcal{B}\preceq\mathcal{B}$, und daher folgt
@@ -3079,32 +3084,28 @@ oder in $\mathrm{Stab}_{U}\left(\mathcal{B}\right)$ enthalten, und
 beide sind Teilmengen von $G$. Also ist $\left(uv\right)\in G$,
 und es folgt $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$.\end{proof}
 \begin{cor}
-Jede Gruppe $G\subseteq\mathrm{Sym}_{U}$ besitzt eine eindeutigen
-gröbsten Träger.\end{cor}
+Jede Gruppe $G\subseteq\mathrm{Sym}_{U}$ besitzt eine eindeutige
+gröbste Trägerpartition.\end{cor}
 \begin{proof}
-Jede Gruppe wird mindestens von $\mathcal{P}_{\min}\left(U\right)$
-mit $\mathrm{Stab}_{U}\left(\mathcal{P}_{\min}\left(U\right)\right)=\left\{ \mathbf{id}\right\} \subseteq G$
-getragen.
-
 Angenommen, $\mathcal{P}$ und $\mathcal{P}'$ seien zwei gröbste
-Träger von $G$. 
+Trägerpartitionen von $G$. Nun ist $\mathcal{P}\sqcup\mathcal{P}'$
+nach Lemma \ref{prop:traeger-abschluss} ebenfalls eine Trägerpartition
+von $G$, und es gilt $\mathcal{P},\mathcal{P}'\preceq\mathcal{P}\sqcup\mathcal{P}'$.
 
-Nun ist $\mathcal{P}\sqcup\mathcal{P}'$ nach Lemma \ref{lem:traeger-abschluss}
-ebenfalls ein Träger von $G$, und ist mindestens so grob wie $\mathcal{P}$
-und $\mathcal{P}'$.
-
-Da $\mathcal{P}$ und $\mathcal{P}'$ aber per Definition gröbste
-Träger von $G$ sind, muss $\mathcal{P}=\mathcal{P}\sqcup\mathcal{P}'=\mathcal{P}'$
+Da aber per Definition $\mathcal{P}$ und $\mathcal{P}'$ aber per
+Definition gröbste Träger von $G$ sind, muss $\mathcal{P}=\mathcal{P}\sqcup\mathcal{P}'=\mathcal{P}'$
 gelten.\end{proof}
 \begin{defn}
 Für jede Gruppe $G\subseteq\mathrm{Sym}_{U}$ sei $\mathrm{SP}\left(G\right)$
 der gröbste Träger von $G$.
 \end{defn}
-Wir betrachten nun die Konjugations-Operation auf $\mathrm{Sym}_{U}$.
-\begin{lem}
-\label{lem:konjugation}Wenn eine Partition $\mathcal{P}$ ein Träger
+Wir betrachten nun die Konjugations-Operation $\pi G\pi^{-1}$ einer
+Permutation $\pi$ auf einer Untergruppe $G\subseteq\mathrm{Sym}_{U}$,
+und weisen nach, dass $\pi\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\pi G\pi^{-1}\right)$.
+\begin{prop}
+\label{prop:konjugation}Wenn eine Partition $\mathcal{P}$ ein Träger
 einer Gruppe $G\subseteq\mathrm{Sym}_{U}$ ist, dann ist $\pi\mathcal{P}$
-ein Träger von $\pi G\pi^{-1}$ für alle $\pi\in\mathrm{Sym}_{U}$.\end{lem}
+ein Träger von $\pi G\pi^{-1}$ für alle $\pi\in\mathrm{Sym}_{U}$.\end{prop}
 \begin{proof}
 Seien $\rho\in\mathrm{Stab}_{U}\left(\pi\mathcal{P}\right)$ und $P_{i}\in\mathcal{P}$
 beliebig. $\pi^{-1}\rho\pi$ fixiert $P_{i}$:
@@ -3129,35 +3130,19 @@ Damit $\pi\mathcal{P}$ ein Träger der konjugierten Gruppe $\pi G\pi^{-1}$.\end{
 \label{cor:sp-konjugation}Für jede Gruppe $G\subseteq\mathrm{Sym}_{U}$
 und jede Permutation $\pi\in\mathrm{Sym}_{U}$ ist $\pi\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\pi G\pi^{-1}\right)$.\end{cor}
 \begin{proof}
-Nach Lemma \ref{lem:konjugation} ist $\pi\mathrm{SP}\left(G\right)$
-ein Träger von $\pi G\pi^{-1}$. Daher ist $\pi\mathrm{SP}\left(G\right)$
-mindestens so fein wie der gröbste Träger:
-\[
-\pi\mathrm{SP}\left(G\right)\preceq\mathrm{SP}\left(\pi G\pi^{-1}\right)
-\]
-
+Nach Lemma \ref{prop:konjugation} ist $\pi\mathrm{SP}\left(G\right)$
+eine Trägerpartition von $\pi G\pi^{-1}$, und daher gilt $\pi\mathrm{SP}\left(G\right)\preceq\mathrm{SP}\left(\pi G\pi^{-1}\right)$.
 
 Umgekehrt ist auch $\pi^{-1}\mathrm{SP}\left(\pi G\pi^{-1}\right)$
-ein Träger von $\pi^{-1}\pi G\pi\pi^{-1}=G$. Es folgt:
-\[
-\pi^{-1}\mathrm{SP}\left(\pi G\pi^{-1}\right)\preceq\mathrm{SP}\left(G\right)
-\]
-
-
-Die Relation $\preceq$ bleibt unter Permutation beider Seiten erhalten:
-\begin{eqnarray*}
-\pi\pi^{-1}\mathrm{SP}\left(\pi G\pi^{-1}\right) & \preceq & \pi\mathrm{SP}\left(G\right)
-\end{eqnarray*}
-
-
-Daher ist $\pi\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\pi G\pi^{-1}\right)$.\end{proof}
-\begin{lem}
+eine Trägerpartition von $\pi^{-1}\pi G\pi\pi^{-1}=G$. Es folgt $\pi^{-1}\mathrm{SP}\left(\pi G\pi^{-1}\right)\preceq\mathrm{SP}\left(G\right)$
+und daher $\mathrm{SP}\left(\pi G\pi^{-1}\right)\preceq\pi\mathrm{SP}\left(G\right)$.\end{proof}
+\begin{prop}
 Jede Gruppe $G$ ist Obermenge des Punkt- und Teilmenge des Mengenstabilisators
 von $\mathrm{SP}\left(G\right)$:
 \[
 \mathrm{Stab}_{U}\left(\mathrm{SP}\left(G\right)\right)\subseteq G\subseteq\mathrm{Stab}_{U}\left\{ \mathrm{SP}\left(G\right)\right\} 
 \]
-\end{lem}
+\end{prop}
 \begin{proof}
 Per Definition \ref{def:traeger} gilt bereits $\mathrm{Stab}_{U}\left(\mathrm{SP}\left(G\right)\right)\subseteq G$.
 
@@ -3169,9 +3154,106 @@ Korollar \ref{cor:sp-konjugation}:
 
 
 Weil $\pi$ die Partition $\mathrm{SP}\left(G\right)$ auf sich selbst
-abbildet, gilt per Definition $\pi\in\mathrm{Stab}_{U}\left\{ \mathrm{SP}\left(G\right)\right\} $.\end{proof}
+abbildet, gilt per Definition $\pi\in\mathrm{Stab}_{U}\left\{ \mathrm{SP}\left(G\right)\right\} $.
+\end{proof}
+
+\subsection{Trägermengen im Schaltkreis}
+
+Wir erweitern die Begriffe ,,Stabilisator`` und ,,Träger`` auf
+die Gates eines rigiden (Definition \ref{def:Rigidit=0000E4t}), symmetrischen
+Schaltkreises. $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$.
+\begin{defn}
+Für jedes Gate $g\in G$ sei der Stabilisator von $g$ wie folgt definiert:
+\[
+\mathrm{Stab}_{\mathcal{C}}\left(g\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\hat{\pi}g=g\right\} 
+\]
+
+
+Eine Menge $X\subseteq U$ sei eine Trägermenge von $g$, wenn jede
+Permutation, die die Elemente von $X$ fixiert, einen Automorphismus
+in $\mathcal{C}$ induziert, der $g$ fixiert: 
+\[
+\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)
+\]
+
+\end{defn}
+Da für $X\subseteq X'$ offensichtlich $\mathrm{Stab}_{U}\left(X'\right)\subseteq\mathrm{Stab}_{U}\left(X\right)$
+gilt (je mehr Elemente fixiert werden, um so weniger Permutationen
+lassen wir zu), ist hier vor allem die kleinste Trägermenge des Gates
+interessant.
+\begin{prop}
+Wenn $X,X'\subseteq U$ zwei Trägermengen von $g\in G$ sind, dann
+ist $X\cap X'$ ebenfalls eine Trägermenge von $g$.\end{prop}
+\begin{proof}
+Sei $\mathcal{P}\coloneqq\left\{ \left\{ x\right\} \mid x\in X\right\} \cup\left\{ U\backslash X\right\} $
+und $\mathcal{P}'\coloneqq\left\{ \left\{ x\right\} \mid x\in X'\right\} \cup\left\{ U\backslash X'\right\} $.
+Offensichtlich gilt $\mathrm{Stab}_{U}\left(\mathcal{P}\right)=\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
+und $\mathrm{Stab}_{U}\left(\mathcal{P}'\right)=\mathrm{Stab}_{U}\left(X'\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)$.
+
+Daher sind $\mathcal{P}$ und $\mathcal{P}'$ beide Trägerpartitionen
+von $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$. Per Satz \ref{prop:traeger-abschluss}
+ist auch $\mathcal{P}\sqcup\mathcal{P}'=\left\{ \left\{ x\right\} \mid x\in X\cap X'\right\} \cup\left\{ U\backslash\left(X\cap X'\right)\right\} $
+eine Trägerpartition, und per $\mathrm{Stab}_{U}\left(\mathcal{P}\sqcup\mathcal{P}'\right)=\mathrm{Stab}_{U}\left(X\cap X'\right)$
+ist auch $X\cap X'$ eine Trägermenge von $g$.\end{proof}
+\begin{cor}
+Jedes Gate $g\in G$ besitzt eine eindeutige kleinste Trägermenge.\end{cor}
+\begin{prop}
+Sei $\mathcal{P}\coloneqq\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+die gröbste Trägerpartition des Stabilisators eines Gates $g$, und
+sei $\mathcal{P}=\left\{ P_{1},\cdots,P_{k}\right\} $ mit $\left|P_{1}\right|\leqslant\cdots\leqslant\left|P_{k}\right|$.
+Dann ist $X\coloneqq\bigcup_{i=1}^{k-1}P_{i}$ die kleinste Trägermenge
+von $g$.\end{prop}
+\begin{proof}
+Sei $X'$ mit $\left|X'\right|<\left|X\right|$ eine kleinere Trägermenge
+von $g$. Per Definition ist $\mathcal{P}'\coloneqq\left\{ \left\{ x\right\} \mid x\in X'\right\} \cup\left\{ U\backslash X'\right\} $
+eine Trägerpartition von $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$,
+denn $\mathrm{Stab}_{U}\left(\mathcal{P}'\right)=\mathrm{Stab}_{U}\left(X'\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)$.
+
+Per Definition ist $U\backslash X=P_{k}$ eine größte Menge in $\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$.
+Per Annahme ist $\left|X'\right|<\left|X\right|$ und daher $\left|U\backslash X'\right|>\left|U\backslash X\right|$.
+Weil aber $\mathcal{P}'\preceq\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+ist, muss $\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+eine Obermenge von $U\backslash X'$ als Element enthalten, und deren
+Größe ist mindestens $\left|U\backslash X'\right|>\left|U\backslash X\right|$;
+es entsteht ein Widerspruch.\end{proof}
+\begin{defn}
+Sei $\mathrm{S}\left(g\right)$ die kleinste Trägermenge von $g$,
+und sei $\mathrm{S}\left(\mathcal{C}\right)=\max_{g\in G}\left|\mathrm{S}\left(g\right)\right|$
+die maximale Größe aller Trägermengen.
+\end{defn}
+
+\section{Obere Schranken für die Größe von Trägern}
+
+Das Ergebnis von Anderson und Dawar beruht auf einem Theorem, das
+eine konstante obere Schranke $\mathrm{S}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$
+für jede symmetrischen Schaltkreisfamilie $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+polynomieller Größe nachweist. Diese konstante Größe führt zu einer
+polynomiellen Anzahl von Permutationen $\left|\mathrm{Sym}_{\mathrm{S}\left(g\right)}\right|=\left|\mathrm{S}\left(g\right)\right|!\leqslant n^{\left|S\left(g\right)\right|}$
+jeder Trägermenge eines Gates.
+
+Wir stellen zunächst das sogenannte Support-Theorem vor:
+\begin{thm}
+\textbf{\label{thm:Support-Theorem}Support-Theorem} (Theorem 21 aus
+\cite{anderson_et_al:LIPIcs:2014:4445})
+
+Für $\epsilon\in\left[\frac{2}{3},1\right]$ und einen rigiden symmetrischen
+Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ mit $\left|U\right|>2^{\frac{56}{\epsilon^{2}}}$,
+gilt: Wenn die maximalen Orbit-Größe mit $s\coloneqq\max_{g\in G}\mathrm{Orb}_{\mathcal{C}}\left(g\right)\leqslant2^{n^{1-\epsilon}}$
+subexponentiell ist, dann ist $\mathrm{S}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$.\end{thm}
+\begin{cor}
+\label{cor:korollar-23}(Korollar 23 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+
+Für jede symmetrische, rigide $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
+mit $\mathrm{poly}\left(n\right)$-Größe gilt $\mathrm{SP}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$.\end{cor}
+\begin{proof}
+Die $\mathrm{poly}\left(n\right)$-Größe des Schaltkreises $\mathcal{C}_{n}=\left(G,W,\Sigma,\Omega,U\right)$
+impliziert für hinreichend große $n\in\mathbb{N}$ offensichtlich:
+\[
+s\coloneqq\max_{g\in G}\mathrm{Orb}_{\mathcal{C}}\left(g\right)\leqslant\left|\mathcal{C}_{n}\right|\leqslant n^{c}<2^{n^{1-\epsilon}}
+\]
+Damit ist $\mathrm{S}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}\leqslant\frac{33}{\epsilon}\frac{k\log n}{\log n}=\frac{33k}{\epsilon}\in\mathcal{O}\left(1\right)$. \end{proof}
 \begin{lem}
-\label{lem:lemma-19}(Lemma 19 aus \cite{anderson_et_al:LIPIcs:2014:4445})
+\label{lem:lemma-19}(
 
 Für $\epsilon\in\mathbb{R}_{\left[0,1\right[}$, jedes hinreichend
 große Universum $U=\left[1,n\right]$ mit $n\geqslant\exp\frac{4}{\epsilon}$
@@ -3212,10 +3294,7 @@ einen sublinearen Teil des Universums:
 \[
 \max\left\{ \left|P\right|\mid P\in\mathcal{P}\right\} \geqslant n-\frac{33}{\epsilon}\cdot\frac{\log s}{\log n}\geqslant n-\frac{33}{\epsilon}n^{1-\epsilon}
 \]
-
 \end{lem}
-
-\section{Träger im Schaltkreis}
 \begin{defn}
 Sei $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ ein rigider, symmetrischer
 Schaltkreis über dem Universum $U$. 
@@ -3283,12 +3362,8 @@ mit $\mathrm{poly}\left(n\right)$-Größe garantiert),
 \[
 s\coloneqq\max_{g\in G}\left(\mathrm{Orb}_{\mathcal{C}}\left(g\right)\right)\leqslant2^{n^{1-\epsilon}}
 \]
-dann gilt $\mathrm{SP}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$. \end{lem}
-\begin{cor}
-\label{cor:korollar-23}(Korollar 23 aus \cite{anderson_et_al:LIPIcs:2014:4445})
-Für jede symmetrische, rigide $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
-mit $\mathrm{poly}\left(n\right)$-Größe gilt $\mathrm{SP}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$.
-\end{cor}
+dann gilt $\mathrm{SP}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$. 
+\end{lem}
 
 \chapter{Von Schaltkreisfamilien zu Formeln}
 

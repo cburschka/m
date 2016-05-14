@@ -169,7 +169,7 @@ Von besonderem Interesse ist die Daten-Komplexität solcher Anfragen: Die
 \end_layout
 
 \begin_layout Enumerate
-Klassen von uniformen booleschen Schaltkreisfamilien 
+Klassen von booleschen Schaltkreisfamilien 
 \begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
 \end_inset
 
@@ -185,49 +185,18 @@ Klassen von uniformen booleschen Schaltkreisfamilien
 \begin_inset Formula $\mathtt{NOT}$
 \end_inset
 
--, und gegebenenfalls Majority-Gates) beschreiben Anfragen, deren Datenkomplexit
-ät auf 
-\begin_inset Formula $T_{n}\cdot\mathcal{O}\left(\log S_{n}\right)$
-\end_inset
-
--Platz und 
-\begin_inset Formula $S_{n}$
-\end_inset
-
--Zeit beschränkt ist, wobei 
-\begin_inset Formula $T_{n}$
-\end_inset
-
- und 
-\begin_inset Formula $S_{n}$
-\end_inset
-
- die Tiefe und Größe jedes Schaltkreises sind.
+-, und gegebenenfalls Majority-Gates).
 \end_layout
 
 \begin_layout Enumerate
-Formeln der Prädikatenlogik erster Stufe (beziehungsweise deren Erweiterungen)
- beschreiben Anfragen, deren Datenkomplexität für eine Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- auf 
-\begin_inset Formula $\mathcal{O}\left(\log n\right)$
-\end_inset
-
--Platz und 
-\begin_inset Formula $\mathrm{poly}\left(n\right)$
-\end_inset
-
--Zeit beschränkt ist.
+Formeln der Prädikatenlogik erster Stufe (beziehungsweise deren Erweiterungen).
 \end_layout
 
 \begin_layout Standard
-Boolesche Schaltkreise arbeiten per Definition aus auf einer geordneten
- Struktur.
- Für ungeordnete Strukturen wird eine beliebige Ordnung gewählt und gefordert,
- dass das Ergebnis bezüglich der Ordnung invariant ist.
- Wir führen mit der Symmetrie eine strukturelle Einschränkung der Schaltkreise
+Boolesche Schaltkreise arbeiten per Definition auf einer geordneten Struktur.
+ Für ungeordnete Strukturen wird deshalb eine beliebige Ordnung gewählt
+ und gefordert, dass das Ergebnis bezüglich der Ordnung invariant ist.
+ Wir führen eine strukturelle Einschränkung (Symmetrie) der Schaltkreise
  ein, die diese Invarianz garantiert.
 \end_layout
 
@@ -239,7 +208,7 @@ Die Schaltkreisfamilie besteht aus einer unendlichen Sequenz von Schaltkreisen
 
  ist.
  Ohne Einschränkung kann eine solche Sequenz auch unentscheidbare Klassen
- in den natürlichen Zahlen kodieren.
+ von natürlichen Zahlen kodieren.
  In der Praxis ist es daher erwünscht, dass die Schaltkreise von einem effizient
 en Algorithmus berechnet werden: Ist zum Beispiel jeder Schaltkreis in Polynomia
 lzeit oder mit logarithmischem Platz (in Abhängigkeit von 
@@ -295,8 +264,14 @@ Konkret ist die Klasse der symmetrischen
 \end_inset
 
 .
- Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar (als Erweiterung
- eines Ergebnisses von Martin Otto in 1997
+ Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anderson_et_al:LIPIcs:2014:4445"
+
+\end_inset
+
+ (als Erweiterung eines Ergebnisses von Martin Otto in 1997
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Otto1997"
@@ -335,15 +310,6 @@ name "thm:fp"
 \end_inset
 
 Anderson und Dawar (2014)
-\series default
-
-\begin_inset CommandInset citation
-LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Theorem
@@ -1403,6 +1369,38 @@ u_{j} & u_{i}
  notiert.
 \end_layout
 
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "def:Orbit"
+
+\end_inset
+
+Orbit
+\end_layout
+
+\begin_layout Definition
+In einer Permutationsgruppe 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ sei 
+\begin_inset Formula $\mathrm{Orb}_{G}\left(u\right)\coloneqq\left\{ \pi u\mid\pi\in G\right\} $
+\end_inset
+
+ die Menge aller Elemente, auf die 
+\begin_inset Formula $u$
+\end_inset
+
+ abgebildet wird.
+\end_layout
+
 \begin_layout Section
 Endliche relationale Strukturen
 \end_layout
@@ -1807,6 +1805,29 @@ Ein Automorphismus
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Definition
+Der Orbit eines Elements 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ sei analog zu Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:Orbit"
+
+\end_inset
+
+ die Menge 
+\begin_inset Formula $\mathrm{Orb}_{\mathfrak{A}}\left(a\right)\coloneqq\left\{ \pi a\mid\pi\in\mathrm{Aut}_{\mathfrak{A}}\right\} $
+\end_inset
+
+ aller Elemente, auf die 
+\begin_inset Formula $a$
+\end_inset
+
+ von einem Automorphismus abgebildet werden kann.
 \end_layout
 
 \begin_layout --Separator--
@@ -4636,7 +4657,7 @@ key "Ebbinghaus,Libkin2012"
 \end_layout
 
 \begin_layout Subsection
-Nicht-disjunkte numerische Erweiterungen
+Nicht-disjunkte Orakel
 \end_layout
 
 \begin_layout Standard
@@ -5859,11 +5880,7 @@ Größe und Tiefe
 \end_layout
 
 \begin_layout Definition
-Die 
-\series bold
-Größe
-\series default
- 
+Die Größe 
 \begin_inset Formula $\left|\mathcal{C}\right|$
 \end_inset
 
@@ -5876,14 +5893,7 @@ Größe
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Definition
-Die 
-\series bold
-Tiefe
-\series default
- 
+ Die Tiefe 
 \begin_inset Formula $T\left(\mathcal{C}\right)$
 \end_inset
 
@@ -5921,7 +5931,7 @@ Ein
 \series bold
 invariant
 \series default
- wenn für alle 
+, wenn für alle 
 \begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$
 \end_inset
 
@@ -6608,6 +6618,10 @@ Der Schaltkreis ist invariant, und akzeptiert alle vollständigen
  induziert keinen Automorphismus.
 \end_layout
 
+\begin_layout --Separator--
+
+\end_layout
+
 \begin_layout Definition
 
 \series bold
@@ -6621,11 +6635,7 @@ Rigidität
 \end_layout
 
 \begin_layout Definition
-Ein 
-\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
-\end_inset
-
--Schaltkreis 
+Ein Schaltkreis 
 \begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
 \end_inset
 
@@ -6659,7 +6669,7 @@ Insbesondere heißt dies, das der Schaltkreis höchstens zwei Konstanten
 \begin_inset Formula $\Sigma\left(g_{1}\right)=\mathbf{1}$
 \end_inset
 
- enthält, und jedes Beschriftung 
+ enthält, und jede Input-Beschriftung 
 \begin_inset Formula $\Sigma\left(g\right)=R\bar{x}$
 \end_inset
 
@@ -6689,8 +6699,12 @@ Für zwei Gates
 \begin_inset Formula $g,g'\in G$
 \end_inset
 
- mit den gleichen Vorgängern 
+ mit den gleichen Vorgängern, der gleichen Markierung 
 \begin_inset Formula $\Sigma\left(g\right)=\Sigma\left(g'\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\Omega^{-1}\left(g\right)\neq\Omega^{-1}\left(g'\right)$
 \end_inset
 
  erlaubt die nicht-injektive Definition von 
@@ -6701,15 +6715,15 @@ Für zwei Gates
 \begin_inset Formula $g'$
 \end_inset
 
- entfernt wird und 
-\begin_inset Formula $\Omega'\left(\bar{t}\right)\coloneqq g$
-\end_inset
-
- für alle 
+ entfernt wird und für alle 
 \begin_inset Formula $\bar{t}\in\Omega^{-1}\left(g'\right)$
 \end_inset
 
- gesetzt wird, was die strengere Form der Rigidität herstellt.
+ stattdessen 
+\begin_inset Formula $\Omega\left(\bar{t}\right)\coloneqq g$
+\end_inset
+
+ gesetzt wird.
 \end_layout
 
 \begin_layout Standard
@@ -7317,10 +7331,7 @@ Für jedes Tupel
 \end_inset
 
  sei 
-\begin_inset Formula $\beta_{\bar{t}}\coloneqq\left(\begin{array}{c}
-\bar{x}\\
-\bar{t}
-\end{array}\right)$
+\begin_inset Formula $\beta_{\bar{t}}\coloneqq\left(\bar{x}\mapsto\bar{t}\right)$
 \end_inset
 
  die Belegung der Variablen 
@@ -7430,10 +7441,7 @@ Für jedes Tupel
 \end_inset
 
  sei 
-\begin_inset Formula $\beta_{\bar{t}}\coloneqq\left(\begin{array}{c}
-\bar{x}\\
-\bar{t}
-\end{array}\right)$
+\begin_inset Formula $\beta_{\bar{t}}\coloneqq\left(\bar{x}\mapsto\bar{t}\right)$
 \end_inset
 
  die entsprechende Belegung:
@@ -11195,12 +11203,9 @@ Stabilisatoren einer Partition
 \end_layout
 
 \begin_layout Standard
-Wir führen den 
-\series bold
-Stabilisator
-\series default
- als Untergruppe von 
-\begin_inset Formula $\mathrm{Sym}_{U}$
+Wir führen die Stabilisatoren von Elementen, Teilmengen und Partitionen
+ eines Universums 
+\begin_inset Formula $U$
 \end_inset
 
  ein.
@@ -11235,9 +11240,9 @@ Der Stabilisator eines Elements
 \end_layout
 
 \begin_layout Definition
-Der 
+Der Punktstabilisator
 \series bold
-Punktstabilisator 
+ 
 \series default
 einer Teilmenge 
 \begin_inset Formula $X\subseteq U$
@@ -11268,11 +11273,7 @@ einer Teilmenge
 \end_layout
 
 \begin_layout Definition
-Der 
-\series bold
-Mengenstabilisator
-\series default
- von 
+Der Mengenstabilisator von 
 \begin_inset Formula $X$
 \end_inset
 
@@ -11522,7 +11523,11 @@ Umgekehrt impliziert auch
 \end_layout
 
 \begin_layout Section
-Träger einer Permutationsgruppe
+Träger
+\end_layout
+
+\begin_layout Subsection
+Trägerpartitionen einer Permutationsgruppe
 \end_layout
 
 \begin_layout Definition
@@ -11549,9 +11554,9 @@ Sei
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
- sei ein 
+ sei eine 
 \series bold
-Träger
+Trägerpartition
 \series default
  von
 \series bold
@@ -11569,19 +11574,15 @@ Träger
 \end_layout
 
 \begin_layout Standard
-Wenn 
+Wenn die Partition 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
- ein Träger von 
+ eine Trägerpartition von 
 \begin_inset Formula $G$
 \end_inset
 
- ist, so ist 
-\begin_inset Formula $\mathcal{P}$
-\end_inset
-
- auch ein Träger jeder Obermenge 
+ ist, dann ist sie es auch von jeder Obermenge 
 \begin_inset Formula $G'\supseteq G$
 \end_inset
 
@@ -11593,11 +11594,11 @@ reference "prop:feinheit-stab"
 
 \end_inset
 
- alle feineren Partitionen 
+ alle feineren 
 \begin_inset Formula $\mathcal{P}'\preceq\mathcal{P}$
 \end_inset
 
- Träger von 
+ Trägerpartitionen von 
 \begin_inset Formula $G$
 \end_inset
 
@@ -11610,37 +11611,29 @@ reference "prop:feinheit-stab"
 \begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}_{\min}\right)=\left\{ \mathbf{id}\right\} $
 \end_inset
 
- ein trivialer Träger jeder Untergruppe 
+ eine triviale Trägerpartition jeder Untergruppe 
 \begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
 \end_inset
 
-, und alle Partitionen 
+, und alle 
 \begin_inset Formula $\mathcal{P}\in\mathrm{Part}_{U}$
 \end_inset
 
- sind Träger der Gruppe 
+ sind Trägerpartitionen der Gruppe 
 \begin_inset Formula $\mathrm{Sym}_{U}=\mathrm{Stab}_{U}\left(\mathcal{P}_{\max}\right)$
 \end_inset
 
 .
 \end_layout
 
-\begin_layout Lemma
+\begin_layout Proposition
 \begin_inset CommandInset label
 LatexCommand label
-name "lem:traeger-abschluss"
+name "prop:traeger-abschluss"
 
 \end_inset
 
-Die Träger-Eigenschaft ist bezüglich den Operationen 
-\begin_inset Formula $\sqcap$
-\end_inset
-
- und 
-\begin_inset Formula $\sqcup$
-\end_inset
-
- abgeschlossen: Wenn 
+Wenn 
 \begin_inset Formula $\mathcal{A}$
 \end_inset
 
@@ -11648,7 +11641,7 @@ Die Träger-Eigenschaft ist bezüglich den Operationen
 \begin_inset Formula $\mathcal{B}$
 \end_inset
 
- Träger von 
+ Trägerpartitionen von 
 \begin_inset Formula $G$
 \end_inset
 
@@ -11832,19 +11825,7 @@ Jede Gruppe
 \begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
 \end_inset
 
- besitzt eine eindeutigen gröbsten Träger.
-\end_layout
-
-\begin_layout Proof
-Jede Gruppe wird mindestens von 
-\begin_inset Formula $\mathcal{P}_{\min}\left(U\right)$
-\end_inset
-
- mit 
-\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}_{\min}\left(U\right)\right)=\left\{ \mathbf{id}\right\} \subseteq G$
-\end_inset
-
- getragen.
+ besitzt eine eindeutige gröbste Trägerpartition.
 \end_layout
 
 \begin_layout Proof
@@ -11856,43 +11837,35 @@ Angenommen,
 \begin_inset Formula $\mathcal{P}'$
 \end_inset
 
- seien zwei gröbste Träger von 
+ seien zwei gröbste Trägerpartitionen von 
 \begin_inset Formula $G$
 \end_inset
 
 .
- 
-\end_layout
-
-\begin_layout Proof
-Nun ist 
+ Nun ist 
 \begin_inset Formula $\mathcal{P}\sqcup\mathcal{P}'$
 \end_inset
 
  nach Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:traeger-abschluss"
+reference "prop:traeger-abschluss"
 
 \end_inset
 
- ebenfalls ein Träger von 
+ ebenfalls eine Trägerpartition von 
 \begin_inset Formula $G$
 \end_inset
 
-, und ist mindestens so grob wie 
-\begin_inset Formula $\mathcal{P}$
-\end_inset
-
- und 
-\begin_inset Formula $\mathcal{P}'$
+, und es gilt 
+\begin_inset Formula $\mathcal{P},\mathcal{P}'\preceq\mathcal{P}\sqcup\mathcal{P}'$
 \end_inset
 
 .
 \end_layout
 
 \begin_layout Proof
-Da 
+Da aber per Definition 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
@@ -11928,17 +11901,29 @@ Für jede Gruppe
 \end_layout
 
 \begin_layout Standard
-Wir betrachten nun die Konjugations-Operation auf 
-\begin_inset Formula $\mathrm{Sym}_{U}$
+Wir betrachten nun die Konjugations-Operation 
+\begin_inset Formula $\pi G\pi^{-1}$
+\end_inset
+
+ einer Permutation 
+\begin_inset Formula $\pi$
+\end_inset
+
+ auf einer Untergruppe 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+, und weisen nach, dass 
+\begin_inset Formula $\pi\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\pi G\pi^{-1}\right)$
 \end_inset
 
 .
 \end_layout
 
-\begin_layout Lemma
+\begin_layout Proposition
 \begin_inset CommandInset label
 LatexCommand label
-name "lem:konjugation"
+name "prop:konjugation"
 
 \end_inset
 
@@ -12052,7 +12037,7 @@ Für jede Gruppe
 Nach Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:konjugation"
+reference "prop:konjugation"
 
 \end_inset
 
@@ -12060,24 +12045,15 @@ reference "lem:konjugation"
 \begin_inset Formula $\pi\mathrm{SP}\left(G\right)$
 \end_inset
 
- ein Träger von 
+ eine Trägerpartition von 
 \begin_inset Formula $\pi G\pi^{-1}$
 \end_inset
 
+, und daher gilt 
+\begin_inset Formula $\pi\mathrm{SP}\left(G\right)\preceq\mathrm{SP}\left(\pi G\pi^{-1}\right)$
+\end_inset
+
 .
- Daher ist 
-\begin_inset Formula $\pi\mathrm{SP}\left(G\right)$
-\end_inset
-
- mindestens so fein wie der gröbste Träger:
-\begin_inset Formula 
-\[
-\pi\mathrm{SP}\left(G\right)\preceq\mathrm{SP}\left(\pi G\pi^{-1}\right)
-\]
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Proof
@@ -12085,47 +12061,23 @@ Umgekehrt ist auch
 \begin_inset Formula $\pi^{-1}\mathrm{SP}\left(\pi G\pi^{-1}\right)$
 \end_inset
 
- ein Träger von 
+ eine Trägerpartition von 
 \begin_inset Formula $\pi^{-1}\pi G\pi\pi^{-1}=G$
 \end_inset
 
 .
- Es folgt:
-\begin_inset Formula 
-\[
-\pi^{-1}\mathrm{SP}\left(\pi G\pi^{-1}\right)\preceq\mathrm{SP}\left(G\right)
-\]
-
+ Es folgt 
+\begin_inset Formula $\pi^{-1}\mathrm{SP}\left(\pi G\pi^{-1}\right)\preceq\mathrm{SP}\left(G\right)$
 \end_inset
 
-
-\end_layout
-
-\begin_layout Proof
-Die Relation 
-\begin_inset Formula $\preceq$
-\end_inset
-
- bleibt unter Permutation beider Seiten erhalten:
-\begin_inset Formula 
-\begin{eqnarray*}
-\pi\pi^{-1}\mathrm{SP}\left(\pi G\pi^{-1}\right) & \preceq & \pi\mathrm{SP}\left(G\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
-Daher ist 
-\begin_inset Formula $\pi\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\pi G\pi^{-1}\right)$
+ und daher 
+\begin_inset Formula $\mathrm{SP}\left(\pi G\pi^{-1}\right)\preceq\pi\mathrm{SP}\left(G\right)$
 \end_inset
 
 .
 \end_layout
 
-\begin_layout Lemma
+\begin_layout Proposition
 Jede Gruppe 
 \begin_inset Formula $G$
 \end_inset
@@ -12204,14 +12156,347 @@ Weil
 .
 \end_layout
 
-\begin_layout Lemma
-\begin_inset CommandInset label
-LatexCommand label
-name "lem:lemma-19"
+\begin_layout Subsection
+Trägermengen im Schaltkreis
+\end_layout
+
+\begin_layout Standard
+Wir erweitern die Begriffe 
+\begin_inset Quotes gld
+\end_inset
+
+Stabilisator
+\begin_inset Quotes grd
+\end_inset
+
+ und 
+\begin_inset Quotes gld
+\end_inset
+
+Träger
+\begin_inset Quotes grd
+\end_inset
+
+ auf die Gates eines rigiden (Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:Rigidität"
 
 \end_inset
 
-(Lemma 19 aus 
+), symmetrischen Schaltkreises.
+ 
+\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Für jedes Gate 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ sei der Stabilisator von 
+\begin_inset Formula $g$
+\end_inset
+
+ wie folgt definiert:
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{\mathcal{C}}\left(g\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\hat{\pi}g=g\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Eine Menge 
+\begin_inset Formula $X\subseteq U$
+\end_inset
+
+ sei eine Trägermenge von 
+\begin_inset Formula $g$
+\end_inset
+
+, wenn jede Permutation, die die Elemente von 
+\begin_inset Formula $X$
+\end_inset
+
+ fixiert, einen Automorphismus in 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ induziert, der 
+\begin_inset Formula $g$
+\end_inset
+
+ fixiert: 
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da für 
+\begin_inset Formula $X\subseteq X'$
+\end_inset
+
+ offensichtlich 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(X'\right)\subseteq\mathrm{Stab}_{U}\left(X\right)$
+\end_inset
+
+ gilt (je mehr Elemente fixiert werden, um so weniger Permutationen lassen
+ wir zu), ist hier vor allem die kleinste Trägermenge des Gates interessant.
+\end_layout
+
+\begin_layout Proposition
+Wenn 
+\begin_inset Formula $X,X'\subseteq U$
+\end_inset
+
+ zwei Trägermengen von 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ sind, dann ist 
+\begin_inset Formula $X\cap X'$
+\end_inset
+
+ ebenfalls eine Trägermenge von 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\mathcal{P}\coloneqq\left\{ \left\{ x\right\} \mid x\in X\right\} \cup\left\{ U\backslash X\right\} $
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{P}'\coloneqq\left\{ \left\{ x\right\} \mid x\in X'\right\} \cup\left\{ U\backslash X'\right\} $
+\end_inset
+
+.
+ Offensichtlich gilt 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)=\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}'\right)=\mathrm{Stab}_{U}\left(X'\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Daher sind 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{P}'$
+\end_inset
+
+ beide Trägerpartitionen von 
+\begin_inset Formula $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
+\end_inset
+
+.
+ Per Satz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:traeger-abschluss"
+
+\end_inset
+
+ ist auch 
+\begin_inset Formula $\mathcal{P}\sqcup\mathcal{P}'=\left\{ \left\{ x\right\} \mid x\in X\cap X'\right\} \cup\left\{ U\backslash\left(X\cap X'\right)\right\} $
+\end_inset
+
+ eine Trägerpartition, und per 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\sqcup\mathcal{P}'\right)=\mathrm{Stab}_{U}\left(X\cap X'\right)$
+\end_inset
+
+ ist auch 
+\begin_inset Formula $X\cap X'$
+\end_inset
+
+ eine Trägermenge von 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Corollary
+Jedes Gate 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ besitzt eine eindeutige kleinste Trägermenge.
+\end_layout
+
+\begin_layout Proposition
+Sei 
+\begin_inset Formula $\mathcal{P}\coloneqq\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+\end_inset
+
+ die gröbste Trägerpartition des Stabilisators eines Gates 
+\begin_inset Formula $g$
+\end_inset
+
+, und sei 
+\begin_inset Formula $\mathcal{P}=\left\{ P_{1},\cdots,P_{k}\right\} $
+\end_inset
+
+ mit 
+\begin_inset Formula $\left|P_{1}\right|\leqslant\cdots\leqslant\left|P_{k}\right|$
+\end_inset
+
+.
+ Dann ist 
+\begin_inset Formula $X\coloneqq\bigcup_{i=1}^{k-1}P_{i}$
+\end_inset
+
+ die kleinste Trägermenge von 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $X'$
+\end_inset
+
+ mit 
+\begin_inset Formula $\left|X'\right|<\left|X\right|$
+\end_inset
+
+ eine kleinere Trägermenge von 
+\begin_inset Formula $g$
+\end_inset
+
+.
+ Per Definition ist 
+\begin_inset Formula $\mathcal{P}'\coloneqq\left\{ \left\{ x\right\} \mid x\in X'\right\} \cup\left\{ U\backslash X'\right\} $
+\end_inset
+
+ eine Trägerpartition von 
+\begin_inset Formula $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
+\end_inset
+
+, denn 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}'\right)=\mathrm{Stab}_{U}\left(X'\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Per Definition ist 
+\begin_inset Formula $U\backslash X=P_{k}$
+\end_inset
+
+ eine größte Menge in 
+\begin_inset Formula $\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+\end_inset
+
+.
+ Per Annahme ist 
+\begin_inset Formula $\left|X'\right|<\left|X\right|$
+\end_inset
+
+ und daher 
+\begin_inset Formula $\left|U\backslash X'\right|>\left|U\backslash X\right|$
+\end_inset
+
+.
+ Weil aber 
+\begin_inset Formula $\mathcal{P}'\preceq\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+\end_inset
+
+ ist, muss 
+\begin_inset Formula $\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+\end_inset
+
+ eine Obermenge von 
+\begin_inset Formula $U\backslash X'$
+\end_inset
+
+ als Element enthalten, und deren Größe ist mindestens 
+\begin_inset Formula $\left|U\backslash X'\right|>\left|U\backslash X\right|$
+\end_inset
+
+; es entsteht ein Widerspruch.
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $\mathrm{S}\left(g\right)$
+\end_inset
+
+ die kleinste Trägermenge von 
+\begin_inset Formula $g$
+\end_inset
+
+, und sei 
+\begin_inset Formula $\mathrm{S}\left(\mathcal{C}\right)=\max_{g\in G}\left|\mathrm{S}\left(g\right)\right|$
+\end_inset
+
+ die maximale Größe aller Trägermengen.
+\end_layout
+
+\begin_layout Section
+Obere Schranken für die Größe von Trägern
+\end_layout
+
+\begin_layout Standard
+Das Ergebnis von Anderson und Dawar beruht auf einem Theorem, das eine konstante
+ obere Schranke 
+\begin_inset Formula $\mathrm{S}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$
+\end_inset
+
+ für jede symmetrischen Schaltkreisfamilie 
+\begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ polynomieller Größe nachweist.
+ Diese konstante Größe führt zu einer polynomiellen Anzahl von Permutationen
+ 
+\begin_inset Formula $\left|\mathrm{Sym}_{\mathrm{S}\left(g\right)}\right|=\left|\mathrm{S}\left(g\right)\right|!\leqslant n^{\left|S\left(g\right)\right|}$
+\end_inset
+
+ jeder Trägermenge eines Gates.
+\end_layout
+
+\begin_layout Standard
+Wir stellen zunächst das sogenannte Support-Theorem vor:
+\end_layout
+
+\begin_layout Theorem
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:Support-Theorem"
+
+\end_inset
+
+Support-Theorem
+\series default
+ (Theorem 21 aus 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "anderson_et_al:LIPIcs:2014:4445"
@@ -12219,6 +12504,102 @@ key "anderson_et_al:LIPIcs:2014:4445"
 \end_inset
 
 )
+\end_layout
+
+\begin_layout Theorem
+Für 
+\begin_inset Formula $\epsilon\in\left[\frac{2}{3},1\right]$
+\end_inset
+
+ und einen rigiden symmetrischen Schaltkreis 
+\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $\left|U\right|>2^{\frac{56}{\epsilon^{2}}}$
+\end_inset
+
+, gilt: Wenn die maximalen Orbit-Größe mit 
+\begin_inset Formula $s\coloneqq\max_{g\in G}\mathrm{Orb}_{\mathcal{C}}\left(g\right)\leqslant2^{n^{1-\epsilon}}$
+\end_inset
+
+ subexponentiell ist, dann ist 
+\begin_inset Formula $\mathrm{S}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:korollar-23"
+
+\end_inset
+
+(Korollar 23 aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anderson_et_al:LIPIcs:2014:4445"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Corollary
+Für jede symmetrische, rigide 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreisfamilie mit 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-Größe gilt 
+\begin_inset Formula $\mathrm{SP}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Die 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-Größe des Schaltkreises 
+\begin_inset Formula $\mathcal{C}_{n}=\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ impliziert für hinreichend große 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ offensichtlich: 
+\begin_inset Formula 
+\[
+s\coloneqq\max_{g\in G}\mathrm{Orb}_{\mathcal{C}}\left(g\right)\leqslant\left|\mathcal{C}_{n}\right|\leqslant n^{c}<2^{n^{1-\epsilon}}
+\]
+
+\end_inset
+
+Damit ist 
+\begin_inset Formula $\mathrm{S}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}\leqslant\frac{33}{\epsilon}\frac{k\log n}{\log n}=\frac{33k}{\epsilon}\in\mathcal{O}\left(1\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:lemma-19"
+
+\end_inset
+
+(
 \end_layout
 
 \begin_layout Lemma
@@ -12368,10 +12749,6 @@ dann enthält das mächtigste Element von
 \end_inset
 
 
-\end_layout
-
-\begin_layout Section
-Träger im Schaltkreis
 \end_layout
 
 \begin_layout Definition
@@ -12682,35 +13059,6 @@ dann gilt
 
 .
  
-\end_layout
-
-\begin_layout Corollary
-\begin_inset CommandInset label
-LatexCommand label
-name "cor:korollar-23"
-
-\end_inset
-
-(Korollar 23 aus 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "anderson_et_al:LIPIcs:2014:4445"
-
-\end_inset
-
-) Für jede symmetrische, rigide 
-\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
-\end_inset
-
--Schaltkreisfamilie mit 
-\begin_inset Formula $\mathrm{poly}\left(n\right)$
-\end_inset
-
--Größe gilt 
-\begin_inset Formula $\mathrm{SP}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Chapter
