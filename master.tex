@@ -88,8 +88,6 @@ leftmargin=\lyxlabelwidth,#1]}
  \item[]}
 {\end{list}}
   \theoremstyle{plain}
-  \newtheorem{fact}[thm]{\protect\factname}
-  \theoremstyle{plain}
   \newtheorem{cor}[thm]{\protect\corollaryname}
   \theoremstyle{remark}
   \newtheorem{claim}[thm]{\protect\claimname}
@@ -123,7 +121,6 @@ leftmargin=\lyxlabelwidth,#1]}
   \providecommand{\corollaryname}{Korollar}
   \providecommand{\definitionname}{Definition}
   \providecommand{\examplename}{Beispiel}
-  \providecommand{\factname}{Fakt}
   \providecommand{\lemmaname}{Lemma}
   \providecommand{\notationname}{Notation}
   \providecommand{\propositionname}{Satz}
@@ -163,27 +160,30 @@ in Abhängigkeit von der Größe der eingegebenen Struktur. Wir betrachten
 zwei Modelle, in denen alle beschreibbaren Anfragen eine beschränkte
 Datenkomplexität besitzen:
 \begin{enumerate}
-\item Klassen von booleschen Schaltkreisfamilien (mit $\mathtt{AND}$-,
-$\mathtt{OR}$-, $\mathtt{NOT}$-, und gegebenenfalls Majority-Gates),
-deren Datenkomplexität auf $T_{n}\cdot\mathcal{O}\left(\log S_{n}\right)$-Platz
+\item Klassen von uniformen booleschen Schaltkreisfamilien $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+(mit $\mathtt{AND}$-, $\mathtt{OR}$-, $\mathtt{NOT}$-, und gegebenenfalls
+Majority-Gates) beschreiben Anfragen, deren Datenkomplexität auf $T_{n}\cdot\mathcal{O}\left(\log S_{n}\right)$-Platz
 und $S_{n}$-Zeit beschränkt ist, wobei $T_{n}$ und $S_{n}$ die
-Tiefe und Größe der Schaltkreise sind.
-\item Formeln der Prädikatenlogik erster Stufe (beziehungsweise deren Erweiterungen),
-deren Datenkomplexität für eine Formel $\varphi$ auf $\mathcal{O}\left(\log n\right)$-Platz
-und $\mathrm{poly}\left(n\right)$-Zeit beschränkt ist.
+Tiefe und Größe jedes Schaltkreises sind.
+\item Formeln der Prädikatenlogik erster Stufe (beziehungsweise deren Erweiterungen)
+beschreiben Anfragen, deren Datenkomplexität für eine Formel $\varphi$
+auf $\mathcal{O}\left(\log n\right)$-Platz und $\mathrm{poly}\left(n\right)$-Zeit
+beschränkt ist.
 \end{enumerate}
-Weil boolesche Schaltkreise von Natur aus auf geordneten Strukturen
-arbeiten, wird gefordert, dass ihr Ergebnis invariant bezüglich der
-gewählten Ordnung ist. Wir führen mit der Symmetrie eine strukturelle
-Einschränkung der Schaltkreise ein, die diese Invarianz garantiert.
+Boolesche Schaltkreise arbeiten per Definition aus auf einer geordneten
+Struktur. Für ungeordnete Strukturen wird eine beliebige Ordnung gewählt
+und gefordert, dass das Ergebnis bezüglich der Ordnung invariant ist.
+Wir führen mit der Symmetrie eine strukturelle Einschränkung der Schaltkreise
+ein, die diese Invarianz garantiert.
 
-Da eine Schaltkreisfamilie eine unendliche Sequenz von Schaltkreisen
-für jede Eingabegröße $n\in\mathbb{N}$ ist, kann diese Sequenz an
-sich auch unentscheidbare Klassen in den natürlichen Zahlen kodieren.
-In der Praxis ist es erwünscht, dass diese Schaltkreise von einem
-effizienten Algorithmus berechnet werden: Sind sie zum Beispiel in
-Polynomialzeit oder mit logarithmischem Platz (in Abhängigkeit von
-$n$) berechenbar, dann nennen wir sie $P$- beziehungsweise $\mathrm{LOGSPACE}$-uniform.
+Die Schaltkreisfamilie besteht aus einer unendlichen Sequenz von Schaltkreisen
+für jede Eingabegröße $n\in\mathbb{N}$ ist. Ohne Einschränkung kann
+eine solche Sequenz auch unentscheidbare Klassen in den natürlichen
+Zahlen kodieren. In der Praxis ist es daher erwünscht, dass die Schaltkreise
+von einem effizienten Algorithmus berechnet werden: Ist zum Beispiel
+jeder Schaltkreis in Polynomialzeit oder mit logarithmischem Platz
+(in Abhängigkeit von $n$) berechenbar, dann nennen wir die Schaltkreisfamilie
+$P$- beziehungsweise $\mathrm{LOGSPACE}$-uniform.
 
 Die Logik erster Stufe ist in der Praxis zu eingeschränkt: Selbst
 einfache Probleme wie die Frage, ob eine Struktur eine gerade Anzahl
@@ -2882,17 +2882,17 @@ $\sqcup$:
 ($\mathcal{A}\sqcap\mathcal{B}$ sei die gröbste feinere Partition
 als $\mathcal{A}$ und $\mathcal{B}$, und $\mathcal{A}\sqcup\mathcal{B}$
 die feinste gröbere Partition als $\mathcal{A}$ und $\mathcal{B}$.)\end{defn}
-\begin{fact}
-Wenn $\left[x\right]_{\sim}$ die Äquivalenzklasse $\left\{ y\mid x\sim y\right\} $
-ist, und $\mathcal{P}_{1},\mathcal{P}_{2}\in\mathrm{Part}_{U}$ wie
-folgt sind, 
+\begin{prop}
+\label{prop:part-eq}Wenn $\left[x\right]_{\sim}$ die Äquivalenzklasse
+$\left\{ y\mid x\sim y\right\} $ ist, und $\mathcal{P}_{1},\mathcal{P}_{2}\in\mathrm{Part}_{U}$
+wie folgt sind, 
 \begin{eqnarray*}
 \mathcal{P}_{1} & \coloneqq & \left\{ \left[x\right]_{\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}}\mid x\in U\right\} \\
 \mathcal{P}_{2} & \coloneqq & \left\{ \left[x\right]_{\sim^{*}}\mid x\in U\right\} \\
  &  & \mathrm{wobei}\,\sim\coloneqq\left(\sim_{\mathcal{A}}\right)\cup\left(\sim_{\mathcal{B}}\right)
 \end{eqnarray*}
-dann ist $\mathcal{P}_{1}=\mathcal{A}\sqcap\mathcal{B}$ und $\mathcal{P}_{2}=\mathcal{A}\sqcup\mathcal{B}$.
-\end{fact}
+dann ist $\mathcal{P}_{1}=\mathcal{A}\sqcap\mathcal{B}$ und $\mathcal{P}_{2}=\mathcal{A}\sqcup\mathcal{B}$.\end{prop}
+\begin{proof}
 Die Eigenschaft $\mathcal{P}_{1}\preceq\mathcal{A},\mathcal{B}\preceq\mathcal{P}_{2}$
 folgt offensichtlich aus $\left(\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}\right)\subseteq\sim_{\mathcal{A}},\sim_{\mathcal{B}}\subseteq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)^{*}$.
 Ferner muss jede Relation $\sim_{\mathcal{P}}$ mit $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{A}}\right)$
@@ -2901,7 +2901,7 @@ auch in $\left(\sim_{\mathcal{A}}\right)\cap\left(\sim_{\mathcal{B}}\right)$
 enthalten sein, und jede mit $\left(\sim_{\mathcal{P}}\right)\supseteq\left(\sim_{\mathcal{A}}\right)$,
 $\left(\sim_{\mathcal{P}}\right)\supseteq\left(\sim_{\mathcal{B}}\right)$
 muss auch $\left(\sim_{\mathcal{A}}\right)\cup\left(\sim_{\mathcal{B}}\right)$
-(und dessen Abschluss) enthalten.
+(und dessen Abschluss) enthalten.\end{proof}
 \begin{defn}
 Die feinste und gröbste Partition von $U$ seien $\mathcal{P}_{\min}\left(U\right)\coloneqq\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
 und $\mathcal{P}_{\max}\left(U\right)\coloneqq\left\{ U\right\} $.
@@ -3001,19 +3001,16 @@ folgt $\mathcal{P}\preceq\mathcal{P}'$.
 \begin{defn}
 \label{def:traeger}Sei $G\subseteq\mathrm{\mathrm{Sym}}_{U}$ eine
 Untergruppe und $\mathcal{P}$ eine Partition von $U$. $\mathcal{P}$
-ist ein \textbf{Träger} von\textbf{ }$G$ genau dann wenn $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$.\end{defn}
-\begin{rem*}
+sei ein \textbf{Träger} von\textbf{ }$G$ genau dann wenn $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$.
+\end{defn}
 Wenn $\mathcal{P}$ ein Träger von $G$ ist, so ist $\mathcal{P}$
-auch ein Träger jeder Obermenge $G'\supseteq G$.
-
-Außerdem sind per Satz \ref{prop:feinheit-stab} alle feineren Partitionen
-$\mathcal{P}'\preceq\mathcal{P}$ Träger von $G$.
-
-Somit ist $\mathcal{P}_{\min}=\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
+auch ein Träger jeder Obermenge $G'\supseteq G$. Außerdem sind per
+Satz \ref{prop:feinheit-stab} alle feineren Partitionen $\mathcal{P}'\preceq\mathcal{P}$
+Träger von $G$. Somit ist $\mathcal{P}_{\min}=\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
 mit $\mathrm{Stab}_{U}\left(\mathcal{P}_{\min}\right)=\left\{ \mathbf{id}\right\} $
 ein trivialer Träger jeder Untergruppe $G\subseteq\mathrm{Sym}_{U}$,
 und alle Partitionen $\mathcal{P}\in\mathrm{Part}_{U}$ sind Träger
-der Gruppe $\mathrm{Sym}_{U}=\mathrm{Stab}_{U}\left(\mathcal{P}_{\max}\right)$.\end{rem*}
+der Gruppe $\mathrm{Sym}_{U}=\mathrm{Stab}_{U}\left(\mathcal{P}_{\max}\right)$.
 \begin{lem}
 \label{lem:traeger-abschluss}Die Träger-Eigenschaft ist bezüglich
 den Operationen $\sqcap$ und $\sqcup$ abgeschlossen: Wenn $\mathcal{A}$
@@ -3029,8 +3026,8 @@ Für $\mathcal{P}\coloneqq\mathcal{A}\sqcup\mathcal{B}$ gilt:
 \item Jede Permutation $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
 ist eine Folge von Transpositionen $\pi=\left(u_{1}v_{1}\right)\circ\cdots\circ\left(u_{k}v_{k}\right)$,
 so dass wir nur Transpositionen betrachten müssen.
-\item Die Äquivalenzrelation $\sim_{\mathcal{P}}$ ist die transitive Hülle
-von $\sim\coloneqq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)$.
+\item Die Äquivalenzrelation $\sim_{\mathcal{P}}$ ist per Satz \ref{prop:part-eq}
+die transitive Hülle von $\sim\coloneqq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)$.
 Daher existiert für alle $u\sim_{\mathcal{P}}v$ eine Folge von $\ell\leqslant\left|U\right|$
 Elementen $\bar{w}\in U^{\ell}$ mit
 \[
@@ -3043,18 +3040,44 @@ eine beliebige Transposition. $\left(uv\right)$ lässt sich mit dem
 entsprechenden $\bar{w}\in\left(U\backslash\left\{ u,v\right\} \right)^{*}$
 in die folgenden Transpositionen zerlegen:
 \begin{eqnarray*}
-\left(uv\right) & = & \left(uw_{1}\right)\left(w_{1}w_{2}\right)\cdots\left(w_{\ell-1}w_{\ell}\right)\left(w_{\ell}v\right)\\
- &  & \circ\left(w_{\ell-1}w_{\ell-2}\right)\cdots\left(w_{2}w_{1}\right)
+\left(uv\right) & = & \left(\begin{array}{c}
+u\\
+v
+\end{array}\left(\begin{array}{c}
+w_{i}\\
+w_{i}
+\end{array}\right)_{1\leqslant i\leqslant\ell}\begin{array}{c}
+v\\
+u
+\end{array}\right)\\
+ & = & \left(\begin{array}{c}
+w_{1}\\
+v
+\end{array}\left(\begin{array}{c}
+w_{i}\\
+w_{i-1}
+\end{array}\right)_{1<i\leqslant\ell}\begin{array}{c}
+v\\
+w_{\ell}
+\end{array}\right)\circ\left(\begin{array}{c}
+u\\
+w_{1}
+\end{array}\left(\begin{array}{c}
+w_{i}\\
+w_{i+1}
+\end{array}\right)_{1\leqslant i<\ell}\begin{array}{cc}
+w_{\ell} & v\\
+v & u
+\end{array}\right)\\
+ &  & \left(vw_{\ell}\right)\left(w_{\ell}w_{\ell-1}\right)\cdots\left(w_{2}w_{1}\right)\circ\left(uw_{1}\right)\left(w_{1}w_{2}\right)\cdots\left(w_{\ell-1}w_{\ell}\right)\left(w_{\ell}v\right)
 \end{eqnarray*}
 
 
-Insbesondere sei $\bar{w}$ so gewählt, dass $u\sim w_{1}$, $\left(w_{i}\sim w_{i+1}\right)_{i\in\left[1,\ell-1\right]}$
-und $w_{\ell}\sim v$. Weil $\sim=\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)$,
+Weil $\sim=\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)$,
 ist jede der Transpositionen entweder in $\mathrm{Stab}_{U}\left(\mathcal{A}\right)$
 oder in $\mathrm{Stab}_{U}\left(\mathcal{B}\right)$ enthalten, und
-beide sind Teilmengen von $G$.
-
-Also ist $\left(uv\right)\in G$, und es folgt $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$.\end{proof}
+beide sind Teilmengen von $G$. Also ist $\left(uv\right)\in G$,
+und es folgt $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$.\end{proof}
 \begin{cor}
 Jede Gruppe $G\subseteq\mathrm{Sym}_{U}$ besitzt eine eindeutigen
 gröbsten Träger.\end{cor}
@@ -4169,7 +4192,7 @@ Kodierung von Zahlen, so dass für $\bar{g},\bar{h},\bar{w}\in\left[0,n\right]^{
 {[}...{]}
 \end{proof}
 
-\chapter{Grenzen der Symmetrischen Schaltkreisfamilien}
+\chapter{Grenzen der symmetrischen Schaltkreisklassen}
 
 Wir weisen nach, dass die symmetrischen $\mathrm{AC}^{0}$-Schaltkreisfamilien
 eine echte Teilmenge der Anfragen beschreiben, die durch $\mathrm{AC}^{0}$
@@ -4181,14 +4204,14 @@ die Charakterisierung von $\mathrm{AC}^{0}$ durch die arb-invariante
 $\mathrm{FO}\left(\mathrm{arb}\right)$-Logik, und ein Problem, dass
 die Ausdrucksstärke dieser beiden Logiken voneinander trennt.
 \begin{lem}
-\textbf{\label{lem:fo-arb-ac0}Makowsky (1997)}\cite{AMSS-locality,Makowsky:1997:ID:648040.744731}
+\textbf{\label{lem:fo-arb-ac0}Makowsky (1997)}\cite{Makowsky:1997:ID:648040.744731,AMSS-locality}
 
 Die Klasse $\mathrm{AC}^{0}$ ist äquivalent zu der Klasse der durch
 $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-Formeln
 definierbaren Anfragen.
 \end{lem}
 Der verwendete Teil des Beweises (hier nicht ausgeführt) ist die Konstruktion
-der Formel für eine beliebige $\mathrm{AC}^{0}$-Schaltkreisfamilie.
+einer Formel für eine beliebige $\mathrm{AC}^{0}$-Schaltkreisfamilie.
 Dazu wird jeder Schaltkreis in eine alternierende Normalform gebracht,
 wonach jeder der $\left|\mathcal{C}\right|^{T\left(\mathcal{C}\right)}$
 Wege von einem Input zu einem Output durch ein numerisches Tupel kodiert

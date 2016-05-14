@@ -169,7 +169,11 @@ Von besonderem Interesse ist die Daten-Komplexität solcher Anfragen: Die
 \end_layout
 
 \begin_layout Enumerate
-Klassen von booleschen Schaltkreisfamilien (mit 
+Klassen von uniformen booleschen Schaltkreisfamilien 
+\begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ (mit 
 \begin_inset Formula $\mathtt{AND}$
 \end_inset
 
@@ -181,7 +185,8 @@ Klassen von booleschen Schaltkreisfamilien (mit
 \begin_inset Formula $\mathtt{NOT}$
 \end_inset
 
--, und gegebenenfalls Majority-Gates), deren Datenkomplexität auf 
+-, und gegebenenfalls Majority-Gates) beschreiben Anfragen, deren Datenkomplexit
+ät auf 
 \begin_inset Formula $T_{n}\cdot\mathcal{O}\left(\log S_{n}\right)$
 \end_inset
 
@@ -197,12 +202,12 @@ Klassen von booleschen Schaltkreisfamilien (mit
 \begin_inset Formula $S_{n}$
 \end_inset
 
- die Tiefe und Größe der Schaltkreise sind.
+ die Tiefe und Größe jedes Schaltkreises sind.
 \end_layout
 
 \begin_layout Enumerate
-Formeln der Prädikatenlogik erster Stufe (beziehungsweise deren Erweiterungen),
- deren Datenkomplexität für eine Formel 
+Formeln der Prädikatenlogik erster Stufe (beziehungsweise deren Erweiterungen)
+ beschreiben Anfragen, deren Datenkomplexität für eine Formel 
 \begin_inset Formula $\varphi$
 \end_inset
 
@@ -218,28 +223,30 @@ Formeln der Prädikatenlogik erster Stufe (beziehungsweise deren Erweiterungen),
 \end_layout
 
 \begin_layout Standard
-Weil boolesche Schaltkreise von Natur aus auf geordneten Strukturen arbeiten,
- wird gefordert, dass ihr Ergebnis invariant bezüglich der gewählten Ordnung
- ist.
+Boolesche Schaltkreise arbeiten per Definition aus auf einer geordneten
+ Struktur.
+ Für ungeordnete Strukturen wird eine beliebige Ordnung gewählt und gefordert,
+ dass das Ergebnis bezüglich der Ordnung invariant ist.
  Wir führen mit der Symmetrie eine strukturelle Einschränkung der Schaltkreise
  ein, die diese Invarianz garantiert.
 \end_layout
 
 \begin_layout Standard
-Da eine Schaltkreisfamilie eine unendliche Sequenz von Schaltkreisen für
- jede Eingabegröße 
+Die Schaltkreisfamilie besteht aus einer unendlichen Sequenz von Schaltkreisen
+ für jede Eingabegröße 
 \begin_inset Formula $n\in\mathbb{N}$
 \end_inset
 
- ist, kann diese Sequenz an sich auch unentscheidbare Klassen in den natürlichen
- Zahlen kodieren.
- In der Praxis ist es erwünscht, dass diese Schaltkreise von einem effizienten
- Algorithmus berechnet werden: Sind sie zum Beispiel in Polynomialzeit oder
- mit logarithmischem Platz (in Abhängigkeit von 
+ ist.
+ Ohne Einschränkung kann eine solche Sequenz auch unentscheidbare Klassen
+ in den natürlichen Zahlen kodieren.
+ In der Praxis ist es daher erwünscht, dass die Schaltkreise von einem effizient
+en Algorithmus berechnet werden: Ist zum Beispiel jeder Schaltkreis in Polynomia
+lzeit oder mit logarithmischem Platz (in Abhängigkeit von 
 \begin_inset Formula $n$
 \end_inset
 
-) berechenbar, dann nennen wir sie 
+) berechenbar, dann nennen wir die Schaltkreisfamilie 
 \begin_inset Formula $P$
 \end_inset
 
@@ -11086,7 +11093,13 @@ key "Klein-Barmen1935"
 .)
 \end_layout
 
-\begin_layout Fact
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:part-eq"
+
+\end_inset
+
 Wenn 
 \begin_inset Formula $\left[x\right]_{\sim}$
 \end_inset
@@ -11120,7 +11133,7 @@ dann ist
 .
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 Die Eigenschaft 
 \begin_inset Formula $\mathcal{P}_{1}\preceq\mathcal{A},\mathcal{B}\preceq\mathcal{P}_{2}$
 \end_inset
@@ -11536,7 +11549,7 @@ Sei
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
- ist ein 
+ sei ein 
 \series bold
 Träger
 \series default
@@ -11555,7 +11568,7 @@ Träger
 .
 \end_layout
 
-\begin_layout Remark*
+\begin_layout Standard
 Wenn 
 \begin_inset Formula $\mathcal{P}$
 \end_inset
@@ -11573,10 +11586,7 @@ Wenn
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Remark*
-Außerdem sind per Satz 
+ Außerdem sind per Satz 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "prop:feinheit-stab"
@@ -11592,10 +11602,7 @@ reference "prop:feinheit-stab"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Remark*
-Somit ist 
+ Somit ist 
 \begin_inset Formula $\mathcal{P}_{\min}=\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
 \end_inset
 
@@ -11701,7 +11708,14 @@ Die Äquivalenzrelation
 \begin_inset Formula $\sim_{\mathcal{P}}$
 \end_inset
 
- ist die transitive Hülle von 
+ ist per Satz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:part-eq"
+
+\end_inset
+
+ die transitive Hülle von 
 \begin_inset Formula $\sim\coloneqq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)$
 \end_inset
 
@@ -11747,8 +11761,36 @@ Sei nun
  in die folgenden Transpositionen zerlegen:
 \begin_inset Formula 
 \begin{eqnarray*}
-\left(uv\right) & = & \left(uw_{1}\right)\left(w_{1}w_{2}\right)\cdots\left(w_{\ell-1}w_{\ell}\right)\left(w_{\ell}v\right)\\
- &  & \circ\left(w_{\ell-1}w_{\ell-2}\right)\cdots\left(w_{2}w_{1}\right)
+\left(uv\right) & = & \left(\begin{array}{c}
+u\\
+v
+\end{array}\left(\begin{array}{c}
+w_{i}\\
+w_{i}
+\end{array}\right)_{1\leqslant i\leqslant\ell}\begin{array}{c}
+v\\
+u
+\end{array}\right)\\
+ & = & \left(\begin{array}{c}
+w_{1}\\
+v
+\end{array}\left(\begin{array}{c}
+w_{i}\\
+w_{i-1}
+\end{array}\right)_{1<i\leqslant\ell}\begin{array}{c}
+v\\
+w_{\ell}
+\end{array}\right)\circ\left(\begin{array}{c}
+u\\
+w_{1}
+\end{array}\left(\begin{array}{c}
+w_{i}\\
+w_{i+1}
+\end{array}\right)_{1\leqslant i<\ell}\begin{array}{cc}
+w_{\ell} & v\\
+v & u
+\end{array}\right)\\
+ &  & \left(vw_{\ell}\right)\left(w_{\ell}w_{\ell-1}\right)\cdots\left(w_{2}w_{1}\right)\circ\left(uw_{1}\right)\left(w_{1}w_{2}\right)\cdots\left(w_{\ell-1}w_{\ell}\right)\left(w_{\ell}v\right)
 \end{eqnarray*}
 
 \end_inset
@@ -11757,24 +11799,7 @@ Sei nun
 \end_layout
 
 \begin_layout Proof
-Insbesondere sei 
-\begin_inset Formula $\bar{w}$
-\end_inset
-
- so gewählt, dass 
-\begin_inset Formula $u\sim w_{1}$
-\end_inset
-
-, 
-\begin_inset Formula $\left(w_{i}\sim w_{i+1}\right)_{i\in\left[1,\ell-1\right]}$
-\end_inset
-
- und 
-\begin_inset Formula $w_{\ell}\sim v$
-\end_inset
-
-.
- Weil 
+Weil 
 \begin_inset Formula $\sim=\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)$
 \end_inset
 
@@ -11791,10 +11816,7 @@ Insbesondere sei
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Proof
-Also ist 
+ Also ist 
 \begin_inset Formula $\left(uv\right)\in G$
 \end_inset
 
@@ -16418,7 +16440,7 @@ Hierbei sei
 \end_layout
 
 \begin_layout Chapter
-Grenzen der Symmetrischen Schaltkreisfamilien
+Grenzen der symmetrischen Schaltkreisklassen
 \end_layout
 
 \begin_layout Standard
@@ -16476,7 +16498,7 @@ Makowsky (1997)
 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "AMSS-locality,Makowsky:1997:ID:648040.744731"
+key "Makowsky:1997:ID:648040.744731,AMSS-locality"
 
 \end_inset
 
@@ -16497,7 +16519,7 @@ Die Klasse
 
 \begin_layout Standard
 Der verwendete Teil des Beweises (hier nicht ausgeführt) ist die Konstruktion
- der Formel für eine beliebige 
+ einer Formel für eine beliebige 
 \begin_inset Formula $\mathrm{AC}^{0}$
 \end_inset
 
