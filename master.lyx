@@ -261,7 +261,7 @@ key "Libkin2012"
 
 \end_inset
 
- Daher erweitern wir die Logik um numerische Prädikate, Fixpunkt-Operatoren
+ Daher erweitern wir die Logik um Fixpunkt-Operatoren, numerische Prädikate
  und Zähler.
  Insbesondere betrachten wir Logiken, in denen die numerischen Prädikate
  
@@ -288,8 +288,15 @@ Konkret ist die Klasse der symmetrischen
 \end_inset
 
 .
- Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar veröffentlicht,
- und bildet die Grundlage dieser Arbeit.
+ Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar (als Erweiterung
+ eines Ergebnisses von Martin Otto in 1997
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Otto1997"
+
+\end_inset
+
+) veröffentlicht, und bildet die Grundlage dieser Arbeit.
 \end_layout
 
 \begin_layout Standard
@@ -339,7 +346,7 @@ Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen äquivalen
 
 \begin_deeper
 \begin_layout Enumerate
-Die Logik 
+Die Fixpunktlogik mit disjunkter Ordnung 
 \begin_inset Formula $\mathrm{LFP}+\mathbf{ORD}$
 \end_inset
 
@@ -347,15 +354,15 @@ Die Logik
 \begin_inset Formula $P$
 \end_inset
 
--uniforme 
+-uniforme symmetrische Schaltkreisfamilien 
 \begin_inset Formula $\mathrm{SBC}$
 \end_inset
 
--Schaltkreisfamilien.
+.
 \end_layout
 
 \begin_layout Enumerate
-Die Logik 
+Die Fixpunktlogik mit Zählterm 
 \begin_inset Formula $\mathrm{LFP}+C$
 \end_inset
 
@@ -363,15 +370,15 @@ Die Logik
 \begin_inset Formula $P$
 \end_inset
 
--uniforme 
+-uniforme symmetrische Schaltkreisfamilien mit Majority-Operation 
 \begin_inset Formula $\mathrm{SBC}+\mathbf{MAJ}$
 \end_inset
 
--Schaltkreisfamilien.
+.
 \end_layout
 
 \begin_layout Enumerate
-Die Logik 
+Die Fixpunktlogik mit beliebigen disjunkten Prädikaten 
 \begin_inset Formula $\mathrm{LFP}+\mathbf{ARB}$
 \end_inset
 
@@ -379,11 +386,7 @@ Die Logik
 \begin_inset Formula $P/\mathrm{poly}$
 \end_inset
 
--uniforme 
-\begin_inset Formula $\mathrm{SBC}$
-\end_inset
-
--Schaltkreisfamilien.
+-uniforme Schaltkreisfamilien.
 \end_layout
 
 \end_deeper
@@ -468,22 +471,35 @@ Die Logik
 \begin_layout Standard
 Die Einschränkung auf symmetrische Schaltkreisfamilien bringt im Allgemeinen
  eine Reduktion der Ausdrucksstärke mit sich.
- Insbesondere wird (nach Matthew Anderson, Dieter van Melkebeek, Nicole
- Schweikardt und Luc Segoufin, 2012
+ Insbesondere werden (nach Johann Makowsky 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "AMSS-locality"
+key "Makowsky:1997:ID:648040.744731,Makowsky1999"
 
 \end_inset
 
-) 
+) die Klassen 
 \begin_inset Formula $\mathrm{AC}^{0}$
 \end_inset
 
- ohne Symmetrie durch die arb-invariante Logik mit nicht-disjunktem Ordnungspräd
-ikat charakterisiert.
- Diese Logik ist jedoch echt ausdrucksstärker als die disjunkte Variante
+ und 
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+ ohne Symmetrie-Einschränkung durch die arb-invarianten Logiken 
+\begin_inset Formula $\mathrm{FO}\left(\mathbf{ARB}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathrm{LFP}\left(\mathbf{ARB}\right)$
+\end_inset
+
+ charakterisiert.
  
+\begin_inset Formula $\mathrm{FO}\left(\mathbf{ARB}\right)$
+\end_inset
+
+ ist jedoch echt ausdrucksstärker als die disjunkte Variante 
 \begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
 \end_inset
 
@@ -497,15 +513,15 @@ name "thm:fo-arb"
 
 \end_inset
 
-
+Für die 
 \begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
 \end_inset
 
-, invariantes 
-\begin_inset Formula $\mathrm{FO}\left(\mathrm{arb}\right)$
+-Logik und die arb-invariante 
+\begin_inset Formula $\mathrm{FO}\left(\mathbf{ARB}\right)$
 \end_inset
 
-
+-Logik gilt:
 \end_layout
 
 \begin_deeper
@@ -518,15 +534,11 @@ Jede
 \begin_inset Formula $\varphi$
 \end_inset
 
- ist äquivalent zu einer arb-invarianten 
-\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
+ beschreibt eine Anfrage, die durch eine arb-invariante 
+\begin_inset Formula $\mathrm{FO}\left(\mathbf{ARB}\right)\left[\sigma\right]$
 \end_inset
 
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
-.
+-Formel definierbar ist.
 \end_layout
 
 \begin_layout Enumerate
@@ -535,20 +547,20 @@ Es existiert eine
 \end_inset
 
 -Anfrage, die in der arb-invarianten 
-\begin_inset Formula $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$
+\begin_inset Formula $\mathrm{FO}\left(\mathbf{ARB}\right)\left[\sigma\right]$
 \end_inset
 
--Logik definierbar ist, aber nicht 
+-Logik, aber nicht 
 \begin_inset Formula $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[\sigma\right]$
 \end_inset
 
--definierbar ist.
+ definierbar ist.
 \end_layout
 
 \end_deeper
 \begin_layout Standard
-Vermutlich gelten ähnliche Bezüge auch zwischen den symmetrischen und nicht-symm
-etrischen Teilen der übrigen Schaltkreisklassen.
+Ähnliche Bezüge bestehen vermutlich auch zwischen den symmetrischen und
+ nicht-symmetrischen Teilen der übrigen betrachteten Schaltkreisklassen.
 \end_layout
 
 \begin_layout Chapter
@@ -1285,8 +1297,16 @@ Die Menge
 \begin_inset Formula $\mathrm{Abb}\left(A,B\right)$
 \end_inset
 
+ bezeichne alle Funktionen 
+\begin_inset Formula $\pi:A\rightarrow B$
+\end_inset
+
+, und 
+\begin_inset Formula $\mathrm{Bij}\left(A,B\right)$
+\end_inset
+
  bezeichne für endliche 
-\begin_inset Formula $\left|A\right|=\left|B\right|$
+\begin_inset Formula $\left|A\right|=\left|B\right|=n$
 \end_inset
 
  alle 
@@ -1294,7 +1314,7 @@ Die Menge
 \end_inset
 
  bijektiven Abbildungen 
-\begin_inset Formula $\pi:A\rightarrow B$
+\begin_inset Formula $\pi:A\rightleftarrows B$
 \end_inset
 
 .
@@ -1316,12 +1336,12 @@ Eine Permutation von
 \end_inset
 
  ist eine bijektive Abbildung 
-\begin_inset Formula $\pi\in\mathrm{Abb}\left(U,U\right)$
+\begin_inset Formula $\pi:U\rightleftarrows U$
 \end_inset
 
 .
  Die Menge aller Permutationen 
-\begin_inset Formula $\mathrm{Abb}\left(U,U\right)$
+\begin_inset Formula $\mathrm{Bij}\left(U,U\right)$
 \end_inset
 
  bezeichnen wir auch als 
@@ -1698,7 +1718,7 @@ Für zwei
 \end_inset
 
  sei eine bijektive Abbildung 
-\begin_inset Formula $\pi\in\mathrm{Abb}\left(A,B\right)$
+\begin_inset Formula $\pi:A\rightleftarrows B$
 \end_inset
 
  ein Isomorphismus, falls 
@@ -1730,7 +1750,7 @@ Die Abbildung
 
 \begin_layout Definition
 Die Menge aller Isomorphismen bezeichnen wir mit 
-\begin_inset Formula $\mathrm{Abb}\left(\mathfrak{A},\mathfrak{B}\right)$
+\begin_inset Formula $\mathrm{Bij}\left(\mathfrak{A},\mathfrak{B}\right)$
 \end_inset
 
 .
@@ -1739,7 +1759,7 @@ Die Menge aller Isomorphismen bezeichnen wir mit
 \end_inset
 
 ), falls 
-\begin_inset Formula $\mathrm{Abb}\left(\mathfrak{A},\mathfrak{B}\right)$
+\begin_inset Formula $\mathrm{Bij}\left(\mathfrak{A},\mathfrak{B}\right)$
 \end_inset
 
  nicht leer ist.
@@ -1747,7 +1767,7 @@ Die Menge aller Isomorphismen bezeichnen wir mit
 
 \begin_layout Definition
 Ein Automorphismus 
-\begin_inset Formula $\pi\in\mathrm{Abb}\left(\mathfrak{A},\mathfrak{A}\right)$
+\begin_inset Formula $\pi\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{A}\right)$
 \end_inset
 
  sei ein Isomorphismus von 
@@ -1755,8 +1775,8 @@ Ein Automorphismus
 \end_inset
 
  zu sich selbst.
- Die Menge 
-\begin_inset Formula $\mathrm{Abb}\left(\mathfrak{A},\mathfrak{A}\right)$
+ Die Menge der Automorphismen 
+\begin_inset Formula $\mathrm{Bij}\left(\mathfrak{A},\mathfrak{A}\right)$
 \end_inset
 
  nennen wir 
@@ -1810,7 +1830,7 @@ Zwei Strukturen können vereinigt werden, wenn sie entweder disjunkte Signaturen
 \begin_inset Formula $\mathfrak{B}$
 \end_inset
 
- gilt:
+ gelte:
 \end_layout
 
 \begin_deeper
@@ -1864,7 +1884,7 @@ Wenn
 
 \end_deeper
 \begin_layout Definition
-Falls das Universum der beiden Strukturen ebenfalls disjunkt ist, so heißt
+Falls das Universum der beiden Strukturen ebenfalls disjunkt ist, so heiße
  
 \begin_inset Formula $\mathfrak{A}\cup\mathfrak{B}=\mathfrak{A}\uplus\mathfrak{B}$
 \end_inset
@@ -2024,7 +2044,7 @@ Per Definition sind alle
 \end_inset
 
  und 
-\begin_inset Formula $\pi\in\mathrm{Abb}\left(\mathfrak{A},\mathfrak{B}\right)$
+\begin_inset Formula $\pi\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{B}\right)$
 \end_inset
 
  gilt 
@@ -3005,7 +3025,8 @@ Sei
 \begin_layout Standard
 Wir möchten syntaktisch garantieren, dass die Iteration der Formel eine
  monoton wachsende Relation berechnet.
- Dafür wird verlangt, dass die Selbstreferenz nicht negiert vorkommt.
+ Dafür wird verlangt, dass die selbstreferenzielle Relationsvariable nicht
+ negiert vorkommt.
 \end_layout
 
 \begin_layout Definition
@@ -3222,7 +3243,8 @@ Für eine Logik
 \mathrm{frei}\left(X\bar{x}\right) & \coloneqq & \left\{ X\right\} \cup\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right)\\
 \mathrm{var}\left(X\bar{x}\right) & \coloneqq & \left\{ X\right\} \cup\bigcup_{i=1}^{k}\mathrm{var}\left(x_{i}\right)\\
 \left\llbracket X\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left[\beta X\right]\left(\beta\bar{x}\right)\\
- &  & \mathrm{mit}\,\beta:\mathrm{frei}\left(X\bar{x}\right)\rightarrow\bigcup_{k\in\mathbb{N}}2^{A^{k}}
+ & \mathrm{mit} & \beta X\subseteq A^{k},\\
+ &  & \beta\bar{x}\in A^{k}
 \end{eqnarray*}
 
 \end_inset
@@ -3289,7 +3311,38 @@ Für eine Logik
 
 \end_inset
 
+Für eine Belegung 
+\begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
+\end_inset
 
+ prüft 
+\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
+\end_inset
+
+, ob die Belegung des Tupels 
+\begin_inset Formula $\bar{y}$
+\end_inset
+
+ im kleinsten Fixpunkt des Relationssymbols 
+\begin_inset Formula $X$
+\end_inset
+
+ liegt.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\beta' & \coloneqq & \beta_{\mid\mathrm{frei}\left(\psi\right)\backslash\left\{ X,x_{1},\cdots,x_{k}\right\} }\\
+\left\llbracket \left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket X\bar{y}\right\rrbracket \left(\mathfrak{A},\beta\cup\left(X\mapsto\mathrm{lfp}_{X,\bar{x}}\left(\psi\right)\right)\right)
+\end{eqnarray*}
+
+\end_inset
+
+Im folgenden wird eine Berechnung definiert, die den kleinsten Fixpunkt
+ 
+\begin_inset Formula $\mathrm{lfp}_{X,\bar{x}}\left(\psi\right)$
+\end_inset
+
+ iterativ bestimmt.
 \end_layout
 
 \begin_layout Standard
@@ -3309,11 +3362,8 @@ reference "def:fo"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-Die nicht durch den Operator gebundenen Variablen 
-\begin_inset Formula $\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \subseteq\mathrm{frei}\left(\varphi\right)$
+ Die nicht durch den Operator gebundenen Variablen 
+\begin_inset Formula $P\coloneqq\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \subseteq\mathrm{frei}\left(\varphi\right)$
 \end_inset
 
  heißen 
@@ -3324,35 +3374,11 @@ Parameter
 \end_layout
 
 \begin_layout Standard
-Für 
-\begin_inset Formula $X/k\in\mathbf{var}_{2}$
+Für eine Parameter-Belegung 
+\begin_inset Formula $\beta:P\rightarrow A$
 \end_inset
 
-, eine 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Struktur 
-\begin_inset Formula $\mathfrak{A}$
-\end_inset
-
-, eine 
-\begin_inset Formula $X$
-\end_inset
-
--positive 
-\begin_inset Formula $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\sigma\right]$
-\end_inset
-
--Formel, und eine Parameter-Belegung 
-\begin_inset Formula 
-\[
-\beta:\mathrm{frei}\left(\psi\right)\backslash\left\{ X,x_{1},\cdots,x_{k}\right\} \rightarrow A
-\]
-
-\end_inset
-
-sei 
+ sei 
 \begin_inset Formula $F_{\beta}$
 \end_inset
 
@@ -3360,7 +3386,7 @@ sei
 \begin_inset Formula 
 \begin{eqnarray*}
 F_{\beta} & : & 2^{A^{k}}\rightarrow2^{A^{k}}\\
-F_{\beta}\left(Y\right) & \coloneqq & \left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\varphi^{\beta\cup\left(X\mapsto Y\right)}\right\} 
+F_{\beta}\left(Y\right) & \coloneqq & \left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\psi^{\beta\cup\left(X\mapsto Y\right)}\left[\bar{a}\right]\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -3416,11 +3442,15 @@ A\subseteq B\Rightarrow F_{\beta}\left(A\right)\subseteq F_{\beta}\left(B\right)
 
 \end_inset
 
-und daher induktiv die Existenz eines kleinsten Fixpunkts 
+und daher induktiv die Existenz eines Fixpunkts 
 \begin_inset Formula $F^{\infty}\left(\emptyset\right)$
 \end_inset
 
-:
+, der nach höchstens 
+\begin_inset Formula $\left|A^{k}\right|$
+\end_inset
+
+ Schritten erreicht wird:
 \begin_inset Formula 
 \[
 \emptyset\subseteq F_{\beta}\left(\emptyset\right)\subseteq\cdots\subseteq F_{\beta}^{\infty}\left(\emptyset\right)\subseteq A^{k}
@@ -3432,52 +3462,24 @@ und daher induktiv die Existenz eines kleinsten Fixpunkts
 \end_layout
 
 \begin_layout Standard
-Insbesondere ist 
-\begin_inset Formula $F_{\beta}^{\infty}\left(\emptyset\right)=F^{\left|A^{k}\right|}\left(\emptyset\right)$
+Für jeden anderen Fixpunkt 
+\begin_inset Formula $Y'$
 \end_inset
 
-, da die Iteration nach höchstens 
-\begin_inset Formula $\left|A^{k}\right|$
+ gilt 
+\begin_inset Formula $\emptyset\subseteq Y'$
 \end_inset
 
- Iterationen ihren Fixpunkt erreicht.
-\end_layout
-
-\begin_layout Standard
-Für eine Belegung 
-\begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
+, und per Induktion auch 
+\begin_inset Formula $F^{n}\left(\emptyset\right)\subseteq F^{n}\left(Y'\right)=Y'$
 \end_inset
 
- prüft 
-\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
+.
+ Daher ist 
+\begin_inset Formula $F^{\infty}\left(\emptyset\right)=\mathrm{lfp}_{X,\bar{x}}\left(\psi\right)$
 \end_inset
 
- nun, ob die Belegung des Tupels 
-\begin_inset Formula $\bar{y}$
-\end_inset
-
- im Fixpunkt 
-\begin_inset Formula $F_{\beta'}^{\infty}$
-\end_inset
-
- liegt, wobei 
-\begin_inset Formula $\beta'$
-\end_inset
-
- die Reduktion von 
-\begin_inset Formula $\beta$
-\end_inset
-
- auf die Parameter ist: 
-\begin_inset Formula 
-\begin{eqnarray*}
-\beta' & \coloneqq & \beta_{\mid\mathrm{frei}\left(\psi\right)\backslash\left\{ X,x_{1},\cdots,x_{k}\right\} }\\
-\left\llbracket \left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket X\bar{y}\right\rrbracket \left(\mathfrak{A},\beta\cup\left(X\mapsto F_{\beta'}^{\infty}\left(\emptyset\right)\right)\right)
-\end{eqnarray*}
-
-\end_inset
-
-
+ der kleinste Fixpunkt.
 \end_layout
 
 \begin_layout Standard
@@ -3485,11 +3487,11 @@ Im folgenden wird die Logik
 \begin_inset Formula $\mathrm{FO}+\mathrm{LFP}$
 \end_inset
 
- abgekürzt als 
+ durch 
 \begin_inset Formula $\mathrm{LFP}$
 \end_inset
 
- bezeichnet.
+ abgekürzt.
  Ferner werden wir uns auf das 
 \emph on
 parameterfreie
@@ -3603,7 +3605,11 @@ Die folgende
 \end_layout
 
 \begin_layout Section
-Logiken mit disjunkten numerischen Erweiterungen
+Logiken mit numerischen Erweiterungen
+\end_layout
+
+\begin_layout Subsection
+Disjunkte Orakel
 \end_layout
 
 \begin_layout Standard
@@ -3873,8 +3879,20 @@ Sei
 \begin_inset Formula $R_{X}/k$
 \end_inset
 
- enthält.
- Sei 
+ enthält, und sei 
+\begin_inset Formula $\mathcal{N}_{\mathrm{arb}}$
+\end_inset
+
+ die 
+\begin_inset Formula $\eta_{\mathrm{arb}}$
+\end_inset
+
+-Struktur über 
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+, die diese Symbole interpretiert.
+ Dann sei 
 \begin_inset Formula $\mathbf{ARB}:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\eta_{\mathrm{arb}}\right)$
 \end_inset
 
@@ -3885,8 +3903,7 @@ Sei
 -Orakel, das die endlichen Anfangsstücke dieser Relationen ausgibt:
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{N}_{\mathrm{arb}} & \coloneqq & \left(\mathbb{N},\leqslant,\left(R_{X}^{\mathcal{N}}\right)_{R_{X}\in\eta_{\mathrm{arb}}}\right)\\
-R_{X}^{\mathcal{N}} & \coloneqq & X\\
+\mathcal{N}_{\mathrm{arb}} & \coloneqq & \left(\mathbb{N},\leqslant,\left(R_{X}\mapsto X\right)_{R_{X}\in\eta_{\mathrm{arb}}}\right)\\
 \mathbf{ARB}\left(n\right) & \coloneqq & \left(\mathcal{N}_{\mathrm{arb}}\right)_{\mid\left[0,n\right]}\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta_{\mathrm{arb}}\right)
 \end{eqnarray*}
 
@@ -3895,12 +3912,17 @@ R_{X}^{\mathcal{N}} & \coloneqq & X\\
 
 \end_layout
 
+\begin_layout Subsection
+Zähl-Erweiterungen
+\end_layout
+
 \begin_layout Standard
 Wir führen mehrere syntaktische Erweiterungen der Logik 
 \begin_inset Formula $\mathrm{FO}+\Upsilon$
 \end_inset
 
- ein: Den Zählterm 
+ ein, die es erlauben, erfüllende Belegungen einer Variable zu zählen: Den
+ Zählterm 
 \begin_inset Formula $\#$
 \end_inset
 
@@ -3926,7 +3948,7 @@ Zählterm
 
 
 \series default
- (wie 
+ (wie in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "anderson_et_al:LIPIcs:2014:4445"
@@ -4000,7 +4022,8 @@ Die
  
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathrm{frei}\left(\#x\varphi\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(\#x\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
+\mathrm{frei}\left(\#x\varphi\right) & \coloneqq & \mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \\
+\mathrm{var}\left(\#x\varphi\right) & \coloneqq & \mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -4014,7 +4037,11 @@ Auf einer endlichen Struktur
 \end_inset
 
  und einer Belegung 
-\begin_inset Formula $\beta:\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \rightarrow A\uplus\left[0,n\right]$
+\begin_inset Formula 
+\[
+\beta:\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \rightarrow A\uplus\left[0,n\right]
+\]
+
 \end_inset
 
  sei 
@@ -4060,14 +4087,14 @@ Zählquantor
 \begin_inset Formula $\exists^{=}$
 \end_inset
 
- (wie 
+ (wie in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Schweikardt:2005:AFL:1071596.1071602"
 
 \end_inset
 
-, aber mit disjunktem Orakel)
+, aber mit einem disjunkten numerischen Universum)
 \end_layout
 
 \begin_layout Definition
@@ -4134,7 +4161,8 @@ Die
  
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathrm{frei}\left(\exists^{=y}x\varphi\right)=\left\{ y\right\} \cup\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right) &  & \mathrm{var}\left(\exists^{=y}x\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x,y\right\} 
+\mathrm{frei}\left(\exists^{=y}x\varphi\right) & \coloneqq & \left\{ y\right\} \cup\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right)\\
+\mathrm{var}\left(\exists^{=y}x\varphi\right) & \coloneqq & \mathrm{var}\left(\varphi\right)\cup\left\{ x,y\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -4151,7 +4179,7 @@ Auf einer endlichen Struktur
 
 \end_inset
 
- gilt: 
+gelte: 
 \begin_inset Formula 
 \[
 \left\llbracket \exists^{=y}x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\begin{cases}
@@ -4312,71 +4340,18 @@ Jede
 \end_inset
 
 .
- Dies wird per Induktion über den Aufbau von 
-\begin_inset Formula $\varphi$
+ Dazu ersetzen wir jede 
+\begin_inset Quotes gld
 \end_inset
 
- gezeigt.
+pseudo-atomare
+\begin_inset Quotes grd
+\end_inset
+
+ Teilformel, die einen Zählterm enthält, wie folgt:
 \end_layout
 
 \begin_deeper
-\begin_layout Case
-Falls 
-\begin_inset Formula $\varphi$
-\end_inset
-
- eine 
-\begin_inset Formula $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$
-\end_inset
-
--Formel ohne Zählterm ist, so sei 
-\begin_inset Formula $\varphi'\coloneqq\varphi$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Case
-Falls 
-\begin_inset Formula $\varphi$
-\end_inset
-
- von der Form 
-\begin_inset Formula $\neg\psi$
-\end_inset
-
- oder 
-\begin_inset Formula $\left(\psi_{1}\gamma\cdots\gamma\psi_{k}\right)$
-\end_inset
-
- oder 
-\begin_inset Formula $Qx\psi$
-\end_inset
-
- ist, so existieren per Induktionsannahme die äquivalenten Teilformeln 
-\begin_inset Formula $\psi',\psi_{1}',\cdots,\psi_{k}'$
-\end_inset
-
-.
- Sei 
-\begin_inset Formula $\varphi'$
-\end_inset
-
- entsprechend 
-\begin_inset Formula $\neg\psi'$
-\end_inset
-
- oder 
-\begin_inset Formula $\left(\psi_{1}'\gamma\cdots\gamma\psi_{k}\right)$
-\end_inset
-
- oder 
-\begin_inset Formula $Qx\psi'$
-\end_inset
-
-.
-\end_layout
-
 \begin_layout Case
 Falls 
 \begin_inset Formula $\varphi=y\dot{=}\#x\psi$
@@ -4410,7 +4385,7 @@ Falls
 \begin_inset Formula $y\in\mathbf{var}\backslash\left(\mathrm{frei}\left(\psi_{1}\right)\cup\mathrm{frei}\left(\psi_{2}\right)\right)$
 \end_inset
 
- eine neue Variable, und:
+ eine neue Variable, und
 \begin_inset Formula 
 \[
 \varphi'\coloneqq\exists y\left(\exists^{=y}x_{1}\psi_{1}'\wedge\exists^{=y}x_{2}\psi_{2}'\right)
@@ -4442,7 +4417,7 @@ Falls
 \begin_inset Formula $\bar{x}$
 \end_inset
 
- ist, so sei 
+, so sei 
 \begin_inset Formula $\bar{y}\in\left(\mathbf{var}\backslash\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right)\right)^{k}$
 \end_inset
 
@@ -4592,10 +4567,7 @@ Im folgenden wird mit
 \end_inset
 
  stets eine dieser äquivalenten Zähl-Logiken bezeichnet.
-\end_layout
-
-\begin_layout Definition
-Die Logik 
+ Die Logik 
 \begin_inset Formula $\mathcal{L}+\mathbf{ORD}+C$
 \end_inset
 
@@ -4638,7 +4610,7 @@ key "Ebbinghaus,Libkin2012"
 :
 \end_layout
 
-\begin_layout Example*
+\begin_layout Example
 \begin_inset Formula 
 \[
 \varphi_{\mathrm{EVEN}}\coloneqq\exists y\,\left(y=\#_{z}\left(\neg z\leqslant y\wedge z\leqslant\#_{z}\,z=z\right)\right)
@@ -4649,54 +4621,79 @@ key "Ebbinghaus,Libkin2012"
 
 \end_layout
 
+\begin_layout Subsection
+Nicht-disjunkte numerische Erweiterungen
+\end_layout
+
+\begin_layout Standard
+Eine alternative Erweiterung definiert über einer Struktur 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ eine beliebige Bijektion 
+\begin_inset Formula $\pi:\left[1,n\right]\rightleftarrows A$
+\end_inset
+
+ und interpretiert dann die numerischen Prädikate 
+\begin_inset Formula $R/k\in\eta$
+\end_inset
+
+ über dem Universum der Struktur selbst.
+ Diese Erweiterung bezeichnen wir (in Anlehnung an die disjunkte Erweiterung
+ 
+\begin_inset Formula $\mathcal{L}+\Upsilon$
+\end_inset
+
+) mit 
+\begin_inset Formula $\mathcal{L}\oplus\Upsilon$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Definition
 
 \series bold
-Arb-invariante Logik erster Stufe 
-\series default
-(nach 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "Schweikardt13ashort"
-
+\begin_inset Formula $\mathcal{L}\oplus\Upsilon$
 \end_inset
 
-)
+-Logik
 \end_layout
 
 \begin_layout Definition
-Die unendliche Signatur 
-\begin_inset Formula $\eta_{\mathrm{arb}}$
+Für eine relationale Signatur 
+\begin_inset Formula $\eta$
 \end_inset
 
- und die Struktur 
-\begin_inset Formula $\mathcal{N}_{\mathrm{arb}}$
+, ein 
+\begin_inset Formula $\eta$
 \end_inset
 
- sei wie in Definition 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "def:ord"
-
+-Orakel 
+\begin_inset Formula $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{1}\left(\eta\right)$
 \end_inset
 
- definiert.
-\end_layout
-
-\begin_layout Definition
-Für eine beliebige von 
-\begin_inset Formula $\eta_{\mathrm{arb}}$
+, eine von 
+\begin_inset Formula $\eta$
 \end_inset
 
  disjunkte relationale Signatur 
 \begin_inset Formula $\sigma$
 \end_inset
 
- sei 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\uplus\eta_{\mathrm{arb}}\right]$
+ und eine Logik 
+\begin_inset Formula $\mathcal{L}\left[\sigma\right]$
 \end_inset
 
- die erststufige Logik mit beliebigen numerischen Prädikaten.
+ sei die Syntax von 
+\begin_inset Formula $\mathcal{L}\oplus\Upsilon\left[\sigma\right]$
+\end_inset
+
+ gleich der Syntax von 
+\begin_inset Formula $\mathcal{L}\left[\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right]$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Definition
@@ -4704,85 +4701,54 @@ Für
 \begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
 \end_inset
 
- sei 
+ mit 
 \begin_inset Formula $n=\left|A\right|$
 \end_inset
 
- und 
-\begin_inset Formula $h:A\rightarrow\left[1,n\right]$
+ sei 
+\begin_inset Formula $\pi:\left[1,n\right]\rightleftarrows A$
 \end_inset
 
  eine beliebige Bijektion.
  Sei 
-\begin_inset Formula $\mathfrak{A}_{h}\in\mathbf{FIN}_{<}^{\left[1,n\right]}\left(\sigma_{\mathrm{arb}}\right)$
+\begin_inset Formula $\mathfrak{A}_{\pi}\in\mathbf{FIN}\left(\sigma\uplus\eta\right)$
 \end_inset
 
  definiert durch:
 \begin_inset Formula 
-\[
-\mathfrak{A}_{h}\coloneqq h\mathfrak{A}\cup\left(\mathcal{N}_{\mathrm{arb}}\right)_{\mid\left[1,n\right]}
-\]
+\begin{eqnarray*}
+\mathfrak{A}_{\pi} & \coloneqq & \mathfrak{A}\cup\pi\Upsilon\left(n\right)\\
+ & = & \left(A,\left(R^{\mathfrak{A}}\right)_{R\in\sigma},\left(\pi R^{\Upsilon\left(n\right)}\right)\right)
+\end{eqnarray*}
 
 \end_inset
 
-(Hier werden gemäß 
-\begin_inset CommandInset ref
-LatexCommand formatted
-reference "def:Disjunkte-Vereinigung"
 
-\end_inset
-
- die 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Struktur 
-\begin_inset Formula $h\mathfrak{A}$
-\end_inset
-
- und die induzierte Teilstruktur 
-\begin_inset Formula $\mathcal{N}_{\mid\left[1,n\right]}$
-\end_inset
-
- mit den disjunkten Signaturen 
-\begin_inset Formula $\sigma$
-\end_inset
-
- und 
-\begin_inset Formula $\eta_{\mathrm{arb}}$
-\end_inset
-
- über dem gleichen Universum 
-\begin_inset Formula $\left[1,n\right]$
-\end_inset
-
- vereinigt.)
 \end_layout
 
-\begin_deeper
-\begin_layout Enumerate
+\begin_layout Definition
 Eine 
 \begin_inset Formula $k$
 \end_inset
 
 -stellige 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\uplus\eta_{\mathrm{arb}}\right]$
+\begin_inset Formula $\mathcal{L}\oplus\Upsilon\left[\sigma\right]$
 \end_inset
 
 -Formel 
 \begin_inset Formula $\varphi$
 \end_inset
 
- ist 
+ heiße 
 \series bold
-arb-invariant auf 
+invariant
 \series default
-
+, wenn für jede Struktur 
 \begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
 \end_inset
 
-, wenn für jedes Paar von Bijektionen 
-\begin_inset Formula $h,h':A\rightarrow\left[1,\left|A\right|\right]$
+, jedes Paar von Bijektionen 
+\begin_inset Formula $\pi,\pi'\in\mathrm{Bij}\left(\left[1,\left|A\right|\right],A\right)$
 \end_inset
 
  und jedes Tupel 
@@ -4792,7 +4758,7 @@ arb-invariant auf
  gilt:
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathfrak{A}_{h}\models\varphi\left[h\bar{a}\right] & \Longleftrightarrow & \mathfrak{A}_{h'}\models\varphi\left[h'\bar{a}\right]
+\mathfrak{A}_{\pi}\models\varphi\left[\bar{a}\right] & \Longleftrightarrow & \mathfrak{A}_{\pi'}\models\varphi\left[\bar{a}\right]
 \end{eqnarray*}
 
 \end_inset
@@ -4800,67 +4766,110 @@ arb-invariant auf
 
 \end_layout
 
-\begin_layout Enumerate
-Eine 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\uplus\eta_{\mathrm{arb}}\right]$
+\begin_layout Definition
+Wir bezeichnen mit 
+\begin_inset Formula $\mathrm{inv}\left(\mathcal{L}\oplus\Upsilon\right)\left[\sigma\right]$
 \end_inset
 
--Formel 
-\begin_inset Formula $\varphi$
+ die Sprache der invarianten Formeln der 
+\begin_inset Formula $\left(\mathcal{L}\oplus\Upsilon\right)\left[\sigma\right]$
 \end_inset
 
- sei arb-invariant, wenn sie auf allen Strukturen 
-\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
-\end_inset
+-Logik.
+\end_layout
 
- arb-invariant ist.
- In diesem Fall berechne 
-\begin_inset Formula $\varphi$
-\end_inset
-
- die folgende 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Anfrage (für eine beliebige Abbildung 
-\begin_inset Formula $h:A\rightarrow\left[1,\left|A\right|\right]$
-\end_inset
-
-):
-\begin_inset Formula 
-\[
-q_{\varphi}\left(\mathfrak{A}\right)\coloneqq h^{-1}q_{\varphi}\left(\mathfrak{A}_{h}\right)
-\]
-
-\end_inset
-
+\begin_layout --Separator--
 
 \end_layout
 
-\begin_layout Enumerate
-Sei 
-\begin_inset Formula $\mathrm{\mbox{arb-inv-}FO}\left[\sigma\right]$
+\begin_layout Notation
+Die Logik 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
 \end_inset
 
- die Sprache der arb-invarianten 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\uplus\eta_{\mathrm{arb}}\right]$
+ mit dem Orakel 
+\begin_inset Formula $\mathbf{ARB}\left(n\right)\coloneqq\left(\mathcal{N}_{\mathrm{arb}}\right)_{\left[1,n\right]}$
 \end_inset
 
--Formeln.
+ (mit 
+\begin_inset Formula $\mathcal{N}_{\mathrm{arb}}$
+\end_inset
+
+ und 
+\begin_inset Formula $\eta_{\mathrm{arb}}$
+\end_inset
+
+ wie in Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:arb"
+
+\end_inset
+
+) bezeichnen wir auch als die 
+\begin_inset Quotes gld
+\end_inset
+
+arb-invariante 
+\begin_inset Formula $\mathrm{FO}\left(\mathbf{ARB}\right)$
+\end_inset
+
+-Logik
+\begin_inset Quotes grd
+\end_inset
+
+ in Anlehnung an 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Schweikardt13ashort,AMSS-locality"
+
+\end_inset
+
+.
 \end_layout
 
-\end_deeper
-\begin_layout Remark*
+\begin_layout Standard
+Es ist zu beachten, dass die hier betrachteten Orakel-Strukturen das Universum
+ 
+\begin_inset Formula $\left[1,n\right]$
+\end_inset
+
+ haben, und nicht 
+\begin_inset Formula $\left[0,n\right]$
+\end_inset
+
+.
+ Dies schließt unter anderem die Zählterm-Erweiterung 
+\begin_inset Formula $\mathcal{L}\oplus\Upsilon+\#$
+\end_inset
+
+ aus, weil ein Zählterm nicht den Wert 
+\begin_inset Formula $0$
+\end_inset
+
+ erhalten kann und seine Auswertung nicht vollständig definiert ist.
+ Die Zählquantor-Erweiterungen 
+\begin_inset Formula $\mathcal{L}\oplus\Upsilon+\exists^{=}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{L}\oplus\Upsilon+\exists^{\geqslant}$
+\end_inset
+
+ haben dieses Problem nicht.
+\end_layout
+
+\begin_layout Standard
 Nach dem Satz von Trakhtenbrot ist die endlichen Erfüllbarkeit von 
 \begin_inset Formula $\mathrm{FO}\left[\left\{ \leqslant\right\} \right]$
 \end_inset
 
- unentscheidbar, und daher auch die Arb-Invarianz und die Sprache 
-\begin_inset Formula $\mbox{arb-inv-}\mathrm{FO}\left[\sigma\right]$
+ unentscheidbar, und daher auch die Invarianz und die Sprache 
+\begin_inset Formula $\mbox{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)\left[\sigma\right]$
 \end_inset
 
  in 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\uplus\eta_{\mathrm{arb}}\right]$
+\begin_inset Formula $\mathrm{FO}\oplus\mathbf{ARB}\left[\sigma\right]$
 \end_inset
 
 .
@@ -4870,7 +4879,7 @@ key "EFT,Libkin2012,Schweikardt13ashort"
 
 \end_inset
 
-
+ 
 \end_layout
 
 \begin_layout Chapter
@@ -4894,8 +4903,9 @@ Eine boolesche Basis
 \begin_inset Formula $\mathbb{B}$
 \end_inset
 
- besteht aus beliebigen Relationen 
-\begin_inset Formula $\phi'\subseteq\left\{ 0^{i}1^{j}\mid i,j\in\mathbb{N}\right\} $
+ besteht aus beliebigen über Permutation der Eingabe abgeschlossenen Relationen
+ 
+\begin_inset Formula $\phi'\subseteq\left\{ 0,1\right\} ^{*}$
 \end_inset
 
 .
@@ -5976,7 +5986,7 @@ Für einen
 \end_inset
 
  und einen Automorphismus 
-\begin_inset Formula $\rho:\mathcal{C}\tilde{\rightarrow}\mathcal{C}$
+\begin_inset Formula $\rho\in\mathrm{Aut}_{\mathcal{C}}$
 \end_inset
 
  mit 
@@ -6011,7 +6021,7 @@ reference "def:Isomorphismus"
 \end_inset
 
  ist 
-\begin_inset Formula $\rho\in\mathrm{Sym}_{U\uplus G}$
+\begin_inset Formula $\rho\in\mathrm{Aut}_{\mathcal{C}}$
 \end_inset
 
  eine Permutation des Universums von 
@@ -6084,7 +6094,7 @@ Für jedes Tupel
 
 \end_deeper
 \begin_layout Definition
-Der Schaltkreis heiße 
+Ein Schaltkreis heiße 
 \series bold
 symmetrisch
 \series default
@@ -16191,7 +16201,7 @@ Für jedes Gate
 \end_inset
 
  beschreiben wir die Menge der verschiedenen Bijektionen 
-\begin_inset Formula $\pi:U\rightarrow A$
+\begin_inset Formula $\pi\in\mathrm{Bij}\left(U,A\right)$
 \end_inset
 
 , für die 
@@ -16225,7 +16235,7 @@ reference "prop:konsistenz"
 \begin_layout Definition
 \begin_inset Formula 
 \[
-\mathrm{EV}\left(g\right)\coloneqq\left\{ \pi{}_{\mid\mathrm{sp}\left(g\right)}\mid\pi\in\mathrm{Abb}\left(U,A\right),\,\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(g\right)=1\right\} 
+\mathrm{EV}\left(g\right)\coloneqq\left\{ \pi{}_{\mid\mathrm{sp}\left(g\right)}\mid\pi:\mathrm{Bij}\left(U,A\right),\,\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(g\right)=1\right\} 
 \]
 
 \end_inset
@@ -16253,7 +16263,7 @@ Für jede injektive Funktion
  :
 \begin_inset Formula 
 \[
-M_{\rho}\coloneqq\left\{ \pi\in\mathrm{Abb}\left(U,A\right)\mid\pi_{\mid\mathrm{sp}\left(g\right)}=\rho\right\} 
+M_{\rho}\coloneqq\left\{ \pi\in\mathrm{Bij}\left(U,A\right)\mid\pi_{\mid\mathrm{sp}\left(g\right)}=\rho\right\} 
 \]
 
 \end_inset
@@ -17281,16 +17291,16 @@ reference "thm:fo"
 \series bold
 \begin_inset CommandInset label
 LatexCommand label
-name "lem:Anderson,-Melkebeek,-Schweikardt"
+name "lem:fo-arb-ac0"
 
 \end_inset
 
-Anderson, Melkebeek, Schweikardt und Segoufin (2012)
+Makowsky (1997)
 \series default
 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "AMSS-locality"
+key "AMSS-locality,Makowsky:1997:ID:648040.744731"
 
 \end_inset
 
@@ -17302,11 +17312,11 @@ Die Klasse
 \begin_inset Formula $\mathrm{AC}^{0}$
 \end_inset
 
- ist äquivalent zu der Klasse der durch arb-invariante 
-\begin_inset Formula $\mathrm{FO}\left(\mathrm{arb}\right)$
+ ist äquivalent zu der Klasse der durch 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
 \end_inset
 
--Logik definierbaren Anfragen.
+-Formeln definierbaren Anfragen.
 \end_layout
 
 \begin_layout Standard
@@ -17414,7 +17424,7 @@ reference "thm:fo-arb"
  Per Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:Anderson,-Melkebeek,-Schweikardt"
+reference "lem:fo-arb-ac0"
 
 \end_inset
 

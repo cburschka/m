@@ -25,7 +25,6 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
 
-\AtBeginDocument{\providecommand\defref[1]{\ref{def:#1}}}
 \AtBeginDocument{\providecommand\lemref[1]{\ref{lem:#1}}}
 \floatstyle{ruled}
 \newfloat{algorithm}{tbp}{loa}[chapter]
@@ -190,7 +189,7 @@ Die Logik erster Stufe ist in der Praxis zu eingeschränkt: Selbst
 einfache Probleme wie die Frage, ob eine Struktur eine gerade Anzahl
 von Elementen enthält, oder zwei Knoten durch einen Weg beliebiger
 Länge verbunden sind, können nicht ausgedrückt werden.\cite{Libkin2012}
-Daher erweitern wir die Logik um numerische Prädikate, Fixpunkt-Operatoren
+Daher erweitern wir die Logik um Fixpunkt-Operatoren, numerische Prädikate
 und Zähler. Insbesondere betrachten wir Logiken, in denen die numerischen
 Prädikate \emph{disjunkt} von dem Universum der eigentlichen Struktur
 interpretiert werden, und weisen nach, dass solche Logiken gerade
@@ -199,7 +198,8 @@ die verschiedenen Klassen symmetrischer Schaltkreisfamilien charakterisieren.
 Konkret ist die Klasse der symmetrischen $P$-uniformen booleschen
 Schaltkreisfamilien $\mathrm{SBC}$ äquivalent zu der Logik erster
 Stufe mit Fixpunkt-Operator und disjunktem Ordnungsprädikat $\mathrm{LFP}+\mathbf{ORD}$.
-Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar veröffentlicht,
+Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar (als Erweiterung
+eines Ergebnisses von Martin Otto in 1997\cite{Otto1997}) veröffentlicht,
 und bildet die Grundlage dieser Arbeit.
 
 Die logische Zählerweiterung $\mathrm{LFP}+C$ charakterisiert die
@@ -212,10 +212,12 @@ nur die $P$-Uniformität. Diese beiden Erweiterungen sind kombinierbar.
 Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen
 äquivalent:
 \begin{enumerate}
-\item Die Logik $\mathrm{LFP}+\mathbf{ORD}$ und $P$-uniforme $\mathrm{SBC}$-Schaltkreisfamilien.
-\item Die Logik $\mathrm{LFP}+C$ und $P$-uniforme $\mathrm{SBC}+\mathbf{MAJ}$-Schaltkreisfamilien.
-\item Die Logik $\mathrm{LFP}+\mathbf{ARB}$ und $P/\mathrm{poly}$-uniforme
-$\mathrm{SBC}$-Schaltkreisfamilien.
+\item Die Fixpunktlogik mit disjunkter Ordnung $\mathrm{LFP}+\mathbf{ORD}$
+und $P$-uniforme symmetrische Schaltkreisfamilien $\mathrm{SBC}$.
+\item Die Fixpunktlogik mit Zählterm $\mathrm{LFP}+C$ und $P$-uniforme
+symmetrische Schaltkreisfamilien mit Majority-Operation $\mathrm{SBC}+\mathbf{MAJ}$.
+\item Die Fixpunktlogik mit beliebigen disjunkten Prädikaten $\mathrm{LFP}+\mathbf{ARB}$
+und $P/\mathrm{poly}$-uniforme Schaltkreisfamilien.
 \end{enumerate}
 \end{thm}
 Wir erweitern dieses Ergebnis für Schaltkreisfamilien konstanter Tiefe.
@@ -235,25 +237,27 @@ $\mathrm{AC}^{0}+\mathbf{MAJ}$-Schaltkreisfamilien.
 \end{enumerate}
 \end{thm}
 Die Einschränkung auf symmetrische Schaltkreisfamilien bringt im Allgemeinen
-eine Reduktion der Ausdrucksstärke mit sich. Insbesondere wird (nach
-Matthew Anderson, Dieter van Melkebeek, Nicole Schweikardt und Luc
-Segoufin, 2012\cite{AMSS-locality}) $\mathrm{AC}^{0}$ ohne Symmetrie
-durch die arb-invariante Logik mit nicht-disjunktem Ordnungsprädikat
-charakterisiert. Diese Logik ist jedoch echt ausdrucksstärker als
-die disjunkte Variante $\mathrm{FO}+\mathbf{ARB}$.
+eine Reduktion der Ausdrucksstärke mit sich. Insbesondere werden (nach
+Johann Makowsky \cite{Makowsky:1997:ID:648040.744731,Makowsky1999})
+die Klassen $\mathrm{AC}^{0}$ und $P/\mathrm{poly}$ ohne Symmetrie-Einschränkung
+durch die arb-invarianten Logiken $\mathrm{FO}\left(\mathbf{ARB}\right)$
+und $\mathrm{LFP}\left(\mathbf{ARB}\right)$ charakterisiert. $\mathrm{FO}\left(\mathbf{ARB}\right)$
+ist jedoch echt ausdrucksstärker als die disjunkte Variante $\mathrm{FO}+\mathbf{ARB}$.
 \begin{thm}
-\label{thm:fo-arb}$\mathrm{FO}+\mathbf{ARB}$, invariantes $\mathrm{FO}\left(\mathrm{arb}\right)$
+\label{thm:fo-arb}Für die $\mathrm{FO}+\mathbf{ARB}$-Logik und die
+arb-invariante $\mathrm{FO}\left(\mathbf{ARB}\right)$-Logik gilt:
 \begin{enumerate}
 \item Jede $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[\sigma\right]$-Formel
-$\varphi$ ist äquivalent zu einer arb-invarianten $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Formel
-$\varphi$.
-\item Es existiert eine $\sigma$-Anfrage, die in der arb-invarianten $\mathrm{FO}\left[\sigma_{\mathrm{arb}}\right]$-Logik
-definierbar ist, aber nicht $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[\sigma\right]$-definierbar
-ist.
+$\varphi$ beschreibt eine Anfrage, die durch eine arb-invariante
+$\mathrm{FO}\left(\mathbf{ARB}\right)\left[\sigma\right]$-Formel
+definierbar ist.
+\item Es existiert eine $\sigma$-Anfrage, die in der arb-invarianten $\mathrm{FO}\left(\mathbf{ARB}\right)\left[\sigma\right]$-Logik,
+aber nicht $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[\sigma\right]$
+definierbar ist.
 \end{enumerate}
 \end{thm}
-Vermutlich gelten ähnliche Bezüge auch zwischen den symmetrischen
-und nicht-symmetrischen Teilen der übrigen Schaltkreisklassen.
+Ähnliche Bezüge bestehen vermutlich auch zwischen den symmetrischen
+und nicht-symmetrischen Teilen der übrigen betrachteten Schaltkreisklassen.
 
 
 \chapter{Grundlegende Definitionen}
@@ -424,15 +428,17 @@ Es sei $\mathbf{id}$ die Identität mit $\mathbf{id}\left(a\right)=a$
 für alle Elemente $a$. Mit $\mathbf{id}_{\mid X}$ bezeichnen wir
 die Identitätsfunktion auf einer Menge $X$.
 
-Die Menge $\mathrm{Abb}\left(A,B\right)$ bezeichne für endliche $\left|A\right|=\left|B\right|$
-alle $n!$ bijektiven Abbildungen $\pi:A\rightarrow B$.
+Die Menge $\mathrm{Abb}\left(A,B\right)$ bezeichne alle Funktionen
+$\pi:A\rightarrow B$, und $\mathrm{Bij}\left(A,B\right)$ bezeichne
+für endliche $\left|A\right|=\left|B\right|=n$ alle $n!$ bijektiven
+Abbildungen $\pi:A\rightleftarrows B$.
 \end{defn}
 
 \begin{defn}
 \textbf{Permutation}
 
-Eine Permutation von $U$ ist eine bijektive Abbildung $\pi\in\mathrm{Abb}\left(U,U\right)$.
-Die Menge aller Permutationen $\mathrm{Abb}\left(U,U\right)$ bezeichnen
+Eine Permutation von $U$ ist eine bijektive Abbildung $\pi:U\rightleftarrows U$.
+Die Menge aller Permutationen $\mathrm{Bij}\left(U,U\right)$ bezeichnen
 wir auch als $\mathrm{Sym}_{U}$. Diese bilden eine Symmetrie-Gruppe
 bezüglich der Verkettung $\circ$ mit dem neutralen Element $\mathbf{id}_{\mid U}$.
 
@@ -524,9 +530,9 @@ verwendet.
 \textbf{\label{def:Isomorphismus}Isomorphismus}
 
 Für zwei $\sigma$-Strukturen $\mathfrak{A}$ und $\mathfrak{B}$
-sei eine bijektive Abbildung $\pi\in\mathrm{Abb}\left(A,B\right)$
-ein Isomorphismus, falls $\pi R^{\mathfrak{A}}=R^{\mathfrak{B}}$
-für alle Symbole $R\in\sigma$ gilt.
+sei eine bijektive Abbildung $\pi:A\rightleftarrows B$ ein Isomorphismus,
+falls $\pi R^{\mathfrak{A}}=R^{\mathfrak{B}}$ für alle Symbole $R\in\sigma$
+gilt.
 
 Die Abbildung $\pi$ wird auf natürliche Weise auf Strukturen erweitert:
 \[
@@ -534,16 +540,17 @@ Die Abbildung $\pi$ wird auf natürliche Weise auf Strukturen erweitert:
 \]
 
 
-Die Menge aller Isomorphismen bezeichnen wir mit $\mathrm{Abb}\left(\mathfrak{A},\mathfrak{B}\right)$.
+Die Menge aller Isomorphismen bezeichnen wir mit $\mathrm{Bij}\left(\mathfrak{A},\mathfrak{B}\right)$.
 Zwei Strukturen heißen isomorph (kurz $\mathfrak{A}\cong\mathfrak{B}$),
-falls $\mathrm{Abb}\left(\mathfrak{A},\mathfrak{B}\right)$ nicht
+falls $\mathrm{Bij}\left(\mathfrak{A},\mathfrak{B}\right)$ nicht
 leer ist.
 
-Ein Automorphismus $\pi\in\mathrm{Abb}\left(\mathfrak{A},\mathfrak{A}\right)$
+Ein Automorphismus $\pi\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{A}\right)$
 sei ein Isomorphismus von $\mathfrak{A}$ zu sich selbst. Die Menge
-$\mathrm{Abb}\left(\mathfrak{A},\mathfrak{A}\right)$ nennen wir $\mathrm{Aut}_{\mathfrak{A}}$;
-diese bilden (so wie die Permutationen einer Menge) eine Gruppe bezüglich
-der Verkettung $\circ$ und dem neutralen Element $\mathbf{id}_{\mid A}$.
+der Automorphismen $\mathrm{Bij}\left(\mathfrak{A},\mathfrak{A}\right)$
+nennen wir $\mathrm{Aut}_{\mathfrak{A}}$; diese bilden (so wie die
+Permutationen einer Menge) eine Gruppe bezüglich der Verkettung $\circ$
+und dem neutralen Element $\mathbf{id}_{\mid A}$.
 \end{defn}
 
 \begin{defn}
@@ -551,7 +558,7 @@ der Verkettung $\circ$ und dem neutralen Element $\mathbf{id}_{\mid A}$.
 
 Zwei Strukturen können vereinigt werden, wenn sie entweder disjunkte
 Signaturen oder die gleiche Signatur besitzen. Für eine $\sigma_{1}$-Struktur
-$\mathfrak{A}$ und eine $\sigma_{2}$-Struktur $\mathfrak{B}$ gilt:
+$\mathfrak{A}$ und eine $\sigma_{2}$-Struktur $\mathfrak{B}$ gelte:
 \begin{enumerate}
 \item Wenn $\sigma_{1}\cap\sigma_{2}=\emptyset$, so ist $\mathfrak{A}\cup\mathfrak{B}$
 die folgende $\left(\sigma_{1}\cup\sigma_{2}\right)$-Struktur:
@@ -567,7 +574,7 @@ die folgende $\sigma$-Struktur:
 
 \end{enumerate}
 Falls das Universum der beiden Strukturen ebenfalls disjunkt ist,
-so heißt $\mathfrak{A}\cup\mathfrak{B}=\mathfrak{A}\uplus\mathfrak{B}$
+so heiße $\mathfrak{A}\cup\mathfrak{B}=\mathfrak{A}\uplus\mathfrak{B}$
 die \textbf{disjunkte Vereinigung} der Strukturen.
 \end{defn}
 
@@ -600,7 +607,7 @@ q_{S}\left(\mathfrak{A}\right) & \coloneqq & \begin{cases}
 
 Per Definition sind alle $\sigma$-Anfragen und $\sigma$-Eigenschaften
 unter Isomorphismen abgeschlossen: Für $\mathfrak{A}\cong\mathfrak{B}$
-und $\pi\in\mathrm{Abb}\left(\mathfrak{A},\mathfrak{B}\right)$ gilt
+und $\pi\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{B}\right)$ gilt
 $\pi q\left(\mathfrak{A}\right)=q\left(\mathfrak{B}\right)$ und $\mathfrak{A}\in S\Leftrightarrow\mathfrak{B}\in S$.
 \end{defn}
 
@@ -832,7 +839,7 @@ werden auf $\mathbf{var}\uplus\mathbf{var}_{2}$ erweitert.
 \end{defn}
 Wir möchten syntaktisch garantieren, dass die Iteration der Formel
 eine monoton wachsende Relation berechnet. Dafür wird verlangt, dass
-die Selbstreferenz nicht negiert vorkommt.
+die selbstreferenzielle Relationsvariable nicht negiert vorkommt.
 \begin{defn}
 \textbf{Positivität}
 
@@ -867,7 +874,8 @@ ist $X\bar{x}$ eine $X$-positive $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\si
 \mathrm{frei}\left(X\bar{x}\right) & \coloneqq & \left\{ X\right\} \cup\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right)\\
 \mathrm{var}\left(X\bar{x}\right) & \coloneqq & \left\{ X\right\} \cup\bigcup_{i=1}^{k}\mathrm{var}\left(x_{i}\right)\\
 \left\llbracket X\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left[\beta X\right]\left(\beta\bar{x}\right)\\
- &  & \mathrm{mit}\,\beta:\mathrm{frei}\left(X\bar{x}\right)\rightarrow\bigcup_{k\in\mathbb{N}}2^{A^{k}}
+ & \mathrm{mit} & \beta X\subseteq A^{k},\\
+ &  & \beta\bar{x}\in A^{k}
 \end{eqnarray*}
 
 \item [{(LFP)}] Für eine Relationsvariable $X/k\in\mathbf{var}_{2}$, eine
@@ -880,24 +888,27 @@ eine $X$-positive $\left(\mathrm{\mathcal{L}+\mathrm{LFP}}\right)\left[\sigma\ri
 \mathrm{frei}\left(\varphi\right) & = & \mathrm{frei}\left(\psi\right)\backslash\left\{ X,x_{1},\cdots,x_{k}\right\} \cup\bigcup_{i=1}^{k}\mathrm{frei}\left(y_{i}\right)\\
 \mathrm{var}\left(\varphi\right) & = & \mathrm{var}\left(\psi\right)\cup\left\{ X,x_{1},\cdots,x_{k}\right\} \cup\bigcup_{i=1}^{k}\mathrm{var}\left(y_{i}\right)
 \end{eqnarray*}
-
+Für eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
+prüft $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$,
+ob die Belegung des Tupels $\bar{y}$ im kleinsten Fixpunkt des Relationssymbols
+$X$ liegt. 
+\begin{eqnarray*}
+\beta' & \coloneqq & \beta_{\mid\mathrm{frei}\left(\psi\right)\backslash\left\{ X,x_{1},\cdots,x_{k}\right\} }\\
+\left\llbracket \left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket X\bar{y}\right\rrbracket \left(\mathfrak{A},\beta\cup\left(X\mapsto\mathrm{lfp}_{X,\bar{x}}\left(\psi\right)\right)\right)
+\end{eqnarray*}
+Im folgenden wird eine Berechnung definiert, die den kleinsten Fixpunkt
+$\mathrm{lfp}_{X,\bar{x}}\left(\psi\right)$ iterativ bestimmt.
 \end{elabeling}
 Ohne Beschränkung der Allgemeinheit sei $\left\{ x_{1},\cdots,x_{k}\right\} \subseteq\mathrm{frei}\left(\psi\right)$,
 denn analog zu Definition \ref{def:fo} ist $\psi\equiv\left(\bar{x}=\bar{x}\wedge\psi\right)$.
-
-Die nicht durch den Operator gebundenen Variablen $\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \subseteq\mathrm{frei}\left(\varphi\right)$
+Die nicht durch den Operator gebundenen Variablen $P\coloneqq\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \subseteq\mathrm{frei}\left(\varphi\right)$
 heißen \textbf{Parameter} der Fixpunkt-Operation.
 
-Für $X/k\in\mathbf{var}_{2}$, eine $\sigma$-Struktur $\mathfrak{A}$,
-eine $X$-positive $\left(\mathrm{FO}+\mathrm{LFP}\right)\left[\sigma\right]$-Formel,
-und eine Parameter-Belegung 
-\[
-\beta:\mathrm{frei}\left(\psi\right)\backslash\left\{ X,x_{1},\cdots,x_{k}\right\} \rightarrow A
-\]
-sei $F_{\beta}$ die folgende Abbildung: 
+Für eine Parameter-Belegung $\beta:P\rightarrow A$ sei $F_{\beta}$
+die folgende Abbildung: 
 \begin{eqnarray*}
 F_{\beta} & : & 2^{A^{k}}\rightarrow2^{A^{k}}\\
-F_{\beta}\left(Y\right) & \coloneqq & \left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\varphi^{\beta\cup\left(X\mapsto Y\right)}\right\} 
+F_{\beta}\left(Y\right) & \coloneqq & \left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\psi^{\beta\cup\left(X\mapsto Y\right)}\left[\bar{a}\right]\right\} 
 \end{eqnarray*}
 Das heißt: $F_{\beta}\left(Y\right)$ ist das Anfrageergebnis von
 $\varphi$ auf $\mathfrak{A}$ unter der Belegung der Parameter mit
@@ -908,32 +919,22 @@ die Monotonie von $F_{\beta}$
 \[
 A\subseteq B\Rightarrow F_{\beta}\left(A\right)\subseteq F_{\beta}\left(B\right)
 \]
-und daher induktiv die Existenz eines kleinsten Fixpunkts $F^{\infty}\left(\emptyset\right)$:
+und daher induktiv die Existenz eines Fixpunkts $F^{\infty}\left(\emptyset\right)$,
+der nach höchstens $\left|A^{k}\right|$ Schritten erreicht wird:
 \[
 \emptyset\subseteq F_{\beta}\left(\emptyset\right)\subseteq\cdots\subseteq F_{\beta}^{\infty}\left(\emptyset\right)\subseteq A^{k}
 \]
 
 
-Insbesondere ist $F_{\beta}^{\infty}\left(\emptyset\right)=F^{\left|A^{k}\right|}\left(\emptyset\right)$,
-da die Iteration nach höchstens $\left|A^{k}\right|$ Iterationen
-ihren Fixpunkt erreicht.
+Für jeden anderen Fixpunkt $Y'$ gilt $\emptyset\subseteq Y'$, und
+per Induktion auch $F^{n}\left(\emptyset\right)\subseteq F^{n}\left(Y'\right)=Y'$.
+Daher ist $F^{\infty}\left(\emptyset\right)=\mathrm{lfp}_{X,\bar{x}}\left(\psi\right)$
+der kleinste Fixpunkt.
 
-Für eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
-prüft $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
-nun, ob die Belegung des Tupels $\bar{y}$ im Fixpunkt $F_{\beta'}^{\infty}$
-liegt, wobei $\beta'$ die Reduktion von $\beta$ auf die Parameter
-ist: 
-\begin{eqnarray*}
-\beta' & \coloneqq & \beta_{\mid\mathrm{frei}\left(\psi\right)\backslash\left\{ X,x_{1},\cdots,x_{k}\right\} }\\
-\left\llbracket \left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket X\bar{y}\right\rrbracket \left(\mathfrak{A},\beta\cup\left(X\mapsto F_{\beta'}^{\infty}\left(\emptyset\right)\right)\right)
-\end{eqnarray*}
-
-
-Im folgenden wird die Logik $\mathrm{FO}+\mathrm{LFP}$ abgekürzt
-als $\mathrm{LFP}$ bezeichnet. Ferner werden wir uns auf das \emph{parameterfreie}
-Fragment der Logik beschränken, was (bis auf einen Zuwachs in der
-Anzahl der Variablen und Länge der Formel) die Allgemeinheit nicht
-einschränkt.
+Im folgenden wird die Logik $\mathrm{FO}+\mathrm{LFP}$ durch $\mathrm{LFP}$
+abgekürzt. Ferner werden wir uns auf das \emph{parameterfreie} Fragment
+der Logik beschränken, was (bis auf einen Zuwachs in der Anzahl der
+Variablen und Länge der Formel) die Allgemeinheit nicht einschränkt.
 \begin{defn}
 \label{def:fp-param}Eine $\mathrm{LFP}\left[\sigma\right]$-Formel
 $\varphi$ ist \textbf{parameterfrei}, falls der Fixpunktoperator
@@ -959,7 +960,10 @@ Weg beliebiger Länge verbunden sind:
 
 \end{example}
 
-\section{Logiken mit disjunkten numerischen Erweiterungen}
+\section{Logiken mit numerischen Erweiterungen}
+
+
+\subsection{Disjunkte Orakel}
 
 Eine Erweiterung um ein numerisches Orakel fügt einer Logik eine Anzahl
 von Relationssymbolen hinzu, die für $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
@@ -1017,23 +1021,27 @@ $1$ hat.
 \label{def:arb}Sei $\eta_{\mathrm{arb}}=\left\{ R_{X}\mid X\in\bigcup_{k\in\mathbb{N}}2^{\mathbb{N}^{k}}\right\} $
 eine unendliche Signatur, die für jede beliebige Relation $X\subseteq\mathbb{N}^{k}$
 mit $k\in\mathbb{N}$ auf den natürlichen Zahlen ein Symbol $R_{X}/k$
-enthält. Sei $\mathbf{ARB}:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\eta_{\mathrm{arb}}\right)$
+enthält, und sei $\mathcal{N}_{\mathrm{arb}}$ die $\eta_{\mathrm{arb}}$-Struktur
+über $\mathbb{N}$, die diese Symbole interpretiert. Dann sei $\mathbf{ARB}:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\eta_{\mathrm{arb}}\right)$
 ein $\eta_{\mathrm{arb}}$-Orakel, das die endlichen Anfangsstücke
 dieser Relationen ausgibt:
 \begin{eqnarray*}
-\mathcal{N}_{\mathrm{arb}} & \coloneqq & \left(\mathbb{N},\leqslant,\left(R_{X}^{\mathcal{N}}\right)_{R_{X}\in\eta_{\mathrm{arb}}}\right)\\
-R_{X}^{\mathcal{N}} & \coloneqq & X\\
+\mathcal{N}_{\mathrm{arb}} & \coloneqq & \left(\mathbb{N},\leqslant,\left(R_{X}\mapsto X\right)_{R_{X}\in\eta_{\mathrm{arb}}}\right)\\
 \mathbf{ARB}\left(n\right) & \coloneqq & \left(\mathcal{N}_{\mathrm{arb}}\right)_{\mid\left[0,n\right]}\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta_{\mathrm{arb}}\right)
 \end{eqnarray*}
 
 \end{defn}
+
+\subsection{Zähl-Erweiterungen}
+
 Wir führen mehrere syntaktische Erweiterungen der Logik $\mathrm{FO}+\Upsilon$
-ein: Den Zählterm $\#$, den Zählquantor $\exists^{=}$, und den Majority-Quantor
+ein, die es erlauben, erfüllende Belegungen einer Variable zu zählen:
+Den Zählterm $\#$, den Zählquantor $\exists^{=}$, und den Majority-Quantor
 $\exists^{\geqslant}$. Es wird nachgewiesen, dass alle drei Erweiterungen
 die gleiche Ausdrucksstärke modulo einem festen Zuwachs der Formellänge
 haben.
 \begin{defn}
-\textbf{Zählterm $\#$} (wie \cite{anderson_et_al:LIPIcs:2014:4445})
+\textbf{Zählterm $\#$} (wie in \cite{anderson_et_al:LIPIcs:2014:4445})
 
 Der Zählterm ist eine zusätzliche Termproduktion, die die erfüllenden
 Belegungen einer Formel zählt.
@@ -1049,11 +1057,15 @@ um die folgende Regel:
 $\varphi$ und eine Variable $x\in\mathbf{var}$ ist $\#x\varphi$
 ein $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$-Term.
 \begin{eqnarray*}
-\mathrm{frei}\left(\#x\varphi\right)=\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(\#x\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
+\mathrm{frei}\left(\#x\varphi\right) & \coloneqq & \mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \\
+\mathrm{var}\left(\#x\varphi\right) & \coloneqq & \mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
 \end{eqnarray*}
 Auf einer endlichen Struktur $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
-mit $n\in\mathbb{N}$ und einer Belegung $\beta:\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \rightarrow A\uplus\left[0,n\right]$
-sei 
+mit $n\in\mathbb{N}$ und einer Belegung 
+\[
+\beta:\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \rightarrow A\uplus\left[0,n\right]
+\]
+ sei 
 \[
 \left\llbracket \#x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\left|\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\cup\binom{x}{a}}\right\} \right|
 \]
@@ -1070,8 +1082,8 @@ t_{\mathrm{DIFF}}\left(x,y\right) & \coloneqq & \#_{z}\left(\neg z\leqslant x\we
 \end{eqnarray*}
 \end{example*}
 \begin{defn}
-\textbf{Zählquantor }$\exists^{=}$ (wie \cite{Schweikardt:2005:AFL:1071596.1071602},
-aber mit disjunktem Orakel)
+\textbf{Zählquantor }$\exists^{=}$ (wie in \cite{Schweikardt:2005:AFL:1071596.1071602},
+aber mit einem disjunkten numerischen Universum)
 
 Der Zählquantor ist eine zusätzlicher Quantor, der die Zahl der erfüllenden
 Belegungen einer Formel mit einer Variable vergleicht.
@@ -1087,14 +1099,15 @@ um die folgende Regel:
 $\varphi$ und zwei Variablen $x,y\in\mathbf{var}$ ist $\exists^{=y}x\varphi$
 eine $\left(\mathcal{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
-\mathrm{frei}\left(\exists^{=y}x\varphi\right)=\left\{ y\right\} \cup\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right) &  & \mathrm{var}\left(\exists^{=y}x\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x,y\right\} 
+\mathrm{frei}\left(\exists^{=y}x\varphi\right) & \coloneqq & \left\{ y\right\} \cup\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right)\\
+\mathrm{var}\left(\exists^{=y}x\varphi\right) & \coloneqq & \mathrm{var}\left(\varphi\right)\cup\left\{ x,y\right\} 
 \end{eqnarray*}
 Auf einer endlichen Struktur $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 mit einer Belegung 
 \[
 \beta:\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right)\cup\left\{ y\right\} \rightarrow A\cup\left[0,n\right]
 \]
- gilt: 
+gelte: 
 \[
 \left\llbracket \exists^{=y}x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\begin{cases}
 1 & \mathrm{falls}\,\,\beta y=\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta_{\backslash\left\{ x\right\} }\cup\binom{x}{a}}\right\} \\
@@ -1146,28 +1159,21 @@ und $\mathcal{L}+\Upsilon+\exists^{\geqslant}$ sind äquivalent:\end{prop}
 \begin{proof}
 Jede $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$-Formel
 $\varphi$ ist äquivalent zu einer $\left(\mathcal{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel
-$\varphi'$. Dies wird per Induktion über den Aufbau von $\varphi$
-gezeigt.
+$\varphi'$. Dazu ersetzen wir jede ,,pseudo-atomare`` Teilformel,
+die einen Zählterm enthält, wie folgt:
 \begin{casenv}
-\item Falls $\varphi$ eine $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$-Formel
-ohne Zählterm ist, so sei $\varphi'\coloneqq\varphi$.
-\item Falls $\varphi$ von der Form $\neg\psi$ oder $\left(\psi_{1}\gamma\cdots\gamma\psi_{k}\right)$
-oder $Qx\psi$ ist, so existieren per Induktionsannahme die äquivalenten
-Teilformeln $\psi',\psi_{1}',\cdots,\psi_{k}'$. Sei $\varphi'$ entsprechend
-$\neg\psi'$ oder $\left(\psi_{1}'\gamma\cdots\gamma\psi_{k}\right)$
-oder $Qx\psi'$.
 \item Falls $\varphi=y\dot{=}\#x\psi$ oder $\varphi=\#x\psi\dot{=}y$ für
 $x,y\in\mathbf{var}$, so sei $\varphi'\coloneqq\exists^{=y}x\psi'$.
 \item Falls $\varphi=\#x_{1}\psi_{1}\dot{=}\#x_{2}\psi_{2}$ für $x_{1},x_{2}\in\mathbf{var}$,
 so sei $y\in\mathbf{var}\backslash\left(\mathrm{frei}\left(\psi_{1}\right)\cup\mathrm{frei}\left(\psi_{2}\right)\right)$
-eine neue Variable, und:
+eine neue Variable, und
 \[
 \varphi'\coloneqq\exists y\left(\exists^{=y}x_{1}\psi_{1}'\wedge\exists^{=y}x_{2}\psi_{2}'\right)
 \]
 
 \item Falls $\varphi=R\bar{x}$ für $R/k\in\sigma\cup\eta\cup\left\{ \leqslant\right\} $
 und ein $k$-Tupel von $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$-Termen
-$\bar{x}$ ist, so sei $\bar{y}\in\left(\mathbf{var}\backslash\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right)\right)^{k}$
+$\bar{x}$, so sei $\bar{y}\in\left(\mathbf{var}\backslash\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right)\right)^{k}$
 ein Tupel von neuen Variablen, und:
 \begin{eqnarray*}
 \chi_{i} & \coloneqq & \begin{cases}
@@ -1208,67 +1214,79 @@ mit $\psi\equiv\psi'$, und:
 \end{casenv}
 \end{proof}
 Im folgenden wird mit $\mathcal{L}+\Upsilon+C$ stets eine dieser
-äquivalenten Zähl-Logiken bezeichnet.
-\begin{defn}
-Die Logik $\mathcal{L}+\mathbf{ORD}+C$ bezeichnen wir kurz als $\mathcal{L}+C$.\end{defn}
+äquivalenten Zähl-Logiken bezeichnet. Die Logik $\mathcal{L}+\mathbf{ORD}+C$
+bezeichnen wir kurz als $\mathcal{L}+C$.
 \begin{example}
 Die Logik $\mathrm{FO}+C$ kann ausdrücken, dass die $\sigma$-Struktur
 eine gerade Größe hat. Bekanntlich ist diese $\sigma$-Eigenschaft
 weder durch $\mathrm{FO}$ auf geordneten, noch $\mathrm{LFP}$ auf
-ungeordneten Strukturen definierbar\cite{Ebbinghaus,Libkin2012}:\end{example}
-\begin{example*}
+ungeordneten Strukturen definierbar\cite{Ebbinghaus,Libkin2012}:
+
 \[
 \varphi_{\mathrm{EVEN}}\coloneqq\exists y\,\left(y=\#_{z}\left(\neg z\leqslant y\wedge z\leqslant\#_{z}\,z=z\right)\right)
 \]
-\end{example*}
+
+\end{example}
+
+\subsection{Nicht-disjunkte numerische Erweiterungen}
+
+Eine alternative Erweiterung definiert über einer Struktur $\mathfrak{A}$
+eine beliebige Bijektion $\pi:\left[1,n\right]\rightleftarrows A$
+und interpretiert dann die numerischen Prädikate $R/k\in\eta$ über
+dem Universum der Struktur selbst. Diese Erweiterung bezeichnen wir
+(in Anlehnung an die disjunkte Erweiterung $\mathcal{L}+\Upsilon$)
+mit $\mathcal{L}\oplus\Upsilon$.
 \begin{defn}
-\textbf{Arb-invariante Logik erster Stufe }(nach \cite{Schweikardt13ashort})
+\textbf{$\mathcal{L}\oplus\Upsilon$-Logik}
 
-Die unendliche Signatur $\eta_{\mathrm{arb}}$ und die Struktur $\mathcal{N}_{\mathrm{arb}}$
-sei wie in Definition \ref{def:ord} definiert.
+Für eine relationale Signatur $\eta$, ein $\eta$-Orakel $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{1}\left(\eta\right)$,
+eine von $\eta$ disjunkte relationale Signatur $\sigma$ und eine
+Logik $\mathcal{L}\left[\sigma\right]$ sei die Syntax von $\mathcal{L}\oplus\Upsilon\left[\sigma\right]$
+gleich der Syntax von $\mathcal{L}\left[\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right]$.
 
-Für eine beliebige von $\eta_{\mathrm{arb}}$ disjunkte relationale
-Signatur $\sigma$ sei $\mathrm{FO}\left[\sigma\uplus\eta_{\mathrm{arb}}\right]$
-die erststufige Logik mit beliebigen numerischen Prädikaten.
-
-Für $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ sei $n=\left|A\right|$
-und $h:A\rightarrow\left[1,n\right]$ eine beliebige Bijektion. Sei
-$\mathfrak{A}_{h}\in\mathbf{FIN}_{<}^{\left[1,n\right]}\left(\sigma_{\mathrm{arb}}\right)$
+Für $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ mit $n=\left|A\right|$
+sei $\pi:\left[1,n\right]\rightleftarrows A$ eine beliebige Bijektion.
+Sei $\mathfrak{A}_{\pi}\in\mathbf{FIN}\left(\sigma\uplus\eta\right)$
 definiert durch:
-\[
-\mathfrak{A}_{h}\coloneqq h\mathfrak{A}\cup\left(\mathcal{N}_{\mathrm{arb}}\right)_{\mid\left[1,n\right]}
-\]
-(Hier werden gemäß \defref{Disjunkte-Vereinigung} die $\sigma$-Struktur
-$h\mathfrak{A}$ und die induzierte Teilstruktur $\mathcal{N}_{\mid\left[1,n\right]}$
-mit den disjunkten Signaturen $\sigma$ und $\eta_{\mathrm{arb}}$
-über dem gleichen Universum $\left[1,n\right]$ vereinigt.)
-\begin{enumerate}
-\item Eine $k$-stellige $\mathrm{FO}\left[\sigma\uplus\eta_{\mathrm{arb}}\right]$-Formel
-$\varphi$ ist \textbf{arb-invariant auf }$\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$,
-wenn für jedes Paar von Bijektionen $h,h':A\rightarrow\left[1,\left|A\right|\right]$
-und jedes Tupel $\bar{a}\in A^{k}$ gilt:
 \begin{eqnarray*}
-\mathfrak{A}_{h}\models\varphi\left[h\bar{a}\right] & \Longleftrightarrow & \mathfrak{A}_{h'}\models\varphi\left[h'\bar{a}\right]
+\mathfrak{A}_{\pi} & \coloneqq & \mathfrak{A}\cup\pi\Upsilon\left(n\right)\\
+ & = & \left(A,\left(R^{\mathfrak{A}}\right)_{R\in\sigma},\left(\pi R^{\Upsilon\left(n\right)}\right)\right)
 \end{eqnarray*}
 
-\item Eine $\mathrm{FO}\left[\sigma\uplus\eta_{\mathrm{arb}}\right]$-Formel
-$\varphi$ sei arb-invariant, wenn sie auf allen Strukturen $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
-arb-invariant ist. In diesem Fall berechne $\varphi$ die folgende
-$\sigma$-Anfrage (für eine beliebige Abbildung $h:A\rightarrow\left[1,\left|A\right|\right]$):
-\[
-q_{\varphi}\left(\mathfrak{A}\right)\coloneqq h^{-1}q_{\varphi}\left(\mathfrak{A}_{h}\right)
-\]
 
-\item Sei $\mathrm{\mbox{arb-inv-}FO}\left[\sigma\right]$ die Sprache der
-arb-invarianten $\mathrm{FO}\left[\sigma\uplus\eta_{\mathrm{arb}}\right]$-Formeln.
-\end{enumerate}
+Eine $k$-stellige $\mathcal{L}\oplus\Upsilon\left[\sigma\right]$-Formel
+$\varphi$ heiße \textbf{invariant}, wenn für jede Struktur $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$,
+jedes Paar von Bijektionen $\pi,\pi'\in\mathrm{Bij}\left(\left[1,\left|A\right|\right],A\right)$
+und jedes Tupel $\bar{a}\in A^{k}$ gilt:
+\begin{eqnarray*}
+\mathfrak{A}_{\pi}\models\varphi\left[\bar{a}\right] & \Longleftrightarrow & \mathfrak{A}_{\pi'}\models\varphi\left[\bar{a}\right]
+\end{eqnarray*}
+
+
+Wir bezeichnen mit $\mathrm{inv}\left(\mathcal{L}\oplus\Upsilon\right)\left[\sigma\right]$
+die Sprache der invarianten Formeln der $\left(\mathcal{L}\oplus\Upsilon\right)\left[\sigma\right]$-Logik.
 \end{defn}
-\begin{rem*}
+
+\begin{notation}
+Die Logik $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+mit dem Orakel $\mathbf{ARB}\left(n\right)\coloneqq\left(\mathcal{N}_{\mathrm{arb}}\right)_{\left[1,n\right]}$
+(mit $\mathcal{N}_{\mathrm{arb}}$ und $\eta_{\mathrm{arb}}$ wie
+in Definition \ref{def:arb}) bezeichnen wir auch als die ,,arb-invariante
+$\mathrm{FO}\left(\mathbf{ARB}\right)$-Logik`` in Anlehnung an \cite{Schweikardt13ashort,AMSS-locality}.
+\end{notation}
+Es ist zu beachten, dass die hier betrachteten Orakel-Strukturen das
+Universum $\left[1,n\right]$ haben, und nicht $\left[0,n\right]$.
+Dies schließt unter anderem die Zählterm-Erweiterung $\mathcal{L}\oplus\Upsilon+\#$
+aus, weil ein Zählterm nicht den Wert $0$ erhalten kann und seine
+Auswertung nicht vollständig definiert ist. Die Zählquantor-Erweiterungen
+$\mathcal{L}\oplus\Upsilon+\exists^{=}$ und $\mathcal{L}\oplus\Upsilon+\exists^{\geqslant}$
+haben dieses Problem nicht.
+
 Nach dem Satz von Trakhtenbrot ist die endlichen Erfüllbarkeit von
 $\mathrm{FO}\left[\left\{ \leqslant\right\} \right]$ unentscheidbar,
-und daher auch die Arb-Invarianz und die Sprache $\mbox{arb-inv-}\mathrm{FO}\left[\sigma\right]$
-in $\mathrm{FO}\left[\sigma\uplus\eta_{\mathrm{arb}}\right]$.\cite{EFT,Libkin2012,Schweikardt13ashort}
-\end{rem*}
+und daher auch die Invarianz und die Sprache $\mbox{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)\left[\sigma\right]$
+in $\mathrm{FO}\oplus\mathbf{ARB}\left[\sigma\right]$.\cite{EFT,Libkin2012,Schweikardt13ashort} 
+
 
 \chapter{Schaltkreise}
 
@@ -1277,8 +1295,8 @@ in $\mathrm{FO}\left[\sigma\uplus\eta_{\mathrm{arb}}\right]$.\cite{EFT,Libkin201
 \begin{defn}
 \textbf{Boolesche Basis:} 
 
-Eine boolesche Basis $\mathbb{B}$ besteht aus beliebigen Relationen
-$\phi'\subseteq\left\{ 0^{i}1^{j}\mid i,j\in\mathbb{N}\right\} $.
+Eine boolesche Basis $\mathbb{B}$ besteht aus beliebigen über Permutation
+der Eingabe abgeschlossenen Relationen $\phi'\subseteq\left\{ 0,1\right\} ^{*}$.
 Wir definieren dafür der Einfachheit halber die Relation $\phi\subseteq\mathbb{N}^{2}$
 mit $\phi\coloneqq\left\{ \left(i,j\right)\in\mathbb{N}^{2}\mid0^{i}1^{j}\in\phi'\right\} $.
 Als Beispiel seien die folgenden booleschen Junktoren gegeben: 
@@ -1523,9 +1541,9 @@ mit einer beliebigen Bijektion $\pi:A\rightarrow U$:
 
 Für einen $k$-stelliger Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$,
 eine Permutation $\pi\in\mathrm{Sym}_{U}$ und einen Automorphismus
-$\rho:\mathcal{C}\tilde{\rightarrow}\mathcal{C}$ mit $\rho_{\mid U}=\pi$
-nennen wir $\rho$ von $\pi$ \textbf{induziert}. (Nach den Definitionen
-\ref{def:formal} und \ref{def:Isomorphismus} ist $\rho\in\mathrm{Sym}_{U\uplus G}$
+$\rho\in\mathrm{Aut}_{\mathcal{C}}$ mit $\rho_{\mid U}=\pi$ nennen
+wir $\rho$ von $\pi$ \textbf{induziert}. (Nach den Definitionen
+\ref{def:formal} und \ref{def:Isomorphismus} ist $\rho\in\mathrm{Aut}_{\mathcal{C}}$
 eine Permutation des Universums von $\mathcal{C}$.) Wir können aus
 der formalen Definition des Schaltkreises als $\tau_{\sigma,\mathbb{B},k}$-Struktur
 ableiten, dass ein von $\pi$ induzierter Automorphismus $\rho$ die
@@ -1537,7 +1555,7 @@ mit $\bar{x'}=\pi\bar{x}$.
 \item Für alle übrigen Gates gilt $\Sigma\left(\rho g\right)=\Sigma\left(g\right)$.
 \item Für jedes Tupel $\bar{t}\in U^{k}$ gilt $\rho\Omega\left(\bar{x}\right)=\Omega\left(\pi\bar{t}\right)$.
 \end{enumerate}
-Der Schaltkreis heiße \textbf{symmetrisch}, genau dann wenn jede Permutation
+Ein Schaltkreis heiße \textbf{symmetrisch}, genau dann wenn jede Permutation
 des Universums $\pi\in\mathrm{Sym}_{U}$ einen Automorphismus $\hat{\pi}\in\mathrm{Aut}_{\mathcal{C}}$
 des Schaltkreises induziert. (In Zukunft betrachten wir der Einfachheit
 halber nur den Teil $\hat{\pi}_{\mid G}$, der die Gates des Schaltkreises
@@ -4176,14 +4194,14 @@ belegten Vorgänger von $g$:
 \end{proof}
 \begin{defn}
 Für jedes Gate $g$ des Schaltkreises $\mathcal{C}$ über dem Universum
-$U$ beschreiben wir die Menge der verschiedenen Bijektionen $\pi:U\rightarrow A$,
+$U$ beschreiben wir die Menge der verschiedenen Bijektionen $\pi\in\mathrm{Bij}\left(U,A\right)$,
 für die $\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(g\right)=1$.
 Per Satz \ref{prop:konsistenz} müssen nur deren Reduktionen auf $\mathrm{sp}\left(g\right)$
 betrachtet werden. Sei $\mathrm{EV}\left(g\right)$ die Menge dieser
 Belegungen von $\mathrm{sp}\left(g\right)$:
 
 \[
-\mathrm{EV}\left(g\right)\coloneqq\left\{ \pi{}_{\mid\mathrm{sp}\left(g\right)}\mid\pi\in\mathrm{Abb}\left(U,A\right),\,\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(g\right)=1\right\} 
+\mathrm{EV}\left(g\right)\coloneqq\left\{ \pi{}_{\mid\mathrm{sp}\left(g\right)}\mid\pi:\mathrm{Bij}\left(U,A\right),\,\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(g\right)=1\right\} 
 \]
 
 
@@ -4191,7 +4209,7 @@ Für jede injektive Funktion $\rho:\mathrm{sp}\left(g\right)\rightarrow A$
 sei $M_{\rho}$ die Menge der zu $\rho$ konsistenten Bijektionen
 $\pi:U\rightarrow A$ :
 \[
-M_{\rho}\coloneqq\left\{ \pi\in\mathrm{Abb}\left(U,A\right)\mid\pi_{\mid\mathrm{sp}\left(g\right)}=\rho\right\} 
+M_{\rho}\coloneqq\left\{ \pi\in\mathrm{Bij}\left(U,A\right)\mid\pi_{\mid\mathrm{sp}\left(g\right)}=\rho\right\} 
 \]
 
 
@@ -4468,12 +4486,11 @@ die Charakterisierung von $\mathrm{AC}^{0}$ durch die arb-invariante
 $\mathrm{FO}\left(\mathrm{arb}\right)$-Logik, und ein Problem, dass
 die Ausdrucksstärke dieser beiden Logiken voneinander trennt.
 \begin{lem}
-\textbf{\label{lem:Anderson,-Melkebeek,-Schweikardt}Anderson, Melkebeek,
-Schweikardt und Segoufin (2012)}\cite{AMSS-locality}
+\textbf{\label{lem:fo-arb-ac0}Makowsky (1997)}\cite{AMSS-locality,Makowsky:1997:ID:648040.744731}
 
 Die Klasse $\mathrm{AC}^{0}$ ist äquivalent zu der Klasse der durch
-arb-invariante $\mathrm{FO}\left(\mathrm{arb}\right)$-Logik definierbaren
-Anfragen.
+$\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-Formeln
+definierbaren Anfragen.
 \end{lem}
 Der verwendete Teil des Beweises (hier nicht ausgeführt) ist die Konstruktion
 der Formel für eine beliebige $\mathrm{AC}^{0}$-Schaltkreisfamilie.
@@ -4498,9 +4515,9 @@ in $\mathrm{AC}^{0}$ enthalten.
 Für den echten Einschluss (Teil 2 des Theorems \ref{thm:fo-arb})
 benötigen wir eine Anfrage, die durch eine arb-invariante $\mathrm{FO}\left(\mathrm{arb}\right)$-Formel
 beschrieben wird, jedoch nicht in $\mathrm{FO}+\mathbf{ARB}$ definierbar
-ist. Per Lemma \ref{lem:Anderson,-Melkebeek,-Schweikardt} ist diese
-Anfrage in $\mathrm{AC}^{0}$, aber per Theorem \ref{thm:fo} nicht
-im symmetrischen Teil von $\mathrm{AC}^{0}$ beschreibbar.
+ist. Per Lemma \ref{lem:fo-arb-ac0} ist diese Anfrage in $\mathrm{AC}^{0}$,
+aber per Theorem \ref{thm:fo} nicht im symmetrischen Teil von $\mathrm{AC}^{0}$
+beschreibbar.
 \begin{lem}
 Es existiert eine Graph-Anfrage $q$, die durch eine definierbar ist.\end{lem}
 \begin{proof}
