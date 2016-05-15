@@ -4498,6 +4498,12 @@ Auf einer endlichen Struktur
 
 \end_deeper
 \begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:counting-equal"
+
+\end_inset
+
 Die Logiken 
 \begin_inset Formula $\mathcal{L}+\Upsilon+\#$
 \end_inset
@@ -8554,7 +8560,7 @@ Die neue Schaltkreisfamilie ist
 \begin_layout Lemma
 \begin_inset CommandInset label
 LatexCommand label
-name "lem:fo-ord-circuit"
+name "lem:oracle-circuit"
 
 \end_inset
 
@@ -9173,7 +9179,7 @@ Außerdem gilt ist
 \end_layout
 
 \begin_layout Section
-Zählquantoren
+Logiken mit Zählquantoren
 \end_layout
 
 \begin_layout Standard
@@ -9184,21 +9190,100 @@ Wir betrachten die Logik
 , und weisen nach, dass die Konstruktion von Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:fo-ord-circuit"
-
-\end_inset
-
- und Lemma 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:fo-ord-circuit"
+reference "lem:oracle-circuit"
 
 \end_inset
 
  angepasst werden kann, indem Majority-Gates hinzugefügt werden.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:counting-circuit"
+
+\end_inset
+
+Sei 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ eine Logik, 
+\begin_inset Formula $\mathbb{B}$
+\end_inset
+
+ eine boolesche Basis und 
+\begin_inset Formula $\mathcal{K}\supseteq\mathrm{LOGSPACE}$
+\end_inset
+
+ eine Komplexitätsklasse, so dass für jede 
+\begin_inset Formula $\mathcal{L}\left[\sigma\right]$
+\end_inset
+
+-Formel eine symmetrische, 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+-uniforme 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreisfamilie mit 
+\begin_inset Formula $t\left(n\right)$
+\end_inset
+
+-Tiefe und 
+\begin_inset Formula $s\left(n\right)$
+\end_inset
+
+-Größe (mit 
+\begin_inset Formula $s\mathrm{\left(n\right)\in\mathrm{poly}\left(n\right)}$
+\end_inset
+
+) existiert, die die gleiche Anfrage beschreibt.
+\end_layout
+
+\begin_layout Lemma
+Sei 
+\begin_inset Formula $\eta$
+\end_inset
+
+ eine von 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ disjunkte Signatur und 
+\begin_inset Formula $\Upsilon$
+\end_inset
+
+ ein 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+-uniformes 
+\begin_inset Formula $\eta$
+\end_inset
+
+-Orakel.
+\end_layout
+
+\begin_layout Lemma
+Dann existiert für jede 
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+C\right)\left[\sigma\right]$
+\end_inset
+
+ eine ebensolche 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\cup\left\{ \mathtt{MAJ}\right\} \right)$
+\end_inset
+
+-Schaltkreisfamilie mit der Tiefe 
+\begin_inset Formula $t'\left(n\right)\coloneqq t\left(2n+1\right)+\left\Vert \varphi\right\Vert $
+\end_inset
+
+ und der folgenden Größe: 
 \begin_inset Formula 
 \[
-\mathrm{FO}+C\subseteq\left(\mathrm{SAC}^{0}+\mathbf{MAJ}\right)^{\mathrm{LOGSPACE}}
+s'\left(n\right)\coloneqq s\left(2n+1\right)+\left(2n+\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}\right)\left\Vert \varphi\right\Vert \in\mathrm{poly}\left(n\right)
 \]
 
 \end_inset
@@ -9206,50 +9291,53 @@ reference "lem:fo-ord-circuit"
 
 \end_layout
 
-\begin_layout Lemma
-\begin_inset CommandInset label
-LatexCommand label
-name "lem:fo+c"
+\begin_layout Standard
+Insbesondere folgt aus der Kombination mit Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:fo-circuit"
 
 \end_inset
 
-Jede 
-\begin_inset Formula $\left(\mathrm{FO}+\exists^{\geqslant}\right)\left[\sigma\right]$
+ und Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:oracle-circuit"
+
 \end_inset
 
--Formel 
-\begin_inset Formula $\varphi$
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{FO}+\mathbf{BIT}+C & \subseteq & \left(\mathrm{SAC}^{0}+\mathbf{MAJ}\right)^{\mathrm{LOGSPACE}}\\
+\mathrm{FO}+\mathbf{ARB}+C & \subseteq & \left(\mathrm{SAC}^{0}+\mathbf{MAJ}\right)^{P/\mathrm{poly}}
+\end{eqnarray*}
+
 \end_inset
 
- definiert eine 
-\begin_inset Formula $\sigma$
+Wir werden in diesem Fall konkret mit 
+\begin_inset Formula $\exists^{\geqslant}$
 \end_inset
 
--Anfrage 
-\begin_inset Formula $q$
+-Quantoren arbeiten, denn per Satz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:counting-equal"
+
 \end_inset
 
-, die von einer symmetrischen, 
-\begin_inset Formula $\mathrm{LOGSPACE}$
+ sind diese gleich ausdrucksstark mit 
+\begin_inset Formula $\exists^{=}$
 \end_inset
 
--uniformen 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
+-Quantoren und 
+\begin_inset Formula $\#$
 \end_inset
 
--Schaltkreisfamilie 
-\begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
-\end_inset
-
- mit konstanter 
-\begin_inset Formula $\left\Vert \varphi\right\Vert $
-\end_inset
-
--Tiefe und polynomieller 
-\begin_inset Formula $\left\Vert \varphi\right\Vert \cdot\left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$
-\end_inset
-
--Größe berechnet wird.
+-Termen.
 \end_layout
 
 \begin_layout Proof
@@ -9258,51 +9346,32 @@ Sei
 \end_inset
 
  eine 
-\begin_inset Formula $k$
-\end_inset
-
--stellige 
-\begin_inset Formula $\left(\mathrm{FO}+\exists^{\geqslant}\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$
 \end_inset
 
 -Formel.
- Der 
-\begin_inset Formula $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{maj}}\right)$
-\end_inset
-
--Schaltkreis 
-\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
-\end_inset
-
- über dem Universum 
-\begin_inset Formula $U'\coloneqq\left[1,2n+1\right]=\left[1,n\right]\uplus\rho\left[0,n\right]$
-\end_inset
-
- wird nach dem gleichen Schema wie in Lemma 
+ Wir gehen analog zu Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:fo-ord-circuit"
+reference "lem:oracle-circuit"
 
 \end_inset
 
-, wobei ein neuer Fall hinzukommt.
-\end_layout
-
-\begin_layout Proof
-(Zur Erinnerung: 
-\begin_inset Formula $\rho:\left[0,n\right]\rightarrow\left[n+1,2n+1\right]$
+ für 
+\begin_inset Formula $\mathcal{L}+\Upsilon$
 \end_inset
 
- ist die Verschiebung des Universums von 
-\begin_inset Formula $\Upsilon\left(n\right)$
-\end_inset
-
-.)
+ vor, erweitern aber die Konstruktion aus der Voraussetzung um den folgenden
+ Schritt:
 \end_layout
 
 \begin_layout Proof
 Falls 
 \begin_inset Formula $\varphi\left(\bar{x}\right)=\exists^{\geqslant x_{i}}y_{j}\psi\left(\bar{y}\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
 \end_inset
 
 , so sei 
@@ -9325,12 +9394,14 @@ Falls
 
 \end_inset
 
+Wir erzeugen den folgenden Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
+\end_inset
 
+:
 \end_layout
 
-\begin_deeper
-\begin_layout Description
-Schaltkreis: 
+\begin_layout Proof
 \begin_inset Formula 
 \begin{eqnarray*}
 \mathcal{C}_{2n+1}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U'\right)
@@ -9604,6 +9675,7 @@ W_{\mathrm{pad}} & = & \left\{ \left(0_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{
 
 \end_layout
 
+\begin_deeper
 \begin_layout Description
 Symmetrie: Der neue Schaltkreis ist offensichtlich nicht symmetrisch bezüglich
  
@@ -9799,12 +9871,13 @@ Für
 \end_layout
 
 \end_deeper
+\end_deeper
 \begin_layout Description
 Größe: 
 \begin_inset Formula 
 \begin{eqnarray*}
 T\left(\mathcal{C}_{2n+1}^{\varphi}\right) & \leqslant & 1+T\left(\mathcal{C}_{2n+1}^{\psi}\right)\\
- & \overset{\mathrm{Ann.}}{\leqslant} & 1+\left\Vert \psi\right\Vert \leqslant\left\Vert \varphi\right\Vert 
+ & \overset{\mathrm{Ann.}}{\leqslant} & 1+\left\Vert \psi\right\Vert +t\left(2n+1\right)\leqslant\left\Vert \varphi\right\Vert +t\left(2n+1\right)
 \end{eqnarray*}
 
 \end_inset
@@ -9813,9 +9886,8 @@ T\left(\mathcal{C}_{2n+1}^{\varphi}\right) & \leqslant & 1+T\left(\mathcal{C}_{2
 \begin_inset Formula 
 \begin{eqnarray*}
 \left|\mathcal{C}_{2n+1}^{\varphi}\right| & \leqslant & \left(2n+1\right)^{k}+2n+\left|\mathcal{C}_{2n+1}^{\psi}\right|\\
- & \overset{\mathrm{Ann.}}{\leqslant} & \left(2n+1\right)^{k}+2n+\left\Vert \psi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\psi\right)}\\
- &  & \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}+\left\Vert \psi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}\\
- & \leqslant & \left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}
+ & \overset{\mathrm{Ann.}}{\leqslant} & \left(2n+1\right)^{k}+2n+\left\Vert \psi\right\Vert \left(\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}+2n\right)+s\left(2n+1\right)\\
+ & \leqslant & \left\Vert \varphi\right\Vert \left(\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}+2n\right)+s\left(2n+1\right)
 \end{eqnarray*}
 
 \end_inset
@@ -9823,7 +9895,6 @@ T\left(\mathcal{C}_{2n+1}^{\varphi}\right) & \leqslant & 1+T\left(\mathcal{C}_{2
 
 \end_layout
 
-\end_deeper
 \end_deeper
 \begin_layout Proof
 Nach der Erzeugung von 
@@ -9863,7 +9934,7 @@ Da der Schaltkreis
  symmetrisch (siehe Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:fo-ord-circuit"
+reference "lem:oracle-circuit"
 
 \end_inset
 
@@ -9883,18 +9954,7 @@ Fixpunktlogik
 
 \begin_layout Standard
 In diesem Abschnitt werden wir die bereits gezeigten Konstruktionen auf
- Fixpunktlogik erweitern, die durch Schaltkreise beliebiger Tiefe beschrieben
- werden kann:
-\begin_inset Formula 
-\begin{eqnarray*}
-\mathrm{LFP}+\mathbf{ORD} & \subseteq & \mathrm{SBC}^{P}\\
-\mathrm{LFP}+\mathbf{ARB} & \subseteq & \mathrm{SBC}^{P/\mathrm{poly}}\\
-\mathrm{LFP}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}
-\end{eqnarray*}
-
-\end_inset
-
-
+ Fixpunktlogik erweitern.
 \end_layout
 
 \begin_layout Subsection
@@ -10638,41 +10698,16 @@ Dann existiert eine
 \end_layout
 
 \begin_layout Standard
-In Kombination mit dem Rest dieses Kapitels entsteht daraus eine Konstruktion
- für 
-\begin_inset Formula $\mathrm{LFP}+\mathbf{ORD}$
-\end_inset
-
- (mit Lemma 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:fo-ord-circuit"
+In Kombination mit dem Rest dieses Kapitels folgt dann:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{LFP}+\mathbf{ORD} & \subseteq & \mathrm{SBC}^{P}\\
+\mathrm{LFP}+\mathbf{ARB} & \subseteq & \mathrm{SBC}^{P/\mathrm{poly}}
+\end{eqnarray*}
 
 \end_inset
 
-) und 
-\begin_inset Formula $\mathrm{LFP}+\mathbf{ARB}$
-\end_inset
 
- (mit Lemma 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:fo+arb"
-
-\end_inset
-
-), denn 
-\begin_inset Formula $\mathrm{LOGSPACE}\subseteq P$
-\end_inset
-
- (siehe Abschnitt 4.3 in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "arora-barak"
-
-\end_inset
-
-).
 \end_layout
 
 \begin_layout Proof
@@ -11257,7 +11292,7 @@ Wir haben im letzten Abschnitt eine Normalform vorausgesetzt, die aber nur
  
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:fo+c"
+reference "lem:counting-circuit"
 
 \end_inset
 
