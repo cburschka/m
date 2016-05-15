@@ -91,7 +91,7 @@ End
 \shortcut idx
 \color #008000
 \end_index
-\bottommargin 20pheight%
+\bottommargin 15pheight%
 \secnumdepth 3
 \tocdepth 3
 \paragraph_separation skip
@@ -264,7 +264,8 @@ key "AD2014"
 
 \end_inset
 
- (als Erweiterung eines Ergebnisses von Martin Otto in 1997
+ (nach einem ähnlichen Ergebnis für infinitäre Logik von Martin Otto in
+ 1997
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Otto1997"
@@ -349,7 +350,7 @@ Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen äquivalen
 
 \end_deeper
 \begin_layout Standard
-Wir erweitern dieses Ergebnis für Schaltkreisfamilien konstanter Tiefe.
+Ein ähnliches Ergebnis gibt es für Schaltkreisfamilien konstanter Tiefe.
  Es wird eine Charakterisierung der 
 \begin_inset Formula $\mathrm{LOGSPACE}$
 \end_inset
@@ -422,30 +423,37 @@ Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen äquivalen
 \begin_layout Standard
 Die Einschränkung auf symmetrische Schaltkreisfamilien bringt im Allgemeinen
  eine Reduktion der Ausdrucksstärke mit sich.
- Insbesondere werden (nach Johann Makowsky, 1997-1998 
+ So wird die Klasse 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+ durch die invariante Logik 
+\begin_inset Formula $\mathrm{FO}\left(\mathbf{ARB}\right)$
+\end_inset
+
+ (Neil Immerman, 1987
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Immerman1987"
+
+\end_inset
+
+), und 
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+ durch 
+\begin_inset Formula $\mathrm{FP}\left(\mathbf{ARB}\right)$
+\end_inset
+
+ (Johann Makowsky, 1997
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Makowsky1997-FO,Makowsky1998-LFP"
 
 \end_inset
 
-) die Klassen 
-\begin_inset Formula $\mathrm{AC}^{0}$
-\end_inset
-
- und 
-\begin_inset Formula $P/\mathrm{poly}$
-\end_inset
-
- ohne Symmetrie-Einschränkung durch die arb-invarianten Logiken 
-\begin_inset Formula $\mathrm{FO}\left(\mathbf{ARB}\right)$
-\end_inset
-
- und 
-\begin_inset Formula $\mathrm{FP}\left(\mathbf{ARB}\right)$
-\end_inset
-
- charakterisiert.
+) charakterisiert.
  
 \begin_inset Formula $\mathrm{FO}\left(\mathbf{ARB}\right)$
 \end_inset
@@ -6032,13 +6040,6 @@ Schaltkreis
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Eigenschaften von Schaltkreisen
 \end_layout
@@ -6890,13 +6891,6 @@ Für zwei Gates
 \end_inset
 
  gesetzt wird.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -8514,13 +8508,6 @@ Berechnung von
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Disjunkte numerische Erweiterungen
 \end_layout
@@ -9233,14 +9220,10 @@ Sei
 \end_inset
 
 -Tiefe und 
-\begin_inset Formula $s\left(n\right)$
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
 \end_inset
 
--Größe (mit 
-\begin_inset Formula $s\mathrm{\left(n\right)\in\mathrm{poly}\left(n\right)}$
-\end_inset
-
-) existiert, die die gleiche Anfrage beschreibt.
+-Größe existiert, die die gleiche Anfrage beschreibt.
 \end_layout
 
 \begin_layout Lemma
@@ -9280,15 +9263,11 @@ Dann existiert für jede
 \begin_inset Formula $t'\left(n\right)\coloneqq t\left(2n+1\right)+\left\Vert \varphi\right\Vert $
 \end_inset
 
- und der folgenden Größe: 
-\begin_inset Formula 
-\[
-s'\left(n\right)\coloneqq s\left(2n+1\right)+\left(2n+\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}\right)\left\Vert \varphi\right\Vert \in\mathrm{poly}\left(n\right)
-\]
-
+ und 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
 \end_inset
 
-
+-Größe: 
 \end_layout
 
 \begin_layout Standard
@@ -9349,7 +9328,11 @@ Sei
 \begin_inset Formula $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$
 \end_inset
 
--Formel.
+-Formel und 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ die gewünschte Eingabegröße.
  Wir gehen analog zu Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -9361,11 +9344,43 @@ reference "lem:oracle-circuit"
 \begin_inset Formula $\mathcal{L}+\Upsilon$
 \end_inset
 
- vor, erweitern aber die Konstruktion aus der Voraussetzung um den folgenden
- Schritt:
+ vor und erzeugen einen 
+\begin_inset Formula $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}\cup\left\{ \mathtt{MAJ}\right\} \right)$
+\end_inset
+
+-Schaltkreis über 
+\begin_inset Formula $U'=\left[1,2n+1\right]$
+\end_inset
+
+, wobei wir aber die folgende induktive Konstruktion verwenden:
 \end_layout
 
-\begin_layout Proof
+\begin_deeper
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\end_inset
+
+ eine 
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$
+\end_inset
+
+-Formel ohne 
+\begin_inset Formula $\exists^{\geqslant}$
+\end_inset
+
+-Quantor ist, so existiert der 
+\begin_inset Formula $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
+\end_inset
+
+ per Voraussetzung.
+\end_layout
+
+\begin_layout Case
 Falls 
 \begin_inset Formula $\varphi\left(\bar{x}\right)=\exists^{\geqslant x_{i}}y_{j}\psi\left(\bar{y}\right)$
 \end_inset
@@ -9378,15 +9393,19 @@ Falls
 \begin_inset Formula $\mathcal{C}_{2n+1}^{\psi}$
 \end_inset
 
- der 
-\begin_inset Formula $k$
-\end_inset
-
--stellige Schaltkreis für die Formel 
+ der Schaltkreis für die Formel 
 \begin_inset Formula $\psi$
 \end_inset
 
-:
+ (dieser hat per Annahme die Tiefe 
+\begin_inset Formula $t\left(2n+1\right)+\left\Vert \psi\right\Vert $
+\end_inset
+
+ und Größe 
+\begin_inset Formula $s\left(n\right)\in\mathrm{poly}\left(n\right)$
+\end_inset
+
+).
 \begin_inset Formula 
 \[
 \mathcal{C}_{2n+1}^{\psi}=\left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U'\right)
@@ -9399,9 +9418,6 @@ Wir erzeugen den folgenden Schaltkreis
 \end_inset
 
 :
-\end_layout
-
-\begin_layout Proof
 \begin_inset Formula 
 \begin{eqnarray*}
 \mathcal{C}_{2n+1}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U'\right)
@@ -9672,17 +9688,171 @@ W_{\mathrm{pad}} & = & \left\{ \left(0_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{
 
 \end_inset
 
+Der neue Schaltkreis hat die Tiefe 
+\begin_inset Formula $t\left(2n+1\right)+\left\Vert \psi\right\Vert +1\leqslant t\left(2n+1\right)+\left\Vert \varphi\right\Vert $
+\end_inset
 
+ und der Größe 
+\begin_inset Formula $s\left(n\right)+n^{k}+2n\in\mathrm{poly}\left(n\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\end_inset
+
+ eine andere 
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$
+\end_inset
+
+-Formel ist, so seien 
+\begin_inset Formula $\psi_{1}\left(\bar{y}_{1}\right),\cdots,\psi_{m}\left(\bar{y}_{m}\right)$
+\end_inset
+
+ alle größten
+\begin_inset Foot
+status collapsed
+
+\begin_layout Plain Layout
+d.h.
+ solche, die nicht selbst in einer Teilformel der gleichen Form enthalten
+ sind.
+\end_layout
+
+\end_inset
+
+ Teilformeln von 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ der Form 
+\begin_inset Formula $\psi_{i}=\exists^{\geqslant u_{i}}v_{i}\chi_{i}$
+\end_inset
+
+.
+ Wir ersetzen diese Teilformeln durch neue Atome 
+\begin_inset Formula $R_{1}\bar{y}_{1},\cdots,R_{m}\bar{y}_{m}$
+\end_inset
+
+ und erhalten eine 
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\uplus\left\{ R_{1},\cdots,R_{m}\right\} \right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi'$
+\end_inset
+
+, die per Voraussetzung zu einer 
+\begin_inset Formula $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi'}$
+\end_inset
+
+ wird.
+ (Eine solche Suche im Syntax-Baum der Formel hat 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+-Komplexität.)
 \end_layout
 
 \begin_deeper
+\begin_layout Standard
+Per Annahme existiert für jede der Teilformeln 
+\begin_inset Formula $\psi_{1},\cdots,\psi_{m}$
+\end_inset
+
+ ein Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\psi_{i}}$
+\end_inset
+
+.
+ Wir erzeugen den Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
+\end_inset
+
+ aus der disjunkten Vereinigung wie folgt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{C}_{2n+1}^{\psi_{i}} & = & \left(G_{i},W_{i},\Sigma_{i},\Omega_{i},\left[1,2n+1\right]\right)\\
+\mathcal{C}_{2n+1}^{\varphi'} & = & \left(G',W',\Sigma',\Omega',\left[1,2n+1\right]\right)\\
+\mathcal{C}_{2n+1}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega',\left[1,2n+1\right]\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+G & \coloneqq & G'\uplus\biguplus_{i=1}^{m}G_{i}\\
+W & \coloneqq & W'\uplus\biguplus_{i=1}^{m}W_{i}\uplus\\
+ &  & \uplus\left\{ \left(\Omega_{i}\left(\bar{t}\right),g\right)\mid g\in G',\,\Sigma'\left(g\right)=R_{i}\bar{t}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+Die Output-Gates der Schaltkreise 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\psi_{i}}$
+\end_inset
+
+ werden mit den 
+\begin_inset Formula $R_{i}\bar{t}$
+\end_inset
+
+-Inputs des Schaltkreises 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi'}$
+\end_inset
+
+ verbunden, und deren Beschriftung zu 
+\begin_inset Formula $\mathtt{AND}$
+\end_inset
+
+ geändert.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\Sigma\left(g\right) & \coloneqq & \begin{cases}
+\mathtt{AND} & \mathrm{falls}\,g\in G',\,\Sigma'\left(g\right)=R_{i}\bar{y}_{i}\\
+\Sigma'\left(g\right) & \mathrm{sonst,\,falls}\,g\in G'\\
+\Sigma_{i}\left(g\right) & \mathrm{sonst,\,falls}\,g\in G_{i}
+\end{cases}
+\end{eqnarray*}
+
+\end_inset
+
+Es gilt 
+\begin_inset Formula $\left\Vert \varphi'\right\Vert +\max\left\Vert \psi_{i}\right\Vert +1\leqslant\left\Vert \varphi\right\Vert $
+\end_inset
+
+ (weil 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ alle diese Teilformeln enthält).
+ Daher ist die Tiefe des neuen Schaltkreises 
+\begin_inset Formula $t\left(2n+1\right)+\left\Vert \varphi\right\Vert $
+\end_inset
+
+, und seine Größe ist in 
+\begin_inset Formula $\mathrm{poly\left(n\right)}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
 \begin_layout Description
 Symmetrie: Der neue Schaltkreis ist offensichtlich nicht symmetrisch bezüglich
  
 \begin_inset Formula $\mathrm{Sym}_{U'}$
 \end_inset
 
-, denn die Anzahl der konstanten Vorgänger von 
+, denn die Anzahl der konstanten Vorgänger jedes Majority-Gates 
 \begin_inset Formula $g_{\bar{t}}$
 \end_inset
 
@@ -9857,7 +10027,6 @@ Für
 
 \end_layout
 
-\begin_deeper
 \begin_layout Enumerate
 Für 
 \begin_inset Formula $\Omega$
@@ -9871,30 +10040,6 @@ Für
 \end_layout
 
 \end_deeper
-\end_deeper
-\begin_layout Description
-Größe: 
-\begin_inset Formula 
-\begin{eqnarray*}
-T\left(\mathcal{C}_{2n+1}^{\varphi}\right) & \leqslant & 1+T\left(\mathcal{C}_{2n+1}^{\psi}\right)\\
- & \overset{\mathrm{Ann.}}{\leqslant} & 1+\left\Vert \psi\right\Vert +t\left(2n+1\right)\leqslant\left\Vert \varphi\right\Vert +t\left(2n+1\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\begin{eqnarray*}
-\left|\mathcal{C}_{2n+1}^{\varphi}\right| & \leqslant & \left(2n+1\right)^{k}+2n+\left|\mathcal{C}_{2n+1}^{\psi}\right|\\
- & \overset{\mathrm{Ann.}}{\leqslant} & \left(2n+1\right)^{k}+2n+\left\Vert \psi\right\Vert \left(\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}+2n\right)+s\left(2n+1\right)\\
- & \leqslant & \left\Vert \varphi\right\Vert \left(\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}+2n\right)+s\left(2n+1\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
 \end_deeper
 \begin_layout Proof
 Nach der Erzeugung von 
@@ -9941,24 +10086,8 @@ reference "lem:oracle-circuit"
 ).
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Fixpunktlogik
-\end_layout
-
-\begin_layout Standard
-In diesem Abschnitt werden wir die bereits gezeigten Konstruktionen auf
- Fixpunktlogik erweitern.
-\end_layout
-
-\begin_layout Subsection
-Eine Sequenz von erststufigen Formeln
 \end_layout
 
 \begin_layout Standard
@@ -10044,307 +10173,6 @@ key "Dawar1995c,Kolaitis1992,Kolaitis1992b"
  eine endliche Länge.)
 \end_layout
 
-\begin_layout Lemma
-\begin_inset CommandInset label
-LatexCommand label
-name "lem:lfp-inf"
-
-\end_inset
-
-Für jede 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- mit 
-\begin_inset Formula $\left\Vert \varphi\right\Vert =c$
-\end_inset
-
- und jedes 
-\begin_inset Formula $n\in\mathbb{N}$
-\end_inset
-
- existiert eine 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\hat{\varphi}$
-\end_inset
-
- mit 
-\begin_inset Formula $\left|\mathrm{var}\left(\varphi_{n}\right)\right|\leqslant2\left|\mathrm{var}\left(\varphi\right)\right|$
-\end_inset
-
-, so dass 
-\begin_inset Formula $\models_{n}\left(\hat{\varphi}\leftrightarrow\varphi\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Proof
-Sei 
-\begin_inset Formula $\varphi$
-\end_inset
-
- eine 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
-\end_inset
-
--Formel.
- Es wird induktiv über den Aufbau von 
-\begin_inset Formula $\varphi$
-\end_inset
-
- vorgegangen, wobei nur der Fall 
-\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
-\end_inset
-
- nicht-trivial ist.
-\end_layout
-
-\begin_layout Proof
-Falls 
-\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
-\end_inset
-
- für eine 
-\begin_inset Formula $k$
-\end_inset
-
--stellige Relationsvariable 
-\begin_inset Formula $X\in\mathbf{var}_{2}$
-\end_inset
-
-, 
-\begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
-\end_inset
-
-, eine 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\psi$
-\end_inset
-
- und ein 
-\begin_inset Formula $k$
-\end_inset
-
--Tupel von 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
-\end_inset
-
--Termen 
-\begin_inset Formula $\bar{y}$
-\end_inset
-
-, so existiert per Annahme eine 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\hat{\psi}$
-\end_inset
-
- mit 
-\begin_inset Formula $\models_{n}\left(\hat{\psi}\leftrightarrow\psi\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Proof
-Sei 
-\begin_inset Formula $\bar{u}\in\mathbf{var}^{k}\backslash\mathrm{frei}\left(\psi\right)$
-\end_inset
-
- ein Tupel von Variablen, die nicht frei in 
-\begin_inset Formula $\hat{\psi}$
-\end_inset
-
- vorkommen.
- Sei die Sequenz 
-\begin_inset Formula $\left(\psi_{i}\right)_{i\in\mathbb{N}}$
-\end_inset
-
- induktiv wie folgt definiert:
-\begin_inset Formula 
-\begin{eqnarray*}
-\psi^{0} & \coloneqq & \neg\bar{x}\dot{=}\bar{x}\\
-\psi^{i+1} & \coloneqq & \hat{\psi}^{\left(\frac{X\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}\\
-\chi^{i}\left(\bar{t}\right) & \coloneqq & \exists\bar{u}\left(\bar{t}=\bar{u}\wedge\exists\bar{x}\left(\bar{u}=\bar{x}\wedge\psi^{i}\right)\right)
-\end{eqnarray*}
-
-\end_inset
-
-Hierbei sei 
-\begin_inset Formula $\hat{\psi}^{\left(\frac{X\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}$
-\end_inset
-
- die Formel, die aus 
-\begin_inset Formula $\hat{\psi}$
-\end_inset
-
- entsteht, indem jedes Atom 
-\begin_inset Formula $X\bar{t}$
-\end_inset
-
- (für irgendein 
-\begin_inset Formula $\bar{t}\in\mathbf{var}^{k}$
-\end_inset
-
-) durch 
-\begin_inset Formula $\chi^{i}\left(\bar{t}\right)$
-\end_inset
-
- ersetzt wird.
- (Der Zwischenschritt über 
-\begin_inset Formula $\bar{u}$
-\end_inset
-
- ist notwendig, weil 
-\begin_inset Formula $\bar{t}$
-\end_inset
-
- und 
-\begin_inset Formula $\bar{z}$
-\end_inset
-
- zum Teil die gleichen Variablen enthalten könnten, und daher ihr Geltungsbereic
-h nicht überlappen darf.)
-\end_layout
-
-\begin_layout Proof
-Nun definieren wir die Formel 
-\begin_inset Formula $\hat{\varphi}$
-\end_inset
-
- wie folgt:
-\end_layout
-
-\begin_layout Proof
-\begin_inset Formula 
-\[
-\hat{\varphi}\coloneqq\exists\bar{x}\left(\bar{x}=\bar{y}\wedge\psi^{n^{k}}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Description
-Korrektheit: Sei 
-\begin_inset Formula $F:2^{A^{k}}\rightarrow2^{A^{k}}$
-\end_inset
-
- wie in Definition 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "def:lfp"
-
-\end_inset
-
- definiert.
- Außerdem sei 
-\begin_inset Formula $\left(Y_{i}\right)_{i\in\mathbb{N}}$
-\end_inset
-
- wie folgt: 
-\begin_inset Formula 
-\[
-Y_{i}\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\psi^{i}\left[\bar{a}\right]\right\} 
-\]
-
-\end_inset
-
-Wir weisen induktiv nach, dass 
-\begin_inset Formula $Y_{i}=F^{i}\left(\emptyset\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_deeper
-\begin_layout Itemize
-\begin_inset Formula $\psi^{0}=\neg\bar{x}\dot{=}\bar{x}$
-\end_inset
-
- ist offensichtlich unerfüllbar, und erkennt daher die Relation 
-\begin_inset Formula $Y_{0}=\emptyset=F^{0}\left(\emptyset\right)$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Itemize
-Sei 
-\begin_inset Formula $i\in\mathbb{N}$
-\end_inset
-
- beliebig.
- Per Definition gilt:
-\begin_inset Formula 
-\begin{eqnarray*}
-\bar{a}\in Y_{i+1} & \Leftrightarrow & \mathfrak{A}\models\psi^{i+1}\left[\bar{a}\right]\\
- & \Leftrightarrow & \mathfrak{A}\models\hat{\psi}^{\left(\frac{X\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}\left[\bar{a}\right]
-\end{eqnarray*}
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\left\{ \bar{a}\mid\mathfrak{A}\models\chi^{i}\left[\bar{a}\right]\right\} =\left\{ \bar{a}\mid\mathfrak{A}\models\psi^{i+1}\left[\bar{a}\right]\right\} =Y_{i}
-\]
-
-\end_inset
-
-Und daher:
-\begin_inset Formula 
-\begin{eqnarray*}
-\bar{a}\in Y_{i+1} & \Leftrightarrow & \mathfrak{A}\models\hat{\psi}^{\left(X\mapsto Y_{i}\right)}\left[\bar{a}\right]\\
- & \overset{\mathrm{Ann.}}{\Leftrightarrow} & \mathfrak{A}\models\hat{\psi}^{\left(X\mapsto F^{i}\left(\emptyset\right)\right)}\left[\bar{a}\right]\\
- & \overset{\mathrm{Def.\ref{def:lfp}}}{\Leftrightarrow} & \bar{a}\in F^{i+1}\left(\emptyset\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Schließlich folgt 
-\begin_inset Formula $Y_{n^{k}}=F^{n^{k}}\left(\emptyset\right)=F^{\infty}\left(\emptyset\right)$
-\end_inset
-
-, da 
-\begin_inset Formula $\left|F^{\infty}\left(\emptyset\right)\right|\leqslant n^{k}$
-\end_inset
-
-.
- Daher gilt:
-\begin_inset Formula 
-\begin{eqnarray*}
-\left\llbracket \hat{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{a}\right) & = & \left\llbracket \exists\bar{u}\left(\bar{u}=\bar{y}\wedge\psi^{n^{k}}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)\\
- & = & \left\llbracket X\bar{y}\right\rrbracket \left(\mathfrak{A},\left(X\mapsto F^{\infty}\left(\emptyset\right),\bar{y}\mapsto\bar{a}\right)\right)\\
- & \overset{\mathrm{Def.\ref{def:lfp}}}{=} & \left\llbracket \left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\end_deeper
 \begin_layout Standard
 Leider sind diese Formeln noch zu lang: Wenn das Symbol 
 \begin_inset Formula $R$
@@ -10557,34 +10385,6 @@ reference "lem:lfp-fo-normalform"
  vereinigt wird.
 \end_layout
 
-\begin_layout Standard
-Wir nutzen die Normalform und den Beweis von Lemma 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:lfp-inf"
-
-\end_inset
-
- aus, um aus einer 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- direkt einen 
-\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
-\end_inset
-
--Schaltkreis zu erzeugen, der die richtige Tiefe und Größe hat.
- Wir formulieren die Konstruktion für allgemeine Logiken 
-\begin_inset Formula $\mathcal{L}$
-\end_inset
-
- unter Voraussetzung einer entsprechenden Schaltkreisklasse konstanter Tiefe.
-\end_layout
-
 \begin_layout Lemma
 \begin_inset CommandInset label
 LatexCommand label
@@ -10703,6 +10503,15 @@ In Kombination mit dem Rest dieses Kapitels folgt dann:
 \begin{eqnarray*}
 \mathrm{LFP}+\mathbf{ORD} & \subseteq & \mathrm{SBC}^{P}\\
 \mathrm{LFP}+\mathbf{ARB} & \subseteq & \mathrm{SBC}^{P/\mathrm{poly}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{LFP}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}\\
+\mathrm{LFP}+\mathbf{ARB}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P/\mathrm{poly}}
 \end{eqnarray*}
 
 \end_inset
@@ -10977,14 +10786,6 @@ Korrektheit: Es wird induktiv bewiesen, dass
 \end_inset
 
  berechnet.
- Der Beweis funktioniert analog zu dem von Lemma 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:lfp-inf"
-
-\end_inset
-
-:
 \begin_inset Formula 
 \[
 q_{\mathcal{D}^{0}}\left(\mathfrak{A}\right)=F^{0}\left(\emptyset\right)=\emptyset
@@ -11269,127 +11070,92 @@ reference "lem:fo-circuit"
  erhalten.
 \end_layout
 
-\begin_layout Subsection
-Fixpunktlogik mit Zählquantoren
+\begin_layout Chapter
+Partitionen und Träger
 \end_layout
 
 \begin_layout Standard
-Wir haben im letzten Abschnitt eine Normalform vorausgesetzt, die aber nur
- für die Logiken 
-\begin_inset Formula $\mathrm{LFP}$
+Unsere Konstruktion der logischen Formel aus einer Schaltkreisfamilie wird
+ voraussetzen, dass jedes Gate 
+\begin_inset Formula $g$
 \end_inset
 
- und 
-\begin_inset Formula $\mathrm{LFP}+\Upsilon$
+ unter allen Bijektionen 
+\begin_inset Formula $\pi:A\rightleftarrows U$
 \end_inset
 
- nachgewiesen ist.
- Den Spezialfall 
-\begin_inset Formula $\mathrm{LFP}+C$
+ ausgewertet wird.
+ Wir stehen zunächst vor dem Problem, dass es 
+\begin_inset Formula $\left|\mathrm{Bij}\left(A,U\right)\right|=n!\in\Omega\left(2^{n}\right)$
 \end_inset
 
- betrachten wir gesondert, und weisen nach, dass die Konstruktion aus Lemma
+ solche Bijektionen gibt.
+ Um sie für jedes Gate auf eine 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-beschränkte Zahl zu reduzieren, möchten wir gerne nachweisen, dass die
  
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:counting-circuit"
-
+\begin_inset Formula $n!$
 \end_inset
 
- mit dem Fixpunkt-Operator kombinierbar ist.
-\begin_inset Formula 
-\begin{eqnarray*}
-\mathrm{LFP}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}\\
-\mathrm{LFP}+\mathbf{ARB}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P/\mathrm{poly}}
-\end{eqnarray*}
-
+ Bijektionen bezüglich jedem Gate in 
+\begin_inset Formula $\frac{n!}{\left(n-k\right)!}$
 \end_inset
 
+ verschiedene Äquivalenzklassen der Größe 
+\begin_inset Formula $\left(n-k\right)!$
+\end_inset
 
+ (mit 
+\begin_inset Formula $k\in\mathcal{O}\left(1\right)$
+\end_inset
+
+) fallen (und einen effizienten Algorithmus finden, der die Repräsentanten
+ dieser Äquivalenzklassen erzeugt).
 \end_layout
 
-\begin_layout Lemma
-Sei 
-\begin_inset Formula $\mathcal{L}+\Upsilon$
+\begin_layout Standard
+In dem Ergebnis von Martin Otto in 1997
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Otto1997"
+
 \end_inset
 
- eine Logik und 
-\begin_inset Formula $\mathcal{K}$
+ setzt er eine lokale polynomielle Beschränkung der Orbits jedes Gates voraus,
+ und leitet für diese Schaltkreisfamilien eine Charakterisierung durch das
+ variablen-beschränkte Fragment der infinitären Logik 
+\begin_inset Formula $L_{\infty\omega}^{\omega}$
 \end_inset
 
- eine Komplexitätsklasse mit 
-\begin_inset Formula $P\subseteq\mathcal{K}$
-\end_inset
-
-, so dass für jede 
-\begin_inset Formula $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$
-\end_inset
-
--Formel eine 
-\begin_inset Formula $\mathcal{K}$
-\end_inset
-
--uniforme, symmetrische 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
-\end_inset
-
--Schaltkreisfamilie mit polynomiell beschränkter Tiefe und Größe 
-\begin_inset Formula $t\left(n\right),s\left(n\right)\in\mathrm{poly}\left(n\right)$
-\end_inset
-
- existiert, die die gleiche Anfrage beschreibt.
+ her.
 \end_layout
 
-\begin_layout Lemma
-Dann existiert für jede 
-\begin_inset Formula $\left(\mathcal{L}+\Upsilon+C\right)\left[\sigma\right]$
+\begin_layout Standard
+Das Ergebnis von Anderson und Dawar 2014
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AD2014"
+
 \end_inset
 
--Formel 
-\begin_inset Formula $\varphi$
+ beschränkt sich auf symmetrische Schaltkreisfamilien mit polynomieller
+ Größe (und daher automatisch polynomiell beschränkten Orbits).
+ Hier wird für jedes Gate nachgewiesen, dass sein Wert nur von 
+\begin_inset Formula $\mathcal{O}\left(1\right)$
 \end_inset
 
- eine entsprechende 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
+ vielen Elementen des Universums 
+\begin_inset Formula $U$
 \end_inset
 
--Schaltkreisfamilie 
+ abhängt, und daraus eine Charakterisierung durch die Fixpunktlogik abgeleitet.
 \end_layout
 
-\begin_layout Proof
-Induktiv über den Aufbau von 
-\begin_inset Formula $\varphi$
-\end_inset
-
-:
-\end_layout
-
-\begin_deeper
-\begin_layout Case
-Falls 
-\begin_inset Formula $\varphi$
-\end_inset
-
- eine 
-\begin_inset Formula $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$
-\end_inset
-
--Formel ohne Zählquantor ist, dann folgt die Behauptung direkt aus der Vorausset
-zung.
- 
-\end_layout
-
-\begin_layout Case
-Falls 
-\begin_inset Formula $\varphi=\exists^{\geqslant y}x$
-\end_inset
-
-
-\end_layout
-
-\end_deeper
-\begin_layout Chapter
-Partitionen und Träger
+\begin_layout Standard
+Hierfür werden zunächst die Begriffe der Partition, des Stabilisators und
+ des Trägers eingeführt.
 \end_layout
 
 \begin_layout Section
@@ -11503,7 +11269,7 @@ Sei
 \begin_inset Formula $\mathcal{P}$
 \end_inset
 
- ist feiner als 
+ ist mindestens so fein wie 
 \begin_inset Formula $\mathcal{P}'$
 \end_inset
 
@@ -11545,7 +11311,7 @@ Dies ist äquivalent zu der Teilmengenbeziehung von
 \end_layout
 
 \begin_layout Definition
-Unter Bezug auf die Teilmengenbeziehung der Äquivalenzrelation bildet 
+Genau wie die Teilmengenbeziehung der Äquivalenzrelation bildet 
 \begin_inset Formula $\preceq$
 \end_inset
 
@@ -11561,14 +11327,14 @@ Daher bildet
 \begin_inset Formula $\mathrm{Part}_{U}$
 \end_inset
 
- einen vollständigen Verband
+ einen vollständigen Verband (siehe 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Klein-Barmen1935"
 
 \end_inset
 
- mit den folgenden Infimum- und Supremum-Operationen 
+) mit den folgenden Infimum- und Supremum-Operationen 
 \begin_inset Formula $\sqcap$
 \end_inset
 
@@ -12997,7 +12763,7 @@ Das Ergebnis von Anderson und Dawar beruht auf einem Theorem, das eine konstante
 \end_layout
 
 \begin_layout Standard
-Wir stellen zunächst das sogenannte Support-Theorem vor:
+Wir stellen hierfür das sogenannte Support-Theorem vor:
 \end_layout
 
 \begin_layout Theorem
@@ -13105,475 +12871,6 @@ s\coloneqq\max_{g\in G}\mathrm{Orb}_{\mathcal{C}}\left(g\right)\leqslant\left|\m
 
 Damit ist 
 \begin_inset Formula $\mathrm{S}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}\leqslant\frac{33}{\epsilon}\frac{k\log n}{\log n}=\frac{33k}{\epsilon}\in\mathcal{O}\left(1\right)$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Lemma
-\begin_inset CommandInset label
-LatexCommand label
-name "lem:lemma-19"
-
-\end_inset
-
-(
-\end_layout
-
-\begin_layout Lemma
-Für 
-\begin_inset Formula $\epsilon\in\mathbb{R}_{\left[0,1\right[}$
-\end_inset
-
-, jedes hinreichend große Universum 
-\begin_inset Formula $U=\left[1,n\right]$
-\end_inset
-
- mit 
-\begin_inset Formula $n\geqslant\exp\frac{4}{\epsilon}$
-\end_inset
-
- und jede Partition 
-\begin_inset Formula $\mathcal{P}\in\mathrm{Part}_{U}$
-\end_inset
-
- gilt:
-\end_layout
-
-\begin_layout Lemma
-Falls der Index des Mengenstabilisators von 
-\begin_inset Formula $\mathcal{P}$
-\end_inset
-
- subexponentiell in 
-\begin_inset Formula $n$
-\end_inset
-
- ist,
-\begin_inset Formula 
-\[
-s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-n\leqslant s\leqslant2^{n^{1-\epsilon}}
-\]
-
-\end_inset
-
-dann enthält 
-\begin_inset Formula $\mathcal{P}$
-\end_inset
-
- entweder 
-\begin_inset Formula $\mathcal{O}\left(n^{1-\epsilon}\right)$
-\end_inset
-
- oder 
-\begin_inset Formula $n-\mathcal{O}\left(n^{1-\epsilon}\right)$
-\end_inset
-
- viele Elemente.
-\begin_inset Formula 
-\[
-\min\left\{ \left|\mathcal{P}\right|,n-\left|\mathcal{P}\right|\right\} \leqslant\frac{8}{\epsilon}\frac{\log s}{\log n}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Lemma
-\begin_inset CommandInset label
-LatexCommand label
-name "lem:lemma-20"
-
-\end_inset
-
-(Lemma 20 aus 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "AD2014"
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Lemma
-Für 
-\begin_inset Formula $\epsilon\in\mathbb{R}_{\left[0,1\right[}$
-\end_inset
-
-, jedes hinreichend große Universum 
-\begin_inset Formula $U\coloneqq\left[1,n\right]$
-\end_inset
-
- mit 
-\begin_inset Formula $n\geqslant\exp\frac{8}{\epsilon^{2}}$
-\end_inset
-
- und jede Partition 
-\begin_inset Formula $\mathcal{P}$
-\end_inset
-
- mit mit 
-\begin_inset Formula $\left|\mathcal{P}\right|\leqslant\frac{n}{2}$
-\end_inset
-
- gilt:
-\end_layout
-
-\begin_layout Lemma
-Falls der Index des Mengenstabilisators von 
-\begin_inset Formula $\mathcal{P}$
-\end_inset
-
- subexponentiell in 
-\begin_inset Formula $n$
-\end_inset
-
- ist, 
-\begin_inset Formula 
-\[
-s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-n\leqslant s\leqslant2^{n^{1-\epsilon}}
-\]
-
-\end_inset
-
-dann enthält das mächtigste Element von 
-\begin_inset Formula $\mathcal{P}$
-\end_inset
-
- alles bis auf einen sublinearen Teil des Universums: 
-\begin_inset Formula 
-\[
-\max\left\{ \left|P\right|\mid P\in\mathcal{P}\right\} \geqslant n-\frac{33}{\epsilon}\cdot\frac{\log s}{\log n}\geqslant n-\frac{33}{\epsilon}n^{1-\epsilon}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-Sei 
-\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
-\end_inset
-
- ein rigider, symmetrischer Schaltkreis über dem Universum 
-\begin_inset Formula $U$
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_deeper
-\begin_layout Enumerate
-Der 
-\series bold
-Stabilisator
-\series default
- eines Gates 
-\begin_inset Formula $g\in G$
-\end_inset
-
- sei die Gruppe aller Permutationen von 
-\begin_inset Formula $U$
-\end_inset
-
-, deren induzierter Automorphismus 
-\begin_inset Formula $v$
-\end_inset
-
- fixiert: 
-\begin_inset Formula 
-\[
-\mathrm{Stab}_{\mathcal{C}}\left(g\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\hat{\pi}g=g\right\} 
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
-Eine Partition 
-\begin_inset Formula $\mathcal{P}$
-\end_inset
-
- von 
-\begin_inset Formula $U$
-\end_inset
-
- sei 
-\series bold
-Träger
-\series default
- von 
-\begin_inset Formula $g\in G$
-\end_inset
-
-, wenn sie ein Träger von 
-\begin_inset Formula $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
-\end_inset
-
- ist.
- Sei 
-\begin_inset Formula $\mathrm{SP}\left(g\right)\coloneqq\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
-\end_inset
-
- der gröbste Träger von 
-\begin_inset Formula $g$
-\end_inset
-
-.
- (Wenn 
-\begin_inset Formula $g$
-\end_inset
-
- zum Beispiel von allen induzierten Automorphismen fixiert wird, dann ist
- 
-\begin_inset Formula $\mathrm{SP}\left(g\right)=\mathcal{P}_{\max}=\left\{ U\right\} $
-\end_inset
-
-.)
-\end_layout
-
-\begin_layout Enumerate
-Der 
-\series bold
-Orbit
-\series default
- von 
-\begin_inset Formula $g\in G$
-\end_inset
-
- sei die Menge der Gates, auf die 
-\begin_inset Formula $g$
-\end_inset
-
- durch einen Automorphismus abgebildet wird:
-\begin_inset Formula 
-\[
-\mathrm{Orb}_{\mathcal{C}}\left(g\right)\coloneqq\left\{ \hat{\pi}g\mid\pi\in\mathrm{Sym}_{U}\right\} 
-\]
-
-\end_inset
-
- 
-\end_layout
-
-\end_deeper
-\begin_layout --Separator--
-
-\end_layout
-
-\begin_layout Definition
-Für 
-\begin_inset Formula $X=\left\{ x_{1},\cdots,x_{k}\right\} \subseteq U$
-\end_inset
-
- sei 
-\begin_inset Formula $\mathcal{P}_{X}\coloneqq\left\{ \left\{ x_{1}\right\} ,\cdots,\left\{ x_{k}\right\} ,U\backslash X\right\} $
-\end_inset
-
- die gröbste Partition, die jedes Element 
-\begin_inset Formula $x\in X$
-\end_inset
-
- von jedem anderen Element 
-\begin_inset Formula $u\in U$
-\end_inset
-
- trennt.
-\end_layout
-
-\begin_layout Definition
-Für eine Partition 
-\begin_inset Formula $\mathcal{P}\in\mathrm{Part}_{U}$
-\end_inset
-
- und jede Menge 
-\begin_inset Formula $P\in\mathcal{P}$
-\end_inset
-
- ist offensichtlich 
-\begin_inset Formula $\mathcal{P}_{U\backslash P}\preceq\mathcal{P}$
-\end_inset
-
- eine feinere Partition als 
-\begin_inset Formula $\mathcal{P}$
-\end_inset
-
-: Es bleibt 
-\begin_inset Formula $P=U\backslash\left(U\backslash P\right)\in\mathcal{P}\cap\mathcal{P}_{P}$
-\end_inset
-
- erhalten, und alle übrigen Mengen werden in einzelne Elemente aufgeteilt.
-\end_layout
-
-\begin_layout Definition
-Sei 
-\begin_inset Formula $\left\Vert \mathcal{P}\right\Vert \coloneqq\left|U\right|-\max_{P\in\mathcal{P}}\left(P\right)$
-\end_inset
-
- die Summe der Größen aller Mengen außer der größten.
- Somit ist 
-\begin_inset Formula $1+\left\Vert \mathcal{P}\right\Vert $
-\end_inset
-
- die minimale Größe einer Partition 
-\begin_inset Formula $\mathcal{P}_{P}$
-\end_inset
-
-, die aus 
-\begin_inset Formula $\mathcal{P}$
-\end_inset
-
- entsteht: Die größte Partition bleibt unverändert, während alle kleineren
- aufgeteilt werden.
-\end_layout
-
-\begin_layout Definition
-Wir benutzen die Abkürzung 
-\begin_inset Formula $\mathrm{SP}\left(\mathcal{C}\right)$
-\end_inset
-
- für einen Schaltkreis 
-\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
-\end_inset
-
- wie folgt:
-\begin_inset Formula 
-\[
-\mathrm{SP}\left(\mathcal{C}\right)\coloneqq\max_{g\in G}\left(\left\Vert \mathrm{SP}\left(g\right)\right\Vert \right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Definition
-Für 
-\begin_inset Formula $X,X'\subseteq U$
-\end_inset
-
- gilt 
-\begin_inset Formula $X\subseteq X'\Leftrightarrow\mathcal{P}_{X'}\preceq\mathcal{P}_{X}$
-\end_inset
-
-.
- Die größere Teilmenge 
-\begin_inset Formula $X'$
-\end_inset
-
- trennt mehr Elemente von 
-\begin_inset Formula $U$
-\end_inset
-
- voneinander, und ist somit feiner.
-\end_layout
-
-\begin_layout Standard
-Anderson und Dawar verwenden die beschriebenen Lemmata (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:lemma-19"
-
-\end_inset
-
- und 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:lemma-20"
-
-\end_inset
-
-), um eine obere Schranke für den Träger jedes Gates 
-\begin_inset Formula $g$
-\end_inset
-
- nachzuweisen:
-\end_layout
-
-\begin_layout Lemma
-(Theorem 21 aus 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "AD2014"
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Lemma
-Für 
-\begin_inset Formula $\epsilon\in\mathbb{R}_{\left[\frac{2}{3},1\right]}$
-\end_inset
-
-, 
-\begin_inset Formula $n>2^{\frac{56}{\epsilon^{2}}}$
-\end_inset
-
-, 
-\begin_inset Formula $U=\left[1,n\right]$
-\end_inset
-
- und einen rigiden (siehe Definition 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "def:rigid"
-
-\end_inset
-
-) symmetrischen Schaltkreis 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- über 
-\begin_inset Formula $U$
-\end_inset
-
- gilt:
-\end_layout
-
-\begin_layout Lemma
-Wenn der Orbit jedes Gates subexponentiell ist (für ein 
-\begin_inset Formula $\mathcal{C}$
-\end_inset
-
- mit 
-\begin_inset Formula $\mathrm{poly}\left(n\right)$
-\end_inset
-
--Größe garantiert),
-\begin_inset Formula 
-\[
-s\coloneqq\max_{g\in G}\left(\mathrm{Orb}_{\mathcal{C}}\left(g\right)\right)\leqslant2^{n^{1-\epsilon}}
-\]
-
-\end_inset
-
-dann gilt 
-\begin_inset Formula $\mathrm{SP}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$
 \end_inset
 
 .
@@ -17348,7 +16645,7 @@ reference "thm:fo"
  voneinander trennt.
 \end_layout
 
-\begin_layout Lemma
+\begin_layout Theorem
 
 \series bold
 \begin_inset CommandInset label
@@ -17357,19 +16654,19 @@ name "lem:fo-arb-ac0"
 
 \end_inset
 
-Makowsky (1997)
+Neil Immerman (1987)
 \series default
 
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Makowsky1997-FO,AMSS2012-locality"
+key "Immerman1987"
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Lemma
+\begin_layout Theorem
 Die Klasse 
 \begin_inset Formula $\mathrm{AC}^{0}$
 \end_inset
@@ -17382,26 +16679,34 @@ Die Klasse
 \end_layout
 
 \begin_layout Standard
-Der verwendete Teil des Beweises (hier nicht ausgeführt) ist die Konstruktion
+Der verwendete Teil des Beweises (hier nur skizziert) ist die Konstruktion
  einer Formel für eine beliebige 
 \begin_inset Formula $\mathrm{AC}^{0}$
 \end_inset
 
 -Schaltkreisfamilie.
- Dazu wird jeder Schaltkreis in eine alternierende Normalform gebracht,
- wonach jeder der 
-\begin_inset Formula $\left|\mathcal{C}\right|^{T\left(\mathcal{C}\right)}$
+ Dazu wird jeder Schaltkreis in eine alternierende Normalform der Tiefe
+ 
+\begin_inset Formula $d$
 \end_inset
 
- Wege von einem Input zu einem Output durch ein numerisches Tupel kodiert
- wird (die Relation dieser Wege ist ein numerisches Prädikat und daher in
- 
-\begin_inset Formula $\mathrm{FO}\left(\mathrm{arb}\right)$
+ gebracht, in der jedes Gate 
+\begin_inset Formula $n^{k}$
+\end_inset
+
+ Vorgänger hat.
+ Die 
+\begin_inset Formula $n^{kd}$
+\end_inset
+
+ Wege von einem Input zu einem Output werden durch numerische Tupel kodiert
+ (die Relation dieser Wege ist ein numerisches Prädikat und daher in 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
 \end_inset
 
 -Logik verwendbar).
- Die Formel muss dann nur noch über jede der alternierenden Ebenen des Schaltkre
-ises quantifizieren (mit 
+ Die Formel muss dann über jede der alternierenden Ebenen des Schaltkreises
+ quantifizieren (mit 
 \begin_inset Formula $\exists$
 \end_inset
 
@@ -17425,45 +16730,35 @@ ises quantifizieren (mit
 \end_layout
 
 \begin_layout Standard
-Aus dem Lemma lesen wir direkt ab, dass 
+Da per Definition offensichtlich 
+\begin_inset Formula $\mathrm{SAC}^{0}\subseteq\mathrm{AC}^{0}$
+\end_inset
+
+ gilt, können wir mit 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}\subseteq\mathrm{SAC}^{0}$
+\end_inset
+
+ direkt ablesen, dass 
 \begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
 \end_inset
 
- in der arb-invarianten 
-\begin_inset Formula $\mathrm{FO}\left(\mathrm{arb}\right)$
+ in 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
 \end_inset
 
--Logik enthalten ist (und beweisen somit Teil 1 des Theorems 
+ enthalten ist (und beweisen somit Teil 1 des Theorems 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:fo-arb"
 
 \end_inset
 
-): Eine 
-\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+): Die Logik erster Stufe mit disjunktem 
+\begin_inset Formula $\mathbf{ARB}$
 \end_inset
 
--Formel ist per Theorem 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "thm:fo"
-
-\end_inset
-
-) durch eine symmetrische 
-\begin_inset Formula $\mathrm{AC}^{0}$
-\end_inset
-
--Schaltkreisfamilie beschreibbar, und die symmetrische 
-\begin_inset Formula $\mathrm{AC}^{0}$
-\end_inset
-
--Schaltkreise sind per Definition in 
-\begin_inset Formula $\mathrm{AC}^{0}$
-\end_inset
-
- enthalten.
+-Orakel ist verständlicherweise nicht stärker als die mit nicht-disjunktem
+ Orakel.
 \end_layout
 
 \begin_layout Standard
@@ -17474,15 +16769,15 @@ reference "thm:fo-arb"
 
 \end_inset
 
-) benötigen wir eine Anfrage, die durch eine arb-invariante 
-\begin_inset Formula $\mathrm{FO}\left(\mathrm{arb}\right)$
+) benötigen wir eine Anfrage, die in 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
 \end_inset
 
--Formel beschrieben wird, jedoch nicht in 
+ beschreibbar ist, jedoch nicht in 
 \begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
 \end_inset
 
- definierbar ist.
+ beschreibbar ist.
  Per Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -17490,7 +16785,7 @@ reference "lem:fo-arb-ac0"
 
 \end_inset
 
- ist diese Anfrage in 
+ ist diese Anfrage dann in 
 \begin_inset Formula $\mathrm{AC}^{0}$
 \end_inset
 
@@ -17501,8 +16796,8 @@ reference "thm:fo"
 
 \end_inset
 
- nicht im symmetrischen Teil von 
-\begin_inset Formula $\mathrm{AC}^{0}$
+ nicht in 
+\begin_inset Formula $\mathrm{SAC}^{0}$
 \end_inset
 
  beschreibbar.
@@ -17513,17 +16808,50 @@ Es existiert eine Graph-Anfrage
 \begin_inset Formula $q$
 \end_inset
 
-, die durch eine definierbar ist.
-\end_layout
+, die in 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+\end_inset
 
-\begin_layout Proof
-Es sei [...]
+-definierbar ist, aber nicht in 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+ beschreibbar ist.
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage pagebreak
+Sei 
+\begin_inset Formula $S\subseteq\mathbf{FIN}\left(\left\{ E\right\} \right)$
 \end_inset
 
+ die Klasse der Graphen 
+\begin_inset Formula $\mathfrak{A}=\left(A,E^{\mathfrak{A}}\right)$
+\end_inset
+
+ für die gilt: 
+\begin_inset Formula $A$
+\end_inset
+
+ enthält mindestens 
+\begin_inset Formula $\left\lceil \mathrm{log}\left|A\right|\right\rceil $
+\end_inset
+
+ viele nicht-isolierte Knoten.
+\end_layout
+
+\begin_layout Claim
+Es existiert eine 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+\end_inset
+
+-Formel, die 
+\begin_inset Formula $S$
+\end_inset
+
+ definiert.
+\end_layout
+
+\begin_layout Claim
 
 \end_layout
 
@@ -17534,13 +16862,6 @@ btprint "btPrintAll"
 bibfiles "master"
 options "plain"
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
 \end_inset
 
 

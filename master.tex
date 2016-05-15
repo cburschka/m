@@ -4,7 +4,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
-\geometry{verbose,bmargin=0.2\paperheight}
+\geometry{verbose,bmargin=0.15\paperheight}
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 \setlength{\parskip}{\medskipamount}
@@ -180,8 +180,9 @@ Konkret ist die Klasse der symmetrischen $P$-uniformen booleschen
 Schaltkreisfamilien $\mathrm{SBC}^{P}$ äquivalent zu der Logik erster
 Stufe mit Fixpunkt-Operator und disjunktem Ordnungsprädikat $\mathrm{FP}+\mathbf{ORD}$.
 Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar\cite{AD2014}
-(als Erweiterung eines Ergebnisses von Martin Otto in 1997\cite{Otto1997})
-veröffentlicht, und bildet die Grundlage dieser Arbeit.
+(nach einem ähnlichen Ergebnis für infinitäre Logik von Martin Otto
+in 1997\cite{Otto1997}) veröffentlicht, und bildet die Grundlage
+dieser Arbeit.
 
 Die logische Zählerweiterung $\mathrm{FP}+C$ charakterisiert die
 Schaltkreisklasse $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}$ mit
@@ -200,8 +201,8 @@ Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen
 \item $\mathrm{FP}+\mathbf{ARB}$ und $\mathrm{SBC}^{P/\mathrm{poly}}$
 \end{enumerate}
 \end{thm}
-Wir erweitern dieses Ergebnis für Schaltkreisfamilien konstanter Tiefe.
-Es wird eine Charakterisierung der $\mathrm{LOGSPACE}$-uniformen
+Ein ähnliches Ergebnis gibt es für Schaltkreisfamilien konstanter
+Tiefe. Es wird eine Charakterisierung der $\mathrm{LOGSPACE}$-uniformen
 symmetrischen $\mathrm{AC}^{0}$-Schaltkreisfamilien ($\left(\mathrm{SAC}^{0}\right)^{\mathrm{LOGSPACE}}$)
 durch die Logik $\mathrm{FO}+\mathbf{BIT}$ mit disjunktem $\mathtt{BIT}$-Prädikat
 nachgewiesen.
@@ -215,12 +216,12 @@ Strukturen äquivalent:
 \end{enumerate}
 \end{thm}
 Die Einschränkung auf symmetrische Schaltkreisfamilien bringt im Allgemeinen
-eine Reduktion der Ausdrucksstärke mit sich. Insbesondere werden (nach
-Johann Makowsky, 1997-1998 \cite{Makowsky1997-FO,Makowsky1998-LFP})
-die Klassen $\mathrm{AC}^{0}$ und $P/\mathrm{poly}$ ohne Symmetrie-Einschränkung
-durch die arb-invarianten Logiken $\mathrm{FO}\left(\mathbf{ARB}\right)$
-und $\mathrm{FP}\left(\mathbf{ARB}\right)$ charakterisiert. $\mathrm{FO}\left(\mathbf{ARB}\right)$
-ist jedoch echt ausdrucksstärker als die disjunkte Variante $\mathrm{FO}+\mathbf{ARB}$:
+eine Reduktion der Ausdrucksstärke mit sich. So wird die Klasse $\mathrm{AC}^{0}$
+durch die invariante Logik $\mathrm{FO}\left(\mathbf{ARB}\right)$
+(Neil Immerman, 1987\cite{Immerman1987}), und $P/\mathrm{poly}$
+durch $\mathrm{FP}\left(\mathbf{ARB}\right)$ (Johann Makowsky, 1997\cite{Makowsky1997-FO,Makowsky1998-LFP})
+charakterisiert. $\mathrm{FO}\left(\mathbf{ARB}\right)$ ist jedoch
+echt ausdrucksstärker als die disjunkte Variante $\mathrm{FO}+\mathbf{ARB}$:
 \begin{thm}
 \label{thm:fo-arb}Für die $\mathrm{FO}+\mathbf{ARB}$-Logik und die
 arb-invariante $\mathrm{FO}\left(\mathbf{ARB}\right)$-Logik gilt:
@@ -1534,8 +1535,6 @@ E\,i\,j & \mathrm{f\ddot{u}r}\,\,g=g_{i,j}\\
 \end{figure}
 
 \end{example*}
-\pagebreak{}
-
 
 \section{Eigenschaften von Schaltkreisen}
 \begin{defn}
@@ -1742,8 +1741,6 @@ Markierung $\Sigma\left(g\right)=\Sigma\left(g'\right)$ und $\Omega^{-1}\left(g\
 erlaubt die nicht-injektive Definition von $\Omega$, dass $g'$ entfernt
 wird und für alle $\bar{t}\in\Omega^{-1}\left(g'\right)$ stattdessen
 $\Omega\left(\bar{t}\right)\coloneqq g$ gesetzt wird.
-
-\pagebreak{}
 
 
 \section{Eigenschaften von Schaltkreisfamilien}
@@ -2214,8 +2211,6 @@ $\mathrm{FO}\left[\sigma\right]$-Formeln.}
 \end{algorithm}
 
 
-\pagebreak{}
-
 
 \section{Disjunkte numerische Erweiterungen}
 
@@ -2388,7 +2383,7 @@ werden kann, indem Majority-Gates hinzugefügt werden.
 eine boolesche Basis und $\mathcal{K}\supseteq\mathrm{LOGSPACE}$
 eine Komplexitätsklasse, so dass für jede $\mathcal{L}\left[\sigma\right]$-Formel
 eine symmetrische, $\mathcal{K}$-uniforme $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
-mit $t\left(n\right)$-Tiefe und $s\left(n\right)$-Größe (mit $s\mathrm{\left(n\right)\in\mathrm{poly}\left(n\right)}$)
+mit $t\left(n\right)$-Tiefe und $\mathrm{poly}\left(n\right)$-Größe
 existiert, die die gleiche Anfrage beschreibt.
 
 Sei $\eta$ eine von $\sigma$ disjunkte Signatur und $\Upsilon$
@@ -2397,11 +2392,7 @@ ein $\mathcal{K}$-uniformes $\eta$-Orakel.
 Dann existiert für jede $\left(\mathcal{L}+\Upsilon+C\right)\left[\sigma\right]$
 eine ebensolche $\left(\sigma,\mathbb{B}\cup\left\{ \mathtt{MAJ}\right\} \right)$-Schaltkreisfamilie
 mit der Tiefe $t'\left(n\right)\coloneqq t\left(2n+1\right)+\left\Vert \varphi\right\Vert $
-und der folgenden Größe: 
-\[
-s'\left(n\right)\coloneqq s\left(2n+1\right)+\left(2n+\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}\right)\left\Vert \varphi\right\Vert \in\mathrm{poly}\left(n\right)
-\]
-
+und $\mathrm{poly}\left(n\right)$-Größe: 
 \end{lem}
 Insbesondere folgt aus der Kombination mit Lemma \ref{lem:fo-circuit}
 und Lemma \ref{lem:oracle-circuit}:
@@ -2414,19 +2405,25 @@ Wir werden in diesem Fall konkret mit $\exists^{\geqslant}$-Quantoren
 arbeiten, denn per Satz \ref{prop:counting-equal} sind diese gleich
 ausdrucksstark mit $\exists^{=}$-Quantoren und $\#$-Termen.
 \begin{proof}
-Sei $\varphi$ eine $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel.
-Wir gehen analog zu Lemma \ref{lem:oracle-circuit} für $\mathcal{L}+\Upsilon$
-vor, erweitern aber die Konstruktion aus der Voraussetzung um den
-folgenden Schritt:
-
-Falls $\varphi\left(\bar{x}\right)=\exists^{\geqslant x_{i}}y_{j}\psi\left(\bar{y}\right)$
+Sei $\varphi$ eine $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
+und $n\in\mathbb{N}$ die gewünschte Eingabegröße. Wir gehen analog
+zu Lemma \ref{lem:oracle-circuit} für $\mathcal{L}+\Upsilon$ vor
+und erzeugen einen $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}\cup\left\{ \mathtt{MAJ}\right\} \right)$-Schaltkreis
+über $U'=\left[1,2n+1\right]$, wobei wir aber die folgende induktive
+Konstruktion verwenden:
+\begin{casenv}
+\item Falls $\varphi\left(\bar{x}\right)$ eine $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$-Formel
+ohne $\exists^{\geqslant}$-Quantor ist, so existiert der $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}\right)$-Schaltkreisfamilie
+$\mathcal{C}_{2n+1}^{\varphi}$ per Voraussetzung.
+\item Falls $\varphi\left(\bar{x}\right)=\exists^{\geqslant x_{i}}y_{j}\psi\left(\bar{y}\right)$
 mit $\bar{x}\in\mathbf{var}^{k}$, so sei $\mathcal{C}_{2n+1}^{\psi}$
-der $k$-stellige Schaltkreis für die Formel $\psi$:
+der Schaltkreis für die Formel $\psi$ (dieser hat per Annahme die
+Tiefe $t\left(2n+1\right)+\left\Vert \psi\right\Vert $ und Größe
+$s\left(n\right)\in\mathrm{poly}\left(n\right)$).
 \[
 \mathcal{C}_{2n+1}^{\psi}=\left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U'\right)
 \]
 Wir erzeugen den folgenden Schaltkreis $\mathcal{C}_{2n+1}^{\varphi}$:
-
 \begin{eqnarray*}
 \mathcal{C}_{2n+1}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U'\right)
 \end{eqnarray*}
@@ -2495,14 +2492,56 @@ W_{\mathrm{pad}} & = & \left\{ \left(0_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{
 \begin{eqnarray*}
 \overset{n+k=2\rho^{-1}t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{k=2\rho^{-1}t_{i}-n}{\underbrace{\mathbf{0}\mathbf{0}\cdots\mathbf{0}}}}} &  & \overset{n+k'=2n-2\rho^{-1}t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{k'=n-2\rho^{-1}t_{i}}{\underbrace{\mathbf{1}\mathbf{1}\cdots\mathbf{1}}}}}
 \end{eqnarray*}
+Der neue Schaltkreis hat die Tiefe $t\left(2n+1\right)+\left\Vert \psi\right\Vert +1\leqslant t\left(2n+1\right)+\left\Vert \varphi\right\Vert $
+und der Größe $s\left(n\right)+n^{k}+2n\in\mathrm{poly}\left(n\right)$.
+\item Falls $\varphi\left(\bar{x}\right)$ eine andere $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
+ist, so seien $\psi_{1}\left(\bar{y}_{1}\right),\cdots,\psi_{m}\left(\bar{y}_{m}\right)$
+alle größten\footnote{d.h. solche, die nicht selbst in einer Teilformel der gleichen Form
+enthalten sind.} Teilformeln von $\varphi$ der Form $\psi_{i}=\exists^{\geqslant u_{i}}v_{i}\chi_{i}$.
+Wir ersetzen diese Teilformeln durch neue Atome $R_{1}\bar{y}_{1},\cdots,R_{m}\bar{y}_{m}$
+und erhalten eine $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\uplus\left\{ R_{1},\cdots,R_{m}\right\} \right]$-Formel
+$\varphi'$, die per Voraussetzung zu einer $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}\right)$-Schaltkreisfamilie
+$\mathcal{C}_{2n+1}^{\varphi'}$ wird. (Eine solche Suche im Syntax-Baum
+der Formel hat $\mathrm{LOGSPACE}$-Komplexität.)
 
+
+Per Annahme existiert für jede der Teilformeln $\psi_{1},\cdots,\psi_{m}$
+ein Schaltkreis $\mathcal{C}_{2n+1}^{\psi_{i}}$. Wir erzeugen den
+Schaltkreis $\mathcal{C}_{2n+1}^{\varphi}$ aus der disjunkten Vereinigung
+wie folgt:
+\begin{eqnarray*}
+\mathcal{C}_{2n+1}^{\psi_{i}} & = & \left(G_{i},W_{i},\Sigma_{i},\Omega_{i},\left[1,2n+1\right]\right)\\
+\mathcal{C}_{2n+1}^{\varphi'} & = & \left(G',W',\Sigma',\Omega',\left[1,2n+1\right]\right)\\
+\mathcal{C}_{2n+1}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega',\left[1,2n+1\right]\right)
+\end{eqnarray*}
+\begin{eqnarray*}
+G & \coloneqq & G'\uplus\biguplus_{i=1}^{m}G_{i}\\
+W & \coloneqq & W'\uplus\biguplus_{i=1}^{m}W_{i}\uplus\\
+ &  & \uplus\left\{ \left(\Omega_{i}\left(\bar{t}\right),g\right)\mid g\in G',\,\Sigma'\left(g\right)=R_{i}\bar{t}\right\} 
+\end{eqnarray*}
+Die Output-Gates der Schaltkreise $\mathcal{C}_{2n+1}^{\psi_{i}}$
+werden mit den $R_{i}\bar{t}$-Inputs des Schaltkreises $\mathcal{C}_{2n+1}^{\varphi'}$
+verbunden, und deren Beschriftung zu $\mathtt{AND}$ geändert. 
+\begin{eqnarray*}
+\Sigma\left(g\right) & \coloneqq & \begin{cases}
+\mathtt{AND} & \mathrm{falls}\,g\in G',\,\Sigma'\left(g\right)=R_{i}\bar{y}_{i}\\
+\Sigma'\left(g\right) & \mathrm{sonst,\,falls}\,g\in G'\\
+\Sigma_{i}\left(g\right) & \mathrm{sonst,\,falls}\,g\in G_{i}
+\end{cases}
+\end{eqnarray*}
+Es gilt $\left\Vert \varphi'\right\Vert +\max\left\Vert \psi_{i}\right\Vert +1\leqslant\left\Vert \varphi\right\Vert $
+(weil $\varphi$ alle diese Teilformeln enthält). Daher ist die Tiefe
+des neuen Schaltkreises $t\left(2n+1\right)+\left\Vert \varphi\right\Vert $,
+und seine Größe ist in $\mathrm{poly\left(n\right)}$.
+
+\end{casenv}
 \begin{description}
 \item [{Symmetrie:}] Der neue Schaltkreis ist offensichtlich nicht symmetrisch
 bezüglich $\mathrm{Sym}_{U'}$, denn die Anzahl der konstanten Vorgänger
-von $g_{\bar{t}}$ hängt von dem Wert $t_{i}$ ab. Allerdings ist
-er symmetrisch bezüglich der Permutationen, die die Werte in $\left[n+1,2n+1\right]$
-fixieren, denn für alle übrigen Werte von $t_{i}$ ist das Gate $g_{\bar{t}}$
-eine $\mathbf{0}$-Konstante. 
+jedes Majority-Gates $g_{\bar{t}}$ hängt von dem Wert $t_{i}$ ab.
+Allerdings ist er symmetrisch bezüglich der Permutationen, die die
+Werte in $\left[n+1,2n+1\right]$ fixieren, denn für alle übrigen
+Werte von $t_{i}$ ist das Gate $g_{\bar{t}}$ eine $\mathbf{0}$-Konstante. 
 
 
 Sei $\pi\in\mathrm{Sym}_{U}$ beliebig, und $\pi'\coloneqq\pi\cup\mathbf{id}_{\left[n+1,2n+1\right]}$
@@ -2548,23 +2587,9 @@ Das gleiche gilt analog für die Kanten $\left(\hat{\pi}1_{j},\hat{\pi}g_{\bar{t
  & = & \Sigma\left(g_{\bar{t}}\right)
 \end{eqnarray*}
 
-
-\begin{enumerate}
 \item Für $\Omega$ ist $\hat{\pi}\Omega\left(\bar{t}\right)=\hat{\pi}g_{\bar{t}}=g_{\pi'\bar{t}}=\Omega\left(\pi'\bar{t}\right)$
 per Definition gegeben.
 \end{enumerate}
-\end{enumerate}
-\item [{Größe:}] 
-\begin{eqnarray*}
-T\left(\mathcal{C}_{2n+1}^{\varphi}\right) & \leqslant & 1+T\left(\mathcal{C}_{2n+1}^{\psi}\right)\\
- & \overset{\mathrm{Ann.}}{\leqslant} & 1+\left\Vert \psi\right\Vert +t\left(2n+1\right)\leqslant\left\Vert \varphi\right\Vert +t\left(2n+1\right)
-\end{eqnarray*}
-\begin{eqnarray*}
-\left|\mathcal{C}_{2n+1}^{\varphi}\right| & \leqslant & \left(2n+1\right)^{k}+2n+\left|\mathcal{C}_{2n+1}^{\psi}\right|\\
- & \overset{\mathrm{Ann.}}{\leqslant} & \left(2n+1\right)^{k}+2n+\left\Vert \psi\right\Vert \left(\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}+2n\right)+s\left(2n+1\right)\\
- & \leqslant & \left\Vert \varphi\right\Vert \left(\left(2n+1\right)^{\mathrm{var}\left(\varphi\right)}+2n\right)+s\left(2n+1\right)
-\end{eqnarray*}
-
 \end{description}
 Nach der Erzeugung von $\mathcal{C}_{2n+1}^{\varphi}$ wird der Schaltkreis
 auf die bereits beschriebene Weise zu $\dot{\mathcal{C}_{n}^{\varphi}}$
@@ -2577,16 +2602,8 @@ $\pi\cup\mathbf{id}_{\left[n+1,2n+1\right]}$ mit $\pi\in\mathrm{Sym}_{\left[1,n\
 einen Automorphismus besitzt, ist der Schaltkreis $\dot{\mathcal{C}_{n}^{\varphi}}$
 symmetrisch (siehe Lemma \ref{lem:oracle-circuit}).
 \end{proof}
-\pagebreak{}
-
 
 \section{Fixpunktlogik}
-
-In diesem Abschnitt werden wir die bereits gezeigten Konstruktionen
-auf Fixpunktlogik erweitern.
-
-
-\subsection{Eine Sequenz von erststufigen Formeln}
 
 Die Fixpunktlogik $\mathrm{LFP}\left[\sigma\right]$ ist echt ausdrucksstärker
 als die Logik $\mathrm{FO}\left[\sigma\right]$. Beispielsweise ist
@@ -2605,88 +2622,7 @@ $k$-Variablen-Fragment der infinitären Logik $L_{\infty\omega}^{k}$,
 welches die Fixpunktlogik einschließt\cite{Dawar1995c,Kolaitis1992,Kolaitis1992b}.
 In unserer Definition hat jedoch jede einzelne Formel $\varphi_{n}$
 eine endliche Länge.)
-\begin{lem}
-\label{lem:lfp-inf}Für jede $\mathrm{LFP}\left[\sigma\right]$-Formel
-$\varphi$ mit $\left\Vert \varphi\right\Vert =c$ und jedes $n\in\mathbb{N}$
-existiert eine $\mathrm{FO}\left[\sigma\right]$-Formel $\hat{\varphi}$
-mit $\left|\mathrm{var}\left(\varphi_{n}\right)\right|\leqslant2\left|\mathrm{var}\left(\varphi\right)\right|$,
-so dass $\models_{n}\left(\hat{\varphi}\leftrightarrow\varphi\right)$.\end{lem}
-\begin{proof}
-Sei $\varphi$ eine $\mathrm{LFP}\left[\sigma\right]$-Formel. Es
-wird induktiv über den Aufbau von $\varphi$ vorgegangen, wobei nur
-der Fall $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
-nicht-trivial ist.
 
-Falls $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
-für eine $k$-stellige Relationsvariable $X\in\mathbf{var}_{2}$,
-$\bar{x}\in\mathbf{var}^{k}$, eine $\mathrm{LFP}\left[\sigma\right]$-Formel
-$\psi$ und ein $k$-Tupel von $\mathrm{LFP}\left[\sigma\right]$-Termen
-$\bar{y}$, so existiert per Annahme eine $\mathrm{FO}\left[\sigma\right]$-Formel
-$\hat{\psi}$ mit $\models_{n}\left(\hat{\psi}\leftrightarrow\psi\right)$.
-
-Sei $\bar{u}\in\mathbf{var}^{k}\backslash\mathrm{frei}\left(\psi\right)$
-ein Tupel von Variablen, die nicht frei in $\hat{\psi}$ vorkommen.
-Sei die Sequenz $\left(\psi_{i}\right)_{i\in\mathbb{N}}$ induktiv
-wie folgt definiert:
-\begin{eqnarray*}
-\psi^{0} & \coloneqq & \neg\bar{x}\dot{=}\bar{x}\\
-\psi^{i+1} & \coloneqq & \hat{\psi}^{\left(\frac{X\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}\\
-\chi^{i}\left(\bar{t}\right) & \coloneqq & \exists\bar{u}\left(\bar{t}=\bar{u}\wedge\exists\bar{x}\left(\bar{u}=\bar{x}\wedge\psi^{i}\right)\right)
-\end{eqnarray*}
-Hierbei sei $\hat{\psi}^{\left(\frac{X\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}$
-die Formel, die aus $\hat{\psi}$ entsteht, indem jedes Atom $X\bar{t}$
-(für irgendein $\bar{t}\in\mathbf{var}^{k}$) durch $\chi^{i}\left(\bar{t}\right)$
-ersetzt wird. (Der Zwischenschritt über $\bar{u}$ ist notwendig,
-weil $\bar{t}$ und $\bar{z}$ zum Teil die gleichen Variablen enthalten
-könnten, und daher ihr Geltungsbereich nicht überlappen darf.)
-
-Nun definieren wir die Formel $\hat{\varphi}$ wie folgt:
-
-\[
-\hat{\varphi}\coloneqq\exists\bar{x}\left(\bar{x}=\bar{y}\wedge\psi^{n^{k}}\right)
-\]
-
-\begin{description}
-\item [{Korrektheit:}] Sei $F:2^{A^{k}}\rightarrow2^{A^{k}}$ wie in Definition
-\ref{def:lfp} definiert. Außerdem sei $\left(Y_{i}\right)_{i\in\mathbb{N}}$
-wie folgt: 
-\[
-Y_{i}\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\psi^{i}\left[\bar{a}\right]\right\} 
-\]
-Wir weisen induktiv nach, dass $Y_{i}=F^{i}\left(\emptyset\right)$.
-
-\begin{itemize}
-\item $\psi^{0}=\neg\bar{x}\dot{=}\bar{x}$ ist offensichtlich unerfüllbar,
-und erkennt daher die Relation $Y_{0}=\emptyset=F^{0}\left(\emptyset\right)$.
-\item Sei $i\in\mathbb{N}$ beliebig. Per Definition gilt:
-\begin{eqnarray*}
-\bar{a}\in Y_{i+1} & \Leftrightarrow & \mathfrak{A}\models\psi^{i+1}\left[\bar{a}\right]\\
- & \Leftrightarrow & \mathfrak{A}\models\hat{\psi}^{\left(\frac{X\bar{t}}{\chi^{i}\left(\bar{t}\right)}\right)}\left[\bar{a}\right]
-\end{eqnarray*}
-\[
-\left\{ \bar{a}\mid\mathfrak{A}\models\chi^{i}\left[\bar{a}\right]\right\} =\left\{ \bar{a}\mid\mathfrak{A}\models\psi^{i+1}\left[\bar{a}\right]\right\} =Y_{i}
-\]
-Und daher:
-\begin{eqnarray*}
-\bar{a}\in Y_{i+1} & \Leftrightarrow & \mathfrak{A}\models\hat{\psi}^{\left(X\mapsto Y_{i}\right)}\left[\bar{a}\right]\\
- & \overset{\mathrm{Ann.}}{\Leftrightarrow} & \mathfrak{A}\models\hat{\psi}^{\left(X\mapsto F^{i}\left(\emptyset\right)\right)}\left[\bar{a}\right]\\
- & \overset{\mathrm{Def.\ref{def:lfp}}}{\Leftrightarrow} & \bar{a}\in F^{i+1}\left(\emptyset\right)
-\end{eqnarray*}
-
-\end{itemize}
-
-Schließlich folgt $Y_{n^{k}}=F^{n^{k}}\left(\emptyset\right)=F^{\infty}\left(\emptyset\right)$,
-da $\left|F^{\infty}\left(\emptyset\right)\right|\leqslant n^{k}$.
-Daher gilt:
-\begin{eqnarray*}
-\left\llbracket \hat{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{a}\right) & = & \left\llbracket \exists\bar{u}\left(\bar{u}=\bar{y}\wedge\psi^{n^{k}}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)\\
- & = & \left\llbracket X\bar{y}\right\rrbracket \left(\mathfrak{A},\left(X\mapsto F^{\infty}\left(\emptyset\right),\bar{y}\mapsto\bar{a}\right)\right)\\
- & \overset{\mathrm{Def.\ref{def:lfp}}}{=} & \left\llbracket \left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\bar{a}\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)
-\end{eqnarray*}
-
-
-\end{description}
-\end{proof}
 Leider sind diese Formeln noch zu lang: Wenn das Symbol $R$ mehr
 als einmal in $\psi$ vorkommt, ist $\left\Vert \psi_{i+1}\right\Vert \geqslant2\left\Vert \psi_{i}\right\Vert $,
 und daher wächst die Formellänge mit $\left\Vert \varphi\right\Vert \geqslant2^{n^{k}}$
@@ -2733,13 +2669,6 @@ zu einer Formel $\hat{\varphi}'$ der obigen Form ist, dann gilt diese
 Äquivalenz insbesondere auch für die Auswertung von $\varphi$ auf
 einer $\sigma$-Struktur $\mathfrak{A}$, die disjunkt mit der $\eta$-Struktur
 $\Upsilon\left(\left|A\right|\right)$ vereinigt wird.
-
-Wir nutzen die Normalform und den Beweis von Lemma \ref{lem:lfp-inf}
-aus, um aus einer $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$
-direkt einen $\left(\sigma,\mathbb{B}\right)$-Schaltkreis zu erzeugen,
-der die richtige Tiefe und Größe hat. Wir formulieren die Konstruktion
-für allgemeine Logiken $\mathcal{L}$ unter Voraussetzung einer entsprechenden
-Schaltkreisklasse konstanter Tiefe.
 \begin{lem}
 \label{lem:lfp-circ}Sei $\mathcal{L}$ eine Logik, $\sigma$ eine
 relationale Signatur und $\mathbb{B}$ eine boolesche Basis, so dass
@@ -2768,6 +2697,10 @@ In Kombination mit dem Rest dieses Kapitels folgt dann:
 \begin{eqnarray*}
 \mathrm{LFP}+\mathbf{ORD} & \subseteq & \mathrm{SBC}^{P}\\
 \mathrm{LFP}+\mathbf{ARB} & \subseteq & \mathrm{SBC}^{P/\mathrm{poly}}
+\end{eqnarray*}
+\begin{eqnarray*}
+\mathrm{LFP}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}\\
+\mathrm{LFP}+\mathbf{ARB}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P/\mathrm{poly}}
 \end{eqnarray*}
 
 \begin{proof}
@@ -2835,7 +2768,7 @@ Schließlich sei $\mathcal{C}_{n}^{\varphi}\coloneqq\mathcal{D}^{n^{k}}$.
 \item [{Korrektheit:}] Es wird induktiv bewiesen, dass $\mathcal{D}^{i}$
 auf $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ die $\sigma$-Anfrage
 $q_{\mathcal{D}^{i}}\left(\mathfrak{A}\right)=F^{i}\left(\emptyset\right)$
-berechnet. Der Beweis funktioniert analog zu dem von Lemma \ref{lem:lfp-inf}:
+berechnet.
 \[
 q_{\mathcal{D}^{0}}\left(\mathfrak{A}\right)=F^{0}\left(\emptyset\right)=\emptyset
 \]
@@ -2915,37 +2848,33 @@ $n^{k}\left(t+1\right)+m$ und Größe $n^{k}\left(s\left(n\right)+m\right)+1$
 erhalten.
 \end{proof}
 
-\subsection{Fixpunktlogik mit Zählquantoren}
-
-Wir haben im letzten Abschnitt eine Normalform vorausgesetzt, die
-aber nur für die Logiken $\mathrm{LFP}$ und $\mathrm{LFP}+\Upsilon$
-nachgewiesen ist. Den Spezialfall $\mathrm{LFP}+C$ betrachten wir
-gesondert, und weisen nach, dass die Konstruktion aus Lemma \ref{lem:counting-circuit}
-mit dem Fixpunkt-Operator kombinierbar ist.
-\begin{eqnarray*}
-\mathrm{LFP}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}\\
-\mathrm{LFP}+\mathbf{ARB}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P/\mathrm{poly}}
-\end{eqnarray*}
-
-\begin{lem}
-Sei $\mathcal{L}+\Upsilon$ eine Logik und $\mathcal{K}$ eine Komplexitätsklasse
-mit $P\subseteq\mathcal{K}$, so dass für jede $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$-Formel
-eine $\mathcal{K}$-uniforme, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-mit polynomiell beschränkter Tiefe und Größe $t\left(n\right),s\left(n\right)\in\mathrm{poly}\left(n\right)$
-existiert, die die gleiche Anfrage beschreibt.
-
-Dann existiert für jede $\left(\mathcal{L}+\Upsilon+C\right)\left[\sigma\right]$-Formel
-$\varphi$ eine entsprechende $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie \end{lem}
-\begin{proof}
-Induktiv über den Aufbau von $\varphi$:
-\begin{casenv}
-\item Falls $\varphi$ eine $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$-Formel
-ohne Zählquantor ist, dann folgt die Behauptung direkt aus der Voraussetzung. 
-\item Falls $\varphi=\exists^{\geqslant y}x$
-\end{casenv}
-\end{proof}
-
 \chapter{Partitionen und Träger}
+
+Unsere Konstruktion der logischen Formel aus einer Schaltkreisfamilie
+wird voraussetzen, dass jedes Gate $g$ unter allen Bijektionen $\pi:A\rightleftarrows U$
+ausgewertet wird. Wir stehen zunächst vor dem Problem, dass es $\left|\mathrm{Bij}\left(A,U\right)\right|=n!\in\Omega\left(2^{n}\right)$
+solche Bijektionen gibt. Um sie für jedes Gate auf eine $\mathrm{poly}\left(n\right)$-beschränkte
+Zahl zu reduzieren, möchten wir gerne nachweisen, dass die $n!$ Bijektionen
+bezüglich jedem Gate in $\frac{n!}{\left(n-k\right)!}$ verschiedene
+Äquivalenzklassen der Größe $\left(n-k\right)!$ (mit $k\in\mathcal{O}\left(1\right)$)
+fallen (und einen effizienten Algorithmus finden, der die Repräsentanten
+dieser Äquivalenzklassen erzeugt).
+
+In dem Ergebnis von Martin Otto in 1997\cite{Otto1997} setzt er eine
+lokale polynomielle Beschränkung der Orbits jedes Gates voraus, und
+leitet für diese Schaltkreisfamilien eine Charakterisierung durch
+das variablen-beschränkte Fragment der infinitären Logik $L_{\infty\omega}^{\omega}$
+her.
+
+Das Ergebnis von Anderson und Dawar 2014\cite{AD2014} beschränkt
+sich auf symmetrische Schaltkreisfamilien mit polynomieller Größe
+(und daher automatisch polynomiell beschränkten Orbits). Hier wird
+für jedes Gate nachgewiesen, dass sein Wert nur von $\mathcal{O}\left(1\right)$
+vielen Elementen des Universums $U$ abhängt, und daraus eine Charakterisierung
+durch die Fixpunktlogik abgeleitet.
+
+Hierfür werden zunächst die Begriffe der Partition, des Stabilisators
+und des Trägers eingeführt.
 
 
 \section{Partitionen einer Menge}
@@ -2969,8 +2898,9 @@ Als nächstes wird die \textbf{Feinheit} als Relation auf $\mathrm{Part}_{U}$
 eingeführt.
 \begin{defn}
 \label{def:feinheit}Sei $\mathcal{P}\preceq\mathcal{P}'$ (,,$\mathcal{P}$
-ist feiner als $\mathcal{P}'$``) genau dann wenn jedes $P_{i}\in\mathcal{P}$
-eine Teilmenge eines $P'_{j}\in\mathcal{P}'$ ist.
+ist mindestens so fein wie $\mathcal{P}'$``) genau dann wenn jedes
+$P_{i}\in\mathcal{P}$ eine Teilmenge eines $P'_{j}\in\mathcal{P}'$
+ist.
 
 Dies ist äquivalent zu der Teilmengenbeziehung von $\sim_{\mathcal{P}}$
 und $\sim_{\mathcal{P}'}$: 
@@ -2981,12 +2911,12 @@ und $\sim_{\mathcal{P}'}$:
 \end{eqnarray*}
 
 
-Unter Bezug auf die Teilmengenbeziehung der Äquivalenzrelation bildet
-$\preceq$ eine Halbordnung auf $\mathrm{Part}_{U}$.
+Genau wie die Teilmengenbeziehung der Äquivalenzrelation bildet $\preceq$
+eine Halbordnung auf $\mathrm{Part}_{U}$.
 
-Daher bildet $\mathrm{Part}_{U}$ einen vollständigen Verband\cite{Klein-Barmen1935}
-mit den folgenden Infimum- und Supremum-Operationen $\sqcap$ und
-$\sqcup$:
+Daher bildet $\mathrm{Part}_{U}$ einen vollständigen Verband (siehe
+\cite{Klein-Barmen1935}) mit den folgenden Infimum- und Supremum-Operationen
+$\sqcap$ und $\sqcup$:
 \begin{eqnarray*}
 \mathcal{A}\sqcap\mathcal{B} & \coloneqq & \max_{\preceq}\left\{ \mathcal{P}\in\mathrm{Part}_{U}\mid\mathcal{P}\preceq\mathcal{A}\,\mathrm{und}\,\mathcal{P}\preceq\mathcal{B}\right\} \\
 \mathcal{A}\sqcup\mathcal{B} & \coloneqq & \min_{\preceq}\left\{ \mathcal{P}\in\mathrm{Part}_{U}\mid\mathcal{A}\preceq\mathcal{P}\,\mathrm{und}\,\mathcal{B}\preceq\mathcal{P}\right\} 
@@ -3342,7 +3272,7 @@ polynomieller Größe nachweist. Diese konstante Größe führt zu einer
 polynomiell beschränkten Anzahl von Permutationen $\left|\mathrm{Sym}_{\mathrm{S}\left(g\right)}\right|=\left|\mathrm{S}\left(g\right)\right|!\leqslant n^{\left|S\left(g\right)\right|}$
 jeder Trägermenge eines Gates.
 
-Wir stellen zunächst das sogenannte Support-Theorem vor:
+Wir stellen hierfür das sogenannte Support-Theorem vor:
 \begin{thm}
 \textbf{\label{thm:Support-Theorem}Support-Theorem} (Theorem 21 aus
 \cite{AD2014})
@@ -3364,119 +3294,8 @@ offensichtlich:
 \[
 s\coloneqq\max_{g\in G}\mathrm{Orb}_{\mathcal{C}}\left(g\right)\leqslant\left|\mathcal{C}_{n}\right|\leqslant n^{c}<2^{n^{1-\epsilon}}
 \]
-Damit ist $\mathrm{S}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}\leqslant\frac{33}{\epsilon}\frac{k\log n}{\log n}=\frac{33k}{\epsilon}\in\mathcal{O}\left(1\right)$. \end{proof}
-\begin{lem}
-\label{lem:lemma-19}(
-
-Für $\epsilon\in\mathbb{R}_{\left[0,1\right[}$, jedes hinreichend
-große Universum $U=\left[1,n\right]$ mit $n\geqslant\exp\frac{4}{\epsilon}$
-und jede Partition $\mathcal{P}\in\mathrm{Part}_{U}$ gilt:
-
-Falls der Index des Mengenstabilisators von $\mathcal{P}$ subexponentiell
-in $n$ ist,
-\[
-s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}
-\]
-\[
-n\leqslant s\leqslant2^{n^{1-\epsilon}}
-\]
-dann enthält $\mathcal{P}$ entweder $\mathcal{O}\left(n^{1-\epsilon}\right)$
-oder $n-\mathcal{O}\left(n^{1-\epsilon}\right)$ viele Elemente.
-\[
-\min\left\{ \left|\mathcal{P}\right|,n-\left|\mathcal{P}\right|\right\} \leqslant\frac{8}{\epsilon}\frac{\log s}{\log n}
-\]
-
-
-\label{lem:lemma-20}(Lemma 20 aus \cite{AD2014})
-
-Für $\epsilon\in\mathbb{R}_{\left[0,1\right[}$, jedes hinreichend
-große Universum $U\coloneqq\left[1,n\right]$ mit $n\geqslant\exp\frac{8}{\epsilon^{2}}$
-und jede Partition $\mathcal{P}$ mit mit $\left|\mathcal{P}\right|\leqslant\frac{n}{2}$
-gilt:
-
-Falls der Index des Mengenstabilisators von $\mathcal{P}$ subexponentiell
-in $n$ ist, 
-\[
-s\coloneqq\frac{\left|\mathrm{Sym}_{U}\right|}{\left|\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \right|}
-\]
-\[
-n\leqslant s\leqslant2^{n^{1-\epsilon}}
-\]
-dann enthält das mächtigste Element von $\mathcal{P}$ alles bis auf
-einen sublinearen Teil des Universums: 
-\[
-\max\left\{ \left|P\right|\mid P\in\mathcal{P}\right\} \geqslant n-\frac{33}{\epsilon}\cdot\frac{\log s}{\log n}\geqslant n-\frac{33}{\epsilon}n^{1-\epsilon}
-\]
-\end{lem}
-\begin{defn}
-Sei $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ ein rigider, symmetrischer
-Schaltkreis über dem Universum $U$. 
-\begin{enumerate}
-\item Der \textbf{Stabilisator} eines Gates $g\in G$ sei die Gruppe aller
-Permutationen von $U$, deren induzierter Automorphismus $v$ fixiert:
-\[
-\mathrm{Stab}_{\mathcal{C}}\left(g\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\hat{\pi}g=g\right\} 
-\]
-
-\item Eine Partition $\mathcal{P}$ von $U$ sei \textbf{Träger} von $g\in G$,
-wenn sie ein Träger von $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
-ist. Sei $\mathrm{SP}\left(g\right)\coloneqq\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
-der gröbste Träger von $g$. (Wenn $g$ zum Beispiel von allen induzierten
-Automorphismen fixiert wird, dann ist $\mathrm{SP}\left(g\right)=\mathcal{P}_{\max}=\left\{ U\right\} $.)
-\item Der \textbf{Orbit} von $g\in G$ sei die Menge der Gates, auf die
-$g$ durch einen Automorphismus abgebildet wird:
-\[
-\mathrm{Orb}_{\mathcal{C}}\left(g\right)\coloneqq\left\{ \hat{\pi}g\mid\pi\in\mathrm{Sym}_{U}\right\} 
-\]
- 
-\end{enumerate}
-\end{defn}
-
-\begin{defn}
-Für $X=\left\{ x_{1},\cdots,x_{k}\right\} \subseteq U$ sei $\mathcal{P}_{X}\coloneqq\left\{ \left\{ x_{1}\right\} ,\cdots,\left\{ x_{k}\right\} ,U\backslash X\right\} $
-die gröbste Partition, die jedes Element $x\in X$ von jedem anderen
-Element $u\in U$ trennt.
-
-Für eine Partition $\mathcal{P}\in\mathrm{Part}_{U}$ und jede Menge
-$P\in\mathcal{P}$ ist offensichtlich $\mathcal{P}_{U\backslash P}\preceq\mathcal{P}$
-eine feinere Partition als $\mathcal{P}$: Es bleibt $P=U\backslash\left(U\backslash P\right)\in\mathcal{P}\cap\mathcal{P}_{P}$
-erhalten, und alle übrigen Mengen werden in einzelne Elemente aufgeteilt.
-
-Sei $\left\Vert \mathcal{P}\right\Vert \coloneqq\left|U\right|-\max_{P\in\mathcal{P}}\left(P\right)$
-die Summe der Größen aller Mengen außer der größten. Somit ist $1+\left\Vert \mathcal{P}\right\Vert $
-die minimale Größe einer Partition $\mathcal{P}_{P}$, die aus $\mathcal{P}$
-entsteht: Die größte Partition bleibt unverändert, während alle kleineren
-aufgeteilt werden.
-
-Wir benutzen die Abkürzung $\mathrm{SP}\left(\mathcal{C}\right)$
-für einen Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
-wie folgt:
-\[
-\mathrm{SP}\left(\mathcal{C}\right)\coloneqq\max_{g\in G}\left(\left\Vert \mathrm{SP}\left(g\right)\right\Vert \right)
-\]
-
-
-Für $X,X'\subseteq U$ gilt $X\subseteq X'\Leftrightarrow\mathcal{P}_{X'}\preceq\mathcal{P}_{X}$.
-Die größere Teilmenge $X'$ trennt mehr Elemente von $U$ voneinander,
-und ist somit feiner.
-\end{defn}
-Anderson und Dawar verwenden die beschriebenen Lemmata (\ref{lem:lemma-19}
-und \ref{lem:lemma-20}), um eine obere Schranke für den Träger jedes
-Gates $g$ nachzuweisen:
-\begin{lem}
-(Theorem 21 aus \cite{AD2014})
-
-Für $\epsilon\in\mathbb{R}_{\left[\frac{2}{3},1\right]}$, $n>2^{\frac{56}{\epsilon^{2}}}$,
-$U=\left[1,n\right]$ und einen rigiden (siehe Definition \ref{def:rigid})
-symmetrischen Schaltkreis $\mathcal{C}$ über $U$ gilt:
-
-Wenn der Orbit jedes Gates subexponentiell ist (für ein $\mathcal{C}$
-mit $\mathrm{poly}\left(n\right)$-Größe garantiert),
-\[
-s\coloneqq\max_{g\in G}\left(\mathrm{Orb}_{\mathcal{C}}\left(g\right)\right)\leqslant2^{n^{1-\epsilon}}
-\]
-dann gilt $\mathrm{SP}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$. 
-\end{lem}
+Damit ist $\mathrm{S}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}\leqslant\frac{33}{\epsilon}\frac{k\log n}{\log n}=\frac{33k}{\epsilon}\in\mathcal{O}\left(1\right)$. 
+\end{proof}
 
 \chapter{Von Schaltkreisfamilien zu Formeln}
 
@@ -4390,52 +4209,55 @@ von symmetrischem $\mathrm{AC}^{0}$ durch die Logik $\mathrm{FO}+\mathbf{ARB}$,
 die Charakterisierung von $\mathrm{AC}^{0}$ durch die arb-invariante
 $\mathrm{FO}\left(\mathrm{arb}\right)$-Logik, und ein Problem, dass
 die Ausdrucksstärke dieser beiden Logiken voneinander trennt.
-\begin{lem}
-\textbf{\label{lem:fo-arb-ac0}Makowsky (1997)}\cite{Makowsky1997-FO,AMSS2012-locality}
+\begin{thm}
+\textbf{\label{lem:fo-arb-ac0}Neil Immerman (1987)}\cite{Immerman1987}
 
 Die Klasse $\mathrm{AC}^{0}$ ist äquivalent zu der Klasse der durch
 $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-Formeln
 definierbaren Anfragen.
-\end{lem}
-Der verwendete Teil des Beweises (hier nicht ausgeführt) ist die Konstruktion
+\end{thm}
+Der verwendete Teil des Beweises (hier nur skizziert) ist die Konstruktion
 einer Formel für eine beliebige $\mathrm{AC}^{0}$-Schaltkreisfamilie.
-Dazu wird jeder Schaltkreis in eine alternierende Normalform gebracht,
-wonach jeder der $\left|\mathcal{C}\right|^{T\left(\mathcal{C}\right)}$
-Wege von einem Input zu einem Output durch ein numerisches Tupel kodiert
-wird (die Relation dieser Wege ist ein numerisches Prädikat und daher
-in $\mathrm{FO}\left(\mathrm{arb}\right)$-Logik verwendbar). Die
-Formel muss dann nur noch über jede der alternierenden Ebenen des
-Schaltkreises quantifizieren (mit $\exists$ für $\mathtt{OR}$, und
-$\forall$ für $\mathtt{AND}$), und berechnet so die Auswertung von
-$\mathcal{C}$.
+Dazu wird jeder Schaltkreis in eine alternierende Normalform der Tiefe
+$d$ gebracht, in der jedes Gate $n^{k}$ Vorgänger hat. Die $n^{kd}$
+Wege von einem Input zu einem Output werden durch numerische Tupel
+kodiert (die Relation dieser Wege ist ein numerisches Prädikat und
+daher in $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-Logik
+verwendbar). Die Formel muss dann über jede der alternierenden Ebenen
+des Schaltkreises quantifizieren (mit $\exists$ für $\mathtt{OR}$,
+und $\forall$ für $\mathtt{AND}$), und berechnet so die Auswertung
+von $\mathcal{C}$.
 
-Aus dem Lemma lesen wir direkt ab, dass $\mathrm{FO}+\mathbf{ARB}$
-in der arb-invarianten $\mathrm{FO}\left(\mathrm{arb}\right)$-Logik
+Da per Definition offensichtlich $\mathrm{SAC}^{0}\subseteq\mathrm{AC}^{0}$
+gilt, können wir mit $\mathrm{FO}+\mathbf{ARB}\subseteq\mathrm{SAC}^{0}$
+direkt ablesen, dass $\mathrm{FO}+\mathbf{ARB}$ in $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
 enthalten ist (und beweisen somit Teil 1 des Theorems \ref{thm:fo-arb}):
-Eine $\mathrm{FO}+\mathbf{ARB}$-Formel ist per Theorem \ref{thm:fo})
-durch eine symmetrische $\mathrm{AC}^{0}$-Schaltkreisfamilie beschreibbar,
-und die symmetrische $\mathrm{AC}^{0}$-Schaltkreise sind per Definition
-in $\mathrm{AC}^{0}$ enthalten.
+Die Logik erster Stufe mit disjunktem $\mathbf{ARB}$-Orakel ist verständlicherweise
+nicht stärker als die mit nicht-disjunktem Orakel.
 
 Für den echten Einschluss (Teil 2 des Theorems \ref{thm:fo-arb})
-benötigen wir eine Anfrage, die durch eine arb-invariante $\mathrm{FO}\left(\mathrm{arb}\right)$-Formel
-beschrieben wird, jedoch nicht in $\mathrm{FO}+\mathbf{ARB}$ definierbar
-ist. Per Lemma \ref{lem:fo-arb-ac0} ist diese Anfrage in $\mathrm{AC}^{0}$,
-aber per Theorem \ref{thm:fo} nicht im symmetrischen Teil von $\mathrm{AC}^{0}$
-beschreibbar.
+benötigen wir eine Anfrage, die in $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+beschreibbar ist, jedoch nicht in $\mathrm{FO}+\mathbf{ARB}$ beschreibbar
+ist. Per Lemma \ref{lem:fo-arb-ac0} ist diese Anfrage dann in $\mathrm{AC}^{0}$,
+aber per Theorem \ref{thm:fo} nicht in $\mathrm{SAC}^{0}$ beschreibbar.
 \begin{lem}
-Es existiert eine Graph-Anfrage $q$, die durch eine definierbar ist.\end{lem}
-\begin{proof}
-Es sei {[}...{]}
-\end{proof}
-\pagebreak{}
+Es existiert eine Graph-Anfrage $q$, die in $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-definierbar
+ist, aber nicht in $\mathrm{FO}+\mathbf{ARB}$ beschreibbar ist.
+\end{lem}
+Sei $S\subseteq\mathbf{FIN}\left(\left\{ E\right\} \right)$ die Klasse
+der Graphen $\mathfrak{A}=\left(A,E^{\mathfrak{A}}\right)$ für die
+gilt: $A$ enthält mindestens $\left\lceil \mathrm{log}\left|A\right|\right\rceil $
+viele nicht-isolierte Knoten.
+\begin{claim}
+Es existiert eine $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-Formel,
+die $S$ definiert.
 
+
+\end{claim}
 \bibliographystyle{plain}
 \nocite{*}
 \bibliography{master}
 
-
-\pagebreak{}
 
 
 \chapter*{Erklärung}
