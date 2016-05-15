@@ -9,7 +9,6 @@
 \setcounter{tocdepth}{3}
 \setlength{\parskip}{\medskipamount}
 \setlength{\parindent}{0pt}
-\usepackage{refstyle}
 \usepackage{float}
 \usepackage{textcomp}
 \usepackage{mathtools}
@@ -24,22 +23,10 @@
 \makeatletter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
-
-\AtBeginDocument{\providecommand\lemref[1]{\ref{lem:#1}}}
 \floatstyle{ruled}
 \newfloat{algorithm}{tbp}{loa}[chapter]
 \providecommand{\algorithmname}{Algorithmus}
 \floatname{algorithm}{\protect\algorithmname}
-\RS@ifundefined{subref}
-  {\def\RSsubtxt{section~}\newref{sub}{name = \RSsubtxt}}
-  {}
-\RS@ifundefined{thmref}
-  {\def\RSthmtxt{theorem~}\newref{thm}{name = \RSthmtxt}}
-  {}
-\RS@ifundefined{lemref}
-  {\def\RSlemtxt{lemma~}\newref{lem}{name = \RSlemtxt}}
-  {}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Textclass specific LaTeX commands.
 \usepackage{enumitem}		% customizable list environments
@@ -190,44 +177,41 @@ interpretiert werden, und weisen nach, dass solche Logiken gerade
 die verschiedenen Klassen symmetrischer Schaltkreisfamilien charakterisieren.
 
 Konkret ist die Klasse der symmetrischen $P$-uniformen booleschen
-Schaltkreisfamilien $\mathrm{SBC}$ äquivalent zu der Logik erster
-Stufe mit Fixpunkt-Operator und disjunktem Ordnungsprädikat $\mathrm{LFP}+\mathbf{ORD}$.
+Schaltkreisfamilien $\mathrm{SBC}^{P}$ äquivalent zu der Logik erster
+Stufe mit Fixpunkt-Operator und disjunktem Ordnungsprädikat $\mathrm{FP}+\mathbf{ORD}$.
 Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar\cite{AD2014}
 (als Erweiterung eines Ergebnisses von Martin Otto in 1997\cite{Otto1997})
 veröffentlicht, und bildet die Grundlage dieser Arbeit.
 
-Die logische Zählerweiterung $\mathrm{LFP}+C$ charakterisiert die
-symmetrischen Schaltkreisfamilien mit einem Majority-Operator $\mathrm{SBC}+\mathbf{MAJ}$,
-und die Erweiterung der Logik um beliebige numerische Prädikate opfert
-nur die $P$-Uniformität. Diese beiden Erweiterungen sind kombinierbar.
+Die logische Zählerweiterung $\mathrm{FP}+C$ charakterisiert die
+Schaltkreisklasse $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}$ mit
+einem Majority-Gate, und die Erweiterung der Logik um beliebige numerische
+Prädikate $\mathrm{FP}+\mathbf{ARB}$ charakterisiert die nicht-uniforme
+Klasse $\mathrm{SBC}^{P/\mathrm{poly}}$. Diese beiden Erweiterungen
+sind miteinander kombinierbar.
 \begin{thm}
 \textbf{\label{thm:fp}Anderson und Dawar (2014)}
 
 Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen
 äquivalent:
 \begin{enumerate}
-\item Die Fixpunktlogik mit disjunkter Ordnung $\mathrm{LFP}+\mathbf{ORD}$
-und $P$-uniforme symmetrische Schaltkreisfamilien $\mathrm{SBC}$.
-\item Die Fixpunktlogik mit Zählterm $\mathrm{LFP}+C$ und $P$-uniforme
-symmetrische Schaltkreisfamilien mit Majority-Operation $\mathrm{SBC}+\mathbf{MAJ}$.
-\item Die Fixpunktlogik mit beliebigen disjunkten Prädikaten $\mathrm{LFP}+\mathbf{ARB}$
-und $P/\mathrm{poly}$-uniforme Schaltkreisfamilien.
+\item $\mathrm{FP}+\mathbf{ORD}$ und $\mathrm{SBC}^{P}$
+\item $\mathrm{FP}+C$ und $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}$
+\item $\mathrm{FP}+\mathbf{ARB}$ und $\mathrm{SBC}^{P/\mathrm{poly}}$
 \end{enumerate}
 \end{thm}
 Wir erweitern dieses Ergebnis für Schaltkreisfamilien konstanter Tiefe.
 Es wird eine Charakterisierung der $\mathrm{LOGSPACE}$-uniformen
-symmetrischen $\mathrm{AC}^{0}$-Schaltkreisfamilien durch die Logik
-$\mathrm{FO}+\mathbf{BIT}$ mit disjunktem $\mathtt{BIT}$-Prädikat
+symmetrischen $\mathrm{AC}^{0}$-Schaltkreisfamilien ($\left(\mathrm{SAC}^{0}\right)^{\mathrm{LOGSPACE}}$)
+durch die Logik $\mathrm{FO}+\mathbf{BIT}$ mit disjunktem $\mathtt{BIT}$-Prädikat
 nachgewiesen.
 \begin{thm}
 \label{thm:fo}Die folgenden Paare von Anfragenklassen sind auf endlichen
 Strukturen äquivalent:
 \begin{enumerate}
-\item Die Logik $\mathrm{FO}+\mathbf{BIT}$ und $\mathrm{LOGSPACE}$-uniforme
-symmetrische $\mathrm{AC}^{0}$-Schaltkreisfamilien.
-\item Die Logik $\mathrm{FO}+C$ und $\mathrm{LOGSPACE}$-uniforme symmetrische
-$\mathrm{AC}^{0}+\mathbf{MAJ}$-Schaltkreisfamilien.
-\item Die Logik $\mathrm{FO}+\mathbf{ARB}$ und symmetrische $\mathrm{AC}^{0}$-Schaltkreisfamilien.
+\item $\mathrm{FO}+\mathbf{BIT}$ und $\left(\mathrm{SAC}^{0}\right)^{\mathrm{LOGSPACE}}$
+\item $\mathrm{FO}+\mathbf{BIT}+C$ und $\left(\mathrm{SAC}^{0}+\mathbf{MAJ}\right)^{\mathrm{LOGSPACE}}$
+\item $\mathrm{FO}+\mathbf{ARB}$ und $\left(\mathrm{SAC}^{0}+\mathbf{MAJ}\right)^{P/\mathrm{poly}}$
 \end{enumerate}
 \end{thm}
 Die Einschränkung auf symmetrische Schaltkreisfamilien bringt im Allgemeinen
@@ -235,7 +219,7 @@ eine Reduktion der Ausdrucksstärke mit sich. Insbesondere werden (nach
 Johann Makowsky, 1997-1998 \cite{Makowsky1997-FO,Makowsky1998-LFP})
 die Klassen $\mathrm{AC}^{0}$ und $P/\mathrm{poly}$ ohne Symmetrie-Einschränkung
 durch die arb-invarianten Logiken $\mathrm{FO}\left(\mathbf{ARB}\right)$
-und $\mathrm{LFP}\left(\mathbf{ARB}\right)$ charakterisiert. $\mathrm{FO}\left(\mathbf{ARB}\right)$
+und $\mathrm{FP}\left(\mathbf{ARB}\right)$ charakterisiert. $\mathrm{FO}\left(\mathbf{ARB}\right)$
 ist jedoch echt ausdrucksstärker als die disjunkte Variante $\mathrm{FO}+\mathbf{ARB}$:
 \begin{thm}
 \label{thm:fo-arb}Für die $\mathrm{FO}+\mathbf{ARB}$-Logik und die
@@ -873,12 +857,12 @@ $X$-negativ).
 Nun definieren wir die Fixpunkt-Erweiterung.
 \begin{defn}
 \label{def:lfp}Für eine Logik $\mathcal{L}$ und eine relationale
-Signatur $\sigma$ erweitert $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\sigma\right]$
+Signatur $\sigma$ erweitert $\mathrm{LFP}\left(\mathcal{L}\right)\left[\sigma\right]$
 die Logik $\mathcal{L}\left[\sigma\right]$ wie folgt:\end{defn}
 \begin{elabeling}{00.00.0000}
 \item [{(AV)}] Für eine Relationsvariable $X/k\in\mathbf{var}_{2}$ und
-ein $k$-Tupel $\bar{x}$ von $X$-positiven $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\sigma\right]$-Termen
-ist $X\bar{x}$ eine $X$-positive $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\sigma\right]$-Formel.
+ein $k$-Tupel $\bar{x}$ von $X$-positiven $\mathrm{LFP}\left(\mathcal{L}\right)\left[\sigma\right]$-Termen
+ist $X\bar{x}$ eine $X$-positive $\mathrm{LFP\left(\mathcal{L}\right)}\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
 \mathrm{frei}\left(X\bar{x}\right) & \coloneqq & \left\{ X\right\} \cup\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right)\\
 \mathrm{var}\left(X\bar{x}\right) & \coloneqq & \left\{ X\right\} \cup\bigcup_{i=1}^{k}\mathrm{var}\left(x_{i}\right)\\
@@ -888,11 +872,11 @@ ist $X\bar{x}$ eine $X$-positive $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\si
 \end{eqnarray*}
 
 \item [{(LFP)}] Für eine Relationsvariable $X/k\in\mathbf{var}_{2}$, eine
-$X$-positive $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\sigma\right]$-Formel
+$X$-positive $\mathrm{LFP}\left(\mathcal{L}\right)\left[\sigma\right]$-Formel
 $\psi$, ein Tupel $\bar{x}\in\mathbf{var}^{k}$ und ein $k$-Tupel
-$\bar{y}$ von $X$-positiven $\mathrm{\left(\mathcal{L}+\mathrm{LFP}\right)}\left[\sigma\right]$-Termen
+$\bar{y}$ von $X$-positiven $\mathrm{\mathrm{LFP}\left(\mathcal{L}\right)}\left[\sigma\right]$-Termen
 ist $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
-eine $X$-positive $\left(\mathrm{\mathcal{L}+\mathrm{LFP}}\right)\left[\sigma\right]$-Formel.
+eine $X$-positive $\mathrm{LFP}\left(\mathrm{\mathcal{L}}\right)\left[\sigma\right]$-Formel.
 \begin{eqnarray*}
 \mathrm{frei}\left(\varphi\right) & = & \mathrm{frei}\left(\psi\right)\backslash\left\{ X,x_{1},\cdots,x_{k}\right\} \cup\bigcup_{i=1}^{k}\mathrm{frei}\left(y_{i}\right)\\
 \mathrm{var}\left(\varphi\right) & = & \mathrm{var}\left(\psi\right)\cup\left\{ X,x_{1},\cdots,x_{k}\right\} \cup\bigcup_{i=1}^{k}\mathrm{var}\left(y_{i}\right)
@@ -940,10 +924,11 @@ per Induktion auch $F^{n}\left(\emptyset\right)\subseteq F^{n}\left(Y'\right)=Y'
 Daher ist $F^{\infty}\left(\emptyset\right)=\mathrm{lfp}_{X,\bar{x}}\left(\psi\right)$
 der kleinste Fixpunkt.
 
-Im folgenden wird die Logik $\mathrm{FO}+\mathrm{LFP}$ durch $\mathrm{LFP}$
-abgekürzt. Ferner werden wir uns auf das \emph{parameterfreie} Fragment
-der Logik beschränken, was (bis auf einen Zuwachs in der Anzahl der
-Variablen und Länge der Formel) die Allgemeinheit nicht einschränkt.
+Im folgenden wird die Logik $\mathrm{LFP}\left(\mathrm{FO}\right)$
+durch $\mathrm{LFP}$ abgekürzt. Ferner werden wir uns auf das \emph{parameterfreie}
+Fragment der Logik beschränken, was (bis auf einen Zuwachs in der
+Anzahl der Variablen und Länge der Formel) die Allgemeinheit nicht
+einschränkt.
 \begin{defn}
 \label{def:fp-paramfree}Eine $\mathrm{LFP}\left[\sigma\right]$-Formel
 $\varphi$ ist \textbf{parameterfrei}, falls der Fixpunktoperator
@@ -966,8 +951,20 @@ Weg beliebiger Länge verbunden sind:
 \[
 \varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{T,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge T\left(z,y\right)\right)\vee x\dot{=}y\right)\right]\left(u,v\right)
 \]
-
 \end{example}
+\begin{defn}
+Eine etwas robustere, aber äquivalente, Definition der Fixpunktlogik
+verwendet den inflationären Fixpunktoperator. Anstelle der Positivität
+einer Formel in einer Relationsvariable betrachten wir mit $\left[\mathrm{ifp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
+implizit die Formel $\left[\mathrm{lfp}_{X,\bar{x}}\left(X\bar{x}\vee\psi\right)\right]\left(\bar{y}\right)$,
+die uns eine inflationäre Iteration garantiert:
+\[
+F_{\beta}\left(Y\right)=Y\cup q_{\psi\left(\bar{x}\right)}^{\beta\cup\left(X\rightarrow Y\right)}\left(\mathfrak{A}\right)\supseteq Y
+\]
+
+
+In diesem Fall muss $\psi$ nicht mehr $X$-positiv sein.
+\end{defn}
 
 \section{Logiken mit numerischen Erweiterungen}
 
@@ -1000,17 +997,24 @@ $\Upsilon\left(\left|A\right|\right)$ ausgewertet:
 \[
 \left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\uplus\Upsilon\left(\left|A\right|\right),\beta\right)
 \]
-
 \end{defn}
+\begin{notation}
+Nach unserem Begriff der logischen Erweiterung ist die Bezeichnung
+$\mathrm{LFP}\left(\mathcal{L}+\Upsilon\right)$ gleichbedeutend mit
+$\mathrm{LFP}\left(\mathcal{L}\right)+\Upsilon$. Im folgenden werden
+wir allgemein die erste Bezeichnung verwenden, aber weiterhin $\mathrm{LFP}\left(\mathrm{FO}\right)+\Upsilon$
+durch $\mathrm{LFP}+\Upsilon$ abkürzen.
+\end{notation}
 Wir definieren die folgenden drei numerischen Orakel für die reine
 Ordnung, für Arithmetik, und für nicht berechenbare Prädikate.
 \begin{defn}
 \textbf{\label{def:ord}}Sei $\mathbf{ORD}:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\emptyset\right)$
-ein $\emptyset$-Orakel, das für $n\in\mathbb{N}$ die geordnete $\emptyset$-Struktur
+ein $\emptyset$-Orakel, so dass das für $n\in\mathbb{N}$ die geordnete
+$\emptyset$-Struktur gilt: 
 \[
 \mathbf{ORD}\left(n\right)\coloneqq\left(\left[0,n\right],\leqslant_{\mid\left[0,n\right]}\right)\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\emptyset\right)
 \]
-erzeugt.
+
 \end{defn}
 
 \begin{defn}
@@ -1050,7 +1054,8 @@ $\exists^{\geqslant}$. Es wird nachgewiesen, dass alle drei Erweiterungen
 die gleiche Ausdrucksstärke modulo einem festen Zuwachs der Formellänge
 haben.
 \begin{defn}
-\textbf{Zählterm $\#$} (wie in \cite{AD2014})
+\textbf{Zählterm $\#$} (wie in \cite{AD2014}, und Abschnitt 8.4.2
+von \cite{EbbinghausFlum} für Fixpunktlogik)
 
 Der Zählterm ist eine zusätzliche Termproduktion, die die erfüllenden
 Belegungen einer Formel zählt.
@@ -1092,7 +1097,7 @@ t_{\mathrm{DIFF}}\left(x,y\right) & \coloneqq & \#_{z}\left(\neg z\leqslant x\we
 \end{example*}
 \begin{defn}
 \textbf{Zählquantor }$\exists^{=}$ (wie in \cite{Schweikardt:2005:AFL:1071596.1071602},
-aber mit einem disjunkten numerischen Universum)
+hier aber mit einem disjunkten numerischen Universum)
 
 Der Zählquantor ist eine zusätzlicher Quantor, der die Zahl der erfüllenden
 Belegungen einer Formel mit einer Variable vergleicht.
@@ -1128,7 +1133,9 @@ gelte:
 \end{defn}
 
 \begin{defn}
-\textbf{Majority-Quantor }$\exists^{\geqslant}$
+\textbf{Majority-Quantor }$\exists^{\geqslant}$ (wie in \cite{EbbinghausFlum}
+Abschnitt 3.4, hier aber mit $\exists^{\geqslant x}$ für $x\in\mathbf{var}$
+anstelle von unendlich vielen Quantoren $\left(\exists^{\geqslant n}\right)_{n\in\mathbb{N}}$)
 
 Der Majority-Quantor funktioniert wie der Zählquantor und prüft, ob
 die Zahl der erfüllenden Belegungen mindestens den Wert einer Variable
@@ -1164,7 +1171,8 @@ mit einer Belegung
 \end{defn}
 \begin{prop}
 Die Logiken $\mathcal{L}+\Upsilon+\#$ und $\mathcal{L}+\Upsilon+\exists^{=}$
-und $\mathcal{L}+\Upsilon+\exists^{\geqslant}$ sind äquivalent:\end{prop}
+und $\mathcal{L}+\Upsilon+\exists^{\geqslant}$ sind äquivalent, modulo
+eines festen Zuwachses in $\left\Vert \varphi\right\Vert $ und $\left|\mathrm{var}\left(\varphi\right)\right|$.\end{prop}
 \begin{proof}
 Jede $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$-Formel
 $\varphi$ ist äquivalent zu einer $\left(\mathcal{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel
@@ -1222,14 +1230,15 @@ mit $\psi\equiv\psi'$, und:
 
 \end{casenv}
 \end{proof}
+\begin{notation}
 Im folgenden wird mit $\mathcal{L}+\Upsilon+C$ stets eine dieser
 äquivalenten Zähl-Logiken bezeichnet. Die Logik $\mathcal{L}+\mathbf{ORD}+C$
-bezeichnen wir kurz als $\mathcal{L}+C$.
+bezeichnen wir kurz als $\mathcal{L}+C$.\end{notation}
 \begin{example}
 Die Logik $\mathrm{FO}+C$ kann ausdrücken, dass die $\sigma$-Struktur
 eine gerade Größe hat. Bekanntlich ist diese $\sigma$-Eigenschaft
 weder durch $\mathrm{FO}$ auf geordneten, noch $\mathrm{LFP}$ auf
-ungeordneten Strukturen definierbar\cite{Ebbinghaus,Libkin2012}:
+ungeordneten Strukturen definierbar\cite{EbbinghausFlum,Libkin2012}:
 
 \[
 \varphi_{\mathrm{EVEN}}\coloneqq\exists y\,\left(y=\#_{z}\left(\neg z\leqslant y\wedge z\leqslant\#_{z}\,z=z\right)\right)
@@ -1294,7 +1303,7 @@ haben dieses Problem nicht.
 Nach dem Satz von Trakhtenbrot ist die endlichen Erfüllbarkeit von
 $\mathrm{FO}\left[\left\{ \leqslant\right\} \right]$ unentscheidbar,
 und daher auch die Invarianz und die Sprache $\mbox{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)\left[\sigma\right]$
-in $\mathrm{FO}\oplus\mathbf{ARB}\left[\sigma\right]$.\cite{EFT,Libkin2012,Schweikardt13ashort} 
+in $\mathrm{FO}\oplus\mathbf{ARB}\left[\sigma\right]$.\cite{EbbinghausFlumThomas,Libkin2012,Schweikardt13ashort} 
 
 
 \chapter{Schaltkreise}
@@ -1365,15 +1374,15 @@ wobei gilt:
 \begin{eqnarray*}
 \tau_{\sigma,\mathbb{B},k} & \coloneqq & \left\{ W/2,\left(\Sigma_{s}/1\right)_{s\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} },\left(\Sigma_{R}/1+k\right)_{R/k\in\sigma},\Omega/k+1\right\} \\
 W^{\mathcal{C}} & \coloneqq & W\\
-\Sigma_{s}^{\mathcal{C}} & \coloneqq & \left\{ g\in G\mid\Sigma\left(g\right)=s\right\} \\
-\Sigma_{R}^{\mathcal{C}} & \coloneqq & \left\{ g\bar{t}\mid\Sigma\left(g\right)=R\bar{t}\right\} \\
-\Omega_{R}^{\mathcal{C}} & \coloneqq & \left\{ \bar{t}g\mid\Omega\left(\bar{t}\right)=g\right\} 
+\Sigma_{s}^{\mathcal{C}} & \coloneqq & \left\{ g\in G\mid\Sigma\left(g\right)=s\right\} \,\mathrm{f\ddot{u}r}\,s\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} \\
+\Sigma_{R}^{\mathcal{C}} & \coloneqq & \left\{ g\bar{t}\mid\Sigma\left(g\right)=R\bar{t}\right\} \,\mathrm{f\ddot{u}r}\,R\in\sigma\\
+\Omega^{\mathcal{C}} & \coloneqq & \left\{ \bar{t}g\mid\Omega\left(\bar{t}\right)=g\right\} 
 \end{eqnarray*}
 
 \end{defn}
 
 \begin{defn}
-\textbf{\label{def:Auswertung-von-Schaltkreisen}Auswertung von Schaltkreisen}
+\textbf{\label{def:circuit-eval}Auswertung von Schaltkreisen}
 
 Der $\left(\sigma,\mathbb{B}\right)$-Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
 wird auf einer $\sigma$-Struktur $\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$
@@ -1429,7 +1438,7 @@ q_{\mathcal{C}}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{t}\in U^{k}\mid\le
 Sei $\mathcal{C}_{4}=\left(G,W,\Sigma,\Omega,\left[4\right]\right)$
 (siehe Abbildung \ref{fig:circuit}) ein $1$-stelliger $\left(\left\{ E\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis,
 der alle Knoten eines gerichteten Graphen findet, die Teil eines einfachen
-Kreises der Länge $2$ sind:
+Kreises der Länge $2$ sind.
 
 \begin{eqnarray*}
 G & \coloneqq & \left\{ g_{i,j}\mid i,j\in\left[4\right],\,i\neq j\right\} \\
@@ -1535,7 +1544,7 @@ Permutation $\pi\in\mathrm{Sym}_{U}$ gilt:
 In diesem Fall definieren wir für jede Struktur $\mathfrak{A}\in\mathbf{FIN}^{\left(\left|U\right|\right)}\left(\sigma\right)$
 und $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$ die Auswertung
 von $\mathcal{C}$ implizit als die Auswertung auf $\pi\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$
-mit einer beliebigen Bijektion $\pi:A\rightarrow U$:
+mit einer beliebigen Bijektion $\pi:A\rightleftarrows U$:
 \[
 \left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{a}\right)\coloneqq\left\llbracket \mathcal{C}\right\rrbracket \left(\pi\mathfrak{A},\pi\bar{a}\right)
 \]
@@ -1545,11 +1554,11 @@ mit einer beliebigen Bijektion $\pi:A\rightarrow U$:
 \begin{defn}
 \textbf{Symmetrie}
 
-Für einen $k$-stelliger Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$,
+Für einen Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$,
 eine Permutation $\pi\in\mathrm{Sym}_{U}$ und einen Automorphismus
 $\rho\in\mathrm{Aut}_{\mathcal{C}}$ mit $\rho_{\mid U}=\pi$ nennen
-wir $\rho$ von $\pi$ \textbf{induziert}. (Nach den Definitionen
-\ref{def:formal} und \ref{def:isomorphism} ist $\rho\in\mathrm{Aut}_{\mathcal{C}}$
+wir $\rho$ von $\pi$ \textbf{induziert}. (Nach den formalen Definitionen
+\ref{def:formal} und \ref{def:isomorphism} ist $\rho\in\mathrm{Aut}_{\mathcal{C}}\subseteq\mathrm{Sym}_{G\uplus U}$
 eine Permutation des Universums von $\mathcal{C}$.) Wir können aus
 der formalen Definition des Schaltkreises als $\tau_{\sigma,\mathbb{B},k}$-Struktur
 ableiten, dass ein von $\pi$ induzierter Automorphismus $\rho$ die
@@ -1689,7 +1698,7 @@ Er ist aber nicht symmetrisch: Die Permutation $\left(\begin{array}{cc}
 
 
 \begin{defn}
-\textbf{\label{def:Rigidit=0000E4t}Rigidität}
+\textbf{\label{def:rigid}Rigidität}
 
 Ein Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$ sei
 rigide, wenn er keine redundanten Gates besitzt. Formal dürfen nicht
@@ -1737,29 +1746,19 @@ q_{\bar{\mathcal{C}}}\left(\mathfrak{A}\right)\coloneqq q_{\mathcal{C}_{\left|A\
 \end{defn}
 
 \begin{defn}
-$\mathrm{SBC}$ und $\mathrm{SBC+\mathbf{MAJ}}$\end{defn}
-\begin{itemize}
-\item Sei $\mathrm{SBC}$ die Klasse aller \textbf{symmetrischen $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilien}.
-\item Sei $\mathrm{SBC}+\mathbf{MAJ}$ die Klasse aller \textbf{symmetrischen
-$\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilien}.
-(Zur Erinnerung: $\mathbb{B}_{\mathrm{maj}}=\mathbb{B}_{\mathrm{std}}\uplus\left\{ \mathtt{MAJ}\right\} $,
-wobei $\mathtt{MAJ}$ der Majority-Operator ist.)
-\end{itemize}
-
-\begin{defn}
 \textbf{Uniformität}
 
-Für eine Klasse von Turingmaschinen $T$ sei eine Schaltkreisfamilie
-$\bar{\mathcal{C}}$ $T$-\textbf{uniform}, wenn ein $n_{0}\in\mathbb{N}$
-existiert, so dass eine Turingmaschine aus $T$ bei Eingabe des Worts
-$1\cdots1\in\left\{ 0,1\right\} ^{n}$ mit $n\geqslant n_{0}$ eine
-Repräsentation von $\mathcal{C}_{n}$ berechnet.
+Für eine Komplexitätsklasse $\mathcal{K}$ sei eine Schaltkreisfamilie
+$\bar{\mathcal{C}}$ $\mathcal{K}$-\textbf{uniform}, wenn ein $n_{0}\in\mathbb{N}$
+existiert, so dass eine $\mathcal{K}$-Turingmaschine bei Eingabe
+des Worts $1\cdots1\in\left\{ 0,1\right\} ^{n}$ mit $n\geqslant n_{0}$
+eine Repräsentation von $\mathcal{C}_{n}$ berechnet.
 
-Insbesondere sei $P$ die Klasse aller Turingmaschinen, die bei einer
-Eingabe der Länge $n$ nach $f\left(n\right)\in n^{\mathcal{O}\left(1\right)}$
-Schritten halten, und $\mathrm{LOGSPACE}\subseteq P$ die Klasse der
-Turingmaschinen, die höchstens $f\left(n\right)\in\mathcal{O}\left(\log n\right)$
-Speicherplatz belegen.
+Insbesondere sei $P$ die Klasse der $\mathrm{poly}\left(n\right)$-zeitbeschränkten,
+und $\mathrm{LOGSPACE}$ die Klasse der $\mathcal{O}\left(\log n\right)$-platzbeschränkten
+Turingmaschinen. $P/\mathrm{poly}$ sei die Klasse der $\mathrm{poly}\left(n\right)$-zeitbeschränkten
+Turingmaschinen, die eine $\mathrm{poly}\left(n\right)$-beschränkte
+Orakel-Eingabe erhalten.
 \end{defn}
 
 \begin{defn}
@@ -1782,10 +1781,9 @@ und erhält für eine Eingabe der Länge $n$ eine polynomiell beschränkte
 Orakel-Eingabe $\Upsilon\left(n\right)\in\left\{ 0,1\right\} ^{f\left(n\right)}$,
 $f\left(n\right)\in\mathrm{poly}\left(n\right)$. Unter Voraussetzung
 einer geeigneten Kodierung kann $\Upsilon\left(n\right)$ jede $\mathrm{poly}\left(n\right)$-große
-Schaltkreisfamilie repräsentieren.\cite{arora-barak}
-
-Daher sind die Begriffe ,,$\mathrm{poly}\left(n\right)$-groß``
-und ,,$P/\mathrm{poly}$-uniform`` äquivalent.\end{rem*}
+Schaltkreisfamilie repräsentieren\cite{arora-barak}. Daher sind die
+Begriffe ,,$\mathrm{poly}\left(n\right)$-groß`` und ,,$P/\mathrm{poly}$-uniform``
+äquivalent.\end{rem*}
 \begin{defn}
 \textbf{Beschränkte Tiefe}
 
@@ -1794,21 +1792,46 @@ $\bar{\mathcal{C}}$ $f$-\textbf{Tiefe}, wenn $T\left(\mathcal{C}_{n}\right)\leqs
 für ein $n_{0}\in\mathbb{N}$ und alle $n\geqslant n_{0}$. Für eine
 Klasse $\mathcal{F}\subseteq\mathrm{Abb}\left(\mathbb{N},\mathbb{N}\right)$
 sei der Begriff ,,$\mathcal{F}$-tief`` analog zu ,,$\mathcal{F}$-groß``
-definiert.\end{defn}
-\begin{rem*}
-$\mathrm{AC}^{0}$ ist die Klasse der $\mathcal{O}\left(1\right)$-tiefen,
-$\mathrm{poly}\left(n\right)$-großen Schaltkreisfamilien.
-\end{rem*}
+definiert.
+\end{defn}
+
+\begin{defn}
+Benennung von Schaltkreisklassen
+
+Sei $\sigma$ eine beliebige relationale Signatur.
+\begin{itemize}
+\item Mit $\mathrm{SBC}\left[\sigma\right]$ bezeichnen wir die Klasse der
+Anfragen, die von einer symmetrischen\textbf{ $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$}-Schaltkreisfamilie
+beschrieben werden.
+\item $\left(\mathrm{SBC}+\mathbf{MAJ}\right)\left[\sigma\right]$ sei die
+Klasse der Anfragen, die von einer symmetrischen\textbf{ $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$}-Schaltkreisfamilie
+beschrieben werden. (Zur Erinnerung: $\mathbb{B}_{\mathrm{maj}}=\mathbb{B}_{\mathrm{std}}\uplus\left\{ \mathtt{MAJ}\right\} $,
+wobei $\mathtt{MAJ}$ der Majority-Operator ist.)
+\end{itemize}
+Für eine Komplexitätsklasse $\mathcal{K}$ bezeichne $\mathrm{SBC}^{\mathcal{K}}$
+(beziehungsweise $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{\mathcal{K}}$
+die Klasse der Anfragen, die von einer entsprechenden $\mathcal{K}$-uniformen
+Schaltkreisfamilie beschrieben werden.
+
+Für jede dieser Klassen schreiben wir ,,$\mathrm{SAC}^{0}$`` anstelle
+von ,,$\mathrm{SBC}$``, um die Klasse auf Schaltkreisfamilien mit
+konstanter Tiefe und $\mathrm{poly}\left(n\right)$-Größe zu beschränken.
+\end{defn}
 
 \chapter{Von Formeln zu Schaltkreisfamilien}
 
 
 \section{Logik erster Stufe}
 
-Die Formeln der Logik erster Stufe sind durch symmetrische $\mathrm{LOGSPACE}$-uniforme
-$\mathrm{AC}^{0}$-Schaltkreise berechenbar:
+Wir weisen zunächst nach, dass die Logik der ersten Stufe durch symmetrische,
+$\mathrm{LOGSPACE}$-uniforme Schaltkreisfamilien konstanter Tiefe
+beschrieben wird. 
+\[
+\mathrm{FO}\subseteq\left(\mathrm{SAC}^{0}\right)^{\mathrm{LOGSPACE}}
+\]
+
 \begin{lem}
-\label{lem:FO-Circuit}Jede $\mathrm{FO}\left[\sigma\right]$-Formel
+\label{lem:fo-circuit}Jede $\mathrm{FO}\left[\sigma\right]$-Formel
 $\varphi\left(\bar{x}\right)$ definiert eine $\sigma$-Anfrage $q$,
 die von einer symmetrischen $\mathrm{LOGSPACE}$-uniformen Schaltkreis-Familie
 $\bar{\mathcal{C}^{\varphi}}$ mit $\left\Vert \varphi\right\Vert $-Tiefe
@@ -2038,7 +2061,7 @@ T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+T\left(\mathcal{C}_{n}^{\psi}\ri
 \end{eqnarray*}
 
 \end{description}
-\item Falls $\varphi\left(\bar{x}\right)=\exists y_{1}\cdots\exists y_{m}\psi\left(z_{1},\cdots,z_{k+m}\right)$,
+\item \label{case:fo-ex}Falls $\varphi\left(\bar{x}\right)=\exists y_{1}\cdots\exists y_{m}\psi\left(z_{1},\cdots,z_{k+m}\right)$,
 so wird der Schaltkreis $\mathcal{C}_{n}^{\varphi'}$ wie folgt erweitert:
 
 \begin{description}
@@ -2108,7 +2131,11 @@ Annahme treu zu $\pi$.
 
 \begin{enumerate}
 \item Für die neuen Kanten $\left(\Omega'\left(\bar{u}\right),g_{\rho\bar{u}}\right)\in W$
-gilt: $\left(\hat{\pi}\Omega'\left(\bar{u}\right),\hat{\pi}g_{\rho\bar{u}}\right)=\left(\Omega'\left(\pi\bar{u}\right),g_{\rho\pi\bar{u}}\right)\in W$.
+gilt: 
+\[
+\left(\hat{\pi}\Omega'\left(\bar{u}\right),\hat{\pi}g_{\rho\bar{u}}\right)=\left(\Omega'\left(\pi\bar{u}\right),g_{\rho\pi\bar{u}}\right)\in W
+\]
+
 \item $\hat{\pi}\Sigma\left(g_{\bar{t}}\right)=\Sigma\left(g_{\bar{t}}\right)=\mathtt{OR}$.
 \item $\Omega\left(\pi\bar{t}\right)=g_{\pi\bar{t}}=\hat{\pi}g_{\bar{t}}=\hat{\pi}\Omega\left(\bar{t}\right)$.
 \end{enumerate}
@@ -2126,7 +2153,7 @@ T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+T\left(\mathcal{C}_{n}^{\psi}\ri
 \end{eqnarray*}
 
 \end{description}
-\item Falls $\varphi\left(\bar{x}\right)=\forall y_{1}\cdots\forall y_{m}\psi\left(\bar{z}\right)$,
+\item \label{case:fo-forall}Falls $\varphi\left(\bar{x}\right)=\forall y_{1}\cdots\forall y_{m}\psi\left(\bar{z}\right)$,
 so sei der Schaltkreis analog zu Fall 8 mit $\Sigma\left(g_{\bar{t}}\right)\coloneqq\mathtt{AND}$.\end{casenv}
 \begin{description}
 \item [{Speicherplatz}] Die beschriebene Konstruktion wird von dem $\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log n$-platzbeschränkten
@@ -2139,6 +2166,11 @@ die $\mathrm{var}\left(\varphi\right)\log n$ Bits belegen. Da die
 maximale Tiefe der Rekursion durch $\left\Vert \varphi\right\Vert $
 beschränkt ist, werden insgesamt $\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log n$
 Bits benötigt.
+
+
+(Hierbei werden ohne Details eine passende Kodierung der Formel $\varphi$
+und ein Algorithmus zur platz-effizienten Berechnung von $\mathrm{frei}\left(\varphi\right)$
+vorausgesetzt.)
 
 \end{description}
 \end{proof}
@@ -2180,11 +2212,15 @@ $\mathrm{FO}\left[\sigma\right]$-Formeln.}
 \section{Ordnungserweiterung}
 
 Wir betrachten die Logik $\mathrm{FO}+\mathbf{ORD}$, und weisen nach,
-dass die Konstruktion aus Lemma \lemref{FO-Circuit} angepasst werden
-kann, ohne die Klasse der $P$-uniformen symmetrischen $\mathrm{AC}^{0}$-Schaltkreise
-zu verlassen.
+dass die Konstruktion aus Lemma \ref{lem:fo-circuit} angepasst werden
+kann, ohne die Klasse der $\mathrm{LOGSPACE}$-uniformen symmetrischen
+$\mathrm{AC}^{0}$-Schaltkreise zu verlassen.
+\[
+\mathrm{FO}+\mathbf{ORD}\subseteq\left(\mathrm{SAC}^{0}\right)^{\mathrm{LOGSPACE}}
+\]
+
 \begin{lem}
-\label{lem:fo-ord}Jede $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
+\label{lem:fo-ord-circuit}Jede $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
 $\mathrm{LOGSPACE}$-uniformen $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
 $\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit konstanter
@@ -2197,15 +2233,12 @@ wird $\varphi$ auf der disjunkt vereinigten $\left(\sigma\cup\left\{ \leqslant\r
 $\mathfrak{A}\uplus\Upsilon\left(n\right)$ ausgewertet, wobei $\Upsilon\left(n\right)=\left(\left[0,n\right],\leqslant\right)$
 die lineare Ordnung auf $\left[0,n\right]$ ist.
 
-Der Schaltkreis $\mathcal{C}_{n}$ wird aber auf der umbenannten $\sigma$-Struktur
-$\mathfrak{A}'\coloneqq\pi\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$
-mit dem Universum $U=\left[1,n\right]$ ausgewertet.
-
-Vor der Konstruktion muss daher sichergestellt werden, dass das Universum
-von $\mathfrak{A}'$ disjunkt von dem Universum der Orakelstruktur
-$\Upsilon\left(n\right)$ ist. Dazu wird das Universum $\left[0,n\right]$
-von $\Upsilon\left(n\right)$ durch eine Umbenennung nach $\left[n+1,2n+1\right]$
-,,verschoben``:
+Der Schaltkreis $\mathcal{C}_{n}$ wird aber auf einer umbenannten
+$\sigma$-Struktur $\mathfrak{A}'\coloneqq\pi\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$
+mit für $\pi:A\rightleftarrows\left[1,n\right]$ ausgewertet. Um $\mathfrak{A}'$
+disjunkt mit $\Upsilon\left(n\right)$ zu vereinigen, werden wir zuerst
+das Universum $\left[0,n\right]$ durch eine Umbenennung nach $\left[n+1,2n+1\right]$
+,,verschieben``:
 \begin{eqnarray*}
 \Upsilon'\left(n\right) & \coloneqq & \rho\Upsilon\left(n\right)\\
 \rho & : & \left[0,n\right]\rightarrow\left[n+1,2n+1\right]\\
@@ -2214,7 +2247,7 @@ von $\Upsilon\left(n\right)$ durch eine Umbenennung nach $\left[n+1,2n+1\right]$
 
 
 Nun betrachten wir die disjunkte Vereinigung (wobei die Ordnung $\leqslant$
-weiterhin nur auf $\left[n+1,2n+1\right]$ definiert ist): 
+nur auf $\left[n+1,2n+1\right]$ definiert ist): 
 \[
 \mathfrak{A}'\uplus\Upsilon'\left(n\right)\in\mathbf{FIN}^{\left[1,2n+1\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)
 \]
@@ -2230,23 +2263,21 @@ gilt auch $\mathfrak{A}\uplus\Upsilon\left(n\right)\cong\mathfrak{A}'\uplus\Upsi
 
 Wir konstruieren nun zunächst einen $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
 $\mathcal{C}_{2n+1}^{\varphi}$ über $U'=\left[1,2n+1\right]$ entsprechend
-dem vorhergehenden Beweis für $\mathrm{FO}$. Dieser arbeitet korrekt
+dem Beweis von Lemma \ref{lem:fo-circuit}. Dieser arbeitet korrekt
 auf $\mathfrak{A}'\uplus\Upsilon'\left(n\right)$ und hat offensichtlich
 die geforderte Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$.
 Die Konstruktion erfordert $\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log\left(2n+1\right)$
 Speicherplatz.
 
 Anschließend konstruieren wir daraus den $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
-\begin{eqnarray*}
-\dot{\mathcal{C}_{n}^{\varphi}} & \coloneqq & \left(G,W,\dot{\Sigma},\dot{\Omega},U\right)\\
-U & \coloneqq & \left[1,n\right]
-\end{eqnarray*}
- indem alle Inputs $\Sigma\left(g\right)=R\bar{t}$ mit $\bar{t}\notin U^{k}$
-oder $R\notin\sigma$ durch Konstanten $\dot{\Sigma}\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
+$\dot{\mathcal{C}_{n}^{\varphi}}\coloneqq\left(G,W,\dot{\Sigma},\dot{\Omega},U\right)$
+über $U\coloneqq\left[1,n\right]$, indem alle Inputs $\Sigma\left(g\right)=R\bar{t}$
+mit $\bar{t}\notin U^{k}$ oder $R\notin\sigma$ durch Konstanten
+$\dot{\Sigma}\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
 ersetzt werden, und die Ausgangsfunktion auf $\dot{\Omega}=\Omega_{\mid U^{k}}$
 reduziert wird. Das ist eine einfache Iteration über die Gates $G$
 des Schaltkreises, die nur einen Zähler der Größe $\log\left|G\right|\leqslant\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log n$
-benötigt.
+benötigt, und somit in $\mathrm{LOGSPACE}$ bleibt.
 \begin{casenv}
 \item Für $\Sigma\left(g\right)=R\bar{t}$ mit $R\in\sigma$ werden die
 ,,überschüssigen`` Inputs einfach auf $\mathbf{0}$ gesetzt:
@@ -2275,7 +2306,7 @@ Offensichtlich ist $\pi'\in\mathrm{Sym}_{U'}$ eine Permutation von
 $U'=\left[1,2n+1\right]$.
 
 Aus der Symmetrie des Schaltkreises $\mathcal{C}_{2n+1}^{\varphi}$
-bezüglich $\mathrm{Sym}_{U'}$ (siehe Lemma \ref{lem:FO-Circuit})
+bezüglich $\mathrm{Sym}_{U'}$ (siehe Lemma \ref{lem:fo-circuit})
 folgt die Existenz eines von $\pi'$ induzierten Automorphismus $\hat{\pi}$.
 
 Es wird nun nachgewiesen, dass $\hat{\pi}$ auch ein von $\pi$ induzierter
@@ -2319,8 +2350,8 @@ Außerdem gilt ist $U^{k}$ bezüglich $\pi'$ abgeschlossen:
 \hat{\pi}\dot{\Omega}\left(\bar{t}\right)=\hat{\pi}\Omega\left(\bar{t}\right)=\Omega\left(\pi'\bar{t}\right)=\dot{\Omega}\left(\pi'\bar{t}\right)
 \]
  Damit ist $\bar{\dot{\mathcal{C}^{\varphi}}}$ eine symmetrische,
-$\mathrm{LOGSPACE}$-uniforme Schaltkreisfamilie in $\mathrm{AC}^{0}$,
-die die Anfrage $q$ berechnet.
+$\mathrm{LOGSPACE}$-uniforme Schaltkreisfamilie konstanter Tiefe,
+die $q$ berechnet.
 \end{proof}
 \pagebreak{}
 
@@ -2328,10 +2359,14 @@ die die Anfrage $q$ berechnet.
 \section{Zählquantoren}
 
 Wir betrachten die Logik $\mathrm{FO}+C$, und weisen nach, dass die
-vorhergehende Konstruktion aus Lemma \ref{lem:fo-ord} angepasst werden
-kann, indem Majority-Gates hinzugefügt werden.
+vorhergehende Konstruktion aus Lemma \ref{lem:fo-ord-circuit} angepasst
+werden kann, indem Majority-Gates hinzugefügt werden.
+\[
+\mathrm{FO}+C\subseteq\left(\mathrm{SAC}^{0}+\mathbf{MAJ}\right)^{\mathrm{LOGSPACE}}
+\]
+
 \begin{lem}
-\label{lem:fo-c}Jede $\left(\mathrm{FO}+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
+\label{lem:fo+c}Jede $\left(\mathrm{FO}+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
 $\mathrm{LOGSPACE}$-uniformen $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie
 $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ mit konstanter $\left\Vert \varphi\right\Vert $-Tiefe
@@ -2341,8 +2376,8 @@ berechnet wird.\end{lem}
 Sei $\varphi$ eine $k$-stellige $\left(\mathrm{FO}+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel.
 Der $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreis
 $\mathcal{C}_{2n+1}^{\varphi}$ über dem Universum $U'\coloneqq\left[1,2n+1\right]=\left[1,n\right]\uplus\rho\left[0,n\right]$
-wird nach dem gleichen Schema wie in Lemma \ref{lem:fo-ord}, wobei
-ein neuer Fall hinzukommt.
+wird nach dem gleichen Schema wie in Lemma \ref{lem:fo-ord-circuit},
+wobei ein neuer Fall hinzukommt.
 
 (Zur Erinnerung: $\rho:\left[0,n\right]\rightarrow\left[n+1,2n+1\right]$
 ist die Verschiebung des Universums von $\Upsilon\left(n\right)$.)
@@ -2506,7 +2541,7 @@ keine nicht-konstanten Inputs hinzu, so dass sich hierbei nichts ändert.
 Da der Schaltkreis $\mathcal{C}_{2n+1}^{\varphi}$ für jede Permutation
 $\pi\cup\mathbf{id}_{\left[n+1,2n+1\right]}$ mit $\pi\in\mathrm{Sym}_{\left[1,n\right]}$
 einen Automorphismus besitzt, ist der Schaltkreis $\dot{\mathcal{C}_{n}^{\varphi}}$
-symmetrisch (siehe Lemma \ref{lem:fo-ord}).
+symmetrisch (siehe Lemma \ref{lem:fo-ord-circuit}).
 
 \pagebreak{}
 \end{proof}
@@ -2514,14 +2549,19 @@ symmetrisch (siehe Lemma \ref{lem:fo-ord}).
 \section{Beliebige Orakel}
 
 Wir betrachten die Logik $\mathrm{FO}+\Upsilon$ für beliebige Orakel
-$\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta\right)$,
-und weisen nach, dass die Konstruktion aus \ref{lem:fo-ord} auf beliebige
-Prädikate erweitert werden kann, wobei die Uniformität, aber nicht
-die beschränkte Größe geopfert wird.
+$\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta\right)$
+(insbesondere $\mathrm{FO}+\mathbf{ARB}$, welches alle diese Logiken
+einschließt), und weisen nach, dass die Konstruktion aus \ref{lem:fo-ord-circuit}
+auf beliebige Prädikate erweitert werden kann, wobei die $\mathrm{LOGSPACE}$-Uniformität,
+aber nicht die beschränkte Größe geopfert wird.
+\[
+\mathrm{FO}+\mathbf{ARB}\subseteq\left(\mathrm{SAC}^{0}\right)^{P/\mathrm{poly}}
+\]
+
 \begin{lem}
-\label{lem:fo-u}Seien $\eta$ und $\sigma$ disjunkte Signaturen
+\label{lem:fo+arb}Seien $\eta$ und $\sigma$ disjunkte Signaturen
 und $\Upsilon\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta\right)$
-ein Orakel.
+ein $\eta$-Orakel.
 
 Jede $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
 $\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen
@@ -2539,7 +2579,8 @@ zu
 
 
 Zunächst wird der $\left(\sigma\cup\eta\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
-$\mathcal{C}_{2n+1}^{\varphi}$ wie in Lemma \ref{lem:fo-ord} erzeugt.
+$\mathcal{C}_{2n+1}^{\varphi}$ wie in Lemma \ref{lem:fo-ord-circuit}
+erzeugt.
 
 Bei der Erzeugung des $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreises
 $\dot{\mathcal{C}_{n}^{\varphi}}$ wird nun der folgende Konstruktionsschritt
@@ -2568,12 +2609,25 @@ nicht in Polynomialzeit entscheidbar sein muss, und daher die so definierte
 Schaltkreisfamilie nicht mehr $P$-uniform ist.
 
 Offensichtlich ist sie jedoch immer noch $\mathrm{poly}\left(n\right)$-groß
-und daher auch $P/\mathrm{poly}$-uniform.
+und daher $P/\mathrm{poly}$-uniform.
 \end{proof}
 \pagebreak{}
 
 
 \section{Fixpunktlogik}
+
+In diesem Abschnitt werden wir die bereits gezeigten Konstruktionen
+auf Fixpunktlogik erweitern, die durch Schaltkreise beliebiger Tiefe
+beschrieben werden kann:
+\begin{eqnarray*}
+\mathrm{LFP}+\mathbf{ORD} & \subseteq & \mathrm{SBC}^{P}\\
+\mathrm{LFP}+\mathbf{ARB} & \subseteq & \mathrm{SBC}^{P/\mathrm{poly}}\\
+\mathrm{LFP}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}
+\end{eqnarray*}
+
+
+
+\subsection{Eine Sequenz von erststufigen Formeln}
 
 Die Fixpunktlogik $\mathrm{LFP}\left[\sigma\right]$ ist echt ausdrucksstärker
 als die Logik $\mathrm{FO}\left[\sigma\right]$. Beispielsweise ist
@@ -2583,14 +2637,15 @@ wird diese Klasse durch die folgende Formel definiert:
 \[
 \varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
 \]
- Trotzdem kann jede $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$
-durch eine Familie von $\mathrm{FO}\left[\sigma\right]$-Formeln $\left(\varphi_{n}\right)_{n\in\mathbb{N}}$
-mit einer konstanten Anzahl Variablen definiert werden, so dass $\varphi_{n}$
-auf den Strukturen der Größe $n$ äquivalent zu $\varphi$ ist. Dies
-ist vergleichbar zum $k$-Variablen-Fragment der infinitären Logik
-$L_{\infty\omega}^{k}$, welches die Fixpunktlogik einschließt.\cite{Dawar1995c,Kolaitis1992,Kolaitis1992b}
+Jede $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$ ist aber
+äquivalent zu einer Familie von $\mathrm{FO}\left[\sigma\right]$-Formeln
+$\left(\varphi_{n}\right)_{n\in\mathbb{N}}$ mit einer konstanten
+Anzahl Variablen, so dass $\varphi_{n}$ auf allen Strukturen der
+Größe $n$ äquivalent zu $\varphi$ ist. (Dies ist vergleichbar zum
+$k$-Variablen-Fragment der infinitären Logik $L_{\infty\omega}^{k}$,
+welches die Fixpunktlogik einschließt\cite{Dawar1995c,Kolaitis1992,Kolaitis1992b}.
 In unserer Definition hat jedoch jede einzelne Formel $\varphi_{n}$
-eine endliche Länge.
+eine endliche Länge.)
 \begin{lem}
 \label{lem:lfp-inf}Für jede $\mathrm{LFP}\left[\sigma\right]$-Formel
 $\varphi$ mit $\left\Vert \varphi\right\Vert =c$ und jedes $n\in\mathbb{N}$
@@ -2673,55 +2728,114 @@ Daher gilt:
 
 \end{description}
 \end{proof}
-Leider sind diese Formeln zu lang: Wenn das Symbol $R$ mehr als einmal
-in $\psi$ vorkommt, ist $\left\Vert \psi_{i+1}\right\Vert \geqslant2\left\Vert \psi_{i}\right\Vert $,
+Leider sind diese Formeln noch zu lang: Wenn das Symbol $R$ mehr
+als einmal in $\psi$ vorkommt, ist $\left\Vert \psi_{i+1}\right\Vert \geqslant2\left\Vert \psi_{i}\right\Vert $,
 und daher wächst die Formellänge mit $\left\Vert \varphi\right\Vert \geqslant2^{n^{k}}$
 exponentiell für $k=\mathrm{ar}\left(R\right)$. Mit $\mathcal{C}_{n}^{\varphi}=\mathcal{C}_{n}^{\varphi_{n}}$
 könnten wir nicht die gewünschte $\mathrm{poly}\left(n\right)$-Größe
-ableiten. Die booleschen Schaltkreise haben jedoch nicht dieselbe
-Einschränkung wie $\mathrm{FO}\left[\sigma\right]$: Die Berechnung
-einer Teilformel $\psi_{i}\left(\bar{z}\right)$ kann wiederverwendet
-werden, ohne den Schaltkreis $\mathcal{C}_{n}^{\psi_{i}}$ zu vervielfältigen.
+ableiten.
 
-Wir nutzen dies und den Beweis von Lemma \ref{lem:lfp-inf} aus, um
-aus einer $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$ direkt
-einen $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
-zu erzeugen, der die richtige Tiefe und Größe hat. Hierbei wird der
-Einfachheit halber gefordert, dass $\varphi$ parameter-frei ist (siehe
-Definition \ref{def:fp-paramfree}). Per Satz \ref{prop:fp-paramfree}
-schränkt dies die Allgemeinheit nicht ein: Der Zuwachs in $\mathrm{var}\left(\varphi\right)$
-und $\left\Vert \varphi\right\Vert $ ist fest und für die $\mathrm{poly}\left(n\right)$-Größe
-der Schaltkreisfamilie unbedeutend.
+Die booleschen Schaltkreise haben jedoch nicht dieselbe Einschränkung
+wie $\mathrm{FO}\left[\sigma\right]$: Die Berechnung einer Teilformel
+$\psi_{i}\left(\bar{z}\right)$ kann mehrfach verwendet werden, ohne
+den Schaltkreis $\mathcal{C}_{n}^{\psi_{i}}$ zu vervielfältigen.
+
+
+\subsection{Von Fixpunkt-Formeln zu Schaltkreisfamilien}
+
+Im folgenden möchten wir uns gerne auf Formeln beschränken, die nur
+einen einzigen Fixpunktoperator enthalten. Diese Normalform schränkt
+die Allgemeinheit nicht ein, was in \cite{EbbinghausFlum} (Abschnitt
+8.2) für $\mathrm{LFP}\left(\mathrm{FO}\right)$ gezeigt wird.
 \begin{lem}
-\label{lem:lfp-circ}Für jede parameter-freie $\mathrm{LFP}\left[\sigma\right]$-Formel
-$\varphi$ existiert eine $P$-uniforme symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\bar{\mathcal{C}^{\varphi}}$ mit $n^{k}\left(\left\Vert \varphi\right\Vert +1\right)$-Tiefe
-und $\left(n^{k+\mathtt{MF}\left(\varphi\right)}+1\right)$-Größe,
-so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right)$
-für alle $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ gilt.\end{lem}
-\begin{proof}
-Sei $\varphi$ eine $k$-stellige parameter-freie $\mathrm{LFP}\left[\sigma\right]$-Formel,
-und sei $n\in\mathbb{N}$ beliebig. Wir erweitern die Konstruktion
-aus Lemma \ref{lem:FO-Circuit} um den folgenden Fall:
+\label{lem:lfp-fo-normalform}(Lemma 8.2.4 aus \cite{EbbinghausFlum})
 
-Falls $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
-für eine $m$-stellige Relationsvariable $X/m\in\mathbf{var}_{2}$,
-eine $m$-stellige parameter-freie $\mathrm{LFP}\left[\sigma\right]$-Formel
-$\psi\left(X,\bar{x}\right)$ und ein $m$-Tupel von $\mathrm{LFP}\left[\sigma\right]$-Termen
-$\bar{y}$ ist, dann existiert per Annahme ein $P$-uniformer symmetrischer
-$\left(\sigma\cup\left\{ X\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
-$\mathcal{C}_{n}^{\psi}$, der auf einer $\left(\sigma\cup\left\{ X\right\} \right)$-Struktur
-$\mathfrak{A}'\coloneqq\mathfrak{A}\cup\left(A,\left(X\mapsto Y\right)\right)$
+Jede $\mathrm{LFP}\left(\mathrm{FO}\right)\left[\sigma\right]$-Formel
+$\varphi$ ist äquivalent zu einer $\mathrm{LFP}\left(\mathrm{FO}\right)\left[\sigma\right]$-Formel
+$\hat{\varphi}$ der folgenden Form, wobei $X/k\in\mathbf{var}_{2}$,
+und $\psi$ eine $\mathrm{FO}\left[\sigma\uplus\left\{ X/k\right\} \right]$-Formel
+mit $\mathrm{frei}\left(\psi\right)=\left\{ x_{1},\cdots,x_{k}\right\} $
+ist: 
+\[
+\left(Q_{i}z_{i}\right)_{\begin{subarray}{c}
+i\in\left[1,m\right]\\
+Q_{i}\in\left\{ \exists,\forall\right\} 
+\end{subarray}}\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)
+\]
+
+\end{lem}
+Das Lemma für $\mathrm{LFP}\left(\mathrm{FO}\right)$ gilt automatisch
+auch für jede numerische Erweiterung $\mathrm{LFP}\left(\mathrm{FO}+\Upsilon\right)$
+für ein $\eta$-Orakel $\Upsilon$, denn eine $\mathrm{LFP}\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
+$\varphi$ gleicht syntaktisch einer $\mathrm{LFP}\left(\mathrm{FO}\right)\left[\sigma\uplus\eta\right]$-Formel
+$\varphi'$. Wenn dann $\varphi'$ per Lemma \ref{lem:lfp-fo-normalform}
+auf jeder endlichen $\left(\sigma\uplus\eta\right)$-Struktur äquivalent
+zu einer Formel $\hat{\varphi}'$ der obigen Form ist, dann gilt diese
+Äquivalenz insbesondere auch für die Auswertung von $\varphi$ auf
+einer $\sigma$-Struktur $\mathfrak{A}$, die disjunkt mit der $\eta$-Struktur
+$\Upsilon\left(\left|A\right|\right)$ vereinigt wird.
+
+Wir nutzen die Normalform und den Beweis von Lemma \ref{lem:lfp-inf}
+aus, um aus einer $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$
+direkt einen $\left(\sigma,\mathbb{B}\right)$-Schaltkreis zu erzeugen,
+der die richtige Tiefe und Größe hat. Wir formulieren die Konstruktion
+für allgemeine Logiken $\mathcal{L}$ unter Voraussetzung einer entsprechenden
+Schaltkreisklasse konstanter Tiefe.
+\begin{lem}
+\label{lem:lfp-circ}Sei $\mathcal{L}$ eine Logik, $\sigma$ eine
+relationale Signatur und $\mathbb{B}$ eine boolesche Basis, so dass
+jede $\mathcal{L}\left[\sigma\right]$-Formel $\varphi$ eine Anfrage
+beschreibt, die auch durch eine $\mathcal{K}$-uniforme (mit $P\subseteq\mathcal{K}$),
+symmetrische $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
+mit konstanter $t$-Tiefe und polynomiell beschränkter $s\left(n\right)$-Größe
+beschreibbar ist.
+
+Sei $\varphi$ eine beliebige $\mathrm{LFP}\left(\mathcal{L}\right)\left[\sigma\right]$-Formel
+der in Lemma \ref{lem:lfp-fo-normalform} beschriebenen Normalform:
+\[
+\varphi=\left(Q_{i}z_{i}\right)_{\begin{subarray}{c}
+i\in\left[1,m\right]\\
+Q_{i}\in\left\{ \exists,\forall\right\} 
+\end{subarray}}\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)
+\]
+
+
+Dann existiert eine $\mathcal{K}$-uniforme symmetrische $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
+$\bar{\mathcal{C}^{\varphi}}$ mit $m+n^{k}\left(t+1\right)$-Tiefe
+und $1+n^{k}\left(s\left(n\right)+m\right)$-Größe, so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right)$
+für alle $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ gilt.
+\end{lem}
+In Kombination mit dem Rest dieses Kapitels entsteht daraus eine Konstruktion
+für $\mathrm{LFP}+\mathbf{ORD}$ (mit Lemma \ref{lem:fo-ord-circuit})
+und $\mathrm{LFP}+\mathbf{ARB}$ (mit Lemma \ref{lem:fo+arb}), denn
+$\mathrm{LOGSPACE}\subseteq P$ (siehe Abschnitt 4.3 in \cite{arora-barak}).
+\begin{proof}
+Per Definition existiert bereits eine $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
+für jede $\mathcal{L}\left[\sigma\right]$-Formel.
+
+Sei nun $\varphi=\left(Q_{i}z_{i}\right)_{i\in\left[1,m\right]}\varphi'$
+und $\varphi'=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
+für eine Relationsvariable $X/k\in\mathbf{var}_{2}$, eine $k$-stellige
+parameterfreie $\mathcal{L}\left[\sigma\uplus\left\{ X\right\} \right]$-Formel
+$\psi\left(\bar{x}\right)$ und ein Tupel von $\mathrm{LFP}\left(\mathcal{L}\right)\left[\sigma\right]$-Termen
+$\bar{y}\in\mathbf{var}^{k}$.
+
+Per Voraussetzung existiert eine $\mathcal{K}$-uniforme, $k$-stellige,
+symmetrische $\left(\sigma\cup\left\{ X\right\} \right)$-Schaltkreisfamilie
+$\left(\mathcal{C}_{n}^{\psi}\right)_{n\in\mathbb{N}}$, die auf einer
+$\left(\sigma\cup\left\{ X\right\} \right)$-Struktur $\mathfrak{A}'\coloneqq\mathfrak{A}\cup\left(A,\left(X\mapsto Y\right)\right)$
 die Anfrage $q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}'\right)=q_{\psi^{\left(X\mapsto Y\right)}}\left(\mathfrak{A}\right)$
 berechnet. (Hier wird die Relationsvariable $X$ als neues Symbol
 in die Signatur mit aufgenommen.)
 \[
 \mathcal{C}_{n}^{\psi}=\left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U\right)
 \]
-
+Wir werden für jede Eingabegröße $n\in\mathbb{N}$ einen neuen Schaltkreis
+für $\mathcal{C}_{n}^{\varphi'}$ bauen, der den Schaltkreis $\mathcal{C}_{n}^{\psi}$
+genau $n^{k}$-mal iteriert.
 \begin{description}
 \item [{Schaltkreis:}] Es wird eine Sequenz $\left(\mathcal{D}^{i}\right)_{i\in\mathbb{N}}$
-von $k$-stelligen $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisen
+von $k$-stelligen $\left(\sigma,\mathbb{B}\right)$-Schaltkreisen
 definiert.
 \[
 \mathcal{D}^{i}\coloneqq\left(G_{i},W_{i},\Sigma_{i},\Omega_{i},U\right)
@@ -2814,24 +2928,40 @@ und daher:
 Daher ist $\mathcal{D}^{i+1}$ ebenfalls symmetrisch, und es folgt
 die Symmetrie von $\mathcal{C}_{n}^{\varphi}=\mathcal{D}^{n^{k}}$.
 
-\item [{Größe:}] Es wird induktiv bewiesen, dass $T\left(\mathcal{D}^{i}\right)\leqslant\left(\left\Vert \psi\right\Vert +1\right)i$,
-und $\left|\mathcal{D}^{i}\right|\leqslant i\cdot n^{\mathtt{MF}\left(\psi\right)}+1$
+\item [{Größe:}] Es wird induktiv bewiesen, dass $T\left(\mathcal{D}^{i}\right)\leqslant i\left(t+1\right)$,
+und $\left|\mathcal{D}^{i}\right|\leqslant1+i\cdot s\left(n\right)$
 \begin{eqnarray*}
 T\left(\mathcal{D}^{0}\right) & = & 0\\
 T\left(\mathcal{D}^{i+1}\right) & = & T\left(\mathcal{D}^{i}\right)+T\left(\mathcal{C}_{n}^{\psi}\right)+1\\
- & \leqslant & T\left(\mathcal{D}^{i}\right)+\left\Vert \psi\right\Vert +1\\
- & \overset{\mathrm{Ann.}}{\leqslant} & \left(\left\Vert \psi\right\Vert +1\right)i+\left\Vert \psi\right\Vert +1=\left(\left\Vert \varphi\right\Vert +1\right)\left(i+1\right)
+ & \leqslant & T\left(\mathcal{D}^{i}\right)+t+1\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & i\left(t+1\right)+t+1=\left(i+1\right)\left(t+1\right)
 \end{eqnarray*}
 \begin{eqnarray*}
 \left|\mathcal{D}^{0}\right| & = & 1\\
 \left|\mathcal{D}^{i+1}\right| & = & \left|\mathcal{D}^{i}\right|+\left|\mathcal{C}_{n}^{\psi}\right|\\
- & \leqslant & \left|\mathcal{D}^{i}\right|+n^{\mathtt{MF}\left(\psi\right)}\\
- & \overset{\mathrm{Ann.}}{\leqslant} & i\cdot n^{\mathtt{MF}\left(\psi\right)}+1+n^{\mathtt{MF}\left(\psi\right)}=\left(i+1\right)\cdot n^{\mathtt{MF}\left(\psi\right)}+1
+ & \leqslant & \left|\mathcal{D}^{i}\right|+s\left(n\right)\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & 1+i\cdot s\left(n\right)+s\left(n\right)=1+\left(i+1\right)s\left(n\right)
 \end{eqnarray*}
-Damit gilt $T\left(\mathcal{C}_{n}^{\varphi}\right)=T\left(\mathcal{D}^{n^{k}}\right)\leqslant n^{k}\left(\left\Vert \varphi\right\Vert +1\right)$
-und $\left|\mathcal{C}_{n}^{\varphi}\right|=\left|\mathcal{D}^{n^{k}}\right|=n^{k+\mathtt{MF}\left(\varphi\right)}+1$.
+Damit gilt $T\left(\mathcal{C}_{n}^{\varphi'}\right)=T\left(\mathcal{D}^{n^{k}}\right)\leqslant n^{k}\left(t+1\right)$
+und $\left|\mathcal{C}_{n}^{\varphi'}\right|=\left|\mathcal{D}^{n^{k}}\right|=1+n^{k}s\left(n\right)$.
 \end{description}
+Um jetzt noch aus $\mathcal{C}_{n}^{\varphi'}$ den Schaltkreis $\mathcal{C}_{n}^{\varphi}$
+zu erzeugen, muss nur für jeden Quantor $Q_{i}z_{i}$ Fall \ref{case:fo-ex}
+oder \ref{case:fo-forall} aus dem Beweis von Lemma \ref{lem:fo-circuit}
+angewendet werden. Dieser erzeugt in jedem Schritt höchstens $n^{k}$
+neue Gates und vergrößert die Tiefe um $1$, so dass wir die Tiefe
+$n^{k}\left(t+1\right)+m$ und Größe $n^{k}\left(s\left(n\right)+m\right)+1$
+erhalten.
 \end{proof}
+
+\subsection{Fixpunktlogik mit Zählquantoren}
+
+Wir haben im letzten Abschnitt eine Normalform vorausgesetzt, diese
+aber nur für die Logiken $\mathrm{LFP}$ und $\mathrm{LFP}+\Upsilon$
+nachgewiesen. Den Spezialfall $\mathrm{LFP}+C$ betrachten wir gesondert,
+und weisen nach, dass die Konstruktion aus Lemma \ref{lem:fo+c} mit
+dem Fixpunkt-Operator kombinierbar ist.
+
 
 \chapter{Partitionen und Träger}
 
@@ -3159,7 +3289,7 @@ abbildet, gilt per Definition $\pi\in\mathrm{Stab}_{U}\left\{ \mathrm{SP}\left(G
 \subsection{Trägermengen im Schaltkreis}
 
 Wir erweitern die Begriffe ,,Stabilisator`` und ,,Träger`` auf
-die Gates eines rigiden (Definition \ref{def:Rigidit=0000E4t}), symmetrischen
+die Gates eines rigiden (Definition \ref{def:rigid}), symmetrischen
 Schaltkreises. $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$.
 \begin{defn}
 Für jedes Gate $g\in G$ sei der Stabilisator von $g$ wie folgt definiert:
@@ -3355,7 +3485,7 @@ Gates $g$ nachzuweisen:
 (Theorem 21 aus \cite{AD2014})
 
 Für $\epsilon\in\mathbb{R}_{\left[\frac{2}{3},1\right]}$, $n>2^{\frac{56}{\epsilon^{2}}}$,
-$U=\left[1,n\right]$ und einen rigiden (siehe Definition \ref{def:Rigidit=0000E4t})
+$U=\left[1,n\right]$ und einen rigiden (siehe Definition \ref{def:rigid})
 symmetrischen Schaltkreis $\mathcal{C}$ über $U$ gilt:
 
 Wenn der Orbit jedes Gates subexponentiell ist (für ein $\mathcal{C}$
@@ -3371,9 +3501,9 @@ dann gilt $\mathrm{SP}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{
 
 \section{Berechnung von rigiden Schaltkreisen}
 
-Um die Orbits und Träger jedes Gates eines Schaltkreises zu berechnen,
-wird nun gefordert, dass der Schaltkreis \emph{rigide }gemäß Definition
-\ref{def:Rigidit=0000E4t} ist.
+Um die Eindeutigkeit der im symmetrischen Schaltkreis induzierten
+Automorphismen zu gewährleisten, wird nun gefordert, dass der Schaltkreis
+\emph{rigide }gemäß Definition \ref{def:rigid} ist.
 
 Die Rigidität kann nicht in jeder booleschen Basis $\mathbb{B}$ problemlos
 hergestellt werden, ohne die Tiefe zu verändern - während redundante
@@ -3421,7 +3551,7 @@ W^{\mathcal{C}} & = & \left\{ \left(g,g',n\right)\in G^{2}\times\left[0,\left|\m
 \end{eqnarray*}
 
 
-Für die Auswertung eines internen Gates gilt analog zu \ref{def:Auswertung-von-Schaltkreisen}:
+Für die Auswertung eines internen Gates gilt analog zu \ref{def:circuit-eval}:
 \begin{eqnarray*}
 j_{1} & \coloneqq & \sum_{h\in G}\left(\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\cdot\mathcal{W}\left(h,g\right)\right)\\
 j_{0} & \coloneqq & \sum_{h\in G}\mathcal{W}\left(h,g\right)-j_{1}\\
@@ -3447,7 +3577,7 @@ keine Gates $g,g'$ mit $\Sigma\left(g\right)=\Sigma\left(g'\right)$
 und $\mathcal{W}\left(h,g\right)=\mathcal{W}\left(h,g'\right)$ für
 alle $h\in G$.
 \begin{lem}
-\label{lem:algo-rigide}(nach Lemma 24 aus \cite{AD2014})
+\label{lem:algo-rigid}(nach Lemma 24 aus \cite{AD2014})
 
 Es existiert ein Algorithmus, der einen beliebigen $\left(\sigma,\mathbb{B}\right)$-Schaltkreis
 $\mathcal{C}$ in einen rigiden Multischaltkreis $\hat{\mathcal{C}}$
@@ -3767,8 +3897,8 @@ und jeder Schritt erfordert $\left|G\right|^{2}$-Zeit, so dass der
 Algorithmus in $\left|G\right|^{3}$-Zeit arbeitet.\end{proof}
 \begin{prop}
 Die obige Konstruktion ist mit $\mathcal{O}\left(T\left(\mathcal{C}\right)\log n\right)$
-Speicherplatz berechenbar, und ist für Schaltkreisfamilien in $\mathrm{AC}^{0}$
-daher in $\mathrm{LOGSPACE}$.\end{prop}
+Speicherplatz berechenbar, und ist für Schaltkreisfamilien konstanter
+Tiefe daher in $\mathrm{LOGSPACE}$.\end{prop}
 \begin{proof}
 Der Algorithmus \ref{alg:aut} berechnet den Automorphismus $\hat{\pi}$,
 in dem für jedes Paar von Gates $g,g'$ rekursiv geprüft wird, ob
@@ -4188,7 +4318,7 @@ q_{\mathcal{C}_{n}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right
 \begin{proof}
 Da die Schaltkreisfamilie von einer $P$-Turingmaschine berechnet
 wird, existiert nach dem Immerman-Vardi-Theorem\cite{Vardi:1982:CRQ:800070.802186,IMMERMAN198686}
-und Lemma \ref{lem:algo-rigide} eine Sammlung von $\mathrm{LFP}\left[\left\{ \leqslant\right\} \right]$-Formeln
+und Lemma \ref{lem:algo-rigid} eine Sammlung von $\mathrm{LFP}\left[\left\{ \leqslant\right\} \right]$-Formeln
 $\Phi$, die auf der Struktur $\mathbf{ORD}\left(n\right)$ ausgewertet
 den Schaltkreis $\mathcal{C}_{n}$ beschreiben:
 \[

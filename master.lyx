@@ -248,12 +248,12 @@ Konkret ist die Klasse der symmetrischen
 \end_inset
 
 -uniformen booleschen Schaltkreisfamilien 
-\begin_inset Formula $\mathrm{SBC}$
+\begin_inset Formula $\mathrm{SBC}^{P}$
 \end_inset
 
  äquivalent zu der Logik erster Stufe mit Fixpunkt-Operator und disjunktem
  Ordnungsprädikat 
-\begin_inset Formula $\mathrm{LFP}+\mathbf{ORD}$
+\begin_inset Formula $\mathrm{FP}+\mathbf{ORD}$
 \end_inset
 
 .
@@ -276,21 +276,24 @@ key "Otto1997"
 
 \begin_layout Standard
 Die logische Zählerweiterung 
-\begin_inset Formula $\mathrm{LFP}+C$
+\begin_inset Formula $\mathrm{FP}+C$
 \end_inset
 
- charakterisiert die symmetrischen Schaltkreisfamilien mit einem Majority-Operat
-or 
-\begin_inset Formula $\mathrm{SBC}+\mathbf{MAJ}$
+ charakterisiert die Schaltkreisklasse 
+\begin_inset Formula $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}$
 \end_inset
 
-, und die Erweiterung der Logik um beliebige numerische Prädikate opfert
- nur die 
-\begin_inset Formula $P$
+ mit einem Majority-Gate, und die Erweiterung der Logik um beliebige numerische
+ Prädikate 
+\begin_inset Formula $\mathrm{FP}+\mathbf{ARB}$
 \end_inset
 
--Uniformität.
- Diese beiden Erweiterungen sind kombinierbar.
+ charakterisiert die nicht-uniforme Klasse 
+\begin_inset Formula $\mathrm{SBC}^{P/\mathrm{poly}}$
+\end_inset
+
+.
+ Diese beiden Erweiterungen sind miteinander kombinierbar.
 \end_layout
 
 \begin_layout Theorem
@@ -312,47 +315,36 @@ Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen äquivalen
 
 \begin_deeper
 \begin_layout Enumerate
-Die Fixpunktlogik mit disjunkter Ordnung 
-\begin_inset Formula $\mathrm{LFP}+\mathbf{ORD}$
+\begin_inset Formula $\mathrm{FP}+\mathbf{ORD}$
 \end_inset
 
  und 
-\begin_inset Formula $P$
+\begin_inset Formula $\mathrm{SBC}^{P}$
 \end_inset
 
--uniforme symmetrische Schaltkreisfamilien 
-\begin_inset Formula $\mathrm{SBC}$
-\end_inset
 
-.
 \end_layout
 
 \begin_layout Enumerate
-Die Fixpunktlogik mit Zählterm 
-\begin_inset Formula $\mathrm{LFP}+C$
+\begin_inset Formula $\mathrm{FP}+C$
 \end_inset
 
  und 
-\begin_inset Formula $P$
+\begin_inset Formula $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}$
 \end_inset
 
--uniforme symmetrische Schaltkreisfamilien mit Majority-Operation 
-\begin_inset Formula $\mathrm{SBC}+\mathbf{MAJ}$
-\end_inset
 
-.
 \end_layout
 
 \begin_layout Enumerate
-Die Fixpunktlogik mit beliebigen disjunkten Prädikaten 
-\begin_inset Formula $\mathrm{LFP}+\mathbf{ARB}$
+\begin_inset Formula $\mathrm{FP}+\mathbf{ARB}$
 \end_inset
 
  und 
-\begin_inset Formula $P/\mathrm{poly}$
+\begin_inset Formula $\mathrm{SBC}^{P/\mathrm{poly}}$
 \end_inset
 
--uniforme Schaltkreisfamilien.
+
 \end_layout
 
 \end_deeper
@@ -366,7 +358,11 @@ Wir erweitern dieses Ergebnis für Schaltkreisfamilien konstanter Tiefe.
 \begin_inset Formula $\mathrm{AC}^{0}$
 \end_inset
 
--Schaltkreisfamilien durch die Logik 
+-Schaltkreisfamilien (
+\begin_inset Formula $\left(\mathrm{SAC}^{0}\right)^{\mathrm{LOGSPACE}}$
+\end_inset
+
+) durch die Logik 
 \begin_inset Formula $\mathrm{FO}+\mathbf{BIT}$
 \end_inset
 
@@ -390,47 +386,36 @@ Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen äquivalen
 
 \begin_deeper
 \begin_layout Enumerate
-Die Logik 
 \begin_inset Formula $\mathrm{FO}+\mathbf{BIT}$
 \end_inset
 
  und 
-\begin_inset Formula $\mathrm{LOGSPACE}$
+\begin_inset Formula $\left(\mathrm{SAC}^{0}\right)^{\mathrm{LOGSPACE}}$
 \end_inset
 
--uniforme symmetrische 
-\begin_inset Formula $\mathrm{AC}^{0}$
-\end_inset
 
--Schaltkreisfamilien.
 \end_layout
 
 \begin_layout Enumerate
-Die Logik 
-\begin_inset Formula $\mathrm{FO}+C$
+\begin_inset Formula $\mathrm{FO}+\mathbf{BIT}+C$
 \end_inset
 
  und 
-\begin_inset Formula $\mathrm{LOGSPACE}$
+\begin_inset Formula $\left(\mathrm{SAC}^{0}+\mathbf{MAJ}\right)^{\mathrm{LOGSPACE}}$
 \end_inset
 
--uniforme symmetrische 
-\begin_inset Formula $\mathrm{AC}^{0}+\mathbf{MAJ}$
-\end_inset
 
--Schaltkreisfamilien.
 \end_layout
 
 \begin_layout Enumerate
-Die Logik 
 \begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
 \end_inset
 
- und symmetrische 
-\begin_inset Formula $\mathrm{AC}^{0}$
+ und 
+\begin_inset Formula $\left(\mathrm{SAC}^{0}+\mathbf{MAJ}\right)^{P/\mathrm{poly}}$
 \end_inset
 
--Schaltkreisfamilien.
+
 \end_layout
 
 \end_deeper
@@ -457,7 +442,7 @@ key "Makowsky1997-FO,Makowsky1998-LFP"
 \end_inset
 
  und 
-\begin_inset Formula $\mathrm{LFP}\left(\mathbf{ARB}\right)$
+\begin_inset Formula $\mathrm{FP}\left(\mathbf{ARB}\right)$
 \end_inset
 
  charakterisiert.
@@ -3221,7 +3206,7 @@ Für eine Logik
 \end_inset
 
  erweitert 
-\begin_inset Formula $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\sigma\right]$
+\begin_inset Formula $\mathrm{LFP}\left(\mathcal{L}\right)\left[\sigma\right]$
 \end_inset
 
  die Logik 
@@ -3250,7 +3235,7 @@ Für eine Logik
 \end_inset
 
 -positiven 
-\begin_inset Formula $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\sigma\right]$
+\begin_inset Formula $\mathrm{LFP}\left(\mathcal{L}\right)\left[\sigma\right]$
 \end_inset
 
 -Termen ist 
@@ -3262,7 +3247,7 @@ Für eine Logik
 \end_inset
 
 -positive 
-\begin_inset Formula $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\sigma\right]$
+\begin_inset Formula $\mathrm{LFP\left(\mathcal{L}\right)}\left[\sigma\right]$
 \end_inset
 
 -Formel.
@@ -3291,7 +3276,7 @@ Für eine Logik
 \end_inset
 
 -positive 
-\begin_inset Formula $\left(\mathcal{L}+\mathrm{LFP}\right)\left[\sigma\right]$
+\begin_inset Formula $\mathrm{LFP}\left(\mathcal{L}\right)\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -3315,7 +3300,7 @@ Für eine Logik
 \end_inset
 
 -positiven 
-\begin_inset Formula $\mathrm{\left(\mathcal{L}+\mathrm{LFP}\right)}\left[\sigma\right]$
+\begin_inset Formula $\mathrm{\mathrm{LFP}\left(\mathcal{L}\right)}\left[\sigma\right]$
 \end_inset
 
 -Termen ist 
@@ -3327,7 +3312,7 @@ Für eine Logik
 \end_inset
 
 -positive 
-\begin_inset Formula $\left(\mathrm{\mathcal{L}+\mathrm{LFP}}\right)\left[\sigma\right]$
+\begin_inset Formula $\mathrm{LFP}\left(\mathrm{\mathcal{L}}\right)\left[\sigma\right]$
 \end_inset
 
 -Formel.
@@ -3512,7 +3497,7 @@ Für jeden anderen Fixpunkt
 
 \begin_layout Standard
 Im folgenden wird die Logik 
-\begin_inset Formula $\mathrm{FO}+\mathrm{LFP}$
+\begin_inset Formula $\mathrm{LFP}\left(\mathrm{FO}\right)$
 \end_inset
 
  durch 
@@ -3630,6 +3615,41 @@ Die folgende
 \end_inset
 
 
+\end_layout
+
+\begin_layout Definition
+Eine etwas robustere, aber äquivalente, Definition der Fixpunktlogik verwendet
+ den inflationären Fixpunktoperator.
+ Anstelle der Positivität einer Formel in einer Relationsvariable betrachten
+ wir mit 
+\begin_inset Formula $\left[\mathrm{ifp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
+\end_inset
+
+ implizit die Formel 
+\begin_inset Formula $\left[\mathrm{lfp}_{X,\bar{x}}\left(X\bar{x}\vee\psi\right)\right]\left(\bar{y}\right)$
+\end_inset
+
+, die uns eine inflationäre Iteration garantiert:
+\begin_inset Formula 
+\[
+F_{\beta}\left(Y\right)=Y\cup q_{\psi\left(\bar{x}\right)}^{\beta\cup\left(X\rightarrow Y\right)}\left(\mathfrak{A}\right)\supseteq Y
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+In diesem Fall muss 
+\begin_inset Formula $\psi$
+\end_inset
+
+ nicht mehr 
+\begin_inset Formula $X$
+\end_inset
+
+-positiv sein.
 \end_layout
 
 \begin_layout Section
@@ -3784,6 +3804,28 @@ Für eine endliche
 
 \end_layout
 
+\begin_layout Notation
+Nach unserem Begriff der logischen Erweiterung ist die Bezeichnung 
+\begin_inset Formula $\mathrm{LFP}\left(\mathcal{L}+\Upsilon\right)$
+\end_inset
+
+ gleichbedeutend mit 
+\begin_inset Formula $\mathrm{LFP}\left(\mathcal{L}\right)+\Upsilon$
+\end_inset
+
+.
+ Im folgenden werden wir allgemein die erste Bezeichnung verwenden, aber
+ weiterhin 
+\begin_inset Formula $\mathrm{LFP}\left(\mathrm{FO}\right)+\Upsilon$
+\end_inset
+
+ durch 
+\begin_inset Formula $\mathrm{LFP}+\Upsilon$
+\end_inset
+
+ abkürzen.
+\end_layout
+
 \begin_layout Standard
 Wir definieren die folgenden drei numerischen Orakel für die reine Ordnung,
  für Arithmetik, und für nicht berechenbare Prädikate.
@@ -3808,7 +3850,7 @@ Sei
 \begin_inset Formula $\emptyset$
 \end_inset
 
--Orakel, das für 
+-Orakel, so dass das für 
 \begin_inset Formula $n\in\mathbb{N}$
 \end_inset
 
@@ -3816,7 +3858,7 @@ Sei
 \begin_inset Formula $\emptyset$
 \end_inset
 
--Struktur 
+-Struktur gilt: 
 \begin_inset Formula 
 \[
 \mathbf{ORD}\left(n\right)\coloneqq\left(\left[0,n\right],\leqslant_{\mid\left[0,n\right]}\right)\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\emptyset\right)
@@ -3824,7 +3866,7 @@ Sei
 
 \end_inset
 
-erzeugt.
+
 \end_layout
 
 \begin_layout --Separator--
@@ -3983,7 +4025,14 @@ key "AD2014"
 
 \end_inset
 
-)
+, und Abschnitt 8.4.2 von 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EbbinghausFlum"
+
+\end_inset
+
+ für Fixpunktlogik)
 \end_layout
 
 \begin_layout Definition
@@ -4122,7 +4171,7 @@ key "Schweikardt:2005:AFL:1071596.1071602"
 
 \end_inset
 
-, aber mit einem disjunkten numerischen Universum)
+, hier aber mit einem disjunkten numerischen Universum)
 \end_layout
 
 \begin_layout Definition
@@ -4235,7 +4284,26 @@ Majority-Quantor
 \begin_inset Formula $\exists^{\geqslant}$
 \end_inset
 
+ (wie in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EbbinghausFlum"
 
+\end_inset
+
+ Abschnitt 3.4, hier aber mit 
+\begin_inset Formula $\exists^{\geqslant x}$
+\end_inset
+
+ für 
+\begin_inset Formula $x\in\mathbf{var}$
+\end_inset
+
+ anstelle von unendlich vielen Quantoren 
+\begin_inset Formula $\left(\exists^{\geqslant n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+)
 \end_layout
 
 \begin_layout Definition
@@ -4347,7 +4415,15 @@ Die Logiken
 \begin_inset Formula $\mathcal{L}+\Upsilon+\exists^{\geqslant}$
 \end_inset
 
- sind äquivalent:
+ sind äquivalent, modulo eines festen Zuwachses in 
+\begin_inset Formula $\left\Vert \varphi\right\Vert $
+\end_inset
+
+ und 
+\begin_inset Formula $\left|\mathrm{var}\left(\varphi\right)\right|$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Proof
@@ -4589,7 +4665,7 @@ Falls
 \end_layout
 
 \end_deeper
-\begin_layout Standard
+\begin_layout Notation
 Im folgenden wird mit 
 \begin_inset Formula $\mathcal{L}+\Upsilon+C$
 \end_inset
@@ -4631,7 +4707,7 @@ Die Logik
  auf ungeordneten Strukturen definierbar
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Ebbinghaus,Libkin2012"
+key "EbbinghausFlum,Libkin2012"
 
 \end_inset
 
@@ -4903,7 +4979,7 @@ Nach dem Satz von Trakhtenbrot ist die endlichen Erfüllbarkeit von
 .
 \begin_inset CommandInset citation
 LatexCommand cite
-key "EFT,Libkin2012,Schweikardt13ashort"
+key "EbbinghausFlumThomas,Libkin2012,Schweikardt13ashort"
 
 \end_inset
 
@@ -5215,9 +5291,9 @@ Formal definieren wir den
 \begin{eqnarray*}
 \tau_{\sigma,\mathbb{B},k} & \coloneqq & \left\{ W/2,\left(\Sigma_{s}/1\right)_{s\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} },\left(\Sigma_{R}/1+k\right)_{R/k\in\sigma},\Omega/k+1\right\} \\
 W^{\mathcal{C}} & \coloneqq & W\\
-\Sigma_{s}^{\mathcal{C}} & \coloneqq & \left\{ g\in G\mid\Sigma\left(g\right)=s\right\} \\
-\Sigma_{R}^{\mathcal{C}} & \coloneqq & \left\{ g\bar{t}\mid\Sigma\left(g\right)=R\bar{t}\right\} \\
-\Omega_{R}^{\mathcal{C}} & \coloneqq & \left\{ \bar{t}g\mid\Omega\left(\bar{t}\right)=g\right\} 
+\Sigma_{s}^{\mathcal{C}} & \coloneqq & \left\{ g\in G\mid\Sigma\left(g\right)=s\right\} \,\mathrm{für}\,s\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} \\
+\Sigma_{R}^{\mathcal{C}} & \coloneqq & \left\{ g\bar{t}\mid\Sigma\left(g\right)=R\bar{t}\right\} \,\mathrm{für}\,R\in\sigma\\
+\Omega^{\mathcal{C}} & \coloneqq & \left\{ \bar{t}g\mid\Omega\left(\bar{t}\right)=g\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -5234,7 +5310,7 @@ W^{\mathcal{C}} & \coloneqq & W\\
 \series bold
 \begin_inset CommandInset label
 LatexCommand label
-name "def:Auswertung-von-Schaltkreisen"
+name "def:circuit-eval"
 
 \end_inset
 
@@ -5436,7 +5512,7 @@ reference "fig:circuit"
 \begin_inset Formula $2$
 \end_inset
 
- sind:
+ sind.
 \end_layout
 
 \begin_layout Example*
@@ -5965,7 +6041,7 @@ In diesem Fall definieren wir für jede Struktur
 \end_inset
 
  mit einer beliebigen Bijektion 
-\begin_inset Formula $\pi:A\rightarrow U$
+\begin_inset Formula $\pi:A\rightleftarrows U$
 \end_inset
 
 :
@@ -5990,11 +6066,7 @@ Symmetrie
 \end_layout
 
 \begin_layout Definition
-Für einen 
-\begin_inset Formula $k$
-\end_inset
-
--stelliger Schaltkreis 
+Für einen Schaltkreis 
 \begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
 \end_inset
 
@@ -6023,7 +6095,7 @@ Für einen
 induziert
 \series default
 .
- (Nach den Definitionen 
+ (Nach den formalen Definitionen 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "def:formal"
@@ -6038,7 +6110,7 @@ reference "def:isomorphism"
 \end_inset
 
  ist 
-\begin_inset Formula $\rho\in\mathrm{Aut}_{\mathcal{C}}$
+\begin_inset Formula $\rho\in\mathrm{Aut}_{\mathcal{C}}\subseteq\mathrm{Sym}_{G\uplus U}$
 \end_inset
 
  eine Permutation des Universums von 
@@ -6620,7 +6692,7 @@ Der Schaltkreis ist invariant, und akzeptiert alle vollständigen
 \series bold
 \begin_inset CommandInset label
 LatexCommand label
-name "def:Rigidität"
+name "def:rigid"
 
 \end_inset
 
@@ -6783,70 +6855,14 @@ q_{\bar{\mathcal{C}}}\left(\mathfrak{A}\right)\coloneqq q_{\mathcal{C}_{\left|A\
 \end_layout
 
 \begin_layout Definition
-\begin_inset Formula $\mathrm{SBC}$
-\end_inset
-
- und 
-\begin_inset Formula $\mathrm{SBC+\mathbf{MAJ}}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-Sei 
-\begin_inset Formula $\mathrm{SBC}$
-\end_inset
-
- die Klasse aller 
-\series bold
-symmetrischen 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
-\end_inset
-
--Schaltkreisfamilien
-\series default
-.
-\end_layout
-
-\begin_layout Itemize
-Sei 
-\begin_inset Formula $\mathrm{SBC}+\mathbf{MAJ}$
-\end_inset
-
- die Klasse aller 
-\series bold
-symmetrischen 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
-\end_inset
-
--Schaltkreisfamilien
-\series default
-.
- (Zur Erinnerung: 
-\begin_inset Formula $\mathbb{B}_{\mathrm{maj}}=\mathbb{B}_{\mathrm{std}}\uplus\left\{ \mathtt{MAJ}\right\} $
-\end_inset
-
-, wobei 
-\begin_inset Formula $\mathtt{MAJ}$
-\end_inset
-
- der Majority-Operator ist.)
-\end_layout
-
-\begin_layout --Separator--
-
-\end_layout
-
-\begin_layout Definition
 
 \series bold
 Uniformität
 \end_layout
 
 \begin_layout Definition
-Für eine Klasse von Turingmaschinen 
-\begin_inset Formula $T$
+Für eine Komplexitätsklasse 
+\begin_inset Formula $\mathcal{K}$
 \end_inset
 
  sei eine Schaltkreisfamilie 
@@ -6854,7 +6870,7 @@ Für eine Klasse von Turingmaschinen
 \end_inset
 
  
-\begin_inset Formula $T$
+\begin_inset Formula $\mathcal{K}$
 \end_inset
 
 -
@@ -6865,11 +6881,11 @@ uniform
 \begin_inset Formula $n_{0}\in\mathbb{N}$
 \end_inset
 
- existiert, so dass eine Turingmaschine aus 
-\begin_inset Formula $T$
+ existiert, so dass eine 
+\begin_inset Formula $\mathcal{K}$
 \end_inset
 
- bei Eingabe des Worts 
+-Turingmaschine bei Eingabe des Worts 
 \begin_inset Formula $1\cdots1\in\left\{ 0,1\right\} ^{n}$
 \end_inset
 
@@ -6889,23 +6905,32 @@ Insbesondere sei
 \begin_inset Formula $P$
 \end_inset
 
- die Klasse aller Turingmaschinen, die bei einer Eingabe der Länge 
-\begin_inset Formula $n$
+ die Klasse der 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
 \end_inset
 
- nach 
-\begin_inset Formula $f\left(n\right)\in n^{\mathcal{O}\left(1\right)}$
+-zeitbeschränkten, und 
+\begin_inset Formula $\mathrm{LOGSPACE}$
 \end_inset
 
- Schritten halten, und 
-\begin_inset Formula $\mathrm{LOGSPACE}\subseteq P$
+ die Klasse der 
+\begin_inset Formula $\mathcal{O}\left(\log n\right)$
 \end_inset
 
- die Klasse der Turingmaschinen, die höchstens 
-\begin_inset Formula $f\left(n\right)\in\mathcal{O}\left(\log n\right)$
+-platzbeschränkten Turingmaschinen.
+ 
+\begin_inset Formula $P/\mathrm{poly}$
 \end_inset
 
- Speicherplatz belegen.
+ sei die Klasse der 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-zeitbeschränkten Turingmaschinen, die eine 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-beschränkte Orakel-Eingabe erhalten.
 \end_layout
 
 \begin_layout --Separator--
@@ -7037,18 +7062,15 @@ Eine
 \begin_inset Formula $\mathrm{poly}\left(n\right)$
 \end_inset
 
--große Schaltkreisfamilie repräsentieren.
+-große Schaltkreisfamilie repräsentieren
 \begin_inset CommandInset citation
 LatexCommand cite
 key "arora-barak"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Remark*
-Daher sind die Begriffe 
+.
+ Daher sind die Begriffe 
 \begin_inset Quotes gld
 \end_inset
 
@@ -7142,19 +7164,114 @@ Tiefe
  definiert.
 \end_layout
 
-\begin_layout Remark*
-\begin_inset Formula $\mathrm{AC}^{0}$
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+Benennung von Schaltkreisklassen
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $\sigma$
 \end_inset
 
- ist die Klasse der 
-\begin_inset Formula $\mathcal{O}\left(1\right)$
+ eine beliebige relationale Signatur.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Mit 
+\begin_inset Formula $\mathrm{SBC}\left[\sigma\right]$
 \end_inset
 
--tiefen, 
+ bezeichnen wir die Klasse der Anfragen, die von einer symmetrischen
+\series bold
+ 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+
+\series default
+-Schaltkreisfamilie beschrieben werden.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\left(\mathrm{SBC}+\mathbf{MAJ}\right)\left[\sigma\right]$
+\end_inset
+
+ sei die Klasse der Anfragen, die von einer symmetrischen
+\series bold
+ 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
+\end_inset
+
+
+\series default
+-Schaltkreisfamilie beschrieben werden.
+ (Zur Erinnerung: 
+\begin_inset Formula $\mathbb{B}_{\mathrm{maj}}=\mathbb{B}_{\mathrm{std}}\uplus\left\{ \mathtt{MAJ}\right\} $
+\end_inset
+
+, wobei 
+\begin_inset Formula $\mathtt{MAJ}$
+\end_inset
+
+ der Majority-Operator ist.)
+\end_layout
+
+\end_deeper
+\begin_layout Definition
+Für eine Komplexitätsklasse 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+ bezeichne 
+\begin_inset Formula $\mathrm{SBC}^{\mathcal{K}}$
+\end_inset
+
+ (beziehungsweise 
+\begin_inset Formula $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{\mathcal{K}}$
+\end_inset
+
+ die Klasse der Anfragen, die von einer entsprechenden 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+-uniformen Schaltkreisfamilie beschrieben werden.
+\end_layout
+
+\begin_layout Definition
+Für jede dieser Klassen schreiben wir 
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $\mathrm{SAC}^{0}$
+\end_inset
+
+
+\begin_inset Quotes grd
+\end_inset
+
+ anstelle von 
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $\mathrm{SBC}$
+\end_inset
+
+
+\begin_inset Quotes grd
+\end_inset
+
+, um die Klasse auf Schaltkreisfamilien mit konstanter Tiefe und 
 \begin_inset Formula $\mathrm{poly}\left(n\right)$
 \end_inset
 
--großen Schaltkreisfamilien.
+-Größe zu beschränken.
 \end_layout
 
 \begin_layout Chapter
@@ -7166,21 +7283,27 @@ Logik erster Stufe
 \end_layout
 
 \begin_layout Standard
-Die Formeln der Logik erster Stufe sind durch symmetrische 
+Wir weisen zunächst nach, dass die Logik der ersten Stufe durch symmetrische,
+ 
 \begin_inset Formula $\mathrm{LOGSPACE}$
 \end_inset
 
--uniforme 
-\begin_inset Formula $\mathrm{AC}^{0}$
+-uniforme Schaltkreisfamilien konstanter Tiefe beschrieben wird.
+ 
+\begin_inset Formula 
+\[
+\mathrm{FO}\subseteq\left(\mathrm{SAC}^{0}\right)^{\mathrm{LOGSPACE}}
+\]
+
 \end_inset
 
--Schaltkreise berechenbar:
+
 \end_layout
 
 \begin_layout Lemma
 \begin_inset CommandInset label
 LatexCommand label
-name "lem:FO-Circuit"
+name "lem:fo-circuit"
 
 \end_inset
 
@@ -7889,6 +8012,12 @@ T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+T\left(\mathcal{C}_{n}^{\psi}\ri
 
 \end_deeper
 \begin_layout Case
+\begin_inset CommandInset label
+LatexCommand label
+name "case:fo-ex"
+
+\end_inset
+
 Falls 
 \begin_inset Formula $\varphi\left(\bar{x}\right)=\exists y_{1}\cdots\exists y_{m}\psi\left(z_{1},\cdots,z_{k+m}\right)$
 \end_inset
@@ -8059,10 +8188,14 @@ Für die neuen Kanten
 \end_inset
 
  gilt: 
-\begin_inset Formula $\left(\hat{\pi}\Omega'\left(\bar{u}\right),\hat{\pi}g_{\rho\bar{u}}\right)=\left(\Omega'\left(\pi\bar{u}\right),g_{\rho\pi\bar{u}}\right)\in W$
+\begin_inset Formula 
+\[
+\left(\hat{\pi}\Omega'\left(\bar{u}\right),\hat{\pi}g_{\rho\bar{u}}\right)=\left(\Omega'\left(\pi\bar{u}\right),g_{\rho\pi\bar{u}}\right)\in W
+\]
+
 \end_inset
 
-.
+
 \end_layout
 
 \begin_layout Enumerate
@@ -8114,6 +8247,12 @@ T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+T\left(\mathcal{C}_{n}^{\psi}\ri
 
 \end_deeper
 \begin_layout Case
+\begin_inset CommandInset label
+LatexCommand label
+name "case:fo-forall"
+
+\end_inset
+
 Falls 
 \begin_inset Formula $\varphi\left(\bar{x}\right)=\forall y_{1}\cdots\forall y_{m}\psi\left(\bar{z}\right)$
 \end_inset
@@ -8164,6 +8303,18 @@ Jeder Aufruf von
 \end_inset
 
  Bits benötigt.
+\end_layout
+
+\begin_layout Standard
+(Hierbei werden ohne Details eine passende Kodierung der Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ und ein Algorithmus zur platz-effizienten Berechnung von 
+\begin_inset Formula $\mathrm{frei}\left(\varphi\right)$
+\end_inset
+
+ vorausgesetzt.)
 \end_layout
 
 \end_deeper
@@ -8331,13 +8482,13 @@ Wir betrachten die Logik
 
 , und weisen nach, dass die Konstruktion aus Lemma 
 \begin_inset CommandInset ref
-LatexCommand formatted
-reference "lem:FO-Circuit"
+LatexCommand ref
+reference "lem:fo-circuit"
 
 \end_inset
 
  angepasst werden kann, ohne die Klasse der 
-\begin_inset Formula $P$
+\begin_inset Formula $\mathrm{LOGSPACE}$
 \end_inset
 
 -uniformen symmetrischen 
@@ -8345,12 +8496,20 @@ reference "lem:FO-Circuit"
 \end_inset
 
 -Schaltkreise zu verlassen.
+\begin_inset Formula 
+\[
+\mathrm{FO}+\mathbf{ORD}\subseteq\left(\mathrm{SAC}^{0}\right)^{\mathrm{LOGSPACE}}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Lemma
 \begin_inset CommandInset label
 LatexCommand label
-name "lem:fo-ord"
+name "lem:fo-ord-circuit"
 
 \end_inset
 
@@ -8443,7 +8602,7 @@ Der Schaltkreis
 \begin_inset Formula $\mathcal{C}_{n}$
 \end_inset
 
- wird aber auf der umbenannten 
+ wird aber auf einer umbenannten 
 \begin_inset Formula $\sigma$
 \end_inset
 
@@ -8451,30 +8610,21 @@ Der Schaltkreis
 \begin_inset Formula $\mathfrak{A}'\coloneqq\pi\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$
 \end_inset
 
- mit dem Universum 
-\begin_inset Formula $U=\left[1,n\right]$
+ mit für 
+\begin_inset Formula $\pi:A\rightleftarrows\left[1,n\right]$
 \end_inset
 
  ausgewertet.
-\end_layout
-
-\begin_layout Proof
-Vor der Konstruktion muss daher sichergestellt werden, dass das Universum
- von 
+ Um 
 \begin_inset Formula $\mathfrak{A}'$
 \end_inset
 
- disjunkt von dem Universum der Orakelstruktur 
+ disjunkt mit 
 \begin_inset Formula $\Upsilon\left(n\right)$
 \end_inset
 
- ist.
- Dazu wird das Universum 
+ zu vereinigen, werden wir zuerst das Universum 
 \begin_inset Formula $\left[0,n\right]$
-\end_inset
-
- von 
-\begin_inset Formula $\Upsilon\left(n\right)$
 \end_inset
 
  durch eine Umbenennung nach 
@@ -8485,7 +8635,7 @@ Vor der Konstruktion muss daher sichergestellt werden, dass das Universum
 \begin_inset Quotes gld
 \end_inset
 
-verschoben
+verschieben
 \begin_inset Quotes grd
 \end_inset
 
@@ -8507,7 +8657,7 @@ Nun betrachten wir die disjunkte Vereinigung (wobei die Ordnung
 \begin_inset Formula $\leqslant$
 \end_inset
 
- weiterhin nur auf 
+ nur auf 
 \begin_inset Formula $\left[n+1,2n+1\right]$
 \end_inset
 
@@ -8560,8 +8710,11 @@ Wir konstruieren nun zunächst einen
 \begin_inset Formula $U'=\left[1,2n+1\right]$
 \end_inset
 
- entsprechend dem vorhergehenden Beweis für 
-\begin_inset Formula $\mathrm{FO}$
+ entsprechend dem Beweis von Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:fo-circuit"
+
 \end_inset
 
 .
@@ -8587,15 +8740,14 @@ Anschließend konstruieren wir daraus den
 \end_inset
 
 -Schaltkreis 
-\begin_inset Formula 
-\begin{eqnarray*}
-\dot{\mathcal{C}_{n}^{\varphi}} & \coloneqq & \left(G,W,\dot{\Sigma},\dot{\Omega},U\right)\\
-U & \coloneqq & \left[1,n\right]
-\end{eqnarray*}
-
+\begin_inset Formula $\dot{\mathcal{C}_{n}^{\varphi}}\coloneqq\left(G,W,\dot{\Sigma},\dot{\Omega},U\right)$
 \end_inset
 
- indem alle Inputs 
+ über 
+\begin_inset Formula $U\coloneqq\left[1,n\right]$
+\end_inset
+
+, indem alle Inputs 
 \begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
 \end_inset
 
@@ -8624,7 +8776,11 @@ U & \coloneqq & \left[1,n\right]
 \begin_inset Formula $\log\left|G\right|\leqslant\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log n$
 \end_inset
 
- benötigt.
+ benötigt, und somit in 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+ bleibt.
 \end_layout
 
 \begin_deeper
@@ -8724,7 +8880,7 @@ Aus der Symmetrie des Schaltkreises
  (siehe Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:FO-Circuit"
+reference "lem:fo-circuit"
 
 \end_inset
 
@@ -8888,11 +9044,7 @@ Außerdem gilt ist
 \begin_inset Formula $\mathrm{LOGSPACE}$
 \end_inset
 
--uniforme Schaltkreisfamilie in 
-\begin_inset Formula $\mathrm{AC}^{0}$
-\end_inset
-
-, die die Anfrage 
+-uniforme Schaltkreisfamilie konstanter Tiefe, die 
 \begin_inset Formula $q$
 \end_inset
 
@@ -8918,17 +9070,25 @@ Wir betrachten die Logik
 , und weisen nach, dass die vorhergehende Konstruktion aus Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:fo-ord"
+reference "lem:fo-ord-circuit"
 
 \end_inset
 
  angepasst werden kann, indem Majority-Gates hinzugefügt werden.
+\begin_inset Formula 
+\[
+\mathrm{FO}+C\subseteq\left(\mathrm{SAC}^{0}+\mathbf{MAJ}\right)^{\mathrm{LOGSPACE}}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Lemma
 \begin_inset CommandInset label
 LatexCommand label
-name "lem:fo-c"
+name "lem:fo+c"
 
 \end_inset
 
@@ -9000,7 +9160,7 @@ Sei
  wird nach dem gleichen Schema wie in Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:fo-ord"
+reference "lem:fo-ord-circuit"
 
 \end_inset
 
@@ -9582,7 +9742,7 @@ Da der Schaltkreis
  symmetrisch (siehe Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:fo-ord"
+reference "lem:fo-ord-circuit"
 
 \end_inset
 
@@ -9609,21 +9769,37 @@ Wir betrachten die Logik
 \begin_inset Formula $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta\right)$
 \end_inset
 
-, und weisen nach, dass die Konstruktion aus 
+ (insbesondere 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+, welches alle diese Logiken einschließt), und weisen nach, dass die Konstruktio
+n aus 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:fo-ord"
+reference "lem:fo-ord-circuit"
 
 \end_inset
 
- auf beliebige Prädikate erweitert werden kann, wobei die Uniformität, aber
- nicht die beschränkte Größe geopfert wird.
+ auf beliebige Prädikate erweitert werden kann, wobei die 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+-Uniformität, aber nicht die beschränkte Größe geopfert wird.
+\begin_inset Formula 
+\[
+\mathrm{FO}+\mathbf{ARB}\subseteq\left(\mathrm{SAC}^{0}\right)^{P/\mathrm{poly}}
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Lemma
 \begin_inset CommandInset label
 LatexCommand label
-name "lem:fo-u"
+name "lem:fo+arb"
 
 \end_inset
 
@@ -9639,7 +9815,11 @@ Seien
 \begin_inset Formula $\Upsilon\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta\right)$
 \end_inset
 
- ein Orakel.
+ ein 
+\begin_inset Formula $\eta$
+\end_inset
+
+-Orakel.
 \end_layout
 
 \begin_layout Lemma
@@ -9715,7 +9895,7 @@ Zunächst wird der
  wie in Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:fo-ord"
+reference "lem:fo-ord-circuit"
 
 \end_inset
 
@@ -9816,7 +9996,7 @@ Offensichtlich ist sie jedoch immer noch
 \begin_inset Formula $\mathrm{poly}\left(n\right)$
 \end_inset
 
--groß und daher auch 
+-groß und daher 
 \begin_inset Formula $P/\mathrm{poly}$
 \end_inset
 
@@ -9832,6 +10012,26 @@ Offensichtlich ist sie jedoch immer noch
 
 \begin_layout Section
 Fixpunktlogik
+\end_layout
+
+\begin_layout Standard
+In diesem Abschnitt werden wir die bereits gezeigten Konstruktionen auf
+ Fixpunktlogik erweitern, die durch Schaltkreise beliebiger Tiefe beschrieben
+ werden kann:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{LFP}+\mathbf{ORD} & \subseteq & \mathrm{SBC}^{P}\\
+\mathrm{LFP}+\mathbf{ARB} & \subseteq & \mathrm{SBC}^{P/\mathrm{poly}}\\
+\mathrm{LFP}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Eine Sequenz von erststufigen Formeln
 \end_layout
 
 \begin_layout Standard
@@ -9865,7 +10065,7 @@ key "Immerman1982,Libkin2012"
 
 \end_inset
 
- Trotzdem kann jede 
+Jede 
 \begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
 \end_inset
 
@@ -9873,7 +10073,7 @@ key "Immerman1982,Libkin2012"
 \begin_inset Formula $\varphi$
 \end_inset
 
- durch eine Familie von 
+ ist aber äquivalent zu einer Familie von 
 \begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
 
@@ -9881,11 +10081,11 @@ key "Immerman1982,Libkin2012"
 \begin_inset Formula $\left(\varphi_{n}\right)_{n\in\mathbb{N}}$
 \end_inset
 
- mit einer konstanten Anzahl Variablen definiert werden, so dass 
+ mit einer konstanten Anzahl Variablen, so dass 
 \begin_inset Formula $\varphi_{n}$
 \end_inset
 
- auf den Strukturen der Größe 
+ auf allen Strukturen der Größe 
 \begin_inset Formula $n$
 \end_inset
 
@@ -9894,7 +10094,7 @@ key "Immerman1982,Libkin2012"
 \end_inset
 
  ist.
- Dies ist vergleichbar zum 
+ (Dies ist vergleichbar zum 
 \begin_inset Formula $k$
 \end_inset
 
@@ -9902,18 +10102,19 @@ key "Immerman1982,Libkin2012"
 \begin_inset Formula $L_{\infty\omega}^{k}$
 \end_inset
 
-, welches die Fixpunktlogik einschließt.
+, welches die Fixpunktlogik einschließt
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Dawar1995c,Kolaitis1992,Kolaitis1992b"
 
 \end_inset
 
+.
  In unserer Definition hat jedoch jede einzelne Formel 
 \begin_inset Formula $\varphi_{n}$
 \end_inset
 
- eine endliche Länge.
+ eine endliche Länge.)
 \end_layout
 
 \begin_layout Lemma
@@ -10218,7 +10419,7 @@ Schließlich folgt
 \end_deeper
 \end_deeper
 \begin_layout Standard
-Leider sind diese Formeln zu lang: Wenn das Symbol 
+Leider sind diese Formeln noch zu lang: Wenn das Symbol 
 \begin_inset Formula $R$
 \end_inset
 
@@ -10248,7 +10449,10 @@ Leider sind diese Formeln zu lang: Wenn das Symbol
 \end_inset
 
 -Größe ableiten.
- Die booleschen Schaltkreise haben jedoch nicht dieselbe Einschränkung wie
+\end_layout
+
+\begin_layout Standard
+Die booleschen Schaltkreise haben jedoch nicht dieselbe Einschränkung wie
  
 \begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
 \end_inset
@@ -10257,15 +10461,177 @@ Leider sind diese Formeln zu lang: Wenn das Symbol
 \begin_inset Formula $\psi_{i}\left(\bar{z}\right)$
 \end_inset
 
- kann wiederverwendet werden, ohne den Schaltkreis 
+ kann mehrfach verwendet werden, ohne den Schaltkreis 
 \begin_inset Formula $\mathcal{C}_{n}^{\psi_{i}}$
 \end_inset
 
  zu vervielfältigen.
 \end_layout
 
+\begin_layout Subsection
+Von Fixpunkt-Formeln zu Schaltkreisfamilien
+\end_layout
+
 \begin_layout Standard
-Wir nutzen dies und den Beweis von Lemma 
+Im folgenden möchten wir uns gerne auf Formeln beschränken, die nur einen
+ einzigen Fixpunktoperator enthalten.
+ Diese Normalform schränkt die Allgemeinheit nicht ein, was in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EbbinghausFlum"
+
+\end_inset
+
+ (Abschnitt 8.2) für 
+\begin_inset Formula $\mathrm{LFP}\left(\mathrm{FO}\right)$
+\end_inset
+
+ gezeigt wird.
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:lfp-fo-normalform"
+
+\end_inset
+
+(Lemma 8.2.4 aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EbbinghausFlum"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Lemma
+Jede 
+\begin_inset Formula $\mathrm{LFP}\left(\mathrm{FO}\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ ist äquivalent zu einer 
+\begin_inset Formula $\mathrm{LFP}\left(\mathrm{FO}\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\hat{\varphi}$
+\end_inset
+
+ der folgenden Form, wobei 
+\begin_inset Formula $X/k\in\mathbf{var}_{2}$
+\end_inset
+
+, und 
+\begin_inset Formula $\psi$
+\end_inset
+
+ eine 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\uplus\left\{ X/k\right\} \right]$
+\end_inset
+
+-Formel mit 
+\begin_inset Formula $\mathrm{frei}\left(\psi\right)=\left\{ x_{1},\cdots,x_{k}\right\} $
+\end_inset
+
+ ist: 
+\begin_inset Formula 
+\[
+\left(Q_{i}z_{i}\right)_{\begin{subarray}{c}
+i\in\left[1,m\right]\\
+Q_{i}\in\left\{ \exists,\forall\right\} 
+\end{subarray}}\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Lemma für 
+\begin_inset Formula $\mathrm{LFP}\left(\mathrm{FO}\right)$
+\end_inset
+
+ gilt automatisch auch für jede numerische Erweiterung 
+\begin_inset Formula $\mathrm{LFP}\left(\mathrm{FO}+\Upsilon\right)$
+\end_inset
+
+ für ein 
+\begin_inset Formula $\eta$
+\end_inset
+
+-Orakel 
+\begin_inset Formula $\Upsilon$
+\end_inset
+
+, denn eine 
+\begin_inset Formula $\mathrm{LFP}\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ gleicht syntaktisch einer 
+\begin_inset Formula $\mathrm{LFP}\left(\mathrm{FO}\right)\left[\sigma\uplus\eta\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi'$
+\end_inset
+
+.
+ Wenn dann 
+\begin_inset Formula $\varphi'$
+\end_inset
+
+ per Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:lfp-fo-normalform"
+
+\end_inset
+
+ auf jeder endlichen 
+\begin_inset Formula $\left(\sigma\uplus\eta\right)$
+\end_inset
+
+-Struktur äquivalent zu einer Formel 
+\begin_inset Formula $\hat{\varphi}'$
+\end_inset
+
+ der obigen Form ist, dann gilt diese Äquivalenz insbesondere auch für die
+ Auswertung von 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ auf einer 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+, die disjunkt mit der 
+\begin_inset Formula $\eta$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\Upsilon\left(\left|A\right|\right)$
+\end_inset
+
+ vereinigt wird.
+\end_layout
+
+\begin_layout Standard
+Wir nutzen die Normalform und den Beweis von Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:lfp-inf"
@@ -10281,42 +10647,15 @@ reference "lem:lfp-inf"
 \end_inset
 
  direkt einen 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
 \end_inset
 
 -Schaltkreis zu erzeugen, der die richtige Tiefe und Größe hat.
- Hierbei wird der Einfachheit halber gefordert, dass 
-\begin_inset Formula $\varphi$
+ Wir formulieren die Konstruktion für allgemeine Logiken 
+\begin_inset Formula $\mathcal{L}$
 \end_inset
 
- parameter-frei ist (siehe Definition 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "def:fp-paramfree"
-
-\end_inset
-
-).
- Per Satz 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "prop:fp-paramfree"
-
-\end_inset
-
- schränkt dies die Allgemeinheit nicht ein: Der Zuwachs in 
-\begin_inset Formula $\mathrm{var}\left(\varphi\right)$
-\end_inset
-
- und 
-\begin_inset Formula $\left\Vert \varphi\right\Vert $
-\end_inset
-
- ist fest und für die 
-\begin_inset Formula $\mathrm{poly}\left(n\right)$
-\end_inset
-
--Größe der Schaltkreisfamilie unbedeutend.
+ unter Voraussetzung einer entsprechenden Schaltkreisklasse konstanter Tiefe.
 \end_layout
 
 \begin_layout Lemma
@@ -10326,20 +10665,86 @@ name "lem:lfp-circ"
 
 \end_inset
 
-Für jede parameter-freie 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
+Sei 
+\begin_inset Formula $\mathcal{L}$
+\end_inset
+
+ eine Logik, 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ eine relationale Signatur und 
+\begin_inset Formula $\mathbb{B}$
+\end_inset
+
+ eine boolesche Basis, so dass jede 
+\begin_inset Formula $\mathcal{L}\left[\sigma\right]$
 \end_inset
 
 -Formel 
 \begin_inset Formula $\varphi$
 \end_inset
 
- existiert eine 
-\begin_inset Formula $P$
+ eine Anfrage beschreibt, die auch durch eine 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+-uniforme (mit 
+\begin_inset Formula $P\subseteq\mathcal{K}$
+\end_inset
+
+), symmetrische 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreisfamilie mit konstanter 
+\begin_inset Formula $t$
+\end_inset
+
+-Tiefe und polynomiell beschränkter 
+\begin_inset Formula $s\left(n\right)$
+\end_inset
+
+-Größe beschreibbar ist.
+\end_layout
+
+\begin_layout Lemma
+Sei 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ eine beliebige 
+\begin_inset Formula $\mathrm{LFP}\left(\mathcal{L}\right)\left[\sigma\right]$
+\end_inset
+
+-Formel der in Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:lfp-fo-normalform"
+
+\end_inset
+
+ beschriebenen Normalform:
+\begin_inset Formula 
+\[
+\varphi=\left(Q_{i}z_{i}\right)_{\begin{subarray}{c}
+i\in\left[1,m\right]\\
+Q_{i}\in\left\{ \exists,\forall\right\} 
+\end{subarray}}\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Lemma
+Dann existiert eine 
+\begin_inset Formula $\mathcal{K}$
 \end_inset
 
 -uniforme symmetrische 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
 \end_inset
 
 -Schaltkreisfamilie 
@@ -10347,11 +10752,11 @@ Für jede parameter-freie
 \end_inset
 
  mit 
-\begin_inset Formula $n^{k}\left(\left\Vert \varphi\right\Vert +1\right)$
+\begin_inset Formula $m+n^{k}\left(t+1\right)$
 \end_inset
 
 -Tiefe und 
-\begin_inset Formula $\left(n^{k+\mathtt{MF}\left(\varphi\right)}+1\right)$
+\begin_inset Formula $1+n^{k}\left(s\left(n\right)+m\right)$
 \end_inset
 
 -Größe, so dass 
@@ -10365,84 +10770,110 @@ Für jede parameter-freie
  gilt.
 \end_layout
 
-\begin_layout Proof
-Sei 
-\begin_inset Formula $\varphi$
+\begin_layout Standard
+In Kombination mit dem Rest dieses Kapitels entsteht daraus eine Konstruktion
+ für 
+\begin_inset Formula $\mathrm{LFP}+\mathbf{ORD}$
 \end_inset
 
- eine 
-\begin_inset Formula $k$
-\end_inset
-
--stellige parameter-freie 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
-\end_inset
-
--Formel, und sei 
-\begin_inset Formula $n\in\mathbb{N}$
-\end_inset
-
- beliebig.
- Wir erweitern die Konstruktion aus Lemma 
+ (mit Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:FO-Circuit"
+reference "lem:fo-ord-circuit"
 
 \end_inset
 
- um den folgenden Fall:
+) und 
+\begin_inset Formula $\mathrm{LFP}+\mathbf{ARB}$
+\end_inset
+
+ (mit Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:fo+arb"
+
+\end_inset
+
+), denn 
+\begin_inset Formula $\mathrm{LOGSPACE}\subseteq P$
+\end_inset
+
+ (siehe Abschnitt 4.3 in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "arora-barak"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Proof
-Falls 
-\begin_inset Formula $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
+Per Definition existiert bereits eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
 \end_inset
 
- für eine 
-\begin_inset Formula $m$
+-Schaltkreisfamilie für jede 
+\begin_inset Formula $\mathcal{L}\left[\sigma\right]$
 \end_inset
 
--stellige Relationsvariable 
-\begin_inset Formula $X/m\in\mathbf{var}_{2}$
+-Formel.
+\end_layout
+
+\begin_layout Proof
+Sei nun 
+\begin_inset Formula $\varphi=\left(Q_{i}z_{i}\right)_{i\in\left[1,m\right]}\varphi'$
+\end_inset
+
+ und 
+\begin_inset Formula $\varphi'=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
+\end_inset
+
+ für eine Relationsvariable 
+\begin_inset Formula $X/k\in\mathbf{var}_{2}$
 \end_inset
 
 , eine 
-\begin_inset Formula $m$
+\begin_inset Formula $k$
 \end_inset
 
--stellige parameter-freie 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
+-stellige parameterfreie 
+\begin_inset Formula $\mathcal{L}\left[\sigma\uplus\left\{ X\right\} \right]$
 \end_inset
 
 -Formel 
-\begin_inset Formula $\psi\left(X,\bar{x}\right)$
+\begin_inset Formula $\psi\left(\bar{x}\right)$
 \end_inset
 
- und ein 
-\begin_inset Formula $m$
-\end_inset
-
--Tupel von 
-\begin_inset Formula $\mathrm{LFP}\left[\sigma\right]$
+ und ein Tupel von 
+\begin_inset Formula $\mathrm{LFP}\left(\mathcal{L}\right)\left[\sigma\right]$
 \end_inset
 
 -Termen 
-\begin_inset Formula $\bar{y}$
+\begin_inset Formula $\bar{y}\in\mathbf{var}^{k}$
 \end_inset
 
- ist, dann existiert per Annahme ein 
-\begin_inset Formula $P$
+.
+\end_layout
+
+\begin_layout Proof
+Per Voraussetzung existiert eine 
+\begin_inset Formula $\mathcal{K}$
 \end_inset
 
--uniformer symmetrischer 
-\begin_inset Formula $\left(\sigma\cup\left\{ X\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
+-uniforme, 
+\begin_inset Formula $k$
 \end_inset
 
--Schaltkreis 
-\begin_inset Formula $\mathcal{C}_{n}^{\psi}$
+-stellige, symmetrische 
+\begin_inset Formula $\left(\sigma\cup\left\{ X\right\} \right)$
 \end_inset
 
-, der auf einer 
+-Schaltkreisfamilie 
+\begin_inset Formula $\left(\mathcal{C}_{n}^{\psi}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+, die auf einer 
 \begin_inset Formula $\left(\sigma\cup\left\{ X\right\} \right)$
 \end_inset
 
@@ -10467,7 +10898,23 @@ Falls
 
 \end_inset
 
+Wir werden für jede Eingabegröße 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
 
+ einen neuen Schaltkreis für 
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi'}$
+\end_inset
+
+ bauen, der den Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{n}^{\psi}$
+\end_inset
+
+ genau 
+\begin_inset Formula $n^{k}$
+\end_inset
+
+-mal iteriert.
 \end_layout
 
 \begin_deeper
@@ -10481,7 +10928,7 @@ Schaltkreis: Es wird eine Sequenz
 \end_inset
 
 -stelligen 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
 \end_inset
 
 -Schaltkreisen definiert.
@@ -10825,11 +11272,11 @@ Daher ist
 \end_deeper
 \begin_layout Description
 Größe: Es wird induktiv bewiesen, dass 
-\begin_inset Formula $T\left(\mathcal{D}^{i}\right)\leqslant\left(\left\Vert \psi\right\Vert +1\right)i$
+\begin_inset Formula $T\left(\mathcal{D}^{i}\right)\leqslant i\left(t+1\right)$
 \end_inset
 
 , und 
-\begin_inset Formula $\left|\mathcal{D}^{i}\right|\leqslant i\cdot n^{\mathtt{MF}\left(\psi\right)}+1$
+\begin_inset Formula $\left|\mathcal{D}^{i}\right|\leqslant1+i\cdot s\left(n\right)$
 \end_inset
 
  
@@ -10837,8 +11284,8 @@ Größe: Es wird induktiv bewiesen, dass
 \begin{eqnarray*}
 T\left(\mathcal{D}^{0}\right) & = & 0\\
 T\left(\mathcal{D}^{i+1}\right) & = & T\left(\mathcal{D}^{i}\right)+T\left(\mathcal{C}_{n}^{\psi}\right)+1\\
- & \leqslant & T\left(\mathcal{D}^{i}\right)+\left\Vert \psi\right\Vert +1\\
- & \overset{\mathrm{Ann.}}{\leqslant} & \left(\left\Vert \psi\right\Vert +1\right)i+\left\Vert \psi\right\Vert +1=\left(\left\Vert \varphi\right\Vert +1\right)\left(i+1\right)
+ & \leqslant & T\left(\mathcal{D}^{i}\right)+t+1\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & i\left(t+1\right)+t+1=\left(i+1\right)\left(t+1\right)
 \end{eqnarray*}
 
 \end_inset
@@ -10848,24 +11295,108 @@ T\left(\mathcal{D}^{i+1}\right) & = & T\left(\mathcal{D}^{i}\right)+T\left(\math
 \begin{eqnarray*}
 \left|\mathcal{D}^{0}\right| & = & 1\\
 \left|\mathcal{D}^{i+1}\right| & = & \left|\mathcal{D}^{i}\right|+\left|\mathcal{C}_{n}^{\psi}\right|\\
- & \leqslant & \left|\mathcal{D}^{i}\right|+n^{\mathtt{MF}\left(\psi\right)}\\
- & \overset{\mathrm{Ann.}}{\leqslant} & i\cdot n^{\mathtt{MF}\left(\psi\right)}+1+n^{\mathtt{MF}\left(\psi\right)}=\left(i+1\right)\cdot n^{\mathtt{MF}\left(\psi\right)}+1
+ & \leqslant & \left|\mathcal{D}^{i}\right|+s\left(n\right)\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & 1+i\cdot s\left(n\right)+s\left(n\right)=1+\left(i+1\right)s\left(n\right)
 \end{eqnarray*}
 
 \end_inset
 
 Damit gilt 
-\begin_inset Formula $T\left(\mathcal{C}_{n}^{\varphi}\right)=T\left(\mathcal{D}^{n^{k}}\right)\leqslant n^{k}\left(\left\Vert \varphi\right\Vert +1\right)$
+\begin_inset Formula $T\left(\mathcal{C}_{n}^{\varphi'}\right)=T\left(\mathcal{D}^{n^{k}}\right)\leqslant n^{k}\left(t+1\right)$
 \end_inset
 
  und 
-\begin_inset Formula $\left|\mathcal{C}_{n}^{\varphi}\right|=\left|\mathcal{D}^{n^{k}}\right|=n^{k+\mathtt{MF}\left(\varphi\right)}+1$
+\begin_inset Formula $\left|\mathcal{C}_{n}^{\varphi'}\right|=\left|\mathcal{D}^{n^{k}}\right|=1+n^{k}s\left(n\right)$
 \end_inset
 
 .
 \end_layout
 
 \end_deeper
+\begin_layout Proof
+Um jetzt noch aus 
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi'}$
+\end_inset
+
+ den Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{n}^{\varphi}$
+\end_inset
+
+ zu erzeugen, muss nur für jeden Quantor 
+\begin_inset Formula $Q_{i}z_{i}$
+\end_inset
+
+ Fall 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "case:fo-ex"
+
+\end_inset
+
+ oder 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "case:fo-forall"
+
+\end_inset
+
+ aus dem Beweis von Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:fo-circuit"
+
+\end_inset
+
+ angewendet werden.
+ Dieser erzeugt in jedem Schritt höchstens 
+\begin_inset Formula $n^{k}$
+\end_inset
+
+ neue Gates und vergrößert die Tiefe um 
+\begin_inset Formula $1$
+\end_inset
+
+, so dass wir die Tiefe 
+\begin_inset Formula $n^{k}\left(t+1\right)+m$
+\end_inset
+
+ und Größe 
+\begin_inset Formula $n^{k}\left(s\left(n\right)+m\right)+1$
+\end_inset
+
+ erhalten.
+\end_layout
+
+\begin_layout Subsection
+Fixpunktlogik mit Zählquantoren
+\end_layout
+
+\begin_layout Standard
+Wir haben im letzten Abschnitt eine Normalform vorausgesetzt, diese aber
+ nur für die Logiken 
+\begin_inset Formula $\mathrm{LFP}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathrm{LFP}+\Upsilon$
+\end_inset
+
+ nachgewiesen.
+ Den Spezialfall 
+\begin_inset Formula $\mathrm{LFP}+C$
+\end_inset
+
+ betrachten wir gesondert, und weisen nach, dass die Konstruktion aus Lemma
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:fo+c"
+
+\end_inset
+
+ mit dem Fixpunkt-Operator kombinierbar ist.
+\end_layout
+
 \begin_layout Chapter
 Partitionen und Träger
 \end_layout
@@ -12173,7 +12704,7 @@ Träger
  auf die Gates eines rigiden (Definition 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "def:Rigidität"
+reference "def:rigid"
 
 \end_inset
 
@@ -13018,7 +13549,7 @@ Für
  und einen rigiden (siehe Definition 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "def:Rigidität"
+reference "def:rigid"
 
 \end_inset
 
@@ -13067,15 +13598,15 @@ Berechnung von rigiden Schaltkreisen
 \end_layout
 
 \begin_layout Standard
-Um die Orbits und Träger jedes Gates eines Schaltkreises zu berechnen, wird
- nun gefordert, dass der Schaltkreis 
+Um die Eindeutigkeit der im symmetrischen Schaltkreis induzierten Automorphismen
+ zu gewährleisten, wird nun gefordert, dass der Schaltkreis 
 \emph on
 rigide 
 \emph default
 gemäß Definition 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "def:Rigidität"
+reference "def:rigid"
 
 \end_inset
 
@@ -13267,7 +13798,7 @@ W^{\mathcal{C}} & = & \left\{ \left(g,g',n\right)\in G^{2}\times\left[0,\left|\m
 Für die Auswertung eines internen Gates gilt analog zu 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "def:Auswertung-von-Schaltkreisen"
+reference "def:circuit-eval"
 
 \end_inset
 
@@ -13352,7 +13883,7 @@ Die Rigidität wird ebenfalls angepasst: Ein rigider Schaltkreis enthält
 \begin_layout Lemma
 \begin_inset CommandInset label
 LatexCommand label
-name "lem:algo-rigide"
+name "lem:algo-rigid"
 
 \end_inset
 
@@ -14721,10 +15252,7 @@ Die obige Konstruktion ist mit
 \begin_inset Formula $\mathcal{O}\left(T\left(\mathcal{C}\right)\log n\right)$
 \end_inset
 
- Speicherplatz berechenbar, und ist für Schaltkreisfamilien in 
-\begin_inset Formula $\mathrm{AC}^{0}$
-\end_inset
-
+ Speicherplatz berechenbar, und ist für Schaltkreisfamilien konstanter Tiefe
  daher in 
 \begin_inset Formula $\mathrm{LOGSPACE}$
 \end_inset
@@ -16511,7 +17039,7 @@ key "Vardi:1982:CRQ:800070.802186,IMMERMAN198686"
  und Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:algo-rigide"
+reference "lem:algo-rigid"
 
 \end_inset
 
