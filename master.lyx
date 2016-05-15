@@ -3826,6 +3826,77 @@ Nach unserem Begriff der logischen Erweiterung ist die Bezeichnung
  abkürzen.
 \end_layout
 
+\begin_layout Definition
+
+\series bold
+Uniformität
+\end_layout
+
+\begin_layout Definition
+Wir nennen ein 
+\begin_inset Formula $\eta$
+\end_inset
+
+-Orakel 
+\series bold
+
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+-uniform
+\series default
+ (für eine Komplexitätsklasse 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+) wenn die Berechnung der Repräsentation von 
+\begin_inset Formula $\Upsilon\left(n\right)$
+\end_inset
+
+ bei Eingabe von 
+\begin_inset Formula $\overset{n}{\overbrace{1\cdots1}}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+ ist.
+\end_layout
+
+\begin_layout Definition
+Insbesondere sei 
+\begin_inset Formula $P$
+\end_inset
+
+ die Klasse der 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-zeitbeschränkten, und 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+ die Klasse der 
+\begin_inset Formula $\mathcal{O}\left(\log n\right)$
+\end_inset
+
+-platzbeschränkten Turingmaschinen.
+ 
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+ sei die Klasse der 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-zeitbeschränkten Turingmaschinen, die eine 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-beschränkte Orakel-Eingabe erhalten.
+\end_layout
+
 \begin_layout Standard
 Wir definieren die folgenden drei numerischen Orakel für die reine Ordnung,
  für Arithmetik, und für nicht berechenbare Prädikate.
@@ -3980,6 +4051,30 @@ Sei
 \end_inset
 
 
+\end_layout
+
+\begin_layout Definition
+Hierbei ist leicht nachweisbar: 
+\begin_inset Formula $\mathbf{ORD}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathbf{BIT}$
+\end_inset
+
+ sind 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+-uniform, und 
+\begin_inset Formula $\mathbf{ARB}$
+\end_inset
+
+ ist 
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+-uniform.
 \end_layout
 
 \begin_layout Subsection
@@ -6855,12 +6950,6 @@ q_{\bar{\mathcal{C}}}\left(\mathfrak{A}\right)\coloneqq q_{\mathcal{C}_{\left|A\
 \end_layout
 
 \begin_layout Definition
-
-\series bold
-Uniformität
-\end_layout
-
-\begin_layout Definition
 Für eine Komplexitätsklasse 
 \begin_inset Formula $\mathcal{K}$
 \end_inset
@@ -6873,64 +6962,19 @@ Für eine Komplexitätsklasse
 \begin_inset Formula $\mathcal{K}$
 \end_inset
 
--
-\series bold
-uniform
-\series default
-, wenn ein 
-\begin_inset Formula $n_{0}\in\mathbb{N}$
-\end_inset
-
- existiert, so dass eine 
-\begin_inset Formula $\mathcal{K}$
-\end_inset
-
--Turingmaschine bei Eingabe des Worts 
-\begin_inset Formula $1\cdots1\in\left\{ 0,1\right\} ^{n}$
-\end_inset
-
- mit 
-\begin_inset Formula $n\geqslant n_{0}$
-\end_inset
-
- eine Repräsentation von 
+-uniform, wenn die Berechnung einer Repräsentation von 
 \begin_inset Formula $\mathcal{C}_{n}$
 \end_inset
 
- berechnet.
-\end_layout
-
-\begin_layout Definition
-Insbesondere sei 
-\begin_inset Formula $P$
+ bei Eingabe des Worts 
+\begin_inset Formula $\overset{n}{\overbrace{1\cdots1}}$
 \end_inset
 
- die Klasse der 
-\begin_inset Formula $\mathrm{poly}\left(n\right)$
+ in 
+\begin_inset Formula $\mathcal{K}$
 \end_inset
 
--zeitbeschränkten, und 
-\begin_inset Formula $\mathrm{LOGSPACE}$
-\end_inset
-
- die Klasse der 
-\begin_inset Formula $\mathcal{O}\left(\log n\right)$
-\end_inset
-
--platzbeschränkten Turingmaschinen.
- 
-\begin_inset Formula $P/\mathrm{poly}$
-\end_inset
-
- sei die Klasse der 
-\begin_inset Formula $\mathrm{poly}\left(n\right)$
-\end_inset
-
--zeitbeschränkten Turingmaschinen, die eine 
-\begin_inset Formula $\mathrm{poly}\left(n\right)$
-\end_inset
-
--beschränkte Orakel-Eingabe erhalten.
+ ist.
 \end_layout
 
 \begin_layout --Separator--
@@ -8472,38 +8516,39 @@ Berechnung von
 \end_layout
 
 \begin_layout Section
-Ordnungserweiterung
+Disjunkte numerische Erweiterungen
 \end_layout
 
 \begin_layout Standard
-Wir betrachten die Logik 
-\begin_inset Formula $\mathrm{FO}+\mathbf{ORD}$
+Wir betrachten eine beliebige numerische Erweiterung 
+\begin_inset Formula $\mathcal{L}+\Upsilon$
 \end_inset
 
-, und weisen nach, dass die Konstruktion aus Lemma 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:fo-circuit"
-
+, und weisen nach, dass eine Schaltkreis-Konstruktion für 
+\begin_inset Formula $\mathcal{L}$
 \end_inset
 
- angepasst werden kann, ohne die Klasse der 
-\begin_inset Formula $\mathrm{LOGSPACE}$
+ angepasst werden kann, ohne die asymptotische Tiefe und Größe zu verändern.
+\end_layout
+
+\begin_layout Standard
+Die neue Schaltkreisfamilie ist 
+\begin_inset Formula $\mathcal{K}$
 \end_inset
 
--uniformen symmetrischen 
-\begin_inset Formula $\mathrm{AC}^{0}$
+-uniform (mit 
+\begin_inset Formula $\mathcal{K}\supseteq\mathrm{LOGSPACE}$
 \end_inset
 
--Schaltkreise zu verlassen.
-\begin_inset Formula 
-\[
-\mathrm{FO}+\mathbf{ORD}\subseteq\left(\mathrm{SAC}^{0}\right)^{\mathrm{LOGSPACE}}
-\]
-
+), wenn sowohl die Konstruktion für 
+\begin_inset Formula $\mathcal{L}$
 \end_inset
 
+ als auch das Orakel 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
 
+-uniform sind.
 \end_layout
 
 \begin_layout Lemma
@@ -8513,43 +8558,103 @@ name "lem:fo-ord-circuit"
 
 \end_inset
 
-Jede 
-\begin_inset Formula $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$
+Sei 
+\begin_inset Formula $\mathcal{L}$
 \end_inset
 
--Formel 
-\begin_inset Formula $\varphi$
+ eine Logik, 
+\begin_inset Formula $\mathbb{B}$
 \end_inset
 
- definiert eine 
+ eine boolesche Basis und 
+\begin_inset Formula $\mathcal{K}\supseteq\mathrm{LOGSPACE}$
+\end_inset
+
+ eine Komplexitätsklasse, so dass für jede 
+\begin_inset Formula $\mathcal{L}\left[\sigma\right]$
+\end_inset
+
+-Formel eine symmetrische 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+-uniforme 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreisfamilie mit 
+\begin_inset Formula $t\left(n\right)$
+\end_inset
+
+-Tiefe und 
+\begin_inset Formula $s\left(n\right)$
+\end_inset
+
+-Größe (mit 
+\begin_inset Formula $s\mathrm{\left(n\right)\in\mathrm{poly}\left(n\right)}$
+\end_inset
+
+) existiert, die die gleiche Anfrage beschreibt.
+\end_layout
+
+\begin_layout Lemma
+Sei 
+\begin_inset Formula $\eta$
+\end_inset
+
+ eine von 
 \begin_inset Formula $\sigma$
 \end_inset
 
--Anfrage 
-\begin_inset Formula $q$
+ disjunkte Signatur und 
+\begin_inset Formula $\Upsilon$
 \end_inset
 
-, die von einer symmetrischen, 
-\begin_inset Formula $\mathrm{LOGSPACE}$
+ ein 
+\begin_inset Formula $\mathcal{K}$
 \end_inset
 
--uniformen 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+-uniformes 
+\begin_inset Formula $\eta$
 \end_inset
 
--Schaltkreisfamilie 
-\begin_inset Formula $\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$
+-Orakel.
+\end_layout
+
+\begin_layout Lemma
+Dann existiert auch für jede 
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$
 \end_inset
 
- mit konstanter 
-\begin_inset Formula $\left\Vert \varphi\right\Vert $
+-Formel eine ebensolche Schaltkreisfamilie mit der Tiefe 
+\begin_inset Formula $t'\left(n\right)\coloneqq t\left(2n+1\right)$
 \end_inset
 
--Tiefe und polynomieller 
-\begin_inset Formula $\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$
+ und der Größe 
+\begin_inset Formula $s'\left(n\right)\coloneqq s\left(2n+1\right)$
 \end_inset
 
--Größe berechnet wird.
+.
+\end_layout
+
+\begin_layout Standard
+Insbesondere folgt dann aus der Kombination mit Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:fo-circuit"
+
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{FO}+\mathbf{BIT} & \subseteq & \left(\mathrm{SAC}^{0}\right)^{\mathrm{LOGSPACE}}\\
+\mathrm{FO}+\mathbf{ARB} & \subseteq & \left(\mathrm{SAC}^{0}\right)^{P/\mathrm{poly}}
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Proof
@@ -8558,11 +8663,7 @@ Sei
 \end_inset
 
  eine 
-\begin_inset Formula $k$
-\end_inset
-
--stellige 
-\begin_inset Formula $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$
 \end_inset
 
 -Formel.
@@ -8578,8 +8679,12 @@ Sei
 \begin_inset Formula $\varphi$
 \end_inset
 
- auf der disjunkt vereinigten 
-\begin_inset Formula $\left(\sigma\cup\left\{ \leqslant\right\} \right)$
+ als 
+\begin_inset Formula $\mathcal{L}\left[\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right]$
+\end_inset
+
+-Formel auf der disjunkt vereinigten 
+\begin_inset Formula $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right)$
 \end_inset
 
 -Struktur 
@@ -8587,14 +8692,14 @@ Sei
 \end_inset
 
  ausgewertet, wobei 
-\begin_inset Formula $\Upsilon\left(n\right)=\left(\left[0,n\right],\leqslant\right)$
+\begin_inset Formula $\Upsilon\left(n\right)\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta\right)$
 \end_inset
 
- die lineare Ordnung auf 
+ das Universum 
 \begin_inset Formula $\left[0,n\right]$
 \end_inset
 
- ist.
+ hat.
 \end_layout
 
 \begin_layout Proof
@@ -8653,18 +8758,18 @@ verschieben
 \end_layout
 
 \begin_layout Proof
-Nun betrachten wir die disjunkte Vereinigung (wobei die Ordnung 
-\begin_inset Formula $\leqslant$
+Nun betrachten wir die disjunkte Vereinigung (wobei die Prädikate aus 
+\begin_inset Formula $\eta\uplus\left\{ \leqslant\right\} $
 \end_inset
 
  nur auf 
 \begin_inset Formula $\left[n+1,2n+1\right]$
 \end_inset
 
- definiert ist): 
+ definiert sind): 
 \begin_inset Formula 
 \[
-\mathfrak{A}'\uplus\Upsilon'\left(n\right)\in\mathbf{FIN}^{\left[1,2n+1\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)
+\mathfrak{A}'\uplus\Upsilon'\left(n\right)\in\mathbf{FIN}^{\left[1,2n+1\right]}\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right)
 \]
 
 \end_inset
@@ -8689,7 +8794,7 @@ Weil
  
 \begin_inset Formula 
 \[
-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\uplus\Upsilon\left(n\right)\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}'\uplus\Upsilon'\left(n\right)\right)
+\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\uplus\Upsilon\left(n\right),\beta\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}'\uplus\Upsilon'\left(n\right),\beta\right)
 \]
 
 \end_inset
@@ -8698,8 +8803,12 @@ Weil
 \end_layout
 
 \begin_layout Proof
-Wir konstruieren nun zunächst einen 
-\begin_inset Formula $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
+Per Voraussetzung können wir in 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+ einen 
+\begin_inset Formula $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}\right)$
 \end_inset
 
 -Schaltkreis 
@@ -8710,33 +8819,25 @@ Wir konstruieren nun zunächst einen
 \begin_inset Formula $U'=\left[1,2n+1\right]$
 \end_inset
 
- entsprechend dem Beweis von Lemma 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:fo-circuit"
-
-\end_inset
-
-.
+ berechnen.
  Dieser arbeitet korrekt auf 
 \begin_inset Formula $\mathfrak{A}'\uplus\Upsilon'\left(n\right)$
 \end_inset
 
  und hat offensichtlich die geforderte Größe 
-\begin_inset Formula $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$
+\begin_inset Formula $s'\left(n\right)=s\left(2n+1\right)$
+\end_inset
+
+ und Tiefe 
+\begin_inset Formula $t'\left(n\right)=t\left(2n+1\right)$
 \end_inset
 
 .
- Die Konstruktion erfordert 
-\begin_inset Formula $\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log\left(2n+1\right)$
-\end_inset
-
- Speicherplatz.
 \end_layout
 
 \begin_layout Proof
 Anschließend konstruieren wir daraus den 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
 \end_inset
 
 -Schaltkreis 
@@ -8752,7 +8853,7 @@ Anschließend konstruieren wir daraus den
 \end_inset
 
  mit 
-\begin_inset Formula $\bar{t}\notin U^{k}$
+\begin_inset Formula $\bar{t}\notin U^{*}$
 \end_inset
 
  oder 
@@ -8764,7 +8865,7 @@ Anschließend konstruieren wir daraus den
 \end_inset
 
  ersetzt werden, und die Ausgangsfunktion auf 
-\begin_inset Formula $\dot{\Omega}=\Omega_{\mid U^{k}}$
+\begin_inset Formula $\dot{\Omega}=\Omega_{\mid U}$
 \end_inset
 
  reduziert wird.
@@ -8773,7 +8874,7 @@ Anschließend konstruieren wir daraus den
 \end_inset
 
  des Schaltkreises, die nur einen Zähler der Größe 
-\begin_inset Formula $\log\left|G\right|\leqslant\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log n$
+\begin_inset Formula $\log\left(s'\left(n\right)\right)\in\log\left(\mathrm{poly}\left(n\right)\right)=\mathcal{O}\left(\log n\right)$
 \end_inset
 
  benötigt, und somit in 
@@ -8790,7 +8891,7 @@ Für
 \end_inset
 
  mit 
-\begin_inset Formula $R\in\sigma$
+\begin_inset Formula $R/k\in\sigma$
 \end_inset
 
  werden die 
@@ -8821,14 +8922,22 @@ R\bar{t} & \mathrm{falls}\,\,\bar{t}\in U^{k}\\
 
 \begin_layout Case
 Für 
-\begin_inset Formula $\Sigma\left(g\right)=t_{1}\dot{\leqslant}t_{2}$
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
 \end_inset
 
- wird das Ordnungsprädikat fest in den Schaltkreis eingebaut:
+ mit 
+\begin_inset Formula $\sigma/k\in\eta\uplus\left\{ \leqslant\right\} $
+\end_inset
+
+ wird die numerische Relation 
+\begin_inset Formula $R^{\Upsilon'\left(n\right)}$
+\end_inset
+
+ fest in den Schaltkreis eingebaut:
 \begin_inset Formula 
 \begin{eqnarray*}
 \dot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
-\mathbf{1} & \mathrm{falls}\,\,t_{1},t_{2}\in\left[n+1,2n+1\right],\,t_{1}\leqslant t_{2}\\
+\mathbf{1} & \mathrm{falls}\,\,\bar{t}\in R^{\Upsilon'\left(n\right)}\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
@@ -8940,7 +9049,7 @@ Für
 \end_inset
 
  mit 
-\begin_inset Formula $R\in\sigma$
+\begin_inset Formula $R/k\in\sigma$
 \end_inset
 
  gilt:
@@ -8978,7 +9087,11 @@ Sonst:
 \end_deeper
 \begin_layout Case
 Für 
-\begin_inset Formula $\Sigma\left(g\right)=t_{1}\dot{\leqslant}t_{2}$
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
+\end_inset
+
+ mit 
+\begin_inset Formula $R/k\in\eta\uplus\left\{ \leqslant\right\} $
 \end_inset
 
  gilt:
@@ -8987,11 +9100,11 @@ Für
 \begin_deeper
 \begin_layout Case
 Falls 
-\begin_inset Formula $t_{1},t_{2}\in\left[n+1,2n+1\right]$
+\begin_inset Formula $\bar{t}\in R^{\Upsilon'\left(n\right)}\subseteq\left[n+1,2n+1\right]^{k}$
 \end_inset
 
- und 
-\begin_inset Formula $t_{1}\leqslant t_{2}$
+, dann ist 
+\begin_inset Formula $\pi'\bar{t}=\bar{t}$
 \end_inset
 
 :
@@ -9041,21 +9154,22 @@ Außerdem gilt ist
 \end_inset
 
  eine symmetrische, 
-\begin_inset Formula $\mathrm{LOGSPACE}$
+\begin_inset Formula $\mathcal{K}$
 \end_inset
 
--uniforme Schaltkreisfamilie konstanter Tiefe, die 
+-uniforme Schaltkreisfamilie mit Tiefe 
+\begin_inset Formula $t'\left(n\right)=t\left(2n+1\right)$
+\end_inset
+
+ und Größe 
+\begin_inset Formula $s'\left(n\right)=s\left(2n+1\right)$
+\end_inset
+
+, die 
 \begin_inset Formula $q$
 \end_inset
 
  berechnet.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -9064,10 +9178,17 @@ Zählquantoren
 
 \begin_layout Standard
 Wir betrachten die Logik 
-\begin_inset Formula $\mathrm{FO}+C$
+\begin_inset Formula $\mathcal{L}+\Upsilon+C$
 \end_inset
 
-, und weisen nach, dass die vorhergehende Konstruktion aus Lemma 
+, und weisen nach, dass die Konstruktion von Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:fo-ord-circuit"
+
+\end_inset
+
+ und Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "lem:fo-ord-circuit"
@@ -9747,260 +9868,6 @@ reference "lem:fo-ord-circuit"
 \end_inset
 
 ).
-\end_layout
-
-\begin_layout Proof
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
-Beliebige Orakel
-\end_layout
-
-\begin_layout Standard
-Wir betrachten die Logik 
-\begin_inset Formula $\mathrm{FO}+\Upsilon$
-\end_inset
-
- für beliebige Orakel 
-\begin_inset Formula $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta\right)$
-\end_inset
-
- (insbesondere 
-\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
-\end_inset
-
-, welches alle diese Logiken einschließt), und weisen nach, dass die Konstruktio
-n aus 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:fo-ord-circuit"
-
-\end_inset
-
- auf beliebige Prädikate erweitert werden kann, wobei die 
-\begin_inset Formula $\mathrm{LOGSPACE}$
-\end_inset
-
--Uniformität, aber nicht die beschränkte Größe geopfert wird.
-\begin_inset Formula 
-\[
-\mathrm{FO}+\mathbf{ARB}\subseteq\left(\mathrm{SAC}^{0}\right)^{P/\mathrm{poly}}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Lemma
-\begin_inset CommandInset label
-LatexCommand label
-name "lem:fo+arb"
-
-\end_inset
-
-Seien 
-\begin_inset Formula $\eta$
-\end_inset
-
- und 
-\begin_inset Formula $\sigma$
-\end_inset
-
- disjunkte Signaturen und 
-\begin_inset Formula $\Upsilon\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta\right)$
-\end_inset
-
- ein 
-\begin_inset Formula $\eta$
-\end_inset
-
--Orakel.
-\end_layout
-
-\begin_layout Lemma
-Jede 
-\begin_inset Formula $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- definiert eine 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Anfrage 
-\begin_inset Formula $q$
-\end_inset
-
-, die von einer symmetrischen 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
-\end_inset
-
--Schaltkreisfamilie 
-\begin_inset Formula $\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$
-\end_inset
-
- mit konstanter 
-\begin_inset Formula $\left\Vert \varphi\right\Vert $
-\end_inset
-
--Tiefe und polynomieller 
-\begin_inset Formula $\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$
-\end_inset
-
--Größe berechnet wird.
-\end_layout
-
-\begin_layout Proof
-Sei 
-\begin_inset Formula $n\in\mathbb{N}$
-\end_inset
-
- beliebig und sei 
-\begin_inset Formula $\rho:\left[0,n\right]\rightarrow\left[n+1,2n+1\right]$
-\end_inset
-
- wie bisher definiert.
- Die Struktur 
-\begin_inset Formula $\Upsilon\left(n\right)$
-\end_inset
-
- wird zu 
-\begin_inset Formula 
-\[
-\Upsilon'\left(n\right)=\rho\Upsilon'\left(n\right)=\left(\left[n+1,2n+1\right],\left(\rho R^{\Upsilon\left(n\right)}\right)_{R\in\eta}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
-Zunächst wird der 
-\begin_inset Formula $\left(\sigma\cup\eta\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
-\end_inset
-
--Schaltkreis 
-\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
-\end_inset
-
- wie in Lemma 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:fo-ord-circuit"
-
-\end_inset
-
- erzeugt.
-\end_layout
-
-\begin_layout Proof
-Bei der Erzeugung des 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
-\end_inset
-
--Schaltkreises 
-\begin_inset Formula $\dot{\mathcal{C}_{n}^{\varphi}}$
-\end_inset
-
- wird nun der folgende Konstruktionsschritt hinzugefügt:
-\end_layout
-
-\begin_deeper
-\begin_layout Case
-Falls 
-\begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
-\end_inset
-
- mit 
-\begin_inset Formula $R\in\eta$
-\end_inset
-
-, 
-\begin_inset Formula $\mathrm{ar}\left(R\right)=k$
-\end_inset
-
-, und 
-\begin_inset Formula $\bar{t}\in U'^{k}$
-\end_inset
-
-:
-\begin_inset Formula 
-\[
-\dot{\Sigma}\left(g\right)=\begin{cases}
-\mathbf{1} & \mathrm{falls}\,\,\bar{t}\in R^{\Upsilon'\left(n\right)}\subseteq\left[n+1,2n+1\right]^{k}\\
-\mathbf{0} & \mathrm{sonst}
-\end{cases}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_deeper
-\begin_layout Description
-Symmetrie: Wenn 
-\begin_inset Formula $\dot{\Sigma}\left(g\right)=\mathbf{1}$
-\end_inset
-
-, dann gilt 
-\begin_inset Formula $\bar{t}\in R^{\Upsilon'\left(n\right)}$
-\end_inset
-
-, und 
-\begin_inset Formula $\pi'\left(\bar{t}\right)=\bar{t}$
-\end_inset
-
- (weil 
-\begin_inset Formula $\pi'_{\mid\left[n+1,2n+1\right]}=\mathbf{id}_{\left[n+1,2n+1\right]}$
-\end_inset
-
- ist).
- Daher ist 
-\begin_inset Formula $\Sigma\left(\hat{\pi}g\right)=R\pi'\bar{t}=R\bar{t}$
-\end_inset
-
-, und somit gilt auch 
-\begin_inset Formula $\dot{\Sigma}\left(\hat{\pi}g\right)=\mathbf{1}$
-\end_inset
-
-.
-\end_layout
-
-\end_deeper
-\end_deeper
-\begin_layout Proof
-Hierbei ist zu beachten, dass die Relation 
-\begin_inset Formula $R^{\Upsilon'\left(n\right)}$
-\end_inset
-
- nicht in Polynomialzeit entscheidbar sein muss, und daher die so definierte
- Schaltkreisfamilie nicht mehr 
-\begin_inset Formula $P$
-\end_inset
-
--uniform ist.
-\end_layout
-
-\begin_layout Proof
-Offensichtlich ist sie jedoch immer noch 
-\begin_inset Formula $\mathrm{poly}\left(n\right)$
-\end_inset
-
--groß und daher 
-\begin_inset Formula $P/\mathrm{poly}$
-\end_inset
-
--uniform.
 \end_layout
 
 \begin_layout Standard
@@ -11372,8 +11239,8 @@ Fixpunktlogik mit Zählquantoren
 \end_layout
 
 \begin_layout Standard
-Wir haben im letzten Abschnitt eine Normalform vorausgesetzt, diese aber
- nur für die Logiken 
+Wir haben im letzten Abschnitt eine Normalform vorausgesetzt, die aber nur
+ für die Logiken 
 \begin_inset Formula $\mathrm{LFP}$
 \end_inset
 
@@ -11381,7 +11248,7 @@ Wir haben im letzten Abschnitt eine Normalform vorausgesetzt, diese aber
 \begin_inset Formula $\mathrm{LFP}+\Upsilon$
 \end_inset
 
- nachgewiesen.
+ nachgewiesen ist.
  Den Spezialfall 
 \begin_inset Formula $\mathrm{LFP}+C$
 \end_inset
@@ -11395,8 +11262,97 @@ reference "lem:fo+c"
 \end_inset
 
  mit dem Fixpunkt-Operator kombinierbar ist.
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{LFP}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}\\
+\mathrm{LFP}+\mathbf{ARB}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P/\mathrm{poly}}
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
+\begin_layout Lemma
+Sei 
+\begin_inset Formula $\mathcal{L}+\Upsilon$
+\end_inset
+
+ eine Logik und 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+ eine Komplexitätsklasse mit 
+\begin_inset Formula $P\subseteq\mathcal{K}$
+\end_inset
+
+, so dass für jede 
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$
+\end_inset
+
+-Formel eine 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+-uniforme, symmetrische 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreisfamilie mit polynomiell beschränkter Tiefe und Größe 
+\begin_inset Formula $t\left(n\right),s\left(n\right)\in\mathrm{poly}\left(n\right)$
+\end_inset
+
+ existiert, die die gleiche Anfrage beschreibt.
+\end_layout
+
+\begin_layout Lemma
+Dann existiert für jede 
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon+C\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ eine entsprechende 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
+\end_inset
+
+-Schaltkreisfamilie 
+\end_layout
+
+\begin_layout Proof
+Induktiv über den Aufbau von 
+\begin_inset Formula $\varphi$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ eine 
+\begin_inset Formula $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$
+\end_inset
+
+-Formel ohne Zählquantor ist, dann folgt die Behauptung direkt aus der Vorausset
+zung.
+ 
+\end_layout
+
+\begin_layout Case
+Falls 
+\begin_inset Formula $\varphi=\exists^{\geqslant y}x$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Chapter
 Partitionen und Träger
 \end_layout

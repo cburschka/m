@@ -1003,8 +1003,21 @@ Nach unserem Begriff der logischen Erweiterung ist die Bezeichnung
 $\mathrm{LFP}\left(\mathcal{L}+\Upsilon\right)$ gleichbedeutend mit
 $\mathrm{LFP}\left(\mathcal{L}\right)+\Upsilon$. Im folgenden werden
 wir allgemein die erste Bezeichnung verwenden, aber weiterhin $\mathrm{LFP}\left(\mathrm{FO}\right)+\Upsilon$
-durch $\mathrm{LFP}+\Upsilon$ abkürzen.
-\end{notation}
+durch $\mathrm{LFP}+\Upsilon$ abkürzen.\end{notation}
+\begin{defn}
+\textbf{Uniformität}
+
+Wir nennen ein $\eta$-Orakel \textbf{$\mathcal{K}$-uniform} (für
+eine Komplexitätsklasse $\mathcal{K}$) wenn die Berechnung der Repräsentation
+von $\Upsilon\left(n\right)$ bei Eingabe von $\overset{n}{\overbrace{1\cdots1}}$
+in $\mathcal{K}$ ist.
+
+Insbesondere sei $P$ die Klasse der $\mathrm{poly}\left(n\right)$-zeitbeschränkten,
+und $\mathrm{LOGSPACE}$ die Klasse der $\mathcal{O}\left(\log n\right)$-platzbeschränkten
+Turingmaschinen. $P/\mathrm{poly}$ sei die Klasse der $\mathrm{poly}\left(n\right)$-zeitbeschränkten
+Turingmaschinen, die eine $\mathrm{poly}\left(n\right)$-beschränkte
+Orakel-Eingabe erhalten.
+\end{defn}
 Wir definieren die folgenden drei numerischen Orakel für die reine
 Ordnung, für Arithmetik, und für nicht berechenbare Prädikate.
 \begin{defn}
@@ -1043,6 +1056,9 @@ dieser Relationen ausgibt:
 \mathbf{ARB}\left(n\right) & \coloneqq & \left(\mathcal{N}_{\mathrm{arb}}\right)_{\mid\left[0,n\right]}\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta_{\mathrm{arb}}\right)
 \end{eqnarray*}
 
+
+Hierbei ist leicht nachweisbar: $\mathbf{ORD}$ und $\mathbf{BIT}$
+sind $\mathrm{LOGSPACE}$-uniform, und $\mathbf{ARB}$ ist $P/\mathrm{poly}$-uniform.
 \end{defn}
 
 \subsection{Zähl-Erweiterungen}
@@ -1746,19 +1762,10 @@ q_{\bar{\mathcal{C}}}\left(\mathfrak{A}\right)\coloneqq q_{\mathcal{C}_{\left|A\
 \end{defn}
 
 \begin{defn}
-\textbf{Uniformität}
-
 Für eine Komplexitätsklasse $\mathcal{K}$ sei eine Schaltkreisfamilie
-$\bar{\mathcal{C}}$ $\mathcal{K}$-\textbf{uniform}, wenn ein $n_{0}\in\mathbb{N}$
-existiert, so dass eine $\mathcal{K}$-Turingmaschine bei Eingabe
-des Worts $1\cdots1\in\left\{ 0,1\right\} ^{n}$ mit $n\geqslant n_{0}$
-eine Repräsentation von $\mathcal{C}_{n}$ berechnet.
-
-Insbesondere sei $P$ die Klasse der $\mathrm{poly}\left(n\right)$-zeitbeschränkten,
-und $\mathrm{LOGSPACE}$ die Klasse der $\mathcal{O}\left(\log n\right)$-platzbeschränkten
-Turingmaschinen. $P/\mathrm{poly}$ sei die Klasse der $\mathrm{poly}\left(n\right)$-zeitbeschränkten
-Turingmaschinen, die eine $\mathrm{poly}\left(n\right)$-beschränkte
-Orakel-Eingabe erhalten.
+$\bar{\mathcal{C}}$ $\mathcal{K}$-uniform, wenn die Berechnung einer
+Repräsentation von $\mathcal{C}_{n}$ bei Eingabe des Worts $\overset{n}{\overbrace{1\cdots1}}$
+in $\mathcal{K}$ ist.
 \end{defn}
 
 \begin{defn}
@@ -2209,29 +2216,43 @@ $\mathrm{FO}\left[\sigma\right]$-Formeln.}
 \pagebreak{}
 
 
-\section{Ordnungserweiterung}
+\section{Disjunkte numerische Erweiterungen}
 
-Wir betrachten die Logik $\mathrm{FO}+\mathbf{ORD}$, und weisen nach,
-dass die Konstruktion aus Lemma \ref{lem:fo-circuit} angepasst werden
-kann, ohne die Klasse der $\mathrm{LOGSPACE}$-uniformen symmetrischen
-$\mathrm{AC}^{0}$-Schaltkreise zu verlassen.
-\[
-\mathrm{FO}+\mathbf{ORD}\subseteq\left(\mathrm{SAC}^{0}\right)^{\mathrm{LOGSPACE}}
-\]
+Wir betrachten eine beliebige numerische Erweiterung $\mathcal{L}+\Upsilon$,
+und weisen nach, dass eine Schaltkreis-Konstruktion für $\mathcal{L}$
+angepasst werden kann, ohne die asymptotische Tiefe und Größe zu verändern.
 
+Die neue Schaltkreisfamilie ist $\mathcal{K}$-uniform (mit $\mathcal{K}\supseteq\mathrm{LOGSPACE}$),
+wenn sowohl die Konstruktion für $\mathcal{L}$ als auch das Orakel
+$\mathcal{K}$-uniform sind.
 \begin{lem}
-\label{lem:fo-ord-circuit}Jede $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen,
-$\mathrm{LOGSPACE}$-uniformen $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit konstanter
-$\left\Vert \varphi\right\Vert $-Tiefe und polynomieller $\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$-Größe
-berechnet wird.\end{lem}
+\label{lem:fo-ord-circuit}Sei $\mathcal{L}$ eine Logik, $\mathbb{B}$
+eine boolesche Basis und $\mathcal{K}\supseteq\mathrm{LOGSPACE}$
+eine Komplexitätsklasse, so dass für jede $\mathcal{L}\left[\sigma\right]$-Formel
+eine symmetrische $\mathcal{K}$-uniforme $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
+mit $t\left(n\right)$-Tiefe und $s\left(n\right)$-Größe (mit $s\mathrm{\left(n\right)\in\mathrm{poly}\left(n\right)}$)
+existiert, die die gleiche Anfrage beschreibt.
+
+Sei $\eta$ eine von $\sigma$ disjunkte Signatur und $\Upsilon$
+ein $\mathcal{K}$-uniformes $\eta$-Orakel.
+
+Dann existiert auch für jede $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$-Formel
+eine ebensolche Schaltkreisfamilie mit der Tiefe $t'\left(n\right)\coloneqq t\left(2n+1\right)$
+und der Größe $s'\left(n\right)\coloneqq s\left(2n+1\right)$.
+\end{lem}
+Insbesondere folgt dann aus der Kombination mit Lemma \ref{lem:fo-circuit}:
+\begin{eqnarray*}
+\mathrm{FO}+\mathbf{BIT} & \subseteq & \left(\mathrm{SAC}^{0}\right)^{\mathrm{LOGSPACE}}\\
+\mathrm{FO}+\mathbf{ARB} & \subseteq & \left(\mathrm{SAC}^{0}\right)^{P/\mathrm{poly}}
+\end{eqnarray*}
+
 \begin{proof}
-Sei $\varphi$ eine $k$-stellige $\left(\mathrm{FO}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel.
+Sei $\varphi$ eine $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$-Formel.
 Für $n\in\mathbb{N}$ und $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
-wird $\varphi$ auf der disjunkt vereinigten $\left(\sigma\cup\left\{ \leqslant\right\} \right)$-Struktur
-$\mathfrak{A}\uplus\Upsilon\left(n\right)$ ausgewertet, wobei $\Upsilon\left(n\right)=\left(\left[0,n\right],\leqslant\right)$
-die lineare Ordnung auf $\left[0,n\right]$ ist.
+wird $\varphi$ als $\mathcal{L}\left[\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right]$-Formel
+auf der disjunkt vereinigten $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right)$-Struktur
+$\mathfrak{A}\uplus\Upsilon\left(n\right)$ ausgewertet, wobei $\Upsilon\left(n\right)\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta\right)$
+das Universum $\left[0,n\right]$ hat.
 
 Der Schaltkreis $\mathcal{C}_{n}$ wird aber auf einer umbenannten
 $\sigma$-Struktur $\mathfrak{A}'\coloneqq\pi\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$
@@ -2246,10 +2267,11 @@ das Universum $\left[0,n\right]$ durch eine Umbenennung nach $\left[n+1,2n+1\rig
 \end{eqnarray*}
 
 
-Nun betrachten wir die disjunkte Vereinigung (wobei die Ordnung $\leqslant$
-nur auf $\left[n+1,2n+1\right]$ definiert ist): 
+Nun betrachten wir die disjunkte Vereinigung (wobei die Prädikate
+aus $\eta\uplus\left\{ \leqslant\right\} $ nur auf $\left[n+1,2n+1\right]$
+definiert sind): 
 \[
-\mathfrak{A}'\uplus\Upsilon'\left(n\right)\in\mathbf{FIN}^{\left[1,2n+1\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)
+\mathfrak{A}'\uplus\Upsilon'\left(n\right)\in\mathbf{FIN}^{\left[1,2n+1\right]}\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right)
 \]
 
 
@@ -2257,29 +2279,27 @@ Weil $\Upsilon\left(n\right)\cong\Upsilon'\left(n\right)$ und $\mathfrak{A}\cong
 gilt auch $\mathfrak{A}\uplus\Upsilon\left(n\right)\cong\mathfrak{A}'\uplus\Upsilon'\left(n\right)$
 (denn der Isomorphismus ist unter disjunkter Vereinigung abgeschlossen):
 \[
-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\uplus\Upsilon\left(n\right)\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}'\uplus\Upsilon'\left(n\right)\right)
+\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\uplus\Upsilon\left(n\right),\beta\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}'\uplus\Upsilon'\left(n\right),\beta\right)
 \]
 
 
-Wir konstruieren nun zunächst einen $\left(\sigma\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
-$\mathcal{C}_{2n+1}^{\varphi}$ über $U'=\left[1,2n+1\right]$ entsprechend
-dem Beweis von Lemma \ref{lem:fo-circuit}. Dieser arbeitet korrekt
-auf $\mathfrak{A}'\uplus\Upsilon'\left(n\right)$ und hat offensichtlich
-die geforderte Größe $S_{n}\leqslant5\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$.
-Die Konstruktion erfordert $\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log\left(2n+1\right)$
-Speicherplatz.
+Per Voraussetzung können wir in $\mathcal{K}$ einen $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}\right)$-Schaltkreis
+$\mathcal{C}_{2n+1}^{\varphi}$ über $U'=\left[1,2n+1\right]$ berechnen.
+Dieser arbeitet korrekt auf $\mathfrak{A}'\uplus\Upsilon'\left(n\right)$
+und hat offensichtlich die geforderte Größe $s'\left(n\right)=s\left(2n+1\right)$
+und Tiefe $t'\left(n\right)=t\left(2n+1\right)$.
 
-Anschließend konstruieren wir daraus den $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
+Anschließend konstruieren wir daraus den $\left(\sigma,\mathbb{B}\right)$-Schaltkreis
 $\dot{\mathcal{C}_{n}^{\varphi}}\coloneqq\left(G,W,\dot{\Sigma},\dot{\Omega},U\right)$
 über $U\coloneqq\left[1,n\right]$, indem alle Inputs $\Sigma\left(g\right)=R\bar{t}$
-mit $\bar{t}\notin U^{k}$ oder $R\notin\sigma$ durch Konstanten
+mit $\bar{t}\notin U^{*}$ oder $R\notin\sigma$ durch Konstanten
 $\dot{\Sigma}\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
-ersetzt werden, und die Ausgangsfunktion auf $\dot{\Omega}=\Omega_{\mid U^{k}}$
+ersetzt werden, und die Ausgangsfunktion auf $\dot{\Omega}=\Omega_{\mid U}$
 reduziert wird. Das ist eine einfache Iteration über die Gates $G$
-des Schaltkreises, die nur einen Zähler der Größe $\log\left|G\right|\leqslant\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log n$
+des Schaltkreises, die nur einen Zähler der Größe $\log\left(s'\left(n\right)\right)\in\log\left(\mathrm{poly}\left(n\right)\right)=\mathcal{O}\left(\log n\right)$
 benötigt, und somit in $\mathrm{LOGSPACE}$ bleibt.
 \begin{casenv}
-\item Für $\Sigma\left(g\right)=R\bar{t}$ mit $R\in\sigma$ werden die
+\item Für $\Sigma\left(g\right)=R\bar{t}$ mit $R/k\in\sigma$ werden die
 ,,überschüssigen`` Inputs einfach auf $\mathbf{0}$ gesetzt:
 \begin{eqnarray*}
 \dot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
@@ -2288,11 +2308,12 @@ R\bar{t} & \mathrm{falls}\,\,\bar{t}\in U^{k}\\
 \end{cases}
 \end{eqnarray*}
 
-\item Für $\Sigma\left(g\right)=t_{1}\dot{\leqslant}t_{2}$ wird das Ordnungsprädikat
-fest in den Schaltkreis eingebaut:
+\item Für $\Sigma\left(g\right)=R\bar{t}$ mit $\sigma/k\in\eta\uplus\left\{ \leqslant\right\} $
+wird die numerische Relation $R^{\Upsilon'\left(n\right)}$ fest in
+den Schaltkreis eingebaut:
 \begin{eqnarray*}
 \dot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
-\mathbf{1} & \mathrm{falls}\,\,t_{1},t_{2}\in\left[n+1,2n+1\right],\,t_{1}\leqslant t_{2}\\
+\mathbf{1} & \mathrm{falls}\,\,\bar{t}\in R^{\Upsilon'\left(n\right)}\\
 \mathbf{0} & \mathrm{sonst}
 \end{cases}
 \end{eqnarray*}
@@ -2316,7 +2337,7 @@ Graph $\left(G,W\right)$ unverändert bleibt. Ferner betrachten wir
 nur die nicht-konstanten Inputs von $\mathcal{C}_{2n+1}^{\varphi}$,
 denn ansonsten bleibt $\Sigma$ unverändert.
 \begin{casenv}
-\item Für $\Sigma\left(g\right)=R\bar{t}$ mit $R\in\sigma$ gilt:
+\item Für $\Sigma\left(g\right)=R\bar{t}$ mit $R/k\in\sigma$ gilt:
 
 \begin{casenv}
 \item Falls $\bar{t}\in U^{k}$:
@@ -2330,10 +2351,12 @@ denn ansonsten bleibt $\Sigma$ unverändert.
 \]
 
 \end{casenv}
-\item Für $\Sigma\left(g\right)=t_{1}\dot{\leqslant}t_{2}$ gilt:
+\item Für $\Sigma\left(g\right)=R\bar{t}$ mit $R/k\in\eta\uplus\left\{ \leqslant\right\} $
+gilt:
 
 \begin{casenv}
-\item Falls $t_{1},t_{2}\in\left[n+1,2n+1\right]$ und $t_{1}\leqslant t_{2}$:
+\item Falls $\bar{t}\in R^{\Upsilon'\left(n\right)}\subseteq\left[n+1,2n+1\right]^{k}$,
+dann ist $\pi'\bar{t}=\bar{t}$:
 \[
 \dot{\Sigma}\left(\hat{\pi}g\right)=\mathbf{1}=\dot{\Sigma}\left(g\right)
 \]
@@ -2350,17 +2373,16 @@ Außerdem gilt ist $U^{k}$ bezüglich $\pi'$ abgeschlossen:
 \hat{\pi}\dot{\Omega}\left(\bar{t}\right)=\hat{\pi}\Omega\left(\bar{t}\right)=\Omega\left(\pi'\bar{t}\right)=\dot{\Omega}\left(\pi'\bar{t}\right)
 \]
  Damit ist $\bar{\dot{\mathcal{C}^{\varphi}}}$ eine symmetrische,
-$\mathrm{LOGSPACE}$-uniforme Schaltkreisfamilie konstanter Tiefe,
-die $q$ berechnet.
+$\mathcal{K}$-uniforme Schaltkreisfamilie mit Tiefe $t'\left(n\right)=t\left(2n+1\right)$
+und Größe $s'\left(n\right)=s\left(2n+1\right)$, die $q$ berechnet.
 \end{proof}
-\pagebreak{}
-
 
 \section{Zählquantoren}
 
-Wir betrachten die Logik $\mathrm{FO}+C$, und weisen nach, dass die
-vorhergehende Konstruktion aus Lemma \ref{lem:fo-ord-circuit} angepasst
-werden kann, indem Majority-Gates hinzugefügt werden.
+Wir betrachten die Logik $\mathcal{L}+\Upsilon+C$, und weisen nach,
+dass die Konstruktion von Lemma \ref{lem:fo-ord-circuit} und Lemma
+\ref{lem:fo-ord-circuit} angepasst werden kann, indem Majority-Gates
+hinzugefügt werden.
 \[
 \mathrm{FO}+C\subseteq\left(\mathrm{SAC}^{0}+\mathbf{MAJ}\right)^{\mathrm{LOGSPACE}}
 \]
@@ -2542,74 +2564,6 @@ Da der Schaltkreis $\mathcal{C}_{2n+1}^{\varphi}$ für jede Permutation
 $\pi\cup\mathbf{id}_{\left[n+1,2n+1\right]}$ mit $\pi\in\mathrm{Sym}_{\left[1,n\right]}$
 einen Automorphismus besitzt, ist der Schaltkreis $\dot{\mathcal{C}_{n}^{\varphi}}$
 symmetrisch (siehe Lemma \ref{lem:fo-ord-circuit}).
-
-\pagebreak{}
-\end{proof}
-
-\section{Beliebige Orakel}
-
-Wir betrachten die Logik $\mathrm{FO}+\Upsilon$ für beliebige Orakel
-$\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta\right)$
-(insbesondere $\mathrm{FO}+\mathbf{ARB}$, welches alle diese Logiken
-einschließt), und weisen nach, dass die Konstruktion aus \ref{lem:fo-ord-circuit}
-auf beliebige Prädikate erweitert werden kann, wobei die $\mathrm{LOGSPACE}$-Uniformität,
-aber nicht die beschränkte Größe geopfert wird.
-\[
-\mathrm{FO}+\mathbf{ARB}\subseteq\left(\mathrm{SAC}^{0}\right)^{P/\mathrm{poly}}
-\]
-
-\begin{lem}
-\label{lem:fo+arb}Seien $\eta$ und $\sigma$ disjunkte Signaturen
-und $\Upsilon\rightarrow\mathbf{FIN}_{\leqslant}\left(\eta\right)$
-ein $\eta$-Orakel.
-
-Jede $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
-$\varphi$ definiert eine $\sigma$-Anfrage $q$, die von einer symmetrischen
-$\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
-$\left(\mathcal{C}_{n}\right){}_{n\in\mathbb{N}}$ mit konstanter
-$\left\Vert \varphi\right\Vert $-Tiefe und polynomieller $\left\Vert \varphi\right\Vert \left(2n+1\right)^{\mathtt{MF}\left(\varphi\right)}$-Größe
-berechnet wird.\end{lem}
-\begin{proof}
-Sei $n\in\mathbb{N}$ beliebig und sei $\rho:\left[0,n\right]\rightarrow\left[n+1,2n+1\right]$
-wie bisher definiert. Die Struktur $\Upsilon\left(n\right)$ wird
-zu 
-\[
-\Upsilon'\left(n\right)=\rho\Upsilon'\left(n\right)=\left(\left[n+1,2n+1\right],\left(\rho R^{\Upsilon\left(n\right)}\right)_{R\in\eta}\right)
-\]
-
-
-Zunächst wird der $\left(\sigma\cup\eta\cup\left\{ \leqslant\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreis
-$\mathcal{C}_{2n+1}^{\varphi}$ wie in Lemma \ref{lem:fo-ord-circuit}
-erzeugt.
-
-Bei der Erzeugung des $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreises
-$\dot{\mathcal{C}_{n}^{\varphi}}$ wird nun der folgende Konstruktionsschritt
-hinzugefügt:
-\begin{casenv}
-\item Falls $\Sigma\left(g\right)=R\bar{t}$ mit $R\in\eta$, $\mathrm{ar}\left(R\right)=k$,
-und $\bar{t}\in U'^{k}$:
-\[
-\dot{\Sigma}\left(g\right)=\begin{cases}
-\mathbf{1} & \mathrm{falls}\,\,\bar{t}\in R^{\Upsilon'\left(n\right)}\subseteq\left[n+1,2n+1\right]^{k}\\
-\mathbf{0} & \mathrm{sonst}
-\end{cases}
-\]
-
-
-\begin{description}
-\item [{Symmetrie:}] Wenn $\dot{\Sigma}\left(g\right)=\mathbf{1}$, dann
-gilt $\bar{t}\in R^{\Upsilon'\left(n\right)}$, und $\pi'\left(\bar{t}\right)=\bar{t}$
-(weil $\pi'_{\mid\left[n+1,2n+1\right]}=\mathbf{id}_{\left[n+1,2n+1\right]}$
-ist). Daher ist $\Sigma\left(\hat{\pi}g\right)=R\pi'\bar{t}=R\bar{t}$,
-und somit gilt auch $\dot{\Sigma}\left(\hat{\pi}g\right)=\mathbf{1}$.
-\end{description}
-\end{casenv}
-Hierbei ist zu beachten, dass die Relation $R^{\Upsilon'\left(n\right)}$
-nicht in Polynomialzeit entscheidbar sein muss, und daher die so definierte
-Schaltkreisfamilie nicht mehr $P$-uniform ist.
-
-Offensichtlich ist sie jedoch immer noch $\mathrm{poly}\left(n\right)$-groß
-und daher $P/\mathrm{poly}$-uniform.
 \end{proof}
 \pagebreak{}
 
@@ -2956,12 +2910,33 @@ erhalten.
 
 \subsection{Fixpunktlogik mit Zählquantoren}
 
-Wir haben im letzten Abschnitt eine Normalform vorausgesetzt, diese
+Wir haben im letzten Abschnitt eine Normalform vorausgesetzt, die
 aber nur für die Logiken $\mathrm{LFP}$ und $\mathrm{LFP}+\Upsilon$
-nachgewiesen. Den Spezialfall $\mathrm{LFP}+C$ betrachten wir gesondert,
-und weisen nach, dass die Konstruktion aus Lemma \ref{lem:fo+c} mit
-dem Fixpunkt-Operator kombinierbar ist.
+nachgewiesen ist. Den Spezialfall $\mathrm{LFP}+C$ betrachten wir
+gesondert, und weisen nach, dass die Konstruktion aus Lemma \ref{lem:fo+c}
+mit dem Fixpunkt-Operator kombinierbar ist.
+\begin{eqnarray*}
+\mathrm{LFP}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}\\
+\mathrm{LFP}+\mathbf{ARB}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P/\mathrm{poly}}
+\end{eqnarray*}
 
+\begin{lem}
+Sei $\mathcal{L}+\Upsilon$ eine Logik und $\mathcal{K}$ eine Komplexitätsklasse
+mit $P\subseteq\mathcal{K}$, so dass für jede $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$-Formel
+eine $\mathcal{K}$-uniforme, symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+mit polynomiell beschränkter Tiefe und Größe $t\left(n\right),s\left(n\right)\in\mathrm{poly}\left(n\right)$
+existiert, die die gleiche Anfrage beschreibt.
+
+Dann existiert für jede $\left(\mathcal{L}+\Upsilon+C\right)\left[\sigma\right]$-Formel
+$\varphi$ eine entsprechende $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$-Schaltkreisfamilie \end{lem}
+\begin{proof}
+Induktiv über den Aufbau von $\varphi$:
+\begin{casenv}
+\item Falls $\varphi$ eine $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$-Formel
+ohne Zählquantor ist, dann folgt die Behauptung direkt aus der Voraussetzung. 
+\item Falls $\varphi=\exists^{\geqslant y}x$
+\end{casenv}
+\end{proof}
 
 \chapter{Partitionen und Träger}
 
