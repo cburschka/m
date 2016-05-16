@@ -2472,26 +2472,26 @@ Wir betrachten die Logik $\mathcal{L}+\Upsilon+C$, und weisen nach,
 dass die Konstruktion von Lemma \ref{lem:oracle-circuit} angepasst
 werden kann, indem Majority-Gates hinzugefügt werden.
 \begin{lem}
-\label{lem:counting-circuit}Sei $\mathcal{L}$ eine Logik, $k\in\mathbb{N}$
+\label{lem:counting-circuit}Sei $\mathcal{L}$ eine Logik, $c\in\mathbb{N}$
 eine Konstante, $\mathbb{B}$ eine boolesche Basis und $\mathcal{K}\supseteq\mathrm{LOGSPACE}$
 eine Komplexitätsklasse.
 
 Es gelte die Voraussetzung dass für jede $\mathcal{L}\left[\sigma\right]$-Formel
 eine symmetrische, $\mathcal{K}$-uniforme $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
-mit $\mathcal{O}\left(n^{k\left\Vert \varphi\right\Vert }\right)$-Tiefe
-und $\mathrm{poly}\left(n\right)$-Größe existiert, die die gleiche
-Anfrage beschreibt.
+mit $\left\Vert \varphi\right\Vert n^{c\left\Vert \varphi\right\Vert }$-Tiefe
+und $\left\Vert \varphi\right\Vert n^{\left\Vert \varphi\right\Vert }$-Größe
+existiert, die die gleiche Anfrage beschreibt.
 
 Sei $\eta$ eine von $\sigma$ disjunkte Signatur und $\Upsilon$
 ein $\mathcal{K}$-uniformes $\eta$-Orakel.
 
 Dann existiert für jede $\left(\mathcal{L}+\Upsilon+C\right)\left[\sigma\right]$
 eine ebensolche $\left(\sigma,\mathbb{B}\cup\left\{ \mathtt{MAJ}\right\} \right)$-Schaltkreisfamilie
-mit der Tiefe $\mathcal{O}\left(n^{k\left\Vert \varphi\right\Vert }\right)$-Tiefe
-und $\mathrm{poly}\left(n\right)$-Größe: 
+mit der Tiefe $\left\Vert \varphi\right\Vert \left(2n+1\right){}^{t\left\Vert \varphi\right\Vert }+\left\Vert \varphi\right\Vert $
+und der Größe $\left\Vert \varphi\right\Vert \left(2n+1\right)^{\left\Vert \varphi\right\Vert }+2n\left\Vert \varphi\right\Vert $. 
 \end{lem}
 Insbesondere folgt aus der Kombination mit Lemma \ref{lem:fo-circuit}
-und Lemma \ref{lem:oracle-circuit} (mit $k=0$ und der Tiefenbeschränkung
+und Lemma \ref{lem:oracle-circuit} (mit $c=0$ und der Tiefenbeschränkung
 $\mathcal{O}\left(1\right)$):
 
 \begin{eqnarray*}
@@ -2502,21 +2502,24 @@ Wir werden in diesem Fall konkret mit $\exists^{\geqslant}$-Quantoren
 arbeiten, denn per Satz \ref{prop:counting-equal} sind diese gleich
 ausdrucksstark mit $\exists^{=}$-Quantoren und $\#$-Termen.
 \begin{proof}
-Sei $\varphi$ eine $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
-und $n\in\mathbb{N}$ die gewünschte Eingabegröße. Wir gehen analog
-zu Lemma \ref{lem:oracle-circuit} für $\mathcal{L}+\Upsilon$ vor
-und erzeugen einen $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}\cup\left\{ \mathtt{MAJ}\right\} \right)$-Schaltkreis
-über $U'=\left[1,2n+1\right]$, wobei wir aber die folgende induktive
-Konstruktion verwenden:
+Sei $\varphi$ eine $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel,
+und sei $n\in\mathbb{N}$ die Eingabegröße. Wir gehen analog zu Lemma
+\ref{lem:oracle-circuit} für $\mathcal{L}+\Upsilon$ vor und erzeugen
+einen $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}\cup\left\{ \mathtt{MAJ}\right\} \right)$-Schaltkreis
+über $U'=\left[1,2n+1\right]$, wobei wir die folgende induktive Konstruktion
+verwenden:
 \begin{casenv}
 \item Falls $\varphi\left(\bar{x}\right)$ eine $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$-Formel
 ohne $\exists^{\geqslant}$-Quantor ist, so existiert der $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}\right)$-Schaltkreis
 $\mathcal{C}_{2n+1}^{\varphi}$ schon per Voraussetzung.
 \item Falls $\varphi\left(\bar{x}\right)=\exists^{\geqslant x_{i}}y_{j}\psi\left(\bar{y}\right)$
 mit $\bar{x}\in\mathbf{var}^{k}$, so nehmen wir an, dass die Behauptung
-für $\psi$ gilt. Sei $\mathcal{C}_{2n+1}^{\psi}$ der symmetrische
-Schaltkreis für die Formel $\psi$ mit der Tiefe $t\left(n\right)\in\mathcal{O}\left(n^{k\left\Vert \psi\right\Vert }\right)$
-und der Größe $s\left(n\right)\in\mathrm{poly}\left(n\right)$.
+für $\psi$ gilt. 
+
+
+Sei $\mathcal{C}_{2n+1}^{\psi}$ der symmetrische Schaltkreis für
+die Formel $\psi$ mit der Tiefe $t\leqslant\left\Vert \psi\right\Vert \left(2n+1\right)^{c\left\Vert \psi\right\Vert }+\left\Vert \psi\right\Vert $
+und der Größe $s\leqslant\left\Vert \psi\right\Vert \left(2n+1\right)^{\left\Vert \psi\right\Vert }+2n\left\Vert \psi\right\Vert $.
 \[
 \mathcal{C}_{2n+1}^{\psi}=\left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U'\right)
 \]
@@ -2589,8 +2592,17 @@ W_{\mathrm{pad}} & = & \left\{ \left(0_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{
 \begin{eqnarray*}
 \overset{n+k=2\rho^{-1}t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{k=2\rho^{-1}t_{i}-n}{\underbrace{\mathbf{0}\mathbf{0}\cdots\mathbf{0}}}}} &  & \overset{n+k'=2n-2\rho^{-1}t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{k'=n-2\rho^{-1}t_{i}}{\underbrace{\mathbf{1}\mathbf{1}\cdots\mathbf{1}}}}}
 \end{eqnarray*}
-Der neue Schaltkreis hat die Tiefe $t'\left(n\right)=t\left(n\right)+1\in\mathcal{O}\left(\right)$
-und der Größe $s\left(n\right)+n^{k}+2n\in\mathrm{poly}\left(n\right)$.
+Der neue Schaltkreis hat die Tiefe 
+\[
+t+1\leqslant\left\Vert \psi\right\Vert n^{c\left\Vert \psi\right\Vert }+\left\Vert \psi\right\Vert +1<\left\Vert \varphi\right\Vert n^{c\left\Vert \varphi\right\Vert }+\left\Vert \varphi\right\Vert 
+\]
+ und die Größe 
+\begin{eqnarray*}
+s+n^{k}+2n & \leqslant & \left(\left\Vert \psi\right\Vert +1\right)n^{\left\Vert \varphi\right\Vert }+2n\left(\left\Vert \psi\right\Vert +1\right)\\
+ & \leqslant & \left\Vert \varphi\right\Vert n^{\left\Vert \varphi\right\Vert }+2n\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+
+
 \item Falls $\varphi\left(\bar{x}\right)$ eine andere $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
 ist, so seien $\psi_{1}\left(\bar{y}_{1}\right),\cdots,\psi_{m}\left(\bar{y}_{m}\right)$
 alle größten\footnote{d.h. solche, die nicht selbst in einer Teilformel der gleichen Form
@@ -2598,14 +2610,14 @@ enthalten sind.} Teilformeln von $\varphi$ der Form $\psi_{i}=\exists^{\geqslant
 Wir ersetzen diese Teilformeln durch neue Atome $R_{1}\bar{y}_{1},\cdots,R_{m}\bar{y}_{m}$
 und erhalten eine $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\uplus\left\{ R_{1},\cdots,R_{m}\right\} \right]$-Formel
 $\varphi'$, die per Voraussetzung zu einer $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}\right)$-Schaltkreisfamilie
-$\mathcal{C}_{2n+1}^{\varphi'}$ wird. (Eine solche Suche im Syntax-Baum
-der Formel hat $\mathrm{LOGSPACE}$-Komplexität.)
+$\mathcal{C}_{2n+1}^{\varphi'}$ wird. Per Annahme existiert für jede
+der Teilformeln $\psi_{1},\cdots,\psi_{m}$ ein Schaltkreis $\mathcal{C}_{2n+1}^{\psi_{i}}$.
+(In der Implementierung fügen wir den Zählquantor effektiv als Subroutine
+in die bestehende Konstruktion ein.)
 
 
-Per Annahme existiert für jede der Teilformeln $\psi_{1},\cdots,\psi_{m}$
-ein Schaltkreis $\mathcal{C}_{2n+1}^{\psi_{i}}$. Wir erzeugen den
-Schaltkreis $\mathcal{C}_{2n+1}^{\varphi}$ aus der disjunkten Vereinigung
-wie folgt:
+Wir erzeugen den Schaltkreis $\mathcal{C}_{2n+1}^{\varphi}$ aus der
+disjunkten Vereinigung wie folgt:
 \begin{eqnarray*}
 \mathcal{C}_{2n+1}^{\psi_{i}} & = & \left(G_{i},W_{i},\Sigma_{i},\Omega_{i},\left[1,2n+1\right]\right)\\
 \mathcal{C}_{2n+1}^{\varphi'} & = & \left(G',W',\Sigma',\Omega',\left[1,2n+1\right]\right)\\
@@ -2626,19 +2638,35 @@ verbunden, und deren Beschriftung zu $\mathtt{AND}$ geändert.
 \Sigma_{i}\left(g\right) & \mathrm{sonst,\,falls}\,g\in G_{i}
 \end{cases}
 \end{eqnarray*}
-Es gilt $\left\Vert \varphi'\right\Vert +\max\left\Vert \psi_{i}\right\Vert +1\leqslant\left\Vert \varphi\right\Vert $
-(weil $\varphi$ alle diese Teilformeln enthält). Daher ist die Tiefe
-des neuen Schaltkreises $t_{\varphi}\left(2n+1\right)+$, und seine
-Größe ist in $\mathrm{poly\left(n\right)}$.
+Die Tiefe von $\mathcal{C}_{2n+1}^{\psi_{i}}$ ist $\left\Vert \psi_{i}\right\Vert \left(2n+1\right)^{c\left\Vert \psi_{i}\right\Vert }+\left\Vert \psi_{i}\right\Vert $
+und die Größe ist $\left\Vert \psi_{i}\right\Vert \left(2n+1\right)^{\left\Vert \psi_{i}\right\Vert }+2n\left\Vert \psi_{i}\right\Vert $.
+Der Schaltkreis $\mathcal{C}_{2n+1}^{\varphi'}$ hat per Voraussetzung
+die Tiefe $\left\Vert \varphi'\right\Vert \left(2n+1\right)^{c\left\Vert \varphi'\right\Vert }$
+und die Größe $\left\Vert \varphi'\right\Vert \left(2n+1\right)^{\left\Vert \varphi'\right\Vert }$.
+Zusätzlich ist $\left\Vert \varphi\right\Vert \geqslant\left\Vert \varphi'\right\Vert ,\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert $,
+da die 
+
+
+Daher hat der neue Schaltkreis die Tiefe
+\begin{eqnarray*}
+t' & \leqslant & \left\Vert \varphi'\right\Vert \left(2n+1\right)^{c\left\Vert \varphi'\right\Vert }+\max\left\Vert \psi_{i}\right\Vert \left(2n+1\right)^{c\left\Vert \psi_{i}\right\Vert }+\left\Vert \psi_{i}\right\Vert +1\\
+ & \leqslant & \left\Vert \varphi\right\Vert \left(2n+1\right)^{c\left\Vert \varphi\right\Vert }+\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+\begin{eqnarray*}
+s' & \leqslant & \left\Vert \varphi'\right\Vert \left(2n+1\right)^{\left\Vert \varphi'\right\Vert }+\sum_{i=1}^{m}\left(\left\Vert \psi_{i}\right\Vert \left(2n+1\right)^{\left\Vert \psi_{i}\right\Vert }+2n\left\Vert \psi_{i}\right\Vert \right)\\
+ & \leqslant & \left\Vert \varphi\right\Vert \left(2n+1\right)^{\left\Vert \varphi\right\Vert }+2n\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+
 
 \end{casenv}
 \begin{description}
 \item [{Symmetrie:}] Der neue Schaltkreis ist offensichtlich nicht symmetrisch
-bezüglich $\mathrm{Sym}_{U'}$, denn die Anzahl der konstanten Vorgänger
-jedes Majority-Gates $g_{\bar{t}}$ hängt von dem Wert $t_{i}$ ab.
-Allerdings ist er symmetrisch bezüglich der Permutationen, die die
-Werte in $\left[n+1,2n+1\right]$ fixieren, denn für alle übrigen
-Werte von $t_{i}$ ist das Gate $g_{\bar{t}}$ eine $\mathbf{0}$-Konstante. 
+bezüglich $\mathrm{Sym}_{\left[1,2n+1\right]}$, denn die Anzahl der
+konstanten Vorgänger jedes Majority-Gates $g_{\bar{t}}$ hängt von
+dem Wert $t_{i}$ ab. Allerdings ist er symmetrisch bezüglich der
+Permutationen, die die Werte in $\left[n+1,2n+1\right]$ fixieren,
+denn für alle Werte $t_{i}\in\left[1,n\right]$ ist das Gate $g_{\bar{t}}$
+eine $\mathbf{0}$-Konstante. 
 
 
 Sei $\pi\in\mathrm{Sym}_{U}$ beliebig, und $\pi'\coloneqq\pi\cup\mathbf{id}_{\left[n+1,2n+1\right]}$
@@ -2731,9 +2759,6 @@ Die booleschen Schaltkreise haben jedoch nicht dieselbe Einschränkung
 wie $\mathrm{FO}\left[\sigma\right]$: Die Berechnung einer Teilformel
 $\psi_{i}\left(\bar{z}\right)$ kann mehrfach verwendet werden, ohne
 den Schaltkreis $\mathcal{C}_{n}^{\psi_{i}}$ zu vervielfältigen.
-
-
-\subsection{Von Fixpunkt-Formeln zu Schaltkreisfamilien}
 \begin{lem}
 \label{lem:lfp-circ}Sei $\mathcal{L}$ eine Logik, $\sigma$ eine
 relationale Signatur und $\mathbb{B}$ eine boolesche Basis, so dass
@@ -4255,9 +4280,6 @@ Kodierung von Zahlen, so dass für $\bar{g},\bar{h},\bar{w}\in\left[0,n\right]^{
 
 \chapter{Grenzen der symmetrischen Schaltkreisklassen}
 
-
-\section{Symmetrie ist eine echte Einschränkung von $\mathrm{AC}^{0}$}
-
 Wir weisen nach, dass die symmetrischen $\mathrm{AC}^{0}$-Schaltkreisfamilien
 eine echte Teilmenge der Anfragen beschreiben, die durch $\mathrm{AC}^{0}$
 definierbar sind.
@@ -4472,10 +4494,8 @@ sind.
 ist zum Beispiel die $\mathrm{FO}+\mathbf{ARB}$-definierbare Klasse
 $\textsc{Even}$ nicht Hanf-lokal.)
 
-\pagebreak{}
 
-
-\section{Ausblick}
+\chapter{Ausblick}
 
 Wir haben den Beweis im letzten Abschnitt über den Satz von Hanf formuliert,
 und somit gezeigt, dass die Logik $\mathrm{FO}+\mathbf{ARB}$ modulo
@@ -4496,7 +4516,6 @@ definierbar:
 
 
 \bibliographystyle{plain}
-\nocite{*}
 \bibliography{master}
 
 

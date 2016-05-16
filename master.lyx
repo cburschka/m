@@ -9626,7 +9626,7 @@ Sei
 \end_inset
 
  eine Logik, 
-\begin_inset Formula $k\in\mathbb{N}$
+\begin_inset Formula $c\in\mathbb{N}$
 \end_inset
 
  eine Konstante, 
@@ -9654,11 +9654,11 @@ Es gelte die Voraussetzung dass für jede
 \end_inset
 
 -Schaltkreisfamilie mit 
-\begin_inset Formula $\mathcal{O}\left(n^{k\left\Vert \varphi\right\Vert }\right)$
+\begin_inset Formula $\left\Vert \varphi\right\Vert n^{c\left\Vert \varphi\right\Vert }$
 \end_inset
 
 -Tiefe und 
-\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\begin_inset Formula $\left\Vert \varphi\right\Vert n^{\left\Vert \varphi\right\Vert }$
 \end_inset
 
 -Größe existiert, die die gleiche Anfrage beschreibt.
@@ -9698,14 +9698,15 @@ Dann existiert für jede
 \end_inset
 
 -Schaltkreisfamilie mit der Tiefe 
-\begin_inset Formula $\mathcal{O}\left(n^{k\left\Vert \varphi\right\Vert }\right)$
+\begin_inset Formula $\left\Vert \varphi\right\Vert \left(2n+1\right){}^{t\left\Vert \varphi\right\Vert }+\left\Vert \varphi\right\Vert $
 \end_inset
 
--Tiefe und 
-\begin_inset Formula $\mathrm{poly}\left(n\right)$
+ und der Größe 
+\begin_inset Formula $\left\Vert \varphi\right\Vert \left(2n+1\right)^{\left\Vert \varphi\right\Vert }+2n\left\Vert \varphi\right\Vert $
 \end_inset
 
--Größe: 
+.
+ 
 \end_layout
 
 \begin_layout Standard
@@ -9724,7 +9725,7 @@ reference "lem:oracle-circuit"
 \end_inset
 
  (mit 
-\begin_inset Formula $k=0$
+\begin_inset Formula $c=0$
 \end_inset
 
  und der Tiefenbeschränkung 
@@ -9774,11 +9775,11 @@ Sei
 \begin_inset Formula $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$
 \end_inset
 
--Formel und 
+-Formel, und sei 
 \begin_inset Formula $n\in\mathbb{N}$
 \end_inset
 
- die gewünschte Eingabegröße.
+ die Eingabegröße.
  Wir gehen analog zu Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -9798,7 +9799,7 @@ reference "lem:oracle-circuit"
 \begin_inset Formula $U'=\left[1,2n+1\right]$
 \end_inset
 
-, wobei wir aber die folgende induktive Konstruktion verwenden:
+, wobei wir die folgende induktive Konstruktion verwenden:
 \end_layout
 
 \begin_deeper
@@ -9840,7 +9841,12 @@ Falls
 \end_inset
 
  gilt.
- Sei 
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Sei 
 \begin_inset Formula $\mathcal{C}_{2n+1}^{\psi}$
 \end_inset
 
@@ -9849,11 +9855,11 @@ Falls
 \end_inset
 
  mit der Tiefe 
-\begin_inset Formula $t\left(n\right)\in\mathcal{O}\left(n^{k\left\Vert \psi\right\Vert }\right)$
+\begin_inset Formula $t\leqslant\left\Vert \psi\right\Vert \left(2n+1\right)^{c\left\Vert \psi\right\Vert }+\left\Vert \psi\right\Vert $
 \end_inset
 
  und der Größe 
-\begin_inset Formula $s\left(n\right)\in\mathrm{poly}\left(n\right)$
+\begin_inset Formula $s\leqslant\left\Vert \psi\right\Vert \left(2n+1\right)^{\left\Vert \psi\right\Vert }+2n\left\Vert \psi\right\Vert $
 \end_inset
 
 .
@@ -10140,16 +10146,26 @@ W_{\mathrm{pad}} & = & \left\{ \left(0_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{
 \end_inset
 
 Der neue Schaltkreis hat die Tiefe 
-\begin_inset Formula $t'\left(n\right)=t\left(n\right)+1\in\mathcal{O}\left(\right)$
+\begin_inset Formula 
+\[
+t+1\leqslant\left\Vert \psi\right\Vert n^{c\left\Vert \psi\right\Vert }+\left\Vert \psi\right\Vert +1<\left\Vert \varphi\right\Vert n^{c\left\Vert \varphi\right\Vert }+\left\Vert \varphi\right\Vert 
+\]
+
 \end_inset
 
- und der Größe 
-\begin_inset Formula $s\left(n\right)+n^{k}+2n\in\mathrm{poly}\left(n\right)$
+ und die Größe 
+\begin_inset Formula 
+\begin{eqnarray*}
+s+n^{k}+2n & \leqslant & \left(\left\Vert \psi\right\Vert +1\right)n^{\left\Vert \varphi\right\Vert }+2n\left(\left\Vert \psi\right\Vert +1\right)\\
+ & \leqslant & \left\Vert \varphi\right\Vert n^{\left\Vert \varphi\right\Vert }+2n\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+
 \end_inset
 
-.
+
 \end_layout
 
+\end_deeper
 \begin_layout Case
 Falls 
 \begin_inset Formula $\varphi\left(\bar{x}\right)$
@@ -10205,16 +10221,7 @@ d.h.
 \end_inset
 
  wird.
- (Eine solche Suche im Syntax-Baum der Formel hat 
-\begin_inset Formula $\mathrm{LOGSPACE}$
-\end_inset
-
--Komplexität.)
-\end_layout
-
-\begin_deeper
-\begin_layout Standard
-Per Annahme existiert für jede der Teilformeln 
+ Per Annahme existiert für jede der Teilformeln 
 \begin_inset Formula $\psi_{1},\cdots,\psi_{m}$
 \end_inset
 
@@ -10223,7 +10230,13 @@ Per Annahme existiert für jede der Teilformeln
 \end_inset
 
 .
- Wir erzeugen den Schaltkreis 
+ (In der Implementierung fügen wir den Zählquantor effektiv als Subroutine
+ in die bestehende Konstruktion ein.)
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+Wir erzeugen den Schaltkreis 
 \begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
 \end_inset
 
@@ -10276,31 +10289,66 @@ Die Output-Gates der Schaltkreise
 
 \end_inset
 
-Es gilt 
-\begin_inset Formula $\left\Vert \varphi'\right\Vert +\max\left\Vert \psi_{i}\right\Vert +1\leqslant\left\Vert \varphi\right\Vert $
+Die Tiefe von 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\psi_{i}}$
 \end_inset
 
- (weil 
-\begin_inset Formula $\varphi$
+ ist 
+\begin_inset Formula $\left\Vert \psi_{i}\right\Vert \left(2n+1\right)^{c\left\Vert \psi_{i}\right\Vert }+\left\Vert \psi_{i}\right\Vert $
 \end_inset
 
- alle diese Teilformeln enthält).
- Daher ist die Tiefe des neuen Schaltkreises 
-\begin_inset Formula $t_{\varphi}\left(2n+1\right)+$
-\end_inset
-
-, und seine Größe ist in 
-\begin_inset Formula $\mathrm{poly\left(n\right)}$
+ und die Größe ist 
+\begin_inset Formula $\left\Vert \psi_{i}\right\Vert \left(2n+1\right)^{\left\Vert \psi_{i}\right\Vert }+2n\left\Vert \psi_{i}\right\Vert $
 \end_inset
 
 .
+ Der Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi'}$
+\end_inset
+
+ hat per Voraussetzung die Tiefe 
+\begin_inset Formula $\left\Vert \varphi'\right\Vert \left(2n+1\right)^{c\left\Vert \varphi'\right\Vert }$
+\end_inset
+
+ und die Größe 
+\begin_inset Formula $\left\Vert \varphi'\right\Vert \left(2n+1\right)^{\left\Vert \varphi'\right\Vert }$
+\end_inset
+
+.
+ Zusätzlich ist 
+\begin_inset Formula $\left\Vert \varphi\right\Vert \geqslant\left\Vert \varphi'\right\Vert ,\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert $
+\end_inset
+
+, da die 
+\end_layout
+
+\begin_layout Standard
+Daher hat der neue Schaltkreis die Tiefe
+\begin_inset Formula 
+\begin{eqnarray*}
+t' & \leqslant & \left\Vert \varphi'\right\Vert \left(2n+1\right)^{c\left\Vert \varphi'\right\Vert }+\max\left\Vert \psi_{i}\right\Vert \left(2n+1\right)^{c\left\Vert \psi_{i}\right\Vert }+\left\Vert \psi_{i}\right\Vert +1\\
+ & \leqslant & \left\Vert \varphi\right\Vert \left(2n+1\right)^{c\left\Vert \varphi\right\Vert }+\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+s' & \leqslant & \left\Vert \varphi'\right\Vert \left(2n+1\right)^{\left\Vert \varphi'\right\Vert }+\sum_{i=1}^{m}\left(\left\Vert \psi_{i}\right\Vert \left(2n+1\right)^{\left\Vert \psi_{i}\right\Vert }+2n\left\Vert \psi_{i}\right\Vert \right)\\
+ & \leqslant & \left\Vert \varphi\right\Vert \left(2n+1\right)^{\left\Vert \varphi\right\Vert }+2n\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
 \begin_layout Description
 Symmetrie: Der neue Schaltkreis ist offensichtlich nicht symmetrisch bezüglich
  
-\begin_inset Formula $\mathrm{Sym}_{U'}$
+\begin_inset Formula $\mathrm{Sym}_{\left[1,2n+1\right]}$
 \end_inset
 
 , denn die Anzahl der konstanten Vorgänger jedes Majority-Gates 
@@ -10317,8 +10365,8 @@ Symmetrie: Der neue Schaltkreis ist offensichtlich nicht symmetrisch bezüglich
 \begin_inset Formula $\left[n+1,2n+1\right]$
 \end_inset
 
- fixieren, denn für alle übrigen Werte von 
-\begin_inset Formula $t_{i}$
+ fixieren, denn für alle Werte 
+\begin_inset Formula $t_{i}\in\left[1,n\right]$
 \end_inset
 
  ist das Gate 
@@ -10672,10 +10720,6 @@ Die booleschen Schaltkreise haben jedoch nicht dieselbe Einschränkung wie
 \end_inset
 
  zu vervielfältigen.
-\end_layout
-
-\begin_layout Subsection
-Von Fixpunkt-Formeln zu Schaltkreisfamilien
 \end_layout
 
 \begin_layout Lemma
@@ -16867,14 +16911,6 @@ Hierbei sei
 Grenzen der symmetrischen Schaltkreisklassen
 \end_layout
 
-\begin_layout Section
-Symmetrie ist eine echte Einschränkung von 
-\begin_inset Formula $\mathrm{AC}^{0}$
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 Wir weisen nach, dass die symmetrischen 
 \begin_inset Formula $\mathrm{AC}^{0}$
@@ -17978,14 +18014,7 @@ Die Logik
  nicht Hanf-lokal.)
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
-\begin_layout Section
+\begin_layout Chapter
 Ausblick
 \end_layout
 
@@ -18046,7 +18075,6 @@ Vermutlich gelten ähnliche Beziehungen auch für die symmetrischen Teile
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-btprint "btPrintAll"
 bibfiles "master"
 options "plain"
 
