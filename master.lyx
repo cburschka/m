@@ -1905,8 +1905,11 @@ Wenn
 
 \end_deeper
 \begin_layout Definition
-Falls das Universum der beiden Strukturen ebenfalls disjunkt ist, so heiße
- 
+Falls die beiden Strukturen disjunkte Universen 
+\begin_inset Formula $A\cap B=\emptyset$
+\end_inset
+
+ haben, so heiße 
 \begin_inset Formula $\mathfrak{A}\cup\mathfrak{B}=\mathfrak{A}\uplus\mathfrak{B}$
 \end_inset
 
@@ -1915,8 +1918,102 @@ Falls das Universum der beiden Strukturen ebenfalls disjunkt ist, so heiße
 disjunkte Vereinigung
 \series default
  der Strukturen.
+ Wenn sie disjunkte Signaturen und das gleiche Universum haben, so nennen
+ wir 
+\begin_inset Formula $\mathfrak{A}\cup\mathfrak{B}=\mathfrak{A}\oplus\mathfrak{B}$
+\end_inset
+
+ die 
+\series bold
+Konkatenation
+\series default
+ der Strukturen.
 \end_layout
 
+\begin_layout Proposition
+Isomorphismen sind unter disjunkter Vereinigung abgeschlossen.
+\end_layout
+
+\begin_layout Proof
+Seien 
+\begin_inset Formula $\mathfrak{A},\mathfrak{A}'\in\mathbf{FIN}\left(\sigma_{1}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{B},\mathfrak{B}'\in\mathbf{FIN}\left(\sigma_{2}\right)$
+\end_inset
+
+ jeweils zwei Paare isomorphere Strukturen mit 
+\begin_inset Formula $\pi_{1}\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{A}'\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\pi_{2}\in\mathrm{Bij}\left(\mathfrak{B},\mathfrak{B}'\right)$
+\end_inset
+
+.
+ Sei ferner 
+\begin_inset Formula $A\cap B=A'\cap B'=\emptyset$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+So gilt für die Abbildung 
+\begin_inset Formula $\pi\coloneqq\pi_{1}\cup\pi_{2}:A\uplus A'\rightarrow B\uplus B'$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Wenn 
+\begin_inset Formula $\sigma_{1}\cap\sigma_{2}=\emptyset$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+\pi R^{\mathfrak{A}\uplus\mathfrak{B}} & = & \pi_{1}R^{\mathfrak{A}}=R^{\mathfrak{A}'}=R^{\mathfrak{A}'\uplus\mathfrak{B}'}\,\mathrm{für}\,R\in\sigma_{1}\\
+\pi R^{\mathfrak{A}\uplus\mathfrak{B}} & = & \pi_{2}R^{\mathfrak{B}}=R^{\mathfrak{B}'}=R^{\mathfrak{A}'\uplus\mathfrak{B}'}\,\mathrm{für}\,R\in\sigma_{2}
+\end{eqnarray*}
+
+\end_inset
+
+Damit ist 
+\begin_inset Formula $\pi\left(\mathfrak{A}\uplus\mathfrak{B}\right)=\mathfrak{A}'\uplus\mathfrak{B}'$
+\end_inset
+
+, und 
+\begin_inset Formula $\mathfrak{A}\uplus\mathfrak{B}\cong\mathfrak{A}'\uplus\mathfrak{B}'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Case
+Wenn 
+\begin_inset Formula $\sigma_{1}=\sigma_{2}$
+\end_inset
+
+, dann gilt für alle 
+\begin_inset Formula $R\in\sigma_{1}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\pi R^{\mathfrak{A}\cup\mathfrak{B}}=\pi_{1}R^{\mathfrak{A}}\uplus\pi_{2}R^{\mathfrak{B}}=R^{\mathfrak{A}'}\uplus R^{\mathfrak{B}'}=R^{\mathfrak{A}'\uplus\mathfrak{B}'}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout --Separator--
 
 \end_layout
@@ -1972,6 +2069,116 @@ Für eine Relation
 \end_inset
 
  induzierte Teilstruktur.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Nachbarschaft
+\series default
+ (siehe Abschnitt 2.4 von 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EbbinghausFlum"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Definition
+Für eine Struktur 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ sei 
+\begin_inset Formula $\mathcal{G}\left(\mathfrak{A}\right)\in\mathbf{FIN}^{A}\left(\left\{ E\right\} \right)$
+\end_inset
+
+ der 
+\series bold
+Gaifman-Graph
+\series default
+ von 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+, der alle Knoten miteinander verbindet, die im gleichen Tupel vorkommen.
+ (Insbesondere ist für jeden symmetrischen Graphen 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\left\{ E\right\} \right)$
+\end_inset
+
+ offensichtlich 
+\begin_inset Formula $\mathcal{G}\left(\mathfrak{A}\right)=\mathfrak{A}$
+\end_inset
+
+.)
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{G}\left(\mathfrak{A}\right) & = & \left(A,E^{\mathcal{G}\left(\mathfrak{A}\right)}\right)\\
+E^{\mathcal{G}\left(\mathfrak{A}\right)} & = & \left\{ \left(a_{i},a_{j}\right)\mid R/k\in\sigma,\,\bar{a}\in R^{\mathfrak{A}},\,i,j\in\left[1,k\right]\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $\mathrm{dist}_{\mathfrak{A}}:A^{2}\rightarrow\mathbb{N\cup\left\{ \infty\right\} }$
+\end_inset
+
+ die minimale Distanz 
+\begin_inset Formula $\mathrm{dist}_{\mathfrak{A}}\left(a,b\right)$
+\end_inset
+
+ im Gaifman-Graph zwischen zwei Knoten 
+\begin_inset Formula $a,b\in A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Für ein 
+\begin_inset Formula $r\in\mathbb{N}$
+\end_inset
+
+ sei nun 
+\begin_inset Formula $S_{r}\left(a\right)\coloneqq\left\{ b\in A\mid\mathrm{dist}_{\mathfrak{A}}\left(a,b\right)\leqslant r\right\} $
+\end_inset
+
+ die 
+\begin_inset Formula $r$
+\end_inset
+
+-Kugel um 
+\begin_inset Formula $a\in A$
+\end_inset
+
+.
+ Die 
+\begin_inset Formula $r$
+\end_inset
+
+-Nachbarschaft von 
+\begin_inset Formula $a$
+\end_inset
+
+ sei deren induzierte Teilstruktur 
+\begin_inset Formula $\mathcal{S}_{r}\left(a\right)=\mathfrak{A}_{\mid S_{r}\left(a\right)}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout --Separator--
@@ -4857,7 +5064,11 @@ Eine alternative Erweiterung definiert über einer Struktur
 \begin_inset Formula $\mathcal{L}+\Upsilon$
 \end_inset
 
-) mit 
+, und die Konkatenation 
+\begin_inset Formula $\mathfrak{A}\oplus\mathfrak{B}$
+\end_inset
+
+ von Strukturen mit dem gleichen Universum) mit 
 \begin_inset Formula $\mathcal{L}\oplus\Upsilon$
 \end_inset
 
@@ -4930,7 +5141,7 @@ Für
  definiert durch:
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathfrak{A}_{\pi} & \coloneqq & \mathfrak{A}\cup\pi\Upsilon\left(n\right)\\
+\mathfrak{A}_{\pi} & \coloneqq & \mathfrak{A}\oplus\pi\Upsilon\left(n\right)\\
  & = & \left(A,\left(R^{\mathfrak{A}}\right)_{R\in\sigma},\left(\pi R^{\Upsilon\left(n\right)}\right)\right)
 \end{eqnarray*}
 
@@ -16803,6 +17014,38 @@ reference "thm:fo"
  beschreibbar.
 \end_layout
 
+\begin_layout Standard
+Wir werden hierfür die Sätze von Hanf und von Ehrenfeucht verwenden, um
+ die Nicht-Definierbarkeit nachzuweisen: 
+\end_layout
+
+\begin_layout Theorem
+
+\series bold
+Der Satz von Hanf
+\series default
+
+\begin_inset space ~
+\end_inset
+
+(2.4.1 in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EbbinghausFlum"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Theorem
+Für zwei Strukturen 
+\begin_inset Formula $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ 
+\end_layout
+
 \begin_layout Lemma
 Es existiert eine Graph-Anfrage 
 \begin_inset Formula $q$
@@ -16819,40 +17062,79 @@ Es existiert eine Graph-Anfrage
  beschreibbar ist.
 \end_layout
 
-\begin_layout Standard
+\begin_layout Proof
 Sei 
-\begin_inset Formula $S\subseteq\mathbf{FIN}\left(\left\{ E\right\} \right)$
+\begin_inset Formula $C\subseteq\mathbf{FIN}\left(\left\{ E\right\} \right)$
 \end_inset
 
  die Klasse der Graphen 
 \begin_inset Formula $\mathfrak{A}=\left(A,E^{\mathfrak{A}}\right)$
 \end_inset
 
+ mit 
+\begin_inset Formula $n\coloneqq A$
+\end_inset
+
  für die gilt: 
 \begin_inset Formula $A$
 \end_inset
 
- enthält mindestens 
-\begin_inset Formula $\left\lceil \mathrm{log}\left|A\right|\right\rceil $
+ enthält weniger als 
+\begin_inset Formula $\left\lceil \mathrm{log}n\right\rceil $
 \end_inset
 
  viele nicht-isolierte Knoten.
 \end_layout
 
-\begin_layout Claim
-Es existiert eine 
+\begin_layout Proof
+Diese Anfrage ist durch einen 
 \begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
 \end_inset
 
--Formel, die 
-\begin_inset Formula $S$
+-Satz definierbar (siehe dazu Abschnitt 4.4 von 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AMSS2012-locality"
+
 \end_inset
 
- definiert.
+).
 \end_layout
 
-\begin_layout Claim
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\varphi$
+\end_inset
 
+ ein beliebiger 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+-Satz mit dem Quantorenrang 
+\begin_inset Formula $\mathrm{qr}\left(\varphi\right)=m$
+\end_inset
+
+.
+ Wir werden zwei Strukturen 
+\begin_inset Formula $\mathfrak{A}\uplus\Upsilon\left(n\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{B}\uplus\Upsilon\left(n\right)$
+\end_inset
+
+ der gleichen Größe 
+\begin_inset Formula $m\geqslant$
+\end_inset
+
+ durch ein Ehrenfeucht-Fraïssé-Spiel (siehe Kapitel 2 von 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EbbinghausFlum"
+
+\end_inset
+
+) anwenden, um zu zeigen, dass 
 \end_layout
 
 \begin_layout Standard

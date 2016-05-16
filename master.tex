@@ -39,6 +39,14 @@
 \fi
   \theoremstyle{definition}
   \newtheorem{defn}[thm]{\protect\definitionname}
+  \theoremstyle{plain}
+  \newtheorem{prop}[thm]{\protect\propositionname}
+ \newlist{casenv}{enumerate}{4}
+ \setlist[casenv]{leftmargin=*,align=left,widest={iiii}}
+ \setlist[casenv,1]{label={{\itshape\ \casename} \arabic*.},ref=\arabic*}
+ \setlist[casenv,2]{label={{\itshape\ \casename} \roman*.},ref=\roman*}
+ \setlist[casenv,3]{label={{\itshape\ \casename\ \alph*.}},ref=\alph*}
+ \setlist[casenv,4]{label={{\itshape\ \casename} \arabic*.},ref=\arabic*}
   \theoremstyle{remark}
   \newtheorem{notation}[thm]{\protect\notationname}
 % labeling-like list based on enumitem's description list with
@@ -48,18 +56,10 @@
 \begin{description}[font=\normalfont,style=sameline,
 leftmargin=\lyxlabelwidth,#1]}
 {\end{description}}
-  \theoremstyle{plain}
-  \newtheorem{prop}[thm]{\protect\propositionname}
   \theoremstyle{definition}
   \newtheorem{example}[thm]{\protect\examplename}
   \theoremstyle{definition}
   \newtheorem*{example*}{\protect\examplename}
- \newlist{casenv}{enumerate}{4}
- \setlist[casenv]{leftmargin=*,align=left,widest={iiii}}
- \setlist[casenv,1]{label={{\itshape\ \casename} \arabic*.},ref=\arabic*}
- \setlist[casenv,2]{label={{\itshape\ \casename} \roman*.},ref=\roman*}
- \setlist[casenv,3]{label={{\itshape\ \casename\ \alph*.}},ref=\alph*}
- \setlist[casenv,4]{label={{\itshape\ \casename} \arabic*.},ref=\arabic*}
   \theoremstyle{remark}
   \newtheorem*{rem*}{\protect\remarkname}
   \theoremstyle{plain}
@@ -567,10 +567,36 @@ die folgende $\sigma$-Struktur:
 \]
 
 \end{enumerate}
-Falls das Universum der beiden Strukturen ebenfalls disjunkt ist,
-so heiße $\mathfrak{A}\cup\mathfrak{B}=\mathfrak{A}\uplus\mathfrak{B}$
-die \textbf{disjunkte Vereinigung} der Strukturen.
-\end{defn}
+Falls die beiden Strukturen disjunkte Universen $A\cap B=\emptyset$
+haben, so heiße $\mathfrak{A}\cup\mathfrak{B}=\mathfrak{A}\uplus\mathfrak{B}$
+die \textbf{disjunkte Vereinigung} der Strukturen. Wenn sie disjunkte
+Signaturen und das gleiche Universum haben, so nennen wir $\mathfrak{A}\cup\mathfrak{B}=\mathfrak{A}\oplus\mathfrak{B}$
+die \textbf{Konkatenation} der Strukturen.\end{defn}
+\begin{prop}
+Isomorphismen sind unter disjunkter Vereinigung abgeschlossen.\end{prop}
+\begin{proof}
+Seien $\mathfrak{A},\mathfrak{A}'\in\mathbf{FIN}\left(\sigma_{1}\right)$
+und $\mathfrak{B},\mathfrak{B}'\in\mathbf{FIN}\left(\sigma_{2}\right)$
+jeweils zwei Paare isomorphere Strukturen mit $\pi_{1}\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{A}'\right)$
+und $\pi_{2}\in\mathrm{Bij}\left(\mathfrak{B},\mathfrak{B}'\right)$.
+Sei ferner $A\cap B=A'\cap B'=\emptyset$.
+
+So gilt für die Abbildung $\pi\coloneqq\pi_{1}\cup\pi_{2}:A\uplus A'\rightarrow B\uplus B'$:
+\begin{casenv}
+\item Wenn $\sigma_{1}\cap\sigma_{2}=\emptyset$:
+\begin{eqnarray*}
+\pi R^{\mathfrak{A}\uplus\mathfrak{B}} & = & \pi_{1}R^{\mathfrak{A}}=R^{\mathfrak{A}'}=R^{\mathfrak{A}'\uplus\mathfrak{B}'}\,\mathrm{f\ddot{u}r}\,R\in\sigma_{1}\\
+\pi R^{\mathfrak{A}\uplus\mathfrak{B}} & = & \pi_{2}R^{\mathfrak{B}}=R^{\mathfrak{B}'}=R^{\mathfrak{A}'\uplus\mathfrak{B}'}\,\mathrm{f\ddot{u}r}\,R\in\sigma_{2}
+\end{eqnarray*}
+Damit ist $\pi\left(\mathfrak{A}\uplus\mathfrak{B}\right)=\mathfrak{A}'\uplus\mathfrak{B}'$,
+und $\mathfrak{A}\uplus\mathfrak{B}\cong\mathfrak{A}'\uplus\mathfrak{B}'$.
+\item Wenn $\sigma_{1}=\sigma_{2}$, dann gilt für alle $R\in\sigma_{1}$:
+\[
+\pi R^{\mathfrak{A}\cup\mathfrak{B}}=\pi_{1}R^{\mathfrak{A}}\uplus\pi_{2}R^{\mathfrak{B}}=R^{\mathfrak{A}'}\uplus R^{\mathfrak{B}'}=R^{\mathfrak{A}'\uplus\mathfrak{B}'}
+\]
+
+\end{casenv}
+\end{proof}
 
 \begin{defn}
 \textbf{\label{def:induced-structure}Induzierte Teilstruktur}
@@ -580,6 +606,31 @@ sei $R_{\mid A'}\coloneqq R\cap\left(A'\right)^{k}$ die von $A'$
 induzierte Teilrelation. Für eine $\sigma$-Struktur $\mathfrak{A}$
 sei $\mathfrak{A}_{\mid A'}\coloneqq\left(A',\left(R_{\mid A'}^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
 die von der Teilmenge $A'$ in $\mathfrak{A}$ induzierte Teilstruktur.
+\end{defn}
+
+\begin{defn}
+\textbf{Nachbarschaft} (siehe Abschnitt 2.4 von \cite{EbbinghausFlum})
+
+Für eine Struktur $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+sei $\mathcal{G}\left(\mathfrak{A}\right)\in\mathbf{FIN}^{A}\left(\left\{ E\right\} \right)$
+der \textbf{Gaifman-Graph} von $\mathfrak{A}$, der alle Knoten miteinander
+verbindet, die im gleichen Tupel vorkommen. (Insbesondere ist für
+jeden symmetrischen Graphen $\mathfrak{A}\in\mathbf{FIN}\left(\left\{ E\right\} \right)$
+offensichtlich $\mathcal{G}\left(\mathfrak{A}\right)=\mathfrak{A}$.)
+\begin{eqnarray*}
+\mathcal{G}\left(\mathfrak{A}\right) & = & \left(A,E^{\mathcal{G}\left(\mathfrak{A}\right)}\right)\\
+E^{\mathcal{G}\left(\mathfrak{A}\right)} & = & \left\{ \left(a_{i},a_{j}\right)\mid R/k\in\sigma,\,\bar{a}\in R^{\mathfrak{A}},\,i,j\in\left[1,k\right]\right\} 
+\end{eqnarray*}
+
+
+Sei $\mathrm{dist}_{\mathfrak{A}}:A^{2}\rightarrow\mathbb{N\cup\left\{ \infty\right\} }$
+die minimale Distanz $\mathrm{dist}_{\mathfrak{A}}\left(a,b\right)$
+im Gaifman-Graph zwischen zwei Knoten $a,b\in A$.
+
+Für ein $r\in\mathbb{N}$ sei nun $S_{r}\left(a\right)\coloneqq\left\{ b\in A\mid\mathrm{dist}_{\mathfrak{A}}\left(a,b\right)\leqslant r\right\} $
+die $r$-Kugel um $a\in A$. Die $r$-Nachbarschaft von $a$ sei deren
+induzierte Teilstruktur $\mathcal{S}_{r}\left(a\right)=\mathfrak{A}_{\mid S_{r}\left(a\right)}$
+in $\mathfrak{A}$.
 \end{defn}
 
 \begin{defn}
@@ -1270,8 +1321,9 @@ Eine alternative Erweiterung definiert über einer Struktur $\mathfrak{A}$
 eine beliebige Bijektion $\pi:\left[1,n\right]\rightleftarrows A$
 und interpretiert dann die numerischen Prädikate $R/k\in\eta$ über
 dem Universum der Struktur selbst. Diese Erweiterung bezeichnen wir
-(in Anlehnung an die disjunkte Erweiterung $\mathcal{L}+\Upsilon$)
-mit $\mathcal{L}\oplus\Upsilon$.
+(in Anlehnung an die disjunkte Erweiterung $\mathcal{L}+\Upsilon$,
+und die Konkatenation $\mathfrak{A}\oplus\mathfrak{B}$ von Strukturen
+mit dem gleichen Universum) mit $\mathcal{L}\oplus\Upsilon$.
 \begin{defn}
 \textbf{$\mathcal{L}\oplus\Upsilon$-Logik}
 
@@ -1285,7 +1337,7 @@ sei $\pi:\left[1,n\right]\rightleftarrows A$ eine beliebige Bijektion.
 Sei $\mathfrak{A}_{\pi}\in\mathbf{FIN}\left(\sigma\uplus\eta\right)$
 definiert durch:
 \begin{eqnarray*}
-\mathfrak{A}_{\pi} & \coloneqq & \mathfrak{A}\cup\pi\Upsilon\left(n\right)\\
+\mathfrak{A}_{\pi} & \coloneqq & \mathfrak{A}\oplus\pi\Upsilon\left(n\right)\\
  & = & \left(A,\left(R^{\mathfrak{A}}\right)_{R\in\sigma},\left(\pi R^{\Upsilon\left(n\right)}\right)\right)
 \end{eqnarray*}
 
@@ -4240,20 +4292,33 @@ benötigen wir eine Anfrage, die in $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{
 beschreibbar ist, jedoch nicht in $\mathrm{FO}+\mathbf{ARB}$ beschreibbar
 ist. Per Lemma \ref{lem:fo-arb-ac0} ist diese Anfrage dann in $\mathrm{AC}^{0}$,
 aber per Theorem \ref{thm:fo} nicht in $\mathrm{SAC}^{0}$ beschreibbar.
+
+Wir werden hierfür die Sätze von Hanf und von Ehrenfeucht verwenden,
+um die Nicht-Definierbarkeit nachzuweisen: 
+\begin{thm}
+\textbf{Der Satz von Hanf}~(2.4.1 in \cite{EbbinghausFlum})
+
+Seien $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}\left(\sigma\right)$,
+$m\in\mathbb{N}$ und $r\coloneqq3^{m}$ \end{thm}
 \begin{lem}
 Es existiert eine Graph-Anfrage $q$, die in $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-definierbar
-ist, aber nicht in $\mathrm{FO}+\mathbf{ARB}$ beschreibbar ist.
-\end{lem}
-Sei $S\subseteq\mathbf{FIN}\left(\left\{ E\right\} \right)$ die Klasse
-der Graphen $\mathfrak{A}=\left(A,E^{\mathfrak{A}}\right)$ für die
-gilt: $A$ enthält mindestens $\left\lceil \mathrm{log}\left|A\right|\right\rceil $
+ist, aber nicht in $\mathrm{FO}+\mathbf{ARB}$ beschreibbar ist.\end{lem}
+\begin{proof}
+Sei $C\subseteq\mathbf{FIN}\left(\left\{ E\right\} \right)$ die Klasse
+der Graphen $\mathfrak{A}=\left(A,E^{\mathfrak{A}}\right)$ mit $n\coloneqq A$
+für die gilt: $A$ enthält weniger als $\left\lceil \mathrm{log}n\right\rceil $
 viele nicht-isolierte Knoten.
-\begin{claim}
-Es existiert eine $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-Formel,
-die $S$ definiert.
 
+Diese Anfrage ist durch einen $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-Satz
+definierbar (siehe dazu Abschnitt 4.4 von \cite{AMSS2012-locality}).
 
-\end{claim}
+Sei $\varphi$ ein beliebiger $\mathrm{FO}+\mathbf{ARB}$-Satz mit
+dem Quantorenrang $\mathrm{qr}\left(\varphi\right)=m$. Wir werden
+zwei Strukturen $\mathfrak{A}\uplus\Upsilon\left(n\right)$ und $\mathfrak{B}\uplus\Upsilon\left(n\right)$
+der gleichen Größe $m\geqslant$ durch ein Ehrenfeucht-Fraïssé-Spiel
+(siehe Kapitel 2 von \cite{EbbinghausFlum}) anwenden, um zu zeigen,
+dass 
+\end{proof}
 \bibliographystyle{plain}
 \nocite{*}
 \bibliography{master}
