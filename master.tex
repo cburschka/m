@@ -3970,8 +3970,8 @@ und Orbits $\mathrm{Orb}_{\mathcal{C}}\left(g\right)$}
 
 Für eine rigide, symmetrische $k$-stellige $\left(\sigma,\mathbb{B}\right)$-Multischaltkreisfamilie
 $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ gilt nach Korollar
-\ref{cor:korollar-23} $\mathrm{SP}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$.
-Seien also $n_{0},c\in\mathbb{N}$ so gewählt, dass $\mathrm{SP}\left(\mathcal{C}_{n}\right)\leqslant c$
+\ref{cor:korollar-23} $\mathrm{sp}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$.
+Seien also $n_{0},c\in\mathbb{N}$ so gewählt, dass $\mathrm{sp}\left(\mathcal{C}_{n}\right)\leqslant c$
 für $n\geqslant n_{0}$.
 
 Zur Erinnerung: $\mathrm{sp}\left(\mathcal{C}\right)$ ist die maximale
@@ -3994,39 +3994,35 @@ für Multischaltkreise an.
 \begin{defn}
 \textbf{Konsistenz}
 
-Zwei bijektive Abbildungen $f,f':A\rightarrow B$ seien konsistent
-in $A'\subseteq A$ (kurz $f\sim_{A'}f'$), wenn sie im Teilbereich
-$A'$ identisch sind. 
+Zwei Abbildungen $f:A\rightarrow B$ und $f:A'\rightarrow B'$ seien
+konsistent in $A''\subseteq A\cap A'$ (kurz $f\sim_{A''}f'$), wenn
+sie im Teilbereich $A''$ identisch sind. 
 \[
-f\sim_{A'}f'\Leftrightarrow f_{\mid A'}=f'_{\mid A'}
+f\sim_{A''}f'\Leftrightarrow f_{\mid A''}=f'_{\mid A''}
 \]
-
-
-Für $B'\subseteq B$ heißen sie bildkonsistent in $B'$, wenn $f^{-1}\sim_{B'}f^{-1}$
-beziehungsweise wenn $f=\tau f'$ mit einer Permutation $\tau\in\mathrm{Stab}_{B}\left(B'\right)$,
-die die Elemente von $B'$ fixiert.\end{defn}
+\end{defn}
 \begin{prop}
 \label{prop:konsistenz}Sei $\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$
 ein rigider, symmetrischer Multischaltkreis mit $n=\left|U\right|$,
 und sei $g\in G$ ein beliebiges Gate mit den Vorgängern $H\coloneqq\left\{ h\in G\mid\mathcal{W}\left(h,g\right)>0\right\} $.
 Sei $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
-eine beliebige Struktur. Seien $\pi_{1},\pi_{2}:A\rightarrow U$ zwei
-beliebige Einbettungen von $\mathfrak{A}$ in $U$, die bildkonsistent
-in $\mathrm{sp}\left(g\right)$ sind. So gilt:
+eine beliebige Struktur. Seien $\pi_{1},\pi_{2}\in\mathrm{Bij}\left(U,A\right)$
+beliebig mit $\pi_{1}\sim_{\mathrm{sp}\left(g\right)}\pi_{2}$. So
+gilt:
 \begin{eqnarray}
-\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(g\right) & = & \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)\label{eq:cons-1}\\
-\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(h\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(h\right)\label{eq:cons-2}
+\mathcal{C}\left[\pi_{1}^{-1}\mathfrak{A}\right]\left(g\right) & = & \mathcal{C}\left[\pi_{2}^{-1}\mathfrak{A}\right]\left(g\right)\label{eq:cons-1}\\
+\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{1}^{-1}\mathfrak{A}\right]\left(h\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{2}^{-1}\mathfrak{A}\right]\left(h\right)\label{eq:cons-2}
 \end{eqnarray}
 \end{prop}
 \begin{proof}
-Sei $\tau\in\mathrm{Sym}_{U}$ die Permutation $\tau\coloneqq\pi_{1}\pi_{2}^{-1}$,
-so dass $\pi_{1}=\tau\pi_{2}$.
+Sei $\tau\in\mathrm{Sym}_{U}$ die Permutation $\tau\coloneqq\pi_{1}^{-1}\pi_{2}$,
+so dass $\pi_{1}^{-1}=\tau\pi_{2}^{-1}$.
 
-Weil $\pi_{1}$ und $\pi_{2}$ bildkonsistent in $\mathrm{sp}\left(g\right)$
-sind, gilt $\pi_{1}^{-1}u=\pi_{2}^{-1}u$ für $u\in\mathrm{sp}\left(g\right)$.
+Weil $\pi_{1}$ und $\pi_{2}$ konsistent in $\mathrm{sp}\left(g\right)$
+sind, gilt $\pi_{1}u=\pi_{2}u$ für $u\in\mathrm{sp}\left(g\right)$.
 \begin{eqnarray*}
-\tau u & = & \pi_{1}\pi_{2}^{-1}u\\
- & = & \pi_{1}\pi_{1}^{-1}u=u
+\tau u & = & \pi_{1}^{-1}\pi_{2}u\\
+ & = & \pi_{1}^{-1}\pi_{1}u=u
 \end{eqnarray*}
 
 
@@ -4040,82 +4036,79 @@ auch das Gate $g$:
 \end{eqnarray*}
 Damit ist Gleichung \ref{eq:cons-1} bewiesen:
 \begin{eqnarray*}
-\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right) & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)\\
- & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(g\right)\\
- & = & \mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(g\right)
+\mathcal{C}\left[\pi_{2}^{-1}\mathfrak{A}\right]\left(g\right) & = & \mathcal{C}\left[\tau\pi_{2}^{-1}\mathfrak{A}\right]\left(\hat{\tau}g\right)\\
+ & = & \mathcal{C}\left[\tau\pi_{2}^{-1}\mathfrak{A}\right]\left(g\right)\\
+ & = & \mathcal{C}\left[\pi_{1}^{-1}\mathfrak{A}\right]\left(g\right)
 \end{eqnarray*}
 
 
 Da $\hat{\tau}g=g$, muss auch $\hat{\tau}H=H$ auch für die Vorgänger
-gelten. Außerdem hat $\hat{\tau}h$ die gleiche Anzahl von Kanten
-zu $g$ wie $\tau$:
+gelten. Außerdem hat $\hat{\tau}h$ für alle $h\in H$ die gleiche
+Anzahl von Kanten zu $g$ wie $h$:
 \begin{eqnarray*}
-\mathcal{C}\left[\pi_{2}\right]\left(h\right) & = & \mathcal{C}\left[\tau\pi_{2}\right]\left(\hat{\tau}g\right)\\
-\mathcal{W}\left(h,g\right) & = & \mathcal{W}\left(\hat{\tau},g\right)
+\mathcal{C}\left[\pi_{1}^{-1}\mathfrak{A}\right]\left(h\right) & = & \mathcal{C}\left[\tau\pi_{2}^{-1}\right]\left(\hat{\tau}h\right)\\
+\mathcal{W}\left(h,g\right) & = & \mathcal{W}\left(\hat{\tau}h,g\right)\\
+ &  & \mathrm{f.a.}\,h\in H
 \end{eqnarray*}
 Es folgt die Gleichung \ref{eq:cons-2} für das Gewicht der mit $1$
 belegten Vorgänger von $g$:
 \[
-\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(h\right)
+\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{1}^{-1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{2}^{-1}\mathfrak{A}\right]\left(h\right)
 \]
 \end{proof}
 \begin{defn}
 Für jedes Gate $g$ des Schaltkreises $\mathcal{C}$ über dem Universum
-$U$ beschreiben wir die Menge der verschiedenen Bijektionen $\pi\in\mathrm{Bij}\left(U,A\right)$,
+$U$ beschreiben wir nun die Menge der verschiedenen Bijektionen $\pi\in\mathrm{Bij}\left(U,A\right)$,
 für die $\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(g\right)=1$.
 Per Satz \ref{prop:konsistenz} müssen nur deren Reduktionen auf $\mathrm{sp}\left(g\right)$
 betrachtet werden. Sei $\mathrm{EV}\left(g\right)$ die Menge dieser
-Belegungen von $\mathrm{sp}\left(g\right)$:
+Abbildungen:
 
 \[
-\mathrm{EV}\left(g\right)\coloneqq\left\{ \pi{}_{\mid\mathrm{sp}\left(g\right)}\mid\pi:\mathrm{Bij}\left(U,A\right),\,\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(g\right)=1\right\} 
+\mathrm{EV}\left(g\right)\coloneqq\left\{ \pi{}_{\mid\mathrm{sp}\left(g\right)}\mid\pi\in\mathrm{Bij}\left(U,A\right),\,\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(g\right)=1\right\} 
 \]
 
 
 Für jede injektive Funktion $\rho:\mathrm{sp}\left(g\right)\rightarrow A$
-sei $M_{\rho}$ die Menge der zu $\rho$ konsistenten Bijektionen
-$\pi:U\rightarrow A$ :
+sei $\mathrm{Ext}\left(\rho\right)$ die Menge der zu $\rho$ konsistenten
+Erweiterungen $\pi:U\rightarrow A$ :
 \[
-M_{\rho}\coloneqq\left\{ \pi\in\mathrm{Bij}\left(U,A\right)\mid\pi_{\mid\mathrm{sp}\left(g\right)}=\rho\right\} 
+\mathrm{Ext}\left(\rho\right)\coloneqq\left\{ \pi\in\mathrm{Bij}\left(U,A\right)\mid\pi\sim_{\mathrm{sp}\left(g\right)}\rho\right\} 
 \]
 
 
 Zusätzlich beschreiben wir für jeden Vorgänger $h\in H$ von $g$
 und jede injektive Funktion $\rho:\mathrm{sp}\left(g\right)\rightarrow A$
-die Menge $\Pi_{\rho}\left(h\right)$ der unterschiedlichen $\mathrm{sp}\left(h\right)$-Reduktionen
-von Bijektionen $\pi:U\rightarrow A$, die auf $\mathrm{sp}\left(g\right)$
-konsistent zu $\pi$ sind: 
+die Menge $\mathrm{Red}\left(\rho,h\right)$ der unterschiedlichen
+$\mathrm{sp}\left(h\right)$-Reduktionen von Erweiterungen von $\rho$:
 \[
-\Pi_{\rho}\left(h\right)\coloneqq\left\{ \pi_{\mid\mathrm{sp}\left(h\right)}\mid\pi\in M_{\rho}\right\} 
+\mathrm{Red}\left(\rho,h\right)\coloneqq\left\{ \pi_{\mid\mathrm{sp}\left(h\right)}\mid\pi\in\mathrm{Ext}\left(\rho\right)\right\} 
 \]
 \end{defn}
 \begin{claim}
-\label{claim:claim-28}(nach Behauptung 28 aus \cite{AD2014})
-
-Sei $\pi:U\rightarrow A$ eine beliebige Bijektion, und $\rho\coloneqq\pi_{\mid\mathrm{sp}\left(g\right)}$.
-Das Gesamtgewicht der unter $\pi^{-1}\mathfrak{A}$ erfüllten Vorgänger
-$h\in H$ gleicht der gewichteten Summe von $\frac{\left|\Pi_{\rho}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi_{\rho}\left(h\right)\right|}$,
-dem Anteil der erfüllenden Bijektionen in $\Pi_{\rho}\left(h\right)$:
+\label{claim:claim-28}(nach Behauptung 28 aus \cite{AD2014}) Sei
+$\pi\in\mathrm{Bij}\left(U,A\right)$ beliebig, und sei $\rho_{\pi}\coloneqq\pi_{\mid\mathrm{sp}\left(g\right)}$
+die Reduktion von $\pi$ auf $\mathrm{sp}\left(g\right)$. Dann gilt:
 
 \begin{equation}
-r\coloneqq\sum_{h\in H}\mathcal{W}\left(h,g\right)\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\Pi_{\rho}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi_{\rho}\left(h\right)\right|}\label{eq:behauptung-28}
+r\left(\pi\right)\coloneqq\sum_{h\in H}\mathcal{W}\left(h,g\right)\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\right|}\label{eq:behauptung-28}
 \end{equation}
 \end{claim}
 \begin{proof}
-Nach Gleichung \ref{eq:cons-2} ist das Gesamtgewicht der unter $\pi'^{-1}\mathfrak{A}$
-erfüllten Gates $h\in G$ für alle $\pi'\in M_{\rho}$ gleich, so
-dass $\left|M_{\rho}\right|r$ die Summe der Gesamtgewichte für jede
-Belegung $\pi'\in M_{\rho}$ ist.
+Nach Gleichung \ref{eq:cons-2} ist $r\left(\pi'\right)\coloneqq\sum_{h\in H}\mathcal{W}\left[h,g\right]\mathcal{C}\left[\pi'^{-1}\mathfrak{A}\right]\left(h\right)$
+für alle $\pi'\in\mathrm{Ext}\left(\rho_{\pi}\right)$ gleich, so
+dass $\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|r\left(\pi\right)=\sum_{\pi'\in\mathrm{Ext}\left(\pi\right)}r\left(\pi'\right)$
+gilt.
 
-Weiterhin können wir für jeden Vorgänger $h\in H$ die Belegungen
-$M_{\rho}$ in Äquivalenzklassen bezüglich der Konsistenz zu einer
-Belegung $\rho'\in\Pi_{\rho}\left(h\right)$ von $\mathrm{sp}\left(h\right)$
+Weiterhin können wir für jeden Vorgänger $h\in H$ die Bijektionen
+aus $\mathrm{Ext}\left(\rho_{\pi}\right)$ in Äquivalenzklassen bezüglich
+der $\mathrm{sp}\left(h\right)$-Konsistenz zu einer Belegung $\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)$
 partitionieren: 
 \begin{eqnarray*}
-\left|M_{\rho}\right|r & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\pi'\in M_{\rho}}\mathcal{C}\left[\pi'\mathfrak{^{-1}A}\right]\left(h\right)\\
- & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\Pi_{\rho}\left(h\right)}\sum_{\begin{subarray}{c}
-\pi'\in M_{\rho}\\
-\pi'_{\mid\mathrm{sp}\left(h\right)}=\rho'
+\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|r\left(\pi\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\pi'\in\mathrm{Ext}\left(\rho_{\pi}\right)}\mathcal{C}\left[\pi'\mathfrak{^{-1}A}\right]\left(h\right)\\
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)}\sum_{\begin{subarray}{c}
+\pi'\in\mathrm{Ext}\left(\rho_{\pi}\right)\\
+\pi'\sim_{\mathrm{sp}\left(h\right)}\rho'
 \end{subarray}}\mathcal{C}\left[\pi'^{-1}\mathfrak{A}\right]\left(h\right)
 \end{eqnarray*}
 
@@ -4124,61 +4117,59 @@ Nach der Definition der Menge $\mathrm{EV}\left(h\right)$ gilt für
 alle Belegungen $\pi':U\rightarrow A$, dass $\mathcal{C}\left[\pi'^{-1}\mathfrak{A}\right]\left(h\right)=1$
 genau dann wenn $\pi'_{\mid\mathrm{sp}\left(h\right)}\in\mathrm{EV}\left(h\right)$.
 Daher können wir $\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\in\left\{ 0,1\right\} $
-einfach mit der Größe von $\left\{ \pi'\in M_{\rho}\mid\pi'_{\mid\mathrm{sp}\left(h\right)}=\rho'\right\} $
+einfach mit der Größe von $\left\{ \pi'\in\mathrm{Ext}\left(\rho_{\pi}\right)\mid\pi'\sim_{\mathrm{sp}\left(h\right)}\rho'\right\} $
 multiplizieren: 
 \begin{eqnarray*}
-\left|M_{\rho}\right|r & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\Pi_{\rho}\left(h\right)}\sum_{\begin{subarray}{c}
-\pi'\in M_{\rho}\\
-\pi'_{\mid\mathrm{sp}\left(h\right)}=\rho'
+\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|r\left(\pi\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)}\sum_{\begin{subarray}{c}
+\pi'\in\mathrm{Ext}\left(\rho_{\pi}\right)\\
+\pi'\sim_{\mathrm{sp}\left(h\right)}\rho'
 \end{subarray}}\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\\
- & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\Pi_{\rho}\left(h\right)}\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\left|\left\{ \pi'\in M_{\rho},\,\pi'_{\mid\mathrm{sp}\left(h\right)}=\rho'\right\} \right|
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)}\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\left|\left\{ \pi'\in\mathrm{Ext}\left(\rho_{\pi}\right),\,\pi'\sim_{\mathrm{sp}\left(h\right)}\rho'\right\} \right|
 \end{eqnarray*}
 
 
-Weil die Partitionierung $M_{\rho}=\biguplus_{\rho'\in\Pi_{\pi}\left(h\right)}\left\{ \pi'\in M_{\rho},\,\pi'_{\mid\mathrm{sp}\left(h\right)}=\rho'\right\} $
-die Menge $M_{\rho}$ in isomorphe Klassen teilt, gilt $\left|\left\{ \pi'\in M_{\rho},\,\pi'_{\mid\mathrm{sp}\left(h\right)}=\rho'\right\} \right|=\frac{\left|M_{\rho}\right|}{\left|\Pi_{\rho}\left(h\right)\right|}$
-für $\rho'\in\Pi_{\rho}\left(h\right)$.
+Weil die Partitionierung $\mathrm{Ext}\left(\rho_{\pi}\right)=\biguplus_{\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)}\left\{ \pi'\in\mathrm{Ext}\left(\rho_{\pi}\right),\,\pi'\sim_{\mathrm{sp}\left(h\right)}\rho'\right\} $
+die Menge $\mathrm{Ext}\left(\rho_{\pi}\right)$ in isomorphe Klassen
+teilt, gilt $\left|\left\{ \pi'\in\mathrm{Ext}\left(\rho_{\pi}\right),\,\pi'\sim_{\mathrm{sp}\left(h\right)}\rho'\right\} \right|=\frac{\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|}{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\right|}$
+für $\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)$.
 
 \begin{eqnarray*}
-\left|M_{\rho}\right|r & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\Pi_{\rho}\left(h\right)}\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\frac{\left|M_{\rho}\right|}{\left|\Pi_{\rho}\left(h\right)\right|}\\
- & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\Pi_{\rho}\left(h\right)\cap\mathrm{EV}\left(h\right)}\frac{\left|M_{\rho}\right|}{\left|\Pi_{\rho}\left(h\right)\right|}\\
- & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\Pi_{\rho}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|\left|M_{\rho}\right|}{\left|\Pi_{\rho}\left(h\right)\right|}
+\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|r\left(\pi\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)}\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\frac{\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|}{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\right|}\\
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)\cap\mathrm{EV}\left(h\right)}\frac{\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|}{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\right|}\\
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\cap\mathrm{EV}\left(h\right)\right|\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|}{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\right|}\\
+r\left(\pi\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\right|}
 \end{eqnarray*}
 
-
-Durch das Kürzen von $\left|M_{\rho}\right|$ entsteht die Gleichung
-\ref{eq:behauptung-28} aus der Behauptung.
 \end{proof}
-Sei nach Definition \ref{def:tupel} $\bar{U}$ das geordnete Tupel
-aller Elemente des Universums, und $\bar{\mathrm{sp}}\left(g\right)$
-das Tupel der Elemente von $\mathrm{sp}\left(g\right)$.
-
-Sei $\bar{M}_{\rho}\subseteq A^{n}$ die Relation der $n$-Tupel $\pi\bar{U}$
-für $\pi\in M_{\rho}$, sei $\bar{\Pi}_{\rho}\left(h\right)\subseteq A^{\left|\mathrm{sp}\left(h\right)\right|}$
-die Relation der Tupel $\rho\bar{\mathrm{sp}}\left(h\right)$ für
-$\rho\in\Pi_{\rho}\left(h\right)$, und sei $\bar{\mathrm{EV}}\left(g\right)\subseteq A^{\left|\mathrm{sp}\left(g\right)\right|}$
+Wir verwenden nun die Ordnung von $U=\left[1,n\right]$ und legen
+fest: Sei $\bar{U}\coloneqq\left(1,\cdots,n\right)$, und $\bar{\mathrm{sp}}\left(g\right)$
+das geordnete Tupel der Elemente von $\mathrm{sp}\left(g\right)$.
+Für $\bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}$ definieren
+wir die Abbildung $\rho_{\bar{a}}\coloneqq\left(\bar{\mathrm{sp}\left(g\right)}\rightarrow\bar{a}\right)$.
+Sei $\bar{\mathrm{Ext}}\left(\bar{a}\right)\subseteq A^{n}$ die Relation
+der $n$-Tupel $\pi\bar{U}$ für $\pi\in\mathrm{Ext}\left(\rho_{\bar{a}}\right)$,
+sei $\bar{\mathrm{Red}}\left(\bar{a},h\right)\subseteq A^{\left|\mathrm{sp}\left(h\right)\right|}$
+die Relation der Tupel $\rho'\bar{\mathrm{sp}}\left(h\right)$ für
+$\rho'\in\mathrm{Red}\left(\rho_{\bar{a}},h\right)$, und sei $\bar{\mathrm{EV}}\left(g\right)\subseteq A^{\left|\mathrm{sp}\left(g\right)\right|}$
 die Relation der Tupel $\rho\bar{\mathrm{sp}}\left(g\right)$ für
 $\rho\in\mathrm{EV}\left(g\right)$. 
 \begin{eqnarray*}
-\bar{M}_{\rho} & \coloneqq & \left\{ \pi\bar{U}\mid\pi\in M_{\rho}\right\} \\
+\bar{\mathrm{Ext}}\left(\bar{a}\right) & \coloneqq & \left\{ \pi\bar{U}\mid\pi\in\mathrm{Ext}\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{a}\right)\right\} \\
 \bar{\mathrm{EV}}\left(g\right) & \coloneqq & \left\{ \rho\bar{\mathrm{sp}}\left(g\right)\mid\rho\in\mathrm{EV}\left(g\right)\right\} 
 \end{eqnarray*}
 
 
 Wir werden nun für jedes Gate $g\in G$ mit den Vorgängern $H\subseteq G$
 die Menge $\bar{\mathrm{EV}}\left(g\right)$ rekursiv durch $\left(\bar{\mathrm{EV}}\left(h\right)\right)_{h\in H}$
-und $\mathfrak{A}$ definieren, wobei $\rho_{\bar{a}}:\mathrm{sp}\left(g\right)\rightarrow A$
-für $\bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}$ die Abbildung
-$\rho_{\bar{a}}=\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{a}\right)$
-bezeichne.
+und $\mathfrak{A}$ definieren.
 \begin{casenv}
 \item Falls $g$ eine Konstante mit $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
-ist, dann ist $\mathrm{sp}\left(g\right)=\emptyset$, da $g$ ein
-Fixpunkt aller Automorphismen ist. In diesem Fall gilt:
+ist, dann ist $\mathrm{sp}\left(g\right)=\emptyset$, da $g$ von
+allen Automorphismen fixiert wird. In diesem Fall gilt:
 \[
 \bar{\mathrm{EV}}\left(g\right)=\begin{cases}
-\emptyset & \mathrm{falls}\,\Sigma\left(g\right)=\mathbf{0}\\
-\left\{ \left\langle \right\rangle \right\}  & \mathrm{falls}\,\Sigma\left(g\right)=\mathbf{1}
+\emptyset & \mathrm{falls}\,\,\Sigma\left(g\right)=\mathbf{0}\\
+\left\{ \left\langle \right\rangle \right\}  & \mathrm{falls}\,\,\Sigma\left(g\right)=\mathbf{1}
 \end{cases}
 \]
 
@@ -4192,35 +4183,36 @@ dann gilt:
 \item Falls $\Sigma\left(g\right)=\mathtt{AND}$ ist, dann gilt für jedes
 Tupel $\bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}$ , dass
 $\rho_{\bar{a}}\in\mathrm{EV}\left(g\right)$ genau dann wenn jede
-zu $\rho_{\bar{a}}$ konsistente Bijektion $\pi\in M_{\rho_{\bar{a}}}$
+zu $\rho_{\bar{a}}$ konsistente Bijektion $\pi\in\mathrm{Ext}\left(\rho_{\bar{a}}\right)$
 alle Vorgänger $h\in H$ erfüllt: 
 \begin{eqnarray*}
-\sum_{h\in H}\mathcal{W}\left(h,g\right)\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(h\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)
+\bar{a}\in\bar{\mathrm{EV}}\left(g\right) & \Leftrightarrow & \sum_{h\in H}\mathcal{W}\left(h,g\right)\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\mathcal{W}\left(h,g\right)\\
+ &  & \mathrm{f.a.\,\pi\in\mathrm{Ext}\left(\rho_{\bar{a}}\right)}
 \end{eqnarray*}
 Beziehungsweise nach Behauptung \ref{claim:claim-28}:
 \[
-\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\Pi_{\rho_{\bar{a}}}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi_{\rho_{\bar{a}}}\left(h\right)\right|}=\sum_{h\in H}\mathcal{W}\left(h,g\right)
+\bar{a}\in\bar{\mathrm{EV}}\left(g\right)\Leftrightarrow\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\bar{\mathrm{Red}}\left(\bar{a},h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\bar{\mathrm{Red}}\left(\bar{a},h\right)\right|}=\sum_{h\in H}\mathcal{W}\left(h,g\right)
 \]
-Dies ist gleichbedeutend mit $\Pi_{\rho_{\bar{a}}}\left(h\right)\subseteq\mathrm{EV}\left(h\right)$.
+Dies ist gleichbedeutend mit $\mathrm{Red}\left(\rho_{\bar{a}},h\right)\subseteq\mathrm{EV}\left(h\right)$.
 Demnach gilt:
 \[
-\bar{\mathrm{EV}}\left(g\right)=\left\{ \bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}\mid\bigwedge_{h\in H}\bar{\Pi}_{\rho_{\bar{a}}}\left(h\right)\subseteq\bar{\mathrm{EV}}\left(h\right)\right\} 
+\bar{\mathrm{EV}}\left(g\right)=\left\{ \bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}\mid\bar{\mathrm{Red}}\left(\bar{a},h\right)\subseteq\bar{\mathrm{EV}}\left(h\right)\,\mathrm{f.a.}\,h\in H\right\} 
 \]
 
-\item Falls $\Sigma\left(g\right)=\mathtt{OR}$ ist, dann ist $\rho_{\bar{a}}\in\mathrm{EV}\left(g\right)$
-genau dann wenn mindestens eine Bijektion $\pi\in M_{\rho}$ mindestens
-einen Vorgänger $h\in H$ erfüllt:
+\item Falls $\Sigma\left(g\right)=\mathtt{OR}$ ist, dann ist $\bar{a}\in\bar{\mathrm{EV}}\left(g\right)$
+genau dann wenn mindestens eine Bijektion $\pi\in\mathrm{Ext}\left(\rho_{\bar{a}}\right)$
+mindestens einen Vorgänger $h\in H$ erfüllt:
 \[
-\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\Pi_{\rho_{\bar{a}}}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi_{\rho_{\bar{a}}}\left(h\right)\right|}>0
+\sum_{h\in H}\left|\bar{\mathrm{Red}}\left(\bar{a},h\right)\cap\mathrm{EV}\left(h\right)\right|>0
 \]
 \[
-\bar{\mathrm{EV}}\left(g\right)=\left\{ \bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}\mid\bigvee_{h\in H}\left(\bar{\Pi}_{\rho_{\bar{a}}}\left(h\right)\cap\bar{\mathrm{EV}}\left(h\right)\neq\emptyset\right)\right\} 
+\bar{\mathrm{EV}}\left(g\right)=\left\{ \bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}\mid\emptyset\neq\bigcup_{h\in H}\bar{\mathrm{Red}}\left(\bar{a},h\right)\cap\bar{\mathrm{EV}}\left(h\right)\right\} 
 \]
 
-\item Falls $\Sigma\left(g\right)=\mathtt{MAJ}$ ist, dann ist $\rho_{\bar{a}}\in\mathrm{EV}\left(g\right)$
+\item Falls $\Sigma\left(g\right)=\mathtt{MAJ}$ ist, dann ist $\bar{a}\in\bar{\mathrm{EV}}\left(g\right)$
 genau dann wenn mindestens die Hälfte der Vorgänger erfüllt sind:
 \[
-\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\Pi_{\rho\bar{a}}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi_{\rho_{\bar{a}}}\left(h\right)\right|}\geqslant\frac{1}{2}\sum_{h\in H}\mathcal{W}\left(h,g\right)
+\bar{a}\in\bar{\mathrm{EV}}\left(g\right)\Leftrightarrow\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\bar{\mathrm{Red}}\left(\bar{a},h\right)\cap\bar{\mathrm{EV}}\left(h\right)\right|}{\left|\mathrm{Red}\left(\bar{a},h\right)\right|}\geqslant\frac{1}{2}\sum_{h\in H}\mathcal{W}\left(h,g\right)
 \]
 
 \item Falls $\Sigma\left(g\right)=\mathtt{NOT}$, dann hat $g$ per Definition
@@ -4235,7 +4227,7 @@ Also:
 Die vom Schaltkreis $\mathcal{C}$ berechnete Anfrage $q_{\mathcal{C}}$
 ist äquivalent zu der folgenden Relation:
 \[
-q_{\mathcal{C}}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathrm{ex.}\,\bar{t}\in U^{k}\,\mathrm{mit}\,\bar{a}\in\mathrm{EV}\left(\Omega\left(\bar{t}\right)\right)\right\} 
+q_{\mathcal{C}}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathrm{ex.}\,\bar{t}\in U^{k}\,\mathrm{mit}\,\bar{a}\in\bar{\mathrm{EV}}\left(\Omega\left(\bar{t}\right)\right)\right\} 
 \]
 
 
@@ -4244,9 +4236,8 @@ q_{\mathcal{C}}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\ma
 
 \section{Kodierung durch Fixpunktlogik}
 
-Die beschriebenen Klassen Relationen $\mathrm{EV}$ werden nun verwendet,
-um die Klasse $\mathrm{SBC}$ auf die Fixpunktlogik $\mathrm{LFP}$
-zu reduzieren.
+Die beschriebenen Relationen $\left(\bar{\mathrm{EV}}\left(g\right)\right)_{g\in G}$
+werden nun verwendet, um die Schaltkreisfamilie auf eine
 \begin{lem}
 Sei $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine $k$-stellige,
 rigide, symmetrische, $P$-uniforme $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Multischaltkreisfamilie.

@@ -15744,7 +15744,7 @@ reference "cor:korollar-23"
 \end_inset
 
  
-\begin_inset Formula $\mathrm{SP}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$
+\begin_inset Formula $\mathrm{sp}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$
 \end_inset
 
 .
@@ -15753,7 +15753,7 @@ reference "cor:korollar-23"
 \end_inset
 
  so gewählt, dass 
-\begin_inset Formula $\mathrm{SP}\left(\mathcal{C}_{n}\right)\leqslant c$
+\begin_inset Formula $\mathrm{sp}\left(\mathcal{C}_{n}\right)\leqslant c$
 \end_inset
 
  für 
@@ -15851,60 +15851,36 @@ Konsistenz
 \end_layout
 
 \begin_layout Definition
-Zwei bijektive Abbildungen 
-\begin_inset Formula $f,f':A\rightarrow B$
+Zwei Abbildungen 
+\begin_inset Formula $f:A\rightarrow B$
+\end_inset
+
+ und 
+\begin_inset Formula $f:A'\rightarrow B'$
 \end_inset
 
  seien konsistent in 
-\begin_inset Formula $A'\subseteq A$
+\begin_inset Formula $A''\subseteq A\cap A'$
 \end_inset
 
  (kurz 
-\begin_inset Formula $f\sim_{A'}f'$
+\begin_inset Formula $f\sim_{A''}f'$
 \end_inset
 
 ), wenn sie im Teilbereich 
-\begin_inset Formula $A'$
+\begin_inset Formula $A''$
 \end_inset
 
  identisch sind.
  
 \begin_inset Formula 
 \[
-f\sim_{A'}f'\Leftrightarrow f_{\mid A'}=f'_{\mid A'}
+f\sim_{A''}f'\Leftrightarrow f_{\mid A''}=f'_{\mid A''}
 \]
 
 \end_inset
 
 
-\end_layout
-
-\begin_layout Definition
-Für 
-\begin_inset Formula $B'\subseteq B$
-\end_inset
-
- heißen sie bildkonsistent in 
-\begin_inset Formula $B'$
-\end_inset
-
-, wenn 
-\begin_inset Formula $f^{-1}\sim_{B'}f^{-1}$
-\end_inset
-
- beziehungsweise wenn 
-\begin_inset Formula $f=\tau f'$
-\end_inset
-
- mit einer Permutation 
-\begin_inset Formula $\tau\in\mathrm{Stab}_{B}\left(B'\right)$
-\end_inset
-
-, die die Elemente von 
-\begin_inset Formula $B'$
-\end_inset
-
- fixiert.
 \end_layout
 
 \begin_layout Proposition
@@ -15937,27 +15913,19 @@ Sei
 
  eine beliebige Struktur.
  Seien 
-\begin_inset Formula $\pi_{1},\pi_{2}:A\rightarrow U$
+\begin_inset Formula $\pi_{1},\pi_{2}\in\mathrm{Bij}\left(U,A\right)$
 \end_inset
 
- zwei beliebige Einbettungen von 
-\begin_inset Formula $\mathfrak{A}$
+ beliebig mit 
+\begin_inset Formula $\pi_{1}\sim_{\mathrm{sp}\left(g\right)}\pi_{2}$
 \end_inset
 
- in 
-\begin_inset Formula $U$
-\end_inset
-
-, die bildkonsistent in 
-\begin_inset Formula $\mathrm{sp}\left(g\right)$
-\end_inset
-
- sind.
+.
  So gilt:
 \begin_inset Formula 
 \begin{eqnarray}
-\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(g\right) & = & \mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right)\label{eq:cons-1}\\
-\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(h\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(h\right)\label{eq:cons-2}
+\mathcal{C}\left[\pi_{1}^{-1}\mathfrak{A}\right]\left(g\right) & = & \mathcal{C}\left[\pi_{2}^{-1}\mathfrak{A}\right]\left(g\right)\label{eq:cons-1}\\
+\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{1}^{-1}\mathfrak{A}\right]\left(h\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{2}^{-1}\mathfrak{A}\right]\left(h\right)\label{eq:cons-2}
 \end{eqnarray}
 
 \end_inset
@@ -15971,11 +15939,11 @@ Sei
 \end_inset
 
  die Permutation 
-\begin_inset Formula $\tau\coloneqq\pi_{1}\pi_{2}^{-1}$
+\begin_inset Formula $\tau\coloneqq\pi_{1}^{-1}\pi_{2}$
 \end_inset
 
 , so dass 
-\begin_inset Formula $\pi_{1}=\tau\pi_{2}$
+\begin_inset Formula $\pi_{1}^{-1}=\tau\pi_{2}^{-1}$
 \end_inset
 
 .
@@ -15990,12 +15958,12 @@ Weil
 \begin_inset Formula $\pi_{2}$
 \end_inset
 
- bildkonsistent in 
+ konsistent in 
 \begin_inset Formula $\mathrm{sp}\left(g\right)$
 \end_inset
 
  sind, gilt 
-\begin_inset Formula $\pi_{1}^{-1}u=\pi_{2}^{-1}u$
+\begin_inset Formula $\pi_{1}u=\pi_{2}u$
 \end_inset
 
  für 
@@ -16005,8 +15973,8 @@ Weil
 .
 \begin_inset Formula 
 \begin{eqnarray*}
-\tau u & = & \pi_{1}\pi_{2}^{-1}u\\
- & = & \pi_{1}\pi_{1}^{-1}u=u
+\tau u & = & \pi_{1}^{-1}\pi_{2}u\\
+ & = & \pi_{1}^{-1}\pi_{1}u=u
 \end{eqnarray*}
 
 \end_inset
@@ -16063,9 +16031,9 @@ reference "eq:cons-1"
  bewiesen:
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(g\right) & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(\hat{\tau}g\right)\\
- & = & \mathcal{C}\left[\tau\pi_{2}\mathfrak{A}\right]\left(g\right)\\
- & = & \mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(g\right)
+\mathcal{C}\left[\pi_{2}^{-1}\mathfrak{A}\right]\left(g\right) & = & \mathcal{C}\left[\tau\pi_{2}^{-1}\mathfrak{A}\right]\left(\hat{\tau}g\right)\\
+ & = & \mathcal{C}\left[\tau\pi_{2}^{-1}\mathfrak{A}\right]\left(g\right)\\
+ & = & \mathcal{C}\left[\pi_{1}^{-1}\mathfrak{A}\right]\left(g\right)
 \end{eqnarray*}
 
 \end_inset
@@ -16087,19 +16055,24 @@ Da
 \begin_inset Formula $\hat{\tau}h$
 \end_inset
 
+ für alle 
+\begin_inset Formula $h\in H$
+\end_inset
+
  die gleiche Anzahl von Kanten zu 
 \begin_inset Formula $g$
 \end_inset
 
  wie 
-\begin_inset Formula $\tau$
+\begin_inset Formula $h$
 \end_inset
 
 :
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathcal{C}\left[\pi_{2}\right]\left(h\right) & = & \mathcal{C}\left[\tau\pi_{2}\right]\left(\hat{\tau}g\right)\\
-\mathcal{W}\left(h,g\right) & = & \mathcal{W}\left(\hat{\tau},g\right)
+\mathcal{C}\left[\pi_{1}^{-1}\mathfrak{A}\right]\left(h\right) & = & \mathcal{C}\left[\tau\pi_{2}^{-1}\right]\left(\hat{\tau}h\right)\\
+\mathcal{W}\left(h,g\right) & = & \mathcal{W}\left(\hat{\tau}h,g\right)\\
+ &  & \mathrm{f.a.}\,h\in H
 \end{eqnarray*}
 
 \end_inset
@@ -16122,7 +16095,7 @@ reference "eq:cons-2"
 :
 \begin_inset Formula 
 \[
-\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{2}\mathfrak{A}\right]\left(h\right)
+\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{1}^{-1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{2}^{-1}\mathfrak{A}\right]\left(h\right)
 \]
 
 \end_inset
@@ -16143,7 +16116,7 @@ Für jedes Gate
 \begin_inset Formula $U$
 \end_inset
 
- beschreiben wir die Menge der verschiedenen Bijektionen 
+ beschreiben wir nun die Menge der verschiedenen Bijektionen 
 \begin_inset Formula $\pi\in\mathrm{Bij}\left(U,A\right)$
 \end_inset
 
@@ -16168,17 +16141,13 @@ reference "prop:konsistenz"
 \begin_inset Formula $\mathrm{EV}\left(g\right)$
 \end_inset
 
- die Menge dieser Belegungen von 
-\begin_inset Formula $\mathrm{sp}\left(g\right)$
-\end_inset
-
-:
+ die Menge dieser Abbildungen:
 \end_layout
 
 \begin_layout Definition
 \begin_inset Formula 
 \[
-\mathrm{EV}\left(g\right)\coloneqq\left\{ \pi{}_{\mid\mathrm{sp}\left(g\right)}\mid\pi:\mathrm{Bij}\left(U,A\right),\,\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(g\right)=1\right\} 
+\mathrm{EV}\left(g\right)\coloneqq\left\{ \pi{}_{\mid\mathrm{sp}\left(g\right)}\mid\pi\in\mathrm{Bij}\left(U,A\right),\,\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(g\right)=1\right\} 
 \]
 
 \end_inset
@@ -16192,21 +16161,21 @@ Für jede injektive Funktion
 \end_inset
 
  sei 
-\begin_inset Formula $M_{\rho}$
+\begin_inset Formula $\mathrm{Ext}\left(\rho\right)$
 \end_inset
 
  die Menge der zu 
 \begin_inset Formula $\rho$
 \end_inset
 
- konsistenten Bijektionen 
+ konsistenten Erweiterungen 
 \begin_inset Formula $\pi:U\rightarrow A$
 \end_inset
 
  :
 \begin_inset Formula 
 \[
-M_{\rho}\coloneqq\left\{ \pi\in\mathrm{Bij}\left(U,A\right)\mid\pi_{\mid\mathrm{sp}\left(g\right)}=\rho\right\} 
+\mathrm{Ext}\left(\rho\right)\coloneqq\left\{ \pi\in\mathrm{Bij}\left(U,A\right)\mid\pi\sim_{\mathrm{sp}\left(g\right)}\rho\right\} 
 \]
 
 \end_inset
@@ -16228,29 +16197,21 @@ Zusätzlich beschreiben wir für jeden Vorgänger
 \end_inset
 
  die Menge 
-\begin_inset Formula $\Pi_{\rho}\left(h\right)$
+\begin_inset Formula $\mathrm{Red}\left(\rho,h\right)$
 \end_inset
 
  der unterschiedlichen 
 \begin_inset Formula $\mathrm{sp}\left(h\right)$
 \end_inset
 
--Reduktionen von Bijektionen 
-\begin_inset Formula $\pi:U\rightarrow A$
+-Reduktionen von Erweiterungen von 
+\begin_inset Formula $\rho$
 \end_inset
 
-, die auf 
-\begin_inset Formula $\mathrm{sp}\left(g\right)$
-\end_inset
-
- konsistent zu 
-\begin_inset Formula $\pi$
-\end_inset
-
- sind: 
+: 
 \begin_inset Formula 
 \[
-\Pi_{\rho}\left(h\right)\coloneqq\left\{ \pi_{\mid\mathrm{sp}\left(h\right)}\mid\pi\in M_{\rho}\right\} 
+\mathrm{Red}\left(\rho,h\right)\coloneqq\left\{ \pi_{\mid\mathrm{sp}\left(h\right)}\mid\pi\in\mathrm{Ext}\left(\rho\right)\right\} 
 \]
 
 \end_inset
@@ -16272,42 +16233,30 @@ key "AD2014"
 
 \end_inset
 
-)
-\end_layout
-
-\begin_layout Claim
-Sei 
-\begin_inset Formula $\pi:U\rightarrow A$
+) Sei 
+\begin_inset Formula $\pi\in\mathrm{Bij}\left(U,A\right)$
 \end_inset
 
- eine beliebige Bijektion, und 
-\begin_inset Formula $\rho\coloneqq\pi_{\mid\mathrm{sp}\left(g\right)}$
+ beliebig, und sei 
+\begin_inset Formula $\rho_{\pi}\coloneqq\pi_{\mid\mathrm{sp}\left(g\right)}$
+\end_inset
+
+ die Reduktion von 
+\begin_inset Formula $\pi$
+\end_inset
+
+ auf 
+\begin_inset Formula $\mathrm{sp}\left(g\right)$
 \end_inset
 
 .
- Das Gesamtgewicht der unter 
-\begin_inset Formula $\pi^{-1}\mathfrak{A}$
-\end_inset
-
- erfüllten Vorgänger 
-\begin_inset Formula $h\in H$
-\end_inset
-
- gleicht der gewichteten Summe von 
-\begin_inset Formula $\frac{\left|\Pi_{\rho}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi_{\rho}\left(h\right)\right|}$
-\end_inset
-
-, dem Anteil der erfüllenden Bijektionen in 
-\begin_inset Formula $\Pi_{\rho}\left(h\right)$
-\end_inset
-
-:
+ Dann gilt:
 \end_layout
 
 \begin_layout Claim
 \begin_inset Formula 
 \begin{equation}
-r\coloneqq\sum_{h\in H}\mathcal{W}\left(h,g\right)\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\Pi_{\rho}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi_{\rho}\left(h\right)\right|}\label{eq:behauptung-28}
+r\left(\pi\right)\coloneqq\sum_{h\in H}\mathcal{W}\left(h,g\right)\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\right|}\label{eq:behauptung-28}
 \end{equation}
 
 \end_inset
@@ -16323,27 +16272,19 @@ reference "eq:cons-2"
 
 \end_inset
 
- ist das Gesamtgewicht der unter 
-\begin_inset Formula $\pi'^{-1}\mathfrak{A}$
-\end_inset
-
- erfüllten Gates 
-\begin_inset Formula $h\in G$
+ ist 
+\begin_inset Formula $r\left(\pi'\right)\coloneqq\sum_{h\in H}\mathcal{W}\left[h,g\right]\mathcal{C}\left[\pi'^{-1}\mathfrak{A}\right]\left(h\right)$
 \end_inset
 
  für alle 
-\begin_inset Formula $\pi'\in M_{\rho}$
+\begin_inset Formula $\pi'\in\mathrm{Ext}\left(\rho_{\pi}\right)$
 \end_inset
 
  gleich, so dass 
-\begin_inset Formula $\left|M_{\rho}\right|r$
+\begin_inset Formula $\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|r\left(\pi\right)=\sum_{\pi'\in\mathrm{Ext}\left(\pi\right)}r\left(\pi'\right)$
 \end_inset
 
- die Summe der Gesamtgewichte für jede Belegung 
-\begin_inset Formula $\pi'\in M_{\rho}$
-\end_inset
-
- ist.
+ gilt.
 \end_layout
 
 \begin_layout Proof
@@ -16351,25 +16292,25 @@ Weiterhin können wir für jeden Vorgänger
 \begin_inset Formula $h\in H$
 \end_inset
 
- die Belegungen 
-\begin_inset Formula $M_{\rho}$
+ die Bijektionen aus 
+\begin_inset Formula $\mathrm{Ext}\left(\rho_{\pi}\right)$
 \end_inset
 
- in Äquivalenzklassen bezüglich der Konsistenz zu einer Belegung 
-\begin_inset Formula $\rho'\in\Pi_{\rho}\left(h\right)$
-\end_inset
-
- von 
+ in Äquivalenzklassen bezüglich der 
 \begin_inset Formula $\mathrm{sp}\left(h\right)$
+\end_inset
+
+-Konsistenz zu einer Belegung 
+\begin_inset Formula $\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)$
 \end_inset
 
  partitionieren: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\left|M_{\rho}\right|r & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\pi'\in M_{\rho}}\mathcal{C}\left[\pi'\mathfrak{^{-1}A}\right]\left(h\right)\\
- & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\Pi_{\rho}\left(h\right)}\sum_{\begin{subarray}{c}
-\pi'\in M_{\rho}\\
-\pi'_{\mid\mathrm{sp}\left(h\right)}=\rho'
+\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|r\left(\pi\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\pi'\in\mathrm{Ext}\left(\rho_{\pi}\right)}\mathcal{C}\left[\pi'\mathfrak{^{-1}A}\right]\left(h\right)\\
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)}\sum_{\begin{subarray}{c}
+\pi'\in\mathrm{Ext}\left(\rho_{\pi}\right)\\
+\pi'\sim_{\mathrm{sp}\left(h\right)}\rho'
 \end{subarray}}\mathcal{C}\left[\pi'^{-1}\mathfrak{A}\right]\left(h\right)
 \end{eqnarray*}
 
@@ -16401,17 +16342,17 @@ Nach der Definition der Menge
 \end_inset
 
  einfach mit der Größe von 
-\begin_inset Formula $\left\{ \pi'\in M_{\rho}\mid\pi'_{\mid\mathrm{sp}\left(h\right)}=\rho'\right\} $
+\begin_inset Formula $\left\{ \pi'\in\mathrm{Ext}\left(\rho_{\pi}\right)\mid\pi'\sim_{\mathrm{sp}\left(h\right)}\rho'\right\} $
 \end_inset
 
  multiplizieren: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\left|M_{\rho}\right|r & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\Pi_{\rho}\left(h\right)}\sum_{\begin{subarray}{c}
-\pi'\in M_{\rho}\\
-\pi'_{\mid\mathrm{sp}\left(h\right)}=\rho'
+\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|r\left(\pi\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)}\sum_{\begin{subarray}{c}
+\pi'\in\mathrm{Ext}\left(\rho_{\pi}\right)\\
+\pi'\sim_{\mathrm{sp}\left(h\right)}\rho'
 \end{subarray}}\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\\
- & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\Pi_{\rho}\left(h\right)}\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\left|\left\{ \pi'\in M_{\rho},\,\pi'_{\mid\mathrm{sp}\left(h\right)}=\rho'\right\} \right|
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)}\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\left|\left\{ \pi'\in\mathrm{Ext}\left(\rho_{\pi}\right),\,\pi'\sim_{\mathrm{sp}\left(h\right)}\rho'\right\} \right|
 \end{eqnarray*}
 
 \end_inset
@@ -16421,19 +16362,19 @@ Nach der Definition der Menge
 
 \begin_layout Proof
 Weil die Partitionierung 
-\begin_inset Formula $M_{\rho}=\biguplus_{\rho'\in\Pi_{\pi}\left(h\right)}\left\{ \pi'\in M_{\rho},\,\pi'_{\mid\mathrm{sp}\left(h\right)}=\rho'\right\} $
+\begin_inset Formula $\mathrm{Ext}\left(\rho_{\pi}\right)=\biguplus_{\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)}\left\{ \pi'\in\mathrm{Ext}\left(\rho_{\pi}\right),\,\pi'\sim_{\mathrm{sp}\left(h\right)}\rho'\right\} $
 \end_inset
 
  die Menge 
-\begin_inset Formula $M_{\rho}$
+\begin_inset Formula $\mathrm{Ext}\left(\rho_{\pi}\right)$
 \end_inset
 
  in isomorphe Klassen teilt, gilt 
-\begin_inset Formula $\left|\left\{ \pi'\in M_{\rho},\,\pi'_{\mid\mathrm{sp}\left(h\right)}=\rho'\right\} \right|=\frac{\left|M_{\rho}\right|}{\left|\Pi_{\rho}\left(h\right)\right|}$
+\begin_inset Formula $\left|\left\{ \pi'\in\mathrm{Ext}\left(\rho_{\pi}\right),\,\pi'\sim_{\mathrm{sp}\left(h\right)}\rho'\right\} \right|=\frac{\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|}{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\right|}$
 \end_inset
 
  für 
-\begin_inset Formula $\rho'\in\Pi_{\rho}\left(h\right)$
+\begin_inset Formula $\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)$
 \end_inset
 
 .
@@ -16442,9 +16383,10 @@ Weil die Partitionierung
 \begin_layout Proof
 \begin_inset Formula 
 \begin{eqnarray*}
-\left|M_{\rho}\right|r & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\Pi_{\rho}\left(h\right)}\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\frac{\left|M_{\rho}\right|}{\left|\Pi_{\rho}\left(h\right)\right|}\\
- & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\Pi_{\rho}\left(h\right)\cap\mathrm{EV}\left(h\right)}\frac{\left|M_{\rho}\right|}{\left|\Pi_{\rho}\left(h\right)\right|}\\
- & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\Pi_{\rho}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|\left|M_{\rho}\right|}{\left|\Pi_{\rho}\left(h\right)\right|}
+\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|r\left(\pi\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)}\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\frac{\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|}{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\right|}\\
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)\cap\mathrm{EV}\left(h\right)}\frac{\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|}{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\right|}\\
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\cap\mathrm{EV}\left(h\right)\right|\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|}{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\right|}\\
+r\left(\pi\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\right|}
 \end{eqnarray*}
 
 \end_inset
@@ -16452,47 +16394,35 @@ Weil die Partitionierung
 
 \end_layout
 
-\begin_layout Proof
-Durch das Kürzen von 
-\begin_inset Formula $\left|M_{\rho}\right|$
-\end_inset
-
- entsteht die Gleichung 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:behauptung-28"
-
-\end_inset
-
- aus der Behauptung.
-\end_layout
-
 \begin_layout Standard
-Sei nach Definition 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "def:tupel"
-
+Wir verwenden nun die Ordnung von 
+\begin_inset Formula $U=\left[1,n\right]$
 \end_inset
 
- 
-\begin_inset Formula $\bar{U}$
+ und legen fest: Sei 
+\begin_inset Formula $\bar{U}\coloneqq\left(1,\cdots,n\right)$
 \end_inset
 
- das geordnete Tupel aller Elemente des Universums, und 
+, und 
 \begin_inset Formula $\bar{\mathrm{sp}}\left(g\right)$
 \end_inset
 
- das Tupel der Elemente von 
+ das geordnete Tupel der Elemente von 
 \begin_inset Formula $\mathrm{sp}\left(g\right)$
 \end_inset
 
 .
-\end_layout
+ Für 
+\begin_inset Formula $\bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}$
+\end_inset
 
-\begin_layout Standard
-Sei 
-\begin_inset Formula $\bar{M}_{\rho}\subseteq A^{n}$
+ definieren wir die Abbildung 
+\begin_inset Formula $\rho_{\bar{a}}\coloneqq\left(\bar{\mathrm{sp}\left(g\right)}\rightarrow\bar{a}\right)$
+\end_inset
+
+.
+ Sei 
+\begin_inset Formula $\bar{\mathrm{Ext}}\left(\bar{a}\right)\subseteq A^{n}$
 \end_inset
 
  die Relation der 
@@ -16504,19 +16434,19 @@ Sei
 \end_inset
 
  für 
-\begin_inset Formula $\pi\in M_{\rho}$
+\begin_inset Formula $\pi\in\mathrm{Ext}\left(\rho_{\bar{a}}\right)$
 \end_inset
 
 , sei 
-\begin_inset Formula $\bar{\Pi}_{\rho}\left(h\right)\subseteq A^{\left|\mathrm{sp}\left(h\right)\right|}$
+\begin_inset Formula $\bar{\mathrm{Red}}\left(\bar{a},h\right)\subseteq A^{\left|\mathrm{sp}\left(h\right)\right|}$
 \end_inset
 
  die Relation der Tupel 
-\begin_inset Formula $\rho\bar{\mathrm{sp}}\left(h\right)$
+\begin_inset Formula $\rho'\bar{\mathrm{sp}}\left(h\right)$
 \end_inset
 
  für 
-\begin_inset Formula $\rho\in\Pi_{\rho}\left(h\right)$
+\begin_inset Formula $\rho'\in\mathrm{Red}\left(\rho_{\bar{a}},h\right)$
 \end_inset
 
 , und sei 
@@ -16535,7 +16465,7 @@ Sei
  
 \begin_inset Formula 
 \begin{eqnarray*}
-\bar{M}_{\rho} & \coloneqq & \left\{ \pi\bar{U}\mid\pi\in M_{\rho}\right\} \\
+\bar{\mathrm{Ext}}\left(\bar{a}\right) & \coloneqq & \left\{ \pi\bar{U}\mid\pi\in\mathrm{Ext}\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{a}\right)\right\} \\
 \bar{\mathrm{EV}}\left(g\right) & \coloneqq & \left\{ \rho\bar{\mathrm{sp}}\left(g\right)\mid\rho\in\mathrm{EV}\left(g\right)\right\} 
 \end{eqnarray*}
 
@@ -16565,19 +16495,7 @@ Wir werden nun für jedes Gate
 \begin_inset Formula $\mathfrak{A}$
 \end_inset
 
- definieren, wobei 
-\begin_inset Formula $\rho_{\bar{a}}:\mathrm{sp}\left(g\right)\rightarrow A$
-\end_inset
-
- für 
-\begin_inset Formula $\bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}$
-\end_inset
-
- die Abbildung 
-\begin_inset Formula $\rho_{\bar{a}}=\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{a}\right)$
-\end_inset
-
- bezeichne.
+ definieren.
 \end_layout
 
 \begin_layout Case
@@ -16597,13 +16515,13 @@ Falls
 \begin_inset Formula $g$
 \end_inset
 
- ein Fixpunkt aller Automorphismen ist.
+ von allen Automorphismen fixiert wird.
  In diesem Fall gilt:
 \begin_inset Formula 
 \[
 \bar{\mathrm{EV}}\left(g\right)=\begin{cases}
-\emptyset & \mathrm{falls}\,\Sigma\left(g\right)=\mathbf{0}\\
-\left\{ \left\langle \right\rangle \right\}  & \mathrm{falls}\,\Sigma\left(g\right)=\mathbf{1}
+\emptyset & \mathrm{falls}\,\,\Sigma\left(g\right)=\mathbf{0}\\
+\left\{ \left\langle \right\rangle \right\}  & \mathrm{falls}\,\,\Sigma\left(g\right)=\mathbf{1}
 \end{cases}
 \]
 
@@ -16658,7 +16576,7 @@ Falls
 \end_inset
 
  konsistente Bijektion 
-\begin_inset Formula $\pi\in M_{\rho_{\bar{a}}}$
+\begin_inset Formula $\pi\in\mathrm{Ext}\left(\rho_{\bar{a}}\right)$
 \end_inset
 
  alle Vorgänger 
@@ -16668,7 +16586,8 @@ Falls
  erfüllt: 
 \begin_inset Formula 
 \begin{eqnarray*}
-\sum_{h\in H}\mathcal{W}\left(h,g\right)\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(h\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)
+\bar{a}\in\bar{\mathrm{EV}}\left(g\right) & \Leftrightarrow & \sum_{h\in H}\mathcal{W}\left(h,g\right)\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\mathcal{W}\left(h,g\right)\\
+ &  & \mathrm{f.a.\,\pi\in\mathrm{Ext}\left(\rho_{\bar{a}}\right)}
 \end{eqnarray*}
 
 \end_inset
@@ -16683,20 +16602,20 @@ reference "claim:claim-28"
 :
 \begin_inset Formula 
 \[
-\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\Pi_{\rho_{\bar{a}}}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi_{\rho_{\bar{a}}}\left(h\right)\right|}=\sum_{h\in H}\mathcal{W}\left(h,g\right)
+\bar{a}\in\bar{\mathrm{EV}}\left(g\right)\Leftrightarrow\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\bar{\mathrm{Red}}\left(\bar{a},h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\bar{\mathrm{Red}}\left(\bar{a},h\right)\right|}=\sum_{h\in H}\mathcal{W}\left(h,g\right)
 \]
 
 \end_inset
 
 Dies ist gleichbedeutend mit 
-\begin_inset Formula $\Pi_{\rho_{\bar{a}}}\left(h\right)\subseteq\mathrm{EV}\left(h\right)$
+\begin_inset Formula $\mathrm{Red}\left(\rho_{\bar{a}},h\right)\subseteq\mathrm{EV}\left(h\right)$
 \end_inset
 
 .
  Demnach gilt:
 \begin_inset Formula 
 \[
-\bar{\mathrm{EV}}\left(g\right)=\left\{ \bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}\mid\bigwedge_{h\in H}\bar{\Pi}_{\rho_{\bar{a}}}\left(h\right)\subseteq\bar{\mathrm{EV}}\left(h\right)\right\} 
+\bar{\mathrm{EV}}\left(g\right)=\left\{ \bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}\mid\bar{\mathrm{Red}}\left(\bar{a},h\right)\subseteq\bar{\mathrm{EV}}\left(h\right)\,\mathrm{f.a.}\,h\in H\right\} 
 \]
 
 \end_inset
@@ -16710,11 +16629,11 @@ Falls
 \end_inset
 
  ist, dann ist 
-\begin_inset Formula $\rho_{\bar{a}}\in\mathrm{EV}\left(g\right)$
+\begin_inset Formula $\bar{a}\in\bar{\mathrm{EV}}\left(g\right)$
 \end_inset
 
  genau dann wenn mindestens eine Bijektion 
-\begin_inset Formula $\pi\in M_{\rho}$
+\begin_inset Formula $\pi\in\mathrm{Ext}\left(\rho_{\bar{a}}\right)$
 \end_inset
 
  mindestens einen Vorgänger 
@@ -16724,7 +16643,7 @@ Falls
  erfüllt:
 \begin_inset Formula 
 \[
-\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\Pi_{\rho_{\bar{a}}}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi_{\rho_{\bar{a}}}\left(h\right)\right|}>0
+\sum_{h\in H}\left|\bar{\mathrm{Red}}\left(\bar{a},h\right)\cap\mathrm{EV}\left(h\right)\right|>0
 \]
 
 \end_inset
@@ -16732,7 +16651,7 @@ Falls
 
 \begin_inset Formula 
 \[
-\bar{\mathrm{EV}}\left(g\right)=\left\{ \bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}\mid\bigvee_{h\in H}\left(\bar{\Pi}_{\rho_{\bar{a}}}\left(h\right)\cap\bar{\mathrm{EV}}\left(h\right)\neq\emptyset\right)\right\} 
+\bar{\mathrm{EV}}\left(g\right)=\left\{ \bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}\mid\emptyset\neq\bigcup_{h\in H}\bar{\mathrm{Red}}\left(\bar{a},h\right)\cap\bar{\mathrm{EV}}\left(h\right)\right\} 
 \]
 
 \end_inset
@@ -16746,13 +16665,13 @@ Falls
 \end_inset
 
  ist, dann ist 
-\begin_inset Formula $\rho_{\bar{a}}\in\mathrm{EV}\left(g\right)$
+\begin_inset Formula $\bar{a}\in\bar{\mathrm{EV}}\left(g\right)$
 \end_inset
 
  genau dann wenn mindestens die Hälfte der Vorgänger erfüllt sind:
 \begin_inset Formula 
 \[
-\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\Pi_{\rho\bar{a}}\left(h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\Pi_{\rho_{\bar{a}}}\left(h\right)\right|}\geqslant\frac{1}{2}\sum_{h\in H}\mathcal{W}\left(h,g\right)
+\bar{a}\in\bar{\mathrm{EV}}\left(g\right)\Leftrightarrow\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\bar{\mathrm{Red}}\left(\bar{a},h\right)\cap\bar{\mathrm{EV}}\left(h\right)\right|}{\left|\mathrm{Red}\left(\bar{a},h\right)\right|}\geqslant\frac{1}{2}\sum_{h\in H}\mathcal{W}\left(h,g\right)
 \]
 
 \end_inset
@@ -16805,7 +16724,7 @@ Die vom Schaltkreis
  ist äquivalent zu der folgenden Relation:
 \begin_inset Formula 
 \[
-q_{\mathcal{C}}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathrm{ex.}\,\bar{t}\in U^{k}\,\mathrm{mit}\,\bar{a}\in\mathrm{EV}\left(\Omega\left(\bar{t}\right)\right)\right\} 
+q_{\mathcal{C}}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathrm{ex.}\,\bar{t}\in U^{k}\,\mathrm{mit}\,\bar{a}\in\bar{\mathrm{EV}}\left(\Omega\left(\bar{t}\right)\right)\right\} 
 \]
 
 \end_inset
@@ -16825,19 +16744,11 @@ Kodierung durch Fixpunktlogik
 \end_layout
 
 \begin_layout Standard
-Die beschriebenen Klassen Relationen 
-\begin_inset Formula $\mathrm{EV}$
+Die beschriebenen Relationen 
+\begin_inset Formula $\left(\bar{\mathrm{EV}}\left(g\right)\right)_{g\in G}$
 \end_inset
 
- werden nun verwendet, um die Klasse 
-\begin_inset Formula $\mathrm{SBC}$
-\end_inset
-
- auf die Fixpunktlogik 
-\begin_inset Formula $\mathrm{LFP}$
-\end_inset
-
- zu reduzieren.
+ werden nun verwendet, um die Schaltkreisfamilie auf eine
 \end_layout
 
 \begin_layout Lemma
