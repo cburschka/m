@@ -428,13 +428,13 @@ Die Einschränkung auf symmetrische Schaltkreisfamilien bringt im Allgemeinen
 \end_inset
 
  durch die invariante Logik 
-\begin_inset Formula $\mathrm{FO}\left(\mathbf{ARB}\right)$
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
 \end_inset
 
- (Neil Immerman, 1987
+ (
 \begin_inset CommandInset citation
 LatexCommand cite
-key "Immerman1987"
+key "Immerman1987,Makowsky1997-FO"
 
 \end_inset
 
@@ -443,10 +443,10 @@ key "Immerman1987"
 \end_inset
 
  durch 
-\begin_inset Formula $\mathrm{FP}\left(\mathbf{ARB}\right)$
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FP}\oplus\mathbf{ARB}\right)$
 \end_inset
 
- (Johann Makowsky, 1997
+ (
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Makowsky1997-FO,Makowsky1998-LFP"
@@ -455,14 +455,14 @@ key "Makowsky1997-FO,Makowsky1998-LFP"
 
 ) charakterisiert.
  
-\begin_inset Formula $\mathrm{FO}\left(\mathbf{ARB}\right)$
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
 \end_inset
 
  ist jedoch echt ausdrucksstärker als die disjunkte Variante 
 \begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
 \end_inset
 
-:
+.
 \end_layout
 
 \begin_layout Theorem
@@ -477,7 +477,7 @@ Für die
 \end_inset
 
 -Logik und die arb-invariante 
-\begin_inset Formula $\mathrm{FO}\left(\mathbf{ARB}\right)$
+\begin_inset Formula $\mathrm{FO}\oplus\mathbf{ARB}$
 \end_inset
 
 -Logik gilt:
@@ -486,31 +486,23 @@ Für die
 \begin_deeper
 \begin_layout Enumerate
 Jede 
-\begin_inset Formula $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
 \end_inset
 
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- beschreibt eine Anfrage, die durch eine arb-invariante 
-\begin_inset Formula $\mathrm{FO}\left(\mathbf{ARB}\right)\left[\sigma\right]$
+-Formel beschreibt eine Anfrage, die durch eine arb-invariante 
+\begin_inset Formula $\mathrm{FO}\oplus\mathbf{ARB}$
 \end_inset
 
 -Formel definierbar ist.
 \end_layout
 
 \begin_layout Enumerate
-Es existiert eine 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Anfrage, die in der arb-invarianten 
-\begin_inset Formula $\mathrm{FO}\left(\mathbf{ARB}\right)\left[\sigma\right]$
+Es existiert eine Anfrage, die in der arb-invarianten 
+\begin_inset Formula $\mathrm{FO}\oplus\mathbf{ARB}$
 \end_inset
 
 -Logik, aber nicht 
-\begin_inset Formula $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[\sigma\right]$
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
 \end_inset
 
  definierbar ist.
@@ -763,6 +755,30 @@ Für ein
 \end_inset
 
  notiert.
+\end_layout
+
+\begin_layout Definition
+Für 
+\begin_inset Formula $\bar{a}\in A^{k}$
+\end_inset
+
+ und 
+\begin_inset Formula $A'\subseteq A$
+\end_inset
+
+ sei 
+\begin_inset Formula $\bar{a}_{\mid A'}$
+\end_inset
+
+ das Tupel, das aus 
+\begin_inset Formula $\bar{a}$
+\end_inset
+
+ entsteht, wenn die Elemente 
+\begin_inset Formula $a_{i}\in A\backslash A'$
+\end_inset
+
+ entfernt werden.
 \end_layout
 
 \begin_layout --Separator--
@@ -1761,6 +1777,19 @@ Die Menge aller Isomorphismen bezeichnen wir mit
 \end_inset
 
  nicht leer ist.
+ Wir schreiben 
+\begin_inset Formula $\left(\mathfrak{A},\bar{a}\right)\cong\left(\mathfrak{B},\bar{b}\right)$
+\end_inset
+
+, wenn insbesondere ein 
+\begin_inset Formula $\pi\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{B}\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $\pi\bar{a}=\bar{b}$
+\end_inset
+
+ existiert.
 \end_layout
 
 \begin_layout Definition
@@ -1931,6 +1960,12 @@ Konkatenation
 \end_layout
 
 \begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:iso-closed-disjoint"
+
+\end_inset
+
 Isomorphismen sind unter disjunkter Vereinigung abgeschlossen.
 \end_layout
 
@@ -1943,7 +1978,7 @@ Seien
 \begin_inset Formula $\mathfrak{B},\mathfrak{B}'\in\mathbf{FIN}\left(\sigma_{2}\right)$
 \end_inset
 
- jeweils zwei Paare isomorphere Strukturen mit 
+ jeweils zwei Paare isomorpher Strukturen mit 
 \begin_inset Formula $\pi_{1}\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{A}'\right)$
 \end_inset
 
@@ -1954,6 +1989,18 @@ Seien
 .
  Sei ferner 
 \begin_inset Formula $A\cap B=A'\cap B'=\emptyset$
+\end_inset
+
+, und seien 
+\begin_inset Formula $\bar{a}\in A^{k},\bar{a}'\in A'^{k},\bar{b}\in B^{k'},\bar{b}\in B'^{k'}$
+\end_inset
+
+ vier Tupel mit 
+\begin_inset Formula $\pi_{1}\bar{a}=\bar{a}'$
+\end_inset
+
+ und 
+\begin_inset Formula $\pi_{2}\bar{b}=\bar{b}'$
 \end_inset
 
 .
@@ -1982,15 +2029,7 @@ Wenn
 
 \end_inset
 
-Damit ist 
-\begin_inset Formula $\pi\left(\mathfrak{A}\uplus\mathfrak{B}\right)=\mathfrak{A}'\uplus\mathfrak{B}'$
-\end_inset
 
-, und 
-\begin_inset Formula $\mathfrak{A}\uplus\mathfrak{B}\cong\mathfrak{A}'\uplus\mathfrak{B}'$
-\end_inset
-
-.
 \end_layout
 
 \begin_layout Case
@@ -2014,6 +2053,22 @@ Wenn
 \end_layout
 
 \end_deeper
+\begin_layout Proof
+Damit ist 
+\begin_inset Formula $\pi\left(\mathfrak{A}\uplus\mathfrak{B}\right)=\mathfrak{A}'\uplus\mathfrak{B}'$
+\end_inset
+
+ und 
+\begin_inset Formula $\pi\bar{a}\bar{b}=\bar{a}'\bar{b}'$
+\end_inset
+
+, und 
+\begin_inset Formula $\left(\mathfrak{A}\uplus\mathfrak{B},\bar{a}\bar{b}\right)\cong\left(\mathfrak{A}'\uplus\mathfrak{B}',\bar{a}'\bar{b}'\right)$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout --Separator--
 
 \end_layout
@@ -2078,7 +2133,17 @@ Für eine Relation
 \begin_layout Definition
 
 \series bold
-Nachbarschaft
+\begin_inset CommandInset label
+LatexCommand label
+name "def:neighborhoods"
+
+\end_inset
+
+
+\begin_inset Formula $r$
+\end_inset
+
+-Nachbarschaft
 \series default
  (siehe Abschnitt 2.4 von 
 \begin_inset CommandInset citation
@@ -2108,7 +2173,22 @@ Gaifman-Graph
 \end_inset
 
 , der alle Knoten miteinander verbindet, die im gleichen Tupel vorkommen.
- (Insbesondere ist für jeden symmetrischen Graphen 
+ Insbesondere ist für jeden symmetrischen
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Der Gaifman-Graph ist ungerichtet, wird aber hier als symmetrische, gerichtete
+ 
+\begin_inset Formula $\left\{ E\right\} $
+\end_inset
+
+-Struktur modelliert.
+\end_layout
+
+\end_inset
+
+ Graphen 
 \begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\left\{ E\right\} \right)$
 \end_inset
 
@@ -2116,11 +2196,11 @@ Gaifman-Graph
 \begin_inset Formula $\mathcal{G}\left(\mathfrak{A}\right)=\mathfrak{A}$
 \end_inset
 
-.)
+.
 \begin_inset Formula 
 \begin{eqnarray*}
 \mathcal{G}\left(\mathfrak{A}\right) & = & \left(A,E^{\mathcal{G}\left(\mathfrak{A}\right)}\right)\\
-E^{\mathcal{G}\left(\mathfrak{A}\right)} & = & \left\{ \left(a_{i},a_{j}\right)\mid R/k\in\sigma,\,\bar{a}\in R^{\mathfrak{A}},\,i,j\in\left[1,k\right]\right\} 
+E^{\mathcal{G}\left(\mathfrak{A}\right)} & = & \left\{ \left(a_{i},a_{j}\right)\mid R/k\in\sigma,\,\bar{a}\in R^{\mathfrak{A}},\,i,j\in\left[1,k\right],\,i\neq j\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -2137,48 +2217,101 @@ Sei
 \begin_inset Formula $\mathrm{dist}_{\mathfrak{A}}\left(a,b\right)$
 \end_inset
 
- im Gaifman-Graph zwischen zwei Knoten 
+ in 
+\begin_inset Formula $\mathcal{G}\left(\mathfrak{A}\right)$
+\end_inset
+
+ zwischen zwei Knoten 
 \begin_inset Formula $a,b\in A$
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Definition
-Für ein 
+ Für ein 
 \begin_inset Formula $r\in\mathbb{N}$
 \end_inset
 
  sei nun 
-\begin_inset Formula $S_{r}\left(a\right)\coloneqq\left\{ b\in A\mid\mathrm{dist}_{\mathfrak{A}}\left(a,b\right)\leqslant r\right\} $
+\begin_inset Formula $N_{r}^{\mathfrak{A}}\left(a\right)\coloneqq\left\{ b\in A\mid\mathrm{dist}_{\mathfrak{A}}\left(a,b\right)\leqslant r\right\} $
 \end_inset
 
  die 
+\series bold
+
 \begin_inset Formula $r$
 \end_inset
 
--Kugel um 
+-Kugel
+\series default
+ um 
 \begin_inset Formula $a\in A$
 \end_inset
 
 .
- Die 
-\begin_inset Formula $r$
-\end_inset
-
--Nachbarschaft von 
-\begin_inset Formula $a$
-\end_inset
-
- sei deren induzierte Teilstruktur 
-\begin_inset Formula $\mathcal{S}_{r}\left(a\right)=\mathfrak{A}_{\mid S_{r}\left(a\right)}$
+ Deren induzierte Teilstruktur 
+\begin_inset Formula $\mathcal{N}_{r}^{\mathfrak{A}}\left(a\right)=\mathfrak{A}_{\mid N_{r}\left(a\right)}$
 \end_inset
 
  in 
 \begin_inset Formula $\mathfrak{A}$
 \end_inset
 
+ sei die 
+\series bold
+
+\begin_inset Formula $r$
+\end_inset
+
+-Umgebung
+\series default
+ von 
+\begin_inset Formula $a$
+\end_inset
+
 .
+\end_layout
+
+\begin_layout Definition
+Für zwei Strukturen 
+\begin_inset Formula $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ und zwei Elemente 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ schreiben wir 
+\begin_inset Formula $a\sim_{r}b$
+\end_inset
+
+ (
+\begin_inset Formula $a$
+\end_inset
+
+ ist 
+\series bold
+
+\begin_inset Formula $r$
+\end_inset
+
+-ähnlich
+\series default
+ zu 
+\begin_inset Formula $b$
+\end_inset
+
+), wenn ein Isomorphismus 
+\begin_inset Formula $\pi\in\mathrm{Bij}\left(\mathcal{N}_{r}^{\mathfrak{A}}\left(a\right),\mathcal{N}_{r}^{\mathfrak{B}}\left(b\right)\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $\pi a=b$
+\end_inset
+
+ existiert.
 \end_layout
 
 \begin_layout --Separator--
@@ -3171,6 +3304,92 @@ Weil
 \end_inset
 
 , der die Datenkomplexität unberührt lässt.
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "def:qr"
+
+\end_inset
+
+Quantorenrang
+\end_layout
+
+\begin_layout Definition
+Der Quantorenrang einer Formel sei die maximale Anzahl der geschachtelten
+ Quantoren:
+\begin_inset Formula 
+\[
+\begin{array}{cc}
+\mathrm{qr}\left(R\bar{x}\right)=\mathrm{qr}\left(x_{1}\dot{=}x_{2}\right)=0 & \mathrm{qr}\left(\psi_{1}\gamma\cdots\gamma\psi_{k}\right)=\max_{i=1}^{k}\mathrm{qr}\left(\psi_{i}\right)\\
+\mathrm{qr}\left(\exists x\psi\right)=\mathrm{qr}\left(\forall x\psi\right)=\mathrm{qr}\left(\psi\right)+1
+\end{array}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:m-equiv"
+
+\end_inset
+
+Zwei 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{B}$
+\end_inset
+
+ heißen 
+\begin_inset Formula $m$
+\end_inset
+
+-äquivalent (
+\begin_inset Formula $\mathfrak{A}\equiv_{m}\mathfrak{B}$
+\end_inset
+
+, wenn für alle 
+\begin_inset Formula $\mathrm{FO}\left[\sigma\right]$
+\end_inset
+
+-Sätze 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathrm{qr}\left(\varphi\right)\leqslant m$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\[
+\mathfrak{A}\models\varphi\Longleftrightarrow\mathfrak{B}\models\varphi
+\]
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -9407,6 +9626,10 @@ Sei
 \end_inset
 
  eine Logik, 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+ eine Konstante, 
 \begin_inset Formula $\mathbb{B}$
 \end_inset
 
@@ -9414,7 +9637,11 @@ Sei
 \begin_inset Formula $\mathcal{K}\supseteq\mathrm{LOGSPACE}$
 \end_inset
 
- eine Komplexitätsklasse, so dass für jede 
+ eine Komplexitätsklasse.
+\end_layout
+
+\begin_layout Lemma
+Es gelte die Voraussetzung dass für jede 
 \begin_inset Formula $\mathcal{L}\left[\sigma\right]$
 \end_inset
 
@@ -9427,7 +9654,7 @@ Sei
 \end_inset
 
 -Schaltkreisfamilie mit 
-\begin_inset Formula $t\left(n\right)$
+\begin_inset Formula $\mathcal{O}\left(n^{k\left\Vert \varphi\right\Vert }\right)$
 \end_inset
 
 -Tiefe und 
@@ -9471,10 +9698,10 @@ Dann existiert für jede
 \end_inset
 
 -Schaltkreisfamilie mit der Tiefe 
-\begin_inset Formula $t'\left(n\right)\coloneqq t\left(2n+1\right)+\left\Vert \varphi\right\Vert $
+\begin_inset Formula $\mathcal{O}\left(n^{k\left\Vert \varphi\right\Vert }\right)$
 \end_inset
 
- und 
+-Tiefe und 
 \begin_inset Formula $\mathrm{poly}\left(n\right)$
 \end_inset
 
@@ -9496,7 +9723,15 @@ reference "lem:oracle-circuit"
 
 \end_inset
 
-:
+ (mit 
+\begin_inset Formula $k=0$
+\end_inset
+
+ und der Tiefenbeschränkung 
+\begin_inset Formula $\mathcal{O}\left(1\right)$
+\end_inset
+
+):
 \end_layout
 
 \begin_layout Standard
@@ -9584,11 +9819,11 @@ Falls
 \begin_inset Formula $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}\right)$
 \end_inset
 
--Schaltkreisfamilie 
+-Schaltkreis 
 \begin_inset Formula $\mathcal{C}_{2n+1}^{\varphi}$
 \end_inset
 
- per Voraussetzung.
+ schon per Voraussetzung.
 \end_layout
 
 \begin_layout Case
@@ -9600,23 +9835,28 @@ Falls
 \begin_inset Formula $\bar{x}\in\mathbf{var}^{k}$
 \end_inset
 
-, so sei 
-\begin_inset Formula $\mathcal{C}_{2n+1}^{\psi}$
-\end_inset
-
- der Schaltkreis für die Formel 
+, so nehmen wir an, dass die Behauptung für 
 \begin_inset Formula $\psi$
 \end_inset
 
- (dieser hat per Annahme die Tiefe 
-\begin_inset Formula $t\left(2n+1\right)+\left\Vert \psi\right\Vert $
+ gilt.
+ Sei 
+\begin_inset Formula $\mathcal{C}_{2n+1}^{\psi}$
 \end_inset
 
- und Größe 
+ der symmetrische Schaltkreis für die Formel 
+\begin_inset Formula $\psi$
+\end_inset
+
+ mit der Tiefe 
+\begin_inset Formula $t\left(n\right)\in\mathcal{O}\left(n^{k\left\Vert \psi\right\Vert }\right)$
+\end_inset
+
+ und der Größe 
 \begin_inset Formula $s\left(n\right)\in\mathrm{poly}\left(n\right)$
 \end_inset
 
-).
+.
 \begin_inset Formula 
 \[
 \mathcal{C}_{2n+1}^{\psi}=\left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U'\right)
@@ -9637,7 +9877,7 @@ Wir erzeugen den folgenden Schaltkreis
 \end_inset
 
 Es wird für jedes Tupel 
-\begin_inset Formula $\bar{t}\in U'^{k}$
+\begin_inset Formula $\bar{t}\in\left[1,2n+1\right]^{k}$
 \end_inset
 
  ein neuer Output 
@@ -9652,7 +9892,7 @@ Es wird für jedes Tupel
 \begin_inset Formula 
 \begin{eqnarray*}
 G & = & G_{\psi}\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U'^{k}\right\} \uplus\left\{ 0_{j},1_{j}\mid1\leqslant j\leqslant n\right\} \\
-W & = & W_{\psi}\uplus W_{\mathtt{MAJ}}\uplus W_{\mathrm{pad}}
+W & = & W_{\psi}\uplus W_{\mathrm{maj}}\uplus W_{\mathrm{pad}}
 \end{eqnarray*}
 
 \end_inset
@@ -9775,7 +10015,7 @@ Es gilt also
  sei: 
 \begin_inset Formula 
 \begin{eqnarray*}
-f\left(\bar{t'}\right) & \coloneqq & \left|\left\{ u_{j}\in\left[1,n\right]\mid\mathrm{es\,existiert\,}\bar{u}\in q_{\mathcal{C}_{2n+1}^{\psi}}\left(\mathfrak{A}\uplus\rho\Upsilon\left(n\right)\right),\,\tau_{2}\left(\bar{u}\right)=\bar{t'}\right\} \right|
+f\left(\tau_{1}\left(\bar{t}\right)\right) & \coloneqq & \left|\left\{ u_{j}\mid\bar{u}\in q_{\mathcal{C}_{2n+1}^{\psi}}\left(\mathfrak{A}\uplus\rho\Upsilon\left(n\right)\right),\,\tau_{2}\left(\bar{u}\right)=\tau_{1}\left(\bar{t}\right)\right\} \right|
 \end{eqnarray*}
 
 \end_inset
@@ -9795,7 +10035,7 @@ Dazu wird jedes Gate
  verknüpft: 
 \begin_inset Formula 
 \[
-W_{\mathtt{MAJ}}=\left\{ \left(\Omega_{\psi}\left(\bar{u}\right),g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in U'^{k},\,\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right),\,u_{j}\in\left[1,n\right]\right\} 
+W_{\mathrm{maj}}=\left\{ \left(\Omega_{\psi}\left(\bar{u}\right),g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in U'^{k},\,\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right),\,u_{j}\in\left[1,n\right]\right\} 
 \]
 
 \end_inset
@@ -9900,7 +10140,7 @@ W_{\mathrm{pad}} & = & \left\{ \left(0_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{
 \end_inset
 
 Der neue Schaltkreis hat die Tiefe 
-\begin_inset Formula $t\left(2n+1\right)+\left\Vert \psi\right\Vert +1\leqslant t\left(2n+1\right)+\left\Vert \varphi\right\Vert $
+\begin_inset Formula $t'\left(n\right)=t\left(n\right)+1\in\mathcal{O}\left(\right)$
 \end_inset
 
  und der Größe 
@@ -10046,7 +10286,7 @@ Es gilt
 
  alle diese Teilformeln enthält).
  Daher ist die Tiefe des neuen Schaltkreises 
-\begin_inset Formula $t\left(2n+1\right)+\left\Vert \varphi\right\Vert $
+\begin_inset Formula $t_{\varphi}\left(2n+1\right)+$
 \end_inset
 
 , und seine Größe ist in 
@@ -10438,164 +10678,6 @@ Die booleschen Schaltkreise haben jedoch nicht dieselbe Einschränkung wie
 Von Fixpunkt-Formeln zu Schaltkreisfamilien
 \end_layout
 
-\begin_layout Standard
-Im folgenden möchten wir uns gerne auf Formeln beschränken, die nur einen
- einzigen Fixpunktoperator enthalten.
- Diese Normalform schränkt die Allgemeinheit nicht ein, was in 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "EbbinghausFlum"
-
-\end_inset
-
- (Abschnitt 8.2) für 
-\begin_inset Formula $\mathrm{LFP}\left(\mathrm{FO}\right)$
-\end_inset
-
- gezeigt wird.
-\end_layout
-
-\begin_layout Lemma
-\begin_inset CommandInset label
-LatexCommand label
-name "lem:lfp-fo-normalform"
-
-\end_inset
-
-(Lemma 8.2.4 aus 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "EbbinghausFlum"
-
-\end_inset
-
-)
-\end_layout
-
-\begin_layout Lemma
-Jede 
-\begin_inset Formula $\mathrm{LFP}\left(\mathrm{FO}\right)\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- ist äquivalent zu einer 
-\begin_inset Formula $\mathrm{LFP}\left(\mathrm{FO}\right)\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\hat{\varphi}$
-\end_inset
-
- der folgenden Form, wobei 
-\begin_inset Formula $X/k\in\mathbf{var}_{2}$
-\end_inset
-
-, und 
-\begin_inset Formula $\psi$
-\end_inset
-
- eine 
-\begin_inset Formula $\mathrm{FO}\left[\sigma\uplus\left\{ X/k\right\} \right]$
-\end_inset
-
--Formel mit 
-\begin_inset Formula $\mathrm{frei}\left(\psi\right)=\left\{ x_{1},\cdots,x_{k}\right\} $
-\end_inset
-
- ist: 
-\begin_inset Formula 
-\[
-\left(Q_{i}z_{i}\right)_{\begin{subarray}{c}
-i\in\left[1,m\right]\\
-Q_{i}\in\left\{ \exists,\forall\right\} 
-\end{subarray}}\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Das Lemma für 
-\begin_inset Formula $\mathrm{LFP}\left(\mathrm{FO}\right)$
-\end_inset
-
- gilt automatisch auch für jede numerische Erweiterung 
-\begin_inset Formula $\mathrm{LFP}\left(\mathrm{FO}+\Upsilon\right)$
-\end_inset
-
- für ein 
-\begin_inset Formula $\eta$
-\end_inset
-
--Orakel 
-\begin_inset Formula $\Upsilon$
-\end_inset
-
-, denn eine 
-\begin_inset Formula $\mathrm{LFP}\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- gleicht syntaktisch einer 
-\begin_inset Formula $\mathrm{LFP}\left(\mathrm{FO}\right)\left[\sigma\uplus\eta\right]$
-\end_inset
-
--Formel 
-\begin_inset Formula $\varphi'$
-\end_inset
-
-.
- Wenn dann 
-\begin_inset Formula $\varphi'$
-\end_inset
-
- per Lemma 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:lfp-fo-normalform"
-
-\end_inset
-
- auf jeder endlichen 
-\begin_inset Formula $\left(\sigma\uplus\eta\right)$
-\end_inset
-
--Struktur äquivalent zu einer Formel 
-\begin_inset Formula $\hat{\varphi}'$
-\end_inset
-
- der obigen Form ist, dann gilt diese Äquivalenz insbesondere auch für die
- Auswertung von 
-\begin_inset Formula $\varphi$
-\end_inset
-
- auf einer 
-\begin_inset Formula $\sigma$
-\end_inset
-
--Struktur 
-\begin_inset Formula $\mathfrak{A}$
-\end_inset
-
-, die disjunkt mit der 
-\begin_inset Formula $\eta$
-\end_inset
-
--Struktur 
-\begin_inset Formula $\Upsilon\left(\left|A\right|\right)$
-\end_inset
-
- vereinigt wird.
-\end_layout
-
 \begin_layout Lemma
 \begin_inset CommandInset label
 LatexCommand label
@@ -10644,36 +10726,6 @@ Sei
 \end_inset
 
 -Größe beschreibbar ist.
-\end_layout
-
-\begin_layout Lemma
-Sei 
-\begin_inset Formula $\varphi$
-\end_inset
-
- eine beliebige 
-\begin_inset Formula $\mathrm{LFP}\left(\mathcal{L}\right)\left[\sigma\right]$
-\end_inset
-
--Formel der in Lemma 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:lfp-fo-normalform"
-
-\end_inset
-
- beschriebenen Normalform:
-\begin_inset Formula 
-\[
-\varphi=\left(Q_{i}z_{i}\right)_{\begin{subarray}{c}
-i\in\left[1,m\right]\\
-Q_{i}\in\left\{ \exists,\forall\right\} 
-\end{subarray}}\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)
-\]
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Lemma
@@ -16815,6 +16867,14 @@ Hierbei sei
 Grenzen der symmetrischen Schaltkreisklassen
 \end_layout
 
+\begin_layout Section
+Symmetrie ist eine echte Einschränkung von 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+
+\end_layout
+
 \begin_layout Standard
 Wir weisen nach, dass die symmetrischen 
 \begin_inset Formula $\mathrm{AC}^{0}$
@@ -16848,12 +16908,12 @@ reference "thm:fo"
 \begin_inset Formula $\mathrm{AC}^{0}$
 \end_inset
 
- durch die arb-invariante 
-\begin_inset Formula $\mathrm{FO}\left(\mathrm{arb}\right)$
+ durch die Logik 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
 \end_inset
 
--Logik, und ein Problem, dass die Ausdrucksstärke dieser beiden Logiken
- voneinander trennt.
+, und ein Problem, dass die Ausdrucksstärke dieser beiden Logiken voneinander
+ trennt.
 \end_layout
 
 \begin_layout Theorem
@@ -16865,7 +16925,7 @@ name "lem:fo-arb-ac0"
 
 \end_inset
 
-Neil Immerman (1987)
+Immerman (1987)
 \series default
 
 \begin_inset CommandInset citation
@@ -16875,29 +16935,32 @@ key "Immerman1987"
 \end_inset
 
 
+\series bold
+, Makowsky (1997)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Makowsky1997-FO"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Theorem
-Die Klasse 
+Die Klasse der 
 \begin_inset Formula $\mathrm{AC}^{0}$
 \end_inset
 
- ist äquivalent zu der Klasse der durch 
+-definierbaren Anfragen ist äquivalent zu der Klasse der 
 \begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
 \end_inset
 
--Formeln definierbaren Anfragen.
+-definierbaren Anfragen.
 \end_layout
 
 \begin_layout Standard
-Der verwendete Teil des Beweises (hier nur skizziert) ist die Konstruktion
- einer Formel für eine beliebige 
-\begin_inset Formula $\mathrm{AC}^{0}$
-\end_inset
-
--Schaltkreisfamilie.
- Dazu wird jeder Schaltkreis in eine alternierende Normalform der Tiefe
- 
+Für die Konstruktion der Formel (hier nur skizziert) wird jeder Schaltkreis
+ in eine alternierende Normalform der Tiefe 
 \begin_inset Formula $d$
 \end_inset
 
@@ -16968,8 +17031,7 @@ reference "thm:fo-arb"
 \begin_inset Formula $\mathbf{ARB}$
 \end_inset
 
--Orakel ist verständlicherweise nicht stärker als die mit nicht-disjunktem
- Orakel.
+-Orakel ist nicht stärker als die mit nicht-disjunktem Orakel.
 \end_layout
 
 \begin_layout Standard
@@ -16989,10 +17051,10 @@ reference "thm:fo-arb"
 \end_inset
 
  beschreibbar ist.
- Per Lemma 
+ Per Theorem 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "lem:fo-arb-ac0"
+reference "thm:fo"
 
 \end_inset
 
@@ -17015,8 +17077,7 @@ reference "thm:fo"
 \end_layout
 
 \begin_layout Standard
-Wir werden hierfür die Sätze von Hanf und von Ehrenfeucht verwenden, um
- die Nicht-Definierbarkeit nachzuweisen: 
+Dafür verwenden wir den Lokalitäts-Satz von Hanf.
 \end_layout
 
 \begin_layout Theorem
@@ -17024,11 +17085,7 @@ Wir werden hierfür die Sätze von Hanf und von Ehrenfeucht verwenden, um
 \series bold
 Der Satz von Hanf
 \series default
-
-\begin_inset space ~
-\end_inset
-
-(2.4.1 in 
+ (Theorem 2.4.1 in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "EbbinghausFlum"
@@ -17039,11 +17096,144 @@ key "EbbinghausFlum"
 \end_layout
 
 \begin_layout Theorem
-Für zwei Strukturen 
+Seien 
 \begin_inset Formula $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}\left(\sigma\right)$
 \end_inset
 
- 
+, 
+\begin_inset Formula $m\in\mathbb{N}$
+\end_inset
+
+ und 
+\begin_inset Formula $r\coloneqq3^{m}$
+\end_inset
+
+, und sei 
+\begin_inset Formula $\#_{r}^{\mathfrak{A}}\left(a\right)\coloneqq\left|\left\{ b\in A\mid a\sim_{r}b\right\} \right|$
+\end_inset
+
+ die Anzahl der 
+\begin_inset Formula $r$
+\end_inset
+
+-ähnlichen Elemente zu 
+\begin_inset Formula $a$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathfrak{B}$
+\end_inset
+
+ (und 
+\begin_inset Formula $\#_{r}^{\mathfrak{B}}\left(a\right)$
+\end_inset
+
+ analog in 
+\begin_inset Formula $\mathfrak{B}$
+\end_inset
+
+).
+ Sei 
+\begin_inset Formula $e\in\mathbb{N}$
+\end_inset
+
+ so gewählt, dass 
+\begin_inset Formula $\max_{a\in A}\left(\left|N_{r}^{\mathfrak{A}}\left(a\right)\right|\right),\max_{b\in B}\left(\left|N_{r}^{\mathfrak{B}}\left(b\right)\right|\right)\leqslant e$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+Nun gelte für jedes Element 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ mindestens eine der folgenden Aussagen:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Die Anzahl der 
+\begin_inset Formula $r$
+\end_inset
+
+-ähnlichen Elemente (siehe Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:neighborhoods"
+
+\end_inset
+
+) zu 
+\begin_inset Formula $a$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{B}$
+\end_inset
+
+ ist gleich.
+\begin_inset Formula 
+\[
+\#_{r}^{\mathfrak{A}}\left(a\right)=\#_{r}^{\mathfrak{B}}\left(a\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Die Anzahl der 
+\begin_inset Formula $r$
+\end_inset
+
+-ähnlichen Elemente zu 
+\begin_inset Formula $a$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ und in 
+\begin_inset Formula $\mathfrak{B}$
+\end_inset
+
+ ist jeweils größer als 
+\begin_inset Formula $m\cdot e$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\#_{r}^{\mathfrak{A}}\left(a\right),\#_{r}^{\mathfrak{B}}\left(a\right)\geqslant m\cdot e
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Theorem
+Dann gilt: 
+\begin_inset Formula $\mathfrak{A}\equiv_{m}\mathfrak{B}$
+\end_inset
+
+ (siehe Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:m-equiv"
+
+\end_inset
+
+).
 \end_layout
 
 \begin_layout Lemma
@@ -17071,16 +17261,12 @@ Sei
 \begin_inset Formula $\mathfrak{A}=\left(A,E^{\mathfrak{A}}\right)$
 \end_inset
 
- mit 
-\begin_inset Formula $n\coloneqq A$
-\end_inset
-
  für die gilt: 
 \begin_inset Formula $A$
 \end_inset
 
- enthält weniger als 
-\begin_inset Formula $\left\lceil \mathrm{log}n\right\rceil $
+ enthält höchstens 
+\begin_inset Formula $\left\lceil \mathrm{log}\left|A\right|\right\rceil $
 \end_inset
 
  viele nicht-isolierte Knoten.
@@ -17088,7 +17274,7 @@ Sei
 
 \begin_layout Proof
 Diese Anfrage ist durch einen 
-\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)\left[\left\{ E\right\} \right]$
 \end_inset
 
 -Satz definierbar (siehe dazu Abschnitt 4.4 von 
@@ -17101,40 +17287,760 @@ key "AMSS2012-locality"
 ).
 \end_layout
 
+\begin_deeper
+\begin_layout Assumption*
+Es existiere ein beliebiger 
+\begin_inset Formula $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[\left\{ E\right\} \right]$
+\end_inset
+
+-Satz 
+\begin_inset Formula $\varphi_{C}$
+\end_inset
+
+, der die Anfrage 
+\begin_inset Formula $q_{C}$
+\end_inset
+
+ definiere.
+\end_layout
+
+\end_deeper
 \begin_layout Proof
 Sei 
-\begin_inset Formula $\varphi$
+\begin_inset Formula $m\coloneqq\mathrm{qr}\left(\varphi_{C}\right)$
 \end_inset
 
- ein beliebiger 
-\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+ der Quantorenrang von 
+\begin_inset Formula $\varphi_{C}$
 \end_inset
 
--Satz mit dem Quantorenrang 
-\begin_inset Formula $\mathrm{qr}\left(\varphi\right)=m$
+, und o.B.d.A.
+ sei 
+\begin_inset Formula $m\geqslant9$
 \end_inset
 
 .
- Wir werden zwei Strukturen 
-\begin_inset Formula $\mathfrak{A}\uplus\Upsilon\left(n\right)$
+ Wir definieren die folgenden Graphen 
+\begin_inset Formula $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}^{\left(2^{m^{m}}\right)}\left(\left\{ E\right\} \right)$
+\end_inset
+
+ (siehe Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:m-equiv"
+
+\end_inset
+
+):
+\begin_inset Formula 
+\begin{eqnarray*}
+A,B & \coloneqq & \left[1,2^{m^{m}}\right]\\
+E^{\mathfrak{A}} & \coloneqq & \left\{ \left(i,i+1\right)\mid i\in\left[1,m^{m}-1\right]\right\} \cup\left\{ \left(m^{m},1\right)\right\} \\
+E^{\mathfrak{B}} & \coloneqq & \left\{ \left(i,i+1\right)\mid i\in\left[1,m^{m}\right]\right\} \cup\left\{ \left(m^{m}+1,1\right)\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+Beide Strukturen bestehen aus 
+\begin_inset Formula $2^{m^{m}}$
+\end_inset
+
+ Knoten, 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ enthält einen Kreis der Länge 
+\begin_inset Formula $m^{m}$
+\end_inset
+
+, und 
+\begin_inset Formula $\mathfrak{B}$
+\end_inset
+
+ einen Kreis der Länge 
+\begin_inset Formula $m^{m}+1$
+\end_inset
+
+.
+ Damit gilt:
+\begin_inset Formula 
+\[
+\mathfrak{A}\in C,\,\mathfrak{B}\notin C
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathfrak{A}\models\varphi_{C},\,\mathfrak{B}\not\models\varphi_{C}
+\]
+
+\end_inset
+
+Offensichtlich besteht die 
+\begin_inset Formula $3^{m}$
+\end_inset
+
+-Nachbarschaft jedes Knotens im Kreis aus einer 
+\begin_inset Formula $3^{m}+1$
+\end_inset
+
+ langen Kette, und die übrigen Knoten sind isoliert.
+ Damit sind alle 
+\begin_inset Formula $3^{m}$
+\end_inset
+
+-Nachbarschaften kleiner als 
+\begin_inset Formula $e\coloneqq3^{m}+2$
+\end_inset
+
+.
+ Ferner hat jeder Knoten im Kreis mindestens 
+\begin_inset Formula $m^{m}\geqslant m\cdot3^{m+7}>m\cdot e$
+\end_inset
+
+ viele 
+\begin_inset Formula $3^{m}$
+\end_inset
+
+-ähnliche Knoten in jedem Graphen, und jeder isolierte Knoten ohnehin 
+\begin_inset Formula $2^{m^{m}}-m^{m}>m^{m}$
+\end_inset
+
+ viele 
+\begin_inset Formula $3^{m}$
+\end_inset
+
+-ähnliche Knoten.
+ Somit sind die Graphen 
+\begin_inset Formula $\mathfrak{A}$
 \end_inset
 
  und 
-\begin_inset Formula $\mathfrak{B}\uplus\Upsilon\left(n\right)$
+\begin_inset Formula $\mathfrak{B}$
 \end_inset
 
- der gleichen Größe 
-\begin_inset Formula $m\geqslant$
+ nach dem Satz von Hanf 
+\begin_inset Formula $m$
 \end_inset
 
- durch ein Ehrenfeucht-Fraïssé-Spiel (siehe Kapitel 2 von 
+-äquivalent.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{g}=[circle, draw, fill=black,
+\end_layout
+
+\begin_layout Plain Layout
+
+                        inner sep=0pt, minimum width=2pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+%  Tutte's 8-cage
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[thick,scale=0.8]
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw  
+\backslash
+foreach 
+\backslash
+x in {0,18,...,342}
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+        (
+\backslash
+x:1.5) node[g] {} edge[dotted] (
+\backslash
+x+18:1.5)
+\end_layout
+
+\begin_layout Plain Layout
+
+    };
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+node (0:0) {$m^m$};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{scope}[shift={(0,-4)},xscale=2]
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+draw [dotted] (0,0) ellipse (2 and 2);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+draw plot [only marks, mark=*, mark size=0.1, domain=0:5, samples=75] ({rnd*360}:
+{1+rnd});
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{scope}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+node at (0,-4) {$2^{m^m}-m^m$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{g}=[circle, draw, fill=black,
+\end_layout
+
+\begin_layout Plain Layout
+
+                        inner sep=0pt, minimum width=2pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+%  Tutte's 8-cage
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[thick,scale=0.8]
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw  
+\backslash
+foreach 
+\backslash
+x in {0,18,...,342}
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+        (
+\backslash
+x:1.5) node[g] {} edge[dotted] (
+\backslash
+x+18:1.5)
+\end_layout
+
+\begin_layout Plain Layout
+
+    };
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+node (0:0) {$m^m+1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{scope}[shift={(0,-4)},xscale=2]
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+draw [dotted] (0,0) ellipse (2 and 2);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+draw plot [only marks, mark=*, mark size=0.1, domain=0:5, samples=75] ({rnd*360}:
+{1+rnd});
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{scope}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+node at (0,-4) {$2^{m^m}-m^m-1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:m-equiv"
+
+\end_inset
+
+Zwei 
+\begin_inset Formula $m$
+\end_inset
+
+-äquivalente Graphen 
+\begin_inset Formula $\mathfrak{A},\mathfrak{B}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Der 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}\left[\sigma\right]$
+\end_inset
+
+-Satz 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ wird nicht auf 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{B}$
+\end_inset
+
+, sondern 
+\begin_inset Formula $\mathfrak{A}\uplus\mathbf{ARB}\left(n\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{B}\uplus\mathbf{ARB}\left(n\right)$
+\end_inset
+
+ ausgewertet.
+ Wir werden im folgenden sehen, warum das nicht hilft, denn nach Satz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:m-equiv-closed"
+
+\end_inset
+
+ ist die 
+\begin_inset Formula $m$
+\end_inset
+
+-Äquivalenz unter disjunkter Vereinigung abgeschlossen.
+\end_layout
+
+\begin_layout Proof
+Da 
+\begin_inset Formula $\mathfrak{A}\equiv_{m}\mathfrak{B}$
+\end_inset
+
+, und offensichtlich 
+\begin_inset Formula $\mathbf{ARB}\left(n\right)\equiv_{m}\mathbf{ARB}\left(n\right)$
+\end_inset
+
+, folgt somit 
+\begin_inset Formula $\mathfrak{A}\uplus\mathbf{ARB}\left(n\right)\equiv_{m}\mathfrak{B}\uplus\mathbf{ARB}\left(n\right)$
+\end_inset
+
+, und es gilt, im Widerspruch zu der Annahme:
+\begin_inset Formula 
+\[
+\mathfrak{A}\models\varphi_{C}\Leftrightarrow\mathfrak{B}\models\varphi_{C}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:m-equiv-closed"
+
+\end_inset
+
+Seien 
+\begin_inset Formula $\sigma_{1},\sigma_{2}$
+\end_inset
+
+ beliebige Signaturen, 
+\begin_inset Formula $\mathfrak{A}\equiv_{m}\mathfrak{B}$
+\end_inset
+
+ zwei beliebige 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+-Strukturen und 
+\begin_inset Formula $\mathfrak{A}'\equiv_{m}\mathfrak{B}'$
+\end_inset
+
+ zwei beliebige 
+\begin_inset Formula $\sigma_{2}$
+\end_inset
+
+-Strukturen.
+\end_layout
+
+\begin_layout Proposition
+Dann gilt 
+\begin_inset Formula $\mathfrak{A}\uplus\mathfrak{A}'\equiv_{m}\mathfrak{B}\uplus\mathfrak{B}'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Um dies zu beweisen, verwenden wir den Satz von Ehrenfeucht, nach dem die
+ 
+\begin_inset Formula $m$
+\end_inset
+
+-Äquivalenz von Strukturen gleichbedeutend ist mit der Existenz einer Gewinnstra
+tegie für Duplicator im Ehrenfeucht-Fraïssé-Spiel mit 
+\begin_inset Formula $m$
+\end_inset
+
+ Runden.
+ Wir verwenden die Definition des EF-Spiels von Ebbinghaus und Flum (Abschnitt
+ 2.2 von 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "EbbinghausFlum"
 
 \end_inset
 
-) anwenden, um zu zeigen, dass 
+).
+\end_layout
+
+\begin_layout Proof
+Es wird per 
+\begin_inset Formula $\mathfrak{A}\equiv_{m}\mathfrak{B}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{A}'\equiv_{m}\mathfrak{B}'$
+\end_inset
+
+ vorausgesetzt, dass Duplicator eine Gewinnstrategie für jedes 
+\begin_inset Formula $m'\leqslant m$
+\end_inset
+
+-Runden-Spiel auf 
+\begin_inset Formula $\left(\mathfrak{A},\mathfrak{B}\right)$
+\end_inset
+
+ und auf 
+\begin_inset Formula $\left(\mathfrak{A}',\mathfrak{B}'\right)$
+\end_inset
+
+ hat.
+ Im Spiel auf 
+\begin_inset Formula $\left(\mathfrak{A}\uplus\mathfrak{A}',\mathfrak{B}\uplus\mathfrak{B}'\right)$
+\end_inset
+
+ geht Duplicator wie folgt vor:
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Falls Spoiler einen Knoten 
+\begin_inset Formula $a_{i}\in A$
+\end_inset
+
+ oder 
+\begin_inset Formula $b_{i}\in B$
+\end_inset
+
+ wählt, so antworte mit dem Gewinnzug aus dem Spiel auf 
+\begin_inset Formula $\left(\mathfrak{A},\mathfrak{B}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Falls Spoiler 
+\begin_inset Formula $a_{i}\in A'$
+\end_inset
+
+ oder 
+\begin_inset Formula $b_{i}\in B'$
+\end_inset
+
+ wählt, so antworte mit dem Gewinnzug aus dem Spiel auf 
+\begin_inset Formula $\left(\mathfrak{A}',\mathfrak{B}'\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Nun betrachten wir die gespielten Tupel 
+\begin_inset Formula $\bar{a}\in\left(A\cup A'\right)^{m}$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{b}\in\left(B\cup B'\right)^{m}$
+\end_inset
+
+, und die induzierten Strukturen 
+\begin_inset Formula $\left(\mathfrak{A}\uplus\mathfrak{A}'\right)_{\mid\bar{a}}$
+\end_inset
+
+ und 
+\begin_inset Formula $\left(\mathfrak{B}\uplus\mathfrak{B}'\right)_{\mid\bar{b}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Wegen der Annahme induzieren 
+\begin_inset Formula $\bar{a}$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{b}$
+\end_inset
+
+ zwei partielle Isomorphismen mit 
+\begin_inset Formula $\left(\mathfrak{A}_{\mid\bar{a}},\bar{a}_{\mid A}\right)\cong\left(\mathfrak{B}_{\mid\bar{b}},\bar{b}_{\mid B}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\left(\mathfrak{A}'_{\mid\bar{a}},\bar{a}_{\mid A'}\right)\cong\left(\mathfrak{B}'_{\mid\bar{b}},\bar{b}_{\mid B'}\right)$
+\end_inset
+
+.
+ Nach Satz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:iso-closed-disjoint"
+
+\end_inset
+
+ ist der Isomorphismus abgeschlossen, so dass gilt:
+\begin_inset Formula 
+\[
+\left(\mathfrak{A}\uplus\mathfrak{A}'_{\mid\bar{a}},\bar{a}\right)\cong\left(\mathfrak{B}\uplus\mathfrak{B}'_{\mid\bar{b}},\bar{b}\right)
+\]
+
+\end_inset
+
+Damit hat Duplicator das Spiel auf 
+\begin_inset Formula $\left(\mathfrak{A}\uplus\mathfrak{A}',\mathfrak{B}\uplus\mathfrak{B}'\right)$
+\end_inset
+
+ gewonnen, und es folgt 
+\begin_inset Formula $\mathfrak{A}\uplus\mathfrak{A}'\equiv_{m}\mathfrak{B}\uplus\mathfrak{B}'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Die hier dargestellte Folgerung lässt sich allgemein auf jedes Paar von
+ 
+\begin_inset Formula $m$
+\end_inset
+
+-äquivalenten Strukturen erweitern, solange die Strukturen die gleiche Größe
+ haben.
+\end_layout
+
+\begin_layout Corollary
+Die Logik 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+ mit disjunktem Orakel kann nur Eigenschaften ausdrücken, die bezüglich
+ gleich großer Strukturen Hanf-lokal sind.
+\end_layout
+
+\begin_layout Standard
+(Die Forderung nach gleicher Größe ist notwendig, denn offensichtlich ist
+ zum Beispiel die 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+-definierbare Klasse 
+\begin_inset Formula $\textsc{Even}$
+\end_inset
+
+ nicht Hanf-lokal.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Ausblick
+\end_layout
+
+\begin_layout Standard
+Wir haben den Beweis im letzten Abschnitt über den Satz von Hanf formuliert,
+ und somit gezeigt, dass die Logik 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+ modulo der Struktur-Größe Hanf-lokal ist, während dies für die arb-invariante
+ Logik 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+\end_inset
+
+ nicht allgemein gilt 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AnMeScSe11"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Vermutlich gelten ähnliche Beziehungen auch für die symmetrischen Teile
+ der übrigen Schaltkreisklassen 
+\begin_inset Formula $\mathrm{SBC}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathrm{AC}^{0}+\mathbf{MAJ}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathrm{SBC}+\mathbf{MAJ}$
+\end_inset
+
+.
+ Ein Beweis über die Hanf-Lokalität bietet sich hier aber vermutlich nicht
+ an, denn insbesondere wäre die im letzten Abschnitt definierte Klasse in
+ 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}+C$
+\end_inset
+
+ definierbar:
+\begin_inset Formula 
+\begin{eqnarray*}
+\varphi & \coloneqq & \exists x\left(\exists^{=x}y\exists z\,\left(Eyz\vee Ezy\right)\wedge\exists x_{\max}\left(\log_{\leqslant}\left(x,x_{\max}\right)\wedge\forall y\left(x_{\max}\leqslant y\rightarrow x_{\max}=y\right)\right)\right)\\
+\log_{\leqslant} & \coloneqq & \left\{ \left(m,n\right)\in\mathbb{N}^{2}\mid2^{m}\leqslant n\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard

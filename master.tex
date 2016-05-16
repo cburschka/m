@@ -78,6 +78,8 @@ leftmargin=\lyxlabelwidth,#1]}
   \newtheorem{cor}[thm]{\protect\corollaryname}
   \theoremstyle{remark}
   \newtheorem{claim}[thm]{\protect\claimname}
+  \theoremstyle{plain}
+  \newtheorem*{assumption*}{\protect\assumptionname}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 \usepackage[nottoc]{tocbibind} 
@@ -104,6 +106,7 @@ leftmargin=\lyxlabelwidth,#1]}
 \makeatother
 
 \usepackage{babel}
+  \providecommand{\assumptionname}{Annahme}
   \providecommand{\claimname}{Behauptung}
   \providecommand{\corollaryname}{Korollar}
   \providecommand{\definitionname}{Definition}
@@ -217,22 +220,20 @@ Strukturen äquivalent:
 \end{thm}
 Die Einschränkung auf symmetrische Schaltkreisfamilien bringt im Allgemeinen
 eine Reduktion der Ausdrucksstärke mit sich. So wird die Klasse $\mathrm{AC}^{0}$
-durch die invariante Logik $\mathrm{FO}\left(\mathbf{ARB}\right)$
-(Neil Immerman, 1987\cite{Immerman1987}), und $P/\mathrm{poly}$
-durch $\mathrm{FP}\left(\mathbf{ARB}\right)$ (Johann Makowsky, 1997\cite{Makowsky1997-FO,Makowsky1998-LFP})
-charakterisiert. $\mathrm{FO}\left(\mathbf{ARB}\right)$ ist jedoch
-echt ausdrucksstärker als die disjunkte Variante $\mathrm{FO}+\mathbf{ARB}$:
+durch die invariante Logik $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+(\cite{Immerman1987,Makowsky1997-FO}), und $P/\mathrm{poly}$ durch
+$\mathrm{inv}\left(\mathrm{FP}\oplus\mathbf{ARB}\right)$ (\cite{Makowsky1997-FO,Makowsky1998-LFP})
+charakterisiert. $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+ist jedoch echt ausdrucksstärker als die disjunkte Variante $\mathrm{FO}+\mathbf{ARB}$.
 \begin{thm}
 \label{thm:fo-arb}Für die $\mathrm{FO}+\mathbf{ARB}$-Logik und die
-arb-invariante $\mathrm{FO}\left(\mathbf{ARB}\right)$-Logik gilt:
+arb-invariante $\mathrm{FO}\oplus\mathbf{ARB}$-Logik gilt:
 \begin{enumerate}
-\item Jede $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[\sigma\right]$-Formel
-$\varphi$ beschreibt eine Anfrage, die durch eine arb-invariante
-$\mathrm{FO}\left(\mathbf{ARB}\right)\left[\sigma\right]$-Formel
+\item Jede $\mathrm{FO}+\mathbf{ARB}$-Formel beschreibt eine Anfrage, die
+durch eine arb-invariante $\mathrm{FO}\oplus\mathbf{ARB}$-Formel
 definierbar ist.
-\item Es existiert eine $\sigma$-Anfrage, die in der arb-invarianten $\mathrm{FO}\left(\mathbf{ARB}\right)\left[\sigma\right]$-Logik,
-aber nicht $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[\sigma\right]$
-definierbar ist.
+\item Es existiert eine Anfrage, die in der arb-invarianten $\mathrm{FO}\oplus\mathbf{ARB}$-Logik,
+aber nicht $\mathrm{FO}+\mathbf{ARB}$ definierbar ist.
 \end{enumerate}
 \end{thm}
 Ähnliche Bezüge bestehen vermutlich auch zwischen den symmetrischen
@@ -268,6 +269,10 @@ Für ein $m$-Tupel $\bar{x}$ und ein $n$-Tupel $\bar{y}$ sei $\bar{x}\bar{y}$
 das $\left(m+n\right)$-Tupel $\left(x_{1},\cdots,x_{m},y_{1},\cdots,y_{n}\right)$.
 Das $0$-stellige Tupel wird durch $\left\langle \right\rangle $
 notiert.
+
+Für $\bar{a}\in A^{k}$ und $A'\subseteq A$ sei $\bar{a}_{\mid A'}$
+das Tupel, das aus $\bar{a}$ entsteht, wenn die Elemente $a_{i}\in A\backslash A'$
+entfernt werden.
 \end{defn}
 
 \begin{defn}
@@ -532,7 +537,9 @@ Die Abbildung $\pi$ wird auf natürliche Weise auf Strukturen erweitert:
 Die Menge aller Isomorphismen bezeichnen wir mit $\mathrm{Bij}\left(\mathfrak{A},\mathfrak{B}\right)$.
 Zwei Strukturen heißen isomorph (kurz $\mathfrak{A}\cong\mathfrak{B}$),
 falls $\mathrm{Bij}\left(\mathfrak{A},\mathfrak{B}\right)$ nicht
-leer ist.
+leer ist. Wir schreiben $\left(\mathfrak{A},\bar{a}\right)\cong\left(\mathfrak{B},\bar{b}\right)$,
+wenn insbesondere ein $\pi\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{B}\right)$
+mit $\pi\bar{a}=\bar{b}$ existiert.
 
 Ein Automorphismus $\pi\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{A}\right)$
 sei ein Isomorphismus von $\mathfrak{A}$ zu sich selbst. Die Menge
@@ -573,13 +580,15 @@ die \textbf{disjunkte Vereinigung} der Strukturen. Wenn sie disjunkte
 Signaturen und das gleiche Universum haben, so nennen wir $\mathfrak{A}\cup\mathfrak{B}=\mathfrak{A}\oplus\mathfrak{B}$
 die \textbf{Konkatenation} der Strukturen.\end{defn}
 \begin{prop}
-Isomorphismen sind unter disjunkter Vereinigung abgeschlossen.\end{prop}
+\label{prop:iso-closed-disjoint}Isomorphismen sind unter disjunkter
+Vereinigung abgeschlossen.\end{prop}
 \begin{proof}
 Seien $\mathfrak{A},\mathfrak{A}'\in\mathbf{FIN}\left(\sigma_{1}\right)$
 und $\mathfrak{B},\mathfrak{B}'\in\mathbf{FIN}\left(\sigma_{2}\right)$
-jeweils zwei Paare isomorphere Strukturen mit $\pi_{1}\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{A}'\right)$
+jeweils zwei Paare isomorpher Strukturen mit $\pi_{1}\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{A}'\right)$
 und $\pi_{2}\in\mathrm{Bij}\left(\mathfrak{B},\mathfrak{B}'\right)$.
-Sei ferner $A\cap B=A'\cap B'=\emptyset$.
+Sei ferner $A\cap B=A'\cap B'=\emptyset$, und seien $\bar{a}\in A^{k},\bar{a}'\in A'^{k},\bar{b}\in B^{k'},\bar{b}\in B'^{k'}$
+vier Tupel mit $\pi_{1}\bar{a}=\bar{a}'$ und $\pi_{2}\bar{b}=\bar{b}'$.
 
 So gilt für die Abbildung $\pi\coloneqq\pi_{1}\cup\pi_{2}:A\uplus A'\rightarrow B\uplus B'$:
 \begin{casenv}
@@ -588,14 +597,15 @@ So gilt für die Abbildung $\pi\coloneqq\pi_{1}\cup\pi_{2}:A\uplus A'\rightarrow
 \pi R^{\mathfrak{A}\uplus\mathfrak{B}} & = & \pi_{1}R^{\mathfrak{A}}=R^{\mathfrak{A}'}=R^{\mathfrak{A}'\uplus\mathfrak{B}'}\,\mathrm{f\ddot{u}r}\,R\in\sigma_{1}\\
 \pi R^{\mathfrak{A}\uplus\mathfrak{B}} & = & \pi_{2}R^{\mathfrak{B}}=R^{\mathfrak{B}'}=R^{\mathfrak{A}'\uplus\mathfrak{B}'}\,\mathrm{f\ddot{u}r}\,R\in\sigma_{2}
 \end{eqnarray*}
-Damit ist $\pi\left(\mathfrak{A}\uplus\mathfrak{B}\right)=\mathfrak{A}'\uplus\mathfrak{B}'$,
-und $\mathfrak{A}\uplus\mathfrak{B}\cong\mathfrak{A}'\uplus\mathfrak{B}'$.
+
 \item Wenn $\sigma_{1}=\sigma_{2}$, dann gilt für alle $R\in\sigma_{1}$:
 \[
 \pi R^{\mathfrak{A}\cup\mathfrak{B}}=\pi_{1}R^{\mathfrak{A}}\uplus\pi_{2}R^{\mathfrak{B}}=R^{\mathfrak{A}'}\uplus R^{\mathfrak{B}'}=R^{\mathfrak{A}'\uplus\mathfrak{B}'}
 \]
 
 \end{casenv}
+Damit ist $\pi\left(\mathfrak{A}\uplus\mathfrak{B}\right)=\mathfrak{A}'\uplus\mathfrak{B}'$
+und $\pi\bar{a}\bar{b}=\bar{a}'\bar{b}'$, und $\left(\mathfrak{A}\uplus\mathfrak{B},\bar{a}\bar{b}\right)\cong\left(\mathfrak{A}'\uplus\mathfrak{B}',\bar{a}'\bar{b}'\right)$.
 \end{proof}
 
 \begin{defn}
@@ -609,28 +619,34 @@ die von der Teilmenge $A'$ in $\mathfrak{A}$ induzierte Teilstruktur.
 \end{defn}
 
 \begin{defn}
-\textbf{Nachbarschaft} (siehe Abschnitt 2.4 von \cite{EbbinghausFlum})
+\textbf{\label{def:neighborhoods}$r$-Nachbarschaft} (siehe Abschnitt
+2.4 von \cite{EbbinghausFlum})
 
 Für eine Struktur $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
 sei $\mathcal{G}\left(\mathfrak{A}\right)\in\mathbf{FIN}^{A}\left(\left\{ E\right\} \right)$
 der \textbf{Gaifman-Graph} von $\mathfrak{A}$, der alle Knoten miteinander
-verbindet, die im gleichen Tupel vorkommen. (Insbesondere ist für
-jeden symmetrischen Graphen $\mathfrak{A}\in\mathbf{FIN}\left(\left\{ E\right\} \right)$
-offensichtlich $\mathcal{G}\left(\mathfrak{A}\right)=\mathfrak{A}$.)
+verbindet, die im gleichen Tupel vorkommen. Insbesondere ist für jeden
+symmetrischen\footnote{Der Gaifman-Graph ist ungerichtet, wird aber hier als symmetrische,
+gerichtete $\left\{ E\right\} $-Struktur modelliert.} Graphen $\mathfrak{A}\in\mathbf{FIN}\left(\left\{ E\right\} \right)$
+offensichtlich $\mathcal{G}\left(\mathfrak{A}\right)=\mathfrak{A}$.
 \begin{eqnarray*}
 \mathcal{G}\left(\mathfrak{A}\right) & = & \left(A,E^{\mathcal{G}\left(\mathfrak{A}\right)}\right)\\
-E^{\mathcal{G}\left(\mathfrak{A}\right)} & = & \left\{ \left(a_{i},a_{j}\right)\mid R/k\in\sigma,\,\bar{a}\in R^{\mathfrak{A}},\,i,j\in\left[1,k\right]\right\} 
+E^{\mathcal{G}\left(\mathfrak{A}\right)} & = & \left\{ \left(a_{i},a_{j}\right)\mid R/k\in\sigma,\,\bar{a}\in R^{\mathfrak{A}},\,i,j\in\left[1,k\right],\,i\neq j\right\} 
 \end{eqnarray*}
 
 
 Sei $\mathrm{dist}_{\mathfrak{A}}:A^{2}\rightarrow\mathbb{N\cup\left\{ \infty\right\} }$
 die minimale Distanz $\mathrm{dist}_{\mathfrak{A}}\left(a,b\right)$
-im Gaifman-Graph zwischen zwei Knoten $a,b\in A$.
+in $\mathcal{G}\left(\mathfrak{A}\right)$ zwischen zwei Knoten $a,b\in A$.
+Für ein $r\in\mathbb{N}$ sei nun $N_{r}^{\mathfrak{A}}\left(a\right)\coloneqq\left\{ b\in A\mid\mathrm{dist}_{\mathfrak{A}}\left(a,b\right)\leqslant r\right\} $
+die \textbf{$r$-Kugel} um $a\in A$. Deren induzierte Teilstruktur
+$\mathcal{N}_{r}^{\mathfrak{A}}\left(a\right)=\mathfrak{A}_{\mid N_{r}\left(a\right)}$
+in $\mathfrak{A}$ sei die \textbf{$r$-Umgebung} von $a$.
 
-Für ein $r\in\mathbb{N}$ sei nun $S_{r}\left(a\right)\coloneqq\left\{ b\in A\mid\mathrm{dist}_{\mathfrak{A}}\left(a,b\right)\leqslant r\right\} $
-die $r$-Kugel um $a\in A$. Die $r$-Nachbarschaft von $a$ sei deren
-induzierte Teilstruktur $\mathcal{S}_{r}\left(a\right)=\mathfrak{A}_{\mid S_{r}\left(a\right)}$
-in $\mathfrak{A}$.
+Für zwei Strukturen $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}\left(\sigma\right)$
+und zwei Elemente $a\in A$, $b\in B$ schreiben wir $a\sim_{r}b$
+($a$ ist \textbf{$r$-ähnlich} zu $b$), wenn ein Isomorphismus $\pi\in\mathrm{Bij}\left(\mathcal{N}_{r}^{\mathfrak{A}}\left(a\right),\mathcal{N}_{r}^{\mathfrak{B}}\left(b\right)\right)$
+mit $\pi a=b$ existiert.
 \end{defn}
 
 \begin{defn}
@@ -858,6 +874,31 @@ implikationsfreien $\mathrm{FO}\left[\sigma\right]$-Formeln. Hierbei
 entsteht ein fester Zuwachs in der Länge der Formel $\left\Vert \varphi\right\Vert $,
 der die Datenkomplexität unberührt lässt.
 
+
+\begin{defn}
+\textbf{\label{def:qr}Quantorenrang}
+
+Der Quantorenrang einer Formel sei die maximale Anzahl der geschachtelten
+Quantoren:
+\[
+\begin{array}{cc}
+\mathrm{qr}\left(R\bar{x}\right)=\mathrm{qr}\left(x_{1}\dot{=}x_{2}\right)=0 & \mathrm{qr}\left(\psi_{1}\gamma\cdots\gamma\psi_{k}\right)=\max_{i=1}^{k}\mathrm{qr}\left(\psi_{i}\right)\\
+\mathrm{qr}\left(\exists x\psi\right)=\mathrm{qr}\left(\forall x\psi\right)=\mathrm{qr}\left(\psi\right)+1
+\end{array}
+\]
+
+\end{defn}
+
+\begin{defn}
+\label{def:m-equiv}Zwei $\sigma$-Strukturen $\mathfrak{A}$ und
+$\mathfrak{B}$ heißen $m$-äquivalent ($\mathfrak{A}\equiv_{m}\mathfrak{B}$,
+wenn für alle $\mathrm{FO}\left[\sigma\right]$-Sätze $\varphi$ mit
+$\mathrm{qr}\left(\varphi\right)\leqslant m$ gilt:
+\[
+\mathfrak{A}\models\varphi\Longleftrightarrow\mathfrak{B}\models\varphi
+\]
+
+\end{defn}
 
 \section{Logiken mit Fixpunkt-Erweiterung}
 
@@ -2431,23 +2472,27 @@ Wir betrachten die Logik $\mathcal{L}+\Upsilon+C$, und weisen nach,
 dass die Konstruktion von Lemma \ref{lem:oracle-circuit} angepasst
 werden kann, indem Majority-Gates hinzugefügt werden.
 \begin{lem}
-\label{lem:counting-circuit}Sei $\mathcal{L}$ eine Logik, $\mathbb{B}$
-eine boolesche Basis und $\mathcal{K}\supseteq\mathrm{LOGSPACE}$
-eine Komplexitätsklasse, so dass für jede $\mathcal{L}\left[\sigma\right]$-Formel
+\label{lem:counting-circuit}Sei $\mathcal{L}$ eine Logik, $k\in\mathbb{N}$
+eine Konstante, $\mathbb{B}$ eine boolesche Basis und $\mathcal{K}\supseteq\mathrm{LOGSPACE}$
+eine Komplexitätsklasse.
+
+Es gelte die Voraussetzung dass für jede $\mathcal{L}\left[\sigma\right]$-Formel
 eine symmetrische, $\mathcal{K}$-uniforme $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
-mit $t\left(n\right)$-Tiefe und $\mathrm{poly}\left(n\right)$-Größe
-existiert, die die gleiche Anfrage beschreibt.
+mit $\mathcal{O}\left(n^{k\left\Vert \varphi\right\Vert }\right)$-Tiefe
+und $\mathrm{poly}\left(n\right)$-Größe existiert, die die gleiche
+Anfrage beschreibt.
 
 Sei $\eta$ eine von $\sigma$ disjunkte Signatur und $\Upsilon$
 ein $\mathcal{K}$-uniformes $\eta$-Orakel.
 
 Dann existiert für jede $\left(\mathcal{L}+\Upsilon+C\right)\left[\sigma\right]$
 eine ebensolche $\left(\sigma,\mathbb{B}\cup\left\{ \mathtt{MAJ}\right\} \right)$-Schaltkreisfamilie
-mit der Tiefe $t'\left(n\right)\coloneqq t\left(2n+1\right)+\left\Vert \varphi\right\Vert $
+mit der Tiefe $\mathcal{O}\left(n^{k\left\Vert \varphi\right\Vert }\right)$-Tiefe
 und $\mathrm{poly}\left(n\right)$-Größe: 
 \end{lem}
 Insbesondere folgt aus der Kombination mit Lemma \ref{lem:fo-circuit}
-und Lemma \ref{lem:oracle-circuit}:
+und Lemma \ref{lem:oracle-circuit} (mit $k=0$ und der Tiefenbeschränkung
+$\mathcal{O}\left(1\right)$):
 
 \begin{eqnarray*}
 \mathrm{FO}+\mathbf{BIT}+C & \subseteq & \left(\mathrm{SAC}^{0}+\mathbf{MAJ}\right)^{\mathrm{LOGSPACE}}\\
@@ -2465,13 +2510,13 @@ und erzeugen einen $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\math
 Konstruktion verwenden:
 \begin{casenv}
 \item Falls $\varphi\left(\bar{x}\right)$ eine $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$-Formel
-ohne $\exists^{\geqslant}$-Quantor ist, so existiert der $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}\right)$-Schaltkreisfamilie
-$\mathcal{C}_{2n+1}^{\varphi}$ per Voraussetzung.
+ohne $\exists^{\geqslant}$-Quantor ist, so existiert der $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}\right)$-Schaltkreis
+$\mathcal{C}_{2n+1}^{\varphi}$ schon per Voraussetzung.
 \item Falls $\varphi\left(\bar{x}\right)=\exists^{\geqslant x_{i}}y_{j}\psi\left(\bar{y}\right)$
-mit $\bar{x}\in\mathbf{var}^{k}$, so sei $\mathcal{C}_{2n+1}^{\psi}$
-der Schaltkreis für die Formel $\psi$ (dieser hat per Annahme die
-Tiefe $t\left(2n+1\right)+\left\Vert \psi\right\Vert $ und Größe
-$s\left(n\right)\in\mathrm{poly}\left(n\right)$).
+mit $\bar{x}\in\mathbf{var}^{k}$, so nehmen wir an, dass die Behauptung
+für $\psi$ gilt. Sei $\mathcal{C}_{2n+1}^{\psi}$ der symmetrische
+Schaltkreis für die Formel $\psi$ mit der Tiefe $t\left(n\right)\in\mathcal{O}\left(n^{k\left\Vert \psi\right\Vert }\right)$
+und der Größe $s\left(n\right)\in\mathrm{poly}\left(n\right)$.
 \[
 \mathcal{C}_{2n+1}^{\psi}=\left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U'\right)
 \]
@@ -2479,11 +2524,11 @@ Wir erzeugen den folgenden Schaltkreis $\mathcal{C}_{2n+1}^{\varphi}$:
 \begin{eqnarray*}
 \mathcal{C}_{2n+1}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U'\right)
 \end{eqnarray*}
-Es wird für jedes Tupel $\bar{t}\in U'^{k}$ ein neuer Output $g_{\bar{t}}$
-eingefügt; ferner werden $2n$ Konstanten eingefügt: 
+Es wird für jedes Tupel $\bar{t}\in\left[1,2n+1\right]^{k}$ ein neuer
+Output $g_{\bar{t}}$ eingefügt; ferner werden $2n$ Konstanten eingefügt:
 \begin{eqnarray*}
 G & = & G_{\psi}\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U'^{k}\right\} \uplus\left\{ 0_{j},1_{j}\mid1\leqslant j\leqslant n\right\} \\
-W & = & W_{\psi}\uplus W_{\mathtt{MAJ}}\uplus W_{\mathrm{pad}}
+W & = & W_{\psi}\uplus W_{\mathrm{maj}}\uplus W_{\mathrm{pad}}
 \end{eqnarray*}
 Die neuen Outputs werden mit $\mathtt{MAJ}$ markiert, falls $t_{i}$
 (der Wert der Variable $x_{i}$) einer der numerischen Werte (im Bereich
@@ -2514,13 +2559,13 @@ wobei $f:U^{k-1}\rightarrow\left[0,n\right]$ die Anzahl der $\psi$
 erfüllenden Belegungen von $y_{j}$ bei der Belegung der übrigen freien
 Variablen mit $\tau_{1}\left(\bar{t}\right)$ sei: 
 \begin{eqnarray*}
-f\left(\bar{t'}\right) & \coloneqq & \left|\left\{ u_{j}\in\left[1,n\right]\mid\mathrm{es\,existiert\,}\bar{u}\in q_{\mathcal{C}_{2n+1}^{\psi}}\left(\mathfrak{A}\uplus\rho\Upsilon\left(n\right)\right),\,\tau_{2}\left(\bar{u}\right)=\bar{t'}\right\} \right|
+f\left(\tau_{1}\left(\bar{t}\right)\right) & \coloneqq & \left|\left\{ u_{j}\mid\bar{u}\in q_{\mathcal{C}_{2n+1}^{\psi}}\left(\mathfrak{A}\uplus\rho\Upsilon\left(n\right)\right),\,\tau_{2}\left(\bar{u}\right)=\tau_{1}\left(\bar{t}\right)\right\} \right|
 \end{eqnarray*}
 Dazu wird jedes Gate $g_{\bar{t}}$ mit $t_{i}\in\left[n+1,2n+1\right]$
 zunächst mit den entsprechenden Outputs von $\mathcal{C}_{2n+1}^{\psi}$
 verknüpft: 
 \[
-W_{\mathtt{MAJ}}=\left\{ \left(\Omega_{\psi}\left(\bar{u}\right),g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in U'^{k},\,\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right),\,u_{j}\in\left[1,n\right]\right\} 
+W_{\mathrm{maj}}=\left\{ \left(\Omega_{\psi}\left(\bar{u}\right),g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in U'^{k},\,\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right),\,u_{j}\in\left[1,n\right]\right\} 
 \]
 Momentan hat es genau $n$ Eingänge (für jeden Wert $u_{j}\in\left[1,n\right]$).
 Daher gibt es $1$ aus, wenn $f\left(\bar{t}\right)\geqslant\frac{n}{2}$.
@@ -2544,7 +2589,7 @@ W_{\mathrm{pad}} & = & \left\{ \left(0_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{
 \begin{eqnarray*}
 \overset{n+k=2\rho^{-1}t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{k=2\rho^{-1}t_{i}-n}{\underbrace{\mathbf{0}\mathbf{0}\cdots\mathbf{0}}}}} &  & \overset{n+k'=2n-2\rho^{-1}t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{k'=n-2\rho^{-1}t_{i}}{\underbrace{\mathbf{1}\mathbf{1}\cdots\mathbf{1}}}}}
 \end{eqnarray*}
-Der neue Schaltkreis hat die Tiefe $t\left(2n+1\right)+\left\Vert \psi\right\Vert +1\leqslant t\left(2n+1\right)+\left\Vert \varphi\right\Vert $
+Der neue Schaltkreis hat die Tiefe $t'\left(n\right)=t\left(n\right)+1\in\mathcal{O}\left(\right)$
 und der Größe $s\left(n\right)+n^{k}+2n\in\mathrm{poly}\left(n\right)$.
 \item Falls $\varphi\left(\bar{x}\right)$ eine andere $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
 ist, so seien $\psi_{1}\left(\bar{y}_{1}\right),\cdots,\psi_{m}\left(\bar{y}_{m}\right)$
@@ -2583,8 +2628,8 @@ verbunden, und deren Beschriftung zu $\mathtt{AND}$ geändert.
 \end{eqnarray*}
 Es gilt $\left\Vert \varphi'\right\Vert +\max\left\Vert \psi_{i}\right\Vert +1\leqslant\left\Vert \varphi\right\Vert $
 (weil $\varphi$ alle diese Teilformeln enthält). Daher ist die Tiefe
-des neuen Schaltkreises $t\left(2n+1\right)+\left\Vert \varphi\right\Vert $,
-und seine Größe ist in $\mathrm{poly\left(n\right)}$.
+des neuen Schaltkreises $t_{\varphi}\left(2n+1\right)+$, und seine
+Größe ist in $\mathrm{poly\left(n\right)}$.
 
 \end{casenv}
 \begin{description}
@@ -2689,38 +2734,6 @@ den Schaltkreis $\mathcal{C}_{n}^{\psi_{i}}$ zu vervielfältigen.
 
 
 \subsection{Von Fixpunkt-Formeln zu Schaltkreisfamilien}
-
-Im folgenden möchten wir uns gerne auf Formeln beschränken, die nur
-einen einzigen Fixpunktoperator enthalten. Diese Normalform schränkt
-die Allgemeinheit nicht ein, was in \cite{EbbinghausFlum} (Abschnitt
-8.2) für $\mathrm{LFP}\left(\mathrm{FO}\right)$ gezeigt wird.
-\begin{lem}
-\label{lem:lfp-fo-normalform}(Lemma 8.2.4 aus \cite{EbbinghausFlum})
-
-Jede $\mathrm{LFP}\left(\mathrm{FO}\right)\left[\sigma\right]$-Formel
-$\varphi$ ist äquivalent zu einer $\mathrm{LFP}\left(\mathrm{FO}\right)\left[\sigma\right]$-Formel
-$\hat{\varphi}$ der folgenden Form, wobei $X/k\in\mathbf{var}_{2}$,
-und $\psi$ eine $\mathrm{FO}\left[\sigma\uplus\left\{ X/k\right\} \right]$-Formel
-mit $\mathrm{frei}\left(\psi\right)=\left\{ x_{1},\cdots,x_{k}\right\} $
-ist: 
-\[
-\left(Q_{i}z_{i}\right)_{\begin{subarray}{c}
-i\in\left[1,m\right]\\
-Q_{i}\in\left\{ \exists,\forall\right\} 
-\end{subarray}}\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)
-\]
-
-\end{lem}
-Das Lemma für $\mathrm{LFP}\left(\mathrm{FO}\right)$ gilt automatisch
-auch für jede numerische Erweiterung $\mathrm{LFP}\left(\mathrm{FO}+\Upsilon\right)$
-für ein $\eta$-Orakel $\Upsilon$, denn eine $\mathrm{LFP}\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
-$\varphi$ gleicht syntaktisch einer $\mathrm{LFP}\left(\mathrm{FO}\right)\left[\sigma\uplus\eta\right]$-Formel
-$\varphi'$. Wenn dann $\varphi'$ per Lemma \ref{lem:lfp-fo-normalform}
-auf jeder endlichen $\left(\sigma\uplus\eta\right)$-Struktur äquivalent
-zu einer Formel $\hat{\varphi}'$ der obigen Form ist, dann gilt diese
-Äquivalenz insbesondere auch für die Auswertung von $\varphi$ auf
-einer $\sigma$-Struktur $\mathfrak{A}$, die disjunkt mit der $\eta$-Struktur
-$\Upsilon\left(\left|A\right|\right)$ vereinigt wird.
 \begin{lem}
 \label{lem:lfp-circ}Sei $\mathcal{L}$ eine Logik, $\sigma$ eine
 relationale Signatur und $\mathbb{B}$ eine boolesche Basis, so dass
@@ -2729,16 +2742,6 @@ beschreibt, die auch durch eine $\mathcal{K}$-uniforme (mit $P\subseteq\mathcal{
 symmetrische $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
 mit konstanter $t$-Tiefe und polynomiell beschränkter $s\left(n\right)$-Größe
 beschreibbar ist.
-
-Sei $\varphi$ eine beliebige $\mathrm{LFP}\left(\mathcal{L}\right)\left[\sigma\right]$-Formel
-der in Lemma \ref{lem:lfp-fo-normalform} beschriebenen Normalform:
-\[
-\varphi=\left(Q_{i}z_{i}\right)_{\begin{subarray}{c}
-i\in\left[1,m\right]\\
-Q_{i}\in\left\{ \exists,\forall\right\} 
-\end{subarray}}\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)
-\]
-
 
 Dann existiert eine $\mathcal{K}$-uniforme symmetrische $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
 $\bar{\mathcal{C}^{\varphi}}$ mit $m+n^{k}\left(t+1\right)$-Tiefe
@@ -4252,29 +4255,31 @@ Kodierung von Zahlen, so dass für $\bar{g},\bar{h},\bar{w}\in\left[0,n\right]^{
 
 \chapter{Grenzen der symmetrischen Schaltkreisklassen}
 
+
+\section{Symmetrie ist eine echte Einschränkung von $\mathrm{AC}^{0}$}
+
 Wir weisen nach, dass die symmetrischen $\mathrm{AC}^{0}$-Schaltkreisfamilien
 eine echte Teilmenge der Anfragen beschreiben, die durch $\mathrm{AC}^{0}$
 definierbar sind.
 
 Hierfür verwenden wir die Charakterisierung aus Theorem \ref{thm:fo}
 von symmetrischem $\mathrm{AC}^{0}$ durch die Logik $\mathrm{FO}+\mathbf{ARB}$,
-die Charakterisierung von $\mathrm{AC}^{0}$ durch die arb-invariante
-$\mathrm{FO}\left(\mathrm{arb}\right)$-Logik, und ein Problem, dass
-die Ausdrucksstärke dieser beiden Logiken voneinander trennt.
+die Charakterisierung von $\mathrm{AC}^{0}$ durch die Logik $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$,
+und ein Problem, dass die Ausdrucksstärke dieser beiden Logiken voneinander
+trennt.
 \begin{thm}
-\textbf{\label{lem:fo-arb-ac0}Neil Immerman (1987)}\cite{Immerman1987}
+\textbf{\label{lem:fo-arb-ac0}Immerman (1987)}\cite{Immerman1987}\textbf{,
+Makowsky (1997)\cite{Makowsky1997-FO}}
 
-Die Klasse $\mathrm{AC}^{0}$ ist äquivalent zu der Klasse der durch
-$\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-Formeln
-definierbaren Anfragen.
+Die Klasse der $\mathrm{AC}^{0}$-definierbaren Anfragen ist äquivalent
+zu der Klasse der $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-definierbaren
+Anfragen.
 \end{thm}
-Der verwendete Teil des Beweises (hier nur skizziert) ist die Konstruktion
-einer Formel für eine beliebige $\mathrm{AC}^{0}$-Schaltkreisfamilie.
-Dazu wird jeder Schaltkreis in eine alternierende Normalform der Tiefe
-$d$ gebracht, in der jedes Gate $n^{k}$ Vorgänger hat. Die $n^{kd}$
-Wege von einem Input zu einem Output werden durch numerische Tupel
-kodiert (die Relation dieser Wege ist ein numerisches Prädikat und
-daher in $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-Logik
+Für die Konstruktion der Formel (hier nur skizziert) wird jeder Schaltkreis
+in eine alternierende Normalform der Tiefe $d$ gebracht, in der jedes
+Gate $n^{k}$ Vorgänger hat. Die $n^{kd}$ Wege von einem Input zu
+einem Output werden durch numerische Tupel kodiert (die Relation dieser
+Wege ist ein numerisches Prädikat und daher in $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-Logik
 verwendbar). Die Formel muss dann über jede der alternierenden Ebenen
 des Schaltkreises quantifizieren (mit $\exists$ für $\mathtt{OR}$,
 und $\forall$ für $\mathtt{AND}$), und berechnet so die Auswertung
@@ -4284,41 +4289,212 @@ Da per Definition offensichtlich $\mathrm{SAC}^{0}\subseteq\mathrm{AC}^{0}$
 gilt, können wir mit $\mathrm{FO}+\mathbf{ARB}\subseteq\mathrm{SAC}^{0}$
 direkt ablesen, dass $\mathrm{FO}+\mathbf{ARB}$ in $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
 enthalten ist (und beweisen somit Teil 1 des Theorems \ref{thm:fo-arb}):
-Die Logik erster Stufe mit disjunktem $\mathbf{ARB}$-Orakel ist verständlicherweise
-nicht stärker als die mit nicht-disjunktem Orakel.
+Die Logik erster Stufe mit disjunktem $\mathbf{ARB}$-Orakel ist nicht
+stärker als die mit nicht-disjunktem Orakel.
 
 Für den echten Einschluss (Teil 2 des Theorems \ref{thm:fo-arb})
 benötigen wir eine Anfrage, die in $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
 beschreibbar ist, jedoch nicht in $\mathrm{FO}+\mathbf{ARB}$ beschreibbar
-ist. Per Lemma \ref{lem:fo-arb-ac0} ist diese Anfrage dann in $\mathrm{AC}^{0}$,
+ist. Per Theorem \ref{thm:fo} ist diese Anfrage dann in $\mathrm{AC}^{0}$,
 aber per Theorem \ref{thm:fo} nicht in $\mathrm{SAC}^{0}$ beschreibbar.
 
-Wir werden hierfür die Sätze von Hanf und von Ehrenfeucht verwenden,
-um die Nicht-Definierbarkeit nachzuweisen: 
+Dafür verwenden wir den Lokalitäts-Satz von Hanf.
 \begin{thm}
-\textbf{Der Satz von Hanf}~(2.4.1 in \cite{EbbinghausFlum})
+\textbf{Der Satz von Hanf} (Theorem 2.4.1 in \cite{EbbinghausFlum})
 
 Seien $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}\left(\sigma\right)$,
-$m\in\mathbb{N}$ und $r\coloneqq3^{m}$ \end{thm}
+$m\in\mathbb{N}$ und $r\coloneqq3^{m}$, und sei $\#_{r}^{\mathfrak{A}}\left(a\right)\coloneqq\left|\left\{ b\in A\mid a\sim_{r}b\right\} \right|$
+die Anzahl der $r$-ähnlichen Elemente zu $a$ in $\mathfrak{B}$
+(und $\#_{r}^{\mathfrak{B}}\left(a\right)$ analog in $\mathfrak{B}$).
+Sei $e\in\mathbb{N}$ so gewählt, dass $\max_{a\in A}\left(\left|N_{r}^{\mathfrak{A}}\left(a\right)\right|\right),\max_{b\in B}\left(\left|N_{r}^{\mathfrak{B}}\left(b\right)\right|\right)\leqslant e$.
+
+Nun gelte für jedes Element $a\in A$ mindestens eine der folgenden
+Aussagen:
+\begin{enumerate}
+\item Die Anzahl der $r$-ähnlichen Elemente (siehe Definition \ref{def:neighborhoods})
+zu $a$ in $\mathfrak{A}$ und $\mathfrak{B}$ ist gleich.
+\[
+\#_{r}^{\mathfrak{A}}\left(a\right)=\#_{r}^{\mathfrak{B}}\left(a\right)
+\]
+
+\item Die Anzahl der $r$-ähnlichen Elemente zu $a$ in $\mathfrak{A}$
+und in $\mathfrak{B}$ ist jeweils größer als $m\cdot e$.
+\[
+\#_{r}^{\mathfrak{A}}\left(a\right),\#_{r}^{\mathfrak{B}}\left(a\right)\geqslant m\cdot e
+\]
+
+\end{enumerate}
+Dann gilt: $\mathfrak{A}\equiv_{m}\mathfrak{B}$ (siehe Definition
+\ref{def:m-equiv}).\end{thm}
 \begin{lem}
 Es existiert eine Graph-Anfrage $q$, die in $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-definierbar
 ist, aber nicht in $\mathrm{FO}+\mathbf{ARB}$ beschreibbar ist.\end{lem}
 \begin{proof}
 Sei $C\subseteq\mathbf{FIN}\left(\left\{ E\right\} \right)$ die Klasse
-der Graphen $\mathfrak{A}=\left(A,E^{\mathfrak{A}}\right)$ mit $n\coloneqq A$
-für die gilt: $A$ enthält weniger als $\left\lceil \mathrm{log}n\right\rceil $
+der Graphen $\mathfrak{A}=\left(A,E^{\mathfrak{A}}\right)$ für die
+gilt: $A$ enthält höchstens $\left\lceil \mathrm{log}\left|A\right|\right\rceil $
 viele nicht-isolierte Knoten.
 
-Diese Anfrage ist durch einen $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-Satz
+Diese Anfrage ist durch einen $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)\left[\left\{ E\right\} \right]$-Satz
 definierbar (siehe dazu Abschnitt 4.4 von \cite{AMSS2012-locality}).
+\begin{assumption*}
+Es existiere ein beliebiger $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[\left\{ E\right\} \right]$-Satz
+$\varphi_{C}$, der die Anfrage $q_{C}$ definiere.
+\end{assumption*}
+Sei $m\coloneqq\mathrm{qr}\left(\varphi_{C}\right)$ der Quantorenrang
+von $\varphi_{C}$, und o.B.d.A. sei $m\geqslant9$. Wir definieren
+die folgenden Graphen $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}^{\left(2^{m^{m}}\right)}\left(\left\{ E\right\} \right)$
+(siehe Abbildung \ref{fig:m-equiv}):
+\begin{eqnarray*}
+A,B & \coloneqq & \left[1,2^{m^{m}}\right]\\
+E^{\mathfrak{A}} & \coloneqq & \left\{ \left(i,i+1\right)\mid i\in\left[1,m^{m}-1\right]\right\} \cup\left\{ \left(m^{m},1\right)\right\} \\
+E^{\mathfrak{B}} & \coloneqq & \left\{ \left(i,i+1\right)\mid i\in\left[1,m^{m}\right]\right\} \cup\left\{ \left(m^{m}+1,1\right)\right\} 
+\end{eqnarray*}
+Beide Strukturen bestehen aus $2^{m^{m}}$ Knoten, $\mathfrak{A}$
+enthält einen Kreis der Länge $m^{m}$, und $\mathfrak{B}$ einen
+Kreis der Länge $m^{m}+1$. Damit gilt:
+\[
+\mathfrak{A}\in C,\,\mathfrak{B}\notin C
+\]
+\[
+\mathfrak{A}\models\varphi_{C},\,\mathfrak{B}\not\models\varphi_{C}
+\]
+Offensichtlich besteht die $3^{m}$-Nachbarschaft jedes Knotens im
+Kreis aus einer $3^{m}+1$ langen Kette, und die übrigen Knoten sind
+isoliert. Damit sind alle $3^{m}$-Nachbarschaften kleiner als $e\coloneqq3^{m}+2$.
+Ferner hat jeder Knoten im Kreis mindestens $m^{m}\geqslant m\cdot3^{m+7}>m\cdot e$
+viele $3^{m}$-ähnliche Knoten in jedem Graphen, und jeder isolierte
+Knoten ohnehin $2^{m^{m}}-m^{m}>m^{m}$ viele $3^{m}$-ähnliche Knoten.
+Somit sind die Graphen $\mathfrak{A}$ und $\mathfrak{B}$ nach dem
+Satz von Hanf $m$-äquivalent.
 
-Sei $\varphi$ ein beliebiger $\mathrm{FO}+\mathbf{ARB}$-Satz mit
-dem Quantorenrang $\mathrm{qr}\left(\varphi\right)=m$. Wir werden
-zwei Strukturen $\mathfrak{A}\uplus\Upsilon\left(n\right)$ und $\mathfrak{B}\uplus\Upsilon\left(n\right)$
-der gleichen Größe $m\geqslant$ durch ein Ehrenfeucht-Fraïssé-Spiel
-(siehe Kapitel 2 von \cite{EbbinghausFlum}) anwenden, um zu zeigen,
-dass 
+\begin{figure}
+\noindent \begin{centering}
+\tikzstyle{g}=[circle, draw, fill=black,
+                        inner sep=0pt, minimum width=2pt]
+%  Tutte's 8-cage
+\begin{tikzpicture}[thick,scale=0.8]
+    \draw  \foreach \x in {0,18,...,342}
+    {
+        (\x:1.5) node[g] {} edge[dotted] (\x+18:1.5)
+    };
+	\node (0:0) {$m^m$};
+	\begin{scope}[shift={(0,-4)},xscale=2]
+		\draw [dotted] (0,0) ellipse (2 and 2);
+		\draw plot [only marks, mark=*, mark size=0.1, domain=0:5, samples=75] ({rnd*360}:{1+rnd});
+	\end{scope}
+	\node at (0,-4) {$2^{m^m}-m^m$};
+\end{tikzpicture}\tikzstyle{g}=[circle, draw, fill=black,
+                        inner sep=0pt, minimum width=2pt]
+%  Tutte's 8-cage
+\begin{tikzpicture}[thick,scale=0.8]
+    \draw  \foreach \x in {0,18,...,342}
+    {
+        (\x:1.5) node[g] {} edge[dotted] (\x+18:1.5)
+    };
+	\node (0:0) {$m^m+1$};
+	\begin{scope}[shift={(0,-4)},xscale=2]
+		\draw [dotted] (0,0) ellipse (2 and 2);
+		\draw plot [only marks, mark=*, mark size=0.1, domain=0:5, samples=75] ({rnd*360}:{1+rnd});
+	\end{scope}
+	\node at (0,-4) {$2^{m^m}-m^m-1$};
+\end{tikzpicture}
+\par\end{centering}
+
+\caption{\label{fig:m-equiv}Zwei $m$-äquivalente Graphen $\mathfrak{A},\mathfrak{B}$}
+
+
+\end{figure}
+
+
+Der $\mathrm{FO}+\mathbf{ARB}\left[\sigma\right]$-Satz $\varphi$
+wird nicht auf $\mathfrak{A}$ und $\mathfrak{B}$, sondern $\mathfrak{A}\uplus\mathbf{ARB}\left(n\right)$
+und $\mathfrak{B}\uplus\mathbf{ARB}\left(n\right)$ ausgewertet. Wir
+werden im folgenden sehen, warum das nicht hilft, denn nach Satz \ref{prop:m-equiv-closed}
+ist die $m$-Äquivalenz unter disjunkter Vereinigung abgeschlossen.
+
+Da $\mathfrak{A}\equiv_{m}\mathfrak{B}$, und offensichtlich $\mathbf{ARB}\left(n\right)\equiv_{m}\mathbf{ARB}\left(n\right)$,
+folgt somit $\mathfrak{A}\uplus\mathbf{ARB}\left(n\right)\equiv_{m}\mathfrak{B}\uplus\mathbf{ARB}\left(n\right)$,
+und es gilt, im Widerspruch zu der Annahme:
+\[
+\mathfrak{A}\models\varphi_{C}\Leftrightarrow\mathfrak{B}\models\varphi_{C}
+\]
 \end{proof}
+\begin{prop}
+\label{prop:m-equiv-closed}Seien $\sigma_{1},\sigma_{2}$ beliebige
+Signaturen, $\mathfrak{A}\equiv_{m}\mathfrak{B}$ zwei beliebige $\sigma_{1}$-Strukturen
+und $\mathfrak{A}'\equiv_{m}\mathfrak{B}'$ zwei beliebige $\sigma_{2}$-Strukturen.
+
+Dann gilt $\mathfrak{A}\uplus\mathfrak{A}'\equiv_{m}\mathfrak{B}\uplus\mathfrak{B}'$.
+\end{prop}
+Um dies zu beweisen, verwenden wir den Satz von Ehrenfeucht, nach
+dem die $m$-Äquivalenz von Strukturen gleichbedeutend ist mit der
+Existenz einer Gewinnstrategie für Duplicator im Ehrenfeucht-Fraïssé-Spiel
+mit $m$ Runden. Wir verwenden die Definition des EF-Spiels von Ebbinghaus
+und Flum (Abschnitt 2.2 von \cite{EbbinghausFlum}).
+\begin{proof}
+Es wird per $\mathfrak{A}\equiv_{m}\mathfrak{B}$ und $\mathfrak{A}'\equiv_{m}\mathfrak{B}'$
+vorausgesetzt, dass Duplicator eine Gewinnstrategie für jedes $m'\leqslant m$-Runden-Spiel
+auf $\left(\mathfrak{A},\mathfrak{B}\right)$ und auf $\left(\mathfrak{A}',\mathfrak{B}'\right)$
+hat. Im Spiel auf $\left(\mathfrak{A}\uplus\mathfrak{A}',\mathfrak{B}\uplus\mathfrak{B}'\right)$
+geht Duplicator wie folgt vor:
+\begin{itemize}
+\item Falls Spoiler einen Knoten $a_{i}\in A$ oder $b_{i}\in B$ wählt,
+so antworte mit dem Gewinnzug aus dem Spiel auf $\left(\mathfrak{A},\mathfrak{B}\right)$.
+\item Falls Spoiler $a_{i}\in A'$ oder $b_{i}\in B'$ wählt, so antworte
+mit dem Gewinnzug aus dem Spiel auf $\left(\mathfrak{A}',\mathfrak{B}'\right)$.
+\end{itemize}
+Nun betrachten wir die gespielten Tupel $\bar{a}\in\left(A\cup A'\right)^{m}$
+und $\bar{b}\in\left(B\cup B'\right)^{m}$, und die induzierten Strukturen
+$\left(\mathfrak{A}\uplus\mathfrak{A}'\right)_{\mid\bar{a}}$ und
+$\left(\mathfrak{B}\uplus\mathfrak{B}'\right)_{\mid\bar{b}}$.
+
+Wegen der Annahme induzieren $\bar{a}$ und $\bar{b}$ zwei partielle
+Isomorphismen mit $\left(\mathfrak{A}_{\mid\bar{a}},\bar{a}_{\mid A}\right)\cong\left(\mathfrak{B}_{\mid\bar{b}},\bar{b}_{\mid B}\right)$
+und $\left(\mathfrak{A}'_{\mid\bar{a}},\bar{a}_{\mid A'}\right)\cong\left(\mathfrak{B}'_{\mid\bar{b}},\bar{b}_{\mid B'}\right)$.
+Nach Satz \ref{prop:iso-closed-disjoint} ist der Isomorphismus abgeschlossen,
+so dass gilt:
+\[
+\left(\mathfrak{A}\uplus\mathfrak{A}'_{\mid\bar{a}},\bar{a}\right)\cong\left(\mathfrak{B}\uplus\mathfrak{B}'_{\mid\bar{b}},\bar{b}\right)
+\]
+Damit hat Duplicator das Spiel auf $\left(\mathfrak{A}\uplus\mathfrak{A}',\mathfrak{B}\uplus\mathfrak{B}'\right)$
+gewonnen, und es folgt $\mathfrak{A}\uplus\mathfrak{A}'\equiv_{m}\mathfrak{B}\uplus\mathfrak{B}'$.
+\end{proof}
+Die hier dargestellte Folgerung lässt sich allgemein auf jedes Paar
+von $m$-äquivalenten Strukturen erweitern, solange die Strukturen
+die gleiche Größe haben.
+\begin{cor}
+Die Logik $\mathrm{FO}+\mathbf{ARB}$ mit disjunktem Orakel kann nur
+Eigenschaften ausdrücken, die bezüglich gleich großer Strukturen Hanf-lokal
+sind.
+\end{cor}
+(Die Forderung nach gleicher Größe ist notwendig, denn offensichtlich
+ist zum Beispiel die $\mathrm{FO}+\mathbf{ARB}$-definierbare Klasse
+$\textsc{Even}$ nicht Hanf-lokal.)
+
+\pagebreak{}
+
+
+\section{Ausblick}
+
+Wir haben den Beweis im letzten Abschnitt über den Satz von Hanf formuliert,
+und somit gezeigt, dass die Logik $\mathrm{FO}+\mathbf{ARB}$ modulo
+der Struktur-Größe Hanf-lokal ist, während dies für die arb-invariante
+Logik $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$ nicht
+allgemein gilt \cite{AnMeScSe11}.
+
+Vermutlich gelten ähnliche Beziehungen auch für die symmetrischen
+Teile der übrigen Schaltkreisklassen $\mathrm{SBC}$, $\mathrm{AC}^{0}+\mathbf{MAJ}$
+und $\mathrm{SBC}+\mathbf{MAJ}$. Ein Beweis über die Hanf-Lokalität
+bietet sich hier aber vermutlich nicht an, denn insbesondere wäre
+die im letzten Abschnitt definierte Klasse in $\mathrm{FO}+\mathbf{ARB}+C$
+definierbar:
+\begin{eqnarray*}
+\varphi & \coloneqq & \exists x\left(\exists^{=x}y\exists z\,\left(Eyz\vee Ezy\right)\wedge\exists x_{\max}\left(\log_{\leqslant}\left(x,x_{\max}\right)\wedge\forall y\left(x_{\max}\leqslant y\rightarrow x_{\max}=y\right)\right)\right)\\
+\log_{\leqslant} & \coloneqq & \left\{ \left(m,n\right)\in\mathbb{N}^{2}\mid2^{m}\leqslant n\right\} 
+\end{eqnarray*}
+
+
 \bibliographystyle{plain}
 \nocite{*}
 \bibliography{master}
