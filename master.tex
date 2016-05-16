@@ -330,7 +330,9 @@ und $\max_{x\in X}f\left(x\right)\in\mathbb{R}$ die folgende Abkürzungen:
 \min_{x\in X}f\left(x\right) & \coloneqq & \min\left\{ f\left(x\right)\mid x\in X\right\} \\
 \max_{x\in X}f\left(x\right) & \coloneqq & \max\left\{ f\left(x\right)\mid x\in X\right\} 
 \end{eqnarray*}
-
+Umgekehrt bezeichnet $\min_{f}U$ ein beliebiges Element $u\in U$
+mit dem minimalen Wert $f\left(u\right)=\min_{x\in U}f\left(x\right)$,
+und $\max_{f}U$ analog.
 \end{defn}
 
 \begin{defn}
@@ -2943,13 +2945,13 @@ dieser Äquivalenzklassen erzeugt).
 In dem Ergebnis von Martin Otto in 1997\cite{Otto1997} setzt er eine
 lokale polynomielle Beschränkung der Orbits jedes Gates voraus, und
 leitet für diese Schaltkreisfamilien eine Charakterisierung durch
-das variablen-beschränkte Fragment der infinitären Logik $L_{\infty\omega}^{\omega}$
+das variablen-beschränkte Fragment der infinitären Logik ($L_{\infty\omega}^{\omega}$)
 her.
 
-Das Ergebnis von Anderson und Dawar 2014\cite{AD2014} beschränkt
-sich auf symmetrische Schaltkreisfamilien mit polynomieller Größe
-(und daher automatisch polynomiell beschränkten Orbits). Hier wird
-für jedes Gate nachgewiesen, dass sein Wert nur von $\mathcal{O}\left(1\right)$
+Das Ergebnis von Anderson und Dawar 2014\cite{AD2014} betrachtet
+symmetrische Schaltkreisfamilien mit polynomieller Größe (und daher
+automatisch polynomiell beschränkten Orbits). Hier wird für jedes
+Gate nachgewiesen, dass sein Wert nur von $\mathcal{O}\left(1\right)$
 vielen Elementen des Universums $U$ abhängt, und daraus eine Charakterisierung
 durch die Fixpunktlogik abgeleitet.
 
@@ -3321,16 +3323,16 @@ Jedes Gate $g\in G$ besitzt eine eindeutige kleinste Trägermenge.\end{cor}
 \begin{prop}
 Sei $\mathcal{P}\coloneqq\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
 die gröbste Trägerpartition des Stabilisators eines Gates $g$, und
-sei $\mathcal{P}=\left\{ P_{1},\cdots,P_{k}\right\} $ mit $\left|P_{1}\right|\leqslant\cdots\leqslant\left|P_{k}\right|$.
-Dann ist $X\coloneqq\bigcup_{i=1}^{k-1}P_{i}$ die kleinste Trägermenge
-von $g$.\end{prop}
+sei $P_{\max}=\max_{\left|\cdot\right|}\mathcal{P}$. Dann ist $X\coloneqq U\backslash P_{\max}$
+die kleinste Trägermenge von $g$.\end{prop}
 \begin{proof}
 Sei $X'$ mit $\left|X'\right|<\left|X\right|$ eine kleinere Trägermenge
 von $g$. Per Definition ist $\mathcal{P}'\coloneqq\left\{ \left\{ x\right\} \mid x\in X'\right\} \cup\left\{ U\backslash X'\right\} $
 eine Trägerpartition von $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$,
 denn $\mathrm{Stab}_{U}\left(\mathcal{P}'\right)=\mathrm{Stab}_{U}\left(X'\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)$.
 
-Per Definition ist $U\backslash X=P_{k}$ eine größte Menge in $\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$.
+Per Definition ist $U\backslash X=P_{\max}$ eine größte Menge in
+$\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$.
 Per Annahme ist $\left|X'\right|<\left|X\right|$ und daher $\left|U\backslash X'\right|>\left|U\backslash X\right|$.
 Weil aber $\mathcal{P}'\preceq\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
 ist, muss $\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
@@ -3338,9 +3340,9 @@ eine Obermenge von $U\backslash X'$ als Element enthalten, und deren
 Größe ist mindestens $\left|U\backslash X'\right|>\left|U\backslash X\right|$;
 es entsteht ein Widerspruch.\end{proof}
 \begin{defn}
-Sei $\mathrm{S}\left(g\right)$ die kleinste Trägermenge von $g$,
-und sei $\mathrm{S}\left(\mathcal{C}\right)=\max_{g\in G}\left|\mathrm{S}\left(g\right)\right|$
-die maximale Größe aller Trägermengen.
+Sei $\mathrm{sp}\left(g\right)$ die kleinste Trägermenge von $g$,
+und sei $\mathrm{sp}\left(\mathcal{C}\right)=\max_{g\in G}\left|\mathrm{sp}\left(g\right)\right|$
+die maximale Größe aller kleinsten Trägermengen.
 \end{defn}
 
 \section{Obere Schranken für die Größe von Trägern}
@@ -3361,12 +3363,12 @@ Für $\epsilon\in\mathbb{R}_{\left[\frac{2}{3},1\right]}$ und einen
 rigiden symmetrischen Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
 mit $\left|U\right|>2^{\frac{56}{\epsilon^{2}}}$, gilt: Wenn die
 maximalen Orbit-Größe mit $s\coloneqq\max_{g\in G}\mathrm{Orb}_{\mathcal{C}}\left(g\right)\leqslant2^{n^{1-\epsilon}}$
-subexponentiell ist, dann ist $\mathrm{S}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$.\end{thm}
+subexponentiell ist, dann ist $\mathrm{sp}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$.\end{thm}
 \begin{cor}
 \label{cor:korollar-23}(Korollar 23 aus \cite{AD2014})
 
 Für jede symmetrische, rigide $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
-mit $\mathrm{poly}\left(n\right)$-Größe gilt $\mathrm{SP}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$.\end{cor}
+mit $\mathrm{poly}\left(n\right)$-Größe gilt $\mathrm{sp}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$.\end{cor}
 \begin{proof}
 Die $\mathrm{poly}\left(n\right)$-Größe des Schaltkreises $\mathcal{C}_{n}=\left(G,W,\Sigma,\Omega,U\right)$
 impliziert für jedes $\epsilon<1$ und hinreichend große $n\in\mathbb{N}$
@@ -3374,7 +3376,7 @@ offensichtlich:
 \[
 s\coloneqq\max_{g\in G}\mathrm{Orb}_{\mathcal{C}}\left(g\right)\leqslant\left|\mathcal{C}_{n}\right|\leqslant n^{c}<2^{n^{1-\epsilon}}
 \]
-Damit ist $\mathrm{S}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}\leqslant\frac{33}{\epsilon}\frac{k\log n}{\log n}=\frac{33k}{\epsilon}\in\mathcal{O}\left(1\right)$. 
+Damit ist $\mathrm{sp}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}\leqslant\frac{33}{\epsilon}\frac{k\log n}{\log n}=\frac{33k}{\epsilon}\in\mathcal{O}\left(1\right)$. 
 \end{proof}
 
 \chapter{Von Schaltkreisfamilien zu Formeln}
@@ -3675,7 +3677,7 @@ $\textsc{True}$
 \end{lyxcode}
 
 \end{lyxcode}
-\caption{\label{alg:rigid}Rigider Schaltkreis in $\mathrm{LOGSPACE}$}
+\caption{\label{alg:rigid}Berechnung des rigiden Schaltkreises}
 \end{algorithm}
 
 
@@ -3701,8 +3703,6 @@ Weil jeder Aufruf $\mathtt{Equiv}\left(g\right)$ nur Aufrufe $\mathtt{Equiv}\lef
 für Vorgänger $h,h'$ von $g$ auslöst, ist $T=T\left(\mathcal{C}\right)$
 die Tiefe des Schaltkreises $\mathcal{C}$.
 \end{proof}
-\pagebreak{}
-
 
 \section{Berechnung der Orbits und Träger}
 \begin{prop}
@@ -3715,7 +3715,7 @@ Falls $\pi$ einen Automorphismus in $\mathcal{C}$ induziert, dann
 ist dieser eindeutig.\end{prop}
 \begin{proof}
 Sei $\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$ und
-$\pi\in\mathrm{Sym}_{U}$ beliebig. Seien $\hat{\pi}_{1},\hat{\pi}_{2}:\mathcal{C}\tilde{\rightarrow}\mathcal{C}$
+$\pi\in\mathrm{Sym}_{U}$ beliebig. Seien $\hat{\pi}_{1},\hat{\pi}_{2}\in\mathrm{Aut}_{\mathcal{C}}$
 zwei von $\pi$ induzierte Automorphismen.
 
 Durch Induktion über die Tiefe wird bewiesen, dass $\hat{\pi}_{1}g=\hat{\pi}_{2}g$
@@ -3738,7 +3738,7 @@ ist, dann muss gelten:
 \begin{eqnarray*}
 \Sigma\left(\hat{\pi}_{1}g\right) & = & \Sigma\left(\hat{\pi}_{2}g\right)=\Sigma\left(g\right)\\
 \mathcal{W}\left(\hat{\pi}_{1}h,\hat{\pi}_{1}g\right) & = & \mathcal{W}\left(\hat{\pi}_{2}h,\hat{\pi}_{2}g\right)=\mathcal{W}\left(h,g\right)\\
- &  & \mathrm{f.a.}\,h\in G
+ &  & \mathrm{f.a.}\,\,h\in G
 \end{eqnarray*}
 Auf Grund der Rigidität von $\mathcal{C}$ muss $\hat{\pi}_{1}g=\hat{\pi}_{2}g$
 gelten.
@@ -3785,9 +3785,11 @@ Der Algorithmus \ref{alg:aut} berechnet den Automorphismus $\hat{\pi}$,
 in dem für jedes Paar von Gates $g,g'$ rekursiv geprüft wird, ob
 $\hat{\pi}g=\hat{\pi}g'$.
 
-Da jede Funktion nur konstant viele lokale Variablen der Größe $\mathcal{O}\left(\log n\right)$
+Da jede Funktion nur konstant viele lokale Variablen der Größe $\mathcal{O}\left(\log\left|G\right|\right)$
 verwendet, ist der Speicherplatz durch die Funktion $T\cdot\mathcal{O}\left(\log n\right)$
-beschränkt.
+beschränkt, wobei $T$ die Rekursionstiefe ist. Weil $\mathtt{Aut}\left(g,g'\right)$
+nur $\mathtt{Aut}\left(h,h'\right)$ für Vorgänger $h$ von $g$ und
+$h'$ von $g'$ aufruft, ist $T\leqslant T\left(\mathcal{C}\right)$.
 
 \begin{algorithm}
 \begin{lyxcode}
@@ -3807,7 +3809,7 @@ Aut($g,g'$):
 \begin{lyxcode}
 Falls~$\Sigma\left(g\right)\neq\Sigma\left(g'\right)\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} $:~$\textsc{False}$
 
-Falls~$\Sigma\left(g\right)=R\bar{t}$,~$\Sigma\left(g'\right)\neq R\pi\bar{t}$:~False
+Falls~$\Sigma\left(g\right)=R\bar{t}$,~$\Sigma\left(g'\right)\neq R\pi\bar{t}$:~$\textsc{False}$
 
 Für~$\bar{t}\in U^{k}$:
 \begin{lyxcode}
@@ -3823,7 +3825,7 @@ $\textsc{False}$
 $\textsc{True}$
 \end{lyxcode}
 \end{lyxcode}
-\caption{\label{alg:aut}Automorphismus in $\mathrm{LOGSPACE}$}
+\caption{\label{alg:aut}Berechnung der Automorphismen}
 \end{algorithm}
 \end{proof}
 \begin{lem}
@@ -3833,7 +3835,8 @@ Es existiert ein deterministischer Algorithmus, der bei Eingabe eines
 rigiden $\left(\sigma,\mathbb{B}\right)$-Multischaltkreises $\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$
 in $\mathrm{poly}\left(\left|\mathcal{C}\right|\right)$ entscheidet,
 ob dieser symmetrisch ist, und gegebenenfalls die Orbits $\mathrm{Orb}_{\mathcal{C}}\left(g\right)$
-und Träger $\mathrm{SP}\left(g\right)$ jedes Gates $g\in G$ ausgibt.\end{lem}
+und Trägermenge $\mathrm{sp}\left(g\right)$ jedes Gates $g\in G$
+ausgibt.\end{lem}
 \begin{proof}
 Um die Symmetrie nachzuweisen, genügt es, den Algorithmus aus Lemma
 \ref{lem:algo-auto} für jede Transposition $\left(uv\right)\in\mathrm{Sym}_{U}$
@@ -3846,7 +3849,7 @@ ein von $\pi$ induzierter Automorphismus.
 Automorphismus $\hat{\pi}_{\left(uv\right)}$ für jedes Paar $u,v\in U$
 mit $u\neq v$. Wenn nicht alle Automorphismen existieren, ist der
 Schaltkreis nicht symmetrisch; es wird abgebrochen.
-\item Für jedes Gate $g\in G$ wird der Träger $\mathrm{SP}\left(g\right)$
+\item Für jedes Gate $g\in G$ wird die Trägerpartition $\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
 aufgebaut, in dem für jede Transposition $\left(uv\right)\in\mathrm{Sym}_{U}$
 geprüft wird, ob $\hat{\pi}_{\left(uv\right)}$ das Gate $g$ fixiert.
 In diesem Fall werden die Elemente $u,v$ in der Partition kombiniert:
@@ -3867,13 +3870,16 @@ S_{i+1}\coloneqq S_{i}\cup\bigcup_{\left(uv\right)\in\mathrm{Sym}_{U}}\hat{\pi}_
 
 \end{enumerate}
 Nach den Definitionen aus Kapitel 7 ist jede Partition $\mathcal{P}_{\left(uv\right)}$
-Träger von $g$, wenn $\hat{\pi}_{\left(uv\right)}g=g$, und daher
-ist $\mathcal{P}_{g}$ ebenfalls ein Träger von $g$. Wenn es einen
-gröberen Träger $\mathcal{P}'$ gäbe, dann müsste dieser zwei Elemente
-$u,v\in U$ kombinieren, die in $\mathcal{P}_{g}$ getrennt sind,
-und für die $\hat{\pi}_{\left(uv\right)}g=g$ gilt. In diesem Fall
-ist aber die Partition $\mathcal{P}_{\left(uv\right)}$ mit in $\mathcal{P}_{g}$
-aufgenommen worden, und es gilt $\mathcal{P}_{\left(uv\right)}\preceq\mathcal{P}_{g}=\mathrm{SP}\left(g\right)$.
+eine Trägerpartition von $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$,
+wenn $\hat{\pi}_{\left(uv\right)}g=g$, und daher ist $\mathcal{P}_{g}$
+ebenfalls eine Trägerpartition von $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$.
+Wenn es eine gröbere Trägerpartition $\mathcal{P}'$ gäbe, dann müsste
+diese zwei Elemente $u,v\in U$ kombinieren, die in $\mathcal{P}_{g}$
+getrennt sind, und für die $\hat{\pi}_{\left(uv\right)}g=g$ gilt.
+In diesem Fall wäre aber die Partition $\mathcal{P}_{\left(uv\right)}$
+mit in $\mathcal{P}_{g}$ aufgenommen worden, und daher ist $\mathcal{P}_{g}=\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$.
+Es wird $\mathrm{sp}\left(g\right)=U\backslash\max_{\left|\cdot\right|}\mathcal{P}_{g}$
+ausgegeben.
 
 Für die Mengen $\left(S_{i}\right)_{i\in\mathbb{N}}$ gilt $S_{i}\subseteq\mathrm{Orb}_{\mathcal{C}}\left(g\right)$,
 denn per Induktion existiert für jedes Gate $g'\in S_{i}$ eine Folge
@@ -3886,13 +3892,78 @@ den gesamten Orbit von $g$ enthält.
 Es existieren weniger als $\left|U\right|^{2}$ Transpositionen, so
 dass der Schritt 1 in $\left|G\right|^{3}\left|U\right|^{2}$-Zeit
 abgeschlossen wird. Ebenso wird Schritt 2 in $\left|U\right|^{3}$-Zeit
-abgeschlossen (die Operation $\mathcal{P}\sqcup\mathcal{P}'$ für
-Partitionen ist durch eine Union-Find-Datenstruktur effektiv in $\left|U\right|$-Zeit
-berechenbar). Schritt 3 erfordert eine Iteration bis $S_{\left|U\right|}$,
+abgeschlossen. Schritt 3 erfordert eine Iteration bis $S_{\left|U\right|}$,
 wobei jeder Durchlauf $\left|U\right|^{2}$-Zeit benötigt. Insgesamt
-läuft der Algorithmus in $\left|G\right|^{3}\left|U\right|^{3}$-Zeit.
+läuft der Algorithmus in $\left|G\right|^{3}\left|U\right|^{3}$-Zeit.\end{proof}
+\begin{prop}
+Die obige Konstruktion ist mit $\mathcal{O}\left(T\left(\mathcal{C}\right)\log n\right)$
+Speicherplatz berechenbar, und daher für Schaltkreisfamilien konstanter
+Tiefe in $\mathrm{LOGSPACE}$.\end{prop}
+\begin{proof}
+Der entscheidende Teil ist die Bestimmung der größten Menge $P_{i}\subseteq\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$,
+denn offensichtlich können wir mit logarithmischem Platz nicht die
+Partition $\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+(und noch nicht einmal $P_{i}$) abspeichern. Es reicht uns aber,
+wenn der Algorithmus \ref{alg:orbits} für jedes Element $u\in U$
+die Elemente $u\sim u'$ zählt, und sich das Element $u$ mit der
+größten Äquivalenzklasse merkt. Dann findet er alle Elemente mit $u'\not\sim u$
+(per Korollar \ref{cor:korollar-23} gibt es davon nur $\mathcal{O}\left(1\right)$
+viele), und bildet daraus die Trägermenge $\mathrm{sp}\left(g\right)$.
+
+Der Orbit hat die Größe $n^{\left|\mathrm{sp}\left(g\right)\right|}$,
+aber diesen muss der Algorithmus nicht abspeichern, sondern nur iterativ
+ausgeben.
 \end{proof}
-\pagebreak{}
+\begin{algorithm}
+\begin{lyxcode}
+Input:~$\left(G,W,\Sigma,\Omega,U\right)$
+
+Trägermenge($g$):
+\begin{lyxcode}
+$\bar{s}\leftarrow\left\langle \right\rangle $,~$j\leftarrow0$
+
+Für~alle~$u\in U$:
+\begin{lyxcode}
+$i\leftarrow0$
+
+Für~alle~$v\in U$:
+\begin{lyxcode}
+Falls~$\hat{\pi}_{\left(uv\right)}\left(g\right)=g$:~(mit~Algorithmus~\ref{alg:aut})
+\begin{lyxcode}
+$i\leftarrow i+1$
+\end{lyxcode}
+\end{lyxcode}
+Falls~$i>j$:
+\begin{lyxcode}
+$u'\leftarrow u$,~$j\leftarrow i$
+\end{lyxcode}
+\end{lyxcode}
+Für~alle~$v\in U$:
+\begin{lyxcode}
+Falls~$\hat{\pi}_{\left(u'v\right)}\left(g\right)\neq g$:
+\begin{lyxcode}
+$\bar{s}\leftarrow\bar{s}v$
+\end{lyxcode}
+\end{lyxcode}
+Gib~$\bar{s}$~zurück.
+\end{lyxcode}
+Orbit($g$):
+\begin{lyxcode}
+$\bar{s}\leftarrow\mathtt{Tr\ddot{a}germenge}\left(g\right)$
+\begin{lyxcode}
+Für~$\bar{t}\in U^{\mathrm{ar}\left(\bar{s}\right)}$:
+\begin{lyxcode}
+Gib~$\hat{\pi}_{\left(\bar{s}\mapsto\bar{t}\right)}\left(g\right)$~aus.
+\end{lyxcode}
+\end{lyxcode}
+\end{lyxcode}
+\end{lyxcode}
+\caption{\label{alg:orbits}Berechnung der Trägermengen $\mathrm{sp}\left(g\right)$
+und Orbits $\mathrm{Orb}_{\mathcal{C}}\left(g\right)$}
+
+
+\end{algorithm}
+
 
 
 \section{Rekursive Auswertung der Schaltkreise}
@@ -3903,18 +3974,10 @@ $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ gilt nach Korollar
 Seien also $n_{0},c\in\mathbb{N}$ so gewählt, dass $\mathrm{SP}\left(\mathcal{C}_{n}\right)\leqslant c$
 für $n\geqslant n_{0}$.
 
-Zur Erinnerung: $\mathrm{SP}\left(\mathcal{C}\right)$ misst die maximale
-Größe der Vereinigung aller nicht-größten Teile $U\backslash P_{m}$
-des gröbsten Trägers $\mathrm{SP}\left(g\right)=\left\{ P_{1},\cdots,P_{m}\right\} $,
+Zur Erinnerung: $\mathrm{sp}\left(\mathcal{C}\right)$ ist die maximale
+Größe der Trägermenge $\mathrm{sp}\left(g\right)=\left\{ P_{1},\cdots,P_{m}\right\} $,
 $\left|P_{1}\right|\leqslant\cdots\leqslant\left|P_{m}\right|$ jedes
 Gates $g$ von $\mathcal{C}$.
-
-Per Definition ist $\mathcal{P}_{U\backslash P_{m}}=\left\{ \left\{ u\right\} \mid u\in U\backslash P_{m}\right\} \cup\left\{ P_{m}\right\} \preceq\mathrm{SP}\left(g\right)$
-ein Träger von $g$, und $\left|\mathcal{P}_{U\backslash P_{m}}\right|\coloneqq1+\left|U\backslash P_{m}\right|\leqslant1+c$.
-
-Es sei $\mathrm{sp}\left(g\right)\coloneqq U\backslash P_{m}$ die
-Menge der in $\mathcal{P}_{U\backslash P_{m}}$ getrennten Elemente;
-diese Menge nennen wir den \textbf{kanonischen Träger} des Gates $g$.
 
 Wir möchten $\mathcal{C}_{n}$ auf beliebigen Strukturen $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 (nicht nur $\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$)

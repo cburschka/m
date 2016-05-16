@@ -972,7 +972,23 @@ Für
 
 \end_inset
 
+Umgekehrt bezeichnet 
+\begin_inset Formula $\min_{f}U$
+\end_inset
 
+ ein beliebiges Element 
+\begin_inset Formula $u\in U$
+\end_inset
+
+ mit dem minimalen Wert 
+\begin_inset Formula $f\left(u\right)=\min_{x\in U}f\left(x\right)$
+\end_inset
+
+, und 
+\begin_inset Formula $\max_{f}U$
+\end_inset
+
+ analog.
 \end_layout
 
 \begin_layout --Separator--
@@ -11432,11 +11448,11 @@ key "Otto1997"
 
  setzt er eine lokale polynomielle Beschränkung der Orbits jedes Gates voraus,
  und leitet für diese Schaltkreisfamilien eine Charakterisierung durch das
- variablen-beschränkte Fragment der infinitären Logik 
+ variablen-beschränkte Fragment der infinitären Logik (
 \begin_inset Formula $L_{\infty\omega}^{\omega}$
 \end_inset
 
- her.
+) her.
 \end_layout
 
 \begin_layout Standard
@@ -11447,8 +11463,8 @@ key "AD2014"
 
 \end_inset
 
- beschränkt sich auf symmetrische Schaltkreisfamilien mit polynomieller
- Größe (und daher automatisch polynomiell beschränkten Orbits).
+ betrachtet symmetrische Schaltkreisfamilien mit polynomieller Größe (und
+ daher automatisch polynomiell beschränkten Orbits).
  Hier wird für jedes Gate nachgewiesen, dass sein Wert nur von 
 \begin_inset Formula $\mathcal{O}\left(1\right)$
 \end_inset
@@ -12944,16 +12960,12 @@ Sei
 \end_inset
 
 , und sei 
-\begin_inset Formula $\mathcal{P}=\left\{ P_{1},\cdots,P_{k}\right\} $
-\end_inset
-
- mit 
-\begin_inset Formula $\left|P_{1}\right|\leqslant\cdots\leqslant\left|P_{k}\right|$
+\begin_inset Formula $P_{\max}=\max_{\left|\cdot\right|}\mathcal{P}$
 \end_inset
 
 .
  Dann ist 
-\begin_inset Formula $X\coloneqq\bigcup_{i=1}^{k-1}P_{i}$
+\begin_inset Formula $X\coloneqq U\backslash P_{\max}$
 \end_inset
 
  die kleinste Trägermenge von 
@@ -12994,7 +13006,7 @@ Sei
 
 \begin_layout Proof
 Per Definition ist 
-\begin_inset Formula $U\backslash X=P_{k}$
+\begin_inset Formula $U\backslash X=P_{\max}$
 \end_inset
 
  eine größte Menge in 
@@ -13032,7 +13044,7 @@ Per Definition ist
 
 \begin_layout Definition
 Sei 
-\begin_inset Formula $\mathrm{S}\left(g\right)$
+\begin_inset Formula $\mathrm{sp}\left(g\right)$
 \end_inset
 
  die kleinste Trägermenge von 
@@ -13040,10 +13052,10 @@ Sei
 \end_inset
 
 , und sei 
-\begin_inset Formula $\mathrm{S}\left(\mathcal{C}\right)=\max_{g\in G}\left|\mathrm{S}\left(g\right)\right|$
+\begin_inset Formula $\mathrm{sp}\left(\mathcal{C}\right)=\max_{g\in G}\left|\mathrm{sp}\left(g\right)\right|$
 \end_inset
 
- die maximale Größe aller Trägermengen.
+ die maximale Größe aller kleinsten Trägermengen.
 \end_layout
 
 \begin_layout Section
@@ -13112,7 +13124,7 @@ Für
 \end_inset
 
  subexponentiell ist, dann ist 
-\begin_inset Formula $\mathrm{S}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$
+\begin_inset Formula $\mathrm{sp}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$
 \end_inset
 
 .
@@ -13145,7 +13157,7 @@ Für jede symmetrische, rigide
 \end_inset
 
 -Größe gilt 
-\begin_inset Formula $\mathrm{SP}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$
+\begin_inset Formula $\mathrm{sp}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$
 \end_inset
 
 .
@@ -13177,7 +13189,7 @@ s\coloneqq\max_{g\in G}\mathrm{Orb}_{\mathcal{C}}\left(g\right)\leqslant\left|\m
 \end_inset
 
 Damit ist 
-\begin_inset Formula $\mathrm{S}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}\leqslant\frac{33}{\epsilon}\frac{k\log n}{\log n}=\frac{33k}{\epsilon}\in\mathcal{O}\left(1\right)$
+\begin_inset Formula $\mathrm{sp}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}\leqslant\frac{33}{\epsilon}\frac{k\log n}{\log n}=\frac{33k}{\epsilon}\in\mathcal{O}\left(1\right)$
 \end_inset
 
 .
@@ -14327,11 +14339,7 @@ name "alg:rigid"
 
 \end_inset
 
-Rigider Schaltkreis in 
-\begin_inset Formula $\mathrm{LOGSPACE}$
-\end_inset
-
-
+Berechnung des rigiden Schaltkreises
 \end_layout
 
 \end_inset
@@ -14476,13 +14484,6 @@ Da die Funktionen
 .
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Berechnung der Orbits und Träger
 \end_layout
@@ -14548,7 +14549,7 @@ Sei
 
  beliebig.
  Seien 
-\begin_inset Formula $\hat{\pi}_{1},\hat{\pi}_{2}:\mathcal{C}\tilde{\rightarrow}\mathcal{C}$
+\begin_inset Formula $\hat{\pi}_{1},\hat{\pi}_{2}\in\mathrm{Aut}_{\mathcal{C}}$
 \end_inset
 
  zwei von 
@@ -14645,7 +14646,7 @@ Schritt: Wenn
 \begin{eqnarray*}
 \Sigma\left(\hat{\pi}_{1}g\right) & = & \Sigma\left(\hat{\pi}_{2}g\right)=\Sigma\left(g\right)\\
 \mathcal{W}\left(\hat{\pi}_{1}h,\hat{\pi}_{1}g\right) & = & \mathcal{W}\left(\hat{\pi}_{2}h,\hat{\pi}_{2}g\right)=\mathcal{W}\left(h,g\right)\\
- &  & \mathrm{f.a.}\,h\in G
+ &  & \mathrm{f.a.}\,\,h\in G
 \end{eqnarray*}
 
 \end_inset
@@ -14880,14 +14881,47 @@ reference "alg:aut"
 
 \begin_layout Proof
 Da jede Funktion nur konstant viele lokale Variablen der Größe 
-\begin_inset Formula $\mathcal{O}\left(\log n\right)$
+\begin_inset Formula $\mathcal{O}\left(\log\left|G\right|\right)$
 \end_inset
 
  verwendet, ist der Speicherplatz durch die Funktion 
 \begin_inset Formula $T\cdot\mathcal{O}\left(\log n\right)$
 \end_inset
 
- beschränkt.
+ beschränkt, wobei 
+\begin_inset Formula $T$
+\end_inset
+
+ die Rekursionstiefe ist.
+ Weil 
+\begin_inset Formula $\mathtt{Aut}\left(g,g'\right)$
+\end_inset
+
+ nur 
+\begin_inset Formula $\mathtt{Aut}\left(h,h'\right)$
+\end_inset
+
+ für Vorgänger 
+\begin_inset Formula $h$
+\end_inset
+
+ von 
+\begin_inset Formula $g$
+\end_inset
+
+ und 
+\begin_inset Formula $h'$
+\end_inset
+
+ von 
+\begin_inset Formula $g'$
+\end_inset
+
+ aufruft, ist 
+\begin_inset Formula $T\leqslant T\left(\mathcal{C}\right)$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Proof
@@ -14976,7 +15010,11 @@ Falls
 \begin_inset Formula $\Sigma\left(g'\right)\neq R\pi\bar{t}$
 \end_inset
 
-: False
+: 
+\begin_inset Formula $\textsc{False}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout LyX-Code
@@ -15062,11 +15100,7 @@ name "alg:aut"
 
 \end_inset
 
-Automorphismus in 
-\begin_inset Formula $\mathrm{LOGSPACE}$
-\end_inset
-
-
+Berechnung der Automorphismen
 \end_layout
 
 \end_inset
@@ -15108,8 +15142,8 @@ Es existiert ein deterministischer Algorithmus, der bei Eingabe eines rigiden
 \begin_inset Formula $\mathrm{Orb}_{\mathcal{C}}\left(g\right)$
 \end_inset
 
- und Träger 
-\begin_inset Formula $\mathrm{SP}\left(g\right)$
+ und Trägermenge 
+\begin_inset Formula $\mathrm{sp}\left(g\right)$
 \end_inset
 
  jedes Gates 
@@ -15179,8 +15213,8 @@ Für jedes Gate
 \begin_inset Formula $g\in G$
 \end_inset
 
- wird der Träger 
-\begin_inset Formula $\mathrm{SP}\left(g\right)$
+ wird die Trägerpartition 
+\begin_inset Formula $\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
 \end_inset
 
  aufgebaut, in dem für jede Transposition 
@@ -15254,8 +15288,8 @@ Nach den Definitionen aus Kapitel 7 ist jede Partition
 \begin_inset Formula $\mathcal{P}_{\left(uv\right)}$
 \end_inset
 
- Träger von 
-\begin_inset Formula $g$
+ eine Trägerpartition von 
+\begin_inset Formula $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
 \end_inset
 
 , wenn 
@@ -15266,16 +15300,16 @@ Nach den Definitionen aus Kapitel 7 ist jede Partition
 \begin_inset Formula $\mathcal{P}_{g}$
 \end_inset
 
- ebenfalls ein Träger von 
-\begin_inset Formula $g$
+ ebenfalls eine Trägerpartition von 
+\begin_inset Formula $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
 \end_inset
 
 .
- Wenn es einen gröberen Träger 
+ Wenn es eine gröbere Trägerpartition 
 \begin_inset Formula $\mathcal{P}'$
 \end_inset
 
- gäbe, dann müsste dieser zwei Elemente 
+ gäbe, dann müsste diese zwei Elemente 
 \begin_inset Formula $u,v\in U$
 \end_inset
 
@@ -15288,7 +15322,7 @@ Nach den Definitionen aus Kapitel 7 ist jede Partition
 \end_inset
 
  gilt.
- In diesem Fall ist aber die Partition 
+ In diesem Fall wäre aber die Partition 
 \begin_inset Formula $\mathcal{P}_{\left(uv\right)}$
 \end_inset
 
@@ -15296,11 +15330,16 @@ Nach den Definitionen aus Kapitel 7 ist jede Partition
 \begin_inset Formula $\mathcal{P}_{g}$
 \end_inset
 
- aufgenommen worden, und es gilt 
-\begin_inset Formula $\mathcal{P}_{\left(uv\right)}\preceq\mathcal{P}_{g}=\mathrm{SP}\left(g\right)$
+ aufgenommen worden, und daher ist 
+\begin_inset Formula $\mathcal{P}_{g}=\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
 \end_inset
 
 .
+ Es wird 
+\begin_inset Formula $\mathrm{sp}\left(g\right)=U\backslash\max_{\left|\cdot\right|}\mathcal{P}_{g}$
+\end_inset
+
+ ausgegeben.
 \end_layout
 
 \begin_layout Proof
@@ -15370,15 +15409,7 @@ Es existieren weniger als
 \begin_inset Formula $\left|U\right|^{3}$
 \end_inset
 
--Zeit abgeschlossen (die Operation 
-\begin_inset Formula $\mathcal{P}\sqcup\mathcal{P}'$
-\end_inset
-
- für Partitionen ist durch eine Union-Find-Datenstruktur effektiv in 
-\begin_inset Formula $\left|U\right|$
-\end_inset
-
--Zeit berechenbar).
+-Zeit abgeschlossen.
  Schritt 3 erfordert eine Iteration bis 
 \begin_inset Formula $S_{\left|U\right|}$
 \end_inset
@@ -15395,8 +15426,294 @@ Es existieren weniger als
 -Zeit.
 \end_layout
 
+\begin_layout Proposition
+Die obige Konstruktion ist mit 
+\begin_inset Formula $\mathcal{O}\left(T\left(\mathcal{C}\right)\log n\right)$
+\end_inset
+
+ Speicherplatz berechenbar, und daher für Schaltkreisfamilien konstanter
+ Tiefe in 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Der entscheidende Teil ist die Bestimmung der größten Menge 
+\begin_inset Formula $P_{i}\subseteq\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+\end_inset
+
+, denn offensichtlich können wir mit logarithmischem Platz nicht die Partition
+ 
+\begin_inset Formula $\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+\end_inset
+
+ (und noch nicht einmal 
+\begin_inset Formula $P_{i}$
+\end_inset
+
+) abspeichern.
+ Es reicht uns aber, wenn der Algorithmus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:orbits"
+
+\end_inset
+
+ für jedes Element 
+\begin_inset Formula $u\in U$
+\end_inset
+
+ die Elemente 
+\begin_inset Formula $u\sim u'$
+\end_inset
+
+ zählt, und sich das Element 
+\begin_inset Formula $u$
+\end_inset
+
+ mit der größten Äquivalenzklasse merkt.
+ Dann findet er alle Elemente mit 
+\begin_inset Formula $u'\not\sim u$
+\end_inset
+
+ (per Korollar 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:korollar-23"
+
+\end_inset
+
+ gibt es davon nur 
+\begin_inset Formula $\mathcal{O}\left(1\right)$
+\end_inset
+
+ viele), und bildet daraus die Trägermenge 
+\begin_inset Formula $\mathrm{sp}\left(g\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Der Orbit hat die Größe 
+\begin_inset Formula $n^{\left|\mathrm{sp}\left(g\right)\right|}$
+\end_inset
+
+, aber diesen muss der Algorithmus nicht abspeichern, sondern nur iterativ
+ ausgeben.
+\end_layout
+
 \begin_layout Standard
-\begin_inset Newpage pagebreak
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout LyX-Code
+Input: 
+\begin_inset Formula $\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+Trägermenge(
+\begin_inset Formula $g$
+\end_inset
+
+):
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+\begin_inset Formula $\bar{s}\leftarrow\left\langle \right\rangle $
+\end_inset
+
+, 
+\begin_inset Formula $j\leftarrow0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+Für alle 
+\begin_inset Formula $u\in U$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+\begin_inset Formula $i\leftarrow0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+Für alle 
+\begin_inset Formula $v\in U$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Falls 
+\begin_inset Formula $\hat{\pi}_{\left(uv\right)}\left(g\right)=g$
+\end_inset
+
+: (mit Algorithmus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:aut"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+\begin_inset Formula $i\leftarrow i+1$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout LyX-Code
+Falls 
+\begin_inset Formula $i>j$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+\begin_inset Formula $u'\leftarrow u$
+\end_inset
+
+, 
+\begin_inset Formula $j\leftarrow i$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout LyX-Code
+Für alle 
+\begin_inset Formula $v\in U$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Falls 
+\begin_inset Formula $\hat{\pi}_{\left(u'v\right)}\left(g\right)\neq g$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+\begin_inset Formula $\bar{s}\leftarrow\bar{s}v$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout LyX-Code
+Gib 
+\begin_inset Formula $\bar{s}$
+\end_inset
+
+ zurück.
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+Orbit(
+\begin_inset Formula $g$
+\end_inset
+
+):
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+\begin_inset Formula $\bar{s}\leftarrow\mathtt{Trägermenge}\left(g\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Für 
+\begin_inset Formula $\bar{t}\in U^{\mathrm{ar}\left(\bar{s}\right)}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Gib 
+\begin_inset Formula $\hat{\pi}_{\left(\bar{s}\mapsto\bar{t}\right)}\left(g\right)$
+\end_inset
+
+ aus.
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:orbits"
+
+\end_inset
+
+Berechnung der Trägermengen 
+\begin_inset Formula $\mathrm{sp}\left(g\right)$
+\end_inset
+
+ und Orbits 
+\begin_inset Formula $\mathrm{Orb}_{\mathcal{C}}\left(g\right)$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
 \end_inset
 
 
@@ -15448,15 +15765,11 @@ reference "cor:korollar-23"
 
 \begin_layout Standard
 Zur Erinnerung: 
-\begin_inset Formula $\mathrm{SP}\left(\mathcal{C}\right)$
+\begin_inset Formula $\mathrm{sp}\left(\mathcal{C}\right)$
 \end_inset
 
- misst die maximale Größe der Vereinigung aller nicht-größten Teile 
-\begin_inset Formula $U\backslash P_{m}$
-\end_inset
-
- des gröbsten Trägers 
-\begin_inset Formula $\mathrm{SP}\left(g\right)=\left\{ P_{1},\cdots,P_{m}\right\} $
+ ist die maximale Größe der Trägermenge 
+\begin_inset Formula $\mathrm{sp}\left(g\right)=\left\{ P_{1},\cdots,P_{m}\right\} $
 \end_inset
 
 , 
@@ -15469,42 +15782,6 @@ Zur Erinnerung:
 
  von 
 \begin_inset Formula $\mathcal{C}$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Per Definition ist 
-\begin_inset Formula $\mathcal{P}_{U\backslash P_{m}}=\left\{ \left\{ u\right\} \mid u\in U\backslash P_{m}\right\} \cup\left\{ P_{m}\right\} \preceq\mathrm{SP}\left(g\right)$
-\end_inset
-
- ein Träger von 
-\begin_inset Formula $g$
-\end_inset
-
-, und 
-\begin_inset Formula $\left|\mathcal{P}_{U\backslash P_{m}}\right|\coloneqq1+\left|U\backslash P_{m}\right|\leqslant1+c$
-\end_inset
-
-.
-\end_layout
-
-\begin_layout Standard
-Es sei 
-\begin_inset Formula $\mathrm{sp}\left(g\right)\coloneqq U\backslash P_{m}$
-\end_inset
-
- die Menge der in 
-\begin_inset Formula $\mathcal{P}_{U\backslash P_{m}}$
-\end_inset
-
- getrennten Elemente; diese Menge nennen wir den 
-\series bold
-kanonischen Träger
-\series default
- des Gates 
-\begin_inset Formula $g$
 \end_inset
 
 .
