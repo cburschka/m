@@ -708,7 +708,10 @@ ein Wahrheitswert.\end{defn}
 Wir verwenden den Begriff ,,Ausdruck`` als Oberbegriff der Formeln
 und Terme einer Logik, und bezeichnen Ausdrücke mit dem Buchstaben
 $\omega$. Terme werden mit kleinen Buchstaben benannt, und Formeln
-mit den Buchstaben $\varphi$, $\psi$ oder $\chi$.\end{notation}
+mit den Buchstaben $\varphi$, $\psi$ oder $\chi$. Für einstellige
+Signaturen wie $\left\{ E\right\} $ oder $\left\{ \leqslant\right\} $
+kürzen wir $\mathcal{L}\left[\left\{ R\right\} \right]$ durch $\mathcal{L}\left[R\right]$
+ab.\end{notation}
 \begin{defn}
 Für eine Formel $\varphi$ und ein Tupel $\bar{x}\in\mathbf{var}^{k}$
 mit $\mathrm{frei}\left(\varphi\right)=\left\{ x_{1},\cdots,x_{k}\right\} $
@@ -1039,9 +1042,9 @@ und Größe $\left|\mathrm{var}\left(\varphi\right)\right|$) in eine
 parameterfreie $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi'$
 übersetzt werden.\cite{Zaid,Grohe2005,Dziembowski96bounded-variablefixpoint}\end{prop}
 \begin{example}
-Die folgende $\mathrm{LFP}\left[\left\{ E\right\} \right]$-Formel
-$\varphi\left(u,v\right)$ ist erfüllt, wenn $u$ und $v$ durch einen
-Weg beliebiger Länge verbunden sind: 
+Die folgende $\mathrm{LFP}\left[E\right]$-Formel $\varphi\left(u,v\right)$
+ist erfüllt, wenn $u$ und $v$ durch einen Weg beliebiger Länge verbunden
+sind: 
 \[
 \varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{T,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge T\left(z,y\right)\right)\vee x\dot{=}y\right)\right]\left(u,v\right)
 \]
@@ -1413,8 +1416,8 @@ $\mathcal{L}\oplus\Upsilon+\exists^{=}$ und $\mathcal{L}\oplus\Upsilon+\exists^{
 haben dieses Problem nicht.
 
 Nach dem Satz von Trakhtenbrot ist die endlichen Erfüllbarkeit von
-$\mathrm{FO}\left[\left\{ \leqslant\right\} \right]$ unentscheidbar,
-und daher auch die Invarianz und die Sprache $\mbox{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)\left[\sigma\right]$
+$\mathrm{FO}\left[\leqslant\right]$ unentscheidbar, und daher auch
+die Invarianz und die Sprache $\mbox{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)\left[\sigma\right]$
 in $\mathrm{FO}\oplus\mathbf{ARB}\left[\sigma\right]$.\cite{EbbinghausFlumThomas,Libkin2012,Schweikardt13ashort} 
 
 
@@ -4817,7 +4820,7 @@ ist, aber nicht in $\mathrm{FO}+\mathbf{ARB}$ beschreibbar ist.\end{lem}
 \begin{proof}
 Sei $C\subseteq\mathbf{FIN}\left(E\right)$ die Klasse der Graphen
 $\mathfrak{A}=\left(A,E^{\mathfrak{A}}\right)$ für die gilt: $A$
-enthält höchstens $\left\lceil \mathrm{log}\left|A\right|\right\rceil $
+enthält weniger als $\left\lceil \mathrm{log}\left|A\right|\right\rceil $
 viele nicht-isolierte Knoten.
 
 Diese Anfrage ist durch einen $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)\left[E\right]$-Satz
@@ -4832,12 +4835,12 @@ die folgenden Graphen $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}^{\left(2^{m^{m}}
 (siehe Abbildung \ref{fig:m-equiv}):
 \begin{eqnarray*}
 A,B & \coloneqq & \left[1,2^{m^{m}}\right]\\
-E^{\mathfrak{A}} & \coloneqq & \left\{ \left(i,i+1\right)\mid i\in\left[1,m^{m}-1\right]\right\} \cup\left\{ \left(m^{m},1\right)\right\} \\
-E^{\mathfrak{B}} & \coloneqq & \left\{ \left(i,i+1\right)\mid i\in\left[1,m^{m}\right]\right\} \cup\left\{ \left(m^{m}+1,1\right)\right\} 
+E^{\mathfrak{A}} & \coloneqq & \left\{ \left(i,i+1\right)\mid i\in\left[1,m^{m}-2\right]\right\} \cup\left\{ \left(m^{m}-1,1\right)\right\} \\
+E^{\mathfrak{B}} & \coloneqq & \left\{ \left(i,i+1\right)\mid i\in\left[1,m^{m}-1\right]\right\} \cup\left\{ \left(m^{m},1\right)\right\} 
 \end{eqnarray*}
 Beide Strukturen bestehen aus $2^{m^{m}}$ Knoten, $\mathfrak{A}$
-enthält einen Kreis der Länge $m^{m}$, und $\mathfrak{B}$ einen
-Kreis der Länge $m^{m}+1$. Damit gilt:
+enthält einen Kreis der Länge $m^{m}-2$, und $\mathfrak{B}$ einen
+Kreis der Länge $m^{m}$. Damit gilt:
 \[
 \mathfrak{A}\in C,\,\mathfrak{B}\notin C
 \]
@@ -4847,7 +4850,7 @@ Kreis der Länge $m^{m}+1$. Damit gilt:
 Offensichtlich besteht die $3^{m}$-Nachbarschaft jedes Knotens im
 Kreis aus einer $3^{m}+1$ langen Kette, und die übrigen Knoten sind
 isoliert. Damit sind alle $3^{m}$-Nachbarschaften kleiner als $e\coloneqq3^{m}+2$.
-Ferner hat jeder Knoten im Kreis mindestens $m^{m}\geqslant m\cdot3^{m+7}>m\cdot e$
+Ferner hat jeder Knoten im Kreis mindestens $m^{m}-1\geqslant m\cdot3^{m+7}-1>m\cdot e$
 viele $3^{m}$-ähnliche Knoten in jedem Graphen, und jeder isolierte
 Knoten ohnehin $2^{m^{m}}-m^{m}>m^{m}$ viele $3^{m}$-ähnliche Knoten.
 Somit sind die Graphen $\mathfrak{A}$ und $\mathfrak{B}$ nach dem
@@ -4863,12 +4866,12 @@ Satz von Hanf $m$-äquivalent.
     {
         (\x:1.5) node[g] {} edge[dotted] (\x+18:1.5)
     };
-	\node (0:0) {$m^m$};
+	\node (0:0) {$m^{m-1}$};
 	\begin{scope}[shift={(0,-4)},xscale=2]
 		\draw [dotted] (0,0) ellipse (2 and 2);
 		\draw plot [only marks, mark=*, mark size=0.1, domain=0:5, samples=75] ({rnd*360}:{1+rnd});
 	\end{scope}
-	\node at (0,-4) {$2^{m^m}-m^m$};
+	\node at (0,-4) {$2^{m^m}-m^m+1$};
 \end{tikzpicture}\tikzstyle{g}=[circle, draw, fill=black,
                         inner sep=0pt, minimum width=2pt]
 %  Tutte's 8-cage
@@ -4877,12 +4880,12 @@ Satz von Hanf $m$-äquivalent.
     {
         (\x:1.5) node[g] {} edge[dotted] (\x+18:1.5)
     };
-	\node (0:0) {$m^m+1$};
+	\node (0:0) {$m^m$};
 	\begin{scope}[shift={(0,-4)},xscale=2]
 		\draw [dotted] (0,0) ellipse (2 and 2);
 		\draw plot [only marks, mark=*, mark size=0.1, domain=0:5, samples=75] ({rnd*360}:{1+rnd});
 	\end{scope}
-	\node at (0,-4) {$2^{m^m}-m^m-1$};
+	\node at (0,-4) {$2^{m^m}-m^m$};
 \end{tikzpicture}
 \par\end{centering}
 
@@ -4953,9 +4956,9 @@ Die Logik $\mathrm{FO}+\mathbf{ARB}$ mit disjunktem Orakel kann nur
 Eigenschaften ausdrücken, die bezüglich gleich großer Strukturen Hanf-lokal
 sind.
 \end{cor}
-(Die Forderung nach gleicher Größe ist notwendig, denn offensichtlich
+Die Bedingung der gleichen Größe ist notwendig, denn offensichtlich
 ist zum Beispiel die $\mathrm{FO}+\mathbf{ARB}$-definierbare Klasse
-$\textsc{Even}$ nicht Hanf-lokal.)
+$\textsc{Even}$ nicht Hanf-lokal.
 
 
 \chapter{Ausblick}

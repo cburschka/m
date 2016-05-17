@@ -2578,6 +2578,23 @@ Ausdruck
 \end_inset
 
 .
+ Für einstellige Signaturen wie 
+\begin_inset Formula $\left\{ E\right\} $
+\end_inset
+
+ oder 
+\begin_inset Formula $\left\{ \leqslant\right\} $
+\end_inset
+
+ kürzen wir 
+\begin_inset Formula $\mathcal{L}\left[\left\{ R\right\} \right]$
+\end_inset
+
+ durch 
+\begin_inset Formula $\mathcal{L}\left[R\right]$
+\end_inset
+
+ ab.
 \end_layout
 
 \begin_layout Definition
@@ -4013,7 +4030,7 @@ key "Zaid,Grohe2005,Dziembowski96bounded-variablefixpoint"
 
 \begin_layout Example
 Die folgende 
-\begin_inset Formula $\mathrm{LFP}\left[\left\{ E\right\} \right]$
+\begin_inset Formula $\mathrm{LFP}\left[E\right]$
 \end_inset
 
 -Formel 
@@ -5492,7 +5509,7 @@ Es ist zu beachten, dass die hier betrachteten Orakel-Strukturen das Universum
 
 \begin_layout Standard
 Nach dem Satz von Trakhtenbrot ist die endlichen Erfüllbarkeit von 
-\begin_inset Formula $\mathrm{FO}\left[\left\{ \leqslant\right\} \right]$
+\begin_inset Formula $\mathrm{FO}\left[\leqslant\right]$
 \end_inset
 
  unentscheidbar, und daher auch die Invarianz und die Sprache 
@@ -19097,7 +19114,7 @@ Sei
 \begin_inset Formula $A$
 \end_inset
 
- enthält höchstens 
+ enthält weniger als 
 \begin_inset Formula $\left\lceil \mathrm{log}\left|A\right|\right\rceil $
 \end_inset
 
@@ -19167,8 +19184,8 @@ reference "fig:m-equiv"
 \begin_inset Formula 
 \begin{eqnarray*}
 A,B & \coloneqq & \left[1,2^{m^{m}}\right]\\
-E^{\mathfrak{A}} & \coloneqq & \left\{ \left(i,i+1\right)\mid i\in\left[1,m^{m}-1\right]\right\} \cup\left\{ \left(m^{m},1\right)\right\} \\
-E^{\mathfrak{B}} & \coloneqq & \left\{ \left(i,i+1\right)\mid i\in\left[1,m^{m}\right]\right\} \cup\left\{ \left(m^{m}+1,1\right)\right\} 
+E^{\mathfrak{A}} & \coloneqq & \left\{ \left(i,i+1\right)\mid i\in\left[1,m^{m}-2\right]\right\} \cup\left\{ \left(m^{m}-1,1\right)\right\} \\
+E^{\mathfrak{B}} & \coloneqq & \left\{ \left(i,i+1\right)\mid i\in\left[1,m^{m}-1\right]\right\} \cup\left\{ \left(m^{m},1\right)\right\} 
 \end{eqnarray*}
 
 \end_inset
@@ -19182,7 +19199,7 @@ Beide Strukturen bestehen aus
 \end_inset
 
  enthält einen Kreis der Länge 
-\begin_inset Formula $m^{m}$
+\begin_inset Formula $m^{m}-2$
 \end_inset
 
 , und 
@@ -19190,7 +19207,7 @@ Beide Strukturen bestehen aus
 \end_inset
 
  einen Kreis der Länge 
-\begin_inset Formula $m^{m}+1$
+\begin_inset Formula $m^{m}$
 \end_inset
 
 .
@@ -19229,7 +19246,7 @@ Offensichtlich besteht die
 
 .
  Ferner hat jeder Knoten im Kreis mindestens 
-\begin_inset Formula $m^{m}\geqslant m\cdot3^{m+7}>m\cdot e$
+\begin_inset Formula $m^{m}-1\geqslant m\cdot3^{m+7}-1>m\cdot e$
 \end_inset
 
  viele 
@@ -19330,7 +19347,7 @@ x+18:1.5)
 
 	
 \backslash
-node (0:0) {$m^m$};
+node (0:0) {$m^{m-1}$};
 \end_layout
 
 \begin_layout Plain Layout
@@ -19366,7 +19383,7 @@ end{scope}
 
 	
 \backslash
-node at (0,-4) {$2^{m^m}-m^m$};
+node at (0,-4) {$2^{m^m}-m^m+1$};
 \end_layout
 
 \begin_layout Plain Layout
@@ -19440,7 +19457,7 @@ x+18:1.5)
 
 	
 \backslash
-node (0:0) {$m^m+1$};
+node (0:0) {$m^m$};
 \end_layout
 
 \begin_layout Plain Layout
@@ -19476,7 +19493,7 @@ end{scope}
 
 	
 \backslash
-node at (0,-4) {$2^{m^m}-m^m-1$};
+node at (0,-4) {$2^{m^m}-m^m$};
 \end_layout
 
 \begin_layout Plain Layout
@@ -19798,7 +19815,7 @@ Die Logik
 \end_layout
 
 \begin_layout Standard
-(Die Forderung nach gleicher Größe ist notwendig, denn offensichtlich ist
+Die Bedingung der gleichen Größe ist notwendig, denn offensichtlich ist
  zum Beispiel die 
 \begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
 \end_inset
@@ -19807,7 +19824,7 @@ Die Logik
 \begin_inset Formula $\textsc{Even}$
 \end_inset
 
- nicht Hanf-lokal.)
+ nicht Hanf-lokal.
 \end_layout
 
 \begin_layout Chapter
