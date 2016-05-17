@@ -1,0 +1,454 @@
+
+\chapter{Partitionen und Träger}
+
+Unsere Konstruktion der logischen Formel aus einer Schaltkreisfamilie
+wird voraussetzen, dass jedes Gate $g$ unter allen Bijektionen $\pi:A\rightleftarrows U$
+ausgewertet wird. Wir stehen zunächst vor dem Problem, dass es $\left|\mathrm{Bij}\left(A,U\right)\right|=n!\in\Omega\left(2^{n}\right)$
+solche Bijektionen gibt. Um sie für jedes Gate auf eine $\mathrm{poly}\left(n\right)$-beschränkte
+Zahl zu reduzieren, möchten wir gerne nachweisen, dass die $n!$ Bijektionen
+bezüglich jedem Gate in $\frac{n!}{\left(n-k\right)!}$ verschiedene
+Äquivalenzklassen der Größe $\left(n-k\right)!$ (mit $k\in\mathcal{O}\left(1\right)$)
+fallen (und einen effizienten Algorithmus finden, der die Repräsentanten
+dieser Äquivalenzklassen erzeugt).
+
+In dem Ergebnis von Martin Otto in 1997\cite{Otto1997} setzt er eine
+lokale polynomielle Beschränkung der Orbits jedes Gates voraus, und
+leitet für diese Schaltkreisfamilien eine Charakterisierung durch
+das variablen-beschränkte Fragment der infinitären Logik ($L_{\infty\omega}^{\omega}$)
+her.
+
+Anderson und Dawar betrachten in \cite{AD2014} symmetrische Schaltkreisfamilien
+mit polynomieller Größe (und daher automatisch polynomiell beschränkten
+Orbits). Hier wird für jedes Gate nachgewiesen, dass sein Wert nur
+von $\mathcal{O}\left(1\right)$ vielen Elementen des Universums $U$
+abhängt, und daraus eine Charakterisierung durch die Fixpunktlogik
+abgeleitet.
+
+Hierfür werden zunächst die Begriffe der Partition, des Stabilisators
+und des Trägers eingeführt.
+
+\section{Partitionen einer Menge}
+
+Sei $U$ ein beliebiges Universum. Wir führen die \textbf{Partition
+}als Zerlegung von $U$ in disjunkte Teilmengen ein.
+\begin{defn}
+Sei $\mathcal{P}\coloneqq\left\{ P_{1},\cdots,P_{k}\right\} $ eine
+Menge von disjunkten nicht-leeren Mengen. Wir nennen $\mathcal{P}$
+eine Partition von $U$, wenn $\biguplus_{i=1}^{k}P_{i}=U$. Sei $\mathrm{Part}_{U}$
+die Menge aller Partitionen von $U$. Sei $\sim_{\mathcal{P}}$ eine
+Äquivalenzrelation auf $U$, deren Äquivalenzklassen von $\mathcal{P}$
+repräsentiert werden.
+\end{defn}
+Die Permutationen $\mathrm{Sym}_{U}$ werden auf natürliche Weise
+auf $\mathcal{P}\in\mathrm{Part}_{U}$ erweitert:
+\begin{eqnarray*}
+\pi\mathcal{P} & \coloneqq & \left\{ \pi P_{i}\mid P_{i}\in\mathcal{P}\right\} \in\mathrm{Part}_{U}
+\end{eqnarray*}
+Als nächstes wird die \textbf{Feinheit} als Relation auf $\mathrm{Part}_{U}$
+eingeführt.
+\begin{defn}
+\label{def:feinheit}Sei $\mathcal{P}\preceq\mathcal{P}'$ (,,$\mathcal{P}$
+ist mindestens so fein wie $\mathcal{P}'$``) genau dann wenn jedes
+$P_{i}\in\mathcal{P}$ eine Teilmenge eines $P'_{j}\in\mathcal{P}'$
+ist.
+
+Dies ist äquivalent zu der Teilmengenbeziehung von $\sim_{\mathcal{P}}$
+und $\sim_{\mathcal{P}'}$: 
+\begin{eqnarray*}
+\mathcal{P}\preceq\mathcal{P}' & \Leftrightarrow & \mathrm{f.a.}\,P\in\mathcal{P}\,\mathrm{ex.\,}P'\in\mathcal{P}'\,\mathrm{s.d.}\,P\subseteq P'\\
+ & \Leftrightarrow & \mathrm{f.a.}\,u,u'\in U\,\mathrm{gilt}\,u\sim_{\mathcal{P}}u'\,\Rightarrow u\sim_{\mathcal{P}'}u'\\
+ & \Leftrightarrow & \left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)
+\end{eqnarray*}
+
+Genau wie die Teilmengenbeziehung der Äquivalenzrelation bildet $\preceq$
+eine Halbordnung auf $\mathrm{Part}_{U}$.
+
+Daher bildet $\mathrm{Part}_{U}$ einen vollständigen Verband (siehe
+\cite{Klein-Barmen1935}) mit den folgenden Infimum- und Supremum-Operationen
+$\sqcap$ und $\sqcup$:
+\begin{eqnarray*}
+\mathcal{A}\sqcap\mathcal{B} & \coloneqq & \max_{\preceq}\left\{ \mathcal{P}\in\mathrm{Part}_{U}\mid\mathcal{P}\preceq\mathcal{A}\,\mathrm{und}\,\mathcal{P}\preceq\mathcal{B}\right\} \\
+\mathcal{A}\sqcup\mathcal{B} & \coloneqq & \min_{\preceq}\left\{ \mathcal{P}\in\mathrm{Part}_{U}\mid\mathcal{A}\preceq\mathcal{P}\,\mathrm{und}\,\mathcal{B}\preceq\mathcal{P}\right\} 
+\end{eqnarray*}
+
+($\mathcal{A}\sqcap\mathcal{B}$ sei die gröbste feinere Partition
+als $\mathcal{A}$ und $\mathcal{B}$, und $\mathcal{A}\sqcup\mathcal{B}$
+die feinste gröbere Partition als $\mathcal{A}$ und $\mathcal{B}$.)
+\end{defn}
+\begin{prop}
+\label{prop:part-eq}Wenn $\left[x\right]_{\sim}$ die Äquivalenzklasse
+$\left\{ y\mid x\sim y\right\} $ ist, und $\mathcal{P}_{1},\mathcal{P}_{2}\in\mathrm{Part}_{U}$
+wie folgt sind, 
+\begin{eqnarray*}
+\mathcal{P}_{1} & \coloneqq & \left\{ \left[x\right]_{\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}}\mid x\in U\right\} \\
+\mathcal{P}_{2} & \coloneqq & \left\{ \left[x\right]_{\sim^{*}}\mid x\in U\right\} \\
+ &  & \mathrm{wobei}\,\sim\coloneqq\left(\sim_{\mathcal{A}}\right)\cup\left(\sim_{\mathcal{B}}\right)
+\end{eqnarray*}
+dann ist $\mathcal{P}_{1}=\mathcal{A}\sqcap\mathcal{B}$ und $\mathcal{P}_{2}=\mathcal{A}\sqcup\mathcal{B}$.
+\end{prop}
+\begin{proof}
+Die Eigenschaft $\mathcal{P}_{1}\preceq\mathcal{A},\mathcal{B}\preceq\mathcal{P}_{2}$
+folgt offensichtlich aus $\left(\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}\right)\subseteq\sim_{\mathcal{A}},\sim_{\mathcal{B}}\subseteq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)^{*}$.
+Ferner muss jede Relation $\sim_{\mathcal{P}}$ mit $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{A}}\right)$
+und $\left(\sim_{\mathcal{A}}\right)\subseteq\left(\sim_{\mathcal{B}}\right)$
+auch in $\left(\sim_{\mathcal{A}}\right)\cap\left(\sim_{\mathcal{B}}\right)$
+enthalten sein, und jede mit $\left(\sim_{\mathcal{P}}\right)\supseteq\left(\sim_{\mathcal{A}}\right)$,
+$\left(\sim_{\mathcal{P}}\right)\supseteq\left(\sim_{\mathcal{B}}\right)$
+muss auch $\left(\sim_{\mathcal{A}}\right)\cup\left(\sim_{\mathcal{B}}\right)$
+(und dessen Abschluss) enthalten.
+\end{proof}
+\begin{defn}
+Die feinste und gröbste Partition von $U$ seien $\mathcal{P}_{\min}\left(U\right)\coloneqq\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
+und $\mathcal{P}_{\max}\left(U\right)\coloneqq\left\{ U\right\} $.
+\end{defn}
+
+\section{Stabilisatoren einer Partition}
+
+Wir führen die Stabilisatoren von Elementen, Teilmengen und Partitionen
+eines Universums $U$ ein.
+\begin{defn}
+Der Stabilisator eines Elements $u\in U$ in $U$ sei die Untergruppe
+$\mathrm{Stab}_{U}\left(u\right)\subseteq\mathrm{Sym}_{U}$ aller
+Permutationen, die $u$ fixieren: 
+\[
+\mathrm{Stab}_{U}\left(u\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi u=u\right\} 
+\]
+
+Der Punktstabilisator\textbf{ }einer Teilmenge $X\subseteq U$ in
+$U$ sei die Untergruppe $\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Sym}_{U}$
+der Permutationen, die jedes Element $x\in X$ fixieren:
+\begin{eqnarray*}
+\mathrm{Stab}_{U}\left(X\right) & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi x=x\,\,\mathrm{f.a.}\,\,x\in X\right\} \\
+ & = & \bigcap_{x\in X}\mathrm{Stab}_{U}\left(x\right)
+\end{eqnarray*}
+
+Der Mengenstabilisator von $X$ in $U$ sei die Untergruppe $\mathrm{Stab}_{U}\left\{ X\right\} \subseteq\mathrm{Sym}_{U}$
+der Permutationen, die die Menge $X$ als ganzes fixieren.
+\begin{eqnarray*}
+\mathrm{Stab}_{U}\left\{ X\right\}  & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi X=X\right\} \\
+ & = & \bigcup_{\pi\in\mathrm{Sym}_{X}}\left(\pi\cup\mathbf{id}_{U\backslash X}\right)\left(\mathrm{Stab}_{U}\left(X\right)\right)
+\end{eqnarray*}
+\end{defn}
+
+\begin{defn}
+Die obige Definition wird auf Partitionen $\mathcal{P}\in\mathrm{Part}_{U}$
+erweitert:
+
+Der Punktstabilisator\textbf{ }von $\mathcal{P}$ in $U$ sei die
+Untergruppe $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Sym}_{U}$
+aller Permutationen, die jede Menge $P_{i}\in\mathcal{P}$ fixieren:
+\begin{eqnarray*}
+\mathrm{Stab}_{U}\left(\mathcal{P}\right) & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi P_{i}=P_{i}\,\mathrm{f\ddot{u}r}\,\mathrm{alle}\,P_{i}\in\mathcal{P}\right\} \\
+ & = & \bigcap_{P_{i}\in\mathcal{P}}\mathrm{Stab}_{U}\left\{ P_{i}\right\} 
+\end{eqnarray*}
+
+Der Mengenstabilisator von $\mathcal{P}$ in $U$ sei die Untergruppe
+$\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \subseteq\mathrm{Sym}_{U}$
+aller Permutationen, die die Partition als ganzes fixieren: 
+\begin{eqnarray*}
+\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\}  & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi\mathcal{P}=\mathcal{P}\right\} 
+\end{eqnarray*}
+Diese Gruppe wird durch $\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+und alle Permutationen von gleich-mächtigen Elementen von $\mathcal{P}$
+erzeugt: Sei $\mathcal{P}_{\mid i}\coloneqq\left\{ P_{j}\in\mathcal{P}\mid\left|P_{j}\right|=i\right\} $
+für $i\in\left[1,\left|U\right|\right]$, dann gilt: 
+\[
+\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} =\bigcup_{\begin{subarray}{c}
+i\in\left[1,\left|U\right|\right]\\
+\pi\in\mathrm{Sym}_{\mathcal{P}_{\mid i}}
+\end{subarray}}\pi\mathrm{Stab}_{U}\left(\mathcal{P}\right)
+\]
+
+Die Feinheit von Partitionen ist äquivalent zu der Teilmengenbeziehung
+ihrer Stabilisatoren.
+\end{defn}
+\begin{prop}
+\label{prop:feinheit-stab}Für zwei Partitionen $\mathcal{P},\mathcal{P}'\in\mathrm{Part}_{U}$
+gilt $\mathcal{P}\preceq\mathcal{P}'$ genau dann wenn $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$.
+\end{prop}
+\begin{proof}
+Sei $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$ beliebig, so
+besteht $\pi$ aus einer Folge von Transpositionen:
+\[
+\pi=\left(u_{1}v_{1}\right)\circ\cdots\circ\left(u_{k}v_{k}\right)
+\]
+
+Jede Transposition $\left(u_{i}v_{i}\right)$ vertauscht Elemente
+einer Menge $P_{i}\in\mathcal{P}$; daher gilt $u_{i}\sim_{\mathcal{P}}v_{i}$.
+Per Definition \ref{def:feinheit} gilt $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)$,
+und daher $u_{i}\sim_{\mathcal{P}'}v_{i}$ und $\left(u_{i}v_{i}\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
+für alle $i\in\left[1,k\right]$. Aus der Abgeschlossenheit des Stabilisators
+folgt $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$.
+
+Umgekehrt impliziert auch $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$,
+dass für jedes Paar $u\sim_{\mathcal{P}}v$ die Transposition $\left(uv\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+auch in $\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$ enthalten ist,
+und daher $u\sim_{\mathcal{P}'}v$ gilt. Aus $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)$
+folgt $\mathcal{P}\preceq\mathcal{P}'$.
+\end{proof}
+
+\section{Träger}
+
+\subsection{Trägerpartitionen einer Permutationsgruppe}
+\begin{defn}
+\label{def:traeger}Sei $G\subseteq\mathrm{\mathrm{Sym}}_{U}$ eine
+Untergruppe und $\mathcal{P}$ eine Partition von $U$. $\mathcal{P}$
+sei eine \textbf{Trägerpartition} von\textbf{ }$G$ genau dann wenn
+$\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$.
+\end{defn}
+Wenn die Partition $\mathcal{P}$ eine Trägerpartition von $G$ ist,
+dann ist sie es auch von jeder Obermenge $G'\supseteq G$. Außerdem
+sind per Satz \ref{prop:feinheit-stab} alle feineren $\mathcal{P}'\preceq\mathcal{P}$
+Trägerpartitionen von $G$. Somit ist $\mathcal{P}_{\min}=\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
+mit $\mathrm{Stab}_{U}\left(\mathcal{P}_{\min}\right)=\left\{ \mathbf{id}\right\} $
+eine triviale Trägerpartition jeder Untergruppe $G\subseteq\mathrm{Sym}_{U}$,
+und alle $\mathcal{P}\in\mathrm{Part}_{U}$ sind Trägerpartitionen
+der Gruppe $\mathrm{Sym}_{U}=\mathrm{Stab}_{U}\left(\mathcal{P}_{\max}\right)$.
+\begin{prop}
+\label{prop:traeger-abschluss}Wenn $\mathcal{A}$ und $\mathcal{B}$
+Trägerpartitionen von $G$ sind, so sind es auch $\mathcal{A}\sqcap\mathcal{B}$
+und $\mathcal{A}\sqcup\mathcal{B}$.
+\end{prop}
+\begin{proof}
+Per Definition ist $\mathcal{A}\sqcap\mathcal{B}\preceq\mathcal{A}$
+und $\mathcal{A}\sqcap\mathcal{B}\preceq\mathcal{B}$, und daher folgt
+die Tatsache direkt aus Satz \ref{prop:feinheit-stab}.
+
+Für $\mathcal{P}\coloneqq\mathcal{A}\sqcup\mathcal{B}$ gilt:
+
+\begin{enumerate}
+\item Jede Permutation $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+ist eine Folge von Transpositionen $\pi=\left(u_{1}v_{1}\right)\circ\cdots\circ\left(u_{k}v_{k}\right)$,
+so dass wir nur Transpositionen betrachten müssen.
+\item Die Äquivalenzrelation $\sim_{\mathcal{P}}$ ist per Satz \ref{prop:part-eq}
+die transitive Hülle von $\sim\coloneqq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)$.
+Daher existiert für alle $u\sim_{\mathcal{P}}v$ eine Folge von $\ell\leqslant\left|U\right|$
+Elementen $\bar{w}\in U^{\ell}$ mit
+\[
+u\sim w_{1}\sim\cdots\sim w_{\ell}\sim v
+\]
+\end{enumerate}
+Sei nun $\left(uv\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+eine beliebige Transposition. $\left(uv\right)$ lässt sich mit dem
+entsprechenden $\bar{w}\in\left(U\backslash\left\{ u,v\right\} \right)^{*}$
+in die folgenden Transpositionen zerlegen:
+\begin{eqnarray*}
+\left(uv\right) & = & \left(\begin{array}{c}
+u\\
+v
+\end{array}\left(\begin{array}{c}
+w_{i}\\
+w_{i}
+\end{array}\right)_{1\leqslant i\leqslant\ell}\begin{array}{c}
+v\\
+u
+\end{array}\right)\\
+ & = & \left(\begin{array}{c}
+w_{1}\\
+v
+\end{array}\left(\begin{array}{c}
+w_{i}\\
+w_{i-1}
+\end{array}\right)_{1<i\leqslant\ell}\begin{array}{c}
+v\\
+w_{\ell}
+\end{array}\right)\circ\left(\begin{array}{c}
+u\\
+w_{1}
+\end{array}\left(\begin{array}{c}
+w_{i}\\
+w_{i+1}
+\end{array}\right)_{1\leqslant i<\ell}\begin{array}{cc}
+w_{\ell} & v\\
+v & u
+\end{array}\right)\\
+ &  & \left(vw_{\ell}\right)\left(w_{\ell}w_{\ell-1}\right)\cdots\left(w_{2}w_{1}\right)\circ\left(uw_{1}\right)\left(w_{1}w_{2}\right)\cdots\left(w_{\ell-1}w_{\ell}\right)\left(w_{\ell}v\right)
+\end{eqnarray*}
+
+Weil $\sim=\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)$,
+ist jede der Transpositionen entweder in $\mathrm{Stab}_{U}\left(\mathcal{A}\right)$
+oder in $\mathrm{Stab}_{U}\left(\mathcal{B}\right)$ enthalten, und
+beide sind Teilmengen von $G$. Also ist $\left(uv\right)\in G$,
+und es folgt $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$.
+\end{proof}
+\begin{cor}
+Jede Gruppe $G\subseteq\mathrm{Sym}_{U}$ besitzt eine eindeutige
+gröbste Trägerpartition.
+\end{cor}
+\begin{proof}
+Angenommen, $\mathcal{P}$ und $\mathcal{P}'$ seien zwei gröbste
+Trägerpartitionen von $G$. Nun ist $\mathcal{P}\sqcup\mathcal{P}'$
+nach Lemma \ref{prop:traeger-abschluss} ebenfalls eine Trägerpartition
+von $G$, und es gilt $\mathcal{P},\mathcal{P}'\preceq\mathcal{P}\sqcup\mathcal{P}'$.
+
+Da aber per Definition $\mathcal{P}$ und $\mathcal{P}'$ aber per
+Definition gröbste Träger von $G$ sind, muss $\mathcal{P}=\mathcal{P}\sqcup\mathcal{P}'=\mathcal{P}'$
+gelten.
+\end{proof}
+\begin{defn}
+Für jede Gruppe $G\subseteq\mathrm{Sym}_{U}$ sei $\mathrm{SP}\left(G\right)$
+der gröbste Träger von $G$.
+\end{defn}
+Wir betrachten nun die Konjugations-Operation $\pi G\pi^{-1}$ einer
+Permutation $\pi$ auf einer Untergruppe $G\subseteq\mathrm{Sym}_{U}$,
+und weisen nach, dass $\pi\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\pi G\pi^{-1}\right)$.
+\begin{prop}
+\label{prop:konjugation}Wenn eine Partition $\mathcal{P}$ ein Träger
+einer Gruppe $G\subseteq\mathrm{Sym}_{U}$ ist, dann ist $\pi\mathcal{P}$
+ein Träger von $\pi G\pi^{-1}$ für alle $\pi\in\mathrm{Sym}_{U}$.
+\end{prop}
+\begin{proof}
+Seien $\rho\in\mathrm{Stab}_{U}\left(\pi\mathcal{P}\right)$ und $P_{i}\in\mathcal{P}$
+beliebig. $\pi^{-1}\rho\pi$ fixiert $P_{i}$:
+\begin{eqnarray*}
+\left(\pi^{-1}\rho\pi\right)P_{i} & = & \pi^{-1}\left(\rho\left(\pi P_{i}\right)\right)\\
+ & = & \pi^{-1}\pi P_{i}\\
+ & = & P_{i}
+\end{eqnarray*}
+
+Daraus folgt $\left(\pi^{-1}\rho\pi\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$,
+und schließlich gilt:
+\begin{eqnarray*}
+\rho & = & \left(\pi\pi^{-1}\right)\rho\left(\pi\pi^{-1}\right)\\
+ & = & \pi\left(\pi^{-1}\rho\pi\right)\pi^{-1}\\
+ & \in & \pi G\pi^{-1}
+\end{eqnarray*}
+
+Damit $\pi\mathcal{P}$ ein Träger der konjugierten Gruppe $\pi G\pi^{-1}$.
+\end{proof}
+\begin{cor}
+\label{cor:sp-konjugation}Für jede Gruppe $G\subseteq\mathrm{Sym}_{U}$
+und jede Permutation $\pi\in\mathrm{Sym}_{U}$ ist $\pi\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\pi G\pi^{-1}\right)$.
+\end{cor}
+\begin{proof}
+Nach Lemma \ref{prop:konjugation} ist $\pi\mathrm{SP}\left(G\right)$
+eine Trägerpartition von $\pi G\pi^{-1}$, und daher gilt $\pi\mathrm{SP}\left(G\right)\preceq\mathrm{SP}\left(\pi G\pi^{-1}\right)$.
+
+Umgekehrt ist auch $\pi^{-1}\mathrm{SP}\left(\pi G\pi^{-1}\right)$
+eine Trägerpartition von $\pi^{-1}\pi G\pi\pi^{-1}=G$. Es folgt $\pi^{-1}\mathrm{SP}\left(\pi G\pi^{-1}\right)\preceq\mathrm{SP}\left(G\right)$
+und daher $\mathrm{SP}\left(\pi G\pi^{-1}\right)\preceq\pi\mathrm{SP}\left(G\right)$.
+\end{proof}
+\begin{prop}
+Jede Gruppe $G$ ist Obermenge des Punkt- und Teilmenge des Mengenstabilisators
+von $\mathrm{SP}\left(G\right)$:
+\[
+\mathrm{Stab}_{U}\left(\mathrm{SP}\left(G\right)\right)\subseteq G\subseteq\mathrm{Stab}_{U}\left\{ \mathrm{SP}\left(G\right)\right\} 
+\]
+\end{prop}
+\begin{proof}
+Per Definition \ref{def:traeger} gilt bereits $\mathrm{Stab}_{U}\left(\mathrm{SP}\left(G\right)\right)\subseteq G$.
+
+Sei nun $\pi\in G$ beliebig. Weil $\pi G\pi^{-1}=G$, folgt nach
+Korollar \ref{cor:sp-konjugation}: 
+\[
+\pi\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\pi G\pi^{-1}\right)=\mathrm{SP}\left(G\right)
+\]
+
+Weil $\pi$ die Partition $\mathrm{SP}\left(G\right)$ auf sich selbst
+abbildet, gilt per Definition $\pi\in\mathrm{Stab}_{U}\left\{ \mathrm{SP}\left(G\right)\right\} $.
+\end{proof}
+
+\subsection{Trägermengen im Schaltkreis}
+
+Wir erweitern die Begriffe ,,Stabilisator`` und ,,Träger`` auf
+die Gates eines rigiden (Definition \ref{def:rigid}), symmetrischen
+Schaltkreises. $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$.
+\begin{defn}
+Für jedes Gate $g\in G$ sei der Stabilisator von $g$ wie folgt definiert:
+\[
+\mathrm{Stab}_{\mathcal{C}}\left(g\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\hat{\pi}g=g\right\} 
+\]
+
+Eine Menge $X\subseteq U$ sei eine Trägermenge von $g$, wenn jede
+Permutation, die die Elemente von $X$ fixiert, einen Automorphismus
+in $\mathcal{C}$ induziert, der $g$ fixiert: 
+\[
+\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)
+\]
+\end{defn}
+Da für $X\subseteq X'$ offensichtlich $\mathrm{Stab}_{U}\left(X'\right)\subseteq\mathrm{Stab}_{U}\left(X\right)$
+gilt (je mehr Elemente fixiert werden, um so weniger Permutationen
+lassen wir zu), ist hier vor allem die kleinste Trägermenge des Gates
+interessant.
+\begin{prop}
+Wenn $X,X'\subseteq U$ zwei Trägermengen von $g\in G$ sind, dann
+ist $X\cap X'$ ebenfalls eine Trägermenge von $g$.
+\end{prop}
+\begin{proof}
+Sei $\mathcal{P}\coloneqq\left\{ \left\{ x\right\} \mid x\in X\right\} \cup\left\{ U\backslash X\right\} $
+und $\mathcal{P}'\coloneqq\left\{ \left\{ x\right\} \mid x\in X'\right\} \cup\left\{ U\backslash X'\right\} $.
+Offensichtlich gilt $\mathrm{Stab}_{U}\left(\mathcal{P}\right)=\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
+und $\mathrm{Stab}_{U}\left(\mathcal{P}'\right)=\mathrm{Stab}_{U}\left(X'\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)$.
+
+Daher sind $\mathcal{P}$ und $\mathcal{P}'$ beide Trägerpartitionen
+von $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$. Per Satz \ref{prop:traeger-abschluss}
+ist auch $\mathcal{P}\sqcup\mathcal{P}'=\left\{ \left\{ x\right\} \mid x\in X\cap X'\right\} \cup\left\{ U\backslash\left(X\cap X'\right)\right\} $
+eine Trägerpartition, und per $\mathrm{Stab}_{U}\left(\mathcal{P}\sqcup\mathcal{P}'\right)=\mathrm{Stab}_{U}\left(X\cap X'\right)$
+ist auch $X\cap X'$ eine Trägermenge von $g$.
+\end{proof}
+\begin{cor}
+Jedes Gate $g\in G$ besitzt eine eindeutige kleinste Trägermenge.
+\end{cor}
+\begin{prop}
+Sei $\mathcal{P}\coloneqq\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+die gröbste Trägerpartition des Stabilisators eines Gates $g$, und
+sei $P_{\max}=\max_{\left|\cdot\right|}\mathcal{P}$. Dann ist $X\coloneqq U\backslash P_{\max}$
+die kleinste Trägermenge von $g$.
+\end{prop}
+\begin{proof}
+Sei $X'$ mit $\left|X'\right|<\left|X\right|$ eine kleinere Trägermenge
+von $g$. Per Definition ist $\mathcal{P}'\coloneqq\left\{ \left\{ x\right\} \mid x\in X'\right\} \cup\left\{ U\backslash X'\right\} $
+eine Trägerpartition von $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$,
+denn $\mathrm{Stab}_{U}\left(\mathcal{P}'\right)=\mathrm{Stab}_{U}\left(X'\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)$.
+
+Per Definition ist $U\backslash X=P_{\max}$ eine größte Menge in
+$\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$.
+Per Annahme ist $\left|X'\right|<\left|X\right|$ und daher $\left|U\backslash X'\right|>\left|U\backslash X\right|$.
+Weil aber $\mathcal{P}'\preceq\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+ist, muss $\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+eine Obermenge von $U\backslash X'$ als Element enthalten, und deren
+Größe ist mindestens $\left|U\backslash X'\right|>\left|U\backslash X\right|$;
+es entsteht ein Widerspruch.
+\end{proof}
+\begin{defn}
+Sei $\mathrm{sp}\left(g\right)$ die kleinste Trägermenge von $g$,
+und sei $\mathrm{sp}\left(\mathcal{C}\right)=\max_{g\in G}\left|\mathrm{sp}\left(g\right)\right|$
+die maximale Größe aller kleinsten Trägermengen.
+\end{defn}
+
+\section{Obere Schranken für die Größe von Trägern}
+
+Das Ergebnis von Anderson und Dawar beruht auf einem Theorem, das
+eine konstante obere Schranke $\mathrm{S}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$
+für jede symmetrischen Schaltkreisfamilie $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+polynomieller Größe nachweist. Diese konstante Größe führt zu einer
+polynomiell beschränkten Anzahl von Permutationen $\left|\mathrm{Sym}_{\mathrm{S}\left(g\right)}\right|=\left|\mathrm{S}\left(g\right)\right|!\leqslant n^{\left|S\left(g\right)\right|}$
+jeder Trägermenge eines Gates.
+
+Wir stellen hierfür das sogenannte Support-Theorem vor:
+\begin{thm}
+\textbf{\label{thm:Support-Theorem}Support-Theorem} (Theorem 21 aus
+\cite{AD2014})
+
+Für $\epsilon\in\mathbb{R}_{\left[\frac{2}{3},1\right]}$ und einen
+rigiden symmetrischen Schaltkreis $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+mit $\left|U\right|>2^{\frac{56}{\epsilon^{2}}}$, gilt: Wenn die
+maximalen Orbit-Größe mit $s\coloneqq\max_{g\in G}\mathrm{Orb}_{\mathcal{C}}\left(g\right)\leqslant2^{n^{1-\epsilon}}$
+subexponentiell ist, dann ist $\mathrm{sp}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$.
+\end{thm}
+\begin{cor}
+\label{cor:korollar-23}(Korollar 23 aus \cite{AD2014})
+
+Für jede symmetrische, rigide $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
+mit $\mathrm{poly}\left(n\right)$-Größe gilt $\mathrm{sp}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$.
+\end{cor}
+\begin{proof}
+Die $\mathrm{poly}\left(n\right)$-Größe des Schaltkreises $\mathcal{C}_{n}=\left(G,W,\Sigma,\Omega,U\right)$
+impliziert für jedes $\epsilon<1$ und hinreichend große $n\in\mathbb{N}$
+offensichtlich: 
+\[
+s\coloneqq\max_{g\in G}\mathrm{Orb}_{\mathcal{C}}\left(g\right)\leqslant\left|\mathcal{C}_{n}\right|\leqslant n^{c}<2^{n^{1-\epsilon}}
+\]
+Damit ist $\mathrm{sp}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}\leqslant\frac{33}{\epsilon}\frac{k\log n}{\log n}=\frac{33k}{\epsilon}\in\mathcal{O}\left(1\right)$. 
+\end{proof}
+

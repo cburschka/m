@@ -1,0 +1,438 @@
+
+\chapter{Grundlegende Definitionen}
+
+\section{Notation}
+
+Zunächst legen wir einige Notationen und Abkürzungen fest. Im folgenden
+bezeichne $\mathbb{N}$ die Menge der natürlichen Zahlen einschließlich
+$0$, $\mathbb{R}$ die Menge der reellen Zahlen, und ,,$\leqslant$``
+(wenn nicht anders definiert) die natürliche Ordnung von $\mathbb{R}$
+und $\mathbb{N}$. Mit ,,ex.``, ,,s.d.`` und ,,f.a.`` kürzen
+wir gegebenenfalls ,,es existiert``, ,,so dass`` und ,,für alle``
+ab.
+\begin{defn}
+\textbf{\label{def:tupel}Mengen und Tupel}
+
+Mengen benennen wir im allgemeinen durch Großbuchstaben wie $A$,
+$B$, $U$ oder $X$. Für eine Menge $A$ bezeichne $2^{A}\coloneqq\left\{ A'\mid A'\subseteq A\right\} $
+die Menge aller Teilmengen von $A$.
+
+Tupel benennen wir durch Kleinbuchstaben mit Balken wie $\bar{a}$,
+$\bar{b}$, $\bar{u}$ oder $\bar{x}$. Die Stelligkeit $\mathrm{ar}\left(\bar{x}\right)$
+eines Tupels $\bar{x}$ sei die Anzahl seiner Elemente, und ein $n$-stelliges
+Tupel heiße kurz ,,$n$-Tupel``. Implizit gelte stets $\bar{x}=\left(x_{1},\cdots,x_{\left|\mathrm{ar}\left(x\right)\right|}\right)$.
+Die Menge aller $k$-Tupel einer Menge $A$ sei $A^{k}$.
+
+Für ein $m$-Tupel $\bar{x}$ und ein $n$-Tupel $\bar{y}$ sei $\bar{x}\bar{y}$
+das $\left(m+n\right)$-Tupel $\left(x_{1},\cdots,x_{m},y_{1},\cdots,y_{n}\right)$.
+Das $0$-stellige Tupel wird durch $\left\langle \right\rangle $
+notiert.
+
+Für $\bar{a}\in A^{k}$ und $A'\subseteq A$ sei $\bar{a}_{\mid A'}$
+das Tupel, das aus $\bar{a}$ entsteht, wenn die Elemente $a_{i}\in A\backslash A'$
+entfernt werden.
+\end{defn}
+
+\begin{defn}
+\textbf{Intervall}
+
+Ein endliches Intervall von natürlichen Zahlen wird durch $\left[a,b\right]$
+abgekürzt:
+\[
+\left[a,b\right]\coloneqq\left\{ i\in\mathbb{N}\mid a\leqslant i\leqslant b\right\} 
+\]
+
+Ein Intervall von reellen Zahlen wird durch $\mathbb{R}_{\left[a,b\right]}$
+oder $\mathbb{R}_{\left[a,b\right[}$ abgekürzt: 
+\begin{eqnarray*}
+\mathbb{R}_{\left[a,b\right]} & \coloneqq & \left\{ i\in\mathbb{R}\mid a\leqslant i\leqslant b\right\} \\
+\mathbb{R}_{\left[a,b\right[} & \coloneqq & \left\{ i\in\mathbb{R}\mid a\leqslant i<b\right\} 
+\end{eqnarray*}
+\end{defn}
+Als nächstes definieren wir Relationen als Mengen von Tupeln von Elementen
+eines Universums. 
+\begin{defn}
+\textbf{\label{def:relation}Relation}
+
+Für eine Menge $A$ und $k\in\mathbb{N}$ sei $R\subseteq A^{k}$
+eine $k$-stellige Relation über $A$. Für jede Relation $R\subseteq A^{k}$
+sei $\left[R\right]:A^{k}\rightarrow\left\{ 0,1\right\} $ die folgende
+Funktion: 
+\[
+\left[R\right]\left(\bar{a}\right)\coloneqq\begin{cases}
+1 & \mathrm{falls}\,\,\bar{a}\in R\\
+0 & \mathrm{sonst}
+\end{cases}
+\]
+\end{defn}
+Für geordnete Mengen definieren wir die Operatoren $\min$ und $\max$,
+die das kleinste und größte Element (sofern vorhanden) einer Menge
+unter einer bestimmten Ordnung bezeichnen.
+\begin{defn}
+\textbf{Minimum und Maximum}
+
+Für eine Ordnung $\preceq$ auf einer Menge $X$ seien $\min_{\preceq}\left(X\right)\in X$
+und $\max_{\preceq}\left(X\right)\in X$ diejenigen Elemente (sofern
+vorhanden), so dass für alle Elemente $z\in X$ gilt:
+\[
+\min_{\preceq}\left(X\right)\preceq z\preceq\max_{\preceq}\left(X\right)
+\]
+Für $X\subseteq\mathbb{R}$ wird die natürliche Ordnung $\leqslant$
+nicht explizit notiert. Für eine Funktion $f:U\rightarrow\mathbb{R}$
+und eine Menge $X\subseteq U$ bezeichnen $\min_{x\in X}f\left(x\right)\in\mathbb{R}$
+und $\max_{x\in X}f\left(x\right)\in\mathbb{R}$ die folgende Abkürzungen:
+\begin{eqnarray*}
+\min_{x\in X}f\left(x\right) & \coloneqq & \min\left\{ f\left(x\right)\mid x\in X\right\} \\
+\max_{x\in X}f\left(x\right) & \coloneqq & \max\left\{ f\left(x\right)\mid x\in X\right\} 
+\end{eqnarray*}
+Umgekehrt bezeichnet $\min_{f}U$ ein beliebiges Element $u\in U$
+mit dem minimalen Wert $f\left(u\right)=\min_{x\in U}f\left(x\right)$,
+und $\max_{f}U$ analog.
+\end{defn}
+
+\begin{defn}
+\textbf{Asymptotische Klassen}
+
+Für jede Funktion $f:\mathbb{N}\rightarrow\mathbb{R}$ definieren
+wir die Funktionsklassen $\mathcal{O}\left(f\right)$ und $\Omega\left(f\right)$:
+
+\end{defn}
+\begin{itemize}
+\item Es gelte $g\in\mathcal{O}\left(f\right)$ genau dann wenn ein $n_{0},c\in\mathbb{N}$
+existieren, so dass für alle $n\geqslant n_{0}$ gilt: $g\left(n\right)\leqslant c\cdot f\left(n\right)$.
+\begin{itemize}
+\item Es gelte $g\in\Omega\left(f\right)$ genau dann wenn $f\in\mathcal{O}\left(g\right)$.
+\end{itemize}
+\end{itemize}
+\begin{defn}
+Für $f:\mathbb{R}\rightarrow\mathbb{R}$ und eine Klasse $\mathcal{F}$
+sei $f\left(\mathcal{F}\right)\coloneqq\left\{ f\circ g\mid g\in\mathcal{F}\right\} $.
+Zum Beispiel ist $f\in2^{\mathcal{O}\left(n\right)}$ genau dann wenn
+$f\in\mathcal{O}\left(2^{kn}\right)$ für ein festes $k\in\mathbb{N}$.
+\end{defn}
+
+Wir legen mehrere einfache Operationen für Abbildungen fest, darunter
+die Verkettung, Vereinigung disjunkter Definitionsbereiche und Reduktion
+auf einen Teilbereich.
+\begin{defn}
+\textbf{Abbildung}
+
+Für eine Abbildung $\pi:A\rightarrow B$ und $a\in A$ schreiben wir
+statt $\pi\left(a\right)$ gegebenenfalls $\pi a$ ohne Klammern.
+
+Jede Abbildung $\pi:A\rightarrow B$ wird auf natürliche Weise auf
+Tupel, Teilmengen und Relationen von $A$ erweitert:
+\begin{eqnarray*}
+\pi\left(x_{1},\cdots,x_{k}\right) & \coloneqq & \left(\pi x_{1},\cdots,\pi x_{n}\right)\\
+\pi\left\{ x_{1},\cdots,x_{n}\right\}  & \coloneqq & \left\{ \pi x_{1},\cdots,\pi x_{n}\right\} 
+\end{eqnarray*}
+
+Eine Abbildung $\pi:A\rightarrow B$ mit $A=\left\{ a_{1},\cdots,a_{n}\right\} $
+schreiben wir gegebenenfalls extensional wie folgt auf. Für ein Tupel
+$\bar{a}=\left(a_{1},\cdots,a_{n}\right)$ kürzen wir diese Abbildung
+auch durch $\left(\bar{a}\mapsto\pi\bar{a}\right)$ ab. 
+\begin{eqnarray*}
+\pi & \coloneqq & \left(\begin{array}{c}
+a_{1}\\
+\pi a_{1}
+\end{array}\cdots\begin{array}{c}
+a_{n}\\
+\pi a_{n}
+\end{array}\right)\\
+\pi & \coloneqq & \left(\bar{a}\mapsto\pi\bar{a}\right)
+\end{eqnarray*}
+
+Für zwei Abbildungen $\pi_{1}:B\rightarrow C$ und $\pi_{2}:A\rightarrow B$
+sei $\pi_{1}\circ\pi_{2}:A\rightarrow C$ (kurz $\pi_{1}\pi_{2}$)
+die folgende Abbildung: 
+\[
+\pi_{1}\pi_{2}\coloneqq\left(\bar{a}\mapsto\pi_{1}\left(\pi_{2}\left(\bar{a}\right)\right)\right)
+\]
+
+Für zwei Abbildungen $\pi:A\rightarrow B$ und $\pi':A'\rightarrow B'$
+mit disjunkten Definitionsbereichen $A\cap A'=\emptyset$ sei $\pi''\coloneqq\pi\cup\pi'$
+die folgende Abbildung: 
+\begin{eqnarray*}
+\pi'' & : & A\uplus A'\rightarrow B\cup B'\\
+\pi''x & \coloneqq & \begin{cases}
+\pi x & \mathrm{falls}\,\,x\in A\\
+\pi'x & \mathrm{falls}\,\,x\in A'
+\end{cases}
+\end{eqnarray*}
+
+Für $\pi:A\rightarrow B$ und $A'\subseteq A$ sei $\pi_{\mid A'}:A'\rightarrow B$
+die Reduktion von $\pi$ auf eine Teilmenge des Definitionsbereichs,
+und $\pi_{\backslash A'}:A\backslash A'\rightarrow B$ die Reduktion
+auf das Komplement.
+
+Es sei $\mathbf{id}$ die Identität mit $\mathbf{id}\left(a\right)=a$
+für alle Elemente $a$. Mit $\mathbf{id}_{X}$ bezeichnen wir die
+Identitätsfunktion auf einer Menge $X$.
+
+Die Menge $\mathrm{Abb}\left(A,B\right)$ bezeichne alle Funktionen
+$\pi:A\rightarrow B$, und $\mathrm{Bij}\left(A,B\right)$ bezeichne
+für endliche $\left|A\right|=\left|B\right|=n$ alle $n!$ bijektiven
+Abbildungen $\pi:A\rightleftarrows B$.
+\end{defn}
+
+\begin{defn}
+\textbf{Permutation}
+
+Eine Permutation von $U$ ist eine bijektive Abbildung $\pi:U\rightleftarrows U$.
+Die Menge aller Permutationen $\mathrm{Bij}\left(U,U\right)$ bezeichnen
+wir auch als $\mathrm{Sym}_{U}$. Diese bilden eine Symmetrie-Gruppe
+bezüglich der Verkettung $\circ$ mit dem neutralen Element $\mathbf{id}_{U}$.
+
+Es sei $\pi^{-1}$ die inverse Abbildung mit $\pi^{-1}\pi=\pi\pi^{-1}=\mathbf{id}_{U}$.
+
+Eine Transposition sei eine Permutation, die zwei Elemente $u_{i}$
+und $u_{j}$ vertauscht und alle anderen Elemente fixiert. Die Permutation
+$\left(\begin{array}{cc}
+u_{i} & u_{j}\\
+u_{j} & u_{i}
+\end{array}\right)\cup\mathbf{id}_{U\backslash\left\{ u_{i},u_{j}\right\} }$ wird kurz durch $\left(u_{i}u_{j}\right)$ notiert.
+\end{defn}
+
+\begin{defn}
+\textbf{\label{def:orbit}Orbit}
+
+In einer Permutationsgruppe $G\subseteq\mathrm{Sym}_{U}$ sei $\mathrm{Orb}_{G}\left(u\right)\coloneqq\left\{ \pi u\mid\pi\in G\right\} $
+die Menge aller Elemente, auf die $u$ abgebildet wird.
+\end{defn}
+
+\section{Endliche relationale Strukturen}
+
+Wir betrachten Anfragen und Eigenschaften auf Graphen und allgemeinen
+endlichen Strukturen über eine beliebige relationale Signatur $\sigma$.
+\begin{defn}
+\textbf{Relationale Signaturen}
+
+Eine relationale Signatur $\sigma$ ist eine Menge von Relationssymbolen.
+Jedes Symbol $R\in\sigma$ hat eine feste Stelligkeit $\mathrm{ar}\left(R\right)=k\in\mathbb{N}_{\geqslant1}$.
+Gegebenenfalls wird die Stelligkeit kompakt durch $R/k\in\sigma$
+beziehungsweise $\sigma=\left\{ R_{1}/k_{1},\cdots,R_{k}/k_{k}\right\} $
+notiert.
+\end{defn}
+
+\begin{defn}
+\textbf{Endliche Strukturen}
+
+Eine endliche $\sigma$-Struktur $\mathfrak{A}=\left(A,\left(R^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
+über einer Signatur $\sigma$ und einem endlichen nicht-leeren Universum
+$A$ besteht aus einer Interpretation $R^{\mathfrak{A}}\subseteq A^{k}$
+für jedes Symbol $R/k\in\sigma$. Strukturen benennen wir im Allgemeinen
+durch die Frakturbuchstaben $\mathfrak{A}$ und $\mathfrak{B}$.
+
+\end{defn}
+\begin{itemize}
+\item Für eine endliche Menge $U$ sei $\mathbf{FIN}^{U}\left(\sigma\right)$
+die Menge aller $\sigma$-Strukturen über dem Universum $U$.
+\begin{itemize}
+\item Für $n\in\mathbb{N}_{\geqslant1}$ seien $\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+die $\sigma$-Strukturen über einem beliebigen Universum der Größe
+$n$.
+\item Seien $\mathbf{FIN}\left(\sigma\right)\coloneqq\bigcup_{n\in\mathbb{N}_{\geqslant1}}\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+die endlichen $\sigma$-Strukturen.
+\end{itemize}
+\end{itemize}
+Die Signatur $\sigma$ kann in Ausnahmefällen unendlich sein; da wir
+jedoch nur endlich repräsentierbare $\sigma$-Anfragen betrachten,
+können diese sich nur auf eine endlichen Menge von Relationssymbolen
+$\sigma'\subseteq_{\mathrm{fin}}\sigma$ beziehen.
+
+Wir formalisieren die Interpretation als eine Abbildung $\square^{\mathfrak{A}}:\sigma\rightarrow\bigcup_{k\in\mathbb{N}}2^{\left(A^{k}\right)}$,
+die jedem Symbol eine Relation der entsprechenden Stelligkeit zuweist.
+Daher kann die Interpretation gegebenenfalls auch explizit durch $\mathfrak{A}=\left(A,\square^{\mathfrak{A}}\right)$
+notiert werden, um die Zuordnung von Symbolen und Relationen zu verdeutlichen:
+\[
+\mathfrak{A}\coloneqq\left(A,\left(\begin{array}{c}
+R_{1}\\
+R_{1}^{\mathfrak{A}}
+\end{array}\cdots\begin{array}{c}
+R_{k}\\
+R_{k}^{\mathfrak{A}}
+\end{array}\right)\right)
+\]
+
+\begin{defn}
+\textbf{Geordnete Strukturen}
+
+Sei $\sigma$ eine relationale Signatur, die nicht das zweistellige
+Symbol $\leqslant$ enthält.
+
+Für $a,b\in\mathbb{N}$ sei 
+\[
+\mathbf{FIN}_{\leqslant}^{\left[a,b\right]}\left(\sigma\right)\subseteq\mathbf{FIN}^{\left[a,b\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)
+\]
+ die Menge der endlichen $\sigma\cup\left\{ \leqslant\right\} $-Strukturen
+mit dem Universum $\left[a,b\right]$, wobei $\leqslant$ durch die
+natürliche Ordnung von $\left[a,b\right]$ interpretiert wird, und
+sei 
+\[
+\mathbf{FIN}_{\leqslant}^{a}\left(\sigma\right)\coloneqq\bigcup_{b\in\mathbb{N}}\mathbf{FIN}_{\leqslant}^{\left[a,b\right]}\left(\sigma\right)
+\]
+ die Menge aller endlichen geordneten $\sigma\cup\left\{ \leqslant\right\} $-Strukturen
+über Intervallen, die mit $a$ beginnen (normalerweise mit $a\in\left\{ 0,1\right\} $).
+\end{defn}
+Der Lesbarkeit halber verwenden wir die Infixnotation $a\leqslant b$
+anstelle von $\left(a,b\right)\in\leqslant$ oder $\left[\leqslant\right]\left(a,b\right)$.
+Die Symbole $\dot{\leqslant}$ und $\dot{=}$ seien gleichbedeutend
+mit den Symbolen $\leqslant$ und $=$, und werden gegebenenfalls
+in Gleichungen wie $\varphi=x\dot{=}y$ und $\varphi=x\dot{\leqslant}y$
+verwendet.
+\begin{defn}
+\textbf{\label{def:isomorphism}Isomorphismus}
+
+Für zwei $\sigma$-Strukturen $\mathfrak{A}$ und $\mathfrak{B}$
+sei eine bijektive Abbildung $\pi:A\rightleftarrows B$ ein Isomorphismus,
+falls $\pi R^{\mathfrak{A}}=R^{\mathfrak{B}}$ für alle Symbole $R\in\sigma$
+gilt.
+
+Die Abbildung $\pi$ wird auf natürliche Weise auf Strukturen erweitert:
+\[
+\pi\mathfrak{A}\coloneqq\left(\pi A,\left(\pi R^{\mathfrak{A}}\right)_{R\in\sigma}\right)
+\]
+
+Die Menge aller Isomorphismen bezeichnen wir mit $\mathrm{Bij}\left(\mathfrak{A},\mathfrak{B}\right)$.
+Zwei Strukturen heißen isomorph (kurz $\mathfrak{A}\cong\mathfrak{B}$),
+falls $\mathrm{Bij}\left(\mathfrak{A},\mathfrak{B}\right)$ nicht
+leer ist. Wir schreiben $\left(\mathfrak{A},\bar{a}\right)\cong\left(\mathfrak{B},\bar{b}\right)$,
+wenn insbesondere ein $\pi\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{B}\right)$
+mit $\pi\bar{a}=\bar{b}$ existiert.
+
+Ein Automorphismus $\pi\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{A}\right)$
+sei ein Isomorphismus von $\mathfrak{A}$ zu sich selbst. Die Menge
+der Automorphismen $\mathrm{Bij}\left(\mathfrak{A},\mathfrak{A}\right)$
+nennen wir $\mathrm{Aut}_{\mathfrak{A}}$; diese bilden (so wie die
+Permutationen einer Menge) eine Gruppe bezüglich der Verkettung $\circ$
+und dem neutralen Element $\mathbf{id}_{A}$.
+
+Der Orbit eines Elements $a\in A$ sei analog zu Definition \ref{def:orbit}
+die Menge $\mathrm{Orb}_{\mathfrak{A}}\left(a\right)\coloneqq\left\{ \pi a\mid\pi\in\mathrm{Aut}_{\mathfrak{A}}\right\} $
+aller Elemente, auf die $a$ von einem Automorphismus abgebildet werden
+kann.
+\end{defn}
+
+\begin{defn}
+\textbf{\label{def:disjoint-union}Vereinigung von Strukturen}
+
+Zwei Strukturen können vereinigt werden, wenn sie entweder disjunkte
+Signaturen oder die gleiche Signatur besitzen. Für eine $\sigma_{1}$-Struktur
+$\mathfrak{A}$ und eine $\sigma_{2}$-Struktur $\mathfrak{B}$ gelte:
+
+\end{defn}
+\begin{enumerate}
+\item Wenn $\sigma_{1}\cap\sigma_{2}=\emptyset$, so ist $\mathfrak{A}\cup\mathfrak{B}$
+die folgende $\left(\sigma_{1}\cup\sigma_{2}\right)$-Struktur:
+\[
+\mathfrak{A}\cup\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\right)_{R\in\sigma_{1}},\left(R^{\mathfrak{B}}\right)_{R\in\sigma_{2}}\right)
+\]
+
+\begin{enumerate}
+\item Wenn $\sigma_{1}=\sigma_{2}=\sigma$, so ist $\mathfrak{A}\cup\mathfrak{B}$
+die folgende $\sigma$-Struktur:
+\[
+\mathfrak{A}\cup\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\cup R^{\mathfrak{B}}\right)_{R\in\sigma}\right)
+\]
+\end{enumerate}
+\end{enumerate}
+\begin{defn}
+Falls die beiden Strukturen disjunkte Universen $A\cap B=\emptyset$
+haben, so heiße $\mathfrak{A}\cup\mathfrak{B}=\mathfrak{A}\uplus\mathfrak{B}$
+die \textbf{disjunkte Vereinigung} der Strukturen. Wenn sie disjunkte
+Signaturen und das gleiche Universum haben, so nennen wir $\mathfrak{A}\cup\mathfrak{B}=\mathfrak{A}\oplus\mathfrak{B}$
+die \textbf{Konkatenation} der Strukturen.
+\end{defn}
+\begin{prop}
+\label{prop:iso-closed-disjoint}Isomorphismen sind unter disjunkter
+Vereinigung abgeschlossen.
+\end{prop}
+\begin{proof}
+Seien $\mathfrak{A},\mathfrak{A}'\in\mathbf{FIN}\left(\sigma_{1}\right)$
+und $\mathfrak{B},\mathfrak{B}'\in\mathbf{FIN}\left(\sigma_{2}\right)$
+jeweils zwei Paare isomorpher Strukturen mit $\pi_{1}\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{A}'\right)$
+und $\pi_{2}\in\mathrm{Bij}\left(\mathfrak{B},\mathfrak{B}'\right)$.
+Sei ferner $A\cap B=A'\cap B'=\emptyset$, und seien $\bar{a}\in A^{k},\bar{a}'\in A'^{k},\bar{b}\in B^{k'},\bar{b}\in B'^{k'}$
+vier Tupel mit $\pi_{1}\bar{a}=\bar{a}'$ und $\pi_{2}\bar{b}=\bar{b}'$.
+
+So gilt für die Abbildung $\pi\coloneqq\pi_{1}\cup\pi_{2}:A\uplus A'\rightarrow B\uplus B'$:
+
+\end{proof}
+\begin{casenv}
+\item Wenn $\sigma_{1}\cap\sigma_{2}=\emptyset$:
+\begin{eqnarray*}
+\pi R^{\mathfrak{A}\uplus\mathfrak{B}} & = & \pi_{1}R^{\mathfrak{A}}=R^{\mathfrak{A}'}=R^{\mathfrak{A}'\uplus\mathfrak{B}'}\,\mathrm{f\ddot{u}r}\,R\in\sigma_{1}\\
+\pi R^{\mathfrak{A}\uplus\mathfrak{B}} & = & \pi_{2}R^{\mathfrak{B}}=R^{\mathfrak{B}'}=R^{\mathfrak{A}'\uplus\mathfrak{B}'}\,\mathrm{f\ddot{u}r}\,R\in\sigma_{2}
+\end{eqnarray*}
+\item Wenn $\sigma_{1}=\sigma_{2}$, dann gilt für alle $R\in\sigma_{1}$:
+\[
+\pi R^{\mathfrak{A}\cup\mathfrak{B}}=\pi_{1}R^{\mathfrak{A}}\uplus\pi_{2}R^{\mathfrak{B}}=R^{\mathfrak{A}'}\uplus R^{\mathfrak{B}'}=R^{\mathfrak{A}'\uplus\mathfrak{B}'}
+\]
+\end{casenv}
+\begin{proof}
+Damit ist $\pi\left(\mathfrak{A}\uplus\mathfrak{B}\right)=\mathfrak{A}'\uplus\mathfrak{B}'$
+und $\pi\bar{a}\bar{b}=\bar{a}'\bar{b}'$, und $\left(\mathfrak{A}\uplus\mathfrak{B},\bar{a}\bar{b}\right)\cong\left(\mathfrak{A}'\uplus\mathfrak{B}',\bar{a}'\bar{b}'\right)$.
+\end{proof}
+
+\begin{defn}
+\textbf{\label{def:induced-structure}Induzierte Teilstruktur}
+
+Für eine Relation $R\subseteq A^{k}$ und eine Teilmenge $A'\subseteq A$
+sei $R_{\mid A'}\coloneqq R\cap\left(A'\right)^{k}$ die von $A'$
+induzierte Teilrelation. Für eine $\sigma$-Struktur $\mathfrak{A}$
+sei $\mathfrak{A}_{\mid A'}\coloneqq\left(A',\left(R_{\mid A'}^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
+die von der Teilmenge $A'$ in $\mathfrak{A}$ induzierte Teilstruktur.
+\end{defn}
+
+\begin{defn}
+\textbf{\label{def:neighborhoods}$r$-Nachbarschaft} (siehe Abschnitt
+2.4 von \cite{EbbinghausFlum})
+
+Für eine Struktur $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+sei $\mathcal{G}\left(\mathfrak{A}\right)\in\mathbf{FIN}^{A}\left(\left\{ E\right\} \right)$
+der \textbf{Gaifman-Graph} von $\mathfrak{A}$, der alle Knoten miteinander
+verbindet, die im gleichen Tupel vorkommen. Insbesondere ist für jeden
+symmetrischen\footnote{Der Gaifman-Graph ist ungerichtet, wird aber hier als symmetrische,
+gerichtete $\left\{ E\right\} $-Struktur modelliert.} Graphen $\mathfrak{A}\in\mathbf{FIN}\left(\left\{ E\right\} \right)$
+offensichtlich $\mathcal{G}\left(\mathfrak{A}\right)=\mathfrak{A}$.
+\begin{eqnarray*}
+\mathcal{G}\left(\mathfrak{A}\right) & = & \left(A,E^{\mathcal{G}\left(\mathfrak{A}\right)}\right)\\
+E^{\mathcal{G}\left(\mathfrak{A}\right)} & = & \left\{ \left(a_{i},a_{j}\right)\mid R/k\in\sigma,\,\bar{a}\in R^{\mathfrak{A}},\,i,j\in\left[1,k\right],\,i\neq j\right\} 
+\end{eqnarray*}
+
+Sei $\mathrm{dist}_{\mathfrak{A}}:A^{2}\rightarrow\mathbb{N\cup\left\{ \infty\right\} }$
+die minimale Distanz $\mathrm{dist}_{\mathfrak{A}}\left(a,b\right)$
+in $\mathcal{G}\left(\mathfrak{A}\right)$ zwischen zwei Knoten $a,b\in A$.
+Für ein $r\in\mathbb{N}$ sei nun $N_{r}^{\mathfrak{A}}\left(a\right)\coloneqq\left\{ b\in A\mid\mathrm{dist}_{\mathfrak{A}}\left(a,b\right)\leqslant r\right\} $
+die \textbf{$r$-Kugel} um $a\in A$. Deren induzierte Teilstruktur
+$\mathcal{N}_{r}^{\mathfrak{A}}\left(a\right)=\mathfrak{A}_{\mid N_{r}\left(a\right)}$
+in $\mathfrak{A}$ sei die \textbf{$r$-Umgebung} von $a$.
+
+Für zwei Strukturen $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}\left(\sigma\right)$
+und zwei Elemente $a\in A$, $b\in B$ schreiben wir $a\sim_{r}b$
+($a$ ist \textbf{$r$-ähnlich} zu $b$), wenn ein Isomorphismus $\pi\in\mathrm{Bij}\left(\mathcal{N}_{r}^{\mathfrak{A}}\left(a\right),\mathcal{N}_{r}^{\mathfrak{B}}\left(b\right)\right)$
+mit $\pi a=b$ existiert.
+\end{defn}
+
+\begin{defn}
+\textbf{$\sigma$-Anfragen}
+
+Eine $\sigma$\textbf{-Anfrage} $q$ mit der Stelligkeit $\mathrm{ar}\left(q\right)=k$
+sei eine Abbildung jeder endlichen $\sigma$-Struktur $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+auf eine Relation $q\left(\mathfrak{A}\right)\subseteq A^{k}$. Eine
+$\sigma$\textbf{-Eigenschaft} $S\subseteq\mathbf{FIN}\left(\sigma\right)$
+sei eine Menge von $\sigma$-Strukturen und entspreche der 0-stelligen
+Anfrage $q_{S}$:
+\begin{eqnarray*}
+q_{S}\left(\mathfrak{A}\right) & \coloneqq & \begin{cases}
+\left\{ \left\langle \right\rangle \right\}  & \mathrm{falls}\,\mathfrak{A}\in S\\
+\emptyset & \mathrm{sonst}
+\end{cases}
+\end{eqnarray*}
+
+Per Definition sind alle $\sigma$-Anfragen und $\sigma$-Eigenschaften
+unter Isomorphismen abgeschlossen: Für $\mathfrak{A}\cong\mathfrak{B}$
+und $\pi\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{B}\right)$ gilt
+$\pi q\left(\mathfrak{A}\right)=q\left(\mathfrak{B}\right)$ und $\mathfrak{A}\in S\Leftrightarrow\mathfrak{B}\in S$.
+\end{defn}
+

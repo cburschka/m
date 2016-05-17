@@ -1,0 +1,985 @@
+
+\chapter{Von Formeln zu Schaltkreisfamilien}
+
+\section{Logik erster Stufe}
+
+Wir weisen zunächst nach, dass die Logik der ersten Stufe durch symmetrische,
+$\mathrm{LOGSPACE}$-uniforme Schaltkreisfamilien konstanter Tiefe
+beschrieben wird. 
+\[
+\mathrm{FO}\subseteq\left(\mathrm{SAC}^{0}\right)^{\mathrm{LOGSPACE}}
+\]
+
+\begin{lem}
+\label{lem:fo-circuit}Jede $\mathrm{FO}\left[\sigma\right]$-Formel
+$\varphi\left(\bar{x}\right)$ definiert eine $\sigma$-Anfrage $q$,
+die von einer symmetrischen $\mathrm{LOGSPACE}$-uniformen Schaltkreis-Familie
+$\bar{\mathcal{C}^{\varphi}}$ mit $\left\Vert \varphi\right\Vert $-Tiefe
+und $\left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}$-Größe
+berechnet wird.
+\end{lem}
+\begin{proof}
+Sei $\sigma$ eine relationale Signatur, und sei $\varphi\left(\bar{x}\right)$
+eine $k$-stellige $\mathrm{FO}\left[\sigma\right]$-Formel.
+
+Per induktiver Konstruktion über den Aufbau von $\varphi$ wird der
+$k$-stellige Schaltkreis $\mathcal{C}_{n}^{\varphi}$ über dem Universum
+$U\coloneqq\left[1,n\right]$ definiert, so dass $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\Leftrightarrow\left\llbracket \mathcal{C}_{n}^{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)$
+für alle $n\in\mathbb{N}$, $\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$
+und $\bar{t}\in\left[1,n\right]^{k}$ gilt. Für eine beliebige Permutation
+$\pi\in\mathrm{Sym}_{U}$ wird ein Automorphismus $\hat{\pi}$ angegeben,
+und damit die Symmetrie nachgewiesen.
+
+\begin{casenv}
+\item Falls $\varphi\left(\bar{x}\right)=R\bar{y}$ für $R/m\in\sigma$
+und $\bar{y}\in\mathrm{frei}\left(\varphi\right)^{m}$, so besteht
+$\mathcal{C}_{n}^{\varphi}$ aus $n^{k}$ Gates.
+
+\begin{description}
+\item [{Schaltkreis:}] 
+\[
+\mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} ,\emptyset,\Sigma,\Omega,U\right)
+\]
+Für jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\bar{x}\mapsto\bar{t}\right)$
+die Belegung der Variablen $\bar{x}$ mit $\bar{t}$:
+\begin{eqnarray*}
+\Sigma\left(g_{\bar{t}}\right) & \coloneqq & R\beta_{\bar{t}}\left(\bar{y}\right)\\
+\Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}
+\end{eqnarray*}
+\item [{Korrektheit:}] 
+\[
+\begin{array}{cccccc}
+\left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \left[R^{\mathfrak{A}}\right]\left(\beta_{\bar{t}}\bar{y}\right) & = & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right)= & \left\llbracket \mathcal{C}_{n}^{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\end{array}
+\]
+\item [{Symmetrie:}] Sei $\hat{\pi}g_{\bar{t}}\coloneqq g_{\pi\bar{t}}$
+für alle Tupel $\bar{t}\in U^{k}$. Per Definition ist $\pi\beta_{\bar{t}}\left(\bar{y}\right)=\beta_{\pi\bar{t}}\left(\bar{y}\right)$
+und daher 
+\begin{eqnarray*}
+\Sigma\left(\hat{\pi}g_{\bar{t}}\right) & = & \pi\Sigma\left(g_{\bar{t}}\right)\\
+\Omega\left(\pi\bar{t}\right) & = & \hat{\pi}\Omega\left(\bar{t}\right)
+\end{eqnarray*}
+\item [{Größe:}] Der Schaltkreis hat die Tiefe $0$ und die Größe $n^{k}=n^{\mathtt{MF}\left(\varphi\right)}$.
+\end{description}
+\item Falls $\varphi\left(\bar{x}\right)=y_{1}\dot{=}y_{2}$, so besteht
+$\mathcal{C}_{n}^{\varphi}$ aus $n^{k}$ isolierten Gates (hier ist
+$k\in\left\{ 1,2\right\} $).
+
+\begin{description}
+\item [{Schaltkreis:}] 
+\[
+\mathcal{C}_{n}^{\varphi}\coloneqq\left(\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} ,\emptyset,\Sigma,\Omega,U\right)
+\]
+Für jedes Tupel $\bar{t}\in U^{k}$ sei $\beta_{\bar{t}}\coloneqq\left(\bar{x}\mapsto\bar{t}\right)$
+die entsprechende Belegung:
+\begin{eqnarray*}
+\Sigma\left(g_{\bar{t}}\right) & \coloneqq & \begin{cases}
+\mathbf{1} & \mathrm{falls}\,\,\beta\left(y_{1}\right)=\beta\left(y_{2}\right)\\
+\mathbf{0} & \mathrm{sonst}
+\end{cases}\\
+\Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}
+\end{eqnarray*}
+\item [{Korrektheit:}] 
+\begin{eqnarray*}
+\left\llbracket y_{1}\dot{=}y_{2}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1 & \Leftrightarrow & \left(\beta_{\bar{t}}y_{1}=\beta_{\bar{t}}y_{2}\right)\\
+ & \Leftrightarrow & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right)=1\\
+ & \Leftrightarrow & \left\llbracket \mathcal{C}_{n}^{\varphi}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1
+\end{eqnarray*}
+\item [{Symmetrie:}] Sei $\hat{\pi}\left(g_{\bar{t}}\right)\coloneqq g_{\pi\bar{t}}$.
+Es gilt $\beta_{\bar{t}}\left(x\right)=\beta_{\bar{t}}\left(x'\right)$
+genau dann wenn $\beta_{\pi\bar{t}}\left(x\right)=\beta_{\pi\bar{t}}\left(x\right)$,
+und daher ist $\Sigma\left(\hat{\pi}g_{\bar{t}}\right)=\Sigma\left(g_{\pi\bar{t}}\right)$.
+\item [{Größe:}] Der Schaltkreis hat die Tiefe $0$ und die Größe $n^{k}=n^{\mathtt{MF}\left(\varphi\right)}$.
+\end{description}
+\item Falls $\varphi\left(\bar{x}\right)=\varphi_{1}\left(\bar{y_{1}}\right)\wedge\cdots\wedge\varphi_{m}\left(\bar{y_{m}}\right)$
+mit $\mathrm{ar}\left(\varphi_{i}\right)=k_{i}$, so besteht $\mathcal{C}_{n}^{\varphi}$
+aus der disjunkten Vereinigung aller $\mathcal{C}_{n}^{\varphi_{i}}$
+für $1\leqslant i\leqslant m$ mit der folgenden Erweiterung.
+
+\begin{description}
+\item [{Schaltkreis:}] 
+\begin{eqnarray*}
+\mathcal{C}_{n}^{\varphi_{i}} & = & \left(G_{i},W_{i},\Sigma_{i},\Omega_{i},U\right)\\
+\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)
+\end{eqnarray*}
+Es werden neue Outputs für jedes $k$-Tupel aus $U$ hinzugefügt:
+\begin{eqnarray*}
+G & \coloneqq & \biguplus_{i=1}^{m}G_{i}\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} 
+\end{eqnarray*}
+Die Outputs werden entsprechend mit denen von $\mathcal{C}_{n}^{\varphi_{i}}$
+verknüpft, wobei $\rho_{i}:U^{k}\rightarrow U^{k_{i}}$ ein $k$-Tupel
+$\bar{t}$ wie folgt auf die in $\varphi_{i}$ frei vorkommenden Variablen
+reduziere:
+\begin{eqnarray*}
+\mathrm{Sei}\,\,\,\bar{j} & \in & \left[1,k\right]^{k_{i}}\\
+\mathrm{so}\,\mathrm{dass}\,\,\,\bar{y_{i}} & = & \left(x_{\left(j_{1}\right)},\cdots,x_{\left(j_{k_{i}}\right)}\right)
+\end{eqnarray*}
+\begin{eqnarray*}
+\mathrm{dann}\,\,\,\rho_{i}\left(t_{1},\cdots,t_{k}\right) & \coloneqq & \left(t_{\left(j_{1}\right)},\cdots,t_{\left(j_{k_{i}}\right)}\right)
+\end{eqnarray*}
+\begin{eqnarray*}
+W & \coloneqq & \bigcup_{i=1}^{m}W_{i}\cup W_{\mathtt{AND}}\\
+W_{\mathtt{AND}} & \coloneqq & \left\{ \left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\mid1\leqslant i\leqslant m,\,\bar{t}\in U^{k}\right\} 
+\end{eqnarray*}
+Die Gates werden entsprechend beschriftet:
+\begin{eqnarray*}
+\Sigma\left(g\right) & \coloneqq & \begin{cases}
+\Sigma_{i}\left(g\right) & \mathrm{f\ddot{u}r}\,\,g\in G_{i}\\
+\mathtt{AND} & \mathrm{sonst}
+\end{cases}\\
+\Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}\,\,\mathrm{f\ddot{u}r\,alle\,\,}\bar{t}\in U^{k}
+\end{eqnarray*}
+\item [{Korrektheit:}] Es gilt für $\bar{t}\in U^{k}$: 
+\begin{eqnarray*}
+\left\llbracket \varphi_{1}\wedge\cdots\wedge\varphi_{m}\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \min_{1\leqslant i\leqslant m}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\\
+ & = & \min_{1\leqslant i\leqslant m}\mathcal{C}_{n}^{\varphi_{i}}\left[\mathfrak{A}\right]\left(\Omega_{i}\left(\rho_{i}\bar{t}\right)\right)\\
+ & = & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right)
+\end{eqnarray*}
+\item [{Symmetrie:}] Es existieren bereits die Automorphismen $\hat{\pi_{i}}$
+für jeden Schaltkreis $\mathcal{C}_{n}^{\varphi_{i}}$. Der Automorphismus
+$\hat{\pi}$ erweitert diese wie folgt:
+\[
+\hat{\pi}\left(g\right)\coloneqq\begin{cases}
+\hat{\pi}_{i}\left(g\right) & \mathrm{f\ddot{u}r}\,g\in G_{i}\\
+g_{\pi\bar{t}} & \mathrm{f\ddot{u}r}\,g=g_{\bar{t}}
+\end{cases}
+\]
+Für die Gates und Kanten der Schaltkreise $\mathcal{C}_{n}^{\varphi_{i}}$
+ist $\hat{\pi}$ per Annahme bereits korrekt.
+
+\begin{enumerate}
+\item Für jede neue Kante $\left(\Omega_{i}\left(\rho_{i}\bar{t}\right),g_{\bar{t}}\right)\in W_{\mathtt{AND}}$
+gilt nach Voraussetzung: 
+\begin{eqnarray*}
+\left(\hat{\pi}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right) & = & \left(\hat{\pi}_{i}\Omega_{i}\left(\rho_{i}\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\\
+ & = & \left(\Omega_{i}\left(\rho_{i}\pi\bar{t}\right),g_{\pi\bar{t}}\right)\\
+ & \in & W_{\mathtt{AND}}
+\end{eqnarray*}
+(Die Reduktion $\rho_{i}:U^{k}\rightarrow U^{k_{i}}$ ist ein Homomorphismus
+und kommutiert mit der Permutation $\pi$.)
+\item Es gilt $\Sigma\left(\hat{\pi}g_{\bar{t}}\right)=\Sigma\left(g_{\bar{t}}\right)=\mathtt{AND}$.
+\item Es gilt $\hat{\pi}\Omega\left(\bar{t}\right)=\hat{\pi}g_{\bar{t}}=g_{\pi\bar{t}}=\Omega\left(\pi\bar{t}\right)$.
+\end{enumerate}
+\item [{Größe:}] Der Schaltkreis hat die Tiefe $T\left(\mathcal{C}_{n}^{\varphi}\right)$
+und die Größe $\left|\mathcal{C}_{n}^{\varphi}\right|$: 
+\begin{eqnarray*}
+T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+\max_{i=1}^{m}T\left(\mathcal{C}_{n}^{\psi_{i}}\right)\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & 1+\max_{i=1}^{m}\left\Vert \psi_{i}\right\Vert \\
+ & \leqslant & 1+\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert \leqslant\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+ 
+\begin{eqnarray*}
+\left|\mathcal{C}_{n}^{\varphi}\right| & = & n^{k}+\sum_{i=1}^{m}\left|\mathcal{C}_{n}^{\psi_{i}}\right|\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & n^{k}+\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert n^{\mathtt{MF}\left(\psi_{i}\right)}\\
+ & \leqslant & n^{\mathtt{MF}\left(\varphi\right)}+\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert n^{\mathtt{MF}\left(\varphi\right)}\\
+ & \leqslant & n^{\mathtt{MF}\left(\varphi\right)}\left(1+\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert \right)\leqslant n^{\mathtt{MF}\left(\varphi\right)}\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+\end{description}
+\item Falls $\varphi\left(\bar{x}\right)=\varphi_{1}\vee\cdots\vee\varphi_{\ell}$,
+so ist der Schaltkreis analog zu Fall 3 mit $\Sigma\left(g_{\bar{t}}\right)=\mathtt{OR}$.
+\item Falls $\varphi\left(\bar{x}\right)=\neg\psi$, so wird der Schaltkreis
+$\mathcal{C}_{n}^{\psi}$ wie folgt erweitert:
+
+\begin{description}
+\item [{Schaltkreis:}] 
+\begin{eqnarray*}
+\mathcal{C}_{n}^{\psi} & = & \left(G',W',\Sigma',\Omega',U\right)\\
+\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)
+\end{eqnarray*}
+Für jedes Tupel $\bar{t}\in U^{k}$ wird ein neues Gate $g_{\bar{t}}$
+eingefügt. Die Gates werden mit den Outputs von $\mathcal{C}_{n}^{\varphi'}$
+verknüpft. 
+\begin{eqnarray*}
+G & \coloneqq & G'\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} \\
+W & \coloneqq & W'\cup W_{\mathtt{NOT}}\\
+W_{\mathtt{NOT}} & \coloneqq & \left\{ \left(\Omega'\left(\bar{t}\right),g_{\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} \\
+\Sigma\left(g\right) & \coloneqq & \begin{cases}
+\Sigma'\left(g\right) & \mathrm{falls}\,\,g\in G'\\
+\mathtt{NOT} & \mathrm{sonst}
+\end{cases}\\
+\Omega\left(\bar{t}\right) & \coloneqq & g_{\bar{t}}
+\end{eqnarray*}
+\item [{Korrektheit:}] 
+\begin{eqnarray*}
+\left\llbracket \neg\psi\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & 1-\left\llbracket \psi\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\\
+ & = & 1-\mathcal{C}_{n}^{\psi}\left[\mathfrak{A}\right]\left(\Omega'\left(\bar{t}\right)\right)\\
+ & = & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right)
+\end{eqnarray*}
+\item [{Symmetrie:}] Es existiert bereits der Automorphismus $\hat{\pi'}$.
+Dieser wird wie folgt erweitert:
+\[
+\hat{\pi}\left(g\right)\coloneqq\begin{cases}
+\hat{\pi'}\left(g\right) & \mathrm{falls}\,\,g\in G'\\
+g_{\pi\bar{t}} & \mathrm{falls}\,\,g=g_{\bar{t}}
+\end{cases}
+\]
+Dann gilt:
+\begin{eqnarray*}
+\hat{\pi}W_{\mathtt{NOT}} & = & \left\{ \left(\hat{\pi}\Omega'\left(\bar{t}\right),\hat{\pi}g_{\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} \\
+ & = & \left\{ \left(\Omega'\left(\pi\bar{t}\right),g_{\pi\bar{t}}\right)\mid\bar{t}\in U^{k}\right\} =W_{\mathtt{NOT}}\\
+\Sigma\left(\hat{\pi}g_{\bar{t}}\right) & = & \Sigma\left(g_{\bar{t}}\right)=\mathtt{NOT}
+\end{eqnarray*}
+\item [{Größe:}] Der Schaltkreis hat die Tiefe $T\left(\mathcal{C}_{n}^{\varphi}\right)$
+und die Größe $\left|\mathcal{C}_{n}^{\varphi}\right|$: 
+\begin{eqnarray*}
+T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+T\left(\mathcal{C}_{n}^{\psi}\right)\\
+ & \leqslant & 1+\left\Vert \psi\right\Vert \leqslant\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+\begin{eqnarray*}
+\left|\mathcal{C}_{n}^{\varphi}\right| & = & n^{k}+\left|\mathcal{C}_{n}^{\psi}\right|\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & n^{k}+\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\psi\right)}\\
+ & \leqslant & n^{\mathtt{MF}\left(\varphi\right)}+\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}\\
+ & \leqslant & \left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}
+\end{eqnarray*}
+\end{description}
+\item \label{case:fo-ex}Falls $\varphi\left(\bar{x}\right)=\exists y_{1}\cdots\exists y_{m}\psi\left(z_{1},\cdots,z_{k+m}\right)$,
+so wird der Schaltkreis $\mathcal{C}_{n}^{\varphi'}$ wie folgt erweitert:
+
+\begin{description}
+\item [{Schaltkreis:}] 
+\begin{eqnarray*}
+\mathcal{C}_{n}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)\\
+\mathcal{C}_{n}^{\varphi'} & \coloneqq & \left(G',W',\Sigma',\Omega',U\right)
+\end{eqnarray*}
+Sei $\rho:U^{k+m}\rightarrow U^{k}$ die Abbildung, die aus $\bar{z}$
+die gebundenen Variablen $\bar{y}$ entferne:
+\begin{eqnarray*}
+\mathrm{Sei}\,\,\,\bar{i} & \in & \left[1,k\right]^{k}\\
+\mathrm{so}\,\mathrm{dass}\,\,\,\bar{x} & = & \left(z_{\left(i_{1}\right)},\cdots,z_{\left(i_{k}\right)}\right)\\
+\mathrm{dann}\,\,\,\rho\left(t_{1},\cdots,t_{k}\right) & \coloneqq & \left(t_{\left(i_{1}\right)},\cdots,t_{\left(i_{k}\right)}\right)
+\end{eqnarray*}
+\end{description}
+Es werden neue Outputs eingefügt.
+\begin{eqnarray*}
+G & \coloneqq & G'\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U^{k}\right\} 
+\end{eqnarray*}
+Jedes Gate $\Omega'\left(\bar{u}\right)$ mit $\bar{u}\in U^{k+m}$
+wird mit dem Gate $g_{\rho\bar{u}}$ verknüpft.
+\begin{eqnarray*}
+W & \coloneqq & W'\cup W_{\exists}\\
+W_{\exists} & \coloneqq & \left\{ \left(\Omega'\left(\bar{u}\right),g_{\rho\bar{u}}\right)\mid\bar{u}\in U^{k+m}\right\} 
+\end{eqnarray*}
+
+Die neuen Outputs werden mit $\mathtt{OR}$ markiert.
+\begin{eqnarray*}
+\Sigma\left(g\right) & \coloneqq & \begin{cases}
+\Sigma'\left(g\right) & \mathrm{f\ddot{u}r}\,g\in G'\\
+\mathtt{OR} & \mathrm{sonst}
+\end{cases}
+\end{eqnarray*}
+\[
+\Omega\left(\bar{t}\right)\coloneqq g_{\bar{t}}
+\]
+
+\begin{description}
+\item [{Korrektheit:}] Für $\bar{t}\in U^{k}$ gilt: 
+\begin{eqnarray*}
+\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \max_{\begin{subarray}{c}
+\bar{u}\in U^{k+m}\\
+\rho\bar{u}=\bar{t}
+\end{subarray}}\left\llbracket \psi\right\rrbracket \left(\mathfrak{A},\bar{u}\right)=1\\
+ & = & \max_{\begin{subarray}{c}
+\bar{u}\in U^{k+m}\\
+\rho\bar{u}=\bar{t}
+\end{subarray}}\left(\mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(\Omega'\left(\bar{u}\right)\right)\right)\\
+ & = & \mathcal{C}_{n}^{\varphi}\left[\mathfrak{A}\right]\left(g_{\bar{t}}\right)
+\end{eqnarray*}
+\item [{Symmetrie:}] Es existiert bereits der Automorphismus $\hat{\pi'}$.
+Dieser wird wie folgt erweitert:
+\[
+\hat{\pi}\left(g\right)\coloneqq\begin{cases}
+\hat{\pi'}\left(g\right) & \mathrm{f\ddot{u}r}\,\,g\in G'\\
+g_{\pi\bar{t}} & \mathrm{f\ddot{u}r}\,\,g=g_{\bar{t}}
+\end{cases}
+\]
+Auf den Gates von $\mathcal{C}_{n}^{\varphi'}$ ist $\hat{\pi}$ per
+Annahme treu zu $\pi$.
+
+\begin{enumerate}
+\item Für die neuen Kanten $\left(\Omega'\left(\bar{u}\right),g_{\rho\bar{u}}\right)\in W$
+gilt: 
+\[
+\left(\hat{\pi}\Omega'\left(\bar{u}\right),\hat{\pi}g_{\rho\bar{u}}\right)=\left(\Omega'\left(\pi\bar{u}\right),g_{\rho\pi\bar{u}}\right)\in W
+\]
+\item $\hat{\pi}\Sigma\left(g_{\bar{t}}\right)=\Sigma\left(g_{\bar{t}}\right)=\mathtt{OR}$.
+\item $\Omega\left(\pi\bar{t}\right)=g_{\pi\bar{t}}=\hat{\pi}g_{\bar{t}}=\hat{\pi}\Omega\left(\bar{t}\right)$.
+\end{enumerate}
+\item [{Größe:}] Der Schaltkreis hat die Tiefe $T\left(\mathcal{C}_{n}^{\varphi}\right)$
+und die Größe $\left|\mathcal{C}_{n}^{\varphi}\right|$:
+\begin{eqnarray*}
+T\left(\mathcal{C}_{n}^{\varphi}\right) & = & 1+T\left(\mathcal{C}_{n}^{\psi}\right)\\
+ & \leqslant & 1+\left\Vert \psi\right\Vert \leqslant\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+\begin{eqnarray*}
+\left|\mathcal{C}_{n}^{\varphi}\right| & = & n^{k}+\left|\mathcal{C}_{n}^{\psi}\right|\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & n^{k}+\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\psi\right)}\\
+ & \leqslant & n^{\mathtt{MF}\left(\varphi\right)}+\left\Vert \psi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}\\
+ & \leqslant & \left\Vert \varphi\right\Vert n^{\mathtt{MF}\left(\varphi\right)}
+\end{eqnarray*}
+\end{description}
+\item \label{case:fo-forall}Falls $\varphi\left(\bar{x}\right)=\forall y_{1}\cdots\forall y_{m}\psi\left(\bar{z}\right)$,
+so sei der Schaltkreis analog zu Fall 8 mit $\Sigma\left(g_{\bar{t}}\right)\coloneqq\mathtt{AND}$.
+\end{casenv}
+\begin{description}
+\item [{Speicherplatz}] Die beschriebene Konstruktion wird von dem $\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log n$-platzbeschränkten
+Algorithmus \ref{alg:fo-circ} berechnet.
+
+Jeder Aufruf von $\mathtt{Berechne}\left(\varphi\left(\bar{x}\right)\right)$
+iteriert über Variablen $\bar{t}\in U^{\mathrm{var}\left(\varphi\right)}$,
+die $\mathrm{var}\left(\varphi\right)\log n$ Bits belegen. Da die
+maximale Tiefe der Rekursion durch $\left\Vert \varphi\right\Vert $
+beschränkt ist, werden insgesamt $\left\Vert \varphi\right\Vert \left|\mathrm{var}\left(\varphi\right)\right|\log n$
+Bits benötigt.
+
+(Hierbei werden ohne Details eine passende Kodierung der Formel $\varphi$
+und ein Algorithmus zur platz-effizienten Berechnung von $\mathrm{frei}\left(\varphi\right)$
+vorausgesetzt.)
+\end{description}
+\end{proof}
+\begin{algorithm}
+\begin{lyxcode}
+Berechne($\varphi\left(\bar{x}\right)$):~
+
+\begin{lyxcode}
+Für~jedes~$\bar{t}\in\left[1,n\right]^{\mathrm{ar}\left(\bar{x}\right)}$:~
+
+\begin{lyxcode}
+Gib~Gate~$g_{\varphi\left(\bar{t}\right)}$~und~$\Omega_{\varphi}\left(\bar{t}\right)\coloneqq g_{\varphi\left(\bar{t}\right)}$~aus.
+
+Gib~$\Sigma_{\varphi}\left(g_{\varphi\left(\bar{t}\right)}\right)$~entsprechend~der~Konstruktion~aus.
+\end{lyxcode}
+Für~jede~direkte~Teilformel~$\psi\left(\bar{y}\right)$:~
+
+\begin{lyxcode}
+Berechne($\psi\left(\bar{y}\right)$).
+
+Für~jedes~$\bar{t}\in\left[1,n\right]^{\mathrm{ar}\left(\bar{x}\right)}$:~
+
+\begin{lyxcode}
+Für~jedes~$\bar{t}'\in\left[1,n\right]^{\mathrm{ar}\left(\bar{y}\right)}$:~
+
+\begin{lyxcode}
+Falls~$t_{i}=t'_{j}$~für~alle~$i\in\left[1,\mathrm{ar}\left(\bar{x}\right)\right],j\in\left[1,\mathrm{ar}\left(\bar{y}\right)\right]$~mit~$x_{i}=y_{j}$:~
+
+\begin{lyxcode}
+Verknüpfe~$\Omega_{\psi}\left(\bar{t}'\right)$~mit~$g_{\varphi\left(\bar{t}\right)}$.
+\end{lyxcode}
+\end{lyxcode}
+\end{lyxcode}
+\end{lyxcode}
+\end{lyxcode}
+\end{lyxcode}
+\caption{\label{alg:fo-circ}Berechnung von $\mathcal{C}_{n}^{\varphi}$ für
+$\mathrm{FO}\left[\sigma\right]$-Formeln.}
+\end{algorithm}
+
+
+\section{Disjunkte numerische Erweiterungen}
+
+Wir betrachten eine beliebige numerische Erweiterung $\mathcal{L}+\Upsilon$,
+und weisen nach, dass eine Schaltkreis-Konstruktion für $\mathcal{L}$
+angepasst werden kann, ohne die asymptotische Tiefe und Größe zu verändern.
+
+Die neue Schaltkreisfamilie ist $\mathcal{K}$-uniform (mit $\mathcal{K}\supseteq\mathrm{LOGSPACE}$),
+wenn sowohl die Konstruktion für $\mathcal{L}$ als auch das Orakel
+$\mathcal{K}$-uniform sind.
+\begin{lem}
+\label{lem:oracle-circuit}Sei $\mathcal{L}$ eine Logik, $\mathbb{B}$
+eine boolesche Basis und $\mathcal{K}\supseteq\mathrm{LOGSPACE}$
+eine Komplexitätsklasse, so dass für jede $\mathcal{L}\left[\sigma\right]$-Formel
+eine symmetrische $\mathcal{K}$-uniforme $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
+mit $t\left(n\right)$-Tiefe und $s\left(n\right)$-Größe (mit $s\mathrm{\left(n\right)\in\mathrm{poly}\left(n\right)}$)
+existiert, die die gleiche Anfrage beschreibt.
+
+Sei $\eta$ eine von $\sigma$ disjunkte Signatur und $\Upsilon$
+ein $\mathcal{K}$-uniformes $\eta$-Orakel.
+
+Dann existiert auch für jede $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$-Formel
+eine ebensolche Schaltkreisfamilie mit der Tiefe $t'\left(n\right)\coloneqq t\left(2n+1\right)$
+und der Größe $s'\left(n\right)\coloneqq s\left(2n+1\right)$.
+\end{lem}
+Insbesondere folgt dann aus der Kombination mit Lemma \ref{lem:fo-circuit}:
+\begin{eqnarray*}
+\mathrm{FO}+\mathbf{BIT} & \subseteq & \left(\mathrm{SAC}^{0}\right)^{\mathrm{LOGSPACE}}\\
+\mathrm{FO}+\mathbf{ARB} & \subseteq & \left(\mathrm{SAC}^{0}\right)^{P/\mathrm{poly}}
+\end{eqnarray*}
+
+\begin{proof}
+Sei $\varphi$ eine $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$-Formel.
+Für $n\in\mathbb{N}$ und $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+wird $\varphi$ als $\mathcal{L}\left[\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right]$-Formel
+auf der disjunkt vereinigten $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right)$-Struktur
+$\mathfrak{A}\uplus\Upsilon\left(n\right)$ ausgewertet, wobei $\Upsilon\left(n\right)\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta\right)$
+das Universum $\left[0,n\right]$ hat.
+
+Der Schaltkreis $\mathcal{C}_{n}$ wird aber auf einer umbenannten
+$\sigma$-Struktur $\mathfrak{A}'\coloneqq\pi\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$
+mit für $\pi:A\rightleftarrows\left[1,n\right]$ ausgewertet. Um $\mathfrak{A}'$
+disjunkt mit $\Upsilon\left(n\right)$ zu vereinigen, werden wir zuerst
+das Universum $\left[0,n\right]$ durch eine Umbenennung nach $\left[n+1,2n+1\right]$
+,,verschieben``:
+\begin{eqnarray*}
+\Upsilon'\left(n\right) & \coloneqq & \rho\Upsilon\left(n\right)\\
+\rho & : & \left[0,n\right]\rightarrow\left[n+1,2n+1\right]\\
+\rho\left(i\right) & \coloneqq & i+n+1
+\end{eqnarray*}
+
+Nun betrachten wir die disjunkte Vereinigung (wobei die Prädikate
+aus $\eta\uplus\left\{ \leqslant\right\} $ nur auf $\left[n+1,2n+1\right]$
+definiert sind): 
+\[
+\mathfrak{A}'\uplus\Upsilon'\left(n\right)\in\mathbf{FIN}^{\left[1,2n+1\right]}\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right)
+\]
+
+Weil $\Upsilon\left(n\right)\cong\Upsilon'\left(n\right)$ und $\mathfrak{A}\cong\mathfrak{A}'$,
+gilt auch $\mathfrak{A}\uplus\Upsilon\left(n\right)\cong\mathfrak{A}'\uplus\Upsilon'\left(n\right)$
+(denn der Isomorphismus ist unter disjunkter Vereinigung abgeschlossen):
+\[
+\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\uplus\Upsilon\left(n\right),\beta\right)=\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}'\uplus\Upsilon'\left(n\right),\beta\right)
+\]
+
+Per Voraussetzung können wir in $\mathcal{K}$ einen $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}\right)$-Schaltkreis
+$\mathcal{C}_{2n+1}^{\varphi}$ über $U'=\left[1,2n+1\right]$ berechnen.
+Dieser arbeitet korrekt auf $\mathfrak{A}'\uplus\Upsilon'\left(n\right)$
+und hat offensichtlich die geforderte Größe $s'\left(n\right)=s\left(2n+1\right)$
+und Tiefe $t'\left(n\right)=t\left(2n+1\right)$.
+
+Anschließend konstruieren wir daraus den $\left(\sigma,\mathbb{B}\right)$-Schaltkreis
+$\dot{\mathcal{C}_{n}^{\varphi}}\coloneqq\left(G,W,\dot{\Sigma},\dot{\Omega},U\right)$
+über $U\coloneqq\left[1,n\right]$, indem alle Inputs $\Sigma\left(g\right)=R\bar{t}$
+mit $\bar{t}\notin U^{*}$ oder $R\notin\sigma$ durch Konstanten
+$\dot{\Sigma}\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
+ersetzt werden, und die Ausgangsfunktion auf $\dot{\Omega}=\Omega_{\mid U}$
+reduziert wird. Das ist eine einfache Iteration über die Gates $G$
+des Schaltkreises, die nur einen Zähler der Größe $\log\left(s'\left(n\right)\right)\in\log\left(\mathrm{poly}\left(n\right)\right)=\mathcal{O}\left(\log n\right)$
+benötigt, und somit in $\mathrm{LOGSPACE}$ bleibt.
+
+\begin{casenv}
+\item Für $\Sigma\left(g\right)=R\bar{t}$ mit $R/k\in\sigma$ werden die
+,,überschüssigen`` Inputs einfach auf $\mathbf{0}$ gesetzt:
+\begin{eqnarray*}
+\dot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
+R\bar{t} & \mathrm{falls}\,\,\bar{t}\in U^{k}\\
+\mathbf{0} & \mathrm{sonst}
+\end{cases}
+\end{eqnarray*}
+\item Für $\Sigma\left(g\right)=R\bar{t}$ mit $\sigma/k\in\eta\uplus\left\{ \leqslant\right\} $
+wird die numerische Relation $R^{\Upsilon'\left(n\right)}$ fest in
+den Schaltkreis eingebaut:
+\begin{eqnarray*}
+\dot{\Sigma}\left(g\right) & \coloneqq & \begin{cases}
+\mathbf{1} & \mathrm{falls}\,\,\bar{t}\in R^{\Upsilon'\left(n\right)}\\
+\mathbf{0} & \mathrm{sonst}
+\end{cases}
+\end{eqnarray*}
+\end{casenv}
+Sei nun $\pi\in\mathrm{Sym}_{U}$ eine beliebige Permutation.
+
+Wir betrachten die Erweiterung $\pi'\coloneqq\pi\cup\mathbf{id}_{\left[n+1,2n+1\right]}$,
+die die Elemente von $\Upsilon'\left(n\right)$ auf sich selbst abbildet.
+Offensichtlich ist $\pi'\in\mathrm{Sym}_{U'}$ eine Permutation von
+$U'=\left[1,2n+1\right]$.
+
+Aus der Symmetrie des Schaltkreises $\mathcal{C}_{2n+1}^{\varphi}$
+bezüglich $\mathrm{Sym}_{U'}$ (siehe Lemma \ref{lem:fo-circuit})
+folgt die Existenz eines von $\pi'$ induzierten Automorphismus $\hat{\pi}$.
+
+Es wird nun nachgewiesen, dass $\hat{\pi}$ auch ein von $\pi$ induzierter
+Automorphismus in $\dot{\mathcal{C}_{n}^{\varphi}}$ ist. Dazu müssen
+nur $\dot{\Sigma}$ und $\dot{\Omega}$ betrachtet werden, da der
+Graph $\left(G,W\right)$ unverändert bleibt. Ferner betrachten wir
+nur die nicht-konstanten Inputs von $\mathcal{C}_{2n+1}^{\varphi}$,
+denn ansonsten bleibt $\Sigma$ unverändert.
+
+\begin{casenv}
+\item Für $\Sigma\left(g\right)=R\bar{t}$ mit $R/k\in\sigma$ gilt:
+
+\begin{casenv}
+\item Falls $\bar{t}\in U^{k}$:
+\[
+\dot{\Sigma}\left(\hat{\pi}g\right)=\Sigma\left(\hat{\pi}g\right)=R\pi\bar{t}
+\]
+\item Sonst:
+\[
+\dot{\Sigma}\left(\hat{\pi}g\right)=\mathbf{0}=\dot{\Sigma}\left(g\right)
+\]
+\end{casenv}
+\item Für $\Sigma\left(g\right)=R\bar{t}$ mit $R/k\in\eta\uplus\left\{ \leqslant\right\} $
+gilt:
+
+\begin{casenv}
+\item Falls $\bar{t}\in R^{\Upsilon'\left(n\right)}\subseteq\left[n+1,2n+1\right]^{k}$,
+dann ist $\pi'\bar{t}=\bar{t}$:
+\[
+\dot{\Sigma}\left(\hat{\pi}g\right)=\mathbf{1}=\dot{\Sigma}\left(g\right)
+\]
+\item Sonst:
+\[
+\dot{\Sigma}\left(\hat{\pi}g\right)=\mathbf{0}=\dot{\Sigma}\left(g\right)
+\]
+\end{casenv}
+\end{casenv}
+Außerdem gilt ist $U^{k}$ bezüglich $\pi'$ abgeschlossen: 
+\[
+\hat{\pi}\dot{\Omega}\left(\bar{t}\right)=\hat{\pi}\Omega\left(\bar{t}\right)=\Omega\left(\pi'\bar{t}\right)=\dot{\Omega}\left(\pi'\bar{t}\right)
+\]
+ Damit ist $\bar{\dot{\mathcal{C}^{\varphi}}}$ eine symmetrische,
+$\mathcal{K}$-uniforme Schaltkreisfamilie mit Tiefe $t'\left(n\right)=t\left(2n+1\right)$
+und Größe $s'\left(n\right)=s\left(2n+1\right)$, die $q$ berechnet.
+\end{proof}
+
+\section{Logiken mit Zählquantoren}
+
+Wir betrachten die Logik $\mathcal{L}+\Upsilon+C$, und weisen nach,
+dass die Konstruktion von Lemma \ref{lem:oracle-circuit} angepasst
+werden kann, indem Majority-Gates hinzugefügt werden.
+\begin{lem}
+\label{lem:counting-circuit}Sei $\mathcal{L}$ eine Logik, $c\in\mathbb{N}$
+eine Konstante, $\mathbb{B}$ eine boolesche Basis und $\mathcal{K}\supseteq\mathrm{LOGSPACE}$
+eine Komplexitätsklasse.
+
+Es gelte die Voraussetzung dass für jede $\mathcal{L}\left[\sigma\right]$-Formel
+eine symmetrische, $\mathcal{K}$-uniforme $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
+mit $\left\Vert \varphi\right\Vert n^{c\left\Vert \varphi\right\Vert }$-Tiefe
+und $\left\Vert \varphi\right\Vert n^{\left\Vert \varphi\right\Vert }$-Größe
+existiert, die die gleiche Anfrage beschreibt.
+
+Sei $\eta$ eine von $\sigma$ disjunkte Signatur und $\Upsilon$
+ein $\mathcal{K}$-uniformes $\eta$-Orakel.
+
+Dann existiert für jede $\left(\mathcal{L}+\Upsilon+C\right)\left[\sigma\right]$
+eine ebensolche $\left(\sigma,\mathbb{B}\cup\left\{ \mathtt{MAJ}\right\} \right)$-Schaltkreisfamilie
+mit der Tiefe $\left\Vert \varphi\right\Vert \left(2n+1\right){}^{t\left\Vert \varphi\right\Vert }+\left\Vert \varphi\right\Vert $
+und der Größe $\left\Vert \varphi\right\Vert \left(2n+1\right)^{\left\Vert \varphi\right\Vert }+2n\left\Vert \varphi\right\Vert $. 
+\end{lem}
+Insbesondere folgt aus der Kombination mit Lemma \ref{lem:fo-circuit}
+und Lemma \ref{lem:oracle-circuit} (mit $c=0$ und der Tiefenbeschränkung
+$\mathcal{O}\left(1\right)$):
+
+\begin{eqnarray*}
+\mathrm{FO}+\mathbf{BIT}+C & \subseteq & \left(\mathrm{SAC}^{0}+\mathbf{MAJ}\right)^{\mathrm{LOGSPACE}}\\
+\mathrm{FO}+\mathbf{ARB}+C & \subseteq & \left(\mathrm{SAC}^{0}+\mathbf{MAJ}\right)^{P/\mathrm{poly}}
+\end{eqnarray*}
+Wir werden in diesem Fall konkret mit $\exists^{\geqslant}$-Quantoren
+arbeiten, denn per Satz \ref{prop:counting-equal} sind diese gleich
+ausdrucksstark mit $\exists^{=}$-Quantoren und $\#$-Termen.
+\begin{proof}
+Sei $\varphi$ eine $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel,
+und sei $n\in\mathbb{N}$ die Eingabegröße. Wir gehen analog zu Lemma
+\ref{lem:oracle-circuit} für $\mathcal{L}+\Upsilon$ vor und erzeugen
+einen $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}\cup\left\{ \mathtt{MAJ}\right\} \right)$-Schaltkreis
+über $U'=\left[1,2n+1\right]$, wobei wir die folgende induktive Konstruktion
+verwenden:
+
+\begin{casenv}
+\item Falls $\varphi\left(\bar{x}\right)$ eine $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$-Formel
+ohne $\exists^{\geqslant}$-Quantor ist, so existiert der $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} ,\mathbb{B}\right)$-Schaltkreis
+$\mathcal{C}_{2n+1}^{\varphi}$ schon per Voraussetzung.
+\item Falls $\varphi\left(\bar{x}\right)=\exists^{\geqslant x_{i}}y_{j}\psi\left(\bar{y}\right)$
+mit $\bar{x}\in\mathbf{var}^{k}$, so nehmen wir an, dass die Behauptung
+für $\psi$ gilt. 
+
+Sei $\mathcal{C}_{2n+1}^{\psi}$ der symmetrische Schaltkreis für
+die Formel $\psi$ mit der Tiefe $t\leqslant\left\Vert \psi\right\Vert \left(2n+1\right)^{c\left\Vert \psi\right\Vert }+\left\Vert \psi\right\Vert $
+und der Größe $s\leqslant\left\Vert \psi\right\Vert \left(2n+1\right)^{\left\Vert \psi\right\Vert }+2n\left\Vert \psi\right\Vert $.
+\[
+\mathcal{C}_{2n+1}^{\psi}=\left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U'\right)
+\]
+Wir erzeugen den folgenden Schaltkreis $\mathcal{C}_{2n+1}^{\varphi}$:
+\begin{eqnarray*}
+\mathcal{C}_{2n+1}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega,U'\right)
+\end{eqnarray*}
+Es wird für jedes Tupel $\bar{t}\in\left[1,2n+1\right]^{k}$ ein neuer
+Output $g_{\bar{t}}$ eingefügt; ferner werden $2n$ Konstanten eingefügt:
+\begin{eqnarray*}
+G & = & G_{\psi}\uplus\left\{ g_{\bar{t}}\mid\bar{t}\in U'^{k}\right\} \uplus\left\{ 0_{j},1_{j}\mid1\leqslant j\leqslant n\right\} \\
+W & = & W_{\psi}\uplus W_{\mathrm{maj}}\uplus W_{\mathrm{pad}}
+\end{eqnarray*}
+Die neuen Outputs werden mit $\mathtt{MAJ}$ markiert, falls $t_{i}$
+(der Wert der Variable $x_{i}$) einer der numerischen Werte (im Bereich
+$\rho\left[0,n\right]=\left[n+1,2n+1\right]$) ist, und sonst mit
+$\mathbf{0}$. 
+\[
+\begin{array}{ccc}
+\Sigma\left(0_{j}\right)=\mathbf{0}, & \Sigma\left(0_{j}\right)=\mathbf{1}, & \Sigma\left(g_{\bar{t}}\right)=\begin{cases}
+\mathtt{MAJ} & \mathrm{falls}\,\,t_{i}\in\rho\left[0,n\right]\\
+\mathbf{0} & \mathrm{sonst}
+\end{cases}\end{array}
+\]
+\[
+\Omega\left(\bar{t}\right)=g_{\bar{t}}
+\]
+Seien $\tau_{1},\tau_{2}:U^{k}\rightarrow U^{k-1}$ die folgenden
+Abbildungen, die den Wert $t_{i}$ aus $\bar{t}$ beziehungsweise
+$u_{j}$ aus $\bar{u}$ entfernen:
+\begin{eqnarray*}
+\tau_{1}\left(t_{1},\cdots,t_{k}\right) & = & \left(t_{1},\cdots t_{i-1},t_{i+1},\cdots,t_{k}\right)\\
+\tau_{2}\left(t_{1},\cdots,t_{k}\right) & = & \left(t_{1},\cdots t_{j-1},t_{j+1},\cdots,t_{k}\right)
+\end{eqnarray*}
+Es gilt also $\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right)$
+genau dann wenn $\bar{t}$ und $\bar{u}$ in den gemeinsamen freien
+Variablen von $\varphi$ und $\psi$ übereinstimmen. Das Majority-Gate
+$g_{\bar{t}}$ soll prüfen, ob $t_{i}\leqslant\rho f\left(\tau_{1}\left(\bar{t}\right)\right)$,
+wobei $f:U^{k-1}\rightarrow\left[0,n\right]$ die Anzahl der $\psi$
+erfüllenden Belegungen von $y_{j}$ bei der Belegung der übrigen freien
+Variablen mit $\tau_{1}\left(\bar{t}\right)$ sei: 
+\begin{eqnarray*}
+f\left(\tau_{1}\left(\bar{t}\right)\right) & \coloneqq & \left|\left\{ u_{j}\mid\bar{u}\in q_{\mathcal{C}_{2n+1}^{\psi}}\left(\mathfrak{A}\uplus\rho\Upsilon\left(n\right)\right),\,\tau_{2}\left(\bar{u}\right)=\tau_{1}\left(\bar{t}\right)\right\} \right|
+\end{eqnarray*}
+Dazu wird jedes Gate $g_{\bar{t}}$ mit $t_{i}\in\left[n+1,2n+1\right]$
+zunächst mit den entsprechenden Outputs von $\mathcal{C}_{2n+1}^{\psi}$
+verknüpft: 
+\[
+W_{\mathrm{maj}}=\left\{ \left(\Omega_{\psi}\left(\bar{u}\right),g_{\bar{t}}\right)\mid\bar{t},\bar{u}\in U'^{k},\,\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right),\,u_{j}\in\left[1,n\right]\right\} 
+\]
+Momentan hat es genau $n$ Eingänge (für jeden Wert $u_{j}\in\left[1,n\right]$).
+Daher gibt es $1$ aus, wenn $f\left(\bar{t}\right)\geqslant\frac{n}{2}$.
+Es soll aber berechnen, ob $f\left(\bar{t}\right)\geqslant\rho^{-1}t_{i}$.
+Dazu fügen wir die Kanten $W_{\mathrm{pad}}$ ein, um die Eingänge
+der Majority-Gates mit Konstanten aufzufüllen. Ein Majority-Gate mit
+$k$ zusätzlichen $\mathbf{0}$-Eingängen entscheidet $f\left(\bar{t}\right)\geqslant\frac{n+k}{2}$,
+eines mit $k'$ zusätzlichen $\mathbf{1}$-Eingängen berechnet $f\left(\bar{t}\right)\geqslant\frac{n-k'}{2}$.
+Es folgt:
+\begin{eqnarray*}
+\rho^{-1}t_{i} & \in & \left\{ \frac{n+k}{2},\frac{n-k'}{2}\right\} \\
+k=2\rho^{-1}t_{i}-n & \mbox{oder} & k'=n-2\rho^{-1}t_{i}
+\end{eqnarray*}
+Jedes Majority-Gate $g_{\bar{t}}$ muss entweder $k=2\rho^{-1}t_{i}-n$
+$\mathbf{0}$-Eingänge oder $k'=n-2\rho^{-1}t_{i}$ $\mathbf{1}$-Eingänge
+erhalten:
+\begin{eqnarray*}
+W_{\mathrm{pad}} & = & \left\{ \left(0_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{k},\,t_{i}\in\rho\left[0,n\right],\,1\leqslant j\leqslant2\rho^{-1}t_{i}-n\right\} \\
+ & \cup & \left\{ \left(1_{j},g_{\bar{t}}\right)\mid\bar{t}\in U'^{k},\,t_{i}\in\rho\left[0,n\right],\,1\leqslant j\leqslant n-2\rho^{-1}t_{i}\right\} 
+\end{eqnarray*}
+\begin{eqnarray*}
+\overset{n+k=2\rho^{-1}t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{k=2\rho^{-1}t_{i}-n}{\underbrace{\mathbf{0}\mathbf{0}\cdots\mathbf{0}}}}} &  & \overset{n+k'=2n-2\rho^{-1}t_{i}}{\overbrace{x_{1}\cdots x_{n}\underset{k'=n-2\rho^{-1}t_{i}}{\underbrace{\mathbf{1}\mathbf{1}\cdots\mathbf{1}}}}}
+\end{eqnarray*}
+Der neue Schaltkreis hat die Tiefe 
+\[
+t+1\leqslant\left\Vert \psi\right\Vert n^{c\left\Vert \psi\right\Vert }+\left\Vert \psi\right\Vert +1<\left\Vert \varphi\right\Vert n^{c\left\Vert \varphi\right\Vert }+\left\Vert \varphi\right\Vert 
+\]
+ und die Größe 
+\begin{eqnarray*}
+s+n^{k}+2n & \leqslant & \left(\left\Vert \psi\right\Vert +1\right)n^{\left\Vert \varphi\right\Vert }+2n\left(\left\Vert \psi\right\Vert +1\right)\\
+ & \leqslant & \left\Vert \varphi\right\Vert n^{\left\Vert \varphi\right\Vert }+2n\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+
+\item \label{case:counting3}Falls $\varphi\left(\bar{x}\right)$ eine andere
+$\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
+ist, so seien $\psi_{1}\left(\bar{y}_{1}\right),\cdots,\psi_{m}\left(\bar{y}_{m}\right)$
+alle größten\footnote{d.h. solche, die nicht selbst in einer Teilformel der gleichen Form
+enthalten sind.} Teilformeln von $\varphi$ der Form $\psi_{i}=\exists^{\geqslant u_{i}}v_{i}\chi_{i}$.
+Wir ersetzen diese Teilformeln durch neue Atome $R_{1}\bar{y}_{1},\cdots,R_{m}\bar{y}_{m}$
+und erhalten eine $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\uplus\left\{ R_{1},\cdots,R_{m}\right\} \right]$-Formel
+$\varphi'$, die per Voraussetzung zu einer $\left(\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \uplus\left\{ R_{1},\cdots,R_{m}\right\} ,\mathbb{B}\right)$-Schaltkreisfamilie
+$\mathcal{C}_{2n+1}^{\varphi'}$ wird. Per Annahme existiert für jede
+der Teilformeln $\psi_{1},\cdots,\psi_{m}$ ein Schaltkreis $\mathcal{C}_{2n+1}^{\psi_{i}}$.
+(In der Implementierung fügen wir den Zählquantor effektiv als Subroutine
+in die bestehende Konstruktion ein.)
+
+Wir erzeugen den Schaltkreis $\mathcal{C}_{2n+1}^{\varphi}$ aus der
+disjunkten Vereinigung wie folgt:
+\begin{eqnarray*}
+\mathcal{C}_{2n+1}^{\psi_{i}} & = & \left(G_{i},W_{i},\Sigma_{i},\Omega_{i},\left[1,2n+1\right]\right)\\
+\mathcal{C}_{2n+1}^{\varphi'} & = & \left(G',W',\Sigma',\Omega',\left[1,2n+1\right]\right)\\
+\mathcal{C}_{2n+1}^{\varphi} & \coloneqq & \left(G,W,\Sigma,\Omega',\left[1,2n+1\right]\right)
+\end{eqnarray*}
+\begin{eqnarray*}
+G & \coloneqq & G'\uplus\biguplus_{i=1}^{m}G_{i}\\
+W & \coloneqq & W'\uplus\biguplus_{i=1}^{m}W_{i}\uplus\\
+ &  & \uplus\left\{ \left(\Omega_{i}\left(\bar{t}\right),g\right)\mid g\in G',\,\Sigma'\left(g\right)=R_{i}\bar{t}\right\} 
+\end{eqnarray*}
+Die Output-Gates der Schaltkreise $\mathcal{C}_{2n+1}^{\psi_{i}}$
+werden mit den $R_{i}\bar{t}$-Inputs des Schaltkreises $\mathcal{C}_{2n+1}^{\varphi'}$
+verbunden, und deren Beschriftung zu $\mathtt{AND}$ geändert. 
+\begin{eqnarray*}
+\Sigma\left(g\right) & \coloneqq & \begin{cases}
+\mathtt{AND} & \mathrm{falls}\,g\in G',\,\Sigma'\left(g\right)=R_{i}\bar{y}_{i}\\
+\Sigma'\left(g\right) & \mathrm{sonst,\,falls}\,g\in G'\\
+\Sigma_{i}\left(g\right) & \mathrm{sonst,\,falls}\,g\in G_{i}
+\end{cases}
+\end{eqnarray*}
+Die Tiefe von $\mathcal{C}_{2n+1}^{\psi_{i}}$ ist $\left\Vert \psi_{i}\right\Vert \left(2n+1\right)^{c\left\Vert \psi_{i}\right\Vert }+\left\Vert \psi_{i}\right\Vert $
+und die Größe ist $\left\Vert \psi_{i}\right\Vert \left(2n+1\right)^{\left\Vert \psi_{i}\right\Vert }+2n\left\Vert \psi_{i}\right\Vert $.
+Der Schaltkreis $\mathcal{C}_{2n+1}^{\varphi'}$ hat per Voraussetzung
+die Tiefe $\left\Vert \varphi'\right\Vert \left(2n+1\right)^{c\left\Vert \varphi'\right\Vert }$
+und die Größe $\left\Vert \varphi'\right\Vert \left(2n+1\right)^{\left\Vert \varphi'\right\Vert }$.
+Zusätzlich ist $\left\Vert \varphi\right\Vert \geqslant\left\Vert \varphi'\right\Vert ,\sum_{i=1}^{m}\left\Vert \psi_{i}\right\Vert $,
+da die 
+
+Daher hat der neue Schaltkreis die Tiefe
+\begin{eqnarray*}
+t' & \leqslant & \left\Vert \varphi'\right\Vert \left(2n+1\right)^{c\left\Vert \varphi'\right\Vert }+\max\left\Vert \psi_{i}\right\Vert \left(2n+1\right)^{c\left\Vert \psi_{i}\right\Vert }+\left\Vert \psi_{i}\right\Vert +1\\
+ & \leqslant & \left\Vert \varphi\right\Vert \left(2n+1\right)^{c\left\Vert \varphi\right\Vert }+\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+\begin{eqnarray*}
+s' & \leqslant & \left\Vert \varphi'\right\Vert \left(2n+1\right)^{\left\Vert \varphi'\right\Vert }+\sum_{i=1}^{m}\left(\left\Vert \psi_{i}\right\Vert \left(2n+1\right)^{\left\Vert \psi_{i}\right\Vert }+2n\left\Vert \psi_{i}\right\Vert \right)\\
+ & \leqslant & \left\Vert \varphi\right\Vert \left(2n+1\right)^{\left\Vert \varphi\right\Vert }+2n\left\Vert \varphi\right\Vert 
+\end{eqnarray*}
+
+\end{casenv}
+\begin{description}
+\item [{Symmetrie:}] Der neue Schaltkreis ist offensichtlich nicht symmetrisch
+bezüglich $\mathrm{Sym}_{\left[1,2n+1\right]}$, denn die Anzahl der
+konstanten Vorgänger jedes Majority-Gates $g_{\bar{t}}$ hängt von
+dem Wert $t_{i}$ ab. Allerdings ist er symmetrisch bezüglich der
+Permutationen, die die Werte in $\left[n+1,2n+1\right]$ fixieren,
+denn für alle Werte $t_{i}\in\left[1,n\right]$ ist das Gate $g_{\bar{t}}$
+eine $\mathbf{0}$-Konstante. 
+
+Sei $\pi\in\mathrm{Sym}_{U}$ beliebig, und $\pi'\coloneqq\pi\cup\mathbf{id}_{\left[n+1,2n+1\right]}$
+deren Erweiterung auf $U'$. Nun erweitern wir den Automorphismus
+$\hat{\pi}$ von $\mathcal{C}_{2n+1}^{\psi}$ wie folgt: 
+\begin{eqnarray*}
+\hat{\pi}\left(0_{i}\right) & \coloneqq & 0_{i}\\
+\hat{\pi}\left(1_{i}\right) & \coloneqq & 1_{i}\\
+\hat{\pi}\left(g_{\bar{t}}\right) & \coloneqq & g_{\pi'\bar{t}}
+\end{eqnarray*}
+
+\begin{enumerate}
+\item Nun gilt für jede Kante $\left(\Omega_{\psi}\left(\bar{u}\right),g_{\bar{t}}\right)\in W_{\mathrm{maj}}$
+mit $\bar{t},\bar{u}\in U'^{k}$ und $\tau_{1}\left(\bar{t}\right)=\tau_{2}\left(\bar{u}\right)$:
+\begin{eqnarray*}
+\left(\hat{\pi}\Omega_{\psi}\left(\bar{u}\right),\hat{\pi}g_{\bar{t}}\right) & \overset{\mathrm{Ann.}}{=} & \left(\Omega_{\psi}\left(\pi'\bar{u}\right),\hat{\pi}g_{\bar{t}}\right)\\
+ & = & \left(\Omega_{\psi}\left(\pi'\bar{u}\right),g_{\pi'\bar{t}}\right)
+\end{eqnarray*}
+Und weil $\pi'\bar{t},\pi'\bar{u}\in U'^{k}$ und $\tau_{1}\left(\pi'\bar{t}\right)=\tau_{2}\left(\pi'\bar{u}\right)$
+gilt, folgt:
+\[
+\left(\Omega_{\psi}\left(\pi'\bar{u}\right),g_{\pi'\bar{t}}\right)\in W_{\mathtt{MAJ}}
+\]
+\item Für jede Kante $\left(0_{j},g_{\bar{t}}\right)\in W_{\mathrm{pad}}$
+(mit $\bar{t}\in U'^{k}$ und $t_{i}\in\left[n+1,2n+1\right]$, und
+$j\in\left[1,2t_{i}-3n-2\right]$):
+\begin{eqnarray*}
+\left(\hat{\pi}0_{j},\hat{\pi}g_{\bar{t}}\right) & = & \left(0_{j},g_{\pi'\bar{t}}\right)
+\end{eqnarray*}
+Und weil $\pi't_{i}=t_{i}$, gilt immer noch $j\in\left[1,2\pi't_{i}-3n-2\right]$,
+und daher $\left(\hat{\pi}0_{j},\hat{\pi}g_{\bar{t}}\right)\in W_{\mathrm{pad}}$.
+Das gleiche gilt analog für die Kanten $\left(\hat{\pi}1_{j},\hat{\pi}g_{\bar{t}}\right)$.
+\item Für $\Sigma$:
+\begin{eqnarray*}
+\Sigma\left(\hat{\pi}0_{j}\right) & = & \Sigma\left(0_{j}\right)\\
+\Sigma\left(\hat{\pi}1_{j}\right) & = & \Sigma\left(1_{j}\right)\\
+\Sigma\left(\hat{\pi}g_{\bar{t}}\right) & = & \Sigma\left(g_{\pi'\bar{t}}\right)\\
+ & = & \begin{cases}
+\mathtt{MAJ} & \mathrm{falls}\,\,\pi't_{i}\in\left[n+1,2n+1\right]\\
+\mathbf{0} & \mathrm{sonst}
+\end{cases}\\
+ & = & \Sigma\left(g_{\bar{t}}\right)
+\end{eqnarray*}
+\item Für $\Omega$ ist $\hat{\pi}\Omega\left(\bar{t}\right)=\hat{\pi}g_{\bar{t}}=g_{\pi'\bar{t}}=\Omega\left(\pi'\bar{t}\right)$
+per Definition gegeben.
+\end{enumerate}
+\end{description}
+Nach der Erzeugung von $\mathcal{C}_{2n+1}^{\varphi}$ wird der Schaltkreis
+auf die bereits beschriebene Weise zu $\dot{\mathcal{C}_{n}^{\varphi}}$
+umgewandelt, in dem die nicht-konstanten Inputs mit Elementen aus
+$\left[n+1,2n+1\right]$ zu Konstanten werden. Der neue Schritt fügt
+keine nicht-konstanten Inputs hinzu, so dass sich hierbei nichts ändert.
+
+Da der Schaltkreis $\mathcal{C}_{2n+1}^{\varphi}$ für jede Permutation
+$\pi\cup\mathbf{id}_{\left[n+1,2n+1\right]}$ mit $\pi\in\mathrm{Sym}_{\left[1,n\right]}$
+einen Automorphismus besitzt, ist der Schaltkreis $\dot{\mathcal{C}_{n}^{\varphi}}$
+symmetrisch (siehe Lemma \ref{lem:oracle-circuit}).
+\end{proof}
+
+\section{Fixpunktlogik}
+
+Die Fixpunktlogik $\mathrm{LFP}\left[\sigma\right]$ ist echt ausdrucksstärker
+als die Logik $\mathrm{FO}\left[\sigma\right]$. Beispielsweise ist
+die Erreichbarkeit über einen Pfad beliebiger Länge nicht erststufig
+definierbar \cite{Immerman1982,Libkin2012}. In $\mathrm{LFP}\left[E\right]$
+wird diese Klasse durch die folgende Formel definiert:
+\[
+\varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{R,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge R\left(z,y\right)\right)\vee x=y\right)\right]\left(u,v\right)
+\]
+Jede $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi$ ist aber
+äquivalent zu einer Familie von $\mathrm{FO}\left[\sigma\right]$-Formeln
+$\left(\varphi_{n}\right)_{n\in\mathbb{N}}$ mit einer konstanten
+Anzahl Variablen, so dass $\varphi_{n}$ auf allen Strukturen der
+Größe $n$ äquivalent zu $\varphi$ ist. (Dies ist vergleichbar zum
+$k$-Variablen-Fragment der infinitären Logik $L_{\infty\omega}^{k}$,
+welches die Fixpunktlogik einschließt\cite{Dawar1995c,Kolaitis1992,Kolaitis1992b}.
+In unserer Definition hat jedoch jede einzelne Formel $\varphi_{n}$
+eine endliche Länge.)
+
+Leider sind diese Formeln noch zu lang: Wenn das Symbol $R$ mehr
+als einmal in $\psi$ vorkommt, ist $\left\Vert \psi_{i+1}\right\Vert \geqslant2\left\Vert \psi_{i}\right\Vert $,
+und daher wächst die Formellänge mit $\left\Vert \varphi\right\Vert \geqslant2^{n^{k}}$
+exponentiell für $k=\mathrm{ar}\left(R\right)$. Mit $\mathcal{C}_{n}^{\varphi}=\mathcal{C}_{n}^{\varphi_{n}}$
+könnten wir nicht die gewünschte $\mathrm{poly}\left(n\right)$-Größe
+ableiten.
+
+Die booleschen Schaltkreise haben jedoch nicht dieselbe Einschränkung
+wie $\mathrm{FO}\left[\sigma\right]$: Die Berechnung einer Teilformel
+$\psi_{i}\left(\bar{z}\right)$ kann mehrfach verwendet werden, ohne
+den Schaltkreis $\mathcal{C}_{n}^{\psi_{i}}$ zu vervielfältigen.
+\begin{lem}
+\label{lem:lfp-circ}Sei $\sigma$ eine beliebige relationale Signatur,
+und sei $\varphi$ eine parameter-freie $\mathrm{LFP}\left[\sigma\right]$-Formel.
+
+Dann existiert eine $P$-uniforme symmetrische $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+$\bar{\mathcal{C}^{\varphi}}$ mit $\mathrm{poly}\left(n\right)$-Tiefe
+und $\mathrm{poly}\left(n\right)$-Größe, so dass $q_{\bar{\mathcal{C}^{\varphi}}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right)$
+für alle $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ gilt.
+\end{lem}
+In Kombination mit dem Rest dieses Kapitels folgt dann:
+\begin{eqnarray*}
+\mathrm{LFP}+\mathbf{BIT} & \subseteq & \mathrm{SBC}^{P}\\
+\mathrm{LFP}+\mathbf{ARB} & \subseteq & \mathrm{SBC}^{P/\mathrm{poly}}\\
+\mathrm{LFP}+\mathbf{BIT}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}\\
+\mathrm{LFP}+\mathbf{ARB}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P/\mathrm{poly}}
+\end{eqnarray*}
+
+\begin{proof}
+Sei $\varphi$ eine $\mathrm{LFP}\left[\sigma\right]$-Formel, und
+sei $n\in\mathbb{N}$ die Eingabegröße. Die Behauptung wird induktiv
+über den Aufbau der Formel nachgewiesen.
+
+\begin{casenv}
+\item Falls $\varphi$ eine $\mathrm{FO}\left[\sigma\right]$-Formel ohne
+Fixpunkt-Operator ist, dann existiert die Schaltkreisfamilie $\mathcal{C}_{n}^{\varphi}$
+schon per Voraussetzung.
+\item Falls $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
+für eine Relationsvariable $X/k\in\mathbf{var}_{2}$, eine $k$-stellige
+parameterfreie $\mathrm{LFP}\left[\sigma\right]$-Formel $\psi\left(X,\bar{x}\right)$
+und ein Tupel von $\mathrm{LFP}\left[\sigma\right]$-Termen $\bar{y}\in\mathbf{var}^{k}$,
+so seien $\psi_{1}\left(\bar{y}_{1}\right),\cdots,\psi_{m}\left(\bar{y}_{m}\right)$
+alle größten Teilformeln von $\psi$ der Form $\psi_{i}=\left[\mathrm{lfp}_{X_{i}\bar{x}_{i}}\varphi_{i}\right]\left(\bar{y}_{i}\right)$.
+Wir ersetzen diese Teilformeln durch neue Atome $R_{1}\bar{y}_{1},\cdots,R_{m}\bar{y}_{m}$
+und erhalten eine $\mathrm{FO}\left[\sigma\uplus\left\{ R_{1},\cdots,R_{m}\right\} \right]$-Formel
+$\psi'$, die per Voraussetzung zu einer $\left(\sigma\uplus\left\{ R_{1},\cdots,R_{m}\right\} ,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisfamilie
+$\mathcal{C}_{n}^{\varphi'}$ mit konstanter Tiefe $t\in\mathbb{N}$
+wird. Per Annahme existiert für jede der Teilformeln $\psi_{1},\cdots,\psi_{m}$
+ein Schaltkreis $\mathcal{C}_{n}^{\psi_{i}}$. 
+\[
+\mathcal{C}_{n}^{\psi'}=\left(G_{\psi},W_{\psi},\Sigma_{\psi},\Omega_{\psi},U\right)
+\]
+Wir bauen einen neuen Schaltkreis für $\mathcal{C}_{n}^{\varphi}$
+bauen, der den Schaltkreis $\mathcal{C}_{n}^{\psi}$ genau $n^{k}$-mal
+iteriert.
+
+\begin{description}
+\item [{Schaltkreis:}] Es wird eine Sequenz $\left(\mathcal{D}^{i}\right)_{i\in\mathbb{N}}$
+von $k$-stelligen $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Schaltkreisen
+definiert.
+\[
+\mathcal{D}^{i}\coloneqq\left(G_{i},W_{i},\Sigma_{i},\Omega_{i},U\right)
+\]
+ Für $i=0$ nehmen wir nur eine $\mathbf{0}$-Konstante:
+\begin{eqnarray*}
+\mathcal{D}^{0} & \coloneqq & \left(\left\{ g_{0}\right\} ,\emptyset,\Sigma_{0},\Omega_{0},U\right)\\
+\Sigma_{0}\left(g_{0}\right)=\mathbf{0} &  & \Omega\left(\bar{t}\right)=g_{0}
+\end{eqnarray*}
+Für $i\in\mathbb{N}_{\geqslant1}$ fügen wir eine neue Kopie von $\mathcal{C}_{n}^{\psi}$
+in $\mathcal{D}^{i}$ ein:
+\begin{eqnarray*}
+G_{i+1} & \coloneqq & G_{i}\uplus G_{\psi}\\
+W_{i+1} & \coloneqq & W_{i}\uplus W_{\psi}\uplus W'
+\end{eqnarray*}
+$\mathcal{D}^{i}$ verbindet alle mit $X\bar{u}$ markierten Inputs
+mit dem Output $\Omega_{i}\left(\bar{u}\right)$, und markiert sie
+mit ,,$\mathtt{AND}$``. (Hier wäre ,,$\mathtt{OR}$`` äquivalent,
+da jedes dieser Gates nur einen Vorgänger bekommt.) 
+\[
+\Sigma_{i+1}\left(g\right)\coloneqq\begin{cases}
+\Sigma_{i}\left(g\right) & \mathrm{falls}\,\,g\in G_{i}\\
+\mathtt{AND} & \mathrm{falls}\,\,g\in G_{\psi},\,\Sigma_{\psi}\left(g\right)=X\bar{u}\\
+\Sigma_{\psi}\left(g\right) & \mathrm{sonst}
+\end{cases}
+\]
+\[
+W'\coloneqq\left\{ \left(\Omega_{i}\left(\bar{u}\right),g\right)\mid g\in G_{\psi},\,\Sigma_{\psi}\left(g\right)=X\bar{u}\right\} 
+\]
+Die Outputs von $\mathcal{C}_{n}^{\psi'}$ werden zu den Outputs von
+$\mathcal{D}^{i+1}$: 
+\[
+\Omega_{i+1}\coloneqq\Omega_{\psi}
+\]
+Seien nun $\mathcal{C}_{n}^{\psi_{i}}=\left(G_{i},W_{i},\Sigma_{i},\Omega_{i},U\right)$
+die Schaltkreise für jede $\mathrm{LFP}\left[\sigma\right]$-Formel
+$\psi_{i}$. Wir vereinigen diese mit $\mathcal{C}_{n}^{\psi'}$,
+benennen die mit $R_{i}\bar{t}$ beschrifteten Gates zu $\mathtt{AND}$
+um und verbinden sie mit dem Output $\Omega_{i}\left(\bar{t}\right)$
+aus dem Schaltkreis $\mathcal{C}_{n}^{\psi'}$, um den Schaltkreis
+$\mathcal{C}_{n}^{\psi}$ zu erhalten.
+\item [{Korrektheit:}] Es wird induktiv bewiesen, dass $\mathcal{D}^{i}$
+auf $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ die $\sigma$-Anfrage
+$q_{\mathcal{D}^{i}}\left(\mathfrak{A}\right)=F^{i}\left(\emptyset\right)$
+berechnet.
+\[
+q_{\mathcal{D}^{0}}\left(\mathfrak{A}\right)=F^{0}\left(\emptyset\right)=\emptyset
+\]
+\begin{eqnarray*}
+q_{\mathcal{D}^{i+1}}\left(\mathfrak{A}\right) & = & q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\cup\left(A,\left(X\mapsto q_{\mathcal{D}^{i}}\left(\mathfrak{A}\right)\right)\right)\right)\\
+ & \overset{\mathrm{Ann.}}{=} & q_{\mathcal{C}_{n}^{\psi}}\left(\mathfrak{A}\cup\left(A,\left(X\mapsto F^{i}\left(\emptyset\right)\right)\right)\right)\\
+ & = & q_{\psi^{\left(X\mapsto F^{i}\left(\emptyset\right)\right)}}\left(\mathfrak{A}\right)\\
+ & \overset{\mathrm{Def.\ref{def:lfp}}}{=} & F^{i+1}\left(\emptyset\right)
+\end{eqnarray*}
+Daher berechnet $\mathcal{C}_{n}^{\varphi}=\mathcal{D}^{n^{k}}$ die
+Anfrage $q_{\mathcal{C}_{n}^{\varphi}}\left(\mathfrak{A}\right)=F^{n^{k}}\left(\emptyset\right)=F^{\infty}\left(\emptyset\right)$.
+\item [{Symmetrie:}] Sei $\pi\in\mathrm{Sym}_{U}$ beliebig. Per Annahme
+ist $\mathcal{C}_{n}^{\psi}$ symmetrisch, also existiert der Automorphismus
+$\hat{\pi}$.
+\end{description}
+Sei $\hat{\pi}_{0}\coloneqq\mathbf{id}_{\left\{ g_{0}\right\} }$.
+Per Annahme existiere für $i\in\mathbb{N}$ ein von $\pi$ induzierter
+Automorphismus $\hat{\pi}_{i}$ in $\mathcal{D}^{i}$. Sei dann $\hat{\pi}_{i+1}$
+die folgende Abbildung in $\mathcal{D}^{i+1}$:
+\begin{eqnarray*}
+\\
+\hat{\pi}_{i+1}\left(g\right) & \coloneqq & \begin{cases}
+\hat{\pi}_{i}\left(g\right) & \mathrm{falls}\,g\in G_{i}\\
+\hat{\pi}\left(g\right) & \mathrm{sonst}
+\end{cases}
+\end{eqnarray*}
+
+\begin{enumerate}
+\item Es gilt $\left(\hat{\pi}_{i+1}\right)_{\mid G_{i}}=\hat{\pi}_{i}$,
+und $\left(\hat{\pi}_{i+1}\right)_{\mid G_{\psi}}=\hat{\pi}$; damit
+sind die Bedingungen für $W_{i}\cup W_{\psi}$, $\Sigma_{i}$, $\Omega_{i+1}=\Omega_{\psi}$
+und alle internen Gates $g\in G_{\psi}$ mit $\Sigma_{\psi}\notin\left\{ X\bar{u}\mid\bar{u}\in U^{m}\right\} $
+bereits erfüllt.
+\item Für die ehemaligen Inputs mit $\Sigma\left(g\right)=X\bar{u}$ gilt
+$\Sigma_{i+1}\left(\hat{\pi}g\right)=\Sigma_{i+1}\left(g\right)=\mathtt{AND}$.
+\item Für jede neue Kante $\left(\Omega_{i}\left(\bar{u}\right),g\right)\in W'$
+mit $g\in G_{\psi}$ und $\Sigma_{\psi}\left(g\right)=X\bar{u}$:
+\begin{eqnarray*}
+\left(\hat{\pi}_{i+1}\Omega_{i}\left(\bar{u}\right),\hat{\pi}_{i+1}g\right) & = & \left(\hat{\pi}_{i}\Omega_{i}\left(\bar{u}\right),\hat{\pi}g\right)\\
+ & = & \left(\Omega_{i}\left(\pi\bar{u}\right),\hat{\pi}g\right)
+\end{eqnarray*}
+Per Definition ist $\Sigma_{\psi}\left(\hat{\pi}g\right)=X\pi\bar{u}$,
+und daher:
+\[
+\left(\Omega_{i}\left(\pi\bar{u}\right),\hat{\pi}g\right)\in W'
+\]
+\end{enumerate}
+Daher ist $\mathcal{D}^{i+1}$ ebenfalls symmetrisch, und es folgt
+die Symmetrie von $\mathcal{C}_{n}^{\varphi}=\mathcal{D}^{n^{k}}$.
+\begin{description}
+\item [{Größe:}] Es wird induktiv bewiesen, dass $T\left(\mathcal{D}^{i}\right)\leqslant i\left(t+1\right)$,
+und $\left|\mathcal{D}^{i}\right|\leqslant1+i\cdot s\left(n\right)$
+\begin{eqnarray*}
+T\left(\mathcal{D}^{0}\right) & = & 0\\
+T\left(\mathcal{D}^{i+1}\right) & = & T\left(\mathcal{D}^{i}\right)+T\left(\mathcal{C}_{n}^{\psi}\right)+1\\
+ & \leqslant & T\left(\mathcal{D}^{i}\right)+t+1\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & i\left(t+1\right)+t+1=\left(i+1\right)\left(t+1\right)
+\end{eqnarray*}
+\begin{eqnarray*}
+\left|\mathcal{D}^{0}\right| & = & 1\\
+\left|\mathcal{D}^{i+1}\right| & = & \left|\mathcal{D}^{i}\right|+\left|\mathcal{C}_{n}^{\psi}\right|\\
+ & \leqslant & \left|\mathcal{D}^{i}\right|+s\left(n\right)\\
+ & \overset{\mathrm{Ann.}}{\leqslant} & 1+i\cdot s\left(n\right)+s\left(n\right)=1+\left(i+1\right)s\left(n\right)
+\end{eqnarray*}
+Damit gilt $T\left(\mathcal{C}_{n}^{\varphi}\right)=T\left(\mathcal{D}^{n^{k}}\right)+\max_{i=1}^{m}T\left(\mathcal{C}_{n}^{\psi_{i}}\right)\in\mathrm{poly}\left(n\right)$
+und $\left|\mathcal{C}_{n}^{\varphi}\right|=\left|\mathcal{D}^{n^{k}}\right|+\sum_{i=1}^{m}\left|\mathcal{C}_{n}^{\psi_{i}}\right|\in\mathrm{poly}\left(n\right)$.
+\end{description}
+\item Falls $\varphi$ eine andere Form hat, dann gehe analog zu Fall 2
+vor: Ersetze die Fixpunkt-Operatoren durch atomare Formeln, erzeuge
+den Schaltkreis der $\mathrm{FO}\left[\sigma\uplus\left\{ R_{1},\cdots,R_{m}\right\} \right]$-Formel
+$\varphi'$ und die Schaltkreise der Fixpunkt-Formeln $\psi_{1},\cdots,\psi_{m}$,
+und füge diese zusammen. Es gelten die gleichen Schranken für die
+Größe und Tiefe.
+\end{casenv}
+\end{proof}
+

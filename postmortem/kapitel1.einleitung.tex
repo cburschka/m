@@ -1,0 +1,100 @@
+
+\chapter{Einleitung}
+
+Wir modellieren Graphen und Datenbanken als Strukturen, die ein Schema
+von relationalen Prädikaten über einem endlichen Universum interpretieren.
+Eine Datenbank-Anfrage in einem solchen Schema wird als Funktion modelliert,
+die jede endliche Struktur auf eine Relation abbildet.
+
+Von besonderem Interesse ist die Datenkomplexität solcher Anfragen:
+Die Zeit- und Platzkomplexität der Auswertung einer festen Anfrage
+in Abhängigkeit von der Größe der eingegebenen Struktur. Wir betrachten
+zwei Modelle, in denen alle beschreibbaren Anfragen eine beschränkte
+Datenkomplexität besitzen:
+\begin{enumerate}
+\item Klassen von booleschen Schaltkreisfamilien $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+(mit $\mathtt{AND}$-, $\mathtt{OR}$-, $\mathtt{NOT}$-, und gegebenenfalls
+Majority-Gates).
+\item Formeln der Prädikatenlogik erster Stufe (beziehungsweise deren Erweiterungen).
+\end{enumerate}
+Boolesche Schaltkreise arbeiten per Definition auf einer geordneten
+Struktur. Für ungeordnete Strukturen wird deshalb eine beliebige Ordnung
+gewählt und gefordert, dass das Ergebnis bezüglich der Ordnung invariant
+ist. Wir führen eine strukturelle Einschränkung (Symmetrie) der Schaltkreise
+ein, die diese Invarianz garantiert.
+
+Die Schaltkreisfamilie besteht aus einer unendlichen Sequenz von Schaltkreisen
+für jede Eingabegröße $n\in\mathbb{N}$ ist. Ohne Einschränkung kann
+eine solche Sequenz auch unentscheidbare Klassen von natürlichen Zahlen
+kodieren. In der Praxis ist es daher erwünscht, dass die Schaltkreise
+von einem effizienten Algorithmus berechnet werden: Ist zum Beispiel
+jeder Schaltkreis in Polynomialzeit oder mit logarithmischem Platz
+(in Abhängigkeit von $n$) berechenbar, dann nennen wir die Schaltkreisfamilie
+$P$- beziehungsweise $\mathrm{LOGSPACE}$-uniform.
+
+Die Logik erster Stufe ist in der Praxis zu eingeschränkt: Selbst
+einfache Probleme wie die Frage, ob eine Struktur eine gerade Anzahl
+von Elementen enthält, oder zwei Knoten durch einen Weg beliebiger
+Länge verbunden sind, können nicht ausgedrückt werden.\cite{Libkin2012}
+Daher erweitern wir die Logik um Fixpunkt-Operatoren, numerische Prädikate
+und Zähler. Insbesondere betrachten wir Logiken, in denen die numerischen
+Prädikate \emph{disjunkt} von dem Universum der eigentlichen Struktur
+interpretiert werden, und weisen nach, dass solche Logiken gerade
+die verschiedenen Klassen symmetrischer Schaltkreisfamilien charakterisieren.
+
+Konkret ist die Klasse der symmetrischen $P$-uniformen booleschen
+Schaltkreisfamilien $\mathrm{SBC}^{P}$ äquivalent zu der Logik erster
+Stufe mit Fixpunkt-Operator und disjunktem Ordnungsprädikat $\mathrm{FP}+\mathbf{ORD}$.
+Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar\cite{AD2014}
+veröffentlicht (nach einem verwandten Ergebnis für infinitäre Logik
+und lokal polynomiell beschränkte Schaltkreise von Martin Otto in
+1997\cite{Otto1997}), und bildet die Grundlage dieser Arbeit.
+
+Die logische Zählerweiterung $\mathrm{FP}+C$ charakterisiert die
+symmetrische $P$-uniforme Schaltkreisklasse $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}$
+mit einem Majority-Gate, und die Erweiterung der Logik um beliebige
+numerische Prädikate $\mathrm{FP}+\mathbf{ARB}$ charakterisiert die
+$P/\mathrm{poly}$-uniforme Klasse $\mathrm{SBC}^{P/\mathrm{poly}}$.
+Diese beiden Erweiterungen sind miteinander kombinierbar.
+\begin{thm}
+\textbf{\label{thm:fp}Anderson und Dawar (2014)}
+
+Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen
+äquivalent:
+
+\begin{enumerate}
+\item $\mathrm{FP}+\mathbf{ORD}$ und $\mathrm{SBC}^{P}$
+\item $\mathrm{FP}+\mathbf{ORD}+C$ und $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}$
+\item $\mathrm{FP}+\mathbf{ARB}$ und $\mathrm{SBC}^{P/\mathrm{poly}}$
+\end{enumerate}
+\end{thm}
+Das obige Ergebnis wird für Schaltkreise konstanter Tiefe angepasst.
+\begin{thm}
+\label{thm:fo}Die folgenden Paare von Anfragenklassen sind auf endlichen
+Strukturen äquivalent:
+
+\begin{enumerate}
+\item $\mathrm{FO}+\mathbf{BIT}$ und $\left(\mathrm{SAC}^{0}\right)^{\mathrm{LOGSPACE}}$
+\item $\mathrm{FO}+\mathbf{ARB}$ und $\left(\mathrm{SAC}^{0}\right)^{P/\mathrm{poly}}$
+\end{enumerate}
+\end{thm}
+Die Einschränkung auf symmetrische Schaltkreisfamilien bringt im Allgemeinen
+eine Reduktion der Ausdrucksstärke mit sich. So wird die Klasse $\mathrm{AC}^{0}$
+durch die invariante Logik $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+(\cite{Immerman1987,Makowsky1997-FO}), und $P/\mathrm{poly}$ durch
+$\mathrm{inv}\left(\mathrm{FP}\oplus\mathbf{ARB}\right)$ (\cite{Makowsky1997-FO,Makowsky1998-LFP})
+charakterisiert.
+\begin{thm}
+\label{thm:fo-arb}Für die $\mathrm{FO}+\mathbf{ARB}$-Logik und die
+arb-invariante $\mathrm{FO}\oplus\mathbf{ARB}$-Logik gilt:
+
+\begin{enumerate}
+\item Jede $\mathrm{FO}+\mathbf{ARB}$-Formel beschreibt eine Anfrage, die
+durch eine arb-invariante $\mathrm{FO}\oplus\mathbf{ARB}$-Formel
+definierbar ist.
+\item Es existiert eine Anfrage, die in der arb-invarianten $\mathrm{FO}\oplus\mathbf{ARB}$-Logik,
+aber nicht $\mathrm{FO}+\mathbf{ARB}$ definierbar ist.
+\end{enumerate}
+\end{thm}
+Ähnliche Bezüge bestehen vermutlich auch zwischen den symmetrischen
+und nicht-symmetrischen Teilen der übrigen betrachteten Schaltkreisklassen.

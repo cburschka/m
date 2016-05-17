@@ -1,0 +1,218 @@
+
+\chapter{Grenzen der symmetrischen Schaltkreisklassen}
+
+Die symmetrischen $\mathrm{AC}^{0}$-Schaltkreisfamilien beschreiben
+eine echte Teilmenge der Anfragen, die durch $\mathrm{AC}^{0}$ definierbar
+sind.
+
+Der Beweis benutzt die Charakterisierung aus Theorem \ref{thm:fo}
+von symmetrischem $\mathrm{AC}^{0}$ durch die Logik $\mathrm{FO}+\mathbf{ARB}$,
+die Charakterisierung von $\mathrm{AC}^{0}$ durch die Logik $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$,
+und ein Problem, dass die Ausdrucksstärke dieser beiden Logiken voneinander
+trennt.
+\begin{thm}
+\textbf{\label{lem:fo-arb-ac0}Immerman (1987)}\cite{Immerman1987}\textbf{,
+Makowsky (1997)\cite{Makowsky1997-FO}}
+
+Die Klasse der $\mathrm{AC}^{0}$-definierbaren Anfragen ist äquivalent
+zu der Klasse der $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-definierbaren
+Anfragen.
+\end{thm}
+Für die Konstruktion der Formel (hier nur skizziert) wird jeder Schaltkreis
+in eine alternierende Normalform der Tiefe $d$ gebracht, in der jedes
+Gate $n^{k}$ Vorgänger hat. Die $n^{kd}$ Wege von einem Input zu
+einem Output werden durch numerische Tupel kodiert (die Relation dieser
+Wege ist ein numerisches Prädikat und daher in $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-Logik
+verwendbar). Die Formel muss dann über jede der alternierenden Ebenen
+des Schaltkreises quantifizieren (mit $\exists$ für $\mathtt{OR}$,
+und $\forall$ für $\mathtt{AND}$), und berechnet so die Auswertung
+von $\mathcal{C}$.
+
+Da per Definition offensichtlich $\mathrm{SAC}^{0}\subseteq\mathrm{AC}^{0}$
+gilt, können wir mit $\mathrm{FO}+\mathbf{ARB}\subseteq\mathrm{SAC}^{0}$
+direkt ablesen, dass $\mathrm{FO}+\mathbf{ARB}$ in $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+enthalten ist (und beweisen somit Teil 1 des Theorems \ref{thm:fo-arb}):
+Die Logik erster Stufe mit disjunktem $\mathbf{ARB}$-Orakel ist nicht
+stärker als die mit nicht-disjunktem Orakel.
+
+Für den echten Einschluss (Teil 2 des Theorems \ref{thm:fo-arb})
+benötigen wir eine Anfrage, die in $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+beschreibbar ist, jedoch nicht in $\mathrm{FO}+\mathbf{ARB}$ beschreibbar
+ist. Per Theorem \ref{thm:fo} ist diese Anfrage dann in $\mathrm{AC}^{0}$,
+aber per Theorem \ref{thm:fo} nicht in $\mathrm{SAC}^{0}$ beschreibbar.
+
+Dafür verwenden wir den Lokalitäts-Satz von Hanf.
+
+\bigskip{}
+
+\begin{thm}
+\textbf{Der Satz von Hanf} (Theorem 2.4.1 in \cite{EbbinghausFlum})
+
+Seien $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}\left(\sigma\right)$,
+$m\in\mathbb{N}$ und $r\coloneqq3^{m}$, und sei $\#_{r}^{\mathfrak{A}}\left(a\right)\coloneqq\left|\left\{ b\in A\mid a\sim_{r}b\right\} \right|$
+die Anzahl der $r$-ähnlichen Elemente zu $a$ in $\mathfrak{B}$
+(und $\#_{r}^{\mathfrak{B}}\left(a\right)$ analog in $\mathfrak{B}$).
+Sei $e\in\mathbb{N}$ so gewählt, dass $\max_{a\in A}\left(\left|N_{r}^{\mathfrak{A}}\left(a\right)\right|\right),\max_{b\in B}\left(\left|N_{r}^{\mathfrak{B}}\left(b\right)\right|\right)\leqslant e$.
+
+Nun gelte für jedes Element $a\in A$ mindestens eine der folgenden
+Aussagen:
+
+\begin{enumerate}
+\item Die Anzahl der $r$-ähnlichen Elemente (siehe Definition \ref{def:neighborhoods})
+zu $a$ in $\mathfrak{A}$ und $\mathfrak{B}$ ist gleich.
+\[
+\#_{r}^{\mathfrak{A}}\left(a\right)=\#_{r}^{\mathfrak{B}}\left(a\right)
+\]
+\item Die Anzahl der $r$-ähnlichen Elemente zu $a$ in $\mathfrak{A}$
+und in $\mathfrak{B}$ ist jeweils größer als $m\cdot e$.
+\[
+\#_{r}^{\mathfrak{A}}\left(a\right),\#_{r}^{\mathfrak{B}}\left(a\right)\geqslant m\cdot e
+\]
+\end{enumerate}
+Dann gilt: $\mathfrak{A}\equiv_{m}\mathfrak{B}$ (siehe Definition
+\ref{def:m-equiv}).
+\end{thm}
+\begin{lem}
+Es existiert eine Graph-Anfrage $q$, die in $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-definierbar
+ist, aber nicht in $\mathrm{FO}+\mathbf{ARB}$ beschreibbar ist.
+\end{lem}
+\begin{proof}
+Sei $C\subseteq\mathbf{FIN}\left(E\right)$ die Klasse der Graphen
+$\mathfrak{A}=\left(A,E^{\mathfrak{A}}\right)$ für die gilt: $A$
+enthält weniger als $\left\lceil \mathrm{log}\left|A\right|\right\rceil $
+viele nicht-isolierte Knoten.
+
+Diese Anfrage ist durch einen $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)\left[E\right]$-Satz
+definierbar (siehe dazu Abschnitt 4.4 von \cite{AMSS2012-locality}).
+
+\begin{assumption*}
+Es existiere ein beliebiger $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[E\right]$-Satz
+$\varphi_{C}$, der die Anfrage $q_{C}$ definiere.
+\end{assumption*}
+Sei $m\coloneqq\mathrm{qr}\left(\varphi_{C}\right)$ der Quantorenrang
+von $\varphi_{C}$, und o.B.d.A. sei $m\geqslant9$. Wir definieren
+die folgenden Graphen $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}^{\left(2^{m^{m}}\right)}\left(E\right)$
+(siehe Abbildung \ref{fig:m-equiv}):
+\begin{eqnarray*}
+A,B & \coloneqq & \left[1,2^{m^{m}}\right]\\
+E^{\mathfrak{A}} & \coloneqq & \left\{ \left(i,i+1\right)\mid i\in\left[1,m^{m}-2\right]\right\} \cup\left\{ \left(m^{m}-1,1\right)\right\} \\
+E^{\mathfrak{B}} & \coloneqq & \left\{ \left(i,i+1\right)\mid i\in\left[1,m^{m}-1\right]\right\} \cup\left\{ \left(m^{m},1\right)\right\} 
+\end{eqnarray*}
+Beide Strukturen bestehen aus $2^{m^{m}}$ Knoten, $\mathfrak{A}$
+enthält einen Kreis der Länge $m^{m}-2$, und $\mathfrak{B}$ einen
+Kreis der Länge $m^{m}$. Damit gilt:
+\[
+\mathfrak{A}\in C,\,\mathfrak{B}\notin C
+\]
+\[
+\mathfrak{A}\models\varphi_{C},\,\mathfrak{B}\not\models\varphi_{C}
+\]
+Offensichtlich besteht die $3^{m}$-Nachbarschaft jedes Knotens im
+Kreis aus einer $3^{m}+1$ langen Kette, und die übrigen Knoten sind
+isoliert. Damit sind alle $3^{m}$-Nachbarschaften kleiner als $e\coloneqq3^{m}+2$.
+Ferner hat jeder Knoten im Kreis mindestens $m^{m}-1\geqslant m\cdot3^{m+7}-1>m\cdot e$
+viele $3^{m}$-ähnliche Knoten in jedem Graphen, und jeder isolierte
+Knoten ohnehin $2^{m^{m}}-m^{m}>m^{m}$ viele $3^{m}$-ähnliche Knoten.
+Somit sind die Graphen $\mathfrak{A}$ und $\mathfrak{B}$ nach dem
+Satz von Hanf $m$-äquivalent.
+
+\begin{figure}
+\begin{centering}
+\tikzstyle{g}=[circle, draw, fill=black,
+                        inner sep=0pt, minimum width=2pt]
+%  Tutte's 8-cage
+\begin{tikzpicture}[thick,scale=0.8]
+    \draw  \foreach \x in {0,18,...,342}
+    {
+        (\x:1.5) node[g] {} edge[dotted] (\x+18:1.5)
+    };
+	\node (0:0) {$m^{m-1}$};
+	\begin{scope}[shift={(0,-4)},xscale=2]
+		\draw [dotted] (0,0) ellipse (2 and 2);
+		\draw plot [only marks, mark=*, mark size=0.1, domain=0:5, samples=75] ({rnd*360}:{1+rnd});
+	\end{scope}
+	\node at (0,-4) {$2^{m^m}-m^m+1$};
+\end{tikzpicture}\tikzstyle{g}=[circle, draw, fill=black,
+                        inner sep=0pt, minimum width=2pt]
+%  Tutte's 8-cage
+\begin{tikzpicture}[thick,scale=0.8]
+    \draw  \foreach \x in {0,18,...,342}
+    {
+        (\x:1.5) node[g] {} edge[dotted] (\x+18:1.5)
+    };
+	\node (0:0) {$m^m$};
+	\begin{scope}[shift={(0,-4)},xscale=2]
+		\draw [dotted] (0,0) ellipse (2 and 2);
+		\draw plot [only marks, mark=*, mark size=0.1, domain=0:5, samples=75] ({rnd*360}:{1+rnd});
+	\end{scope}
+	\node at (0,-4) {$2^{m^m}-m^m$};
+\end{tikzpicture}
+\par\end{centering}
+\caption{\label{fig:m-equiv}Zwei $m$-äquivalente Graphen $\mathfrak{A},\mathfrak{B}$}
+\end{figure}
+
+Der $\mathrm{FO}+\mathbf{ARB}\left[\sigma\right]$-Satz $\varphi$
+wird nicht auf $\mathfrak{A}$ und $\mathfrak{B}$, sondern $\mathfrak{A}\uplus\mathbf{ARB}\left(n\right)$
+und $\mathfrak{B}\uplus\mathbf{ARB}\left(n\right)$ ausgewertet. Wir
+werden im folgenden sehen, warum das nicht hilft, denn nach Satz \ref{prop:m-equiv-closed}
+ist die $m$-Äquivalenz unter disjunkter Vereinigung abgeschlossen.
+
+Da $\mathfrak{A}\equiv_{m}\mathfrak{B}$, und offensichtlich $\mathbf{ARB}\left(n\right)\equiv_{m}\mathbf{ARB}\left(n\right)$,
+folgt somit $\mathfrak{A}\uplus\mathbf{ARB}\left(n\right)\equiv_{m}\mathfrak{B}\uplus\mathbf{ARB}\left(n\right)$,
+und es gilt, im Widerspruch zu der Annahme:
+\[
+\mathfrak{A}\models\varphi_{C}\Leftrightarrow\mathfrak{B}\models\varphi_{C}
+\]
+\end{proof}
+\begin{prop}
+\label{prop:m-equiv-closed}Seien $\sigma_{1},\sigma_{2}$ beliebige
+Signaturen, $\mathfrak{A}\equiv_{m}\mathfrak{B}$ zwei beliebige $\sigma_{1}$-Strukturen
+und $\mathfrak{A}'\equiv_{m}\mathfrak{B}'$ zwei beliebige $\sigma_{2}$-Strukturen.
+
+Dann gilt $\mathfrak{A}\uplus\mathfrak{A}'\equiv_{m}\mathfrak{B}\uplus\mathfrak{B}'$.
+\end{prop}
+Um dies zu beweisen, verwenden wir den Satz von Ehrenfeucht, nach
+dem die $m$-Äquivalenz von Strukturen gleichbedeutend ist mit der
+Existenz einer Gewinnstrategie für Duplicator im Ehrenfeucht-Fraïssé-Spiel
+mit $m$ Runden. Wir verwenden die Definition des EF-Spiels von Ebbinghaus
+und Flum (Abschnitt 2.2 von \cite{EbbinghausFlum}).
+\begin{proof}
+Es wird per $\mathfrak{A}\equiv_{m}\mathfrak{B}$ und $\mathfrak{A}'\equiv_{m}\mathfrak{B}'$
+vorausgesetzt, dass Duplicator eine Gewinnstrategie für jedes $m'\leqslant m$-Runden-Spiel
+auf $\left(\mathfrak{A},\mathfrak{B}\right)$ und auf $\left(\mathfrak{A}',\mathfrak{B}'\right)$
+hat. Im Spiel auf $\left(\mathfrak{A}\uplus\mathfrak{A}',\mathfrak{B}\uplus\mathfrak{B}'\right)$
+geht Duplicator wie folgt vor:
+
+\begin{itemize}
+\item Falls Spoiler einen Knoten $a_{i}\in A$ oder $b_{i}\in B$ wählt,
+so antworte mit dem Gewinnzug aus dem Spiel auf $\left(\mathfrak{A},\mathfrak{B}\right)$.
+\item Falls Spoiler $a_{i}\in A'$ oder $b_{i}\in B'$ wählt, so antworte
+mit dem Gewinnzug aus dem Spiel auf $\left(\mathfrak{A}',\mathfrak{B}'\right)$.
+\end{itemize}
+Nun betrachten wir die gespielten Tupel $\bar{a}\in\left(A\cup A'\right)^{m}$
+und $\bar{b}\in\left(B\cup B'\right)^{m}$, und die induzierten Strukturen
+$\left(\mathfrak{A}\uplus\mathfrak{A}'\right)_{\mid\bar{a}}$ und
+$\left(\mathfrak{B}\uplus\mathfrak{B}'\right)_{\mid\bar{b}}$.
+
+Wegen der Annahme induzieren $\bar{a}$ und $\bar{b}$ zwei partielle
+Isomorphismen mit $\left(\mathfrak{A}_{\mid\bar{a}},\bar{a}_{\mid A}\right)\cong\left(\mathfrak{B}_{\mid\bar{b}},\bar{b}_{\mid B}\right)$
+und $\left(\mathfrak{A}'_{\mid\bar{a}},\bar{a}_{\mid A'}\right)\cong\left(\mathfrak{B}'_{\mid\bar{b}},\bar{b}_{\mid B'}\right)$.
+Nach Satz \ref{prop:iso-closed-disjoint} ist der Isomorphismus abgeschlossen,
+so dass gilt:
+\[
+\left(\mathfrak{A}\uplus\mathfrak{A}'_{\mid\bar{a}},\bar{a}\right)\cong\left(\mathfrak{B}\uplus\mathfrak{B}'_{\mid\bar{b}},\bar{b}\right)
+\]
+Damit hat Duplicator das Spiel auf $\left(\mathfrak{A}\uplus\mathfrak{A}',\mathfrak{B}\uplus\mathfrak{B}'\right)$
+gewonnen, und es folgt $\mathfrak{A}\uplus\mathfrak{A}'\equiv_{m}\mathfrak{B}\uplus\mathfrak{B}'$.
+\end{proof}
+Die hier dargestellte Folgerung lässt sich allgemein auf jedes Paar
+von $m$-äquivalenten Strukturen erweitern, solange die Strukturen
+die gleiche Größe haben.
+\begin{cor}
+Die Logik $\mathrm{FO}+\mathbf{ARB}$ mit disjunktem Orakel kann nur
+Eigenschaften ausdrücken, die bezüglich gleich großer Strukturen Hanf-lokal
+sind.
+\end{cor}
+Die Bedingung der gleichen Größe ist notwendig, denn offensichtlich
+ist zum Beispiel die $\mathrm{FO}+\mathbf{ARB}$-definierbare Klasse
+$\textsc{Even}$ nicht Hanf-lokal.

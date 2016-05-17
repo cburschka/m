@@ -1,0 +1,1351 @@
+
+\chapter{Von Schaltkreisfamilien zu Formeln}
+
+\section{Berechnung von rigiden Schaltkreisen}
+
+Um die Eindeutigkeit der im symmetrischen Schaltkreis induzierten
+Automorphismen zu gewährleisten, wird nun gefordert, dass der Schaltkreis
+\emph{rigide }gemäß Definition \ref{def:rigid} ist.
+
+Die Rigidität kann nicht in jeder booleschen Basis $\mathbb{B}$ problemlos
+hergestellt werden, ohne die Tiefe zu verändern - während redundante
+Vorgänger von $\mathtt{AND}$- und $\mathtt{OR}$-Gates ohne Beschränkung
+der Annahme entfernt werden können, ist dies zum Beispiel bei $\mathtt{MAJ}$-
+und $\mathtt{XOR}$-Gates nicht möglich.
+
+In \cite{AD2014} werden redundante Gates $H=\left(g_{1},\cdots,g_{k}\right)$
+,,in Reihe`` geschaltet, so dass jedes Gate $g_{i}\in H\backslash\left\{ g_{1}\right\} $
+durch ein $\mathtt{AND}$-Gate mit dem Vorgänger $g_{i-1}$ ersetzt
+wird. Dies vergrößert jedoch die Tiefe des Schaltkreises unbeschränkt.
+
+Um die Tiefe als Parameter zu erhalten, werden wir stattdessen die
+Definition des Schaltkreises auf Multigraphen erweitern:
+\begin{defn}
+\textbf{Multimenge}
+
+Eine Multimenge $\mathcal{W}:W\rightarrow\mathbb{N}$ sei eine Abbildung
+einer Menge auf $\mathbb{N}$, wobei $\mathcal{W}\left(x\right)$
+die Vielfachheit von $x$ in $\mathcal{W}$ angibt.
+\end{defn}
+Nach der in Definition \ref{def:relation} eingeführten Notation entspricht
+für eine gewöhnliche Relation $W\subseteq G^{2}$ die Funktion $\left[W\right]:G^{2}\rightarrow\left\{ 0,1\right\} $
+gerade der äquivalenten Multimenge. Die Größe der Multimenge $\left|\mathcal{W}\right|\coloneqq\sum_{w\in\mathcal{W}}\mathcal{W}\left(x\right)$
+sei die Summe der Vielfachheiten aller Elemente.
+\begin{defn}
+\textbf{Multischaltkreis}
+
+Ein $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Multischaltkreis
+$\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$ ist analog
+zum $\left(\sigma,\mathbb{B}\right)$-Schaltkreis definiert, aber
+$\left(G,\mathcal{W}\right)$ bildet einen azyklischen Multigraphen:
+\[
+\mathcal{W}:G\times G\rightarrow\mathbb{N}
+\]
+
+Formal beschreiben wir den Multischaltkreis durch eine $\tau_{\sigma,\mathbb{B},k}$-Struktur
+$\mathcal{C}$ über einem Universum $G\uplus U\uplus\left[0,\left|\mathcal{W}\right|\right]$
+ausgewertet:
+\begin{eqnarray*}
+\tau_{\sigma,\mathbb{B},k}' & \coloneqq & \left\{ W/3,\left(\Sigma_{s}/1\right)_{s\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} },\left(\Sigma_{R}/1+k\right)_{R/k\in\sigma},\Omega/k+1\right\} \\
+\mathrm{ar}\left(W\right) & \coloneqq & 3\\
+W^{\mathcal{C}} & = & \left\{ \left(g,g',n\right)\in G^{2}\times\left[0,\left|\mathcal{W}\right|\right]\mid\mathcal{W}\left(g,g'\right)=n\right\} 
+\end{eqnarray*}
+
+Für die Auswertung eines internen Gates gilt analog zu \ref{def:circuit-eval}:
+\begin{eqnarray*}
+j_{1} & \coloneqq & \sum_{h\in G}\left(\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\cdot\mathcal{W}\left(h,g\right)\right)\\
+j_{0} & \coloneqq & \sum_{h\in G}\mathcal{W}\left(h,g\right)-j_{1}\\
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\Sigma\left(g\right)\right]\left(j_{0},j_{1}\right)
+\end{eqnarray*}
+\end{defn}
+Die Größe $\left|\mathcal{C}\right|$ eines Multischaltkreises $\mathcal{C}$
+sei die Summe seiner Gates und Kanten:
+\[
+\left|\mathcal{C}\right|\coloneqq\left|G\right|+\sum_{g,g'\in G^{2}}\mathcal{W}\left(g,g'\right)
+\]
+
+Die Symmetrie wird auf natürliche Weise angepasst: Der von $\pi$
+induzierte Automorphismus $\hat{\pi}\in\mathrm{Aut}_{\mathcal{C}}$
+bildet $\left(G,\mathcal{W}\right)$ auf den isomorphen Multigraphen
+$\left(\hat{\pi}G,\hat{\pi}\mathcal{W}\right)$ mit $\mathcal{W}\left(\hat{\pi}g,\hat{\pi}g'\right)=\mathcal{W}\left(g,g'\right)$
+ab.
+
+Die Rigidität wird ebenfalls angepasst: Ein rigider Schaltkreis enthält
+keine Gates $g,g'$ mit $\Sigma\left(g\right)=\Sigma\left(g'\right)$
+und $\mathcal{W}\left(h,g\right)=\mathcal{W}\left(h,g'\right)$ für
+alle $h\in G$.
+\begin{lem}
+\label{lem:algo-rigid}(nach Lemma 24 aus \cite{AD2014})
+
+Es existiert ein Algorithmus, der einen beliebigen $\left(\sigma,\mathbb{B}\right)$-Schaltkreis
+$\mathcal{C}$ in einen rigiden Multischaltkreis $\hat{\mathcal{C}}$
+umwandelt, wobei $T\left(\hat{\mathcal{C}}\right)=T\left(\mathcal{C}\right)$
+und $\left|\hat{\mathcal{C}}\right|\leqslant\left|\mathcal{C}\right|+\left|\mathcal{C}\right|^{2}$.
+Der Algorithmus ist $\mathrm{poly}\left(\left|G\right|+\left|U\right|\right)$-zeitbeschränkt.
+\end{lem}
+\begin{proof}
+Sei $\mathcal{C}''=\left(G,W,\Sigma,\Omega,U\right)$ ein beliebiger
+$k$-stelliger Schaltkreis. Wir erzeugen zunächst den äquivalenten
+Multischaltkreis $\mathcal{C}\coloneqq\left(G,\mathcal{W},\Sigma,\Omega,U\right)$
+mit $\mathcal{W}\coloneqq\left[W\right]$, wobei die Tiefe unverändert
+bleibt und die Größe zu $\left|\mathcal{C}\right|=\left|G\right|+\left|W\right|\leqslant\left|\mathcal{C}''\right|+\left|\mathcal{C}''\right|^{2}$
+wird.
+
+Der Multischaltkreis $\mathcal{C}$ wird nun wiederholt reduziert,
+bis er rigide ist: Berechne dazu die Äquivalenzrelation $\sim_{\mathcal{C}}\subseteq G\times G$,
+so dass $g\sim_{\mathcal{C}}g'$ genau dann wenn
+
+\begin{enumerate}
+\item $\Sigma\left(g\right)=\Sigma\left(g'\right)$, und
+\item für alle $h\in W$ gilt $\mathcal{W}\left(h,g\right)=\mathcal{W}\left(h,g'\right)$.
+\end{enumerate}
+Wenn keine Gates $g,g'\in G$ mit $g\sim_{\mathcal{C}}g'$ mehr existieren,
+so ist der Schaltkreis rigide, und der Algorithmus ist fertig.
+
+Ansonsten sei $E\subseteq G$ eine Äquivalenzklasse von $\sim_{\mathcal{C}}$
+mit mindestens zwei Gates und minimaler Tiefe $T\left(E\right)$. 
+
+Wir berechnen die Funktion $c:G\rightarrow\left[0,\left|E\right|\right]$,
+die für jedes Gate $h\in G$ die Vorgänger in $E$ zählt:
+\[
+c\left(h\right)\coloneqq\sum_{g'\in E}\mathcal{W}\left(g',h\right)
+\]
+
+Sei $g\in E$ beliebig, und sei $f_{g,E}\left(\mathcal{C}\right)\coloneqq\left(G',\mathcal{W}',\Sigma',\Omega',U\right)$
+der folgende Multischaltkreis:
+\begin{eqnarray*}
+G' & \coloneqq & G\backslash\left(E\backslash\left\{ g\right\} \right)\\
+\Sigma' & \coloneqq & \Sigma_{\backslash E\backslash\left\{ g\right\} }
+\end{eqnarray*}
+
+\begin{enumerate}
+\item Es werden die eingehenden Kanten der Gates $E\backslash\left\{ g\right\} $
+entfernt. Außerdem werden die von $E$ ausgehenden Kanten entfernt
+und durch Kanten von $g$ ersetzt:
+\[
+\mathcal{W}'\left(h,i\right)\coloneqq\begin{cases}
+c\left(i\right) & \mathrm{falls}\,h=g\\
+0 & \mathrm{falls}\,h\in E\backslash\left\{ g\right\} \\
+0 & \mathrm{falls}\,i\in E\backslash\left\{ g\right\} \\
+\mathcal{W}\left(h,i\right) & \mathrm{sonst}
+\end{cases}
+\]
+\item Die Output-Funktion wird wie folgt angepasst:
+\[
+\Omega'\left(\bar{t}\right)\coloneqq\begin{cases}
+g & \mathrm{falls}\,\Omega\left(t\right)\in E\backslash\left\{ g\right\} \\
+\Omega\left(t\right) & \mathrm{sonst}
+\end{cases}
+\]
+\end{enumerate}
+Der Schaltkreis $\mathcal{C}'\coloneqq f_{g,E}\left(\mathcal{C}\right)$
+ist äquivalent zu dem Schaltkreis $\mathcal{C}$ über jeder Struktur
+$\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$, was induktiv
+über die Tiefe (ausgehend von $g$) nachgewiesen wird:
+
+\begin{enumerate}
+\item Offensichtlich gilt $\mathcal{C}'\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)$
+für alle $g'\in E$, da die Gates die gleichen Vorgänger und die gleiche
+Beschriftung $\Sigma'\left(g\right)=\Sigma\left(g\right)=\Sigma\left(g'\right)$
+besitzen.
+\item Für jeden direkten Nachfolger $h\in G$ eines Gates $g'\in E$ gilt:
+\begin{eqnarray*}
+j_{1} & \coloneqq & \sum_{i\in G'}\mathcal{W}\left(i,h\right)\cdot\mathcal{C}\left[\mathfrak{A}\right]\\
+j_{0} & \coloneqq & \sum_{i\in G'}\mathcal{W}\left(i,h\right)-j_{1}\\
+j_{1}' & \coloneqq & \sum_{i\in G'}\mathcal{W}'\left(i,h\right)\cdot\mathcal{C}'\left[\mathfrak{A}\right]\\
+j_{0}' & \coloneqq & \sum_{i\in G'}\mathcal{W}'\left(i,h\right)-j_{1}'
+\end{eqnarray*}
+Aus der Definition von $\mathcal{W}'$ folgt $j_{1}=j_{1}'$ und $j_{0}=j_{0}'$,
+da die $c\left(h\right)-1$ entfernten Vorgänger $g'\in E\backslash\left\{ g\right\} $
+durch $c\left(h\right)-1$ zusätzliche $\left(g,h\right)$-Kanten
+ersetzt wurden, und $\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)$.
+Daher gilt: 
+\begin{eqnarray*}
+\mathcal{C}'\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\Sigma'\left(g\right)\right]\left(j_{0}',j_{1}'\right)\\
+ & = & \left[\Sigma\left(g\right)\right]\left(j_{0},j_{1}\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]
+\end{eqnarray*}
+\item Für jedes übrige Gate $h\in G$ folgt die Äquivalenz aus der Induktionsannahme
+und der Tatsache, dass die Vorgänger von $h$ unverändert bleiben.
+\end{enumerate}
+Für jedes Tupel $\bar{t}\in U^{k}$ mit $\Omega\left(\bar{t}\right)=g'\in E$
+gilt nun:
+\begin{eqnarray*}
+\left\llbracket \mathcal{C}'\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \mathcal{C}'\left[\mathfrak{A}\right]\left(\Omega'\left(\bar{t}\right)\right)\\
+ & = & \mathcal{C}'\left[\mathfrak{A}\right]\left(g\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)
+\end{eqnarray*}
+
+\begin{description}
+\item [{Größe:}] Die Umrechnung von $\mathcal{C}$ zu $f_{g,E}\left(\mathcal{C}\right)$
+lässt die Tiefe unverändert, und vergrößert den Schaltkreis nicht:
+Es werden $\sum_{h\in G}c\left(h\right)$ Kanten eingefügt und mindestens
+$\sum_{g',h'\in E\times G}$ Kanten entfernt, wobei gilt:
+\[
+\sum_{h\in G}c\left(h\right)=\sum_{h\in G}\sum_{g'\in E}\mathcal{W}\left(g',h\right)=\sum_{g',h'\in E\times G}
+\]
+\item [{Symmetrie:}] Wenn alle Äquivalenzklassen $\bar{E}=\left(E_{1},\cdots,E_{m}\right)$
+der gleichen Tiefe reduziert werden, dann bewahrt der neue Schaltkreis
+$f_{g_{1,}E_{1}}\cdots f_{g_{m},E_{m}}\left(\mathcal{C}\right)=\mathcal{C}'$
+die Symmetrie von $\mathcal{C}$:
+
+Sei $\pi\in\mathrm{Sym}_{U}$ eine beliebige Permutation, und $\hat{\pi}$
+ein induzierter Automorphismus. Offensichtlich muss $\hat{\pi}$ die
+Äquivalenzklassen $\bar{E}$ aufeinander abbilden, da $\hat{\pi}g\sim_{\mathcal{C}}\hat{\pi}g'$
+für alle $g\sim_{\mathcal{C}}g'$ gilt.
+
+Der Automorphismus $\hat{\pi}$ auf $\mathcal{C}$ wird wie folgt
+zu einem auf $\mathcal{C}'$ angepasst:
+\[
+\hat{\pi}'g\coloneqq\begin{cases}
+g_{i} & \mathrm{falls}\,\hat{\pi}g\in E_{i}\\
+\hat{\pi}g & \mathrm{sonst}
+\end{cases}
+\]
+
+Da $\mathcal{W}\left(\hat{\pi}g,\hat{\pi}g'\right)=\mathcal{W}\left(g,g'\right)$,
+folgt $\mathcal{W}'\left(\hat{\pi}g,\hat{\pi}g'\right)$.
+
+\end{description}
+Die Umrechnung von $\mathcal{C}$ zu $\mathcal{C}'$ verkleinert die
+Äquivalenzklasse des Gates $g$ zu $\left\{ g\right\} $, da alle
+äquivalenten Gates entfernt werden, und lässt alle anderen Äquivalenzklassen
+der Tiefe $i\leqslant T\left(g\right)$ unverändert.
+
+Daher haben nach höchstens $\left|G\right|$ Wiederholungen alle Äquivalenzklassen
+der Tiefe $i\leqslant T\left(g\right)$ die Größe $1$, und nach höchstens
+$T\left(\mathcal{C}\right)\cdot\left|G\right|$ Wiederholungen wird
+ein äquivalenter, rigider Schaltkreis erzeugt.
+\end{proof}
+\begin{prop}
+Die beschriebene Konstruktion kann mit $\mathcal{O}\left(T\left(\mathcal{C}\right)\log n\right)$
+Speicherplatz berechnet werden, und ist für Schaltkreisfamilien konstanter
+Tiefe daher in $\mathrm{LOGSPACE}$.
+\end{prop}
+\begin{proof}
+Der Algorithmus \ref{alg:rigid} gibt die Kanten und Markierungen
+des rigiden Multischaltkreises aus, wobei eine natürliche Ordnung
+der Gates $G$ vorausgesetzt wird.
+
+\begin{algorithm}
+\begin{lyxcode}
+Input:~$\left(G,W,\Sigma,\Omega,U\right)$.
+
+Main:~
+
+\begin{lyxcode}
+Für~jedes~Gate~$g\in G$:~
+
+\begin{lyxcode}
+Falls~kein~Gate~$g'<g$~mit~Equiv($g,g'$)~existiert:~
+
+\begin{lyxcode}
+Rigid($g$).
+\end{lyxcode}
+\end{lyxcode}
+\end{lyxcode}
+Rigid($g$):~
+
+\begin{lyxcode}
+Gib~$g$~und~$\Sigma\left(g\right)$~aus.
+
+Für~alle~$\bar{t}\in U^{k}$~mit~$\Omega\left(\bar{t}\right)=g$:~
+
+\begin{lyxcode}
+Gib~$\Omega\left(\bar{t}\right)=g$~aus.
+\end{lyxcode}
+Für~jedes~Gate~$h\in G$:~
+
+\begin{lyxcode}
+Falls~kein~Gate~$h'<h$~mit~Equiv($h,h'$)~existiert:~
+
+\begin{lyxcode}
+$i\leftarrow0$.
+
+Für~alle~Vorgänger~$h''$~von~$g$~mit~Equiv($h,h'')$.~
+
+\begin{lyxcode}
+$i\leftarrow i+1$.
+\end{lyxcode}
+Gib~$\mathcal{W}\left(h,g\right)=i$~aus.
+\end{lyxcode}
+\end{lyxcode}
+\end{lyxcode}
+Equiv($g,g'$):~
+
+\begin{lyxcode}
+Falls~nicht~$\Sigma\left(g\right)=\Sigma\left(g'\right)$:~$\textsc{False}$
+
+Für~jeden~Vorgänger~$h$~von~$g$:~
+
+\begin{lyxcode}
+$i\leftarrow0$
+
+Für~jeden~Vorgänger~$h'$~von~$g$~mit~Equiv($h$,$h'$):~
+
+\begin{lyxcode}
+$i\leftarrow i+1$.
+\end{lyxcode}
+Für~jeden~Vorgänger~$h'$~von~$g'$~mit~Equiv($h,h'$):~
+
+\begin{lyxcode}
+$i\leftarrow i-1$
+\end{lyxcode}
+Falls~$i\neq0$:~$\textsc{False}$.
+\end{lyxcode}
+$\textsc{True}$
+\end{lyxcode}
+\end{lyxcode}
+\caption{\label{alg:rigid}Berechnung des rigiden Schaltkreises}
+\end{algorithm}
+
+Sei $\sim^{*}$ eine rekursive Erweiterung von $\sim$, die alle Paare
+von Gates $g,g'$ enthält, die aus jeder Äquivalenzklasse bezüglich
+$\sim^{*}$ die gleiche Anzahl Vorgänger besitzen. Ferner sei $\leqslant$
+eine implizite Ordnung der Gates $G$. Ein Gate $g\in G$, für das
+$g\not\sim^{*}g'$ für alle $g'<g$ gilt, nennen wir den Repräsentanten
+seiner Äquivalenzklasse.
+
+Der beschriebene Algorithmus wird $\mathtt{Rigid}\left(g\right)$
+für jeden Repräsentanten $g\in G$ aufrufen. $\mathtt{Rigid}\left(g\right)$
+gibt dann $g$ mit seinen Markierungen aus, findet dann jeden Repräsentanten
+$h\in G$, zählt die zu $h$ äquivalenten Vorgänger von $g$ und gibt
+die entsprechende Multikante $\mathcal{W}\left(h,g\right)\in\mathbb{N}$
+aus.
+
+Da die Funktionen $\mathtt{Rigid}$ und $\mathtt{Equiv}$ jeweils
+nur konstant viele lokale Variablen der Größe $\mathcal{O}\left(\log n\right)$
+verwenden, ist der Algorithmus platzbeschränkt durch $T\cdot\mathcal{O}\left(\log n\right)$,
+wobei $T$ die maximale Rekursionstiefe von $\mathtt{Equiv}$ ist.
+Weil jeder Aufruf $\mathtt{Equiv}\left(g\right)$ nur Aufrufe $\mathtt{Equiv}\left(h,h'\right)$
+für Vorgänger $h,h'$ von $g$ auslöst, ist $T=T\left(\mathcal{C}\right)$
+die Tiefe des Schaltkreises $\mathcal{C}$.
+\end{proof}
+
+\section{Berechnung der Orbits und Träger}
+\begin{prop}
+\label{lem:rigide-eindeutig}(nach Satz 9 aus \cite{AD2014})
+
+Sei $\mathcal{C}$ ein rigider $\left(\sigma,\mathbb{B}\right)$-Multischaltkreis
+über $U$. Sei $\pi\in\mathrm{Sym}_{U}$ beliebig.
+
+Falls $\pi$ einen Automorphismus in $\mathcal{C}$ induziert, dann
+ist dieser eindeutig.
+\end{prop}
+\begin{proof}
+Sei $\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$ und
+$\pi\in\mathrm{Sym}_{U}$ beliebig. Seien $\hat{\pi}_{1},\hat{\pi}_{2}\in\mathrm{Aut}_{\mathcal{C}}$
+zwei von $\pi$ induzierte Automorphismen.
+
+Durch Induktion über die Tiefe wird bewiesen, dass $\hat{\pi}_{1}g=\hat{\pi}_{2}g$
+für jedes Gate $g\in G$ gilt.
+
+\begin{description}
+\item [{Anfang:}] Wenn $g$ eine Konstante mit $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
+ist, dann ist $g$ das einzige Gate mit der Beschriftung $\Sigma\left(g\right)$:
+\[
+\hat{\pi}_{1}g=g=\hat{\pi}_{2}
+\]
+Wenn $g$ ein relationales Input mit $\Sigma\left(g\right)=R\bar{t}$,
+$R/k\in\sigma$ und $\bar{t}\in U^{k}$ ist, dann existiert auf Grund
+der Rigidität nur ein Gate $g'\in G$ mit $\Sigma\left(g'\right)=R\pi\bar{t}$:
+\[
+\hat{\pi}_{1}g=g'=\hat{\pi}_{2}g
+\]
+\item [{Schritt:}] Wenn $g$ ein internes Gate mit $\Sigma\left(g\right)\in\mathbb{B}$
+ist, dann muss gelten:
+\begin{eqnarray*}
+\Sigma\left(\hat{\pi}_{1}g\right) & = & \Sigma\left(\hat{\pi}_{2}g\right)=\Sigma\left(g\right)\\
+\mathcal{W}\left(\hat{\pi}_{1}h,\hat{\pi}_{1}g\right) & = & \mathcal{W}\left(\hat{\pi}_{2}h,\hat{\pi}_{2}g\right)=\mathcal{W}\left(h,g\right)\\
+ &  & \mathrm{f.a.}\,\,h\in G
+\end{eqnarray*}
+Auf Grund der Rigidität von $\mathcal{C}$ muss $\hat{\pi}_{1}g=\hat{\pi}_{2}g$
+gelten.
+\end{description}
+\end{proof}
+\begin{lem}
+\label{lem:algo-auto}(nach Lemma 25 aus \cite{AD2014})
+
+Es existiert ein deterministischer Algorithmus, der bei Eingabe eines
+$\left(\sigma,\mathbb{B}\right)$-Multischaltkreises $\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$
+und einer Permutation $\pi\in\mathrm{Sym}_{U}$ in $\mathrm{poly}\left(\left|\mathcal{C}\right|\right)$-Zeit
+für jedes Gate $g\in G$ das Gate $\hat{\pi}g$ ausgibt, falls $\pi$
+einen eindeutigen Automorphismus $\hat{\pi}$ induziert.
+\end{lem}
+\begin{proof}
+Analog zu dem Beweis von Lemma \ref{lem:rigide-eindeutig} wird gezeigt,
+dass der eindeutige Automorphismus in Polynomialzeit bestimmt wird:
+
+\begin{enumerate}
+\item Zunächst sei für jedes konstante Gate $\hat{\pi}g\coloneqq g$. Für
+jedes relationale Input $g\in G$ mit $\Sigma\left(g\right)=R\bar{t}$
+finde das einzige Gate $g'\in G$ mit $\Sigma\left(g\right)=R\pi\bar{t}$
+und gib $\hat{\pi}g\coloneqq g'$ aus.
+\item Finde ein beliebiges Gate $g\in G$, für dessen Vorgänger $h\in G$
+mit $\mathcal{W}\left(h,g\right)>0$ bereits $\hat{\pi}h=h'$ ausgegeben
+wurde.
+\item Finde ein Gate $g'\in G$ mit $\Sigma\left(g\right)=\Sigma\left(g'\right)$
+und $\mathcal{W}\left(\hat{\pi}h,g'\right)=\mathcal{W}\left(h,g\right)$
+für die Vorgänger $h\in G$, so dass $g'$ sonst keine Vorgänger hat.
+(Wegen der Rigidität gibt es höchstens eines.) Gib $\hat{\pi}g=g'$
+aus.
+\item Wiederhole die Schritte 2 bis 3 solange bis $\hat{\pi}$ für jedes
+Gate $g\in G$ berechnet wurde. (Wenn zu irgendeinem $g$ kein Gate
+gefunden wird, ist der Schaltkreis nicht symmetrisch und der Algorithmus
+bricht ab.)
+\end{enumerate}
+Die Schritte 2 bis 3 werden höchstens $\left|G\right|$-mal wiederholt,
+und jeder Schritt erfordert $\left|G\right|^{2}$-Zeit, so dass der
+Algorithmus in $\left|G\right|^{3}$-Zeit arbeitet.
+\end{proof}
+\begin{prop}
+Die obige Konstruktion ist mit $\mathcal{O}\left(T\left(\mathcal{C}\right)\log n\right)$
+Speicherplatz berechenbar, und ist für Schaltkreisfamilien konstanter
+Tiefe daher in $\mathrm{LOGSPACE}$.
+\end{prop}
+\begin{proof}
+Der Algorithmus \ref{alg:aut} berechnet den Automorphismus $\hat{\pi}$,
+in dem für jedes Paar von Gates $g,g'$ rekursiv geprüft wird, ob
+$\hat{\pi}g=\hat{\pi}g'$.
+
+Da jede Funktion nur konstant viele lokale Variablen der Größe $\mathcal{O}\left(\log\left|G\right|\right)$
+verwendet, ist der Speicherplatz durch die Funktion $T\cdot\mathcal{O}\left(\log n\right)$
+beschränkt, wobei $T$ die Rekursionstiefe ist. Weil $\mathtt{Aut}\left(g,g'\right)$
+nur $\mathtt{Aut}\left(h,h'\right)$ für Vorgänger $h$ von $g$ und
+$h'$ von $g'$ aufruft, ist $T\leqslant T\left(\mathcal{C}\right)$.
+
+\begin{algorithm}
+\begin{lyxcode}
+Input:~$\left(G,W,\Sigma,\Omega,U\right)$,~$k$,~$\pi$.
+
+Main:~
+
+\begin{lyxcode}
+Für~$g\in G$:~
+
+\begin{lyxcode}
+Für~$g'\in G$:~
+
+\begin{lyxcode}
+$X\leftarrow\textsc{False}$
+
+Falls~Aut($g,g'$):~
+
+\begin{lyxcode}
+Falls~$X=\textsc{True}$:~$\hat{\pi}$~ist~nicht~eindeutig;~Abbruch.
+
+Gib~$\hat{\pi}\left(g\right)=g'$~aus.
+
+$X\leftarrow\textsc{True}$
+\end{lyxcode}
+\end{lyxcode}
+\end{lyxcode}
+\end{lyxcode}
+Aut($g,g'$):~
+
+\begin{lyxcode}
+Falls~$\Sigma\left(g\right)\neq\Sigma\left(g'\right)\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} $:~$\textsc{False}$
+
+Falls~$\Sigma\left(g\right)=R\bar{t}$,~$\Sigma\left(g'\right)\neq R\pi\bar{t}$:~$\textsc{False}$
+
+Für~$\bar{t}\in U^{k}$:~
+
+\begin{lyxcode}
+Falls~$\Omega\left(\bar{t}\right)=g$~und~$\Omega\left(\pi\bar{t}\right)\neq g'$:~$\textsc{False}$
+\end{lyxcode}
+Für~jeden~Vorgänger~$h$~von~$g$:~
+
+\begin{lyxcode}
+Falls~kein~Vorgänger~$h'$~von~$g'$~mit~Aut($h,h'$)~existiert:~
+
+\begin{lyxcode}
+$\textsc{False}$
+\end{lyxcode}
+\end{lyxcode}
+$\textsc{True}$
+\end{lyxcode}
+\end{lyxcode}
+\caption{\label{alg:aut}Berechnung der Automorphismen}
+\end{algorithm}
+\end{proof}
+\begin{lem}
+\label{lem:algo-orb}(nach Lemma 26 aus \cite{AD2014})
+
+Es existiert ein deterministischer Algorithmus, der bei Eingabe eines
+rigiden $\left(\sigma,\mathbb{B}\right)$-Multischaltkreises $\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$
+in $\mathrm{poly}\left(\left|\mathcal{C}\right|\right)$ entscheidet,
+ob dieser symmetrisch ist, und gegebenenfalls die Orbits $\mathrm{Orb}_{\mathcal{C}}\left(g\right)$
+und Trägermenge $\mathrm{sp}\left(g\right)$ jedes Gates $g\in G$
+ausgibt.
+\end{lem}
+\begin{proof}
+Um die Symmetrie nachzuweisen, genügt es, den Algorithmus aus Lemma
+\ref{lem:algo-auto} für jede Transposition $\left(uv\right)\in\mathrm{Sym}_{U}$
+durchzuführen. Diese Transpositionen erzeugen die gesamte Symmetriegruppe
+$\mathrm{Sym}_{U}$, und daher ist für jede Permutation $\pi=\left(u_{1}v_{1}\right)\cdots\left(u_{k}v_{k}\right)\in\mathrm{Sym}_{U}$
+die Abbildung $\hat{\pi}=\hat{\pi}_{\left(u_{1}v_{1}\right)}\cdots\hat{\pi}_{\left(u_{k}v_{k}\right)}$
+ein von $\pi$ induzierter Automorphismus.
+
+\begin{enumerate}
+\item Berechne den von $\left(uv\right)\in\mathrm{Sym}_{U}$ induzierten
+Automorphismus $\hat{\pi}_{\left(uv\right)}$ für jedes Paar $u,v\in U$
+mit $u\neq v$. Wenn nicht alle Automorphismen existieren, ist der
+Schaltkreis nicht symmetrisch; es wird abgebrochen.
+\item Für jedes Gate $g\in G$ wird die Trägerpartition $\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+aufgebaut, in dem für jede Transposition $\left(uv\right)\in\mathrm{Sym}_{U}$
+geprüft wird, ob $\hat{\pi}_{\left(uv\right)}$ das Gate $g$ fixiert.
+In diesem Fall werden die Elemente $u,v$ in der Partition kombiniert:
+\begin{eqnarray*}
+\mathcal{P}_{\left(uv\right)} & \coloneqq & \left\{ \left\{ u,v\right\} \right\} \cup\left\{ \left\{ w\right\} \mid w\in U\backslash\left\{ u,v\right\} \right\} \\
+\mathcal{P}_{g} & \coloneqq & \bigsqcup_{\begin{subarray}{c}
+\left(uv\right)\in\mathrm{Sym}_{U}\\
+\hat{\pi}_{\left(uv\right)}g=g
+\end{subarray}}\mathcal{P}_{\left(uv\right)}
+\end{eqnarray*}
+\item Für jedes Gate $g\in G$ sei $S_{0}\coloneqq\left\{ g\right\} $.
+Iterativ wird der Orbit von $g$ wie folgt aufgebaut, bis mit $S_{i+1}=S_{i}$
+ein Fixpunkt erreicht wird (spätestens bei $S_{\left|U\right|}$):
+\[
+S_{i+1}\coloneqq S_{i}\cup\bigcup_{\left(uv\right)\in\mathrm{Sym}_{U}}\hat{\pi}_{\left(uv\right)}S_{i}
+\]
+\end{enumerate}
+Nach den Definitionen aus Kapitel 7 ist jede Partition $\mathcal{P}_{\left(uv\right)}$
+eine Trägerpartition von $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$,
+wenn $\hat{\pi}_{\left(uv\right)}g=g$, und daher ist $\mathcal{P}_{g}$
+ebenfalls eine Trägerpartition von $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$.
+Wenn es eine gröbere Trägerpartition $\mathcal{P}'$ gäbe, dann müsste
+diese zwei Elemente $u,v\in U$ kombinieren, die in $\mathcal{P}_{g}$
+getrennt sind, und für die $\hat{\pi}_{\left(uv\right)}g=g$ gilt.
+In diesem Fall wäre aber die Partition $\mathcal{P}_{\left(uv\right)}$
+mit in $\mathcal{P}_{g}$ aufgenommen worden, und daher ist $\mathcal{P}_{g}=\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$.
+Es wird $\mathrm{sp}\left(g\right)=U\backslash\max_{\left|\cdot\right|}\mathcal{P}_{g}$
+ausgegeben.
+
+Für die Mengen $\left(S_{i}\right)_{i\in\mathbb{N}}$ gilt $S_{i}\subseteq\mathrm{Orb}_{\mathcal{C}}\left(g\right)$,
+denn per Induktion existiert für jedes Gate $g'\in S_{i}$ eine Folge
+von $i$ Transpositionen $\pi_{1}\cdots\pi_{i}$, so dass $\hat{\pi}_{1}\cdots\hat{\pi}_{i}$
+das Gate $g$ auf $g'$ abbildet. Ferner besteht jede Permutation
+$\pi$ aus einer Folge von höchstens $\left|U\right|$ Transpositionen,
+so dass $S_{\left|U\right|}\supseteq\mathrm{Orb}_{\mathcal{C}}\left(g\right)$
+den gesamten Orbit von $g$ enthält.
+
+Es existieren weniger als $\left|U\right|^{2}$ Transpositionen, so
+dass der Schritt 1 in $\left|G\right|^{3}\left|U\right|^{2}$-Zeit
+abgeschlossen wird. Ebenso wird Schritt 2 in $\left|U\right|^{3}$-Zeit
+abgeschlossen. Schritt 3 erfordert eine Iteration bis $S_{\left|U\right|}$,
+wobei jeder Durchlauf $\left|U\right|^{2}$-Zeit benötigt. Insgesamt
+läuft der Algorithmus in $\left|G\right|^{3}\left|U\right|^{3}$-Zeit.
+\end{proof}
+\begin{prop}
+Die obige Konstruktion ist mit $\mathcal{O}\left(T\left(\mathcal{C}\right)\log n\right)$
+Speicherplatz berechenbar, und daher für Schaltkreisfamilien konstanter
+Tiefe in $\mathrm{LOGSPACE}$.
+\end{prop}
+\begin{proof}
+Der entscheidende Teil ist die Bestimmung der größten Menge $P_{i}\subseteq\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$,
+denn offensichtlich können wir mit logarithmischem Platz nicht die
+Partition $\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+(und noch nicht einmal $P_{i}$) abspeichern. Es reicht uns aber,
+wenn der Algorithmus \ref{alg:orbits} für jedes Element $u\in U$
+die Elemente $u\sim u'$ zählt, und sich das Element $u$ mit der
+größten Äquivalenzklasse merkt. Dann findet er alle Elemente mit $u'\not\sim u$
+(per Korollar \ref{cor:korollar-23} gibt es davon nur $\mathcal{O}\left(1\right)$
+viele), und bildet daraus die Trägermenge $\mathrm{sp}\left(g\right)$.
+
+Der Orbit hat die Größe $n^{\left|\mathrm{sp}\left(g\right)\right|}$,
+aber diesen muss der Algorithmus nicht abspeichern, sondern nur iterativ
+ausgeben.
+\end{proof}
+\begin{algorithm}
+\begin{lyxcode}
+Input:~$\left(G,W,\Sigma,\Omega,U\right)$
+
+Trägermenge($g$):~
+
+\begin{lyxcode}
+$\bar{s}\leftarrow\left\langle \right\rangle $,~$j\leftarrow0$
+
+Für~alle~$u\in U$:~
+
+\begin{lyxcode}
+$i\leftarrow0$
+
+Für~alle~$v\in U$:~
+
+\begin{lyxcode}
+Falls~$\hat{\pi}_{\left(uv\right)}\left(g\right)=g$:~(mit~Algorithmus~\ref{alg:aut})~
+
+\begin{lyxcode}
+$i\leftarrow i+1$
+\end{lyxcode}
+\end{lyxcode}
+Falls~$i>j$:~
+
+\begin{lyxcode}
+$u'\leftarrow u$,~$j\leftarrow i$
+\end{lyxcode}
+\end{lyxcode}
+Für~alle~$v\in U$:~
+
+\begin{lyxcode}
+Falls~$\hat{\pi}_{\left(u'v\right)}\left(g\right)\neq g$:~
+
+\begin{lyxcode}
+$\bar{s}\leftarrow\bar{s}v$
+\end{lyxcode}
+\end{lyxcode}
+Gib~$\bar{s}$~zurück.
+\end{lyxcode}
+Orbit($g$):~
+
+\begin{lyxcode}
+$\bar{s}\leftarrow\mathtt{Tr\ddot{a}germenge}\left(g\right)$~
+
+\begin{lyxcode}
+Für~$\bar{t}\in U^{\mathrm{ar}\left(\bar{s}\right)}$:~
+
+\begin{lyxcode}
+Gib~$\hat{\pi}_{\left(\bar{s}\mapsto\bar{t}\right)}\left(g\right)$~aus.
+\end{lyxcode}
+\end{lyxcode}
+\end{lyxcode}
+\end{lyxcode}
+\caption{\label{alg:orbits}Berechnung der Trägermengen $\mathrm{sp}\left(g\right)$
+und Orbits $\mathrm{Orb}_{\mathcal{C}}\left(g\right)$}
+\end{algorithm}
+
+
+\section{Rekursive Auswertung der Schaltkreise}
+
+Für eine rigide, symmetrische $k$-stellige $\left(\sigma,\mathbb{B}\right)$-Multischaltkreisfamilie
+$\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ gilt nach Korollar
+\ref{cor:korollar-23} $\mathrm{sp}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$.
+Seien also $n_{0},c\in\mathbb{N}$ so gewählt, dass $\mathrm{sp}\left(\mathcal{C}_{n}\right)\leqslant c$
+für $n\geqslant n_{0}$.
+
+Zur Erinnerung: $\mathrm{sp}\left(\mathcal{C}\right)$ ist die maximale
+Größe der Trägermenge $\mathrm{sp}\left(g\right)=\left\{ P_{1},\cdots,P_{m}\right\} $,
+$\left|P_{1}\right|\leqslant\cdots\leqslant\left|P_{m}\right|$ jedes
+Gates $g$ von $\mathcal{C}$.
+
+Wir möchten $\mathcal{C}_{n}$ auf beliebigen Strukturen $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+(nicht nur $\mathfrak{A}\in\mathbf{FIN}^{\left[1,n\right]}\left(\sigma\right)$)
+auswerten, wofür eine beliebige Einbettung $\pi:A\rightarrow\left[1,n\right]$
+definiert werden muss. Es wird nun gezeigt, dass die Auswertung des
+Gates $g$ nur von dem Teil der Abbildung $\pi$ abhängt, der Elemente
+auf $\mathrm{sp}\left(g\right)$ abbildet. Die Abbildung auf die übrigen
+Elemente $U\backslash\mathrm{sp}\left(g\right)$ ist für $g$ unbedeutend.
+
+Die Folgerung in diesem Abschnitt passt den Abschnitt 4.3 aus \cite{AD2014}
+für Multischaltkreise an.
+\begin{defn}
+\textbf{Konsistenz}
+
+Zwei Abbildungen $f:A\rightarrow B$ und $f:A'\rightarrow B'$ seien
+konsistent in $A''\subseteq A\cap A'$ (kurz $f\sim_{A''}f'$), wenn
+sie im Teilbereich $A''$ identisch sind. 
+\[
+f\sim_{A''}f'\Leftrightarrow f_{\mid A''}=f'_{\mid A''}
+\]
+\end{defn}
+\begin{prop}
+\label{prop:konsistenz}Sei $\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$
+ein rigider, symmetrischer Multischaltkreis mit $n=\left|U\right|$,
+und sei $g\in G$ ein beliebiges Gate mit den Vorgängern $H\coloneqq\left\{ h\in G\mid\mathcal{W}\left(h,g\right)>0\right\} $.
+Sei $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+eine beliebige Struktur. Seien $\pi_{1},\pi_{2}\in\mathrm{Bij}\left(U,A\right)$
+beliebig mit $\pi_{1}\sim_{\mathrm{sp}\left(g\right)}\pi_{2}$. So
+gilt:
+\begin{eqnarray}
+\mathcal{C}\left[\pi_{1}^{-1}\mathfrak{A}\right]\left(g\right) & = & \mathcal{C}\left[\pi_{2}^{-1}\mathfrak{A}\right]\left(g\right)\label{eq:cons-1}\\
+\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{1}^{-1}\mathfrak{A}\right]\left(h\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{2}^{-1}\mathfrak{A}\right]\left(h\right)\label{eq:cons-2}
+\end{eqnarray}
+\end{prop}
+\begin{proof}
+Sei $\tau\in\mathrm{Sym}_{U}$ die Permutation $\tau\coloneqq\pi_{1}^{-1}\pi_{2}$,
+so dass $\pi_{1}^{-1}=\tau\pi_{2}^{-1}$.
+
+Weil $\pi_{1}$ und $\pi_{2}$ konsistent in $\mathrm{sp}\left(g\right)$
+sind, gilt $\pi_{1}u=\pi_{2}u$ für $u\in\mathrm{sp}\left(g\right)$.
+\begin{eqnarray*}
+\tau u & = & \pi_{1}^{-1}\pi_{2}u\\
+ & = & \pi_{1}^{-1}\pi_{1}u=u
+\end{eqnarray*}
+
+Wegen der Symmetrie und Rigidität induziert $\tau$ einen eindeutigen
+Automorphismus $\hat{\tau}$ im Schaltkreis $\mathcal{C}$. Weil $\tau$
+die Elemente von $\mathrm{sp}\left(g\right)$ fixiert, fixiert $\hat{\tau}$
+auch das Gate $g$:
+\begin{eqnarray*}
+\tau & \in & \mathrm{Stab}_{U}\left(\mathrm{sp}\left(g\right)\right)\\
+ & \subseteq & \mathrm{Stab}_{\mathcal{C}}\left(g\right)
+\end{eqnarray*}
+Damit ist Gleichung \ref{eq:cons-1} bewiesen:
+\begin{eqnarray*}
+\mathcal{C}\left[\pi_{2}^{-1}\mathfrak{A}\right]\left(g\right) & = & \mathcal{C}\left[\tau\pi_{2}^{-1}\mathfrak{A}\right]\left(\hat{\tau}g\right)\\
+ & = & \mathcal{C}\left[\tau\pi_{2}^{-1}\mathfrak{A}\right]\left(g\right)\\
+ & = & \mathcal{C}\left[\pi_{1}^{-1}\mathfrak{A}\right]\left(g\right)
+\end{eqnarray*}
+
+Da $\hat{\tau}g=g$, muss auch $\hat{\tau}H=H$ auch für die Vorgänger
+gelten. Außerdem hat $\hat{\tau}h$ für alle $h\in H$ die gleiche
+Anzahl von Kanten zu $g$ wie $h$:
+\begin{eqnarray*}
+\mathcal{C}\left[\pi_{1}^{-1}\mathfrak{A}\right]\left(h\right) & = & \mathcal{C}\left[\tau\pi_{2}^{-1}\right]\left(\hat{\tau}h\right)\\
+\mathcal{W}\left(h,g\right) & = & \mathcal{W}\left(\hat{\tau}h,g\right)\\
+ &  & \mathrm{f.a.}\,h\in H
+\end{eqnarray*}
+Es folgt die Gleichung \ref{eq:cons-2} für das Gewicht der mit $1$
+belegten Vorgänger von $g$:
+\[
+\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{1}^{-1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\mathcal{W}\left(h,g\right)\cdot\mathcal{C}\left[\pi_{2}^{-1}\mathfrak{A}\right]\left(h\right)
+\]
+\end{proof}
+\begin{defn}
+Für jedes Gate $g$ des Schaltkreises $\mathcal{C}$ über dem Universum
+$U$ beschreiben wir nun die Menge der verschiedenen Bijektionen $\pi\in\mathrm{Bij}\left(U,A\right)$,
+für die $\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(g\right)=1$.
+Per Satz \ref{prop:konsistenz} müssen nur deren Reduktionen auf $\mathrm{sp}\left(g\right)$
+betrachtet werden. Sei $\mathrm{EV}\left(g\right)$ die Menge dieser
+Abbildungen:
+
+\[
+\mathrm{EV}\left(g\right)\coloneqq\left\{ \pi{}_{\mid\mathrm{sp}\left(g\right)}\mid\pi\in\mathrm{Bij}\left(U,A\right),\,\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(g\right)=1\right\} 
+\]
+
+Für jede injektive Funktion $\rho:\mathrm{sp}\left(g\right)\rightarrow A$
+sei $\mathrm{Ext}\left(\rho\right)$ die Menge der zu $\rho$ konsistenten
+Erweiterungen $\pi:U\rightarrow A$ :
+\[
+\mathrm{Ext}\left(\rho\right)\coloneqq\left\{ \pi\in\mathrm{Bij}\left(U,A\right)\mid\pi\sim_{\mathrm{sp}\left(g\right)}\rho\right\} 
+\]
+
+Zusätzlich beschreiben wir für jeden Vorgänger $h\in H$ von $g$
+und jede injektive Funktion $\rho:\mathrm{sp}\left(g\right)\rightarrow A$
+die Menge $\mathrm{Red}\left(\rho,h\right)$ der unterschiedlichen
+$\mathrm{sp}\left(h\right)$-Reduktionen von Erweiterungen von $\rho$:
+\[
+\mathrm{Red}\left(\rho,h\right)\coloneqq\left\{ \pi_{\mid\mathrm{sp}\left(h\right)}\mid\pi\in\mathrm{Ext}\left(\rho\right)\right\} 
+\]
+\end{defn}
+\begin{claim}
+\label{claim:claim-28}(nach Behauptung 28 aus \cite{AD2014}) Sei
+$\pi\in\mathrm{Bij}\left(U,A\right)$ beliebig, und sei $\rho_{\pi}\coloneqq\pi_{\mid\mathrm{sp}\left(g\right)}$
+die Reduktion von $\pi$ auf $\mathrm{sp}\left(g\right)$. Dann gilt:
+
+\begin{equation}
+r\left(\pi\right)\coloneqq\sum_{h\in H}\mathcal{W}\left(h,g\right)\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\right|}\label{eq:behauptung-28}
+\end{equation}
+\end{claim}
+\begin{proof}
+Nach Gleichung \ref{eq:cons-2} ist $r\left(\pi'\right)\coloneqq\sum_{h\in H}\mathcal{W}\left[h,g\right]\mathcal{C}\left[\pi'^{-1}\mathfrak{A}\right]\left(h\right)$
+für alle $\pi'\in\mathrm{Ext}\left(\rho_{\pi}\right)$ gleich, so
+dass $\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|r\left(\pi\right)=\sum_{\pi'\in\mathrm{Ext}\left(\pi\right)}r\left(\pi'\right)$
+gilt.
+
+Weiterhin können wir für jeden Vorgänger $h\in H$ die Bijektionen
+aus $\mathrm{Ext}\left(\rho_{\pi}\right)$ in Äquivalenzklassen bezüglich
+der $\mathrm{sp}\left(h\right)$-Konsistenz zu einer Belegung $\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)$
+partitionieren: 
+\begin{eqnarray*}
+\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|r\left(\pi\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\pi'\in\mathrm{Ext}\left(\rho_{\pi}\right)}\mathcal{C}\left[\pi'\mathfrak{^{-1}A}\right]\left(h\right)\\
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)}\sum_{\begin{subarray}{c}
+\pi'\in\mathrm{Ext}\left(\rho_{\pi}\right)\\
+\pi'\sim_{\mathrm{sp}\left(h\right)}\rho'
+\end{subarray}}\mathcal{C}\left[\pi'^{-1}\mathfrak{A}\right]\left(h\right)
+\end{eqnarray*}
+
+Nach der Definition der Menge $\mathrm{EV}\left(h\right)$ gilt für
+alle Belegungen $\pi':U\rightarrow A$, dass $\mathcal{C}\left[\pi'^{-1}\mathfrak{A}\right]\left(h\right)=1$
+genau dann wenn $\pi'_{\mid\mathrm{sp}\left(h\right)}\in\mathrm{EV}\left(h\right)$.
+Daher können wir $\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\in\left\{ 0,1\right\} $
+einfach mit der Größe von $\left\{ \pi'\in\mathrm{Ext}\left(\rho_{\pi}\right)\mid\pi'\sim_{\mathrm{sp}\left(h\right)}\rho'\right\} $
+multiplizieren: 
+\begin{eqnarray*}
+\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|r\left(\pi\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)}\sum_{\begin{subarray}{c}
+\pi'\in\mathrm{Ext}\left(\rho_{\pi}\right)\\
+\pi'\sim_{\mathrm{sp}\left(h\right)}\rho'
+\end{subarray}}\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\\
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)}\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\left|\left\{ \pi'\in\mathrm{Ext}\left(\rho_{\pi}\right),\,\pi'\sim_{\mathrm{sp}\left(h\right)}\rho'\right\} \right|
+\end{eqnarray*}
+
+Weil die Partitionierung $\mathrm{Ext}\left(\rho_{\pi}\right)=\biguplus_{\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)}\left\{ \pi'\in\mathrm{Ext}\left(\rho_{\pi}\right),\,\pi'\sim_{\mathrm{sp}\left(h\right)}\rho'\right\} $
+die Menge $\mathrm{Ext}\left(\rho_{\pi}\right)$ in isomorphe Klassen
+teilt, gilt $\left|\left\{ \pi'\in\mathrm{Ext}\left(\rho_{\pi}\right),\,\pi'\sim_{\mathrm{sp}\left(h\right)}\rho'\right\} \right|=\frac{\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|}{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\right|}$
+für $\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)$.
+
+\begin{eqnarray*}
+\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|r\left(\pi\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)}\left[\mathrm{EV}\left(h\right)\right]\left(\rho'\right)\frac{\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|}{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\right|}\\
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\sum_{\rho'\in\mathrm{Red}\left(\rho_{\pi},h\right)\cap\mathrm{EV}\left(h\right)}\frac{\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|}{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\right|}\\
+ & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\cap\mathrm{EV}\left(h\right)\right|\left|\mathrm{Ext}\left(\rho_{\pi}\right)\right|}{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\right|}\\
+r\left(\pi\right) & = & \sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\mathrm{Red}\left(\rho_{\pi},h\right)\right|}
+\end{eqnarray*}
+\end{proof}
+Wir verwenden nun die Ordnung von $U=\left[1,n\right]$ und legen
+fest: Sei $\bar{U}\coloneqq\left(1,\cdots,n\right)$, und $\bar{\mathrm{sp}}\left(g\right)$
+das geordnete Tupel der Elemente von $\mathrm{sp}\left(g\right)$.
+Für $\bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}$ definieren
+wir die Abbildung $\rho_{\bar{a}}\coloneqq\left(\bar{\mathrm{sp}\left(g\right)}\rightarrow\bar{a}\right)$.
+Sei $\bar{\mathrm{Ext}}\left(\bar{a}\right)\subseteq A^{n}$ die Relation
+der $n$-Tupel $\pi\bar{U}$ für $\pi\in\mathrm{Ext}\left(\rho_{\bar{a}}\right)$,
+sei $\bar{\mathrm{Red}}\left(\bar{a},h\right)\subseteq A^{\left|\mathrm{sp}\left(h\right)\right|}$
+die Relation der Tupel $\rho'\bar{\mathrm{sp}}\left(h\right)$ für
+$\rho'\in\mathrm{Red}\left(\rho_{\bar{a}},h\right)$, und sei $\bar{\mathrm{EV}}\left(g\right)\subseteq A^{\left|\mathrm{sp}\left(g\right)\right|}$
+die Relation der Tupel $\rho\bar{\mathrm{sp}}\left(g\right)$ für
+$\rho\in\mathrm{EV}\left(g\right)$. 
+\begin{eqnarray*}
+\bar{\mathrm{Ext}}\left(\bar{a}\right) & \coloneqq & \left\{ \pi\bar{U}\mid\pi\in\mathrm{Ext}\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{a}\right)\right\} \\
+\bar{\mathrm{EV}}\left(g\right) & \coloneqq & \left\{ \rho\bar{\mathrm{sp}}\left(g\right)\mid\rho\in\mathrm{EV}\left(g\right)\right\} 
+\end{eqnarray*}
+
+Wir werden nun für jedes Gate $g\in G$ mit den Vorgängern $H\subseteq G$
+die Menge $\bar{\mathrm{EV}}\left(g\right)$ rekursiv durch $\left(\bar{\mathrm{EV}}\left(h\right)\right)_{h\in H}$
+und $\mathfrak{A}$ definieren.
+\begin{casenv}
+\item Falls $g$ eine Konstante mit $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
+ist, dann ist $\mathrm{sp}\left(g\right)=\emptyset$, da $g$ von
+allen Automorphismen fixiert wird. In diesem Fall gilt:
+\[
+\bar{\mathrm{EV}}\left(g\right)=\begin{cases}
+\emptyset & \mathrm{falls}\,\,\Sigma\left(g\right)=\mathbf{0}\\
+\left\{ \left\langle \right\rangle \right\}  & \mathrm{falls}\,\,\Sigma\left(g\right)=\mathbf{1}
+\end{cases}
+\]
+\item Falls $g$ ein relationales Input mit $\Sigma\left(g\right)=R\bar{t}$,
+$R/k\in\sigma$ und $\bar{t}\in\mathrm{sp}\left(g\right)^{k}$ ist,
+dann gilt:
+\[
+\bar{\mathrm{EV}}\left(g\right)=R^{\mathfrak{A}}\cap\left\{ \rho_{\bar{a}}\bar{t}\mid\bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}\right\} 
+\]
+\item Falls $\Sigma\left(g\right)=\mathtt{AND}$ ist, dann gilt für jedes
+Tupel $\bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}$ , dass
+$\rho_{\bar{a}}\in\mathrm{EV}\left(g\right)$ genau dann wenn jede
+zu $\rho_{\bar{a}}$ konsistente Bijektion $\pi\in\mathrm{Ext}\left(\rho_{\bar{a}}\right)$
+alle Vorgänger $h\in H$ erfüllt: 
+\begin{eqnarray*}
+\bar{a}\in\bar{\mathrm{EV}}\left(g\right) & \Leftrightarrow & \sum_{h\in H}\mathcal{W}\left(h,g\right)\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(h\right)=\sum_{h\in H}\mathcal{W}\left(h,g\right)\\
+ &  & \mathrm{f.a.\,\pi\in\mathrm{Ext}\left(\rho_{\bar{a}}\right)}
+\end{eqnarray*}
+Beziehungsweise nach Behauptung \ref{claim:claim-28}:
+\[
+\bar{a}\in\bar{\mathrm{EV}}\left(g\right)\Leftrightarrow\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\bar{\mathrm{Red}}\left(\bar{a},h\right)\cap\mathrm{EV}\left(h\right)\right|}{\left|\bar{\mathrm{Red}}\left(\bar{a},h\right)\right|}=\sum_{h\in H}\mathcal{W}\left(h,g\right)
+\]
+Dies ist gleichbedeutend mit $\mathrm{Red}\left(\rho_{\bar{a}},h\right)\subseteq\mathrm{EV}\left(h\right)$.
+Demnach gilt:
+\[
+\bar{\mathrm{EV}}\left(g\right)=\left\{ \bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}\mid\bar{\mathrm{Red}}\left(\bar{a},h\right)\subseteq\bar{\mathrm{EV}}\left(h\right)\,\mathrm{f.a.}\,h\in H\right\} 
+\]
+\item Falls $\Sigma\left(g\right)=\mathtt{OR}$ ist, dann ist $\bar{a}\in\bar{\mathrm{EV}}\left(g\right)$
+genau dann wenn mindestens eine Bijektion $\pi\in\mathrm{Ext}\left(\rho_{\bar{a}}\right)$
+mindestens einen Vorgänger $h\in H$ erfüllt:
+\[
+\sum_{h\in H}\left|\bar{\mathrm{Red}}\left(\bar{a},h\right)\cap\mathrm{EV}\left(h\right)\right|>0
+\]
+\[
+\bar{\mathrm{EV}}\left(g\right)=\left\{ \bar{a}\in A^{\left|\mathrm{sp}\left(g\right)\right|}\mid\emptyset\neq\bigcup_{h\in H}\bar{\mathrm{Red}}\left(\bar{a},h\right)\cap\bar{\mathrm{EV}}\left(h\right)\right\} 
+\]
+\item Falls $\Sigma\left(g\right)=\mathtt{MAJ}$ ist, dann ist $\bar{a}\in\bar{\mathrm{EV}}\left(g\right)$
+genau dann wenn mindestens die Hälfte der Vorgänger erfüllt sind:
+\[
+\bar{a}\in\bar{\mathrm{EV}}\left(g\right)\Leftrightarrow\sum_{h\in H}\mathcal{W}\left(h,g\right)\frac{\left|\bar{\mathrm{Red}}\left(\bar{a},h\right)\cap\bar{\mathrm{EV}}\left(h\right)\right|}{\left|\mathrm{Red}\left(\bar{a},h\right)\right|}\geqslant\frac{1}{2}\sum_{h\in H}\mathcal{W}\left(h,g\right)
+\]
+\item Falls $\Sigma\left(g\right)=\mathtt{NOT}$, dann hat $g$ per Definition
+des Schaltkreises genau einen Vorgänger $h$, es gilt $\mathrm{sp}\left(g\right)=\mathrm{sp}\left(h\right)$
+und $\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(g\right)=1-\mathcal{C}\left[\pi^{-1}\mathfrak{A}\right]\left(h\right)$.
+Also:
+\[
+\bar{\mathrm{EV}}\left(g\right)=A^{\left|\mathrm{sp}\left(g\right)\right|}\backslash\bar{\mathrm{EV}}\left(h\right)
+\]
+\end{casenv}
+Die vom Schaltkreis $\mathcal{C}$ berechnete Anfrage $q_{\mathcal{C}}$
+ist äquivalent zu der folgenden Relation:
+\[
+q_{\mathcal{C}}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathrm{ex.}\,\bar{t}\in U^{k}\,\mathrm{mit}\,\bar{a}\in\bar{\mathrm{EV}}\left(\Omega\left(\bar{t}\right)\right)\right\} 
+\]
+
+
+\section{Kodierung durch Fixpunktlogik}
+
+Die beschriebenen Relationen $\bar{\mathrm{EV}}$ werden nun verwendet,
+um die Auswertung jedes Schaltkreises durch eine Formel der Fixpunktlogik
+zu definieren.
+\begin{lem}
+Sei $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine $k$-stellige,
+symmetrische, $P$-uniforme $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie.
+Für $\mathbb{B}=\mathbb{B}_{\mathrm{std}}$ existiert eine $\left(\mathrm{LFP}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
+$\varphi$ (beziehungsweise für $\mathbb{B}=\mathbb{B}_{\mathrm{maj}}$
+eine $\left(\mathrm{LFP}+\mathbf{ORD}+C\right)\left[\sigma\right]$-Formel
+$\varphi$, so dass für $n\in\mathbb{N}$ und $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+die Formel $\varphi\left(\bar{x}\right)$ die gleiche Anfrage definiert
+wie $\mathcal{C}_{n}$:
+
+\[
+q_{\mathcal{C}_{n}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right)
+\]
+\end{lem}
+In diesem Abschnitt wird hauptsächlich die Folgerung aus Abschnitt
+4.4 von \cite{AD2014} übernommen.
+
+\subsection{\label{subsec:circuit-def}Definition des Schaltkreises}
+
+Wenn die Schaltkreisfamilie (inklusive der rigiden Umformung) von
+einer $P$-Turingmaschine berechnet wird, existiert nach dem Immerman-Vardi-Theorem\cite{Vardi:1982:CRQ:800070.802186,IMMERMAN198686}
+und Lemma \ref{lem:algo-rigid} eine Sammlung von $\left(\mathrm{LFP}+\mathbf{ORD}\right)\left[\sigma\right]$-Formeln
+$\Phi$, die auf einer Struktur $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+ausgewertet den Schaltkreis $\mathcal{C}_{n}$ beschreiben.
+
+\[
+\Phi\coloneqq\left(\varphi_{G},\varphi_{\mathcal{W}},\varphi_{\Omega},\left(\varphi_{\phi}\right)_{\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} },\left(\varphi_{R}\right)_{R\in\sigma}\right)
+\]
+Für $n<n_{0}$ gibt es nur eine endliche Anzahl von festen Schaltkreisen
+$\mathcal{C}_{n}$ endlicher Größe, mit einer endlichen Anzahl von
+Isomorphietypen von Strukturen aus $\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$.
+Daher kann die Anfrage auf diesen Strukturen durch eine einzige $\mathrm{FO}\left[\sigma\right]$-Formel
+definiert werden. Wir befassen uns nur mit den Schaltkreisen $\left(\mathcal{C}_{n}\right)_{n\geqslant n_{0}}$,
+so dass $\left|\mathcal{C}_{n}\right|\leqslant n^{c}$.
+
+Sei $f_{G}:G\rightarrow\left[1,n\right]^{c}$ eine geeignete Kodierung
+der höchstens $n^{c}$ Gates von $\mathcal{C}_{n}$, und $f_{W}:\left[0,n^{c}\right]\rightarrow\left[0,n\right]^{c}$
+eine Kodierung von Zahlen, so dass für $\bar{g},\bar{h},\bar{w}\in\left[0,n\right]^{c}$
+gilt:
+\begin{eqnarray*}
+\mathfrak{A}\models\varphi_{G}\left[\bar{g}\right] & \Leftrightarrow & f_{G}^{-1}\bar{g}\in G\\
+\mathfrak{A}\models\varphi_{W}\left[\bar{h}\bar{g}\bar{w}\right] & \Leftrightarrow & \mathcal{W}\left(f_{G}^{-1}\bar{h},f_{G}^{-1}\bar{g}\right)=f_{W}^{-1}\bar{w}\\
+\mathfrak{A}\models\varphi_{\Omega}\left[\bar{t}\bar{g}\right] & \Leftrightarrow & \Omega\bar{t}=f_{G}^{-1}\bar{g}\\
+ &  & \mathrm{f\ddot{u}r}\,\bar{t}\in\left[1,n\right]^{k}\\
+\mathfrak{A}\models\varphi_{\phi}\left[\bar{g}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\bar{g}\right)=\phi\\
+ &  & \mathrm{f\ddot{u}r}\,\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} \\
+\mathfrak{A}\models\varphi_{R}\left[\bar{g}\bar{x}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\bar{g}\right)=R\bar{x}\\
+ &  & \mathrm{f\ddot{u}r}\,R/m\in\sigma,\,\bar{x}\in\left[1,n\right]^{m}
+\end{eqnarray*}
+Nur für ein $\mathtt{MAJ}$-Gate $g$ benötigen wir die genaue Vielfachheit
+der Kante $\left(h,g\right)$. Der Einfachheit halber definieren wir
+daher die Formel $\varphi_{W}'$, die nur prüft, ob $\mathcal{W}\left(h,g\right)>0$.
+\[
+\varphi_{W}'\left(\bar{h}\bar{g}\right)\coloneqq\exists\bar{n}\left(\varphi_{W}\left(\bar{h}\bar{g}\bar{n}\right)\wedge\exists x\bigvee_{i=1}^{c}\neg n_{i}\leqslant x\right)
+\]
+
+Nach Lemma \ref{lem:algo-orb} ist die Bestimmung der Trägermengen
+$\mathrm{sp}\left(g\right)$ und Orbits in $P$. Daher existiert auch
+eine $\mathrm{LFP}+\mathbf{ORD}\left[\sigma\right]$-Formel $\varphi_{\mathrm{sp}}$,
+so dass gilt:
+\begin{eqnarray*}
+\mathfrak{A}\models\varphi_{\mathrm{sp}}\left[\bar{g}u\right] & \Leftrightarrow & \mathfrak{A}\models\varphi_{G}\left[\bar{g}\right]\,\mathrm{und}\,u\in\mathrm{sp}\left(g\right)\\
+ &  & \mathrm{f.a.}\,\bar{g}u\in\left[1,n\right]^{c+1}
+\end{eqnarray*}
+Ferner existieren für $i\in\left[0,d\right]$ die Formeln $\varphi_{\mathrm{size},i}$,
+die Größe von $\mathrm{sp}\left(g\right)$ mit $i$ vergleichen:
+\[
+\mathfrak{A}\models\varphi_{\mathrm{size},i}\left[\bar{g}\right]\Leftrightarrow\left|\mathrm{sp}\left(g\right)\right|=i
+\]
+
+Schließlich definieren wir die Ordnung der Elemente $\bar{\mathrm{sp}}\left(g\right)$
+mit den folgenden Formeln (hier sind $\bar{g},u,v,w\in\mathbf{var}$
+Variablen):
+\begin{eqnarray*}
+\varphi_{\mathrm{sp},1}\left(\bar{g}u\right) & \coloneqq & \varphi_{\mathrm{sp}}\left(\bar{g}u\right)\wedge\forall v\left(\varphi_{\mathrm{sp}}\left(\bar{g}u\right)\rightarrow u\leqslant v\right)\\
+\varphi_{\mathrm{sp},i+1}\left(\bar{g}u\right) & \coloneqq & \varphi_{\mathrm{sp}}\left(\bar{g}u\right)\wedge\exists v\left(\neg\left(\varphi_{\mathrm{sp},i}\left(\bar{g}v\right)\rightarrow u\leqslant v\right)\wedge\forall w\left(\varphi_{\mathrm{sp}}\left(\bar{g}w\right)\rightarrow\left(w\leqslant v\vee u\leqslant w\right)\right)\right)
+\end{eqnarray*}
+
+
+\subsection{\label{subsec:circuit-eval}Auswertung des Schaltkreises}
+
+Per Korollar \ref{cor:korollar-23} ist $\left|\mathrm{sp}\left(g\right)\right|\leqslant\mathrm{sp}\left(\mathcal{C}_{n}\right)=d$.
+Wir füllen alle Relationen $\bar{\mathrm{EV}}\left(g\right)$ mit
+,,$0$`` auf eine einheitliche Länge $d$ auf. (Unsere Definition
+der $\mathrm{LFP}+\mathbf{ORD}$-Logik verwendet im Gegensatz zu \cite{AD2014}
+nur einen Variablentyp, so dass jede Variable $x\in\mathbf{var}$
+mit einem Wert $\beta\left(x\right)\in A\uplus\left[0,n\right]$ belegt
+werden kann.) 
+\[
+\overline{\mathrm{EV}}\left(g\right)\coloneqq\left\{ \bar{a}'\mid\bar{a}'\in\bar{\mathrm{EV}}\left(g\right)\times\left\{ 0\right\} ^{d-\left|\mathrm{sp}\left(g\right)\right|}\right\} 
+\]
+
+Wir definieren die Relation $\mathrm{EVAL}\subseteq\left[0,n\right]^{c}\times\left(A\uplus\left\{ 0\right\} \right)^{d}$
+definieren, so dass $\bar{g}\bar{a}\in\mathrm{EVAL}$ genau dann $\bar{g}=f_{G}g$
+und $\bar{a}\in\overline{\mathrm{EV}}\left(g\right)$, beziehungsweise
+$\left(a_{1},\cdots,a_{\left|\mathrm{sp}\left(g\right)\right|}\right)\in\bar{\mathrm{EV}}\left(g\right)$.
+\[
+\mathrm{EVAL}\coloneqq\left\{ \left(f_{G}g\right)\bar{a}\mid g\in G,\,\bar{a}\in\overline{\mathrm{EV}}\left(g\right)\right\} 
+\]
+Als erstes müssen wir für ein Tupel $\bar{a}\in\left(A\uplus\left[0,n\right]\right)^{d}$
+und ein Gate $g$ prüfen, ob es eine gültige Abbildung von $\pi:\mathrm{sp}\left(g\right)\rightarrow A$
+repräsentiert. Dafür müssen wir die Größe von $\left|\mathrm{sp}\left(g\right)\right|$
+bestimmen, die Injektivität des Tupels $\left(a_{1},\cdots,a_{\left|\mathrm{sp}\left(g\right)\right|}\right)\in A^{\left|\mathrm{sp}\left(g\right)\right|}$
+prüfen, und für den Rest des Tupels $\left(a_{\left|\mathrm{sp}\left(g\right)\right|+1},\cdots,a_{d}\right)=\bar{0}$
+sicherstellen. 
+\begin{eqnarray*}
+\varphi_{A}\left(x\right) & \coloneqq & \neg\exists y\,x\leqslant y\\
+\varphi_{0}\left(x\right) & \coloneqq & \forall y\,\left(\neg\varphi_{A}\left(y\right)\rightarrow x\leqslant y\right)\\
+\varphi_{\mathrm{valid},k}\left(\bar{x}\right) & \coloneqq & \bigwedge_{1\leqslant i<j\leqslant k}\left(\varphi_{A}\left(x_{i}\right)\wedge\neg x_{i}=x_{j}\right)\bigwedge_{i\in\left[k+1,d\right]}\varphi_{0}\left(x_{i}\right)\\
+\varphi_{\mathrm{valid}}\left(\bar{g}\bar{x}\right) & \coloneqq & \bigwedge_{i\in\left[0,d\right]}\left(\varphi_{\mathrm{size},i}\left(\bar{g}\right)\rightarrow\varphi_{\mathrm{valid},i}\left(\bar{x}\right)\right)
+\end{eqnarray*}
+
+Nun definieren wir die folgende $\mathrm{LFP}+\mathbf{ORD}$-Formel
+$\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)$, die für
+eine Belegung $\beta$ entscheidet, ob für die Gates $g=f_{G}^{-1}\beta\bar{u}$
+und $h=f_{G}^{-1}\beta\bar{v}$ die Abbildungen $\pi_{1}\coloneqq\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\beta\bar{x}\right)$
+und $\pi_{2}\coloneqq\left(\bar{\mathrm{sp}}\left(h\right)\mapsto\beta\bar{y}\right)$
+gültig und mit $\pi_{1}\sim_{\mathrm{sp}\left(g\right)\cap\mathrm{sp}\left(h\right)}\pi_{2}$
+zwischen den Gates $g$ und $h$ konsistent sind. 
+\begin{eqnarray*}
+\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right) & \coloneqq & \varphi_{\mathrm{valid}}\left(\bar{u}\bar{x}\right)\wedge\varphi_{\mathrm{valid}}\left(\bar{v}\bar{y}\right)\\
+ &  & \wedge\bigwedge_{i,j\in\left[1,k\right]}\forall w\left(\left(\varphi_{\mathrm{sp},i}\left(\bar{u}w\right)\wedge\varphi_{\mathrm{sp},j}\left(\bar{v}w\right)\right)\rightarrow x_{i}=y_{j}\right)\\
+ &  & \wedge\bigwedge_{i,j\in\left[1,k\right]}\forall w_{1}\forall w_{2}\left(\left(\varphi_{\mathrm{sp},i}\left(\bar{u}w_{1}\right)\wedge\varphi_{\mathrm{sp},j}\left(\bar{v}w_{2}\right)\wedge x_{i}=y_{j}\right)\rightarrow w_{1}=w_{2}\right)
+\end{eqnarray*}
+
+Zuletzt konstruieren wir die $\mathrm{LFP}+\mathbf{ORD}\left[\sigma\right]$-Formeln
+$\psi_{s}\left(\bar{u}\bar{x}\right)$, die für eine Belegung $\beta$
+mit $f_{G}^{-1}\beta\left(\bar{g}\right)=g$ und $\Sigma\left(g\right)=s$
+beziehungsweise $s=R$ und $\Sigma\left(g\right)=R\bar{t}$ entscheiden,
+ob $\beta\left(\bar{u}\bar{v}\right)\subseteq\mathrm{EVAL}$. Die
+Formeln für $\mathbf{0}$ und $\mathbf{1}$ sind trivial: 
+\begin{eqnarray*}
+\psi_{\mathbf{0}}\left(\bar{u}\bar{x}\right) & \coloneqq & \neg x_{1}=x_{1}\\
+\psi_{\mathbf{1}}\left(\bar{u}\bar{x}\right) & \coloneqq & x_{1}=x_{1}
+\end{eqnarray*}
+Für relationale Inputs mit $\Sigma\left(g\right)=R\bar{t}$ müssen
+wir mit der Formel $\varphi_{R}\left(\bar{u}\bar{x}\right)$ die Beschriftung
+$\bar{t}\in U^{\mathrm{ar}\left(R\right)}$ bestimmen, das Tupel $\pi\bar{t}=\bar{a}\in A^{\mathrm{ar}\left(R\right)}$
+finden, dass auf die gegebene Abbildung $\pi\coloneqq\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\beta\bar{x}\right)$
+passt, und dann prüfen ob $\bar{a}\in R^{\mathfrak{A}}$ ist. 
+\begin{eqnarray*}
+\psi_{R}\left(\bar{u}\bar{x}\bar{y}\right) & \coloneqq & \exists\bar{y}\exists\bar{z}\left(\varphi_{R}\left(\bar{u}\bar{y}\right)\wedge R\bar{z}\wedge\bigwedge_{\substack{i\in\left[1,k\right]\\
+j\in\left[1,d\right]
+}
+}\varphi_{\mathrm{sp},j}\left(\bar{u}y_{i}\right)\rightarrow z_{i}=x_{j}\right)\\
+ &  & \mathrm{f\ddot{u}r}\,R/k\in\sigma
+\end{eqnarray*}
+
+Für $\Sigma\left(g\right)\in\left\{ \mathtt{AND},\mathtt{OR},\mathtt{NOT}\right\} $
+müssen wir über alle Vorgänger $h$ von $g$ und alle zu der gegebenen
+Abbildung $\pi\coloneqq\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{a}\right)$
+passenden Abbildungen $\pi'\in\bar{\mathrm{Red}}\left(\pi,h\right)$
+quantifizieren, und diese mit dem entsprechenden Operator aggregieren:
+\begin{eqnarray*}
+\psi_{\mathtt{OR}}\left(\bar{u}\bar{x}\right) & \coloneqq & \exists\bar{v}\exists\bar{y}\left(\varphi_{W}'\left(\bar{v}\bar{u}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\wedge\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\right)\\
+\psi_{\mathtt{AND}}\left(\bar{u}\bar{x}\right) & \coloneqq & \forall\bar{v}\forall\bar{y}\left(\left(\varphi_{W}'\left(\bar{v}\bar{u}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\right)\rightarrow\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\right)\\
+\psi_{\mathtt{NOT}}\left(\bar{u}\bar{x}\right) & \coloneqq & \forall\bar{v}\forall\bar{y}\left(\left(\varphi_{W}'\left(\bar{v}\bar{u}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\right)\rightarrow\neg\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\right)
+\end{eqnarray*}
+(Ein $\mathtt{NOT}$-Gate behandeln wir hier wie ein $\mathtt{NOR}$-Gate
+- da wir bei der Definition des Schaltkreises gefordert haben, dass
+es nur einen Vorgänger hat, macht das keinen Unterschied.)
+
+Für die $\mathtt{MAJ}$-Gates verwenden wir die Tatsache, dass die
+$\mathrm{LFP}+\mathbf{ORD}$-Logik Arithmetik unterstützt:
+\begin{eqnarray*}
+\psi_{\mathrm{succ}}\left(x,y\right) & \coloneqq & \neg y\leqslant x\wedge\forall z\left(z\leqslant x\vee y\leqslant z\right)\\
+\varphi_{\mathrm{succ}}\left(\bar{x}\bar{y}\right) & \coloneqq & \bigvee_{i=1}^{k}\bigwedge_{j=1}^{i-1}x_{i}=y_{i}\wedge\psi_{\mathrm{succ}}\left(x_{i},y_{i}\right)\wedge\bigwedge_{j=i+1}^{k}\left(x_{j}=\mathbf{n}\wedge y_{j}=\mathbf{0}\right)\\
+\varphi_{+}\left(\bar{x}\bar{y}\bar{z}\right) & \coloneqq & \left[\mathrm{lfp}_{X\bar{u}\bar{v}}\left(\bar{u}=\bar{\mathbf{0}}\wedge\bar{v}=\bar{x}\right)\vee\left(X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\wedge\varphi_{\mathrm{succ}}\left(\bar{v}'\bar{v}\right)\right)\right]\left(\bar{y}\bar{z}\right)\\
+\varphi_{\times}\left(\bar{x}\bar{y}\bar{z}\right) & \coloneqq & \left[\mathrm{lfp}_{X\bar{u}\bar{v}}\left(\bar{u}\bar{v}=\bar{\mathbf{0}}\right)\vee\left(X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\wedge\varphi_{+}\left(\bar{v}'\bar{x}\bar{v}\right)\right)\right]\left(\bar{y}\bar{z}\right)\\
+\varphi_{\exp}\left(\bar{x}\bar{y}\bar{z}\right) & \coloneqq & \left[\mathrm{lfp}_{X\bar{u}\bar{v}}\left(\bar{u}\bar{v}=\bar{\mathbf{1}}\right)\vee\left(X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\wedge\varphi_{\times}\left(\bar{v}'\bar{x}\bar{v}\right)\right)\right]\left(\bar{y}\bar{z}\right)
+\end{eqnarray*}
+
+Für eine Formel $\psi\left(\bar{x}\bar{u}\bar{y}\right)$, die mit
+einem Parameter $\bar{x}$ eine Funktion $q:\left[0,n^{c}\right]\rightarrow\left[0,n^{c}\right]$
+mit $\mathfrak{A}\models\psi\left[\bar{a},f_{W}\left(i\right)f_{W}\left(q_{i}\right)\right]$
+berechnet, können wir die Summe $\sum_{i=0}^{n^{c}}q_{i}$ berechnen:
+
+\[
+\varphi_{\mathrm{sum}}^{\psi\left(\bar{x}\right)}\left(\bar{z}\right)\coloneqq\left[\mathrm{lfp}_{X\bar{u}\bar{v}}\left(\bar{u}\bar{v}=\bar{\mathbf{0}}\right)\vee\left(\begin{array}{c}
+X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\\
+\wedge\psi\left(\bar{x}\bar{u}\bar{y}\right)\wedge\varphi_{+}\left(\bar{v}'\bar{y}\bar{v}\right)
+\end{array}\right)\right]\left(\bar{\mathbf{n}}\bar{z}\right)
+\]
+
+Wir möchten gerne die erfüllenden Belegungen für $\left(\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\dot{y}\right)\right)$
+zählen. Leider benötigen wir dafür einen $k$-stelligen Zählquantor
+$\exists^{=\bar{m}}\bar{y}$, den die Definition der Zählerweiterung
+$\mathcal{L}+\Upsilon+C$ nicht zulässt. Speziell in der Fixpunktlogik
+(selbst mit disjunkter numerischer Erweiterung) gibt es aber eine
+Reduktion auf den einstelligen Zählquantor:
+\begin{prop}
+\textbf{\label{prop:kary-counting}Grädel und Otto (1993)\cite{Gradel:1992:IDC:647842.736402}}
+
+Jede Formel der $\mathrm{LFP}+C^{k}$-Logik mit $k$-stelligen Zählquantoren
+ist auch in $\mathrm{LFP}+C$ ausdrückbar. 
+\end{prop}
+Die Formel $\psi_{\mathrm{eval}}$ wird daher bedenkenlos mit dem
+Quantor $\exists^{=\bar{m}}\bar{y}$ geschrieben:
+
+\[
+\psi_{\mathrm{eval}}\left(\bar{u}\bar{x}\bar{v}\bar{m}\right)\coloneqq\exists^{=\bar{m}}\bar{y}\left(\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\right)
+\]
+
+Nun definieren wir die Operation des $\mathtt{MAJ}$-Gates wie folgt.
+Hierbei zählt $\psi_{\mathrm{eval}}$ die passenden, erfüllenden Belegungen
+eines Vorgängers; $\psi_{\mathrm{weight}}$ multipliziert diese mit
+dem Kantengewicht $\mathcal{W}\left(h,g\right)$. $\psi_{\mathrm{count}}$
+und $\psi_{\mathrm{total}}$ arbeiten analog mit allen passenden Belegungen.
+Schließlich prüft $\psi_{\mathtt{MAJ}}$, ob die gewichtete Summe
+aller erfüllenden Belegungen mindestens die Hälfte der gewichteten
+Summe aller passenden Belegungen erreicht. 
+\begin{eqnarray*}
+\psi_{\mathrm{weight}}\left(\bar{u}\bar{x}\bar{v}\bar{n}\right) & \coloneqq & \exists\bar{m}\exists\bar{w}\left(\varphi_{W}\left(\bar{v}\bar{u}\bar{w}\right)\wedge\psi_{\mathrm{eval}}\left(\bar{u}\bar{v}\bar{x}\bar{m}\right)\wedge\varphi_{\times}\left(\bar{m}\bar{w}\bar{n}\right)\right)\\
+\psi_{\mathrm{count}}\left(\bar{u}\bar{x}\bar{v}\bar{m}\right) & \coloneqq & \bar{m}=\#\bar{y}\,\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\\
+\psi_{\mathrm{total}}\left(\bar{u}\bar{x}\bar{v}\bar{n}\right) & \coloneqq & \exists\bar{m}\exists\bar{w}\left(\varphi_{W}\left(\bar{v}\bar{u}\bar{w}\right)\wedge\psi_{\mathrm{total}}\left(\bar{u}\bar{v}\bar{x}\bar{m}\right)\wedge\varphi_{\times}\left(\bar{m}\bar{w}\bar{n}\right)\right)\\
+\psi_{\mathtt{MAJ}}\left(\bar{u}\bar{x}\right) & \coloneqq & \exists\bar{w}\exists\bar{y}\exists\bar{z}\left(\varphi_{\mathrm{sum}}^{\psi_{\mathrm{weight}}\left(\bar{u}\bar{x}\right)}\left(\bar{w}\right)\wedge\varphi_{+}\left(\bar{w}\bar{w}\bar{y}\right)\wedge\psi_{\mathrm{sum}}^{\varphi_{\mathrm{total}}\left(\bar{u}\bar{x}\right)}\left(\bar{z}\right)\wedge\bar{y}\leqslant\bar{z}\right)
+\end{eqnarray*}
+Dies entspricht der Definition von $\mathrm{EV}\left(g\right)$ für
+$\mathtt{MAJ}$-Gates aus dem vorhergehenden Abschnitt:
+
+\begin{eqnarray*}
+\mathfrak{A}\models\psi_{\mathtt{MAJ}}\left[\bar{g}\bar{a}\right] & \Leftrightarrow & 2\sum_{h\in H}\mathcal{W}\left(h,f_{G}^{-1}\bar{g}\right)\left|\bar{\mathrm{Red}}\left(\bar{a},h\right)\cap\bar{\mathrm{EV}}\left(h\right)\right|\geqslant\sum_{h\in H}\mathcal{W}\left(h,f_{G}^{-1}\bar{g}\right)\left|\bar{\mathrm{Red}}\left(\bar{a},h\right)\right|
+\end{eqnarray*}
+
+Die verschiedenen Auswertungs-Formeln werden zusammengefügt:
+\begin{eqnarray*}
+\varphi_{\mathrm{EVAL}}\left(\bar{u}\bar{x}\right) & \coloneqq & \varphi_{\mathrm{valid}}\left(\bar{u}\bar{x}\right)\wedge\\
+ &  & \bigwedge_{s\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} }\left(\varphi_{s}\left(\bar{u}\right)\rightarrow\psi_{s}\left(\bar{u}\bar{x}\right)\right)\\
+ &  & \bigwedge_{R/k\in\sigma}\left(\exists\bar{t}\varphi_{R}\left(\bar{u}\bar{t}\right)\rightarrow\psi_{R}\left(\bar{u}\bar{x}\right)\right)
+\end{eqnarray*}
+Zum Schluss formulieren wir eine Formel, die für ein gegebenes Anfragetupel
+$\beta\bar{x}\in A^{k}$ wie folgt vorgeht: Finde ein Tupel $\bar{t}\in U^{k}$,
+das Gate $g=\Omega\left(\bar{t}\right)$ und eine gültige Abbildung
+$\pi\coloneqq\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{b}\right)$,
+so dass $\beta x_{j}=b_{i}$ genau dann wenn $\bar{\mathrm{sp}}\left(g\right)_{j}=t_{i}$,
+und prüfe, ob $\bar{b}\in\bar{\mathrm{EV}}\left(g\right)$ gilt. 
+\begin{eqnarray*}
+\varphi\left(\bar{x}\right) & \coloneqq\exists\bar{t}\exists\bar{u}\exists\bar{z}\,(\\
+ &  & \varphi_{\Omega}\left(\bar{u}\bar{t}\right)\wedge\psi_{\mathrm{valid}}\left(\bar{u}\bar{z}\right)\\
+ &  & \wedge\bigwedge_{\substack{i\in\left[1,k\right]\\
+j\in\left[1,d\right]
+}
+}\left(\psi_{\mathrm{sp},j}\left(\bar{u}t_{i}\right)\rightarrow z_{i}=x_{i}\right)\\
+ &  & \wedge\left[\mathrm{lfp}_{\mathrm{EVAL},\bar{u}\bar{x}}\psi_{\mathrm{EVAL}}\right]\left(\bar{u}\bar{z}\right)\\
+ & )
+\end{eqnarray*}
+
+
+\subsection{\label{subsec:p-poly-sbc}$P/\mathrm{poly}$-uniforme Schaltkreise}
+
+Für eine $P/\mathrm{poly}$-uniforme Schaltkreisfamilie ersetzen wir
+die Formeln $\Phi$ (siehe Abschnitt \ref{subsec:circuit-def}) durch
+$\mathbf{ARB}$-Prädikate, die den Schaltkreis festlegen. Der Abschnitt
+\ref{subsec:circuit-eval} bleibt davon unberührt, und wir beweisen:
+\begin{lem}
+Sei $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine $k$-stellige,
+rigide, symmetrische, $P/\mathrm{poly}$-uniforme $\left(\sigma,\mathbb{B}\right)$-Multischaltkreisfamilie.
+Für $\mathbb{B}=\mathbb{B}_{\mathrm{std}}$ existiert eine $\left(\mathrm{LFP}+\mathbf{ARB}\right)\left[\sigma\right]$-Formel
+$\varphi$ (beziehungsweise für $\mathbb{B}=\mathbb{B}_{\mathrm{maj}}$
+eine $\left(\mathrm{LFP}+\mathbf{ARB}+C\right)\left[\sigma\right]$-Formel
+$\varphi$, so dass für $n\in\mathbb{N}$ und $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+die Formel $\varphi\left(\bar{x}\right)$ die gleiche Anfrage definiert
+wie $\mathcal{C}_{n}$.
+\end{lem}
+
+\section{Schaltkreise konstanter Tiefe}
+\begin{lem}
+\label{lem:ac0-fo}Sei $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+eine symmetrische, $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
+mit konstanter $c$-Tiefe und $n^{c}$-Größe. Es existiert eine $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
+$\varphi$, so dass für $n\in\mathbb{N}$ und $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+die Formel $\varphi\left(\bar{x}\right)$ die gleiche Anfrage definiert
+wie $\mathcal{C}_{n}$.
+
+Wenn $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ $\mathrm{LOGSPACE}$-uniform
+ist, so ist $\Upsilon=\mathbf{BIT}$, ansonsten ist $\Upsilon=\mathbf{ARB}$.
+\end{lem}
+Hierfür stellen wir zunächst eine alternierende Normalform für den
+Schaltkreis $\mathcal{C}_{n}$ her:
+\begin{enumerate}
+\item Jedes Gate hat nur einen Nachfolger.
+\item Jedes $\mathtt{AND}$-Gate ist Vorgänger eines $\mathtt{OR}$-Gates,
+und umgekehrt.
+\item Jedes Input ist Vorgänger eines $\mathtt{OR}$-Gates oder eines $\mathtt{NOT}$-Gates.
+\item Jedes Output ist mit $\mathtt{AND}$ markiert.
+\item Alle Wege von einem negierten Input zu einem Output haben die Länge
+$4c+1$.
+\item Alle Wege von einem nicht-negierten Input zu einem Output haben die
+Länge $4c$.
+\end{enumerate}
+Die Normalform wird durch den Algorithmus \ref{alg:ac0-normal-form}
+berechnet. Der Algorithmus benötigt $T\cdot\log\left(\left|G\right|\right)\leqslant4c^{2}\cdot\log n$
+Speicherplatz, weil die Rekursionstiefe mit $T\leqslant4c$ konstant
+beschränkt ist. Damit läuft der Algorithmus in $\mathrm{LOGSPACE}$.
+
+\begin{algorithm}
+\begin{lyxcode}
+NF($i,g,g',\mathrm{state}$):~
+
+\begin{lyxcode}
+Falls~$\Sigma\left(g\right)=\mathtt{NOT}$:~
+
+\begin{lyxcode}
+Finde~den~Vorgänger~$h$~von~$g$.
+
+Fahre~fort~mit~NF$\left(i,h,g,\neg\mathrm{state}\right)$~und~brich~ab.
+\end{lyxcode}
+Gib~$g$~als~neues~Gate~aus.
+
+Falls~$i$~gerade~ist~und~$\Sigma\left(g\right)=\mathtt{AND}$:~
+
+\begin{lyxcode}
+Sei~$g''$~ein~Gate~mit~$\Sigma\left(g''\right)=\mathtt{OR}$.
+
+Gib~$g''$~und~die~Kanten~$\left(g,g''\right),\left(g'',g'\right)$~aus.
+\end{lyxcode}
+Falls~$i$~ungerade~ist~und~$\Sigma\left(g\right)=\mathtt{OR}$:~
+
+\begin{lyxcode}
+(Analog~mit~$\Sigma\left(g''\right)=\mathtt{AND}$.)
+\end{lyxcode}
+Falls~$\Sigma\left(g\right)=R\bar{t}$~oder~$\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $:~
+
+\begin{lyxcode}
+Falls~$\mathrm{state}=\textsc{False}$~und~$\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $:~
+
+\begin{lyxcode}
+Kehre~$\Sigma\left(g\right)$~um~und~setze~$\mathrm{\mathrm{state}\leftarrow\textsc{True}}$.
+\end{lyxcode}
+Falls~$\mathrm{state}=\textsc{True}$:~
+
+\begin{lyxcode}
+Erzeuge~einen~alternierenden~Weg~der~Länge~$4c-i$~von~$g$~zu~$g'$.
+\end{lyxcode}
+Sonst:~
+
+\begin{lyxcode}
+Verbinde~$g$~mit~einem~$\mathtt{NOT}$-Gate~$g''$.
+
+Erzeuge~einen~alternierenden~Weg~der~Länge~$4c-i$~von~$g''$~zu~$g'$.
+\end{lyxcode}
+\end{lyxcode}
+Für~jeden~Vorgänger~$h$~von~$g$:~
+
+\begin{lyxcode}
+NF($i+1,h,g,\mathrm{state}$)
+\end{lyxcode}
+\end{lyxcode}
+Main:~
+
+\begin{lyxcode}
+Für~$g\in G$:~
+
+\begin{lyxcode}
+Falls~$g$~keine~Nachfolger~hat:~
+
+\begin{lyxcode}
+Sei~$g'$~ein~neues~$\mathtt{AND}$-Gate.
+
+Gib~$g'$~aus.
+
+Für~$\bar{t}\in U^{k}$:~
+
+\begin{lyxcode}
+Gib~$\Omega\left(\bar{t}\right)=g'$~aus.
+\end{lyxcode}
+NF($1,g,g'$).
+\end{lyxcode}
+\end{lyxcode}
+\end{lyxcode}
+\end{lyxcode}
+\caption{\label{alg:ac0-normal-form}Normalform für Schaltkreise konstanter
+Tiefe}
+\end{algorithm}
+
+Die (nicht rigide) alternierende Normalform eines rigiden, symmetrischen
+Schaltkreises hat immer noch einen eindeutigen Automorphismus $\hat{\pi}\in\mathrm{Aut}_{\mathcal{C}'}$
+für jede Permutation $\pi\in\mathrm{Sym}_{U}$. Per Induktion über
+die Tiefe sehen wir, dass für jedes Gate $g\in G$, jeden Vorgänger
+$h$ von $G$ und jede Permutation $\pi\in\mathrm{Sym}_{U}$ gilt:
+Wenn $\hat{\pi}g\in G$ eindeutig ist, dann ist es auch $\hat{\pi}h$.
+
+Wenn die Schaltkreisfamilie (inklusive der rigiden Umformung, und
+deren Normalform) von einer $\mathrm{LOGSPACE}$-Turingmaschine berechnet
+wird, existiert nach Immerman\cite{immerman2012descriptive} eine
+Sammlung von $\mathrm{FO}+\mathbf{BIT}$-Formeln $\Phi$, die auf
+$\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\varphi\right)$
+ausgewertet den Schaltkreis $\mathcal{C}_{n}$ beschreiben:
+
+\[
+\Phi\coloneqq\left(\varphi_{G},\varphi_{\mathcal{W}},\varphi_{\Omega},\left(\varphi_{\phi}\right)_{\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} },\left(\varphi_{R}\right)_{R\in\sigma}\right)
+\]
+(Wenn die Schaltkreisfamilie nur $P/\mathrm{poly}$-uniform ist, dann
+ersetzen wir $\Phi$ stattdessen durch entsprechend gewählte $\mathbf{ARB}$-Prädikate.)
+
+Hierbei sei $f_{G}:G\rightarrow\left[1,n\right]^{d}$ eine geeignete
+Kodierung der höchstens $n^{d}$ Gates von $\mathcal{C}_{n}$, und
+$f_{W}:\left[1,n^{d}\right]\rightarrow\left[1,n\right]^{d}$ eine
+Kodierung von Zahlen, so dass für $\bar{g},\bar{h},\bar{w}\in\left[0,n\right]^{d}$:
+\begin{eqnarray*}
+\mathfrak{A}\models\varphi_{G}\left[\bar{g}\right] & \Leftrightarrow & f_{G}^{-1}\left(\bar{g}\right)\in G\\
+\mathfrak{A}\models\varphi_{W}\left[\bar{h}\bar{g}\bar{w}\right] & \Leftrightarrow & \mathcal{W}\left(f_{G}^{-1}\left(\bar{h}\right),f_{G}^{-1}\left(\bar{g}\right)\right)=f_{W}^{-1}\left(\bar{w}\right)\\
+\mathfrak{A}\models\varphi_{\Omega}\left[\bar{t}\bar{g}\right] & \Leftrightarrow & \Omega\left(\bar{t}\right)=f_{G}^{-1}\left(\bar{g}\right)\\
+ &  & \mathrm{f\ddot{u}r}\,\bar{t}\in\left[1,n\right]^{k}\\
+\mathfrak{A}\models\varphi_{\phi}\left[\bar{g}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\left(\bar{g}\right)\right)=\phi\\
+ &  & \mathrm{f\ddot{u}r}\,\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} \\
+\mathfrak{A}\models\varphi_{R}\left[\bar{g}\bar{x}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\left(\bar{g}\right)\right)=R\bar{x}\\
+ &  & \mathrm{f\ddot{u}r}\,R/m\in\sigma,\,\bar{x}\in\left[1,n\right]^{m}
+\end{eqnarray*}
+\[
+\varphi_{W}'\left(\bar{h}\bar{g}\right)\coloneqq\exists\bar{n}\left(\varphi_{W}\left(\bar{h}\bar{g}\bar{n}\right)\wedge\exists x\bigvee_{i=1}^{c}\neg n_{i}\leqslant x\right)
+\]
+
+Da auch die Algorithmen \ref{alg:aut} und \ref{alg:orbits} in $\mathrm{LOGSPACE}$
+den Automorphismus und die Träger und Orbits berechnen, existiert
+eine $\mathrm{FO}+\mathbf{BIT}$-Formel $\varphi_{\mathrm{sp}}\left(\bar{u}x\right)$,
+die von $\beta$ auf $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+erfüllt wird, falls $\beta x\in\mathrm{sp}\left(f_{G}^{-1}\bar{u}\right)$. 
+
+Analog zu Abschnitt \ref{subsec:circuit-def} können wir daraus auch
+die $\mathrm{FO}+\mathbf{BIT}$-Formeln $\varphi_{\mathrm{size},i}$
+und $\varphi_{\mathrm{sp},i}$ erzeugen. Ebenso sind die Formeln $\varphi_{\mathrm{valid}}$
+und $\varphi_{\sim}$ und $\varphi_{R}$ aus Abschnitt \ref{subsec:circuit-eval}
+nun in $\mathrm{FO}+\mathbf{BIT}$ definierbar, da sie ihren Teilformeln
+selbst keine Fixpunkt-Operatoren hinzufügen.
+
+Die Formel $\varphi_{\mathrm{EVAL}}\left(\bar{u}_{1}\bar{z}_{1}\right)$
+quantifiziert nun über jeden Weg von einem Input zu dem Output $g_{1}=f_{G}^{-1}\bar{u}_{1}$,
+und prüft dann für jeden Schritt, ob eine korrekte Kante $\left(g_{i+1},g_{i}\right)\in W$
+mit $g_{i}=f_{G}^{-1}\bar{u}_{i}$ gewählt wurde, und ob die Abbildungen
+$\left(\bar{\mathrm{sp}}\left(g_{i}\right)\mapsto\bar{x}_{i}\right)$
+und $\left(\bar{\mathrm{sp}}\left(g_{i+1}\right)\mapsto\bar{x}_{i+1}\right)$
+konsistent sind. 
+\begin{eqnarray*}
+\varphi_{\mathrm{EVAL}}\left(\bar{u}_{1}\bar{z}_{1}\right) & \coloneqq & \left(\forall\bar{u}_{2i}\forall\bar{x}_{2i}\exists\bar{u}_{2i+1}\exists\bar{x}_{2i+1}\right)_{1\leqslant i\leqslant2c}(\\
+ &  & \bigwedge_{i=1}^{4c}\left(\varphi_{W}'\left(\bar{u}_{i+1}\bar{u}_{i}\right)\wedge\varphi_{\sim}\left(\bar{u}_{i}\bar{u}_{i+1}\bar{x}_{i}\bar{x}_{i+1}\right)\right)\wedge\\
+ &  & \bigwedge_{R\in\sigma}\left(\exists\bar{t}\varphi_{R}\left(\bar{u}_{4c+1}\bar{t}\right)\rightarrow\psi_{R}\left(\bar{u}_{4c+1}\bar{x}_{4c+1}\right)\right)\wedge\\
+ &  & \forall\bar{u}'(\left(\varphi_{W}'\left(\bar{u}'\bar{u}_{4c+1}\right)\wedge\varphi_{\mathtt{NOT}}\left(\bar{u}'\right)\right)\rightarrow\\
+ &  & \,\,\,\,\,\,\,\,\bigwedge_{R\in\sigma}\left(\exists\bar{t}\varphi_{R}\left(\bar{u}'\bar{t}\right)\rightarrow\neg\psi_{R}\left(\bar{u}'\bar{x}'\right)\right)\\
+ &  & )\wedge\\
+ &  & \bigwedge_{s\in\left\{ \mathbf{0},\mathbf{1}\right\} }\left(\varphi_{s}\left(\bar{u}_{4c+1}\right)\rightarrow\psi_{s}\left(\bar{u}_{4c+1}\bar{x}\right)\right)\\
+ & )
+\end{eqnarray*}
+Nun berechnet $\varphi_{\mathrm{EVAL}}\left(\bar{u}_{1}\bar{z}_{1}\right)$
+für ein Output-Gate $g_{1}=f_{G}^{-1}\bar{u}_{1}$ die Auswertung
+mit einer Abbildung $\pi\coloneqq\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{z}_{1}\right)$.
+Analog zum Abschnitt \ref{subsec:circuit-eval} wird nun die Formel
+$\varphi\left(\bar{x}\right)$ definiert, die ein passendes Output-Gate
+und die richtige Abbildung findet: 
+\begin{eqnarray*}
+\varphi\left(\bar{x}\right) & \coloneqq\exists\bar{t}\exists\bar{u}\exists\bar{z}\,(\\
+ &  & \varphi_{\Omega}\left(\bar{u}\bar{t}\right)\wedge\psi_{\mathrm{valid}}\left(\bar{u}\bar{z}\right)\\
+ &  & \wedge\bigwedge_{\substack{i\in\left[1,k\right]\\
+j\in\left[1,d\right]
+}
+}\left(\psi_{\mathrm{sp},j}\left(\bar{u}t_{i}\right)\rightarrow z_{i}=x_{i}\right)\\
+ &  & \wedge\varphi_{\mathrm{EVAL}}\left(\bar{u}\bar{z}\right)\\
+ & )
+\end{eqnarray*}
+
+Damit wird die Auswertung jedes Schaltkreises $\mathcal{C}_{n}$ durch
+die Formel $\varphi$ definiert, und das Lemma \ref{lem:ac0-fo} ist
+bewiesen.
+
+Für Schaltkreise mit Majority-Gates wird problematisch, dass wir die
+Reduktion aus Satz \ref{prop:kary-counting} nicht zur Verfügung haben.
+Es existiert zwar eine ähnliche Reduktion für $\mathrm{FO}$; bei
+dieser handelt es sich allerdings um die nicht-disjunkte Erweiterung.
+\begin{prop}
+\textbf{Barrington et al. (1990)\cite{Mix-Barrington:1990:UWN:95665.95674},
+Schweikardt (2005)}\cite{Schweikardt:2005:AFL:1071596.1071602}
+
+Jede Formel der $\mathrm{FO}+C^{k}$-Logik mit $k$-stelligen Zählquantoren
+kann durch eine Formel der Logik $\mathrm{FO}\left(\mathbf{BIT}\right)+C$
+ausgedrückt werden.
+\end{prop}
+Eine Reduktion auf die disjunkte $\mathrm{FO}+\mathbf{BIT}+C$-Logik
+scheint (wenn sie existiert) nicht trivial.

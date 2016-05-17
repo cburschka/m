@@ -1,0 +1,735 @@
+
+\chapter{Logik}
+
+\section{Grundlagen der relationalen Logik}
+
+Wir betrachten logische Sprachen auf relationalen Signaturen $\sigma$,
+deren Ausdrücke auf endlichen $\sigma$-Strukturen ausgewertet werden.
+
+Zunächst definieren wir $\mathbf{var}$ als die Menge aller erststufigen
+Variablen. Für einen Ausdruck $\omega$ sei $\mathrm{var}\left(\omega\right)$
+die Menge der darin vorkommenden Variablen, und $\mathrm{frei}\left(\omega\right)\subseteq\mathrm{var}\left(\omega\right)$
+die Menge der freien Variablen.
+
+In einer Struktur $\mathfrak{A}$ sei eine \textbf{Belegung} $\beta$
+eine partielle Abbildung $\beta:\mathbf{var}\rightarrow A$ von Variablen
+auf Elemente des Universums.
+
+Eine Auswertungsfunktion für eine Struktur $\mathfrak{A}$ und eine
+Belegung $\beta$ wird durch $\left\llbracket \cdot\right\rrbracket \left(\mathfrak{A},\beta\right)$
+notiert.
+\begin{defn}
+Eine Logik $\mathcal{L}\left[\sigma\right]$ besteht aus der Sprache
+der $\mathcal{L}\left[\sigma\right]$-Terme, der Sprache der $\mathcal{L}\left[\sigma\right]$-Formeln,
+und einer Auswertungsfunktion $\left\llbracket \omega\right\rrbracket \left(\mathfrak{A},\beta\right)$
+für jede Struktur $\mathfrak{A}$ und Belegung $\beta:X\rightarrow A$
+und jeden Ausdruck $\omega$ mit $\mathrm{frei}\left(\omega\right)\subseteq X$.
+
+Für einen $\mathcal{L}\left[\sigma\right]$-Term $t$ ist $\left\llbracket t\right\rrbracket \left(\mathfrak{A},\beta\right)\in A$
+ein Element des Universums. Für eine $\mathcal{L}\left[\sigma\right]$-Formel
+$\varphi$ ist $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\in\left\{ 0,1\right\} $
+ein Wahrheitswert.
+\end{defn}
+\begin{notation}
+Wir verwenden den Begriff ,,Ausdruck`` als Oberbegriff der Formeln
+und Terme einer Logik, und bezeichnen Ausdrücke mit dem Buchstaben
+$\omega$. Terme werden mit kleinen Buchstaben benannt, und Formeln
+mit den Buchstaben $\varphi$, $\psi$ oder $\chi$. Für einstellige
+Signaturen wie $\left\{ E\right\} $ oder $\left\{ \leqslant\right\} $
+kürzen wir $\mathcal{L}\left[\left\{ R\right\} \right]$ durch $\mathcal{L}\left[R\right]$
+ab.
+\end{notation}
+\begin{defn}
+Für eine Formel $\varphi$ und ein Tupel $\bar{x}\in\mathbf{var}^{k}$
+mit $\mathrm{frei}\left(\varphi\right)=\left\{ x_{1},\cdots,x_{k}\right\} $
+und $\left|\left\{ x_{1},\cdots,x_{k}\right\} \right|=k$ nennen wir
+das Tupel $\bar{x}=\left(x_{1}\cdots x_{k}\right)$ ein \textbf{Argument
+}von $\varphi$. Verschiedene Argumente von $\varphi$ unterscheiden
+sich nur in der Reihenfolge der Variablen. Durch die Notation $\varphi\left(\bar{x}\right)$
+legen wir ein beliebiges Argument $\bar{x}$ für $\varphi$ fest.
+
+Die \textbf{Stelligkeit }einer logischen Formel (beziehungsweise ihrer
+Argumente) bezeichne die Anzahl der frei vorkommenden Variablen: Für
+$\varphi\left(\bar{x}\right)$ gelte: 
+\[
+\mathrm{ar}\left(\varphi\right)=\mathrm{ar}\left(\bar{x}\right)=\left|\mathrm{frei}\left(\varphi\right)\right|
+\]
+
+Ein \textbf{Satz} sei eine Formel ohne freie Variablen.
+\end{defn}
+Mit $\mathtt{MF}\left(\omega\right)$ bezeichnen wir die maximale
+Anzahl freier Variablen jedes Teilausdrucks von $\omega$.
+\begin{defn}
+Für eine $k$-stellige Formel $\varphi$ und eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
+schreiben wir $\mathfrak{A}\models\varphi^{\beta}$ genau dann wenn
+$\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)=1$.
+
+Für $\varphi\left(\bar{x}\right)$ und $\bar{a}\in A^{\mathrm{ar}\left(\bar{x}\right)}$
+schreiben wir $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\bar{a}\right)$
+anstelle von $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\left(\bar{x}\mapsto\bar{b}\right)\right)$,
+und $\mathfrak{A}\models\varphi\left[\bar{a}\right]$ anstelle von
+$\mathfrak{A}\models\varphi^{\bar{x}\mapsto\bar{a}}$.
+
+Entsprechend sei 
+\[
+q_{\varphi\left(\bar{x}\right)}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{\mathrm{ar}\left(\bar{x}\right)}\mid\mathfrak{A}\models\varphi\left[\bar{a}\right]\right\} 
+\]
+die Relation aller $\varphi$ erfüllenden Tupel.
+\end{defn}
+Somit beschreibt jede $\mathcal{L}\left[\sigma\right]$-Formel $\varphi\left(\bar{x}\right)$
+eine $\sigma$-Anfrage $q_{\varphi\left(\bar{x}\right)}$, und jeder
+Satz eine $\sigma$-Eigenschaft. Da die Reihenfolge der Spalten der
+Relation von der Wahl des Arguments $\bar{x}$ abhängt, wird es durch
+$q_{\varphi\left(\bar{x}\right)}$ mit angegeben.
+
+In manchen Fällen möchten wir einige Variablen einer Formel belegen
+und sie erst dann als Anfrage auswerten.
+\begin{defn}
+Für eine Formel $\varphi$ und eine Belegung $\beta:X\rightarrow A$
+mit $\mathrm{frei}\left(\varphi\right)\nsubseteq X$ sei $\varphi^{\beta}$
+ein \textbf{partiell belegter} Ausdruck; es sei $\mathrm{frei}\left(\varphi^{\beta}\right)=\mathrm{frei}\left(\varphi\right)\backslash X$.
+
+Für $\beta':\mathrm{frei}\left(\varphi^{\beta}\right)\rightarrow A$
+bezeichne $\left\llbracket \varphi^{\beta}\right\rrbracket \left(\mathfrak{A},\beta'\right)$
+die Auswertung $\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\cup\beta'\right)$.
+Für ein Argument $\bar{x}'$ von $\varphi^{\beta}$ definieren wir
+die folgende Anfrage: 
+\[
+q_{\varphi^{\beta}\left(\bar{x}'\right)}\coloneqq\left\{ \bar{a}\in A^{\ell}\mid\mathfrak{A}\models\varphi^{\beta}\left[\bar{a}\right]\right\} 
+\]
+\end{defn}
+
+\begin{defn}
+Für eine $\mathcal{L}\left[\sigma\right]$-Formel $\varphi$ und $n\in\mathbb{N}$
+drücke $\models_{n}\varphi$ aus, dass diese von allen $\sigma$-Strukturen
+$\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+der Größe $n$ unter allen Belegungen erfüllt wird. Die Notation $\models_{\mathrm{fin}}\varphi$
+drücke aus, dass $\varphi$ von allen endlichen $\sigma$-Strukturen
+$\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ unter allen Belegungen
+erfüllt wird.
+
+Falls $\models_{n}\left(\varphi\leftrightarrow\psi\right)$, so heißen
+$\varphi$ und $\psi$ $n$-\textbf{äquivalent}. Insbesondere bedeutet
+dies, dass $\varphi$ und $\psi$ die gleiche Anfrage $q_{\varphi\left(\bar{x}\right)}=q_{\psi\left(\bar{x}\right)}$
+auf Strukturen der Größe $n$ definieren.
+\end{defn}
+
+\section{Die Logik erster Stufe}
+\begin{defn}
+\label{def:fo}Für eine relationale Signatur $\sigma$ sind die Syntax
+und Semantik der Logik erster Stufe $\mathrm{FO}\left[\sigma\right]$
+wie folgt definiert.
+\end{defn}
+\begin{labeling}{00.00.0000}
+\item [{(TV)}] Für jede Variable $x\in\mathbf{var}$ ist $x$ ein $\mathrm{FO}\left[\sigma\right]$-Term.
+\[
+\mathrm{frei}\left(x\right)=\mathrm{var}\left(x\right)\coloneqq\left\{ x\right\} 
+\]
+\[
+\left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\beta x
+\]
+\item [{(AR)}] Für jedes Relationssymbol $R/k\in\sigma$ und jedes $k$-Tupel
+von $\mathrm{FO}\left[\sigma\right]$-Termen $\bar{x}$ ist $R\bar{x}$
+eine $\mathrm{FO}\left[\sigma\right]$-Formel.
+\begin{eqnarray*}
+\mathrm{frei}\left(R\bar{x}\right)\coloneqq\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(R\bar{x}\right)\coloneqq\bigcup_{i=1}^{k}\mathrm{var}\left(x_{i}\right)
+\end{eqnarray*}
+\begin{eqnarray*}
+\left\llbracket R\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left[R^{\mathfrak{A}}\right]\left(\left\llbracket x_{1}\right\rrbracket \left(\mathfrak{A},\beta\right),\cdots,\left\llbracket x_{k}\right\rrbracket \left(\mathfrak{A},\beta\right)\right)
+\end{eqnarray*}
+\item [{(AE)}] Für zwei $\mathrm{FO}\left[\sigma\right]$-Terme $x_{1},x_{2}$
+ist $x_{1}\dot{=}x_{2}$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
+\begin{eqnarray*}
+\mathrm{frei}\left(x_{1}\dot{=}x_{2}\right)\coloneqq\bigcup_{i=1}^{2}\mathrm{frei}\left(x_{i}\right) &  & \mathrm{var}\left(x_{1}\dot{=}x_{2}\right)\coloneqq\bigcup_{i=1}^{2}\mathrm{var}\left(x_{i}\right)
+\end{eqnarray*}
+\begin{eqnarray*}
+\left\llbracket x\dot{=}y\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \begin{cases}
+1 & \mathrm{falls}\,\left\llbracket x\right\rrbracket \left(\mathfrak{A},\beta\right)=\left\llbracket y\right\rrbracket \left(\mathfrak{A},\beta\right)\\
+0 & \mathrm{sonst}
+\end{cases}
+\end{eqnarray*}
+\item [{(N)}] Für eine $\mathrm{FO}\left[\sigma\right]$-Formel $\varphi$
+ist $\neg\varphi$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
+\begin{eqnarray*}
+\mathrm{frei}\left(\neg\varphi\right)\coloneqq\mathrm{frei}\left(\varphi\right) &  & \mathrm{var}\left(\neg\varphi\right)\coloneqq\mathrm{var}\left(\varphi\right)
+\end{eqnarray*}
+\[
+\left\llbracket \neg\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq1-\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)
+\]
+\item [{(J)}] Für $k\geqslant2$ $\mathrm{FO}\left[\sigma\right]$-Formeln
+$\varphi_{1},\cdots,\varphi_{k}$ und einen Junktor $\gamma\in\left\{ \wedge,\vee,\rightarrow,\leftrightarrow\right\} $
+(mit $k=2$ für $\gamma\in\left\{ \rightarrow,\leftrightarrow\right\} $)
+ist auch $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)$
+eine $\mathrm{FO}\left[\sigma\right]$-Formel. 
+\begin{eqnarray*}
+\mathrm{frei}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)\coloneqq\bigcup_{i=1}^{k}\mathrm{frei}\left(\varphi_{i}\right) &  & \mathrm{var}\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)\coloneqq\bigcup_{i=1}^{k}\mathrm{var}\left(\varphi_{i}\right)
+\end{eqnarray*}
+\begin{eqnarray*}
+\left\llbracket \varphi_{1}\wedge\cdots\wedge\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \min_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
+\left\llbracket \varphi_{1}\vee\cdots\vee\varphi_{k}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \max_{1\leqslant i\leqslant k}\left\llbracket \varphi_{i}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
+\left\llbracket \varphi_{1}\rightarrow\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket \neg\varphi_{1}\vee\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right)\\
+\left\llbracket \varphi_{1}\leftrightarrow\varphi_{2}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket \left(\varphi_{1}\rightarrow\varphi_{2}\right)\wedge\left(\varphi_{2}\rightarrow\varphi_{1}\right)\right\rrbracket \left(\mathfrak{A},\beta\right)
+\end{eqnarray*}
+\item [{(Q)}] Für einen Quantor $Q\in\left\{ \exists,\forall\right\} $,
+eine Variable $x\in\mathbf{var}$ und eine $\mathrm{FO}\left[\sigma\right]$-Formel
+$\varphi$ ist $Qx\varphi$ eine $\mathrm{FO}\left[\sigma\right]$-Formel.
+\begin{eqnarray*}
+\mathrm{frei}\left(Qx\varphi\right)\coloneqq\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\}  &  & \mathrm{var}\left(Qx\varphi\right)\coloneqq\mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
+\end{eqnarray*}
+\begin{eqnarray*}
+\left\llbracket \exists x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \max_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\cup\left(x\mapsto a\right)\right)\right)\\
+\left\llbracket \forall x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \min_{a\in A}\left(\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta_{\backslash\left\{ x\right\} }\cup\left(x\mapsto a\right)\right)\right)
+\end{eqnarray*}
+Ohne Beschränkung der Allgemeinheit gelte für $Qx\varphi$ stets $x\in\mathrm{frei}\left(\varphi\right)$,
+denn $Qx\varphi\equiv Qx\left(x\dot{=}x\wedge\varphi\right)$.
+\end{labeling}
+Wir kürzen $Qx_{1}\cdots Qx_{k}\varphi$ durch $Q\bar{x}\varphi$
+und $\bigwedge_{i=1}^{k}\left(x_{i}=y_{i}\right)$ durch $\bar{x}=\bar{y}$
+ab. Im folgenden werden wir im Allgemeinen Formeln ohne Implikations-Pfeile
+betrachten.
+\begin{defn}
+Eine $\mathrm{FO}\left[\sigma\right]$-Formel sei \textbf{implikationsfrei
+}wenn sie keine Teilformel der Form $\left(\varphi\rightarrow\psi\right)$
+oder $\left(\varphi\leftrightarrow\psi\right)$ enthält.
+\end{defn}
+Weil $\left(\varphi\rightarrow\psi\right)\equiv\left(\neg\varphi\vee\psi\right)$
+und $\left(\varphi\leftrightarrow\psi\right)\equiv\left(\varphi\wedge\psi\right)\vee\left(\neg\varphi\wedge\neg\psi\right)$,
+sind alle $\mathrm{FO}\left[\sigma\right]$-Formeln äquivalent zu
+implikationsfreien $\mathrm{FO}\left[\sigma\right]$-Formeln. Hierbei
+entsteht ein fester Zuwachs in der Länge der Formel $\left\Vert \varphi\right\Vert $,
+der die Datenkomplexität unberührt lässt.
+
+\begin{defn}
+\textbf{\label{def:qr}Quantorenrang}
+
+Der Quantorenrang einer Formel sei die maximale Anzahl der geschachtelten
+Quantoren:
+\[
+\begin{array}{cc}
+\mathrm{qr}\left(R\bar{x}\right)=\mathrm{qr}\left(x_{1}\dot{=}x_{2}\right)=0 & \mathrm{qr}\left(\psi_{1}\gamma\cdots\gamma\psi_{k}\right)=\max_{i=1}^{k}\mathrm{qr}\left(\psi_{i}\right)\\
+\mathrm{qr}\left(\exists x\psi\right)=\mathrm{qr}\left(\forall x\psi\right)=\mathrm{qr}\left(\psi\right)+1
+\end{array}
+\]
+\end{defn}
+
+\begin{defn}
+\label{def:m-equiv}Zwei $\sigma$-Strukturen $\mathfrak{A}$ und
+$\mathfrak{B}$ heißen $m$-äquivalent ($\mathfrak{A}\equiv_{m}\mathfrak{B}$,
+wenn für alle $\mathrm{FO}\left[\sigma\right]$-Sätze $\varphi$ mit
+$\mathrm{qr}\left(\varphi\right)\leqslant m$ gilt:
+\[
+\mathfrak{A}\models\varphi\Longleftrightarrow\mathfrak{B}\models\varphi
+\]
+\end{defn}
+
+\section{Logiken mit Fixpunkt-Erweiterung}
+
+Wir führen eine Erweiterung ein, die es erlaubt, den iterativen Fixpunkt
+einer selbstreferenziellen logischen Formel zu definieren.
+\begin{defn}
+Eine Logik $\mathcal{L}$ erweitert die Logik $\mathcal{L}'$, wenn
+sie die Syntax und Semantik von $\mathcal{L}'$ übernimmt, und zusätzliche
+Produktionen einführt.
+\end{defn}
+Als erstes definieren wir einen neuen Typ von Variablen.
+\begin{defn}
+Sei $\mathbf{var}_{2}$ die Menge aller Relationsvariablen. Jede solche
+Variable $X\in\mathbf{var}_{2}$ besitzt eine Stelligkeit $\mathrm{ar}\left(X\right)=k\in\mathbb{N}_{\geqslant1}$;
+diese wird auch durch $X/k\in\mathbf{var}_{2}$ notiert. Die Funktionen
+$\mathrm{frei}$ und $\mathrm{var}$, so wie die Belegungen $\beta$,
+werden auf $\mathbf{var}\uplus\mathbf{var}_{2}$ erweitert.
+\begin{eqnarray*}
+\mathrm{frei}\left(\varphi\right),\mathrm{var}\left(\varphi\right) & \subseteq & \mathbf{var}\uplus\mathbf{var}_{2}\\
+\beta:\mathrm{frei}\left(\varphi\right) & \rightarrow & A\cup\bigcup_{k\in\mathbb{N}}A^{k}\\
+\beta X & \subseteq & A^{\mathrm{ar}\left(X\right)}\,\mathrm{f\ddot{u}r}\,X\in\mathbf{var}_{2}
+\end{eqnarray*}
+\end{defn}
+Wir möchten syntaktisch garantieren, dass die Iteration der Formel
+eine monoton wachsende Relation berechnet. Dafür wird verlangt, dass
+die selbstreferenzielle Relationsvariable nicht negiert vorkommt.
+\begin{defn}
+\textbf{Positivität}
+
+Wir definieren die (nicht disjunkten) Mengen der $X$-positiven und
+$X$-negativen $\mathcal{L}\left[\sigma\right]$-Formeln für $X\in\mathbf{var}_{2}$
+wie folgt:
+
+\begin{itemize}
+\item Jeder $\mathcal{L}\left[\sigma\right]$-Ausdruck $\omega$ mit $X\notin\mathrm{frei}\left(\omega\right)$
+ist sowohl $X$-positiv als auch $X$-negativ.
+\item Für jede $X$-positive Formel $\varphi$ ist $\neg\varphi$ $X$-negativ,
+und umgekehrt.
+\item Für einen Junktor $\gamma\in\left\{ \wedge,\vee\right\} $ und $k\geqslant2$
+$X$-positive (beziehungsweise $X$-negative) Formeln $\varphi_{1},\cdots,\varphi_{k}$
+ist $\left(\varphi_{1}\gamma\cdots\gamma\varphi_{k}\right)$ ebenfalls
+$X$-positiv (beziehungsweise $X$-negativ).
+\item Für einen Quantor $Q\in\left\{ \exists,\forall\right\} $, eine Variable
+$x\in\mathbf{var}$ und eine $X$-positive (beziehungsweise $X$-negative)
+Formel $\varphi$ ist $Qx\varphi$ ebenfalls $X$-positiv (beziehungsweise
+$X$-negativ).
+\end{itemize}
+\end{defn}
+Nun definieren wir die Fixpunkt-Erweiterung.
+\begin{defn}
+\label{def:lfp}Für eine Logik $\mathcal{L}$ und eine relationale
+Signatur $\sigma$ erweitert $\mathrm{LFP}\left(\mathcal{L}\right)\left[\sigma\right]$
+die Logik $\mathcal{L}\left[\sigma\right]$ wie folgt:
+\end{defn}
+\begin{labeling}{00.00.0000}
+\item [{(AV)}] Für eine Relationsvariable $X/k\in\mathbf{var}_{2}$ und
+ein $k$-Tupel $\bar{x}$ von $X$-positiven $\mathrm{LFP}\left(\mathcal{L}\right)\left[\sigma\right]$-Termen
+ist $X\bar{x}$ eine $X$-positive $\mathrm{LFP\left(\mathcal{L}\right)}\left[\sigma\right]$-Formel.
+\begin{eqnarray*}
+\mathrm{frei}\left(X\bar{x}\right) & \coloneqq & \left\{ X\right\} \cup\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right)\\
+\mathrm{var}\left(X\bar{x}\right) & \coloneqq & \left\{ X\right\} \cup\bigcup_{i=1}^{k}\mathrm{var}\left(x_{i}\right)\\
+\left\llbracket X\bar{x}\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left[\beta X\right]\left(\beta\bar{x}\right)\\
+ & \mathrm{mit} & \beta X\subseteq A^{k},\\
+ &  & \beta\bar{x}\in A^{k}
+\end{eqnarray*}
+\item [{(LFP)}] Für eine Relationsvariable $X/k\in\mathbf{var}_{2}$, eine
+$X$-positive $\mathrm{LFP}\left(\mathcal{L}\right)\left[\sigma\right]$-Formel
+$\psi$, ein Tupel $\bar{x}\in\mathbf{var}^{k}$ und ein $k$-Tupel
+$\bar{y}$ von $X$-positiven $\mathrm{\mathrm{LFP}\left(\mathcal{L}\right)}\left[\sigma\right]$-Termen
+ist $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
+eine $X$-positive $\mathrm{LFP}\left(\mathrm{\mathcal{L}}\right)\left[\sigma\right]$-Formel.
+\begin{eqnarray*}
+\mathrm{frei}\left(\varphi\right) & = & \mathrm{frei}\left(\psi\right)\backslash\left\{ X,x_{1},\cdots,x_{k}\right\} \cup\bigcup_{i=1}^{k}\mathrm{frei}\left(y_{i}\right)\\
+\mathrm{var}\left(\varphi\right) & = & \mathrm{var}\left(\psi\right)\cup\left\{ X,x_{1},\cdots,x_{k}\right\} \cup\bigcup_{i=1}^{k}\mathrm{var}\left(y_{i}\right)
+\end{eqnarray*}
+Für eine Belegung $\beta:\mathrm{frei}\left(\varphi\right)\rightarrow A$
+prüft $\varphi=\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$,
+ob die Belegung des Tupels $\bar{y}$ im kleinsten Fixpunkt des Relationssymbols
+$X$ liegt. 
+\begin{eqnarray*}
+\beta' & \coloneqq & \beta_{\mid\mathrm{frei}\left(\psi\right)\backslash\left\{ X,x_{1},\cdots,x_{k}\right\} }\\
+\left\llbracket \left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)\right\rrbracket \left(\mathfrak{A},\beta\right) & \coloneqq & \left\llbracket X\bar{y}\right\rrbracket \left(\mathfrak{A},\beta\cup\left(X\mapsto\mathrm{lfp}_{X,\bar{x}}\left(\psi\right)\right)\right)
+\end{eqnarray*}
+Im folgenden wird eine Berechnung definiert, die den kleinsten Fixpunkt
+$\mathrm{lfp}_{X,\bar{x}}\left(\psi\right)$ iterativ bestimmt.
+\end{labeling}
+Ohne Beschränkung der Allgemeinheit sei $\left\{ x_{1},\cdots,x_{k}\right\} \subseteq\mathrm{frei}\left(\psi\right)$,
+denn analog zu Definition \ref{def:fo} ist $\psi\equiv\left(\bar{x}=\bar{x}\wedge\psi\right)$.
+Die nicht durch den Operator gebundenen Variablen $P\coloneqq\mathrm{frei}\left(\psi\right)\backslash\left\{ x_{1},\cdots,x_{k}\right\} \subseteq\mathrm{frei}\left(\varphi\right)$
+heißen \textbf{Parameter} der Fixpunkt-Operation.
+
+Für eine Parameter-Belegung $\beta:P\rightarrow A$ sei $F_{\beta}$
+die folgende Abbildung: 
+\begin{eqnarray*}
+F_{\beta} & : & 2^{A^{k}}\rightarrow2^{A^{k}}\\
+F_{\beta}\left(Y\right) & \coloneqq & \left\{ \bar{a}\in A^{k}\mid\mathfrak{A}\models\psi^{\beta\cup\left(X\mapsto Y\right)}\left[\bar{a}\right]\right\} 
+\end{eqnarray*}
+Das heißt: $F_{\beta}\left(Y\right)$ ist das Anfrageergebnis von
+$\varphi$ auf $\mathfrak{A}$ unter der Belegung der Parameter mit
+$\beta$ und der Variable $X$ mit der Relation $Y$.
+
+Aus der $X$-Positivität folgt nach \cite{Gurevich1986,Libkin2012}
+die Monotonie von $F_{\beta}$
+\[
+A\subseteq B\Rightarrow F_{\beta}\left(A\right)\subseteq F_{\beta}\left(B\right)
+\]
+und daher induktiv die Existenz eines Fixpunkts $F^{\infty}\left(\emptyset\right)$,
+der nach höchstens $\left|A^{k}\right|$ Schritten erreicht wird:
+\[
+\emptyset\subseteq F_{\beta}\left(\emptyset\right)\subseteq\cdots\subseteq F_{\beta}^{\infty}\left(\emptyset\right)\subseteq A^{k}
+\]
+
+Für jeden anderen Fixpunkt $Y'$ gilt $\emptyset\subseteq Y'$, und
+per Induktion auch $F^{n}\left(\emptyset\right)\subseteq F^{n}\left(Y'\right)=Y'$.
+Daher ist $F^{\infty}\left(\emptyset\right)=\mathrm{lfp}_{X,\bar{x}}\left(\psi\right)$
+der kleinste Fixpunkt.
+
+Im folgenden wird die Logik $\mathrm{LFP}\left(\mathrm{FO}\right)$
+durch $\mathrm{LFP}$ abgekürzt. Ferner werden wir uns auf das \emph{parameterfreie}
+Fragment der Logik beschränken, was (bis auf einen Zuwachs in der
+Anzahl der Variablen und Länge der Formel) die Allgemeinheit nicht
+einschränkt.
+\begin{defn}
+\label{def:fp-paramfree}Eine $\mathrm{LFP}\left[\sigma\right]$-Formel
+$\varphi$ ist \textbf{parameterfrei}, falls der Fixpunkt-Operator
+stets alle Variablen bindet - das heißt, für jede Teilformel der Form
+$\left[\mathrm{lfp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$ gilt:
+\[
+\mathrm{frei}\left(\psi\right)\subseteq\left\{ X,x_{1},\cdots,x_{\mathrm{ar}\left(X\right)}\right\} 
+\]
+\end{defn}
+\begin{prop}
+\label{prop:fp-paramfree}Jede $\mathrm{LFP}\left[\sigma\right]$-Formel
+$\varphi$ kann (unter Zuwachs der Länge $\left\Vert \varphi\right\Vert $
+und Größe $\left|\mathrm{var}\left(\varphi\right)\right|$) in eine
+parameterfreie $\mathrm{LFP}\left[\sigma\right]$-Formel $\varphi'$
+übersetzt werden.\cite{Zaid,Grohe2005,Dziembowski96bounded-variablefixpoint}
+\end{prop}
+\begin{example}
+Die folgende $\mathrm{LFP}\left[E\right]$-Formel $\varphi\left(u,v\right)$
+ist erfüllt, wenn $u$ und $v$ durch einen Weg beliebiger Länge verbunden
+sind: 
+\[
+\varphi\left(u,v\right)\coloneqq\left[\mathrm{lfp}_{T,\left(x,y\right)}\,\left(\exists z\,\left(E\left(x,z\right)\wedge T\left(z,y\right)\right)\vee x\dot{=}y\right)\right]\left(u,v\right)
+\]
+\end{example}
+\begin{defn}
+Eine etwas robustere, aber äquivalente, Definition der Fixpunktlogik
+verwendet den inflationären Fixpunkt-Operator. Anstelle der Positivität
+einer Formel in einer Relationsvariable betrachten wir mit $\left[\mathrm{ifp}_{X,\bar{x}}\psi\right]\left(\bar{y}\right)$
+implizit die Formel $\left[\mathrm{lfp}_{X,\bar{x}}\left(X\bar{x}\vee\psi\right)\right]\left(\bar{y}\right)$,
+die uns eine inflationäre Iteration garantiert:
+\[
+F_{\beta}\left(Y\right)=Y\cup q_{\psi\left(\bar{x}\right)}^{\beta\cup\left(X\rightarrow Y\right)}\left(\mathfrak{A}\right)\supseteq Y
+\]
+
+In diesem Fall muss $\psi$ nicht mehr $X$-positiv sein.
+\end{defn}
+
+\section{Logiken mit numerischen Erweiterungen}
+
+\subsection{Disjunkte Orakel}
+
+Eine Erweiterung um ein numerisches Orakel fügt einer Logik eine Anzahl
+von Relationssymbolen hinzu, die für $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+eine feste Interpretation über einem von $A$ disjunkten numerischen
+Universum $\left[0,\left|A\right|\right]$ erhalten.
+\begin{defn}
+\textbf{$\eta$-Orakel, $\mathcal{L}+\Upsilon$-Logik}
+
+Sei $\eta$ eine relationale Signatur. Ein $\eta$-Orakel $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{\leqslant}^{0}\left(\eta\right)$
+ist eine Funktion, die jeder natürlichen Zahl $n$ eine geordnete
+$\left(\eta\uplus\left\{ \leqslant\right\} \right)$-Struktur $\Upsilon\left(n\right)$
+über $\left[0,n\right]$ zuweist.
+
+Sei $\sigma$ eine von $\eta\uplus\left\{ \leqslant\right\} $ disjunkte
+relationale Signatur und $\mathcal{L}$ eine Logik (zum Beispiel $\mathrm{FO}$
+oder $\mathrm{LFP}$). Für ein $\eta$-Orakel $\Upsilon$ ist die
+Syntax der $\left(\mathcal{L}+\Upsilon\right)\left[\sigma\right]$-Logik
+die der Logik $\mathcal{L}\left[\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right]$.
+
+Für eine endliche $\sigma$-Struktur $\mathfrak{A}$ mit $A\cap\left[0,\left|A\right|\right]=\emptyset$
+und eine Belegung $\beta:\mathbf{var}\rightarrow A\uplus\left[0,\left|A\right|\right]$
+werden $\left(\mathcal{L}+\Upsilon\right)$-Ausdrücke auf der disjunkten
+Vereinigung von $\mathfrak{A}$ mit der entsprechenden Orakelstruktur
+$\Upsilon\left(\left|A\right|\right)$ ausgewertet:
+\[
+\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\left\llbracket \varphi\right\rrbracket \left(\mathfrak{A}\uplus\Upsilon\left(\left|A\right|\right),\beta\right)
+\]
+\end{defn}
+\begin{notation}
+Nach unserem Begriff der logischen Erweiterung ist die Bezeichnung
+$\mathrm{LFP}\left(\mathcal{L}+\Upsilon\right)$ gleichbedeutend mit
+$\mathrm{LFP}\left(\mathcal{L}\right)+\Upsilon$. Im folgenden werden
+wir allgemein die erste Bezeichnung verwenden, aber weiterhin $\mathrm{LFP}\left(\mathrm{FO}\right)+\Upsilon$
+durch $\mathrm{LFP}+\Upsilon$ abkürzen.
+\end{notation}
+\begin{defn}
+\textbf{Uniformität}
+
+Wir nennen ein $\eta$-Orakel \textbf{$\mathcal{K}$-uniform} (für
+eine Komplexitätsklasse $\mathcal{K}$) wenn die Berechnung der Repräsentation
+von $\Upsilon\left(n\right)$ bei Eingabe von $\overset{n}{\overbrace{1\cdots1}}$
+in $\mathcal{K}$ ist.
+
+Insbesondere sei $P$ die Klasse der $\mathrm{poly}\left(n\right)$-zeitbeschränkten,
+und $\mathrm{LOGSPACE}$ die Klasse der $\mathcal{O}\left(\log n\right)$-platzbeschränkten
+Turingmaschinen. $P/\mathrm{poly}$ sei die Klasse der $\mathrm{poly}\left(n\right)$-zeitbeschränkten
+Turingmaschinen, die eine $\mathrm{poly}\left(n\right)$-beschränkte
+Orakel-Eingabe erhalten.
+\end{defn}
+Wir definieren die folgenden drei numerischen Orakel für die reine
+Ordnung, für Arithmetik, und für nicht berechenbare Prädikate.
+\begin{defn}
+\textbf{\label{def:ord}}Sei $\mathbf{ORD}:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\emptyset\right)$
+ein $\emptyset$-Orakel, so dass das für $n\in\mathbb{N}$ die geordnete
+$\emptyset$-Struktur gilt: 
+\[
+\mathbf{ORD}\left(n\right)\coloneqq\left(\left[0,n\right],\leqslant_{\mid\left[0,n\right]}\right)\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\emptyset\right)
+\]
+\end{defn}
+
+\begin{defn}
+\textbf{\label{def:bit}}Sei $\mathbf{BIT}:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\left\{ \mathtt{BIT}\right\} \right)$
+ein $\left\{ \mathtt{BIT}\right\} $-Orakel, wobei das Prädikat $\mathtt{BIT}\left(a,b\right)$
+ausdrückt, dass das $b$te Bit der Binärdarstellung von $a$ den Wert
+$1$ hat. 
+\begin{eqnarray*}
+\mathcal{N}_{\mathrm{bit}} & \coloneqq & \left(\mathbb{N},\leqslant,\mathtt{BIT}^{\mathcal{N}}\right)\\
+\mathtt{BIT}^{\mathcal{N}} & \coloneqq & \left\{ \left(a,b\right)\in\mathbb{N}^{2}\mid a=\Sigma_{i=0}^{\left\lceil \log a\right\rceil }x_{i}2^{i},\,\bar{x}\in\left\{ 0,1\right\} ^{\left\lceil \log a\right\rceil },\,x_{b}=1\right\} \\
+\mathbf{BIT}\left(n\right) & \coloneqq & \left(\mathcal{N}_{\mathrm{bit}}\right)_{\mid\left[0,n\right]}\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\left\{ \mathtt{BIT}\right\} \right)
+\end{eqnarray*}
+\end{defn}
+
+\begin{defn}
+\label{def:arb}Sei $\eta_{\mathrm{arb}}=\left\{ R_{X}\mid X\in\bigcup_{k\in\mathbb{N}}2^{\mathbb{N}^{k}}\right\} $
+eine unendliche Signatur, die für jede beliebige Relation $X\subseteq\mathbb{N}^{k}$
+mit $k\in\mathbb{N}$ auf den natürlichen Zahlen ein Symbol $R_{X}/k$
+enthält, und sei $\mathcal{N}_{\mathrm{arb}}$ die $\eta_{\mathrm{arb}}$-Struktur
+über $\mathbb{N}$, die diese Symbole interpretiert. Dann sei $\mathbf{ARB}:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{0}\left(\eta_{\mathrm{arb}}\right)$
+ein $\eta_{\mathrm{arb}}$-Orakel, das die endlichen Anfangsstücke
+dieser Relationen ausgibt:
+\begin{eqnarray*}
+\mathcal{N}_{\mathrm{arb}} & \coloneqq & \left(\mathbb{N},\leqslant,\left(R_{X}\mapsto X\right)_{R_{X}\in\eta_{\mathrm{arb}}}\right)\\
+\mathbf{ARB}\left(n\right) & \coloneqq & \left(\mathcal{N}_{\mathrm{arb}}\right)_{\mid\left[0,n\right]}\in\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta_{\mathrm{arb}}\right)
+\end{eqnarray*}
+
+Hierbei ist leicht nachweisbar: $\mathbf{ORD}$ und $\mathbf{BIT}$
+sind $\mathrm{LOGSPACE}$-uniform, und $\mathbf{ARB}$ ist $P/\mathrm{poly}$-uniform.
+\end{defn}
+
+\subsection{Zähl-Erweiterungen}
+
+Wir führen mehrere syntaktische Erweiterungen der Logik $\mathrm{FO}+\Upsilon$
+ein, die es erlauben, erfüllende Belegungen einer Variable zu zählen:
+Den Zählterm $\#$, den Zählquantor $\exists^{=}$, und den Majority-Quantor
+$\exists^{\geqslant}$. Es wird nachgewiesen, dass alle drei Erweiterungen
+die gleiche Ausdrucksstärke modulo einem festen Zuwachs der Formellänge
+haben.
+\begin{defn}
+\textbf{Zählterm $\#$} (wie in \cite{AD2014}, und Abschnitt 8.4.2
+von \cite{EbbinghausFlum} für Fixpunktlogik)
+
+Der Zählterm ist eine zusätzliche Termproduktion, die die erfüllenden
+Belegungen einer Formel zählt.
+
+Sei $\mathcal{L}$ eine beliebige Logik, $\eta$ eine relationale
+Signatur, und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}\left(\eta\right)$
+ein $\eta$-Orakel.
+
+Die $\left(\mathcal{L}+\Upsilon+\#\right)$-Logik erweitert die $\left(\mathcal{L}+\Upsilon\right)$-Logik
+um die folgende Regel:
+
+\begin{labeling}{00.00.0000}
+\item [{(TC)}] Für eine $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$-Formel
+$\varphi$ und eine Variable $x\in\mathbf{var}$ ist $\#x\varphi$
+ein $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$-Term.
+\begin{eqnarray*}
+\mathrm{frei}\left(\#x\varphi\right) & \coloneqq & \mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \\
+\mathrm{var}\left(\#x\varphi\right) & \coloneqq & \mathrm{var}\left(\varphi\right)\cup\left\{ x\right\} 
+\end{eqnarray*}
+Auf einer endlichen Struktur $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+mit $n\in\mathbb{N}$ und einer Belegung 
+\[
+\beta:\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \rightarrow A\uplus\left[0,n\right]
+\]
+ sei 
+\[
+\left\llbracket \#x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\left|\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta\cup\binom{x}{a}}\right\} \right|
+\]
+die Anzahl der unterschiedlichen Werte $a\in A$, für die $\mathfrak{A}\models\varphi^{\beta\cup\binom{x}{a}}$
+gilt.
+\end{labeling}
+\end{defn}
+\begin{example*}
+Diese Erweiterung erlaubt die Definition vieler arithmetischer Operatoren
+durch Terme, wie zum Beispiel die positive Differenz:
+\begin{eqnarray*}
+t_{\mathrm{DIFF}}\left(x,y\right) & \coloneqq & \#_{z}\left(\neg z\leqslant x\wedge z\leqslant y\right)\\
+\left\llbracket t_{\mathrm{DIFF}}\right\rrbracket \left(\mathfrak{A},\left(a,b\right)\right) & = & \max\left(b-a,0\right)
+\end{eqnarray*}
+\end{example*}
+\begin{defn}
+\textbf{Zählquantor }$\exists^{=}$ (wie in \cite{Schweikardt:2005:AFL:1071596.1071602},
+hier aber mit einem disjunkten numerischen Universum)
+
+Der Zählquantor ist eine zusätzlicher Quantor, der die Zahl der erfüllenden
+Belegungen einer Formel mit einer Variable vergleicht.
+
+Sei $\mathcal{L}$ eine beliebige Logik, $\eta$ eine relationale
+Signatur, und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta\right)$
+ein $\eta$-Orakel.
+
+Die $\mathcal{L}+\Upsilon+\exists^{=}$-Logik erweitert die $\mathcal{L}+\Upsilon$-Logik
+um die folgende Regel:
+
+\begin{labeling}{00.00.0000}
+\item [{(QC)}] Für eine $\left(\mathcal{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel
+$\varphi$ und zwei Variablen $x,y\in\mathbf{var}$ ist $\exists^{=y}x\varphi$
+eine $\left(\mathcal{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel.
+\begin{eqnarray*}
+\mathrm{frei}\left(\exists^{=y}x\varphi\right) & \coloneqq & \left\{ y\right\} \cup\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right)\\
+\mathrm{var}\left(\exists^{=y}x\varphi\right) & \coloneqq & \mathrm{var}\left(\varphi\right)\cup\left\{ x,y\right\} 
+\end{eqnarray*}
+Auf einer endlichen Struktur $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+mit einer Belegung 
+\[
+\beta:\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right)\cup\left\{ y\right\} \rightarrow A\cup\left[0,n\right]
+\]
+gelte: 
+\[
+\left\llbracket \exists^{=y}x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\begin{cases}
+1 & \mathrm{falls}\,\,\beta y=\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta_{\backslash\left\{ x\right\} }\cup\binom{x}{a}}\right\} \\
+0 & \mathrm{sonst}
+\end{cases}
+\]
+\end{labeling}
+\end{defn}
+
+\begin{defn}
+\textbf{Majority-Quantor }$\exists^{\geqslant}$ (wie in \cite{EbbinghausFlum}
+Abschnitt 3.4, hier aber mit $\exists^{\geqslant x}$ für $x\in\mathbf{var}$
+anstelle von unendlich vielen Quantoren $\left(\exists^{\geqslant n}\right)_{n\in\mathbb{N}}$)
+
+Der Majority-Quantor funktioniert wie der Zählquantor und prüft, ob
+die Zahl der erfüllenden Belegungen mindestens den Wert einer Variable
+erreicht.
+
+Sei $\mathcal{L}$ eine beliebige Logik, $\eta$ eine relationale
+Signatur, und $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{\left[0,n\right]}\left(\eta\right)$
+ein $\eta$-Orakel.
+
+Die $\mathcal{L}+\Upsilon+\exists^{\geqslant}$-Logik erweitert die
+$\mathcal{L}+\Upsilon$-Logik um die folgende Regel:
+
+\begin{labeling}{00.00.0000}
+\item [{(QM)}] Für eine $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
+$\varphi$ und zwei Variablen $x,y\in\mathbf{var}$ ist $\exists^{\geqslant y}x\varphi$
+eine $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel.
+\begin{eqnarray*}
+\mathrm{frei}\left(\exists^{\geqslant y}x\varphi\right)=\left\{ y\right\} \cup\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right) &  & \mathrm{var}\left(\exists^{\geqslant y}x\varphi\right)=\mathrm{var}\left(\varphi\right)\cup\left\{ x,y\right\} 
+\end{eqnarray*}
+Auf einer endlichen Struktur $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+mit einer Belegung 
+\[
+\beta:\left(\mathrm{frei}\left(\varphi\right)\backslash\left\{ x\right\} \right)\cup\left\{ y\right\} \rightarrow A\cup\left[0,n\right]
+\]
+ gilt: 
+\[
+\left\llbracket \exists^{\geqslant y}x\varphi\right\rrbracket \left(\mathfrak{A},\beta\right)\coloneqq\begin{cases}
+1 & \mathrm{falls}\,\,\beta y\in\left[0,n\right],\,\beta y\leqslant\left\{ a\in A\mid\mathfrak{A}\models\varphi^{\beta_{\backslash\left\{ x\right\} }\cup\binom{x}{a}}\right\} \\
+0 & \mathrm{sonst}
+\end{cases}
+\]
+\end{labeling}
+\end{defn}
+\begin{prop}
+\label{prop:counting-equal}Die Logiken $\mathcal{L}+\Upsilon+\#$
+und $\mathcal{L}+\Upsilon+\exists^{=}$ und $\mathcal{L}+\Upsilon+\exists^{\geqslant}$
+sind äquivalent, modulo eines festen Zuwachses in $\left\Vert \varphi\right\Vert $
+und $\left|\mathrm{var}\left(\varphi\right)\right|$.
+\end{prop}
+\begin{proof}
+Jede $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$-Formel
+$\varphi$ ist äquivalent zu einer $\left(\mathcal{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel
+$\varphi'$. Dazu ersetzen wir jede ,,pseudo-atomare`` Teilformel,
+die einen Zählterm enthält, wie folgt:
+
+\begin{casenv}
+\item Falls $\varphi=y\dot{=}\#x\psi$ oder $\varphi=\#x\psi\dot{=}y$ für
+$x,y\in\mathbf{var}$, so sei $\varphi'\coloneqq\exists^{=y}x\psi'$.
+\item Falls $\varphi=\#x_{1}\psi_{1}\dot{=}\#x_{2}\psi_{2}$ für $x_{1},x_{2}\in\mathbf{var}$,
+so sei $y\in\mathbf{var}\backslash\left(\mathrm{frei}\left(\psi_{1}\right)\cup\mathrm{frei}\left(\psi_{2}\right)\right)$
+eine neue Variable, und
+\[
+\varphi'\coloneqq\exists y\left(\exists^{=y}x_{1}\psi_{1}'\wedge\exists^{=y}x_{2}\psi_{2}'\right)
+\]
+\item Falls $\varphi=R\bar{x}$ für $R/k\in\sigma\cup\eta\cup\left\{ \leqslant\right\} $
+und ein $k$-Tupel von $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$-Termen
+$\bar{x}$, so sei $\bar{y}\in\left(\mathbf{var}\backslash\bigcup_{i=1}^{k}\mathrm{frei}\left(x_{i}\right)\right)^{k}$
+ein Tupel von neuen Variablen, und:
+\begin{eqnarray*}
+\chi_{i} & \coloneqq & \begin{cases}
+\exists^{=y_{i}}z_{i}\psi_{i}' & \mathrm{falls}\,x_{i}=\#z_{i}\psi_{i}\\
+y_{i}=x_{i} & \mathrm{sonst}
+\end{cases}\\
+\varphi' & \coloneqq & \exists\bar{y}\left(R\bar{y}\wedge\bigwedge_{i=1}^{k}\chi_{i}\right)
+\end{eqnarray*}
+\end{casenv}
+Jede $\left(\mathcal{L}+\Upsilon+\exists^{=}\right)\left[\sigma\right]$-Formel
+$\varphi$ ist äquivalent zu einer $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
+$\varphi'$:
+
+\begin{casenv}
+\item Falls $\varphi=\exists^{=y}x\psi$, so sei $\psi'$ eine zu $\psi$
+äquivalente $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel,
+$z\in\mathbf{var}\backslash\mathrm{frei}\left(\psi\right)$ eine neue
+Variable, und: 
+\[
+\varphi'\coloneqq\forall z\left(\exists^{\geqslant z}x\psi'\leftrightarrow\left(z\leqslant y\right)\right)
+\]
+Die Formel $\exists^{=y}x\psi$ ist mit $\beta\left(y\right)\in\left[0,n\right]$
+erfüllt, genau dann wenn gilt: Die Formel $\exists^{\geqslant z}x\psi$
+ist für alle $\beta\left(z\right)\in\left[0,n\right]$ erfüllt, genau
+dann wenn $\beta\left(z\right)\leqslant\beta\left(y\right)$.
+\end{casenv}
+Schließlich ist jede $\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
+$\varphi$ äquivalent zu einer $\left(\mathcal{L}+\Upsilon+\#\right)\left[\sigma\right]$-Formel
+$\varphi'$:
+
+\begin{casenv}
+\item Falls $\varphi=\exists^{\geqslant y}x\psi$, so sei $\psi'$ eine
+$\left(\mathcal{L}+\Upsilon+\exists^{\geqslant}\right)\left[\sigma\right]$-Formel
+mit $\psi\equiv\psi'$, und:
+\[
+\varphi'\coloneqq y\leqslant\#x\psi
+\]
+\end{casenv}
+\end{proof}
+\begin{notation}
+Im folgenden wird mit $\mathcal{L}+\Upsilon+C$ stets eine dieser
+äquivalenten Zähl-Logiken bezeichnet. Die Logik $\mathcal{L}+\mathbf{ORD}+C$
+bezeichnen wir kurz als $\mathcal{L}+C$.
+\end{notation}
+\begin{example}
+Die Logik $\mathrm{FO}+C$ kann ausdrücken, dass die $\sigma$-Struktur
+eine gerade Größe hat. Bekanntlich ist diese $\sigma$-Eigenschaft
+weder durch $\mathrm{FO}$ auf geordneten, noch $\mathrm{LFP}$ auf
+ungeordneten Strukturen definierbar\cite{EbbinghausFlum,Libkin2012}:
+
+\[
+\varphi_{\mathrm{EVEN}}\coloneqq\exists y\,\left(y=\#_{z}\left(\neg z\leqslant y\wedge z\leqslant\#_{z}\,z=z\right)\right)
+\]
+\end{example}
+
+\subsection{Nicht-disjunkte Orakel}
+
+Eine alternative Erweiterung definiert über einer Struktur $\mathfrak{A}$
+eine beliebige Bijektion $\pi:\left[1,n\right]\rightleftarrows A$
+und interpretiert dann die numerischen Prädikate $R/k\in\eta$ über
+dem Universum der Struktur selbst. Diese Erweiterung bezeichnen wir
+(in Anlehnung an die disjunkte Erweiterung $\mathcal{L}+\Upsilon$,
+und die Konkatenation $\mathfrak{A}\oplus\mathfrak{B}$ von Strukturen
+mit dem gleichen Universum) mit $\mathcal{L}\oplus\Upsilon$.
+\begin{defn}
+\textbf{$\mathcal{L}\oplus\Upsilon$-Logik}
+
+Für eine relationale Signatur $\eta$, ein $\eta$-Orakel $\Upsilon:\mathbb{N}\rightarrow\mathbf{FIN}_{<}^{1}\left(\eta\right)$,
+eine von $\eta$ disjunkte relationale Signatur $\sigma$ und eine
+Logik $\mathcal{L}\left[\sigma\right]$ sei die Syntax von $\mathcal{L}\oplus\Upsilon\left[\sigma\right]$
+gleich der Syntax von $\mathcal{L}\left[\sigma\uplus\eta\uplus\left\{ \leqslant\right\} \right]$.
+
+Für $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ mit $n=\left|A\right|$
+sei $\pi:\left[1,n\right]\rightleftarrows A$ eine beliebige Bijektion.
+Sei $\mathfrak{A}_{\pi}\in\mathbf{FIN}\left(\sigma\uplus\eta\right)$
+definiert durch:
+\begin{eqnarray*}
+\mathfrak{A}_{\pi} & \coloneqq & \mathfrak{A}\oplus\pi\Upsilon\left(n\right)\\
+ & = & \left(A,\left(R^{\mathfrak{A}}\right)_{R\in\sigma},\left(\pi R^{\Upsilon\left(n\right)}\right)\right)
+\end{eqnarray*}
+
+Eine $k$-stellige $\mathcal{L}\oplus\Upsilon\left[\sigma\right]$-Formel
+$\varphi$ heiße \textbf{invariant}, wenn für jede Struktur $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$,
+jedes Paar von Bijektionen $\pi,\pi'\in\mathrm{Bij}\left(\left[1,\left|A\right|\right],A\right)$
+und jedes Tupel $\bar{a}\in A^{k}$ gilt:
+\begin{eqnarray*}
+\mathfrak{A}_{\pi}\models\varphi\left[\bar{a}\right] & \Longleftrightarrow & \mathfrak{A}_{\pi'}\models\varphi\left[\bar{a}\right]
+\end{eqnarray*}
+
+Wir bezeichnen mit $\mathrm{inv}\left(\mathcal{L}\oplus\Upsilon\right)\left[\sigma\right]$
+die Sprache der invarianten Formeln der $\left(\mathcal{L}\oplus\Upsilon\right)\left[\sigma\right]$-Logik.
+\end{defn}
+
+\begin{notation}
+Die Logik $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+mit dem Orakel $\mathbf{ARB}\left(n\right)\coloneqq\left(\mathcal{N}_{\mathrm{arb}}\right)_{\left[1,n\right]}$
+(mit $\mathcal{N}_{\mathrm{arb}}$ und $\eta_{\mathrm{arb}}$ wie
+in Definition \ref{def:arb}) bezeichnen wir auch als die ,,arb-invariante
+$\mathrm{FO}\left(\mathbf{ARB}\right)$-Logik`` in Anlehnung an \cite{Schweikardt13ashort,AMSS2012-locality}.
+\end{notation}
+Es ist zu beachten, dass die hier betrachteten Orakel-Strukturen das
+Universum $\left[1,n\right]$ haben, und nicht $\left[0,n\right]$.
+Dies schließt unter anderem die Zählterm-Erweiterung $\mathcal{L}\oplus\Upsilon+\#$
+aus, weil ein Zählterm nicht den Wert $0$ erhalten kann und seine
+Auswertung nicht vollständig definiert ist. Die Zählquantor-Erweiterungen
+$\mathcal{L}\oplus\Upsilon+\exists^{=}$ und $\mathcal{L}\oplus\Upsilon+\exists^{\geqslant}$
+haben dieses Problem nicht.
+
+Nach dem Satz von Trakhtenbrot ist die endlichen Erfüllbarkeit von
+$\mathrm{FO}\left[\leqslant\right]$ unentscheidbar, und daher auch
+die Invarianz und die Sprache $\mbox{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)\left[\sigma\right]$
+in $\mathrm{FO}\oplus\mathbf{ARB}\left[\sigma\right]$.\cite{EbbinghausFlumThomas,Libkin2012,Schweikardt13ashort} 

@@ -1,0 +1,46 @@
+
+\chapter{Ausblick}
+
+Wir haben in Kapitel 5 gesehen, dass logische Formeln der ersten Stufe
+mit beliebigen $\mathrm{LOGSPACE}$-berechenbaren disjunkten numerischen
+Erweiterungen (insbesondere $\mathbf{BIT}$) sich durch symmetrische
+$\mathrm{LOGSPACE}$-uniforme Schaltkreisfamilien beschreiben lassen. 
+
+Für die Fixpunkt-Logik $\mathrm{LFP}$ mit $P$-berechenbaren numerischen
+Prädikaten haben wir die gleiche Reduktion auf symmetrische $P$-uniforme
+Schaltkreisfamilien gezeigt. In beiden Fällen konnte ein Zählquantor
+durch Hinzunahme von Majority-Gates ausgedrückt werden, und beliebige
+Erweiterungen (insbesondere $\mathbf{ARB}$) durch Ausweitung auf
+$P/\mathrm{poly}$-Uniformität.
+
+In Kapitel 7 haben wir gesehen, dass sich symmetrische, $P$-uniforme
+Schaltkreisfamilien umgekehrt durch Fixpunkt-Logik mit disjunkter
+Ordnungserweiterung definieren lassen. Auch hier wurde das Majority-Gate
+auf einen Zählquantor abgebildet, und die $P/\mathrm{poly}$-uniforme
+Schaltkreisklasse durch die $\mathbf{ARB}$-Erweiterung definiert.
+
+Für die Logik der ersten Stufe haben wir dann den Kreis geschlossen
+und Schaltkreise konstanter Tiefe auf $\mathrm{FO}+\mathbf{BIT}$
+reduziert. Die Erweiterung auf $\mathrm{P/\mathrm{poly}}$ und $\mathrm{FO}+\mathbf{ARB}$
+funktionierte problemlos analog zu der Fixpunkt-Logik, die Zähl-Erweiterung
+$\mathrm{FO}+C$ jedoch nicht.
+
+Zum Schluss haben wir in Kapitel 8 nachgewiesen, dass die symmetrischen
+Schaltkreisfamilien (zumindest bei konstanter Tiefe) echt weniger
+ausdrücken können als die allgemein invarianten Schaltkreisfamilien.
+Dazu wurde der Satz von Hanf verwendet, und gezeigt, dass die Logik
+$\mathrm{FO}+\mathbf{ARB}$ modulo der Struktur-Größe Hanf-lokal ist,
+während dies für die arb-invariante Logik $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+nicht allgemein gilt \cite{AnMeScSe11}.
+
+Vermutlich gelten ähnliche Beziehungen auch für die symmetrischen
+Teile der übrigen Schaltkreisklassen $\mathrm{SBC}$, $\mathrm{AC}^{0}+\mathbf{MAJ}$
+und $\mathrm{SBC}+\mathbf{MAJ}$. Ein Lokalitäts-Beweis bietet sich
+hier aber vermutlich nicht an, denn insbesondere wäre die im letzten
+Kapitel definierte Anfrage bereits in $\mathrm{FO}+\mathbf{BIT}+C$
+definierbar:
+\begin{eqnarray*}
+\varphi & \coloneqq & \exists x\left(\exists^{=x}y\exists z\,\left(Eyz\vee Ezy\right)\wedge\exists x_{\max}\left(\log_{\leqslant}\left(x,x_{\max}\right)\wedge\forall y\left(x_{\max}\leqslant y\rightarrow x_{\max}=y\right)\right)\right)\\
+\log_{\leqslant} & \coloneqq & \left\{ \left(m,n\right)\in\mathbb{N}^{2}\mid2^{m}\leqslant n\right\} 
+\end{eqnarray*}
+
