@@ -476,7 +476,7 @@ die jedem Symbol eine Relation der entsprechenden Stelligkeit zuweist.
 Daher kann die Interpretation gegebenenfalls auch explizit durch $\mathfrak{A}=\left(A,\square^{\mathfrak{A}}\right)$
 notiert werden, um die Zuordnung von Symbolen und Relationen zu verdeutlichen:
 \[
-\mathfrak{A}:=\left(A,\left(\begin{array}{c}
+\mathfrak{A}\coloneqq\left(A,\left(\begin{array}{c}
 R_{1}\\
 R_{1}^{\mathfrak{A}}
 \end{array}\cdots\begin{array}{c}
@@ -4184,7 +4184,6 @@ ist äquivalent zu der folgenden Relation:
 q_{\mathcal{C}}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\mathrm{ex.}\,\bar{t}\in U^{k}\,\mathrm{mit}\,\bar{a}\in\bar{\mathrm{EV}}\left(\Omega\left(\bar{t}\right)\right)\right\} 
 \]
 
-\pagebreak{}
 
 \section{Kodierung durch Fixpunktlogik}
 
@@ -4341,7 +4340,7 @@ j\in\left[1,d\right]
 
 Für $\Sigma\left(g\right)\in\left\{ \mathtt{AND},\mathtt{OR},\mathtt{NOT}\right\} $
 müssen wir über alle Vorgänger $h$ von $g$ und alle zu der gegebenen
-Abbildung $\pi:=\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{a}\right)$
+Abbildung $\pi\coloneqq\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{a}\right)$
 passenden Abbildungen $\pi'\in\bar{\mathrm{Red}}\left(\pi,h\right)$
 quantifizieren, und diese mit dem entsprechenden Operator aggregieren:
 \begin{eqnarray*}
@@ -4384,7 +4383,7 @@ Reduktion auf den einstelligen Zählquantor:
 \begin{prop}
 \textbf{\label{prop:kary-counting}Grädel und Otto (1993)\cite{Gradel:1992:IDC:647842.736402}}
 
-Jede Formel der $\mathrm{LFP}+C^{k}$ mit $k$-stelligen Zählquantoren
+Jede Formel der $\mathrm{LFP}+C^{k}$-Logik mit $k$-stelligen Zählquantoren
 ist auch in $\mathrm{LFP}+C$ ausdrückbar. 
 \end{prop}
 Die Formel $\psi_{\mathrm{eval}}$ wird daher bedenkenlos mit dem

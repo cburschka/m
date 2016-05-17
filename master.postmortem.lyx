@@ -1609,7 +1609,7 @@ Wir formalisieren die Interpretation als eine Abbildung
  
 \begin_inset Formula 
 \[
-\mathfrak{A}:=\left(A,\left(\begin{array}{c}
+\mathfrak{A}\coloneqq\left(A,\left(\begin{array}{c}
 R_{1}\\
 R_{1}^{\mathfrak{A}}
 \end{array}\cdots\begin{array}{c}
@@ -17177,13 +17177,6 @@ q_{\mathcal{C}}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{a}\in A^{k}\mid\ma
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Newpage pagebreak
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Kodierung durch Fixpunktlogik
 \end_layout
@@ -17822,7 +17815,7 @@ Für
 \end_inset
 
  und alle zu der gegebenen Abbildung 
-\begin_inset Formula $\pi:=\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{a}\right)$
+\begin_inset Formula $\pi\coloneqq\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{a}\right)$
 \end_inset
 
  passenden Abbildungen 
@@ -17961,7 +17954,7 @@ Jede Formel der
 \begin_inset Formula $\mathrm{LFP}+C^{k}$
 \end_inset
 
- mit 
+-Logik mit 
 \begin_inset Formula $k$
 \end_inset
 
