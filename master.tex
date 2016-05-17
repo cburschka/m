@@ -184,11 +184,11 @@ Schaltkreisfamilien $\mathrm{SBC}^{P}$ äquivalent zu der Logik erster
 Stufe mit Fixpunkt-Operator und disjunktem Ordnungsprädikat $\mathrm{FP}+\mathbf{ORD}$.
 Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar\cite{AD2014}
 veröffentlicht (nach einem verwandten Ergebnis für infinitäre Logik
-und unbeschränkt große Schaltkreise von Martin Otto in 1997\cite{Otto1997}),
-und bildet die Grundlage dieser Arbeit.
+und lokal polynomiell beschränkte Schaltkreise von Martin Otto in
+1997\cite{Otto1997}), und bildet die Grundlage dieser Arbeit.
 
 Die logische Zählerweiterung $\mathrm{FP}+C$ charakterisiert die
-$P$-uniforme Schaltkreisklasse $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}$
+symmetrische $P$-uniforme Schaltkreisklasse $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}$
 mit einem Majority-Gate, und die Erweiterung der Logik um beliebige
 numerische Prädikate $\mathrm{FP}+\mathbf{ARB}$ charakterisiert die
 $P/\mathrm{poly}$-uniforme Klasse $\mathrm{SBC}^{P/\mathrm{poly}}$.
@@ -214,8 +214,7 @@ nachgewiesen.
 Strukturen äquivalent:
 \begin{enumerate}
 \item $\mathrm{FO}+\mathbf{BIT}$ und $\left(\mathrm{SAC}^{0}\right)^{\mathrm{LOGSPACE}}$
-\item $\mathrm{FO}+\mathbf{BIT}+C$ und $\left(\mathrm{SAC}^{0}+\mathbf{MAJ}\right)^{\mathrm{LOGSPACE}}$
-\item $\mathrm{FO}+\mathbf{ARB}$ und $\left(\mathrm{SAC}^{0}+\mathbf{MAJ}\right)^{P/\mathrm{poly}}$
+\item $\mathrm{FO}+\mathbf{ARB}$ und $\left(\mathrm{SAC}^{0}\right)^{P/\mathrm{poly}}$
 \end{enumerate}
 \end{thm}
 Die Einschränkung auf symmetrische Schaltkreisfamilien bringt im Allgemeinen
@@ -2952,12 +2951,12 @@ leitet für diese Schaltkreisfamilien eine Charakterisierung durch
 das variablen-beschränkte Fragment der infinitären Logik ($L_{\infty\omega}^{\omega}$)
 her.
 
-Das Ergebnis von Anderson und Dawar 2014\cite{AD2014} betrachtet
-symmetrische Schaltkreisfamilien mit polynomieller Größe (und daher
-automatisch polynomiell beschränkten Orbits). Hier wird für jedes
-Gate nachgewiesen, dass sein Wert nur von $\mathcal{O}\left(1\right)$
-vielen Elementen des Universums $U$ abhängt, und daraus eine Charakterisierung
-durch die Fixpunktlogik abgeleitet.
+Anderson und Dawar betrachten in \cite{AD2014} symmetrische Schaltkreisfamilien
+mit polynomieller Größe (und daher automatisch polynomiell beschränkten
+Orbits). Hier wird für jedes Gate nachgewiesen, dass sein Wert nur
+von $\mathcal{O}\left(1\right)$ vielen Elementen des Universums $U$
+abhängt, und daraus eine Charakterisierung durch die Fixpunktlogik
+abgeleitet.
 
 Hierfür werden zunächst die Begriffe der Partition, des Stabilisators
 und des Trägers eingeführt.
@@ -4427,8 +4426,11 @@ $\mathrm{LFP}+\mathbf{ORD}$-Logik Arithmetik unterstützt:
 \psi_{\mathrm{succ}}\left(x,y\right) & \coloneqq & \neg y\leqslant x\wedge\forall z\left(z\leqslant x\vee y\leqslant z\right)\\
 \varphi_{\mathrm{succ}}\left(\bar{x}\bar{y}\right) & \coloneqq & \bigvee_{i=1}^{k}\bigwedge_{j=1}^{i-1}x_{i}=y_{i}\wedge\psi_{\mathrm{succ}}\left(x_{i},y_{i}\right)\wedge\bigwedge_{j=i+1}^{k}\left(x_{j}=\mathbf{n}\wedge y_{j}=\mathbf{0}\right)\\
 \varphi_{+}\left(\bar{x}\bar{y}\bar{z}\right) & \coloneqq & \left[\mathrm{lfp}_{X\bar{u}\bar{v}}\left(\bar{u}=\bar{\mathbf{0}}\wedge\bar{v}=\bar{x}\right)\vee\left(X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\wedge\varphi_{\mathrm{succ}}\left(\bar{v}'\bar{v}\right)\right)\right]\left(\bar{y}\bar{z}\right)\\
-\varphi_{\times}\left(\bar{x}\bar{y}\bar{z}\right) & \coloneqq & \left[\mathrm{lfp}_{X\bar{u}\bar{v}}\left(\bar{u}\bar{v}=\bar{\mathbf{0}}\right)\vee\left(X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\wedge\varphi_{+}\left(\bar{v}'\bar{x}\bar{v}\right)\right)\right]\left(\bar{y}\bar{z}\right)
+\varphi_{\times}\left(\bar{x}\bar{y}\bar{z}\right) & \coloneqq & \left[\mathrm{lfp}_{X\bar{u}\bar{v}}\left(\bar{u}\bar{v}=\bar{\mathbf{0}}\right)\vee\left(X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\wedge\varphi_{+}\left(\bar{v}'\bar{x}\bar{v}\right)\right)\right]\left(\bar{y}\bar{z}\right)\\
+\varphi_{\exp}\left(\bar{x}\bar{y}\bar{z}\right) & \coloneqq & \left[\mathrm{lfp}_{X\bar{u}\bar{v}}\left(\bar{u}\bar{v}=\bar{\mathbf{1}}\right)\vee\left(X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\wedge\varphi_{\times}\left(\bar{v}'\bar{x}\bar{v}\right)\right)\right]\left(\bar{y}\bar{z}\right)
 \end{eqnarray*}
+
+
 Für eine Formel $\psi\left(\bar{x}\bar{u}\bar{y}\right)$, die mit
 einem Parameter $\bar{x}$ eine Funktion $q:\left[0,n^{c}\right]\rightarrow\left[0,n^{c}\right]$
 mit $\mathfrak{A}\models\psi\left[\bar{a},f_{W}\left(i\right)f_{W}\left(q_{i}\right)\right]$
@@ -4442,6 +4444,26 @@ X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\\
 \]
 
 
+Wir möchten gerne die erfüllenden Belegungen für $\left(\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\dot{y}\right)\right)$
+zählen. Leider benötigen wir dafür einen $k$-stelligen Zählquantor
+$\exists^{=\bar{m}}\bar{y}$, den die Definition der Zählerweiterung
+$\mathcal{L}+\Upsilon+C$ nicht zulässt. Speziell in der Fixpunktlogik
+(selbst mit disjunkter numerischer Erweiterung) gibt es eine Reduktion
+auf den einstelligen Zählquantor:
+\begin{prop}
+\textbf{\label{prop:kary-counting}Grädel und Otto (1993)\cite{Gradel:1992:IDC:647842.736402}}
+
+Jede Formel der $\mathrm{LFP}+C^{k}$ mit $k$-stelligen Zählquantoren
+ist auch in $\mathrm{LFP}+C$ ausdrückbar. 
+\end{prop}
+Die Formel $\psi_{\mathrm{eval}}$ wird daher bedenkenlos mit dem
+Quantor $\exists^{=\bar{m}}\bar{y}$ geschrieben:
+
+\[
+\psi_{\mathrm{eval}}\left(\bar{u}\bar{x}\bar{v}\bar{m}\right)\coloneqq\exists^{=\bar{m}}\bar{y}\left(\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\right)
+\]
+
+
 Nun definieren wir die Operation des $\mathtt{MAJ}$-Gates wie folgt.
 Hierbei zählt $\psi_{\mathrm{eval}}$ die passenden, erfüllenden Belegungen
 eines Vorgängers; $\psi_{\mathrm{weight}}$ multipliziert diese mit
@@ -4451,7 +4473,6 @@ Schließlich prüft $\psi_{\mathtt{MAJ}}$, ob die gewichtete Summe
 aller erfüllenden Belegungen mindestens die Hälfte der gewichteten
 Summe aller passenden Belegungen erreicht. 
 \begin{eqnarray*}
-\psi_{\mathrm{eval}}\left(\bar{u}\bar{x}\bar{v}\bar{m}\right) & \coloneqq & \bar{m}=\#\bar{y}\left(\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\right)\\
 \psi_{\mathrm{weight}}\left(\bar{u}\bar{x}\bar{v}\bar{n}\right) & \coloneqq & \exists\bar{m}\exists\bar{w}\left(\varphi_{W}\left(\bar{v}\bar{u}\bar{w}\right)\wedge\psi_{\mathrm{eval}}\left(\bar{u}\bar{v}\bar{x}\bar{m}\right)\wedge\varphi_{\times}\left(\bar{m}\bar{w}\bar{n}\right)\right)\\
 \psi_{\mathrm{count}}\left(\bar{u}\bar{x}\bar{v}\bar{m}\right) & \coloneqq & \bar{m}=\#\bar{y}\,\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\\
 \psi_{\mathrm{total}}\left(\bar{u}\bar{x}\bar{v}\bar{n}\right) & \coloneqq & \exists\bar{m}\exists\bar{w}\left(\varphi_{W}\left(\bar{v}\bar{u}\bar{w}\right)\wedge\psi_{\mathrm{total}}\left(\bar{u}\bar{v}\bar{x}\bar{m}\right)\wedge\varphi_{\times}\left(\bar{m}\bar{w}\bar{n}\right)\right)\\
@@ -4644,6 +4665,8 @@ Kodierung von Zahlen, so dass für $\bar{g},\bar{h},\bar{w}\in\left[0,n\right]^{
 \[
 \varphi_{W}'\left(\bar{h}\bar{g}\right)\coloneqq\exists\bar{n}\left(\varphi_{W}\left(\bar{h}\bar{g}\bar{n}\right)\wedge\exists x\bigvee_{i=1}^{c}\neg n_{i}\leqslant x\right)
 \]
+
+
 Da auch die Algorithmen \ref{alg:aut} und \ref{alg:orbits} in $\mathrm{LOGSPACE}$
 den Automorphismus und die Träger und Orbits berechnen, existiert
 eine $\mathrm{FO}+\mathbf{BIT}$-Formel $\varphi_{\mathrm{sp}}\left(\bar{u}x\right)$,
@@ -4695,6 +4718,21 @@ j\in\left[1,d\right]
 Damit wird die Auswertung jedes Schaltkreises $\mathcal{C}_{n}$ durch
 die Formel $\varphi$ definiert, und das Lemma \ref{lem:ac0-fo} ist
 bewiesen.
+
+Für Schaltkreise mit Majority-Gates wird problematisch, dass wir die
+Reduktion aus Satz \ref{prop:kary-counting} nicht zur Verfügung haben.
+Es existiert zwar eine ähnliche Reduktion für $\mathrm{FO}$; bei
+dieser handelt es sich allerdings um die nicht-disjunkte Erweiterung.
+\begin{prop}
+\textbf{Barrington et al. (1990)\cite{Mix-Barrington:1990:UWN:95665.95674},
+Schweikardt (2005)}\cite{Schweikardt:2005:AFL:1071596.1071602}
+
+Jede Formel der $\mathrm{FO}+C^{k}$-Logik mit $k$-stelligen Zählquantoren
+kann durch eine Formel der Logik $\mathrm{FO}\left(\mathbf{BIT}\right)+C$
+ausgedrückt werden.
+\end{prop}
+Eine Reduktion auf die disjunkte $\mathrm{FO}+\mathbf{BIT}+C$-Logik
+scheint (wenn sie existiert) nicht trivial.
 
 
 \chapter{Grenzen der symmetrischen Schaltkreisklassen}
@@ -4774,20 +4812,20 @@ Dann gilt: $\mathfrak{A}\equiv_{m}\mathfrak{B}$ (siehe Definition
 Es existiert eine Graph-Anfrage $q$, die in $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$-definierbar
 ist, aber nicht in $\mathrm{FO}+\mathbf{ARB}$ beschreibbar ist.\end{lem}
 \begin{proof}
-Sei $C\subseteq\mathbf{FIN}\left(\left\{ E\right\} \right)$ die Klasse
-der Graphen $\mathfrak{A}=\left(A,E^{\mathfrak{A}}\right)$ für die
-gilt: $A$ enthält höchstens $\left\lceil \mathrm{log}\left|A\right|\right\rceil $
+Sei $C\subseteq\mathbf{FIN}\left(E\right)$ die Klasse der Graphen
+$\mathfrak{A}=\left(A,E^{\mathfrak{A}}\right)$ für die gilt: $A$
+enthält höchstens $\left\lceil \mathrm{log}\left|A\right|\right\rceil $
 viele nicht-isolierte Knoten.
 
-Diese Anfrage ist durch einen $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)\left[\left\{ E\right\} \right]$-Satz
+Diese Anfrage ist durch einen $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)\left[E\right]$-Satz
 definierbar (siehe dazu Abschnitt 4.4 von \cite{AMSS2012-locality}).
 \begin{assumption*}
-Es existiere ein beliebiger $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[\left\{ E\right\} \right]$-Satz
+Es existiere ein beliebiger $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[E\right]$-Satz
 $\varphi_{C}$, der die Anfrage $q_{C}$ definiere.
 \end{assumption*}
 Sei $m\coloneqq\mathrm{qr}\left(\varphi_{C}\right)$ der Quantorenrang
 von $\varphi_{C}$, und o.B.d.A. sei $m\geqslant9$. Wir definieren
-die folgenden Graphen $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}^{\left(2^{m^{m}}\right)}\left(\left\{ E\right\} \right)$
+die folgenden Graphen $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}^{\left(2^{m^{m}}\right)}\left(E\right)$
 (siehe Abbildung \ref{fig:m-equiv}):
 \begin{eqnarray*}
 A,B & \coloneqq & \left[1,2^{m^{m}}\right]\\
@@ -4919,17 +4957,43 @@ $\textsc{Even}$ nicht Hanf-lokal.)
 
 \chapter{Ausblick}
 
-Wir haben den Beweis im letzten Abschnitt über den Satz von Hanf formuliert,
-und somit gezeigt, dass die Logik $\mathrm{FO}+\mathbf{ARB}$ modulo
-der Struktur-Größe Hanf-lokal ist, während dies für die arb-invariante
+Wir haben in Kapitel 5 gesehen, dass logische Formeln der ersten Stufe
+mit beliebigen $\mathrm{LOGSPACE}$-berechenbaren disjunkten numerischen
+Erweiterungen (insbesondere $\mathbf{BIT}$) sich durch symmetrische
+$\mathrm{LOGSPACE}$-uniforme Schaltkreisfamilien beschreiben lassen. 
+
+Für die Fixpunkt-Logik $\mathrm{LFP}$ mit $P$-berechenbaren numerischen
+Prädikaten haben wir die gleiche Reduktion auf symmetrische $P$-uniforme
+Schaltkreisfamilien gezeigt. In beiden Fällen konnte ein Zählquantor
+durch Hinzunahme von Majority-Gates ausgedrückt werden, und beliebige
+Erweiterungen (insbesondere $\mathbf{ARB}$) durch Ausweitung auf
+$P/\mathrm{poly}$-Uniformität.
+
+In Kapitel 7 haben wir gesehen, dass sich symmetrische, $P$-uniforme
+Schaltkreisfamilien umgekehrt durch Fixpunkt-Logik mit disjunkter
+Ordnungserweiterung definieren lassen. Auch hier wurde das Majority-Gate
+auf einen Zählquantor abgebildet, und die $P/\mathrm{poly}$-uniforme
+Schaltkreisklasse durch die $\mathbf{ARB}$-Erweiterung definiert.
+
+Für die Logik der ersten Stufe haben wir dann den Kreis geschlossen
+und Schaltkreise konstanter Tiefe auf $\mathrm{FO}+\mathbf{BIT}$
+reduziert. Die Erweiterung auf $\mathrm{P/\mathrm{poly}}$ und $\mathrm{FO}+\mathbf{ARB}$
+funktionierte problemlos analog zu der Fixpunkt-Logik, die Zähl-Erweiterung
+$\mathrm{FO}+C$ jedoch nicht.
+
+Zum Schluss haben wir in Kapitel 8 nachgewiesen, dass die symmetrischen
+Schaltkreisklassen (zumindest bei konstanter Tiefe) echt weniger ausdrücken
+können als die allgemein invarianten Schaltkreisfamilien. Dazu wurde
+der Satz von Hanf verwendet, und gezeigt, dass die Logik $\mathrm{FO}+\mathbf{ARB}$
+modulo der Struktur-Größe Hanf-lokal ist, während dies für die arb-invariante
 Logik $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$ nicht
 allgemein gilt \cite{AnMeScSe11}.
 
 Vermutlich gelten ähnliche Beziehungen auch für die symmetrischen
 Teile der übrigen Schaltkreisklassen $\mathrm{SBC}$, $\mathrm{AC}^{0}+\mathbf{MAJ}$
-und $\mathrm{SBC}+\mathbf{MAJ}$. Ein Beweis über die Hanf-Lokalität
-bietet sich hier aber vermutlich nicht an, denn insbesondere wäre
-die im letzten Abschnitt definierte Klasse in $\mathrm{FO}+\mathbf{ARB}+C$
+und $\mathrm{SBC}+\mathbf{MAJ}$. Ein Lokalitäts-Beweis bietet sich
+hier aber vermutlich nicht an, denn insbesondere wäre die im letzten
+Kapitel definierte Anfrage bereits in $\mathrm{FO}+\mathbf{BIT}+C$
 definierbar:
 \begin{eqnarray*}
 \varphi & \coloneqq & \exists x\left(\exists^{=x}y\exists z\,\left(Eyz\vee Ezy\right)\wedge\exists x_{\max}\left(\log_{\leqslant}\left(x,x_{\max}\right)\wedge\forall y\left(x_{\max}\leqslant y\rightarrow x_{\max}=y\right)\right)\right)\\

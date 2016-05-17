@@ -265,7 +265,7 @@ key "AD2014"
 \end_inset
 
  veröffentlicht (nach einem verwandten Ergebnis für infinitäre Logik und
- unbeschränkt große Schaltkreise von Martin Otto in 1997
+ lokal polynomiell beschränkte Schaltkreise von Martin Otto in 1997
 \begin_inset CommandInset citation
 LatexCommand cite
 key "Otto1997"
@@ -280,7 +280,7 @@ Die logische Zählerweiterung
 \begin_inset Formula $\mathrm{FP}+C$
 \end_inset
 
- charakterisiert die 
+ charakterisiert die symmetrische 
 \begin_inset Formula $P$
 \end_inset
 
@@ -406,22 +406,11 @@ Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen äquivalen
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $\mathrm{FO}+\mathbf{BIT}+C$
-\end_inset
-
- und 
-\begin_inset Formula $\left(\mathrm{SAC}^{0}+\mathbf{MAJ}\right)^{\mathrm{LOGSPACE}}$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Enumerate
 \begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
 \end_inset
 
  und 
-\begin_inset Formula $\left(\mathrm{SAC}^{0}+\mathbf{MAJ}\right)^{P/\mathrm{poly}}$
+\begin_inset Formula $\left(\mathrm{SAC}^{0}\right)^{P/\mathrm{poly}}$
 \end_inset
 
 
@@ -11472,15 +11461,15 @@ key "Otto1997"
 \end_layout
 
 \begin_layout Standard
-Das Ergebnis von Anderson und Dawar 2014
+Anderson und Dawar betrachten in 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "AD2014"
 
 \end_inset
 
- betrachtet symmetrische Schaltkreisfamilien mit polynomieller Größe (und
- daher automatisch polynomiell beschränkten Orbits).
+ symmetrische Schaltkreisfamilien mit polynomieller Größe (und daher automatisch
+ polynomiell beschränkten Orbits).
  Hier wird für jedes Gate nachgewiesen, dass sein Wert nur von 
 \begin_inset Formula $\mathcal{O}\left(1\right)$
 \end_inset
@@ -17475,11 +17464,16 @@ Für die
 \psi_{\mathrm{succ}}\left(x,y\right) & \coloneqq & \neg y\leqslant x\wedge\forall z\left(z\leqslant x\vee y\leqslant z\right)\\
 \varphi_{\mathrm{succ}}\left(\bar{x}\bar{y}\right) & \coloneqq & \bigvee_{i=1}^{k}\bigwedge_{j=1}^{i-1}x_{i}=y_{i}\wedge\psi_{\mathrm{succ}}\left(x_{i},y_{i}\right)\wedge\bigwedge_{j=i+1}^{k}\left(x_{j}=\mathbf{n}\wedge y_{j}=\mathbf{0}\right)\\
 \varphi_{+}\left(\bar{x}\bar{y}\bar{z}\right) & \coloneqq & \left[\mathrm{lfp}_{X\bar{u}\bar{v}}\left(\bar{u}=\bar{\mathbf{0}}\wedge\bar{v}=\bar{x}\right)\vee\left(X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\wedge\varphi_{\mathrm{succ}}\left(\bar{v}'\bar{v}\right)\right)\right]\left(\bar{y}\bar{z}\right)\\
-\varphi_{\times}\left(\bar{x}\bar{y}\bar{z}\right) & \coloneqq & \left[\mathrm{lfp}_{X\bar{u}\bar{v}}\left(\bar{u}\bar{v}=\bar{\mathbf{0}}\right)\vee\left(X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\wedge\varphi_{+}\left(\bar{v}'\bar{x}\bar{v}\right)\right)\right]\left(\bar{y}\bar{z}\right)
+\varphi_{\times}\left(\bar{x}\bar{y}\bar{z}\right) & \coloneqq & \left[\mathrm{lfp}_{X\bar{u}\bar{v}}\left(\bar{u}\bar{v}=\bar{\mathbf{0}}\right)\vee\left(X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\wedge\varphi_{+}\left(\bar{v}'\bar{x}\bar{v}\right)\right)\right]\left(\bar{y}\bar{z}\right)\\
+\varphi_{\exp}\left(\bar{x}\bar{y}\bar{z}\right) & \coloneqq & \left[\mathrm{lfp}_{X\bar{u}\bar{v}}\left(\bar{u}\bar{v}=\bar{\mathbf{1}}\right)\vee\left(X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\wedge\varphi_{\times}\left(\bar{v}'\bar{x}\bar{v}\right)\right)\right]\left(\bar{y}\bar{z}\right)
 \end{eqnarray*}
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 Für eine Formel 
 \begin_inset Formula $\psi\left(\bar{x}\bar{u}\bar{y}\right)$
 \end_inset
@@ -17510,6 +17504,88 @@ Für eine Formel
 X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\\
 \wedge\psi\left(\bar{x}\bar{u}\bar{y}\right)\wedge\varphi_{+}\left(\bar{v}'\bar{y}\bar{v}\right)
 \end{array}\right)\right]\left(\bar{\mathbf{n}}\bar{z}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wir möchten gerne die erfüllenden Belegungen für 
+\begin_inset Formula $\left(\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\dot{y}\right)\right)$
+\end_inset
+
+ zählen.
+ Leider benötigen wir dafür einen 
+\begin_inset Formula $k$
+\end_inset
+
+-stelligen Zählquantor 
+\begin_inset Formula $\exists^{=\bar{m}}\bar{y}$
+\end_inset
+
+, den die Definition der Zählerweiterung 
+\begin_inset Formula $\mathcal{L}+\Upsilon+C$
+\end_inset
+
+ nicht zulässt.
+ Speziell in der Fixpunktlogik (selbst mit disjunkter numerischer Erweiterung)
+ gibt es eine Reduktion auf den einstelligen Zählquantor:
+\end_layout
+
+\begin_layout Proposition
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:kary-counting"
+
+\end_inset
+
+Grädel und Otto (1993)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Gradel:1992:IDC:647842.736402"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+Jede Formel der 
+\begin_inset Formula $\mathrm{LFP}+C^{k}$
+\end_inset
+
+ mit 
+\begin_inset Formula $k$
+\end_inset
+
+-stelligen Zählquantoren ist auch in 
+\begin_inset Formula $\mathrm{LFP}+C$
+\end_inset
+
+ ausdrückbar.
+ 
+\end_layout
+
+\begin_layout Standard
+Die Formel 
+\begin_inset Formula $\psi_{\mathrm{eval}}$
+\end_inset
+
+ wird daher bedenkenlos mit dem Quantor 
+\begin_inset Formula $\exists^{=\bar{m}}\bar{y}$
+\end_inset
+
+ geschrieben:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\psi_{\mathrm{eval}}\left(\bar{u}\bar{x}\bar{v}\bar{m}\right)\coloneqq\exists^{=\bar{m}}\bar{y}\left(\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\right)
 \]
 
 \end_inset
@@ -17554,7 +17630,6 @@ Nun definieren wir die Operation des
  
 \begin_inset Formula 
 \begin{eqnarray*}
-\psi_{\mathrm{eval}}\left(\bar{u}\bar{x}\bar{v}\bar{m}\right) & \coloneqq & \bar{m}=\#\bar{y}\left(\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\right)\\
 \psi_{\mathrm{weight}}\left(\bar{u}\bar{x}\bar{v}\bar{n}\right) & \coloneqq & \exists\bar{m}\exists\bar{w}\left(\varphi_{W}\left(\bar{v}\bar{u}\bar{w}\right)\wedge\psi_{\mathrm{eval}}\left(\bar{u}\bar{v}\bar{x}\bar{m}\right)\wedge\varphi_{\times}\left(\bar{m}\bar{w}\bar{n}\right)\right)\\
 \psi_{\mathrm{count}}\left(\bar{u}\bar{x}\bar{v}\bar{m}\right) & \coloneqq & \bar{m}=\#\bar{y}\,\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\\
 \psi_{\mathrm{total}}\left(\bar{u}\bar{x}\bar{v}\bar{n}\right) & \coloneqq & \exists\bar{m}\exists\bar{w}\left(\varphi_{W}\left(\bar{v}\bar{u}\bar{w}\right)\wedge\psi_{\mathrm{total}}\left(\bar{u}\bar{v}\bar{x}\bar{m}\right)\wedge\varphi_{\times}\left(\bar{m}\bar{w}\bar{n}\right)\right)\\
@@ -18388,6 +18463,10 @@ Hierbei sei
 
 \end_inset
 
+
+\end_layout
+
+\begin_layout Standard
 Da auch die Algorithmen 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -18580,6 +18659,70 @@ reference "lem:ac0-fo"
 \end_inset
 
  ist bewiesen.
+\end_layout
+
+\begin_layout Standard
+Für Schaltkreise mit Majority-Gates wird problematisch, dass wir die Reduktion
+ aus Satz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:kary-counting"
+
+\end_inset
+
+ nicht zur Verfügung haben.
+ Es existiert zwar eine ähnliche Reduktion für 
+\begin_inset Formula $\mathrm{FO}$
+\end_inset
+
+; bei dieser handelt es sich allerdings um die nicht-disjunkte Erweiterung.
+\end_layout
+
+\begin_layout Proposition
+
+\series bold
+Barrington et al.
+ (1990)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Mix-Barrington:1990:UWN:95665.95674"
+
+\end_inset
+
+, Schweikardt (2005)
+\series default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Schweikardt:2005:AFL:1071596.1071602"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+Jede Formel der 
+\begin_inset Formula $\mathrm{FO}+C^{k}$
+\end_inset
+
+-Logik mit 
+\begin_inset Formula $k$
+\end_inset
+
+-stelligen Zählquantoren kann durch eine Formel der Logik 
+\begin_inset Formula $\mathrm{FO}\left(\mathbf{BIT}\right)+C$
+\end_inset
+
+ ausgedrückt werden.
+\end_layout
+
+\begin_layout Standard
+Eine Reduktion auf die disjunkte 
+\begin_inset Formula $\mathrm{FO}+\mathbf{BIT}+C$
+\end_inset
+
+-Logik scheint (wenn sie existiert) nicht trivial.
 \end_layout
 
 \begin_layout Chapter
@@ -18972,7 +19115,7 @@ Es existiert eine Graph-Anfrage
 
 \begin_layout Proof
 Sei 
-\begin_inset Formula $C\subseteq\mathbf{FIN}\left(\left\{ E\right\} \right)$
+\begin_inset Formula $C\subseteq\mathbf{FIN}\left(E\right)$
 \end_inset
 
  die Klasse der Graphen 
@@ -18992,7 +19135,7 @@ Sei
 
 \begin_layout Proof
 Diese Anfrage ist durch einen 
-\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)\left[\left\{ E\right\} \right]$
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)\left[E\right]$
 \end_inset
 
 -Satz definierbar (siehe dazu Abschnitt 4.4 von 
@@ -19008,7 +19151,7 @@ key "AMSS2012-locality"
 \begin_deeper
 \begin_layout Assumption*
 Es existiere ein beliebiger 
-\begin_inset Formula $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[\left\{ E\right\} \right]$
+\begin_inset Formula $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[E\right]$
 \end_inset
 
 -Satz 
@@ -19039,7 +19182,7 @@ Sei
 
 .
  Wir definieren die folgenden Graphen 
-\begin_inset Formula $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}^{\left(2^{m^{m}}\right)}\left(\left\{ E\right\} \right)$
+\begin_inset Formula $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}^{\left(2^{m^{m}}\right)}\left(E\right)$
 \end_inset
 
  (siehe Abbildung 
@@ -19701,8 +19844,97 @@ Ausblick
 \end_layout
 
 \begin_layout Standard
-Wir haben den Beweis im letzten Abschnitt über den Satz von Hanf formuliert,
- und somit gezeigt, dass die Logik 
+Wir haben in Kapitel 5 gesehen, dass logische Formeln der ersten Stufe mit
+ beliebigen 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+-berechenbaren disjunkten numerischen Erweiterungen (insbesondere 
+\begin_inset Formula $\mathbf{BIT}$
+\end_inset
+
+) sich durch symmetrische 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+-uniforme Schaltkreisfamilien beschreiben lassen.
+ 
+\end_layout
+
+\begin_layout Standard
+Für die Fixpunkt-Logik 
+\begin_inset Formula $\mathrm{LFP}$
+\end_inset
+
+ mit 
+\begin_inset Formula $P$
+\end_inset
+
+-berechenbaren numerischen Prädikaten haben wir die gleiche Reduktion auf
+ symmetrische 
+\begin_inset Formula $P$
+\end_inset
+
+-uniforme Schaltkreisfamilien gezeigt.
+ In beiden Fällen konnte ein Zählquantor durch Hinzunahme von Majority-Gates
+ ausgedrückt werden, und beliebige Erweiterungen (insbesondere 
+\begin_inset Formula $\mathbf{ARB}$
+\end_inset
+
+) durch Ausweitung auf 
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+-Uniformität.
+\end_layout
+
+\begin_layout Standard
+In Kapitel 7 haben wir gesehen, dass sich symmetrische, 
+\begin_inset Formula $P$
+\end_inset
+
+-uniforme Schaltkreisfamilien umgekehrt durch Fixpunkt-Logik mit disjunkter
+ Ordnungserweiterung definieren lassen.
+ Auch hier wurde das Majority-Gate auf einen Zählquantor abgebildet, und
+ die 
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+-uniforme Schaltkreisklasse durch die 
+\begin_inset Formula $\mathbf{ARB}$
+\end_inset
+
+-Erweiterung definiert.
+\end_layout
+
+\begin_layout Standard
+Für die Logik der ersten Stufe haben wir dann den Kreis geschlossen und
+ Schaltkreise konstanter Tiefe auf 
+\begin_inset Formula $\mathrm{FO}+\mathbf{BIT}$
+\end_inset
+
+ reduziert.
+ Die Erweiterung auf 
+\begin_inset Formula $\mathrm{P/\mathrm{poly}}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+ funktionierte problemlos analog zu der Fixpunkt-Logik, die Zähl-Erweiterung
+ 
+\begin_inset Formula $\mathrm{FO}+C$
+\end_inset
+
+ jedoch nicht.
+\end_layout
+
+\begin_layout Standard
+Zum Schluss haben wir in Kapitel 8 nachgewiesen, dass die symmetrischen
+ Schaltkreisklassen (zumindest bei konstanter Tiefe) echt weniger ausdrücken
+ können als die allgemein invarianten Schaltkreisfamilien.
+ Dazu wurde der Satz von Hanf verwendet, und gezeigt, dass die Logik 
 \begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
 \end_inset
 
@@ -19736,10 +19968,9 @@ Vermutlich gelten ähnliche Beziehungen auch für die symmetrischen Teile
 \end_inset
 
 .
- Ein Beweis über die Hanf-Lokalität bietet sich hier aber vermutlich nicht
- an, denn insbesondere wäre die im letzten Abschnitt definierte Klasse in
- 
-\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}+C$
+ Ein Lokalitäts-Beweis bietet sich hier aber vermutlich nicht an, denn insbesond
+ere wäre die im letzten Kapitel definierte Anfrage bereits in 
+\begin_inset Formula $\mathrm{FO}+\mathbf{BIT}+C$
 \end_inset
 
  definierbar:
