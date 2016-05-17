@@ -188,11 +188,11 @@ und unbeschränkt große Schaltkreise von Martin Otto in 1997\cite{Otto1997}),
 und bildet die Grundlage dieser Arbeit.
 
 Die logische Zählerweiterung $\mathrm{FP}+C$ charakterisiert die
-Schaltkreisklasse $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}$ mit
-einem Majority-Gate, und die Erweiterung der Logik um beliebige numerische
-Prädikate $\mathrm{FP}+\mathbf{ARB}$ charakterisiert die nicht-uniforme
-Klasse $\mathrm{SBC}^{P/\mathrm{poly}}$. Diese beiden Erweiterungen
-sind miteinander kombinierbar.
+$P$-uniforme Schaltkreisklasse $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}$
+mit einem Majority-Gate, und die Erweiterung der Logik um beliebige
+numerische Prädikate $\mathrm{FP}+\mathbf{ARB}$ charakterisiert die
+$P/\mathrm{poly}$-uniforme Klasse $\mathrm{SBC}^{P/\mathrm{poly}}$.
+Diese beiden Erweiterungen sind miteinander kombinierbar.
 \begin{thm}
 \textbf{\label{thm:fp}Anderson und Dawar (2014)}
 
@@ -200,7 +200,7 @@ Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen
 äquivalent:
 \begin{enumerate}
 \item $\mathrm{FP}+\mathbf{ORD}$ und $\mathrm{SBC}^{P}$
-\item $\mathrm{FP}+C$ und $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}$
+\item $\mathrm{FP}+\mathbf{ORD}+C$ und $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}$
 \item $\mathrm{FP}+\mathbf{ARB}$ und $\mathrm{SBC}^{P/\mathrm{poly}}$
 \end{enumerate}
 \end{thm}
@@ -1435,13 +1435,17 @@ Als Beispiel seien die folgenden booleschen Junktoren gegeben:
 \mathtt{AND} & \coloneqq & \left\{ 0\right\} \times\mathbb{N}\\
 \mathtt{OR} & \coloneqq & \mathbb{N}\times\left(\mathbb{N}\backslash\left\{ 0\right\} \right)\\
 \mathtt{MAJ} & \coloneqq & \left\{ \left(m,n\right)\in\mathbb{N}\times\mathbb{N}\mid m\leqslant n\right\} \\
-\mathtt{XOR} & \coloneqq & \mathbb{N}\times\left(\mathbb{N}\backslash2\mathbb{N}\right)
+\mathtt{XOR} & \coloneqq & \mathbb{N}\times\left(\mathbb{N}\backslash2\mathbb{N}\right)\\
+\mathtt{NOR} & \coloneqq & \mathbb{N}\times\left\{ 0\right\} \\
+\mathtt{NAND} & \coloneqq & \left(\mathbb{N}\backslash\left\{ 0\right\} \right)\times\mathbb{N}
 \end{eqnarray*}
 
 
 Im folgenden stehe $\mathbb{B}_{\mathrm{std}}\coloneqq\left\{ \mathtt{AND},\mathtt{OR}\right\} $
 für die Basis mit boolescher Konjunktion und Disjunktion, und $\mathbb{B}_{\mathrm{maj}}\coloneqq\mathbb{B}_{\mathrm{std}}\cup\left\{ \mathtt{MAJ}\right\} $
-für die Basis mit Konjunktion, Disjunktion und Majority.
+für die Basis mit Konjunktion, Disjunktion und Majority. Zu beachten
+ist, dass wir $\mathtt{NOT}$ nicht in die boolesche Basis aufnehmen,
+da es als unärer Operator ein Spezialfall ist.)
 \end{defn}
 
 \begin{defn}
@@ -2777,11 +2781,11 @@ für alle $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$ gilt.
 \end{lem}
 In Kombination mit dem Rest dieses Kapitels folgt dann:
 \begin{eqnarray*}
-\mathrm{LFP}+\mathbf{ORD} & \subseteq & \mathrm{SBC}^{P}\\
+\mathrm{LFP}+\mathbf{BIT} & \subseteq & \mathrm{SBC}^{P}\\
 \mathrm{LFP}+\mathbf{ARB} & \subseteq & \mathrm{SBC}^{P/\mathrm{poly}}
 \end{eqnarray*}
 \begin{eqnarray*}
-\mathrm{LFP}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}\\
+\mathrm{LFP}+\mathbf{BIT}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}\\
 \mathrm{LFP}+\mathbf{ARB}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P/\mathrm{poly}}
 \end{eqnarray*}
 
@@ -3748,10 +3752,10 @@ gelten.
 \label{lem:algo-auto}(nach Lemma 25 aus \cite{AD2014})
 
 Es existiert ein deterministischer Algorithmus, der bei Eingabe eines
-rigiden $\left(\sigma,\mathbb{B}\right)$-Multischaltkreises $\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$
+$\left(\sigma,\mathbb{B}\right)$-Multischaltkreises $\mathcal{C}=\left(G,\mathcal{W},\Sigma,\Omega,U\right)$
 und einer Permutation $\pi\in\mathrm{Sym}_{U}$ in $\mathrm{poly}\left(\left|\mathcal{C}\right|\right)$-Zeit
 für jedes Gate $g\in G$ das Gate $\hat{\pi}g$ ausgibt, falls $\pi$
-einen Automorphismus $\hat{\pi}$ induziert.\end{lem}
+einen eindeutigen Automorphismus $\hat{\pi}$ induziert.\end{lem}
 \begin{proof}
 Analog zu dem Beweis von Lemma \ref{lem:rigide-eindeutig} wird gezeigt,
 dass der eindeutige Automorphismus in Polynomialzeit bestimmt wird:
@@ -3797,11 +3801,20 @@ Input:~$\left(G,W,\Sigma,\Omega,U\right)$,~$k$,~$\pi$.
 
 Main:
 \begin{lyxcode}
-Für~$g,g'\in G$:
+Für~$g\in G$:
 \begin{lyxcode}
+Für~$g'\in G$:
+\begin{lyxcode}
+$X\leftarrow\textsc{False}$
+
 Falls~Aut($g,g'$):
 \begin{lyxcode}
+Falls~$X=\textsc{True}$:~$\hat{\pi}$~ist~nicht~eindeutig;~Abbruch.
+
 Gib~$\hat{\pi}\left(g\right)=g'$~aus.
+
+$X\leftarrow\textsc{True}$
+\end{lyxcode}
 \end{lyxcode}
 \end{lyxcode}
 \end{lyxcode}
@@ -4239,8 +4252,10 @@ um die Auswertung jedes Schaltkreises durch eine Formel der Fixpunktlogik
 zu definieren.
 \begin{lem}
 Sei $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine $k$-stellige,
-rigide, symmetrische, $P$-uniforme $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$-Multischaltkreisfamilie.
-Es existiert eine $\left(\mathrm{LFP}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
+symmetrische, $P$-uniforme $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie.
+Für $\mathbb{B}=\mathbb{B}_{\mathrm{std}}$ existiert eine $\left(\mathrm{LFP}+\mathbf{ORD}\right)\left[\sigma\right]$-Formel
+$\varphi$ (beziehungsweise für $\mathbb{B}=\mathbb{B}_{\mathrm{maj}}$
+eine $\left(\mathrm{LFP}+\mathbf{ORD}+C\right)\left[\sigma\right]$-Formel
 $\varphi$, so dass für $n\in\mathbb{N}$ und $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 die Formel $\varphi\left(\bar{x}\right)$ die gleiche Anfrage definiert
 wie $\mathcal{C}_{n}$:
@@ -4252,12 +4267,16 @@ q_{\mathcal{C}_{n}}\left(\mathfrak{A}\right)=q_{\varphi}\left(\mathfrak{A}\right
 \end{lem}
 In diesem Abschnitt wird hauptsächlich die Folgerung aus Abschnitt
 4.4 von \cite{AD2014} übernommen.
-\begin{proof}
-Da die Schaltkreisfamilie von einer $P$-Turingmaschine berechnet
-wird, existiert nach dem Immerman-Vardi-Theorem\cite{Vardi:1982:CRQ:800070.802186,IMMERMAN198686}
-und Lemma \ref{lem:algo-rigid} eine Sammlung von $\mathrm{LFP}\left[\left\{ \leqslant\right\} \right]$-Formeln
-$\Phi$, die auf der Struktur $\mathbf{ORD}\left(n\right)=\left(\left[0,n\right],\leqslant_{\left[0,n\right]}\right)$
-ausgewertet den Schaltkreis $\mathcal{C}_{n}$ beschreiben:
+
+
+\subsection{\label{sub:circuit-def}Definition des Schaltkreises}
+
+Wenn die Schaltkreisfamilie (inklusive der rigiden Umformung) von
+einer $P$-Turingmaschine berechnet wird, existiert nach dem Immerman-Vardi-Theorem\cite{Vardi:1982:CRQ:800070.802186,IMMERMAN198686}
+und Lemma \ref{lem:algo-rigid} eine Sammlung von $\left(\mathrm{LFP}+\mathbf{ORD}\right)\left[\sigma\right]$-Formeln
+$\Phi$, die auf einer Struktur $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+ausgewertet den Schaltkreis $\mathcal{C}_{n}$ beschreiben.
+
 \[
 \Phi\coloneqq\left(\varphi_{G},\varphi_{\mathcal{W}},\varphi_{\Omega},\left(\varphi_{\phi}\right)_{\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} },\left(\varphi_{R}\right)_{R\in\sigma}\right)
 \]
@@ -4269,128 +4288,422 @@ definiert werden. Wir befassen uns nur mit den Schaltkreisen $\left(\mathcal{C}_
 so dass $\left|\mathcal{C}_{n}\right|\leqslant n^{c}$.
 
 Sei $f_{G}:G\rightarrow\left[1,n\right]^{c}$ eine geeignete Kodierung
-der höchstens $n^{c}$ Gates von $\mathcal{C}_{n}$, und $f_{W}:\left[1,n^{c}\right]\rightarrow\left[1,n\right]^{c}$
+der höchstens $n^{c}$ Gates von $\mathcal{C}_{n}$, und $f_{W}:\left[0,n^{c}\right]\rightarrow\left[0,n\right]^{c}$
 eine Kodierung von Zahlen, so dass für $\bar{g},\bar{h},\bar{w}\in\left[0,n\right]^{c}$
 gilt:
 \begin{eqnarray*}
-\mathbf{ORD}\left(n\right)\models\varphi_{G}\left[\bar{g}\right] & \Leftrightarrow & f_{G}^{-1}\bar{g}\in G\\
-\mathbf{ORD}\left(n\right)\models\varphi_{W}\left[\bar{h}\bar{g}\bar{w}\right] & \Leftrightarrow & \mathcal{W}\left(f_{G}^{-1}\bar{h},f_{G}^{-1}\bar{g}\right)=f_{W}^{-1}\bar{w}\\
-\mathbf{ORD}\left(n\right)\models\varphi_{\Omega}\left[\bar{t}\bar{g}\right] & \Leftrightarrow & \Omega\bar{t}=f_{G}^{-1}\bar{g}\\
+\mathfrak{A}\models\varphi_{G}\left[\bar{g}\right] & \Leftrightarrow & f_{G}^{-1}\bar{g}\in G\\
+\mathfrak{A}\models\varphi_{W}\left[\bar{h}\bar{g}\bar{w}\right] & \Leftrightarrow & \mathcal{W}\left(f_{G}^{-1}\bar{h},f_{G}^{-1}\bar{g}\right)=f_{W}^{-1}\bar{w}\\
+\mathfrak{A}\models\varphi_{\Omega}\left[\bar{t}\bar{g}\right] & \Leftrightarrow & \Omega\bar{t}=f_{G}^{-1}\bar{g}\\
  &  & \mathrm{f\ddot{u}r}\,\bar{t}\in\left[1,n\right]^{k}\\
-\mathbf{ORD}\left(n\right)\models\varphi_{\phi}\left[\bar{g}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\bar{g}\right)=\phi\\
+\mathfrak{A}\models\varphi_{\phi}\left[\bar{g}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\bar{g}\right)=\phi\\
  &  & \mathrm{f\ddot{u}r}\,\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} \\
-\mathbf{ORD}\left(n\right)\models\varphi_{R}\left[\bar{g}\bar{x}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\bar{g}\right)=R\bar{x}\\
+\mathfrak{A}\models\varphi_{R}\left[\bar{g}\bar{x}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\bar{g}\right)=R\bar{x}\\
  &  & \mathrm{f\ddot{u}r}\,R/m\in\sigma,\,\bar{x}\in\left[1,n\right]^{m}
 \end{eqnarray*}
-
-
-Per Korollar \ref{cor:korollar-23} ist $\left|\mathrm{sp}\left(g\right)\right|\leqslant\mathrm{sp}\left(\mathcal{C}_{n}\right)=d$.
-Wir füllen alle Relationen $\bar{\mathrm{EV}}\left(g\right)$ auf
-eine einheitliche Länge $d$ auf:
+Nur für ein $\mathtt{MAJ}$-Gate $g$ benötigen wir die genaue Vielfachheit
+der Kante $\left(h,g\right)$. Der Einfachheit halber definieren wir
+daher die Formel $\varphi_{W}'$, die nur prüft, ob $\mathcal{W}\left(h,g\right)>0$.
 \[
-\overline{\mathrm{EV}}\left(g\right)\coloneqq\left\{ \bar{a}\in A^{d}\mid\left(a_{1},\cdots,a_{\left|\mathrm{sp}\left(g\right)\right|}\right)\in\bar{\mathrm{EV}}\left(g\right),\,a_{i}\neq a_{j}\,\,\mathrm{f.a.}\,\,1\leqslant i<j\leqslant d\right\} 
+\varphi_{W}'\left(\bar{h}\bar{g}\right)\coloneqq\exists\bar{n}\left(\varphi_{W}\left(\bar{h}\bar{g}\bar{n}\right)\wedge\exists x\bigvee_{i=1}^{c}\neg n_{i}\leqslant x\right)
 \]
 
 
-Nun definieren wir die Relation $\mathrm{EVAL}\subseteq\left[0,n\right]^{c}\times A^{d}$,
-so dass $\bar{g}\bar{a}\in\mathrm{EVAL}$ genau dann $\bar{g}=f_{G}g$
+Nach Lemma \ref{lem:algo-orb} ist die Bestimmung der Trägermengen
+$\mathrm{sp}\left(g\right)$ und Orbits in $P$. Daher existiert auch
+eine $\mathrm{LFP}+\mathbf{ORD}\left[\sigma\right]$-Formel $\varphi_{\mathrm{sp}}$,
+so dass gilt:
+\begin{eqnarray*}
+\mathfrak{A}\models\varphi_{\mathrm{sp}}\left[\bar{g}u\right] & \Leftrightarrow & \mathfrak{A}\models\varphi_{G}\left[\bar{g}\right]\,\mathrm{und}\,u\in\mathrm{sp}\left(g\right)\\
+ &  & \mathrm{f.a.}\,\bar{g}u\in\left[1,n\right]^{c+1}
+\end{eqnarray*}
+Ferner existieren für $i\in\left[0,d\right]$ die Formeln $\varphi_{\mathrm{size},i}$,
+die Größe von $\mathrm{sp}\left(g\right)$ mit $i$ vergleichen:
+\[
+\mathfrak{A}\models\varphi_{\mathrm{size},i}\left[\bar{g}\right]\Leftrightarrow\left|\mathrm{sp}\left(g\right)\right|=i
+\]
+
+
+Schließlich definieren wir die Ordnung der Elemente $\bar{\mathrm{sp}}\left(g\right)$
+mit den folgenden Formeln (hier sind $\bar{g},u,v,w\in\mathbf{var}$
+Variablen):
+\begin{eqnarray*}
+\varphi_{\mathrm{sp},1}\left(\bar{g}u\right) & \coloneqq & \varphi_{\mathrm{sp}}\left(\bar{g}u\right)\wedge\forall v\left(\varphi_{\mathrm{sp}}\left(\bar{g}u\right)\rightarrow u\leqslant v\right)\\
+\varphi_{\mathrm{sp},i+1}\left(\bar{g}u\right) & \coloneqq & \varphi_{\mathrm{sp}}\left(\bar{g}u\right)\wedge\exists v\left(\neg\left(\varphi_{\mathrm{sp},i}\left(\bar{g}v\right)\rightarrow u\leqslant v\right)\wedge\forall w\left(\varphi_{\mathrm{sp}}\left(\bar{g}w\right)\rightarrow\left(w\leqslant v\vee u\leqslant w\right)\right)\right)
+\end{eqnarray*}
+
+
+
+\subsection{\label{sub:circuit-eval}Auswertung des Schaltkreises}
+
+Per Korollar \ref{cor:korollar-23} ist $\left|\mathrm{sp}\left(g\right)\right|\leqslant\mathrm{sp}\left(\mathcal{C}_{n}\right)=d$.
+Wir füllen alle Relationen $\bar{\mathrm{EV}}\left(g\right)$ mit
+,,$0$`` auf eine einheitliche Länge $d$ auf. (Unsere Definition
+der $\mathrm{LFP}+\mathbf{ORD}$-Logik verwendet im Gegensatz zu \cite{AD2014}
+nur einen Variablentyp, so dass jede Variable $x\in\mathbf{var}$
+mit einem Wert $\beta\left(x\right)\in A\uplus\left[0,n\right]$ belegt
+werden kann.) 
+\[
+\overline{\mathrm{EV}}\left(g\right)\coloneqq\left\{ \bar{a}'\mid\bar{a}'\in\bar{\mathrm{EV}}\left(g\right)\times\left\{ 0\right\} ^{d-\left|\mathrm{sp}\left(g\right)\right|}\right\} 
+\]
+
+
+Wir definieren die Relation $\mathrm{EVAL}\subseteq\left[0,n\right]^{c}\times\left(A\uplus\left\{ 0\right\} \right)^{d}$
+definieren, so dass $\bar{g}\bar{a}\in\mathrm{EVAL}$ genau dann $\bar{g}=f_{G}g$
 und $\bar{a}\in\overline{\mathrm{EV}}\left(g\right)$, beziehungsweise
 $\left(a_{1},\cdots,a_{\left|\mathrm{sp}\left(g\right)\right|}\right)\in\bar{\mathrm{EV}}\left(g\right)$.
 \[
 \mathrm{EVAL}\coloneqq\left\{ \left(f_{G}g\right)\bar{a}\mid g\in G,\,\bar{a}\in\overline{\mathrm{EV}}\left(g\right)\right\} 
 \]
-
-
-Nach Lemma \ref{lem:algo-orb} ist die Bestimmung der Trägermengen
-$\mathrm{sp}\left(g\right)$ und Orbits in $P$. Daher existiert eine
-$\mathrm{LFP}\left[\left\{ \leqslant\right\} \right]$-Formel $\varphi_{\mathrm{sp}}$,
-so dass gilt:
+Als erstes müssen wir für ein Tupel $\bar{a}\in\left(A\uplus\left[0,n\right]\right)^{d}$
+und ein Gate $g$ prüfen, ob es eine gültige Abbildung von $\pi:\mathrm{sp}\left(g\right)\rightarrow A$
+repräsentiert. Dafür müssen wir die Größe von $\left|\mathrm{sp}\left(g\right)\right|$
+bestimmen, die Injektivität des Tupels $\left(a_{1},\cdots,a_{\left|\mathrm{sp}\left(g\right)\right|}\right)\in A^{\left|\mathrm{sp}\left(g\right)\right|}$
+prüfen, und für den Rest des Tupels $\left(a_{\left|\mathrm{sp}\left(g\right)\right|+1},\cdots,a_{d}\right)=\bar{0}$
+sicherstellen. 
 \begin{eqnarray*}
-\mathbf{ORD}\left(n\right)\models\varphi_{\mathrm{sp}}\left(\bar{g}u\right) & \Leftrightarrow & \mathbf{ORD}\left(n\right)\models\varphi_{G}\left[\bar{g}\right]\,\mathrm{und}\,u\in\mathrm{sp}\left(g\right)\\
- &  & \mathrm{f.a.}\,\bar{g}u\in\left[1,n\right]^{c+1}
-\end{eqnarray*}
-Ferner definieren wir die Ordnung der Elemente $\bar{\mathrm{sp}}\left(g\right)$
-mit den folgenden Formeln:
-\begin{eqnarray*}
-\varphi_{\mathrm{sp},1}\left(\bar{x}y\right) & \coloneqq & \varphi_{\mathrm{sp}}\left(\bar{x}y\right)\wedge\forall z\left(\varphi_{\mathrm{sp}}\left(\bar{x}z\right)\rightarrow y\leqslant z\right)\\
-\varphi_{\mathrm{sp},i+1}\left(\bar{x}y\right) & \coloneqq & \varphi_{\mathrm{sp}}\left(\bar{x}y\right)\wedge\exists z\left(\neg\left(\varphi_{\mathrm{sp},i}\left(\bar{x}z\right)\rightarrow y\leqslant z\right)\wedge\forall z'\left(\varphi_{\mathrm{sp}}\left(\bar{x}z'\right)\rightarrow\left(z'\leqslant z\vee y\leqslant z'\right)\right)\right)
+\varphi_{A}\left(x\right) & \coloneqq & \neg\exists y\,x\leqslant y\\
+\varphi_{0}\left(x\right) & \coloneqq & \forall y\,\left(\neg\varphi_{A}\left(y\right)\rightarrow x\leqslant y\right)\\
+\varphi_{\mathrm{valid},k}\left(\bar{x}\right) & \coloneqq & \bigwedge_{1\leqslant i<j\leqslant k}\left(\varphi_{A}\left(x_{i}\right)\wedge\neg x_{i}=x_{j}\right)\bigwedge_{i\in\left[k+1,d\right]}\varphi_{0}\left(x_{i}\right)\\
+\varphi_{\mathrm{valid}}\left(\bar{g}\bar{x}\right) & \coloneqq & \bigwedge_{i\in\left[0,d\right]}\left(\varphi_{\mathrm{size},i}\left(\bar{g}\right)\rightarrow\varphi_{\mathrm{valid},i}\left(\bar{x}\right)\right)
 \end{eqnarray*}
 
 
-Für die Konsistenz von zwei Belegungen $\pi_{1}\coloneqq\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{a}\right)$
-und $\pi_{2}\coloneqq\left(\bar{\mathrm{sp}}\left(h\right)\mapsto\bar{b}\right)$
-definieren wir die folgende $\mathrm{LFP}+\mathbf{ORD}$-Formel, die
-für $\beta\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)$ entscheidet,
-ob für die Abbildungen $\pi_{1}\coloneqq\left(\bar{\mathrm{sp}}\left(f_{G}^{-1}\beta\bar{u}\right)\mapsto\beta\bar{x}\right)$
-und $\pi_{2}\coloneqq\left(\bar{\mathrm{sp}}\left(f_{G}^{-1}\beta\bar{v}\right)\mapsto\beta\bar{y}\right)$
-gilt, dass $\pi_{1}\sim_{\mathrm{sp}\left(g\right)\cap\mathrm{sp}\left(h\right)}\pi_{2}$.
+Nun definieren wir die folgende $\mathrm{LFP}+\mathbf{ORD}$-Formel
+$\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)$, die für
+eine Belegung $\beta$ entscheidet, ob für die Gates $g=f_{G}^{-1}\beta\bar{u}$
+und $h=f_{G}^{-1}\beta\bar{v}$ die Abbildungen $\pi_{1}\coloneqq\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\beta\bar{x}\right)$
+und $\pi_{2}\coloneqq\left(\bar{\mathrm{sp}}\left(h\right)\mapsto\beta\bar{y}\right)$
+gültig und mit $\pi_{1}\sim_{\mathrm{sp}\left(g\right)\cap\mathrm{sp}\left(h\right)}\pi_{2}$
+zwischen den Gates $g$ und $h$ konsistent sind. 
 \begin{eqnarray*}
-\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right) & \coloneqq & \bigwedge_{i,j\in\left[1,k\right]}\forall w\left(\left(\varphi_{\mathrm{sp},i}\left(\bar{u}w\right)\wedge\varphi_{\mathrm{sp},j}\left(\bar{v}w\right)\right)\rightarrow x_{i}=y_{j}\right)\\
+\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right) & \coloneqq & \varphi_{\mathrm{valid}}\left(\bar{u}\bar{x}\right)\wedge\varphi_{\mathrm{valid}}\left(\bar{v}\bar{y}\right)\\
+ &  & \wedge\bigwedge_{i,j\in\left[1,k\right]}\forall w\left(\left(\varphi_{\mathrm{sp},i}\left(\bar{u}w\right)\wedge\varphi_{\mathrm{sp},j}\left(\bar{v}w\right)\right)\rightarrow x_{i}=y_{j}\right)\\
  &  & \wedge\bigwedge_{i,j\in\left[1,k\right]}\forall w_{1}\forall w_{2}\left(\left(\varphi_{\mathrm{sp},i}\left(\bar{u}w_{1}\right)\wedge\varphi_{\mathrm{sp},j}\left(\bar{v}w_{2}\right)\wedge x_{i}=y_{j}\right)\rightarrow w_{1}=w_{2}\right)
 \end{eqnarray*}
 
 
-Zuletzt konstruieren wir die $\mathrm{LFP}+\mathbf{ORD}\left[\sigma\right]$-Formeln,
-die die Relation $\mathrm{EVAL}$ rekursiv definieren.
+Zuletzt konstruieren wir die $\mathrm{LFP}+\mathbf{ORD}\left[\sigma\right]$-Formeln
+$\psi_{s}\left(\bar{u}\bar{x}\right)$, die für eine Belegung $\beta$
+mit $f_{G}^{-1}\beta\left(\bar{g}\right)=g$ und $\Sigma\left(g\right)=s$
+beziehungsweise $s=R$ und $\Sigma\left(g\right)=R\bar{t}$ entscheiden,
+ob $\beta\left(\bar{u}\bar{v}\right)\subseteq\mathrm{EVAL}$. Die
+Formeln für $\mathbf{0}$ und $\mathbf{1}$ sind trivial: 
 \begin{eqnarray*}
 \psi_{\mathbf{0}}\left(\bar{u}\bar{x}\right) & \coloneqq & \neg x_{1}=x_{1}\\
-\psi_{\mathbf{1}}\left(\bar{u}\bar{x}\right) & \coloneqq
+\psi_{\mathbf{1}}\left(\bar{u}\bar{x}\right) & \coloneqq & x_{1}=x_{1}
+\end{eqnarray*}
+Für relationale Inputs mit $\Sigma\left(g\right)=R\bar{t}$ müssen
+wir mit der Formel $\varphi_{R}\left(\bar{u}\bar{x}\right)$ die Beschriftung
+$\bar{t}\in U^{\mathrm{ar}\left(R\right)}$ bestimmen, das Tupel $\pi\bar{t}=\bar{a}\in A^{\mathrm{ar}\left(R\right)}$
+finden, dass auf die gegebene Abbildung $\pi\coloneqq\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\beta\bar{x}\right)$
+passt, und dann prüfen ob $\bar{a}\in R^{\mathfrak{A}}$ ist. 
+\begin{eqnarray*}
+\psi_{R}\left(\bar{u}\bar{x}\bar{y}\right) & \coloneqq & \exists\bar{y}\exists\bar{z}\left(\varphi_{R}\left(\bar{u}\bar{y}\right)\wedge R\bar{z}\wedge\bigwedge_{\substack{i\in\left[1,k\right]\\
+j\in\left[1,d\right]
+}
+}\varphi_{\mathrm{sp},j}\left(\bar{u}y_{i}\right)\rightarrow z_{i}=x_{j}\right)\\
+ &  & \mathrm{f\ddot{u}r}\,R/k\in\sigma
 \end{eqnarray*}
 
-\end{proof}
-\pagebreak{}
+
+Für $\Sigma\left(g\right)\in\left\{ \mathtt{AND},\mathtt{OR},\mathtt{NOT}\right\} $
+müssen wir über alle Vorgänger $h$ von $g$ und alle zu der gegebenen
+Abbildung $\pi:=\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{a}\right)$
+passenden Abbildungen $\pi'\in\bar{\mathrm{Red}}\left(\pi,h\right)$
+quantifizieren, und diese mit dem entsprechenden Operator aggregieren:
+\begin{eqnarray*}
+\psi_{\mathtt{OR}}\left(\bar{u}\bar{x}\right) & \coloneqq & \exists\bar{v}\exists\bar{y}\left(\varphi_{W}'\left(\bar{v}\bar{u}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\wedge\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\right)\\
+\psi_{\mathtt{AND}}\left(\bar{u}\bar{x}\right) & \coloneqq & \forall\bar{v}\forall\bar{y}\left(\left(\varphi_{W}'\left(\bar{v}\bar{u}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\right)\rightarrow\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\right)\\
+\psi_{\mathtt{NOT}}\left(\bar{u}\bar{x}\right) & \coloneqq & \forall\bar{v}\forall\bar{y}\left(\left(\varphi_{W}'\left(\bar{v}\bar{u}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\right)\rightarrow\neg\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\right)
+\end{eqnarray*}
+(Ein $\mathtt{NOT}$-Gate behandeln wir hier wie ein $\mathtt{NOR}$-Gate
+- da wir bei der Definition des Schaltkreises gefordert haben, dass
+es nur einen Vorgänger hat, macht das keinen Unterschied.)
+
+Für die $\mathtt{MAJ}$-Gates verwenden wir die Tatsache, dass die
+$\mathrm{LFP}+\mathbf{ORD}$-Logik Arithmetik unterstützt:
+\begin{eqnarray*}
+\psi_{\mathrm{succ}}\left(x,y\right) & \coloneqq & \neg y\leqslant x\wedge\forall z\left(z\leqslant x\vee y\leqslant z\right)\\
+\varphi_{\mathrm{succ}}\left(\bar{x}\bar{y}\right) & \coloneqq & \bigvee_{i=1}^{k}\bigwedge_{j=1}^{i-1}x_{i}=y_{i}\wedge\psi_{\mathrm{succ}}\left(x_{i},y_{i}\right)\wedge\bigwedge_{j=i+1}^{k}\left(x_{j}=\mathbf{n}\wedge y_{j}=\mathbf{0}\right)\\
+\varphi_{+}\left(\bar{x}\bar{y}\bar{z}\right) & \coloneqq & \left[\mathrm{lfp}_{X\bar{u}\bar{v}}\left(\bar{u}=\bar{\mathbf{0}}\wedge\bar{v}=\bar{x}\right)\vee\left(X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\wedge\varphi_{\mathrm{succ}}\left(\bar{v}'\bar{v}\right)\right)\right]\left(\bar{y}\bar{z}\right)\\
+\varphi_{\times}\left(\bar{x}\bar{y}\bar{z}\right) & \coloneqq & \left[\mathrm{lfp}_{X\bar{u}\bar{v}}\left(\bar{u}\bar{v}=\bar{\mathbf{0}}\right)\vee\left(X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\wedge\varphi_{+}\left(\bar{v}'\bar{x}\bar{v}\right)\right)\right]\left(\bar{y}\bar{z}\right)
+\end{eqnarray*}
+Für eine Formel $\psi\left(\bar{x}\bar{u}\bar{y}\right)$, die mit
+einem Parameter $\bar{x}$ eine Funktion $q:\left[0,n^{c}\right]\rightarrow\left[0,n^{c}\right]$
+mit $\mathfrak{A}\models\psi\left[\bar{a},f_{W}\left(i\right)f_{W}\left(q_{i}\right)\right]$
+berechnet, können wir die Summe $\sum_{i=0}^{n^{c}}q_{i}$ berechnen:
+
+\[
+\varphi_{\mathrm{sum}}^{\psi\left(\bar{x}\right)}\left(\bar{z}\right)\coloneqq\left[\mathrm{lfp}_{X\bar{u}\bar{v}}\left(\bar{u}\bar{v}=\bar{\mathbf{0}}\right)\vee\left(\begin{array}{c}
+X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\\
+\wedge\psi\left(\bar{x}\bar{u}\bar{y}\right)\wedge\varphi_{+}\left(\bar{v}'\bar{y}\bar{v}\right)
+\end{array}\right)\right]\left(\bar{\mathbf{n}}\bar{z}\right)
+\]
 
 
-\section{Schaltkreise konstanter Tiefe}
+Nun definieren wir die Operation des $\mathtt{MAJ}$-Gates wie folgt.
+Hierbei zählt $\psi_{\mathrm{eval}}$ die passenden, erfüllenden Belegungen
+eines Vorgängers; $\psi_{\mathrm{weight}}$ multipliziert diese mit
+dem Kantengewicht $\mathcal{W}\left(h,g\right)$. $\psi_{\mathrm{count}}$
+und $\psi_{\mathrm{total}}$ arbeiten analog mit allen passenden Belegungen.
+Schließlich prüft $\psi_{\mathtt{MAJ}}$, ob die gewichtete Summe
+aller erfüllenden Belegungen mindestens die Hälfte der gewichteten
+Summe aller passenden Belegungen erreicht. 
+\begin{eqnarray*}
+\psi_{\mathrm{eval}}\left(\bar{u}\bar{x}\bar{v}\bar{m}\right) & \coloneqq & \bar{m}=\#\bar{y}\left(\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\right)\\
+\psi_{\mathrm{weight}}\left(\bar{u}\bar{x}\bar{v}\bar{n}\right) & \coloneqq & \exists\bar{m}\exists\bar{w}\left(\varphi_{W}\left(\bar{v}\bar{u}\bar{w}\right)\wedge\psi_{\mathrm{eval}}\left(\bar{u}\bar{v}\bar{x}\bar{m}\right)\wedge\varphi_{\times}\left(\bar{m}\bar{w}\bar{n}\right)\right)\\
+\psi_{\mathrm{count}}\left(\bar{u}\bar{x}\bar{v}\bar{m}\right) & \coloneqq & \bar{m}=\#\bar{y}\,\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\\
+\psi_{\mathrm{total}}\left(\bar{u}\bar{x}\bar{v}\bar{n}\right) & \coloneqq & \exists\bar{m}\exists\bar{w}\left(\varphi_{W}\left(\bar{v}\bar{u}\bar{w}\right)\wedge\psi_{\mathrm{total}}\left(\bar{u}\bar{v}\bar{x}\bar{m}\right)\wedge\varphi_{\times}\left(\bar{m}\bar{w}\bar{n}\right)\right)\\
+\psi_{\mathtt{MAJ}}\left(\bar{u}\bar{x}\right) & \coloneqq & \exists\bar{w}\exists\bar{y}\exists\bar{z}\left(\varphi_{\mathrm{sum}}^{\psi_{\mathrm{weight}}\left(\bar{u}\bar{x}\right)}\left(\bar{w}\right)\wedge\varphi_{+}\left(\bar{w}\bar{w}\bar{y}\right)\wedge\psi_{\mathrm{sum}}^{\varphi_{\mathrm{total}}\left(\bar{u}\bar{x}\right)}\left(\bar{z}\right)\wedge\bar{y}\leqslant\bar{z}\right)
+\end{eqnarray*}
+Dies entspricht der Definition von $\mathrm{EV}\left(g\right)$ für
+$\mathtt{MAJ}$-Gates aus dem vorhergehenden Abschnitt:
 
-Das Resultat von Anderson und Dawar werden wir nun auf Schaltkreise
-konstanter Tiefe ausweiten, die auf $\mathrm{FO}+\mathbf{BIT}$ reduzierbar
-sind.
+\begin{eqnarray*}
+\mathfrak{A}\models\psi_{\mathtt{MAJ}}\left[\bar{g}\bar{a}\right] & \Leftrightarrow & 2\sum_{h\in H}\mathcal{W}\left(h,f_{G}^{-1}\bar{g}\right)\left|\bar{\mathrm{Red}}\left(\bar{a},h\right)\cap\bar{\mathrm{EV}}\left(h\right)\right|\geqslant\sum_{h\in H}\mathcal{W}\left(h,f_{G}^{-1}\bar{g}\right)\left|\bar{\mathrm{Red}}\left(\bar{a},h\right)\right|
+\end{eqnarray*}
+
+
+Die verschiedenen Auswertungs-Formeln werden zusammengefügt:
+\begin{eqnarray*}
+\varphi_{\mathrm{EVAL}}\left(\bar{u}\bar{x}\right) & \coloneqq & \varphi_{\mathrm{valid}}\left(\bar{u}\bar{x}\right)\wedge\\
+ &  & \bigwedge_{s\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} }\left(\varphi_{s}\left(\bar{u}\right)\rightarrow\psi_{s}\left(\bar{u}\bar{x}\right)\right)\\
+ &  & \bigwedge_{R/k\in\sigma}\left(\exists\bar{t}\varphi_{R}\left(\bar{u}\bar{t}\right)\rightarrow\psi_{R}\left(\bar{u}\bar{x}\right)\right)
+\end{eqnarray*}
+Zum Schluss formulieren wir eine Formel, die für ein gegebenes Anfragetupel
+$\beta\bar{x}\in A^{k}$ wie folgt vorgeht: Finde ein Tupel $\bar{t}\in U^{k}$,
+das Gate $g=\Omega\left(\bar{t}\right)$ und eine gültige Abbildung
+$\pi\coloneqq\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{b}\right)$,
+so dass $\beta x_{j}=b_{i}$ genau dann wenn $\bar{\mathrm{sp}}\left(g\right)_{j}=t_{i}$,
+und prüfe, ob $\bar{b}\in\bar{\mathrm{EV}}\left(g\right)$ gilt. 
+\begin{eqnarray*}
+\varphi\left(\bar{x}\right) & \coloneqq\exists\bar{t}\exists\bar{u}\exists\bar{z}\,(\\
+ &  & \varphi_{\Omega}\left(\bar{u}\bar{t}\right)\wedge\psi_{\mathrm{valid}}\left(\bar{u}\bar{z}\right)\\
+ &  & \wedge\bigwedge_{\substack{i\in\left[1,k\right]\\
+j\in\left[1,d\right]
+}
+}\left(\psi_{\mathrm{sp},j}\left(\bar{u}t_{i}\right)\rightarrow z_{i}=x_{i}\right)\\
+ &  & \wedge\left[\mathrm{lfp}_{\mathrm{EVAL},\bar{u}\bar{x}}\psi_{\mathrm{EVAL}}\right]\left(\bar{u}\bar{z}\right)\\
+ & )
+\end{eqnarray*}
+
+
+
+\subsection{\label{sub:p-poly-sbc}$P/\mathrm{poly}$-uniforme Schaltkreise}
+
+Für eine $P/\mathrm{poly}$-uniforme Schaltkreisfamilie ersetzen wir
+die Formeln $\Phi$ (siehe Abschnitt \ref{sub:circuit-def}) durch
+$\mathbf{ARB}$-Prädikate, die den Schaltkreis festlegen. Der Abschnitt
+\ref{sub:circuit-eval} bleibt davon unberührt, und wir beweisen:
 \begin{lem}
 Sei $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine $k$-stellige,
-rigide, symmetrische, $\mathrm{LOGSPACE}$-uniforme $\left(\sigma,\mathbb{B}\right)$-Multischaltkreisfamilie
-mit konstanter $c$-Tiefe und $n^{d}$-Größe. Es existiert eine $\left(\mathrm{FO}+\mathbf{BIT}\right)\left[\sigma\right]$-Formel
+rigide, symmetrische, $P/\mathrm{poly}$-uniforme $\left(\sigma,\mathbb{B}\right)$-Multischaltkreisfamilie.
+Für $\mathbb{B}=\mathbb{B}_{\mathrm{std}}$ existiert eine $\left(\mathrm{LFP}+\mathbf{ARB}\right)\left[\sigma\right]$-Formel
+$\varphi$ (beziehungsweise für $\mathbb{B}=\mathbb{B}_{\mathrm{maj}}$
+eine $\left(\mathrm{LFP}+\mathbf{ARB}+C\right)\left[\sigma\right]$-Formel
 $\varphi$, so dass für $n\in\mathbb{N}$ und $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 die Formel $\varphi\left(\bar{x}\right)$ die gleiche Anfrage definiert
-wie $\mathcal{C}_{n}$.\end{lem}
-\begin{proof}
-Weil die Schaltkreisfamilie von einer $\mathrm{LOGSPACE}$-Turingmaschine
-berechnet wird, existiert nach Immerman\cite{immerman2012descriptive}
-eine Sammlung von $\mathrm{FO}\left[\left\{ \mathtt{BIT}\right\} \right]$-Formeln
-$\Phi$, die auf der Struktur $\mathbf{BIT}\left(n\right)$ ausgewertet
-den Schaltkreis $\mathcal{C}_{n}$ beschreiben:
+wie $\mathcal{C}_{n}$.
+\end{lem}
+
+\section{Schaltkreise konstanter Tiefe}
+\begin{lem}
+\label{lem:ac0-fo}Sei $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+eine symmetrische, $\left(\sigma,\mathbb{B}\right)$-Schaltkreisfamilie
+mit konstanter $c$-Tiefe und $n^{c}$-Größe. Es existiert eine $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$-Formel
+$\varphi$, so dass für $n\in\mathbb{N}$ und $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+die Formel $\varphi\left(\bar{x}\right)$ die gleiche Anfrage definiert
+wie $\mathcal{C}_{n}$.
+
+Wenn $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ $\mathrm{LOGSPACE}$-uniform
+ist, so ist $\Upsilon=\mathbf{BIT}$, ansonsten ist $\Upsilon=\mathbf{ARB}$.
+\end{lem}
+Hierfür stellen wir zunächst eine alternierende Normalform für den
+Schaltkreis $\mathcal{C}_{n}$ her:
+\begin{enumerate}
+\item Jedes Gate hat nur einen Nachfolger.
+\item Jedes $\mathtt{AND}$-Gate ist Vorgänger eines $\mathtt{OR}$-Gates,
+und umgekehrt.
+\item Jedes Input ist Vorgänger eines $\mathtt{OR}$-Gates oder eines $\mathtt{NOT}$-Gates.
+\item Jedes Output ist mit $\mathtt{AND}$ markiert.
+\item Alle Wege von einem negierten Input zu einem Output haben die Länge
+$4c+1$.
+\item Alle Wege von einem nicht-negierten Input zu einem Output haben die
+Länge $4c$.
+\end{enumerate}
+Die Normalform wird durch den Algorithmus \ref{alg:ac0-normal-form}
+berechnet. Der Algorithmus benötigt $T\cdot\log\left(\left|G\right|\right)\leqslant4c^{2}\cdot\log n$
+Speicherplatz, weil die Rekursionstiefe mit $T\leqslant4c$ konstant
+beschränkt ist. Damit läuft der Algorithmus in $\mathrm{LOGSPACE}$.
+
+\begin{algorithm}
+\begin{lyxcode}
+NF($i,g,g',\mathrm{state}$):
+\begin{lyxcode}
+Falls~$\Sigma\left(g\right)=\mathtt{NOT}$:
+\begin{lyxcode}
+Finde~den~Vorgänger~$h$~von~$g$.
+
+Fahre~fort~mit~NF$\left(i,h,g,\neg\mathrm{state}\right)$~und~brich~ab.
+\end{lyxcode}
+Gib~$g$~als~neues~Gate~aus.
+
+Falls~$i$~gerade~ist~und~$\Sigma\left(g\right)=\mathtt{AND}$:
+\begin{lyxcode}
+Sei~$g''$~ein~Gate~mit~$\Sigma\left(g''\right)=\mathtt{OR}$.
+
+Gib~$g''$~und~die~Kanten~$\left(g,g''\right),\left(g'',g'\right)$~aus.
+\end{lyxcode}
+Falls~$i$~ungerade~ist~und~$\Sigma\left(g\right)=\mathtt{OR}$:
+\begin{lyxcode}
+(Analog~mit~$\Sigma\left(g''\right)=\mathtt{AND}$.)
+\end{lyxcode}
+Falls~$\Sigma\left(g\right)=R\bar{t}$~oder~$\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $:
+\begin{lyxcode}
+Falls~$\mathrm{state}=\textsc{False}$~und~$\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $:
+\begin{lyxcode}
+Kehre~$\Sigma\left(g\right)$~um~und~setze~$\mathrm{\mathrm{state}\leftarrow\textsc{True}}$.
+\end{lyxcode}
+Falls~$\mathrm{state}=\textsc{True}$:
+\begin{lyxcode}
+Erzeuge~einen~alternierenden~Weg~der~Länge~$4c-i$~von~$g$~zu~$g'$.
+\end{lyxcode}
+Sonst:
+\begin{lyxcode}
+Verbinde~$g$~mit~einem~$\mathtt{NOT}$-Gate~$g''$.
+
+Erzeuge~einen~alternierenden~Weg~der~Länge~$4c-i$~von~$g''$~zu~$g'$.
+\end{lyxcode}
+\end{lyxcode}
+Für~jeden~Vorgänger~$h$~von~$g$:
+\begin{lyxcode}
+NF($i+1,h,g,\mathrm{state}$)
+\end{lyxcode}
+\end{lyxcode}
+Main:
+\begin{lyxcode}
+Für~$g\in G$:
+\begin{lyxcode}
+Falls~$g$~keine~Nachfolger~hat:
+\begin{lyxcode}
+Sei~$g'$~ein~neues~$\mathtt{AND}$-Gate.
+
+Gib~$g'$~aus.
+
+Für~$\bar{t}\in U^{k}$:
+\begin{lyxcode}
+Gib~$\Omega\left(\bar{t}\right)=g'$~aus.
+\end{lyxcode}
+NF($1,g,g'$).
+\end{lyxcode}
+\end{lyxcode}
+\end{lyxcode}
+\end{lyxcode}
+\caption{\label{alg:ac0-normal-form}Normalform für Schaltkreise konstanter
+Tiefe}
+
+
+\end{algorithm}
+
+
+Die (nicht rigide) alternierende Normalform eines rigiden, symmetrischen
+Schaltkreises hat immer noch einen eindeutigen Automorphismus $\hat{\pi}\in\mathrm{Aut}_{\mathcal{C}'}$
+für jede Permutation $\pi\in\mathrm{Sym}_{U}$. Per Induktion über
+die Tiefe sehen wir, dass für jedes Gate $g\in G$, jeden Vorgänger
+$h$ von $G$ und jede Permutation $\pi\in\mathrm{Sym}_{U}$ gilt:
+Wenn $\hat{\pi}g\in G$ eindeutig ist, dann ist es auch $\hat{\pi}h$.
+
+Wenn die Schaltkreisfamilie (inklusive der rigiden Umformung, und
+deren Normalform) von einer $\mathrm{LOGSPACE}$-Turingmaschine berechnet
+wird, existiert nach Immerman\cite{immerman2012descriptive} eine
+Sammlung von $\mathrm{FO}+\mathbf{BIT}$-Formeln $\Phi$, die auf
+$\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\varphi\right)$
+ausgewertet den Schaltkreis $\mathcal{C}_{n}$ beschreiben:
 
 \[
 \Phi\coloneqq\left(\varphi_{G},\varphi_{\mathcal{W}},\varphi_{\Omega},\left(\varphi_{\phi}\right)_{\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} },\left(\varphi_{R}\right)_{R\in\sigma}\right)
 \]
-
+(Wenn die Schaltkreisfamilie nur $P/\mathrm{poly}$-uniform ist, dann
+ersetzen wir $\Phi$ stattdessen durch entsprechend gewählte $\mathbf{ARB}$-Prädikate.)
 
 Hierbei sei $f_{G}:G\rightarrow\left[1,n\right]^{d}$ eine geeignete
 Kodierung der höchstens $n^{d}$ Gates von $\mathcal{C}_{n}$, und
 $f_{W}:\left[1,n^{d}\right]\rightarrow\left[1,n\right]^{d}$ eine
 Kodierung von Zahlen, so dass für $\bar{g},\bar{h},\bar{w}\in\left[0,n\right]^{d}$:
 \begin{eqnarray*}
-\mathbf{BIT}\left(n\right)\models\varphi_{G}\left[\bar{g}\right] & \Leftrightarrow & f_{G}^{-1}\left(\bar{g}\right)\in G\\
-\mathbf{BIT}\left(n\right)\models\varphi_{W}\left[\bar{h}\bar{g}\bar{w}\right] & \Leftrightarrow & \mathcal{W}\left(f_{G}^{-1}\left(\bar{h}\right),f_{G}^{-1}\left(\bar{g}\right)\right)=f_{W}^{-1}\left(\bar{w}\right)\\
-\mathbf{BIT}\left(n\right)\models\varphi_{\Omega}\left[\bar{t}\bar{g}\right] & \Leftrightarrow & \Omega\left(\bar{t}\right)=f_{G}^{-1}\left(\bar{g}\right)\\
+\mathfrak{A}\models\varphi_{G}\left[\bar{g}\right] & \Leftrightarrow & f_{G}^{-1}\left(\bar{g}\right)\in G\\
+\mathfrak{A}\models\varphi_{W}\left[\bar{h}\bar{g}\bar{w}\right] & \Leftrightarrow & \mathcal{W}\left(f_{G}^{-1}\left(\bar{h}\right),f_{G}^{-1}\left(\bar{g}\right)\right)=f_{W}^{-1}\left(\bar{w}\right)\\
+\mathfrak{A}\models\varphi_{\Omega}\left[\bar{t}\bar{g}\right] & \Leftrightarrow & \Omega\left(\bar{t}\right)=f_{G}^{-1}\left(\bar{g}\right)\\
  &  & \mathrm{f\ddot{u}r}\,\bar{t}\in\left[1,n\right]^{k}\\
-\mathbf{BIT}\left(n\right)\models\varphi_{\phi}\left[\bar{g}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\left(\bar{g}\right)\right)=\phi\\
+\mathfrak{A}\models\varphi_{\phi}\left[\bar{g}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\left(\bar{g}\right)\right)=\phi\\
  &  & \mathrm{f\ddot{u}r}\,\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} \\
-\mathbf{BIT}\left(n\right)\models\varphi_{R}\left[\bar{g}\bar{x}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\left(\bar{g}\right)\right)=R\bar{x}\\
+\mathfrak{A}\models\varphi_{R}\left[\bar{g}\bar{x}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\left(\bar{g}\right)\right)=R\bar{x}\\
  &  & \mathrm{f\ddot{u}r}\,R/m\in\sigma,\,\bar{x}\in\left[1,n\right]^{m}
+\end{eqnarray*}
+\[
+\varphi_{W}'\left(\bar{h}\bar{g}\right)\coloneqq\exists\bar{n}\left(\varphi_{W}\left(\bar{h}\bar{g}\bar{n}\right)\wedge\exists x\bigvee_{i=1}^{c}\neg n_{i}\leqslant x\right)
+\]
+Da auch die Algorithmen \ref{alg:aut} und \ref{alg:orbits} in $\mathrm{LOGSPACE}$
+den Automorphismus und die Träger und Orbits berechnen, existiert
+eine $\mathrm{FO}+\mathbf{BIT}$-Formel $\varphi_{\mathrm{sp}}\left(\bar{u}x\right)$,
+die von $\beta$ auf $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+erfüllt wird, falls $\beta x\in\mathrm{sp}\left(f_{G}^{-1}\bar{u}\right)$. 
+
+Analog zu Abschnitt \ref{sub:circuit-def} können wir daraus auch
+die $\mathrm{FO}+\mathbf{BIT}$-Formeln $\varphi_{\mathrm{size},i}$
+und $\varphi_{\mathrm{sp},i}$ erzeugen. Ebenso sind die Formeln $\varphi_{\mathrm{valid}}$
+und $\varphi_{\sim}$ und $\varphi_{R}$ aus Abschnitt \ref{sub:circuit-eval}
+nun in $\mathrm{FO}+\mathbf{BIT}$ definierbar, da sie ihren Teilformeln
+selbst keine Fixpunkt-Operatoren hinzufügen.
+
+Die Formel $\varphi_{\mathrm{EVAL}}\left(\bar{u}_{1}\bar{z}_{1}\right)$
+quantifiziert nun über jeden Weg von einem Input zu dem Output $g_{1}=f_{G}^{-1}\bar{u}_{1}$,
+und prüft dann für jeden Schritt, ob eine korrekte Kante $\left(g_{i+1},g_{i}\right)\in W$
+mit $g_{i}=f_{G}^{-1}\bar{u}_{i}$ gewählt wurde, und ob die Abbildungen
+$\left(\bar{\mathrm{sp}}\left(g_{i}\right)\mapsto\bar{x}_{i}\right)$
+und $\left(\bar{\mathrm{sp}}\left(g_{i+1}\right)\mapsto\bar{x}_{i+1}\right)$
+konsistent sind. 
+\begin{eqnarray*}
+\varphi_{\mathrm{EVAL}}\left(\bar{u}_{1}\bar{z}_{1}\right) & \coloneqq & \left(\forall\bar{u}_{2i}\forall\bar{x}_{2i}\exists\bar{u}_{2i+1}\exists\bar{x}_{2i+1}\right)_{1\leqslant i\leqslant2c}(\\
+ &  & \bigwedge_{i=1}^{4c}\left(\varphi_{W}'\left(\bar{u}_{i+1}\bar{u}_{i}\right)\wedge\varphi_{\sim}\left(\bar{u}_{i}\bar{u}_{i+1}\bar{x}_{i}\bar{x}_{i+1}\right)\right)\wedge\\
+ &  & \bigwedge_{R\in\sigma}\left(\exists\bar{t}\varphi_{R}\left(\bar{u}_{4c+1}\bar{t}\right)\rightarrow\psi_{R}\left(\bar{u}_{4c+1}\bar{x}_{4c+1}\right)\right)\wedge\\
+ &  & \forall\bar{u}'(\left(\varphi_{W}'\left(\bar{u}'\bar{u}_{4c+1}\right)\wedge\varphi_{\mathtt{NOT}}\left(\bar{u}'\right)\right)\rightarrow\\
+ &  & \,\,\,\,\,\,\,\,\bigwedge_{R\in\sigma}\left(\exists\bar{t}\varphi_{R}\left(\bar{u}'\bar{t}\right)\rightarrow\neg\psi_{R}\left(\bar{u}'\bar{x}'\right)\right)\\
+ &  & )\wedge\\
+ &  & \bigwedge_{s\in\left\{ \mathbf{0},\mathbf{1}\right\} }\left(\varphi_{s}\left(\bar{u}_{4c+1}\right)\rightarrow\psi_{s}\left(\bar{u}_{4c+1}\bar{x}\right)\right)\\
+ & )
+\end{eqnarray*}
+Nun berechnet $\varphi_{\mathrm{EVAL}}\left(\bar{u}_{1}\bar{z}_{1}\right)$
+für ein Output-Gate $g_{1}=f_{G}^{-1}\bar{u}_{1}$ die Auswertung
+mit einer Abbildung $\pi\coloneqq\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{z}_{1}\right)$.
+Analog zum Abschnitt \ref{sub:circuit-eval} wird nun die Formel $\varphi\left(\bar{x}\right)$
+definiert, die ein passendes Output-Gate und die richtige Abbildung
+findet: 
+\begin{eqnarray*}
+\varphi\left(\bar{x}\right) & \coloneqq\exists\bar{t}\exists\bar{u}\exists\bar{z}\,(\\
+ &  & \varphi_{\Omega}\left(\bar{u}\bar{t}\right)\wedge\psi_{\mathrm{valid}}\left(\bar{u}\bar{z}\right)\\
+ &  & \wedge\bigwedge_{\substack{i\in\left[1,k\right]\\
+j\in\left[1,d\right]
+}
+}\left(\psi_{\mathrm{sp},j}\left(\bar{u}t_{i}\right)\rightarrow z_{i}=x_{i}\right)\\
+ &  & \wedge\varphi_{\mathrm{EVAL}}\left(\bar{u}\bar{z}\right)\\
+ & )
 \end{eqnarray*}
 
 
-{[}...{]}
-\end{proof}
+Damit wird die Auswertung jedes Schaltkreises $\mathcal{C}_{n}$ durch
+die Formel $\varphi$ definiert, und das Lemma \ref{lem:ac0-fo} ist
+bewiesen.
+
 
 \chapter{Grenzen der symmetrischen Schaltkreisklassen}
 
-Wir weisen nach, dass die symmetrischen $\mathrm{AC}^{0}$-Schaltkreisfamilien
-eine echte Teilmenge der Anfragen beschreiben, die durch $\mathrm{AC}^{0}$
-definierbar sind.
+Die symmetrischen $\mathrm{AC}^{0}$-Schaltkreisfamilien beschreiben
+eine echte Teilmenge der Anfragen, die durch $\mathrm{AC}^{0}$ definierbar
+sind.
 
-Hierfür verwenden wir die Charakterisierung aus Theorem \ref{thm:fo}
+Der Beweis benutzt die Charakterisierung aus Theorem \ref{thm:fo}
 von symmetrischem $\mathrm{AC}^{0}$ durch die Logik $\mathrm{FO}+\mathbf{ARB}$,
 die Charakterisierung von $\mathrm{AC}^{0}$ durch die Logik $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$,
 und ein Problem, dass die Ausdrucksstärke dieser beiden Logiken voneinander
@@ -4427,6 +4740,9 @@ ist. Per Theorem \ref{thm:fo} ist diese Anfrage dann in $\mathrm{AC}^{0}$,
 aber per Theorem \ref{thm:fo} nicht in $\mathrm{SAC}^{0}$ beschreibbar.
 
 Dafür verwenden wir den Lokalitäts-Satz von Hanf.
+
+\bigskip{}
+
 \begin{thm}
 \textbf{Der Satz von Hanf} (Theorem 2.4.1 in \cite{EbbinghausFlum})
 

@@ -280,7 +280,11 @@ Die logische Zählerweiterung
 \begin_inset Formula $\mathrm{FP}+C$
 \end_inset
 
- charakterisiert die Schaltkreisklasse 
+ charakterisiert die 
+\begin_inset Formula $P$
+\end_inset
+
+-uniforme Schaltkreisklasse 
 \begin_inset Formula $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}$
 \end_inset
 
@@ -289,7 +293,11 @@ Die logische Zählerweiterung
 \begin_inset Formula $\mathrm{FP}+\mathbf{ARB}$
 \end_inset
 
- charakterisiert die nicht-uniforme Klasse 
+ charakterisiert die 
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+-uniforme Klasse 
 \begin_inset Formula $\mathrm{SBC}^{P/\mathrm{poly}}$
 \end_inset
 
@@ -327,7 +335,7 @@ Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen äquivalen
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula $\mathrm{FP}+C$
+\begin_inset Formula $\mathrm{FP}+\mathbf{ORD}+C$
 \end_inset
 
  und 
@@ -5583,7 +5591,9 @@ Eine boolesche Basis
 \mathtt{AND} & \coloneqq & \left\{ 0\right\} \times\mathbb{N}\\
 \mathtt{OR} & \coloneqq & \mathbb{N}\times\left(\mathbb{N}\backslash\left\{ 0\right\} \right)\\
 \mathtt{MAJ} & \coloneqq & \left\{ \left(m,n\right)\in\mathbb{N}\times\mathbb{N}\mid m\leqslant n\right\} \\
-\mathtt{XOR} & \coloneqq & \mathbb{N}\times\left(\mathbb{N}\backslash2\mathbb{N}\right)
+\mathtt{XOR} & \coloneqq & \mathbb{N}\times\left(\mathbb{N}\backslash2\mathbb{N}\right)\\
+\mathtt{NOR} & \coloneqq & \mathbb{N}\times\left\{ 0\right\} \\
+\mathtt{NAND} & \coloneqq & \left(\mathbb{N}\backslash\left\{ 0\right\} \right)\times\mathbb{N}
 \end{eqnarray*}
 
 \end_inset
@@ -5601,6 +5611,12 @@ Im folgenden stehe
 \end_inset
 
  für die Basis mit Konjunktion, Disjunktion und Majority.
+ Zu beachten ist, dass wir 
+\begin_inset Formula $\mathtt{NOT}$
+\end_inset
+
+ nicht in die boolesche Basis aufnehmen, da es als unärer Operator ein Spezialfa
+ll ist.)
 \end_layout
 
 \begin_layout --Separator--
@@ -10824,7 +10840,7 @@ Dann existiert eine
 In Kombination mit dem Rest dieses Kapitels folgt dann:
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathrm{LFP}+\mathbf{ORD} & \subseteq & \mathrm{SBC}^{P}\\
+\mathrm{LFP}+\mathbf{BIT} & \subseteq & \mathrm{SBC}^{P}\\
 \mathrm{LFP}+\mathbf{ARB} & \subseteq & \mathrm{SBC}^{P/\mathrm{poly}}
 \end{eqnarray*}
 
@@ -10833,7 +10849,7 @@ In Kombination mit dem Rest dieses Kapitels folgt dann:
 
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathrm{LFP}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}\\
+\mathrm{LFP}+\mathbf{BIT}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}\\
 \mathrm{LFP}+\mathbf{ARB}+C & \subseteq & \left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P/\mathrm{poly}}
 \end{eqnarray*}
 
@@ -14681,8 +14697,7 @@ key "AD2014"
 \end_layout
 
 \begin_layout Lemma
-Es existiert ein deterministischer Algorithmus, der bei Eingabe eines rigiden
- 
+Es existiert ein deterministischer Algorithmus, der bei Eingabe eines 
 \begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
 \end_inset
 
@@ -14710,7 +14725,7 @@ Es existiert ein deterministischer Algorithmus, der bei Eingabe eines rigiden
 \begin_inset Formula $\pi$
 \end_inset
 
- einen Automorphismus 
+ einen eindeutigen Automorphismus 
 \begin_inset Formula $\hat{\pi}$
 \end_inset
 
@@ -14953,13 +14968,29 @@ Main:
 \begin_deeper
 \begin_layout LyX-Code
 Für 
-\begin_inset Formula $g,g'\in G$
+\begin_inset Formula $g\in G$
 \end_inset
 
 :
 \end_layout
 
 \begin_deeper
+\begin_layout LyX-Code
+Für 
+\begin_inset Formula $g'\in G$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+\begin_inset Formula $X\leftarrow\textsc{False}$
+\end_inset
+
+
+\end_layout
+
 \begin_layout LyX-Code
 Falls Aut(
 \begin_inset Formula $g,g'$
@@ -14970,6 +15001,18 @@ Falls Aut(
 
 \begin_deeper
 \begin_layout LyX-Code
+Falls 
+\begin_inset Formula $X=\textsc{True}$
+\end_inset
+
+: 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+ ist nicht eindeutig; Abbruch.
+\end_layout
+
+\begin_layout LyX-Code
 Gib 
 \begin_inset Formula $\hat{\pi}\left(g\right)=g'$
 \end_inset
@@ -14977,6 +15020,14 @@ Gib
  aus.
 \end_layout
 
+\begin_layout LyX-Code
+\begin_inset Formula $X\leftarrow\textsc{True}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \end_deeper
 \end_deeper
 \end_deeper
@@ -16763,17 +16814,33 @@ Sei
 \begin_inset Formula $k$
 \end_inset
 
--stellige, rigide, symmetrische, 
+-stellige, symmetrische, 
 \begin_inset Formula $P$
 \end_inset
 
 -uniforme 
-\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
 \end_inset
 
--Multischaltkreisfamilie.
- Es existiert eine 
+-Schaltkreisfamilie.
+ Für 
+\begin_inset Formula $\mathbb{B}=\mathbb{B}_{\mathrm{std}}$
+\end_inset
+
+ existiert eine 
 \begin_inset Formula $\left(\mathrm{LFP}+\mathbf{ORD}\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ (beziehungsweise für 
+\begin_inset Formula $\mathbb{B}=\mathbb{B}_{\mathrm{maj}}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\left(\mathrm{LFP}+\mathbf{ORD}+C\right)\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -16822,8 +16889,19 @@ key "AD2014"
  übernommen.
 \end_layout
 
-\begin_layout Proof
-Da die Schaltkreisfamilie von einer 
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:circuit-def"
+
+\end_inset
+
+Definition des Schaltkreises
+\end_layout
+
+\begin_layout Standard
+Wenn die Schaltkreisfamilie (inklusive der rigiden Umformung) von einer
+ 
 \begin_inset Formula $P$
 \end_inset
 
@@ -16842,22 +16920,25 @@ reference "lem:algo-rigid"
 \end_inset
 
  eine Sammlung von 
-\begin_inset Formula $\mathrm{LFP}\left[\left\{ \leqslant\right\} \right]$
+\begin_inset Formula $\left(\mathrm{LFP}+\mathbf{ORD}\right)\left[\sigma\right]$
 \end_inset
 
 -Formeln 
 \begin_inset Formula $\Phi$
 \end_inset
 
-, die auf der Struktur 
-\begin_inset Formula $\mathbf{ORD}\left(n\right)=\left(\left[0,n\right],\leqslant_{\left[0,n\right]}\right)$
+, die auf einer Struktur 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 \end_inset
 
  ausgewertet den Schaltkreis 
 \begin_inset Formula $\mathcal{C}_{n}$
 \end_inset
 
- beschreiben:
+ beschreiben.
+\end_layout
+
+\begin_layout Standard
 \begin_inset Formula 
 \[
 \Phi\coloneqq\left(\varphi_{G},\varphi_{\mathcal{W}},\varphi_{\Omega},\left(\varphi_{\phi}\right)_{\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} },\left(\varphi_{R}\right)_{R\in\sigma}\right)
@@ -16895,7 +16976,7 @@ Für
 .
 \end_layout
 
-\begin_layout Proof
+\begin_layout Standard
 Sei 
 \begin_inset Formula $f_{G}:G\rightarrow\left[1,n\right]^{c}$
 \end_inset
@@ -16909,7 +16990,7 @@ Sei
 \end_inset
 
 , und 
-\begin_inset Formula $f_{W}:\left[1,n^{c}\right]\rightarrow\left[1,n\right]^{c}$
+\begin_inset Formula $f_{W}:\left[0,n^{c}\right]\rightarrow\left[0,n\right]^{c}$
 \end_inset
 
  eine Kodierung von Zahlen, so dass für 
@@ -16919,14 +17000,126 @@ Sei
  gilt:
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathbf{ORD}\left(n\right)\models\varphi_{G}\left[\bar{g}\right] & \Leftrightarrow & f_{G}^{-1}\bar{g}\in G\\
-\mathbf{ORD}\left(n\right)\models\varphi_{W}\left[\bar{h}\bar{g}\bar{w}\right] & \Leftrightarrow & \mathcal{W}\left(f_{G}^{-1}\bar{h},f_{G}^{-1}\bar{g}\right)=f_{W}^{-1}\bar{w}\\
-\mathbf{ORD}\left(n\right)\models\varphi_{\Omega}\left[\bar{t}\bar{g}\right] & \Leftrightarrow & \Omega\bar{t}=f_{G}^{-1}\bar{g}\\
+\mathfrak{A}\models\varphi_{G}\left[\bar{g}\right] & \Leftrightarrow & f_{G}^{-1}\bar{g}\in G\\
+\mathfrak{A}\models\varphi_{W}\left[\bar{h}\bar{g}\bar{w}\right] & \Leftrightarrow & \mathcal{W}\left(f_{G}^{-1}\bar{h},f_{G}^{-1}\bar{g}\right)=f_{W}^{-1}\bar{w}\\
+\mathfrak{A}\models\varphi_{\Omega}\left[\bar{t}\bar{g}\right] & \Leftrightarrow & \Omega\bar{t}=f_{G}^{-1}\bar{g}\\
  &  & \mathrm{für}\,\bar{t}\in\left[1,n\right]^{k}\\
-\mathbf{ORD}\left(n\right)\models\varphi_{\phi}\left[\bar{g}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\bar{g}\right)=\phi\\
+\mathfrak{A}\models\varphi_{\phi}\left[\bar{g}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\bar{g}\right)=\phi\\
  &  & \mathrm{für}\,\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} \\
-\mathbf{ORD}\left(n\right)\models\varphi_{R}\left[\bar{g}\bar{x}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\bar{g}\right)=R\bar{x}\\
+\mathfrak{A}\models\varphi_{R}\left[\bar{g}\bar{x}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\bar{g}\right)=R\bar{x}\\
  &  & \mathrm{für}\,R/m\in\sigma,\,\bar{x}\in\left[1,n\right]^{m}
+\end{eqnarray*}
+
+\end_inset
+
+Nur für ein 
+\begin_inset Formula $\mathtt{MAJ}$
+\end_inset
+
+-Gate 
+\begin_inset Formula $g$
+\end_inset
+
+ benötigen wir die genaue Vielfachheit der Kante 
+\begin_inset Formula $\left(h,g\right)$
+\end_inset
+
+.
+ Der Einfachheit halber definieren wir daher die Formel 
+\begin_inset Formula $\varphi_{W}'$
+\end_inset
+
+, die nur prüft, ob 
+\begin_inset Formula $\mathcal{W}\left(h,g\right)>0$
+\end_inset
+
+.
+ 
+\begin_inset Formula 
+\[
+\varphi_{W}'\left(\bar{h}\bar{g}\right)\coloneqq\exists\bar{n}\left(\varphi_{W}\left(\bar{h}\bar{g}\bar{n}\right)\wedge\exists x\bigvee_{i=1}^{c}\neg n_{i}\leqslant x\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nach Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:algo-orb"
+
+\end_inset
+
+ ist die Bestimmung der Trägermengen 
+\begin_inset Formula $\mathrm{sp}\left(g\right)$
+\end_inset
+
+ und Orbits in 
+\begin_inset Formula $P$
+\end_inset
+
+.
+ Daher existiert auch eine 
+\begin_inset Formula $\mathrm{LFP}+\mathbf{ORD}\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi_{\mathrm{sp}}$
+\end_inset
+
+, so dass gilt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathfrak{A}\models\varphi_{\mathrm{sp}}\left[\bar{g}u\right] & \Leftrightarrow & \mathfrak{A}\models\varphi_{G}\left[\bar{g}\right]\,\mathrm{und}\,u\in\mathrm{sp}\left(g\right)\\
+ &  & \mathrm{f.a.}\,\bar{g}u\in\left[1,n\right]^{c+1}
+\end{eqnarray*}
+
+\end_inset
+
+Ferner existieren für 
+\begin_inset Formula $i\in\left[0,d\right]$
+\end_inset
+
+ die Formeln 
+\begin_inset Formula $\varphi_{\mathrm{size},i}$
+\end_inset
+
+, die Größe von 
+\begin_inset Formula $\mathrm{sp}\left(g\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $i$
+\end_inset
+
+ vergleichen:
+\begin_inset Formula 
+\[
+\mathfrak{A}\models\varphi_{\mathrm{size},i}\left[\bar{g}\right]\Leftrightarrow\left|\mathrm{sp}\left(g\right)\right|=i
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Schließlich definieren wir die Ordnung der Elemente 
+\begin_inset Formula $\bar{\mathrm{sp}}\left(g\right)$
+\end_inset
+
+ mit den folgenden Formeln (hier sind 
+\begin_inset Formula $\bar{g},u,v,w\in\mathbf{var}$
+\end_inset
+
+ Variablen):
+\begin_inset Formula 
+\begin{eqnarray*}
+\varphi_{\mathrm{sp},1}\left(\bar{g}u\right) & \coloneqq & \varphi_{\mathrm{sp}}\left(\bar{g}u\right)\wedge\forall v\left(\varphi_{\mathrm{sp}}\left(\bar{g}u\right)\rightarrow u\leqslant v\right)\\
+\varphi_{\mathrm{sp},i+1}\left(\bar{g}u\right) & \coloneqq & \varphi_{\mathrm{sp}}\left(\bar{g}u\right)\wedge\exists v\left(\neg\left(\varphi_{\mathrm{sp},i}\left(\bar{g}v\right)\rightarrow u\leqslant v\right)\wedge\forall w\left(\varphi_{\mathrm{sp}}\left(\bar{g}w\right)\rightarrow\left(w\leqslant v\vee u\leqslant w\right)\right)\right)
 \end{eqnarray*}
 
 \end_inset
@@ -16934,7 +17127,17 @@ Sei
 
 \end_layout
 
-\begin_layout Proof
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:circuit-eval"
+
+\end_inset
+
+Auswertung des Schaltkreises
+\end_layout
+
+\begin_layout Standard
 Per Korollar 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -16951,14 +17154,46 @@ reference "cor:korollar-23"
 \begin_inset Formula $\bar{\mathrm{EV}}\left(g\right)$
 \end_inset
 
+ mit 
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $0$
+\end_inset
+
+
+\begin_inset Quotes grd
+\end_inset
+
  auf eine einheitliche Länge 
 \begin_inset Formula $d$
 \end_inset
 
- auf:
+ auf.
+ (Unsere Definition der 
+\begin_inset Formula $\mathrm{LFP}+\mathbf{ORD}$
+\end_inset
+
+-Logik verwendet im Gegensatz zu 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AD2014"
+
+\end_inset
+
+ nur einen Variablentyp, so dass jede Variable 
+\begin_inset Formula $x\in\mathbf{var}$
+\end_inset
+
+ mit einem Wert 
+\begin_inset Formula $\beta\left(x\right)\in A\uplus\left[0,n\right]$
+\end_inset
+
+ belegt werden kann.) 
 \begin_inset Formula 
 \[
-\overline{\mathrm{EV}}\left(g\right)\coloneqq\left\{ \bar{a}\in A^{d}\mid\left(a_{1},\cdots,a_{\left|\mathrm{sp}\left(g\right)\right|}\right)\in\bar{\mathrm{EV}}\left(g\right),\,a_{i}\neq a_{j}\,\,\mathrm{f.a.}\,\,1\leqslant i<j\leqslant d\right\} 
+\overline{\mathrm{EV}}\left(g\right)\coloneqq\left\{ \bar{a}'\mid\bar{a}'\in\bar{\mathrm{EV}}\left(g\right)\times\left\{ 0\right\} ^{d-\left|\mathrm{sp}\left(g\right)\right|}\right\} 
 \]
 
 \end_inset
@@ -16966,12 +17201,12 @@ reference "cor:korollar-23"
 
 \end_layout
 
-\begin_layout Proof
-Nun definieren wir die Relation 
-\begin_inset Formula $\mathrm{EVAL}\subseteq\left[0,n\right]^{c}\times A^{d}$
+\begin_layout Standard
+Wir definieren die Relation 
+\begin_inset Formula $\mathrm{EVAL}\subseteq\left[0,n\right]^{c}\times\left(A\uplus\left\{ 0\right\} \right)^{d}$
 \end_inset
 
-, so dass 
+ definieren, so dass 
 \begin_inset Formula $\bar{g}\bar{a}\in\mathrm{EVAL}$
 \end_inset
 
@@ -16995,93 +17230,93 @@ Nun definieren wir die Relation
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Proof
-Nach Lemma 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "lem:algo-orb"
-
+Als erstes müssen wir für ein Tupel 
+\begin_inset Formula $\bar{a}\in\left(A\uplus\left[0,n\right]\right)^{d}$
 \end_inset
 
- ist die Bestimmung der Trägermengen 
-\begin_inset Formula $\mathrm{sp}\left(g\right)$
+ und ein Gate 
+\begin_inset Formula $g$
 \end_inset
 
- und Orbits in 
-\begin_inset Formula $P$
+ prüfen, ob es eine gültige Abbildung von 
+\begin_inset Formula $\pi:\mathrm{sp}\left(g\right)\rightarrow A$
 \end_inset
 
-.
- Daher existiert eine 
-\begin_inset Formula $\mathrm{LFP}\left[\left\{ \leqslant\right\} \right]$
+ repräsentiert.
+ Dafür müssen wir die Größe von 
+\begin_inset Formula $\left|\mathrm{sp}\left(g\right)\right|$
 \end_inset
 
--Formel 
-\begin_inset Formula $\varphi_{\mathrm{sp}}$
+ bestimmen, die Injektivität des Tupels 
+\begin_inset Formula $\left(a_{1},\cdots,a_{\left|\mathrm{sp}\left(g\right)\right|}\right)\in A^{\left|\mathrm{sp}\left(g\right)\right|}$
 \end_inset
 
-, so dass gilt:
-\begin_inset Formula 
-\begin{eqnarray*}
-\mathbf{ORD}\left(n\right)\models\varphi_{\mathrm{sp}}\left(\bar{g}u\right) & \Leftrightarrow & \mathbf{ORD}\left(n\right)\models\varphi_{G}\left[\bar{g}\right]\,\mathrm{und}\,u\in\mathrm{sp}\left(g\right)\\
- &  & \mathrm{f.a.}\,\bar{g}u\in\left[1,n\right]^{c+1}
-\end{eqnarray*}
-
+ prüfen, und für den Rest des Tupels 
+\begin_inset Formula $\left(a_{\left|\mathrm{sp}\left(g\right)\right|+1},\cdots,a_{d}\right)=\bar{0}$
 \end_inset
 
-Ferner definieren wir die Ordnung der Elemente 
-\begin_inset Formula $\bar{\mathrm{sp}}\left(g\right)$
-\end_inset
-
- mit den folgenden Formeln:
-\begin_inset Formula 
-\begin{eqnarray*}
-\varphi_{\mathrm{sp},1}\left(\bar{x}y\right) & \coloneqq & \varphi_{\mathrm{sp}}\left(\bar{x}y\right)\wedge\forall z\left(\varphi_{\mathrm{sp}}\left(\bar{x}z\right)\rightarrow y\leqslant z\right)\\
-\varphi_{\mathrm{sp},i+1}\left(\bar{x}y\right) & \coloneqq & \varphi_{\mathrm{sp}}\left(\bar{x}y\right)\wedge\exists z\left(\neg\left(\varphi_{\mathrm{sp},i}\left(\bar{x}z\right)\rightarrow y\leqslant z\right)\wedge\forall z'\left(\varphi_{\mathrm{sp}}\left(\bar{x}z'\right)\rightarrow\left(z'\leqslant z\vee y\leqslant z'\right)\right)\right)
-\end{eqnarray*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Proof
-Für die Konsistenz von zwei Belegungen 
-\begin_inset Formula $\pi_{1}\coloneqq\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{a}\right)$
-\end_inset
-
- und 
-\begin_inset Formula $\pi_{2}\coloneqq\left(\bar{\mathrm{sp}}\left(h\right)\mapsto\bar{b}\right)$
-\end_inset
-
- definieren wir die folgende 
-\begin_inset Formula $\mathrm{LFP}+\mathbf{ORD}$
-\end_inset
-
--Formel, die für 
-\begin_inset Formula $\beta\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)$
-\end_inset
-
- entscheidet, ob für die Abbildungen 
-\begin_inset Formula $\pi_{1}\coloneqq\left(\bar{\mathrm{sp}}\left(f_{G}^{-1}\beta\bar{u}\right)\mapsto\beta\bar{x}\right)$
-\end_inset
-
- und 
-\begin_inset Formula $\pi_{2}\coloneqq\left(\bar{\mathrm{sp}}\left(f_{G}^{-1}\beta\bar{v}\right)\mapsto\beta\bar{y}\right)$
-\end_inset
-
- gilt, dass 
-\begin_inset Formula $\pi_{1}\sim_{\mathrm{sp}\left(g\right)\cap\mathrm{sp}\left(h\right)}\pi_{2}$
-\end_inset
-
-.
+ sicherstellen.
  
 \begin_inset Formula 
 \begin{eqnarray*}
-\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right) & \coloneqq & \bigwedge_{i,j\in\left[1,k\right]}\forall w\left(\left(\varphi_{\mathrm{sp},i}\left(\bar{u}w\right)\wedge\varphi_{\mathrm{sp},j}\left(\bar{v}w\right)\right)\rightarrow x_{i}=y_{j}\right)\\
+\varphi_{A}\left(x\right) & \coloneqq & \neg\exists y\,x\leqslant y\\
+\varphi_{0}\left(x\right) & \coloneqq & \forall y\,\left(\neg\varphi_{A}\left(y\right)\rightarrow x\leqslant y\right)\\
+\varphi_{\mathrm{valid},k}\left(\bar{x}\right) & \coloneqq & \bigwedge_{1\leqslant i<j\leqslant k}\left(\varphi_{A}\left(x_{i}\right)\wedge\neg x_{i}=x_{j}\right)\bigwedge_{i\in\left[k+1,d\right]}\varphi_{0}\left(x_{i}\right)\\
+\varphi_{\mathrm{valid}}\left(\bar{g}\bar{x}\right) & \coloneqq & \bigwedge_{i\in\left[0,d\right]}\left(\varphi_{\mathrm{size},i}\left(\bar{g}\right)\rightarrow\varphi_{\mathrm{valid},i}\left(\bar{x}\right)\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nun definieren wir die folgende 
+\begin_inset Formula $\mathrm{LFP}+\mathbf{ORD}$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)$
+\end_inset
+
+, die für eine Belegung 
+\begin_inset Formula $\beta$
+\end_inset
+
+ entscheidet, ob für die Gates 
+\begin_inset Formula $g=f_{G}^{-1}\beta\bar{u}$
+\end_inset
+
+ und 
+\begin_inset Formula $h=f_{G}^{-1}\beta\bar{v}$
+\end_inset
+
+ die Abbildungen 
+\begin_inset Formula $\pi_{1}\coloneqq\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\beta\bar{x}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\pi_{2}\coloneqq\left(\bar{\mathrm{sp}}\left(h\right)\mapsto\beta\bar{y}\right)$
+\end_inset
+
+ gültig und mit 
+\begin_inset Formula $\pi_{1}\sim_{\mathrm{sp}\left(g\right)\cap\mathrm{sp}\left(h\right)}\pi_{2}$
+\end_inset
+
+ zwischen den Gates 
+\begin_inset Formula $g$
+\end_inset
+
+ und 
+\begin_inset Formula $h$
+\end_inset
+
+ konsistent sind.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right) & \coloneqq & \varphi_{\mathrm{valid}}\left(\bar{u}\bar{x}\right)\wedge\varphi_{\mathrm{valid}}\left(\bar{v}\bar{y}\right)\\
+ &  & \wedge\bigwedge_{i,j\in\left[1,k\right]}\forall w\left(\left(\varphi_{\mathrm{sp},i}\left(\bar{u}w\right)\wedge\varphi_{\mathrm{sp},j}\left(\bar{v}w\right)\right)\rightarrow x_{i}=y_{j}\right)\\
  &  & \wedge\bigwedge_{i,j\in\left[1,k\right]}\forall w_{1}\forall w_{2}\left(\left(\varphi_{\mathrm{sp},i}\left(\bar{u}w_{1}\right)\wedge\varphi_{\mathrm{sp},j}\left(\bar{v}w_{2}\right)\wedge x_{i}=y_{j}\right)\rightarrow w_{1}=w_{2}\right)
 \end{eqnarray*}
 
@@ -17090,20 +17325,90 @@ Für die Konsistenz von zwei Belegungen
 
 \end_layout
 
-\begin_layout Proof
+\begin_layout Standard
 Zuletzt konstruieren wir die 
 \begin_inset Formula $\mathrm{LFP}+\mathbf{ORD}\left[\sigma\right]$
 \end_inset
 
--Formeln, die die Relation 
-\begin_inset Formula $\mathrm{EVAL}$
+-Formeln 
+\begin_inset Formula $\psi_{s}\left(\bar{u}\bar{x}\right)$
 \end_inset
 
- rekursiv definieren.
+, die für eine Belegung 
+\begin_inset Formula $\beta$
+\end_inset
+
+ mit 
+\begin_inset Formula $f_{G}^{-1}\beta\left(\bar{g}\right)=g$
+\end_inset
+
+ und 
+\begin_inset Formula $\Sigma\left(g\right)=s$
+\end_inset
+
+ beziehungsweise 
+\begin_inset Formula $s=R$
+\end_inset
+
+ und 
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
+\end_inset
+
+ entscheiden, ob 
+\begin_inset Formula $\beta\left(\bar{u}\bar{v}\right)\subseteq\mathrm{EVAL}$
+\end_inset
+
+.
+ Die Formeln für 
+\begin_inset Formula $\mathbf{0}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathbf{1}$
+\end_inset
+
+ sind trivial: 
 \begin_inset Formula 
 \begin{eqnarray*}
 \psi_{\mathbf{0}}\left(\bar{u}\bar{x}\right) & \coloneqq & \neg x_{1}=x_{1}\\
-\psi_{\mathbf{1}}\left(\bar{u}\bar{x}\right) & \coloneqq
+\psi_{\mathbf{1}}\left(\bar{u}\bar{x}\right) & \coloneqq & x_{1}=x_{1}
+\end{eqnarray*}
+
+\end_inset
+
+Für relationale Inputs mit 
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
+\end_inset
+
+ müssen wir mit der Formel 
+\begin_inset Formula $\varphi_{R}\left(\bar{u}\bar{x}\right)$
+\end_inset
+
+ die Beschriftung 
+\begin_inset Formula $\bar{t}\in U^{\mathrm{ar}\left(R\right)}$
+\end_inset
+
+ bestimmen, das Tupel 
+\begin_inset Formula $\pi\bar{t}=\bar{a}\in A^{\mathrm{ar}\left(R\right)}$
+\end_inset
+
+ finden, dass auf die gegebene Abbildung 
+\begin_inset Formula $\pi\coloneqq\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\beta\bar{x}\right)$
+\end_inset
+
+ passt, und dann prüfen ob 
+\begin_inset Formula $\bar{a}\in R^{\mathfrak{A}}$
+\end_inset
+
+ ist.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\psi_{R}\left(\bar{u}\bar{x}\bar{y}\right) & \coloneqq & \exists\bar{y}\exists\bar{z}\left(\varphi_{R}\left(\bar{u}\bar{y}\right)\wedge R\bar{z}\wedge\bigwedge_{\substack{i\in\left[1,k\right]\\
+j\in\left[1,d\right]
+}
+}\varphi_{\mathrm{sp},j}\left(\bar{u}y_{i}\right)\rightarrow z_{i}=x_{j}\right)\\
+ &  & \mathrm{für}\,R/k\in\sigma
 \end{eqnarray*}
 
 \end_inset
@@ -17112,23 +17417,276 @@ Zuletzt konstruieren wir die
 \end_layout
 
 \begin_layout Standard
-\begin_inset Newpage pagebreak
+Für 
+\begin_inset Formula $\Sigma\left(g\right)\in\left\{ \mathtt{AND},\mathtt{OR},\mathtt{NOT}\right\} $
 \end_inset
 
+ müssen wir über alle Vorgänger 
+\begin_inset Formula $h$
+\end_inset
 
-\end_layout
+ von 
+\begin_inset Formula $g$
+\end_inset
 
-\begin_layout Section
-Schaltkreise konstanter Tiefe
+ und alle zu der gegebenen Abbildung 
+\begin_inset Formula $\pi:=\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{a}\right)$
+\end_inset
+
+ passenden Abbildungen 
+\begin_inset Formula $\pi'\in\bar{\mathrm{Red}}\left(\pi,h\right)$
+\end_inset
+
+ quantifizieren, und diese mit dem entsprechenden Operator aggregieren:
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\psi_{\mathtt{OR}}\left(\bar{u}\bar{x}\right) & \coloneqq & \exists\bar{v}\exists\bar{y}\left(\varphi_{W}'\left(\bar{v}\bar{u}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\wedge\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\right)\\
+\psi_{\mathtt{AND}}\left(\bar{u}\bar{x}\right) & \coloneqq & \forall\bar{v}\forall\bar{y}\left(\left(\varphi_{W}'\left(\bar{v}\bar{u}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\right)\rightarrow\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\right)\\
+\psi_{\mathtt{NOT}}\left(\bar{u}\bar{x}\right) & \coloneqq & \forall\bar{v}\forall\bar{y}\left(\left(\varphi_{W}'\left(\bar{v}\bar{u}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\right)\rightarrow\neg\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\right)
+\end{eqnarray*}
+
+\end_inset
+
+(Ein 
+\begin_inset Formula $\mathtt{NOT}$
+\end_inset
+
+-Gate behandeln wir hier wie ein 
+\begin_inset Formula $\mathtt{NOR}$
+\end_inset
+
+-Gate - da wir bei der Definition des Schaltkreises gefordert haben, dass
+ es nur einen Vorgänger hat, macht das keinen Unterschied.)
 \end_layout
 
 \begin_layout Standard
-Das Resultat von Anderson und Dawar werden wir nun auf Schaltkreise konstanter
- Tiefe ausweiten, die auf 
-\begin_inset Formula $\mathrm{FO}+\mathbf{BIT}$
+Für die 
+\begin_inset Formula $\mathtt{MAJ}$
 \end_inset
 
- reduzierbar sind.
+-Gates verwenden wir die Tatsache, dass die 
+\begin_inset Formula $\mathrm{LFP}+\mathbf{ORD}$
+\end_inset
+
+-Logik Arithmetik unterstützt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\psi_{\mathrm{succ}}\left(x,y\right) & \coloneqq & \neg y\leqslant x\wedge\forall z\left(z\leqslant x\vee y\leqslant z\right)\\
+\varphi_{\mathrm{succ}}\left(\bar{x}\bar{y}\right) & \coloneqq & \bigvee_{i=1}^{k}\bigwedge_{j=1}^{i-1}x_{i}=y_{i}\wedge\psi_{\mathrm{succ}}\left(x_{i},y_{i}\right)\wedge\bigwedge_{j=i+1}^{k}\left(x_{j}=\mathbf{n}\wedge y_{j}=\mathbf{0}\right)\\
+\varphi_{+}\left(\bar{x}\bar{y}\bar{z}\right) & \coloneqq & \left[\mathrm{lfp}_{X\bar{u}\bar{v}}\left(\bar{u}=\bar{\mathbf{0}}\wedge\bar{v}=\bar{x}\right)\vee\left(X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\wedge\varphi_{\mathrm{succ}}\left(\bar{v}'\bar{v}\right)\right)\right]\left(\bar{y}\bar{z}\right)\\
+\varphi_{\times}\left(\bar{x}\bar{y}\bar{z}\right) & \coloneqq & \left[\mathrm{lfp}_{X\bar{u}\bar{v}}\left(\bar{u}\bar{v}=\bar{\mathbf{0}}\right)\vee\left(X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\wedge\varphi_{+}\left(\bar{v}'\bar{x}\bar{v}\right)\right)\right]\left(\bar{y}\bar{z}\right)
+\end{eqnarray*}
+
+\end_inset
+
+Für eine Formel 
+\begin_inset Formula $\psi\left(\bar{x}\bar{u}\bar{y}\right)$
+\end_inset
+
+, die mit einem Parameter 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ eine Funktion 
+\begin_inset Formula $q:\left[0,n^{c}\right]\rightarrow\left[0,n^{c}\right]$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathfrak{A}\models\psi\left[\bar{a},f_{W}\left(i\right)f_{W}\left(q_{i}\right)\right]$
+\end_inset
+
+ berechnet, können wir die Summe 
+\begin_inset Formula $\sum_{i=0}^{n^{c}}q_{i}$
+\end_inset
+
+ berechnen:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\varphi_{\mathrm{sum}}^{\psi\left(\bar{x}\right)}\left(\bar{z}\right)\coloneqq\left[\mathrm{lfp}_{X\bar{u}\bar{v}}\left(\bar{u}\bar{v}=\bar{\mathbf{0}}\right)\vee\left(\begin{array}{c}
+X\bar{u}'\bar{v}'\wedge\varphi_{\mathrm{succ}}\left(\bar{u}'\bar{u}\right)\\
+\wedge\psi\left(\bar{x}\bar{u}\bar{y}\right)\wedge\varphi_{+}\left(\bar{v}'\bar{y}\bar{v}\right)
+\end{array}\right)\right]\left(\bar{\mathbf{n}}\bar{z}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nun definieren wir die Operation des 
+\begin_inset Formula $\mathtt{MAJ}$
+\end_inset
+
+-Gates wie folgt.
+ Hierbei zählt 
+\begin_inset Formula $\psi_{\mathrm{eval}}$
+\end_inset
+
+ die passenden, erfüllenden Belegungen eines Vorgängers; 
+\begin_inset Formula $\psi_{\mathrm{weight}}$
+\end_inset
+
+ multipliziert diese mit dem Kantengewicht 
+\begin_inset Formula $\mathcal{W}\left(h,g\right)$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\psi_{\mathrm{count}}$
+\end_inset
+
+ und 
+\begin_inset Formula $\psi_{\mathrm{total}}$
+\end_inset
+
+ arbeiten analog mit allen passenden Belegungen.
+ Schließlich prüft 
+\begin_inset Formula $\psi_{\mathtt{MAJ}}$
+\end_inset
+
+, ob die gewichtete Summe aller erfüllenden Belegungen mindestens die Hälfte
+ der gewichteten Summe aller passenden Belegungen erreicht.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\psi_{\mathrm{eval}}\left(\bar{u}\bar{x}\bar{v}\bar{m}\right) & \coloneqq & \bar{m}=\#\bar{y}\left(\mathrm{EVAL}\left(\bar{v}\bar{y}\right)\wedge\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\right)\\
+\psi_{\mathrm{weight}}\left(\bar{u}\bar{x}\bar{v}\bar{n}\right) & \coloneqq & \exists\bar{m}\exists\bar{w}\left(\varphi_{W}\left(\bar{v}\bar{u}\bar{w}\right)\wedge\psi_{\mathrm{eval}}\left(\bar{u}\bar{v}\bar{x}\bar{m}\right)\wedge\varphi_{\times}\left(\bar{m}\bar{w}\bar{n}\right)\right)\\
+\psi_{\mathrm{count}}\left(\bar{u}\bar{x}\bar{v}\bar{m}\right) & \coloneqq & \bar{m}=\#\bar{y}\,\varphi_{\sim}\left(\bar{u}\bar{v}\bar{x}\bar{y}\right)\\
+\psi_{\mathrm{total}}\left(\bar{u}\bar{x}\bar{v}\bar{n}\right) & \coloneqq & \exists\bar{m}\exists\bar{w}\left(\varphi_{W}\left(\bar{v}\bar{u}\bar{w}\right)\wedge\psi_{\mathrm{total}}\left(\bar{u}\bar{v}\bar{x}\bar{m}\right)\wedge\varphi_{\times}\left(\bar{m}\bar{w}\bar{n}\right)\right)\\
+\psi_{\mathtt{MAJ}}\left(\bar{u}\bar{x}\right) & \coloneqq & \exists\bar{w}\exists\bar{y}\exists\bar{z}\left(\varphi_{\mathrm{sum}}^{\psi_{\mathrm{weight}}\left(\bar{u}\bar{x}\right)}\left(\bar{w}\right)\wedge\varphi_{+}\left(\bar{w}\bar{w}\bar{y}\right)\wedge\psi_{\mathrm{sum}}^{\varphi_{\mathrm{total}}\left(\bar{u}\bar{x}\right)}\left(\bar{z}\right)\wedge\bar{y}\leqslant\bar{z}\right)
+\end{eqnarray*}
+
+\end_inset
+
+Dies entspricht der Definition von 
+\begin_inset Formula $\mathrm{EV}\left(g\right)$
+\end_inset
+
+ für 
+\begin_inset Formula $\mathtt{MAJ}$
+\end_inset
+
+-Gates aus dem vorhergehenden Abschnitt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathfrak{A}\models\psi_{\mathtt{MAJ}}\left[\bar{g}\bar{a}\right] & \Leftrightarrow & 2\sum_{h\in H}\mathcal{W}\left(h,f_{G}^{-1}\bar{g}\right)\left|\bar{\mathrm{Red}}\left(\bar{a},h\right)\cap\bar{\mathrm{EV}}\left(h\right)\right|\geqslant\sum_{h\in H}\mathcal{W}\left(h,f_{G}^{-1}\bar{g}\right)\left|\bar{\mathrm{Red}}\left(\bar{a},h\right)\right|
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die verschiedenen Auswertungs-Formeln werden zusammengefügt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\varphi_{\mathrm{EVAL}}\left(\bar{u}\bar{x}\right) & \coloneqq & \varphi_{\mathrm{valid}}\left(\bar{u}\bar{x}\right)\wedge\\
+ &  & \bigwedge_{s\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} }\left(\varphi_{s}\left(\bar{u}\right)\rightarrow\psi_{s}\left(\bar{u}\bar{x}\right)\right)\\
+ &  & \bigwedge_{R/k\in\sigma}\left(\exists\bar{t}\varphi_{R}\left(\bar{u}\bar{t}\right)\rightarrow\psi_{R}\left(\bar{u}\bar{x}\right)\right)
+\end{eqnarray*}
+
+\end_inset
+
+Zum Schluss formulieren wir eine Formel, die für ein gegebenes Anfragetupel
+ 
+\begin_inset Formula $\beta\bar{x}\in A^{k}$
+\end_inset
+
+ wie folgt vorgeht: Finde ein Tupel 
+\begin_inset Formula $\bar{t}\in U^{k}$
+\end_inset
+
+, das Gate 
+\begin_inset Formula $g=\Omega\left(\bar{t}\right)$
+\end_inset
+
+ und eine gültige Abbildung 
+\begin_inset Formula $\pi\coloneqq\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{b}\right)$
+\end_inset
+
+, so dass 
+\begin_inset Formula $\beta x_{j}=b_{i}$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\bar{\mathrm{sp}}\left(g\right)_{j}=t_{i}$
+\end_inset
+
+, und prüfe, ob 
+\begin_inset Formula $\bar{b}\in\bar{\mathrm{EV}}\left(g\right)$
+\end_inset
+
+ gilt.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\varphi\left(\bar{x}\right) & \coloneqq\exists\bar{t}\exists\bar{u}\exists\bar{z}\,(\\
+ &  & \varphi_{\Omega}\left(\bar{u}\bar{t}\right)\wedge\psi_{\mathrm{valid}}\left(\bar{u}\bar{z}\right)\\
+ &  & \wedge\bigwedge_{\substack{i\in\left[1,k\right]\\
+j\in\left[1,d\right]
+}
+}\left(\psi_{\mathrm{sp},j}\left(\bar{u}t_{i}\right)\rightarrow z_{i}=x_{i}\right)\\
+ &  & \wedge\left[\mathrm{lfp}_{\mathrm{EVAL},\bar{u}\bar{x}}\psi_{\mathrm{EVAL}}\right]\left(\bar{u}\bar{z}\right)\\
+ & )
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:p-poly-sbc"
+
+\end_inset
+
+
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+-uniforme Schaltkreise
+\end_layout
+
+\begin_layout Standard
+Für eine 
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+-uniforme Schaltkreisfamilie ersetzen wir die Formeln 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ (siehe Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:circuit-def"
+
+\end_inset
+
+) durch 
+\begin_inset Formula $\mathbf{ARB}$
+\end_inset
+
+-Prädikate, die den Schaltkreis festlegen.
+ Der Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:circuit-eval"
+
+\end_inset
+
+ bleibt davon unberührt, und wir beweisen:
 \end_layout
 
 \begin_layout Lemma
@@ -17141,24 +17699,32 @@ Sei
 \end_inset
 
 -stellige, rigide, symmetrische, 
-\begin_inset Formula $\mathrm{LOGSPACE}$
+\begin_inset Formula $P/\mathrm{poly}$
 \end_inset
 
 -uniforme 
 \begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
 \end_inset
 
--Multischaltkreisfamilie mit konstanter 
-\begin_inset Formula $c$
+-Multischaltkreisfamilie.
+ Für 
+\begin_inset Formula $\mathbb{B}=\mathbb{B}_{\mathrm{std}}$
 \end_inset
 
--Tiefe und 
-\begin_inset Formula $n^{d}$
+ existiert eine 
+\begin_inset Formula $\left(\mathrm{LFP}+\mathbf{ARB}\right)\left[\sigma\right]$
 \end_inset
 
--Größe.
- Es existiert eine 
-\begin_inset Formula $\left(\mathrm{FO}+\mathbf{BIT}\right)\left[\sigma\right]$
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ (beziehungsweise für 
+\begin_inset Formula $\mathbb{B}=\mathbb{B}_{\mathrm{maj}}$
+\end_inset
+
+ eine 
+\begin_inset Formula $\left(\mathrm{LFP}+\mathbf{ARB}+C\right)\left[\sigma\right]$
 \end_inset
 
 -Formel 
@@ -17184,8 +17750,548 @@ Sei
 .
 \end_layout
 
-\begin_layout Proof
-Weil die Schaltkreisfamilie von einer 
+\begin_layout Section
+Schaltkreise konstanter Tiefe
+\end_layout
+
+\begin_layout Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:ac0-fo"
+
+\end_inset
+
+Sei 
+\begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ eine symmetrische, 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreisfamilie mit konstanter 
+\begin_inset Formula $c$
+\end_inset
+
+-Tiefe und 
+\begin_inset Formula $n^{c}$
+\end_inset
+
+-Größe.
+ Es existiert eine 
+\begin_inset Formula $\left(\mathrm{FO}+\Upsilon\right)\left[\sigma\right]$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+, so dass für 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+\end_inset
+
+ die Formel 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\end_inset
+
+ die gleiche Anfrage definiert wie 
+\begin_inset Formula $\mathcal{C}_{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Lemma
+Wenn 
+\begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+-uniform ist, so ist 
+\begin_inset Formula $\Upsilon=\mathbf{BIT}$
+\end_inset
+
+, ansonsten ist 
+\begin_inset Formula $\Upsilon=\mathbf{ARB}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Hierfür stellen wir zunächst eine alternierende Normalform für den Schaltkreis
+ 
+\begin_inset Formula $\mathcal{C}_{n}$
+\end_inset
+
+ her:
+\end_layout
+
+\begin_layout Enumerate
+Jedes Gate hat nur einen Nachfolger.
+\end_layout
+
+\begin_layout Enumerate
+Jedes 
+\begin_inset Formula $\mathtt{AND}$
+\end_inset
+
+-Gate ist Vorgänger eines 
+\begin_inset Formula $\mathtt{OR}$
+\end_inset
+
+-Gates, und umgekehrt.
+\end_layout
+
+\begin_layout Enumerate
+Jedes Input ist Vorgänger eines 
+\begin_inset Formula $\mathtt{OR}$
+\end_inset
+
+-Gates oder eines 
+\begin_inset Formula $\mathtt{NOT}$
+\end_inset
+
+-Gates.
+\end_layout
+
+\begin_layout Enumerate
+Jedes Output ist mit 
+\begin_inset Formula $\mathtt{AND}$
+\end_inset
+
+ markiert.
+\end_layout
+
+\begin_layout Enumerate
+Alle Wege von einem negierten Input zu einem Output haben die Länge 
+\begin_inset Formula $4c+1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Alle Wege von einem nicht-negierten Input zu einem Output haben die Länge
+ 
+\begin_inset Formula $4c$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Die Normalform wird durch den Algorithmus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:ac0-normal-form"
+
+\end_inset
+
+ berechnet.
+ Der Algorithmus benötigt 
+\begin_inset Formula $T\cdot\log\left(\left|G\right|\right)\leqslant4c^{2}\cdot\log n$
+\end_inset
+
+ Speicherplatz, weil die Rekursionstiefe mit 
+\begin_inset Formula $T\leqslant4c$
+\end_inset
+
+ konstant beschränkt ist.
+ Damit läuft der Algorithmus in 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float algorithm
+wide false
+sideways false
+status open
+
+\begin_layout LyX-Code
+NF(
+\begin_inset Formula $i,g,g',\mathrm{state}$
+\end_inset
+
+):
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Falls 
+\begin_inset Formula $\Sigma\left(g\right)=\mathtt{NOT}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Finde den Vorgänger 
+\begin_inset Formula $h$
+\end_inset
+
+ von 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout LyX-Code
+Fahre fort mit NF
+\begin_inset Formula $\left(i,h,g,\neg\mathrm{state}\right)$
+\end_inset
+
+ und brich ab.
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+Gib 
+\begin_inset Formula $g$
+\end_inset
+
+ als neues Gate aus.
+\end_layout
+
+\begin_layout LyX-Code
+Falls 
+\begin_inset Formula $i$
+\end_inset
+
+ gerade ist und 
+\begin_inset Formula $\Sigma\left(g\right)=\mathtt{AND}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Sei 
+\begin_inset Formula $g''$
+\end_inset
+
+ ein Gate mit 
+\begin_inset Formula $\Sigma\left(g''\right)=\mathtt{OR}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout LyX-Code
+Gib 
+\begin_inset Formula $g''$
+\end_inset
+
+ und die Kanten 
+\begin_inset Formula $\left(g,g''\right),\left(g'',g'\right)$
+\end_inset
+
+ aus.
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+Falls 
+\begin_inset Formula $i$
+\end_inset
+
+ ungerade ist und 
+\begin_inset Formula $\Sigma\left(g\right)=\mathtt{OR}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+(Analog mit 
+\begin_inset Formula $\Sigma\left(g''\right)=\mathtt{AND}$
+\end_inset
+
+.)
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+Falls 
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
+\end_inset
+
+ oder 
+\begin_inset Formula $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Falls 
+\begin_inset Formula $\mathrm{state}=\textsc{False}$
+\end_inset
+
+ und 
+\begin_inset Formula $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Kehre 
+\begin_inset Formula $\Sigma\left(g\right)$
+\end_inset
+
+ um und setze 
+\begin_inset Formula $\mathrm{\mathrm{state}\leftarrow\textsc{True}}$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+Falls 
+\begin_inset Formula $\mathrm{state}=\textsc{True}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Erzeuge einen alternierenden Weg der Länge 
+\begin_inset Formula $4c-i$
+\end_inset
+
+ von 
+\begin_inset Formula $g$
+\end_inset
+
+ zu 
+\begin_inset Formula $g'$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+Sonst:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Verbinde 
+\begin_inset Formula $g$
+\end_inset
+
+ mit einem 
+\begin_inset Formula $\mathtt{NOT}$
+\end_inset
+
+-Gate 
+\begin_inset Formula $g''$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout LyX-Code
+Erzeuge einen alternierenden Weg der Länge 
+\begin_inset Formula $4c-i$
+\end_inset
+
+ von 
+\begin_inset Formula $g''$
+\end_inset
+
+ zu 
+\begin_inset Formula $g'$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout LyX-Code
+Für jeden Vorgänger 
+\begin_inset Formula $h$
+\end_inset
+
+ von 
+\begin_inset Formula $g$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+NF(
+\begin_inset Formula $i+1,h,g,\mathrm{state}$
+\end_inset
+
+)
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout LyX-Code
+Main:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Für 
+\begin_inset Formula $g\in G$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Falls 
+\begin_inset Formula $g$
+\end_inset
+
+ keine Nachfolger hat:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Sei 
+\begin_inset Formula $g'$
+\end_inset
+
+ ein neues 
+\begin_inset Formula $\mathtt{AND}$
+\end_inset
+
+-Gate.
+\end_layout
+
+\begin_layout LyX-Code
+Gib 
+\begin_inset Formula $g'$
+\end_inset
+
+ aus.
+\end_layout
+
+\begin_layout LyX-Code
+Für 
+\begin_inset Formula $\bar{t}\in U^{k}$
+\end_inset
+
+:
+\end_layout
+
+\begin_deeper
+\begin_layout LyX-Code
+Gib 
+\begin_inset Formula $\Omega\left(\bar{t}\right)=g'$
+\end_inset
+
+ aus.
+\end_layout
+
+\end_deeper
+\begin_layout LyX-Code
+NF(
+\begin_inset Formula $1,g,g'$
+\end_inset
+
+).
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_deeper
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "alg:ac0-normal-form"
+
+\end_inset
+
+Normalform für Schaltkreise konstanter Tiefe
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die (nicht rigide) alternierende Normalform eines rigiden, symmetrischen
+ Schaltkreises hat immer noch einen eindeutigen Automorphismus 
+\begin_inset Formula $\hat{\pi}\in\mathrm{Aut}_{\mathcal{C}'}$
+\end_inset
+
+ für jede Permutation 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+\end_inset
+
+.
+ Per Induktion über die Tiefe sehen wir, dass für jedes Gate 
+\begin_inset Formula $g\in G$
+\end_inset
+
+, jeden Vorgänger 
+\begin_inset Formula $h$
+\end_inset
+
+ von 
+\begin_inset Formula $G$
+\end_inset
+
+ und jede Permutation 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+\end_inset
+
+ gilt: Wenn 
+\begin_inset Formula $\hat{\pi}g\in G$
+\end_inset
+
+ eindeutig ist, dann ist es auch 
+\begin_inset Formula $\hat{\pi}h$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Wenn die Schaltkreisfamilie (inklusive der rigiden Umformung, und deren
+ Normalform) von einer 
 \begin_inset Formula $\mathrm{LOGSPACE}$
 \end_inset
 
@@ -17197,15 +18303,15 @@ key "immerman2012descriptive"
 \end_inset
 
  eine Sammlung von 
-\begin_inset Formula $\mathrm{FO}\left[\left\{ \mathtt{BIT}\right\} \right]$
+\begin_inset Formula $\mathrm{FO}+\mathbf{BIT}$
 \end_inset
 
 -Formeln 
 \begin_inset Formula $\Phi$
 \end_inset
 
-, die auf der Struktur 
-\begin_inset Formula $\mathbf{BIT}\left(n\right)$
+, die auf 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\varphi\right)$
 \end_inset
 
  ausgewertet den Schaltkreis 
@@ -17215,7 +18321,7 @@ key "immerman2012descriptive"
  beschreiben:
 \end_layout
 
-\begin_layout Proof
+\begin_layout Standard
 \begin_inset Formula 
 \[
 \Phi\coloneqq\left(\varphi_{G},\varphi_{\mathcal{W}},\varphi_{\Omega},\left(\varphi_{\phi}\right)_{\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} },\left(\varphi_{R}\right)_{R\in\sigma}\right)
@@ -17223,10 +18329,22 @@ key "immerman2012descriptive"
 
 \end_inset
 
+(Wenn die Schaltkreisfamilie nur 
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
 
+-uniform ist, dann ersetzen wir 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ stattdessen durch entsprechend gewählte 
+\begin_inset Formula $\mathbf{ARB}$
+\end_inset
+
+-Prädikate.)
 \end_layout
 
-\begin_layout Proof
+\begin_layout Standard
 Hierbei sei 
 \begin_inset Formula $f_{G}:G\rightarrow\left[1,n\right]^{d}$
 \end_inset
@@ -17250,14 +18368,194 @@ Hierbei sei
 :
 \begin_inset Formula 
 \begin{eqnarray*}
-\mathbf{BIT}\left(n\right)\models\varphi_{G}\left[\bar{g}\right] & \Leftrightarrow & f_{G}^{-1}\left(\bar{g}\right)\in G\\
-\mathbf{BIT}\left(n\right)\models\varphi_{W}\left[\bar{h}\bar{g}\bar{w}\right] & \Leftrightarrow & \mathcal{W}\left(f_{G}^{-1}\left(\bar{h}\right),f_{G}^{-1}\left(\bar{g}\right)\right)=f_{W}^{-1}\left(\bar{w}\right)\\
-\mathbf{BIT}\left(n\right)\models\varphi_{\Omega}\left[\bar{t}\bar{g}\right] & \Leftrightarrow & \Omega\left(\bar{t}\right)=f_{G}^{-1}\left(\bar{g}\right)\\
+\mathfrak{A}\models\varphi_{G}\left[\bar{g}\right] & \Leftrightarrow & f_{G}^{-1}\left(\bar{g}\right)\in G\\
+\mathfrak{A}\models\varphi_{W}\left[\bar{h}\bar{g}\bar{w}\right] & \Leftrightarrow & \mathcal{W}\left(f_{G}^{-1}\left(\bar{h}\right),f_{G}^{-1}\left(\bar{g}\right)\right)=f_{W}^{-1}\left(\bar{w}\right)\\
+\mathfrak{A}\models\varphi_{\Omega}\left[\bar{t}\bar{g}\right] & \Leftrightarrow & \Omega\left(\bar{t}\right)=f_{G}^{-1}\left(\bar{g}\right)\\
  &  & \mathrm{für}\,\bar{t}\in\left[1,n\right]^{k}\\
-\mathbf{BIT}\left(n\right)\models\varphi_{\phi}\left[\bar{g}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\left(\bar{g}\right)\right)=\phi\\
+\mathfrak{A}\models\varphi_{\phi}\left[\bar{g}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\left(\bar{g}\right)\right)=\phi\\
  &  & \mathrm{für}\,\phi\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} \\
-\mathbf{BIT}\left(n\right)\models\varphi_{R}\left[\bar{g}\bar{x}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\left(\bar{g}\right)\right)=R\bar{x}\\
+\mathfrak{A}\models\varphi_{R}\left[\bar{g}\bar{x}\right] & \Leftrightarrow & \Sigma\left(f_{G}^{-1}\left(\bar{g}\right)\right)=R\bar{x}\\
  &  & \mathrm{für}\,R/m\in\sigma,\,\bar{x}\in\left[1,n\right]^{m}
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\varphi_{W}'\left(\bar{h}\bar{g}\right)\coloneqq\exists\bar{n}\left(\varphi_{W}\left(\bar{h}\bar{g}\bar{n}\right)\wedge\exists x\bigvee_{i=1}^{c}\neg n_{i}\leqslant x\right)
+\]
+
+\end_inset
+
+Da auch die Algorithmen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:aut"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "alg:orbits"
+
+\end_inset
+
+ in 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+ den Automorphismus und die Träger und Orbits berechnen, existiert eine
+ 
+\begin_inset Formula $\mathrm{FO}+\mathbf{BIT}$
+\end_inset
+
+-Formel 
+\begin_inset Formula $\varphi_{\mathrm{sp}}\left(\bar{u}x\right)$
+\end_inset
+
+, die von 
+\begin_inset Formula $\beta$
+\end_inset
+
+ auf 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+\end_inset
+
+ erfüllt wird, falls 
+\begin_inset Formula $\beta x\in\mathrm{sp}\left(f_{G}^{-1}\bar{u}\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Analog zu Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:circuit-def"
+
+\end_inset
+
+ können wir daraus auch die 
+\begin_inset Formula $\mathrm{FO}+\mathbf{BIT}$
+\end_inset
+
+-Formeln 
+\begin_inset Formula $\varphi_{\mathrm{size},i}$
+\end_inset
+
+ und 
+\begin_inset Formula $\varphi_{\mathrm{sp},i}$
+\end_inset
+
+ erzeugen.
+ Ebenso sind die Formeln 
+\begin_inset Formula $\varphi_{\mathrm{valid}}$
+\end_inset
+
+ und 
+\begin_inset Formula $\varphi_{\sim}$
+\end_inset
+
+ und 
+\begin_inset Formula $\varphi_{R}$
+\end_inset
+
+ aus Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:circuit-eval"
+
+\end_inset
+
+ nun in 
+\begin_inset Formula $\mathrm{FO}+\mathbf{BIT}$
+\end_inset
+
+ definierbar, da sie ihren Teilformeln selbst keine Fixpunkt-Operatoren
+ hinzufügen.
+\end_layout
+
+\begin_layout Standard
+Die Formel 
+\begin_inset Formula $\varphi_{\mathrm{EVAL}}\left(\bar{u}_{1}\bar{z}_{1}\right)$
+\end_inset
+
+ quantifiziert nun über jeden Weg von einem Input zu dem Output 
+\begin_inset Formula $g_{1}=f_{G}^{-1}\bar{u}_{1}$
+\end_inset
+
+, und prüft dann für jeden Schritt, ob eine korrekte Kante 
+\begin_inset Formula $\left(g_{i+1},g_{i}\right)\in W$
+\end_inset
+
+ mit 
+\begin_inset Formula $g_{i}=f_{G}^{-1}\bar{u}_{i}$
+\end_inset
+
+ gewählt wurde, und ob die Abbildungen 
+\begin_inset Formula $\left(\bar{\mathrm{sp}}\left(g_{i}\right)\mapsto\bar{x}_{i}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\left(\bar{\mathrm{sp}}\left(g_{i+1}\right)\mapsto\bar{x}_{i+1}\right)$
+\end_inset
+
+ konsistent sind.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\varphi_{\mathrm{EVAL}}\left(\bar{u}_{1}\bar{z}_{1}\right) & \coloneqq & \left(\forall\bar{u}_{2i}\forall\bar{x}_{2i}\exists\bar{u}_{2i+1}\exists\bar{x}_{2i+1}\right)_{1\leqslant i\leqslant2c}(\\
+ &  & \bigwedge_{i=1}^{4c}\left(\varphi_{W}'\left(\bar{u}_{i+1}\bar{u}_{i}\right)\wedge\varphi_{\sim}\left(\bar{u}_{i}\bar{u}_{i+1}\bar{x}_{i}\bar{x}_{i+1}\right)\right)\wedge\\
+ &  & \bigwedge_{R\in\sigma}\left(\exists\bar{t}\varphi_{R}\left(\bar{u}_{4c+1}\bar{t}\right)\rightarrow\psi_{R}\left(\bar{u}_{4c+1}\bar{x}_{4c+1}\right)\right)\wedge\\
+ &  & \forall\bar{u}'(\left(\varphi_{W}'\left(\bar{u}'\bar{u}_{4c+1}\right)\wedge\varphi_{\mathtt{NOT}}\left(\bar{u}'\right)\right)\rightarrow\\
+ &  & \,\,\,\,\,\,\,\,\bigwedge_{R\in\sigma}\left(\exists\bar{t}\varphi_{R}\left(\bar{u}'\bar{t}\right)\rightarrow\neg\psi_{R}\left(\bar{u}'\bar{x}'\right)\right)\\
+ &  & )\wedge\\
+ &  & \bigwedge_{s\in\left\{ \mathbf{0},\mathbf{1}\right\} }\left(\varphi_{s}\left(\bar{u}_{4c+1}\right)\rightarrow\psi_{s}\left(\bar{u}_{4c+1}\bar{x}\right)\right)\\
+ & )
+\end{eqnarray*}
+
+\end_inset
+
+Nun berechnet 
+\begin_inset Formula $\varphi_{\mathrm{EVAL}}\left(\bar{u}_{1}\bar{z}_{1}\right)$
+\end_inset
+
+ für ein Output-Gate 
+\begin_inset Formula $g_{1}=f_{G}^{-1}\bar{u}_{1}$
+\end_inset
+
+ die Auswertung mit einer Abbildung 
+\begin_inset Formula $\pi\coloneqq\left(\bar{\mathrm{sp}}\left(g\right)\mapsto\bar{z}_{1}\right)$
+\end_inset
+
+.
+ Analog zum Abschnitt 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:circuit-eval"
+
+\end_inset
+
+ wird nun die Formel 
+\begin_inset Formula $\varphi\left(\bar{x}\right)$
+\end_inset
+
+ definiert, die ein passendes Output-Gate und die richtige Abbildung findet:
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\varphi\left(\bar{x}\right) & \coloneqq\exists\bar{t}\exists\bar{u}\exists\bar{z}\,(\\
+ &  & \varphi_{\Omega}\left(\bar{u}\bar{t}\right)\wedge\psi_{\mathrm{valid}}\left(\bar{u}\bar{z}\right)\\
+ &  & \wedge\bigwedge_{\substack{i\in\left[1,k\right]\\
+j\in\left[1,d\right]
+}
+}\left(\psi_{\mathrm{sp},j}\left(\bar{u}t_{i}\right)\rightarrow z_{i}=x_{i}\right)\\
+ &  & \wedge\varphi_{\mathrm{EVAL}}\left(\bar{u}\bar{z}\right)\\
+ & )
 \end{eqnarray*}
 
 \end_inset
@@ -17265,8 +18563,23 @@ Hierbei sei
 
 \end_layout
 
-\begin_layout Proof
-[...]
+\begin_layout Standard
+Damit wird die Auswertung jedes Schaltkreises 
+\begin_inset Formula $\mathcal{C}_{n}$
+\end_inset
+
+ durch die Formel 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ definiert, und das Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "lem:ac0-fo"
+
+\end_inset
+
+ ist bewiesen.
 \end_layout
 
 \begin_layout Chapter
@@ -17274,11 +18587,11 @@ Grenzen der symmetrischen Schaltkreisklassen
 \end_layout
 
 \begin_layout Standard
-Wir weisen nach, dass die symmetrischen 
+Die symmetrischen 
 \begin_inset Formula $\mathrm{AC}^{0}$
 \end_inset
 
--Schaltkreisfamilien eine echte Teilmenge der Anfragen beschreiben, die
+-Schaltkreisfamilien beschreiben eine echte Teilmenge der Anfragen, die
  durch 
 \begin_inset Formula $\mathrm{AC}^{0}$
 \end_inset
@@ -17287,7 +18600,7 @@ Wir weisen nach, dass die symmetrischen
 \end_layout
 
 \begin_layout Standard
-Hierfür verwenden wir die Charakterisierung aus Theorem 
+Der Beweis benutzt die Charakterisierung aus Theorem 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "thm:fo"
@@ -17476,6 +18789,13 @@ reference "thm:fo"
 
 \begin_layout Standard
 Dafür verwenden wir den Lokalitäts-Satz von Hanf.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
 \end_layout
 
 \begin_layout Theorem
