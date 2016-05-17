@@ -1,0 +1,226 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrbook
+\use_default_options true
+\begin_modules
+theorems-ams
+theorems-chap
+theorems-ams-extended
+\end_modules
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language german
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Ausblick
+\end_layout
+
+\begin_layout Standard
+Wir haben in Kapitel 5 gesehen, dass logische Formeln der ersten Stufe mit
+ beliebigen 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+-berechenbaren disjunkten numerischen Erweiterungen (insbesondere 
+\begin_inset Formula $\mathbf{BIT}$
+\end_inset
+
+) sich durch symmetrische 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+-uniforme Schaltkreisfamilien beschreiben lassen.
+ 
+\end_layout
+
+\begin_layout Standard
+Für die Fixpunkt-Logik 
+\begin_inset Formula $\mathrm{LFP}$
+\end_inset
+
+ mit 
+\begin_inset Formula $P$
+\end_inset
+
+-berechenbaren numerischen Prädikaten haben wir die gleiche Reduktion auf
+ symmetrische 
+\begin_inset Formula $P$
+\end_inset
+
+-uniforme Schaltkreisfamilien gezeigt.
+ In beiden Fällen konnte ein Zählquantor durch Hinzunahme von Majority-Gates
+ ausgedrückt werden, und beliebige Erweiterungen (insbesondere 
+\begin_inset Formula $\mathbf{ARB}$
+\end_inset
+
+) durch Ausweitung auf 
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+-Uniformität.
+\end_layout
+
+\begin_layout Standard
+In Kapitel 7 haben wir gesehen, dass sich symmetrische, 
+\begin_inset Formula $P$
+\end_inset
+
+-uniforme Schaltkreisfamilien umgekehrt durch Fixpunkt-Logik mit disjunkter
+ Ordnungserweiterung definieren lassen.
+ Auch hier wurde das Majority-Gate auf einen Zählquantor abgebildet, und
+ die 
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+-uniforme Schaltkreisklasse durch die 
+\begin_inset Formula $\mathbf{ARB}$
+\end_inset
+
+-Erweiterung definiert.
+\end_layout
+
+\begin_layout Standard
+Für die Logik der ersten Stufe haben wir dann den Kreis geschlossen und
+ Schaltkreise konstanter Tiefe auf 
+\begin_inset Formula $\mathrm{FO}+\mathbf{BIT}$
+\end_inset
+
+ reduziert.
+ Die Erweiterung auf 
+\begin_inset Formula $\mathrm{P/\mathrm{poly}}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+ funktionierte problemlos analog zu der Fixpunkt-Logik, die Zähl-Erweiterung
+ 
+\begin_inset Formula $\mathrm{FO}+C$
+\end_inset
+
+ jedoch nicht.
+\end_layout
+
+\begin_layout Standard
+Zum Schluss haben wir in Kapitel 8 nachgewiesen, dass die symmetrischen
+ Schaltkreisfamilien (zumindest bei konstanter Tiefe) echt weniger ausdrücken
+ können als die allgemein invarianten Schaltkreisfamilien.
+ Dazu wurde der Satz von Hanf verwendet, und gezeigt, dass die Logik 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+ modulo der Struktur-Größe Hanf-lokal ist, während dies für die arb-invariante
+ Logik 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+\end_inset
+
+ nicht allgemein gilt 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AnMeScSe11"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Vermutlich gelten ähnliche Beziehungen auch für die symmetrischen Teile
+ der übrigen Schaltkreisklassen 
+\begin_inset Formula $\mathrm{SBC}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathrm{AC}^{0}+\mathbf{MAJ}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathrm{SBC}+\mathbf{MAJ}$
+\end_inset
+
+.
+ Ein Lokalitäts-Beweis bietet sich hier aber vermutlich nicht an, denn insbesond
+ere wäre die im letzten Kapitel definierte Anfrage bereits in 
+\begin_inset Formula $\mathrm{FO}+\mathbf{BIT}+C$
+\end_inset
+
+ definierbar:
+\begin_inset Formula 
+\begin{eqnarray*}
+\varphi & \coloneqq & \exists x\left(\exists^{=x}y\exists z\,\left(Eyz\vee Ezy\right)\wedge\exists x_{\max}\left(\log_{\leqslant}\left(x,x_{\max}\right)\wedge\forall y\left(x_{\max}\leqslant y\rightarrow x_{\max}=y\right)\right)\right)\\
+\log_{\leqslant} & \coloneqq & \left\{ \left(m,n\right)\in\mathbb{N}^{2}\mid2^{m}\leqslant n\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,1202 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrbook
+\use_default_options true
+\begin_modules
+theorems-ams
+theorems-chap
+theorems-ams-extended
+\end_modules
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language german
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Grenzen der symmetrischen Schaltkreisklassen
+\end_layout
+
+\begin_layout Standard
+Die symmetrischen 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+-Schaltkreisfamilien beschreiben eine echte Teilmenge der Anfragen, die
+ durch 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+ definierbar sind.
+\end_layout
+
+\begin_layout Standard
+Der Beweis benutzt die Charakterisierung aus Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:fo"
+
+\end_inset
+
+ von symmetrischem 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+ durch die Logik 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+, die Charakterisierung von 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+ durch die Logik 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+\end_inset
+
+, und ein Problem, dass die Ausdrucksstärke dieser beiden Logiken voneinander
+ trennt.
+\end_layout
+
+\begin_layout Theorem
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "lem:fo-arb-ac0"
+
+\end_inset
+
+Immerman (1987)
+\series default
+
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Immerman1987"
+
+\end_inset
+
+
+\series bold
+, Makowsky (1997)
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Makowsky1997-FO"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+Die Klasse der 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+-definierbaren Anfragen ist äquivalent zu der Klasse der 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+\end_inset
+
+-definierbaren Anfragen.
+\end_layout
+
+\begin_layout Standard
+Für die Konstruktion der Formel (hier nur skizziert) wird jeder Schaltkreis
+ in eine alternierende Normalform der Tiefe 
+\begin_inset Formula $d$
+\end_inset
+
+ gebracht, in der jedes Gate 
+\begin_inset Formula $n^{k}$
+\end_inset
+
+ Vorgänger hat.
+ Die 
+\begin_inset Formula $n^{kd}$
+\end_inset
+
+ Wege von einem Input zu einem Output werden durch numerische Tupel kodiert
+ (die Relation dieser Wege ist ein numerisches Prädikat und daher in 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+\end_inset
+
+-Logik verwendbar).
+ Die Formel muss dann über jede der alternierenden Ebenen des Schaltkreises
+ quantifizieren (mit 
+\begin_inset Formula $\exists$
+\end_inset
+
+ für 
+\begin_inset Formula $\mathtt{OR}$
+\end_inset
+
+, und 
+\begin_inset Formula $\forall$
+\end_inset
+
+ für 
+\begin_inset Formula $\mathtt{AND}$
+\end_inset
+
+), und berechnet so die Auswertung von 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Da per Definition offensichtlich 
+\begin_inset Formula $\mathrm{SAC}^{0}\subseteq\mathrm{AC}^{0}$
+\end_inset
+
+ gilt, können wir mit 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}\subseteq\mathrm{SAC}^{0}$
+\end_inset
+
+ direkt ablesen, dass 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+\end_inset
+
+ enthalten ist (und beweisen somit Teil 1 des Theorems 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:fo-arb"
+
+\end_inset
+
+): Die Logik erster Stufe mit disjunktem 
+\begin_inset Formula $\mathbf{ARB}$
+\end_inset
+
+-Orakel ist nicht stärker als die mit nicht-disjunktem Orakel.
+\end_layout
+
+\begin_layout Standard
+Für den echten Einschluss (Teil 2 des Theorems 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:fo-arb"
+
+\end_inset
+
+) benötigen wir eine Anfrage, die in 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+\end_inset
+
+ beschreibbar ist, jedoch nicht in 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+ beschreibbar ist.
+ Per Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:fo"
+
+\end_inset
+
+ ist diese Anfrage dann in 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+, aber per Theorem 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "thm:fo"
+
+\end_inset
+
+ nicht in 
+\begin_inset Formula $\mathrm{SAC}^{0}$
+\end_inset
+
+ beschreibbar.
+\end_layout
+
+\begin_layout Standard
+Dafür verwenden wir den Lokalitäts-Satz von Hanf.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Theorem
+
+\series bold
+Der Satz von Hanf
+\series default
+ (Theorem 2.4.1 in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EbbinghausFlum"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Theorem
+Seien 
+\begin_inset Formula $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+, 
+\begin_inset Formula $m\in\mathbb{N}$
+\end_inset
+
+ und 
+\begin_inset Formula $r\coloneqq3^{m}$
+\end_inset
+
+, und sei 
+\begin_inset Formula $\#_{r}^{\mathfrak{A}}\left(a\right)\coloneqq\left|\left\{ b\in A\mid a\sim_{r}b\right\} \right|$
+\end_inset
+
+ die Anzahl der 
+\begin_inset Formula $r$
+\end_inset
+
+-ähnlichen Elemente zu 
+\begin_inset Formula $a$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathfrak{B}$
+\end_inset
+
+ (und 
+\begin_inset Formula $\#_{r}^{\mathfrak{B}}\left(a\right)$
+\end_inset
+
+ analog in 
+\begin_inset Formula $\mathfrak{B}$
+\end_inset
+
+).
+ Sei 
+\begin_inset Formula $e\in\mathbb{N}$
+\end_inset
+
+ so gewählt, dass 
+\begin_inset Formula $\max_{a\in A}\left(\left|N_{r}^{\mathfrak{A}}\left(a\right)\right|\right),\max_{b\in B}\left(\left|N_{r}^{\mathfrak{B}}\left(b\right)\right|\right)\leqslant e$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Theorem
+Nun gelte für jedes Element 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ mindestens eine der folgenden Aussagen:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Die Anzahl der 
+\begin_inset Formula $r$
+\end_inset
+
+-ähnlichen Elemente (siehe Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:neighborhoods"
+
+\end_inset
+
+) zu 
+\begin_inset Formula $a$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{B}$
+\end_inset
+
+ ist gleich.
+\begin_inset Formula 
+\[
+\#_{r}^{\mathfrak{A}}\left(a\right)=\#_{r}^{\mathfrak{B}}\left(a\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Die Anzahl der 
+\begin_inset Formula $r$
+\end_inset
+
+-ähnlichen Elemente zu 
+\begin_inset Formula $a$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ und in 
+\begin_inset Formula $\mathfrak{B}$
+\end_inset
+
+ ist jeweils größer als 
+\begin_inset Formula $m\cdot e$
+\end_inset
+
+.
+\begin_inset Formula 
+\[
+\#_{r}^{\mathfrak{A}}\left(a\right),\#_{r}^{\mathfrak{B}}\left(a\right)\geqslant m\cdot e
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Theorem
+Dann gilt: 
+\begin_inset Formula $\mathfrak{A}\equiv_{m}\mathfrak{B}$
+\end_inset
+
+ (siehe Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:m-equiv"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Lemma
+Es existiert eine Graph-Anfrage 
+\begin_inset Formula $q$
+\end_inset
+
+, die in 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+\end_inset
+
+-definierbar ist, aber nicht in 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+ beschreibbar ist.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $C\subseteq\mathbf{FIN}\left(E\right)$
+\end_inset
+
+ die Klasse der Graphen 
+\begin_inset Formula $\mathfrak{A}=\left(A,E^{\mathfrak{A}}\right)$
+\end_inset
+
+ für die gilt: 
+\begin_inset Formula $A$
+\end_inset
+
+ enthält weniger als 
+\begin_inset Formula $\left\lceil \mathrm{log}\left|A\right|\right\rceil $
+\end_inset
+
+ viele nicht-isolierte Knoten.
+\end_layout
+
+\begin_layout Proof
+Diese Anfrage ist durch einen 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)\left[E\right]$
+\end_inset
+
+-Satz definierbar (siehe dazu Abschnitt 4.4 von 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AMSS2012-locality"
+
+\end_inset
+
+).
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Assumption*
+Es existiere ein beliebiger 
+\begin_inset Formula $\left(\mathrm{FO}+\mathbf{ARB}\right)\left[E\right]$
+\end_inset
+
+-Satz 
+\begin_inset Formula $\varphi_{C}$
+\end_inset
+
+, der die Anfrage 
+\begin_inset Formula $q_{C}$
+\end_inset
+
+ definiere.
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Sei 
+\begin_inset Formula $m\coloneqq\mathrm{qr}\left(\varphi_{C}\right)$
+\end_inset
+
+ der Quantorenrang von 
+\begin_inset Formula $\varphi_{C}$
+\end_inset
+
+, und o.B.d.A.
+ sei 
+\begin_inset Formula $m\geqslant9$
+\end_inset
+
+.
+ Wir definieren die folgenden Graphen 
+\begin_inset Formula $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}^{\left(2^{m^{m}}\right)}\left(E\right)$
+\end_inset
+
+ (siehe Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:m-equiv"
+
+\end_inset
+
+):
+\begin_inset Formula 
+\begin{eqnarray*}
+A,B & \coloneqq & \left[1,2^{m^{m}}\right]\\
+E^{\mathfrak{A}} & \coloneqq & \left\{ \left(i,i+1\right)\mid i\in\left[1,m^{m}-2\right]\right\} \cup\left\{ \left(m^{m}-1,1\right)\right\} \\
+E^{\mathfrak{B}} & \coloneqq & \left\{ \left(i,i+1\right)\mid i\in\left[1,m^{m}-1\right]\right\} \cup\left\{ \left(m^{m},1\right)\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+Beide Strukturen bestehen aus 
+\begin_inset Formula $2^{m^{m}}$
+\end_inset
+
+ Knoten, 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ enthält einen Kreis der Länge 
+\begin_inset Formula $m^{m}-2$
+\end_inset
+
+, und 
+\begin_inset Formula $\mathfrak{B}$
+\end_inset
+
+ einen Kreis der Länge 
+\begin_inset Formula $m^{m}$
+\end_inset
+
+.
+ Damit gilt:
+\begin_inset Formula 
+\[
+\mathfrak{A}\in C,\,\mathfrak{B}\notin C
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathfrak{A}\models\varphi_{C},\,\mathfrak{B}\not\models\varphi_{C}
+\]
+
+\end_inset
+
+Offensichtlich besteht die 
+\begin_inset Formula $3^{m}$
+\end_inset
+
+-Nachbarschaft jedes Knotens im Kreis aus einer 
+\begin_inset Formula $3^{m}+1$
+\end_inset
+
+ langen Kette, und die übrigen Knoten sind isoliert.
+ Damit sind alle 
+\begin_inset Formula $3^{m}$
+\end_inset
+
+-Nachbarschaften kleiner als 
+\begin_inset Formula $e\coloneqq3^{m}+2$
+\end_inset
+
+.
+ Ferner hat jeder Knoten im Kreis mindestens 
+\begin_inset Formula $m^{m}-1\geqslant m\cdot3^{m+7}-1>m\cdot e$
+\end_inset
+
+ viele 
+\begin_inset Formula $3^{m}$
+\end_inset
+
+-ähnliche Knoten in jedem Graphen, und jeder isolierte Knoten ohnehin 
+\begin_inset Formula $2^{m^{m}}-m^{m}>m^{m}$
+\end_inset
+
+ viele 
+\begin_inset Formula $3^{m}$
+\end_inset
+
+-ähnliche Knoten.
+ Somit sind die Graphen 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{B}$
+\end_inset
+
+ nach dem Satz von Hanf 
+\begin_inset Formula $m$
+\end_inset
+
+-äquivalent.
+\end_layout
+
+\begin_layout Proof
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{g}=[circle, draw, fill=black,
+\end_layout
+
+\begin_layout Plain Layout
+
+                        inner sep=0pt, minimum width=2pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+%  Tutte's 8-cage
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[thick,scale=0.8]
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw  
+\backslash
+foreach 
+\backslash
+x in {0,18,...,342}
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+        (
+\backslash
+x:1.5) node[g] {} edge[dotted] (
+\backslash
+x+18:1.5)
+\end_layout
+
+\begin_layout Plain Layout
+
+    };
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+node (0:0) {$m^{m-1}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{scope}[shift={(0,-4)},xscale=2]
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+draw [dotted] (0,0) ellipse (2 and 2);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+draw plot [only marks, mark=*, mark size=0.1, domain=0:5, samples=75] ({rnd*360}:
+{1+rnd});
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{scope}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+node at (0,-4) {$2^{m^m}-m^m+1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{g}=[circle, draw, fill=black,
+\end_layout
+
+\begin_layout Plain Layout
+
+                        inner sep=0pt, minimum width=2pt]
+\end_layout
+
+\begin_layout Plain Layout
+
+%  Tutte's 8-cage
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[thick,scale=0.8]
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+draw  
+\backslash
+foreach 
+\backslash
+x in {0,18,...,342}
+\end_layout
+
+\begin_layout Plain Layout
+
+    {
+\end_layout
+
+\begin_layout Plain Layout
+
+        (
+\backslash
+x:1.5) node[g] {} edge[dotted] (
+\backslash
+x+18:1.5)
+\end_layout
+
+\begin_layout Plain Layout
+
+    };
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+node (0:0) {$m^m$};
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+begin{scope}[shift={(0,-4)},xscale=2]
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+draw [dotted] (0,0) ellipse (2 and 2);
+\end_layout
+
+\begin_layout Plain Layout
+
+		
+\backslash
+draw plot [only marks, mark=*, mark size=0.1, domain=0:5, samples=75] ({rnd*360}:
+{1+rnd});
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+end{scope}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+node at (0,-4) {$2^{m^m}-m^m$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:m-equiv"
+
+\end_inset
+
+Zwei 
+\begin_inset Formula $m$
+\end_inset
+
+-äquivalente Graphen 
+\begin_inset Formula $\mathfrak{A},\mathfrak{B}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Der 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}\left[\sigma\right]$
+\end_inset
+
+-Satz 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ wird nicht auf 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{B}$
+\end_inset
+
+, sondern 
+\begin_inset Formula $\mathfrak{A}\uplus\mathbf{ARB}\left(n\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{B}\uplus\mathbf{ARB}\left(n\right)$
+\end_inset
+
+ ausgewertet.
+ Wir werden im folgenden sehen, warum das nicht hilft, denn nach Satz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:m-equiv-closed"
+
+\end_inset
+
+ ist die 
+\begin_inset Formula $m$
+\end_inset
+
+-Äquivalenz unter disjunkter Vereinigung abgeschlossen.
+\end_layout
+
+\begin_layout Proof
+Da 
+\begin_inset Formula $\mathfrak{A}\equiv_{m}\mathfrak{B}$
+\end_inset
+
+, und offensichtlich 
+\begin_inset Formula $\mathbf{ARB}\left(n\right)\equiv_{m}\mathbf{ARB}\left(n\right)$
+\end_inset
+
+, folgt somit 
+\begin_inset Formula $\mathfrak{A}\uplus\mathbf{ARB}\left(n\right)\equiv_{m}\mathfrak{B}\uplus\mathbf{ARB}\left(n\right)$
+\end_inset
+
+, und es gilt, im Widerspruch zu der Annahme:
+\begin_inset Formula 
+\[
+\mathfrak{A}\models\varphi_{C}\Leftrightarrow\mathfrak{B}\models\varphi_{C}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:m-equiv-closed"
+
+\end_inset
+
+Seien 
+\begin_inset Formula $\sigma_{1},\sigma_{2}$
+\end_inset
+
+ beliebige Signaturen, 
+\begin_inset Formula $\mathfrak{A}\equiv_{m}\mathfrak{B}$
+\end_inset
+
+ zwei beliebige 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+-Strukturen und 
+\begin_inset Formula $\mathfrak{A}'\equiv_{m}\mathfrak{B}'$
+\end_inset
+
+ zwei beliebige 
+\begin_inset Formula $\sigma_{2}$
+\end_inset
+
+-Strukturen.
+\end_layout
+
+\begin_layout Proposition
+Dann gilt 
+\begin_inset Formula $\mathfrak{A}\uplus\mathfrak{A}'\equiv_{m}\mathfrak{B}\uplus\mathfrak{B}'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Um dies zu beweisen, verwenden wir den Satz von Ehrenfeucht, nach dem die
+ 
+\begin_inset Formula $m$
+\end_inset
+
+-Äquivalenz von Strukturen gleichbedeutend ist mit der Existenz einer Gewinnstra
+tegie für Duplicator im Ehrenfeucht-Fraïssé-Spiel mit 
+\begin_inset Formula $m$
+\end_inset
+
+ Runden.
+ Wir verwenden die Definition des EF-Spiels von Ebbinghaus und Flum (Abschnitt
+ 2.2 von 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EbbinghausFlum"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Proof
+Es wird per 
+\begin_inset Formula $\mathfrak{A}\equiv_{m}\mathfrak{B}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{A}'\equiv_{m}\mathfrak{B}'$
+\end_inset
+
+ vorausgesetzt, dass Duplicator eine Gewinnstrategie für jedes 
+\begin_inset Formula $m'\leqslant m$
+\end_inset
+
+-Runden-Spiel auf 
+\begin_inset Formula $\left(\mathfrak{A},\mathfrak{B}\right)$
+\end_inset
+
+ und auf 
+\begin_inset Formula $\left(\mathfrak{A}',\mathfrak{B}'\right)$
+\end_inset
+
+ hat.
+ Im Spiel auf 
+\begin_inset Formula $\left(\mathfrak{A}\uplus\mathfrak{A}',\mathfrak{B}\uplus\mathfrak{B}'\right)$
+\end_inset
+
+ geht Duplicator wie folgt vor:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Falls Spoiler einen Knoten 
+\begin_inset Formula $a_{i}\in A$
+\end_inset
+
+ oder 
+\begin_inset Formula $b_{i}\in B$
+\end_inset
+
+ wählt, so antworte mit dem Gewinnzug aus dem Spiel auf 
+\begin_inset Formula $\left(\mathfrak{A},\mathfrak{B}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Falls Spoiler 
+\begin_inset Formula $a_{i}\in A'$
+\end_inset
+
+ oder 
+\begin_inset Formula $b_{i}\in B'$
+\end_inset
+
+ wählt, so antworte mit dem Gewinnzug aus dem Spiel auf 
+\begin_inset Formula $\left(\mathfrak{A}',\mathfrak{B}'\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Nun betrachten wir die gespielten Tupel 
+\begin_inset Formula $\bar{a}\in\left(A\cup A'\right)^{m}$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{b}\in\left(B\cup B'\right)^{m}$
+\end_inset
+
+, und die induzierten Strukturen 
+\begin_inset Formula $\left(\mathfrak{A}\uplus\mathfrak{A}'\right)_{\mid\bar{a}}$
+\end_inset
+
+ und 
+\begin_inset Formula $\left(\mathfrak{B}\uplus\mathfrak{B}'\right)_{\mid\bar{b}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Wegen der Annahme induzieren 
+\begin_inset Formula $\bar{a}$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{b}$
+\end_inset
+
+ zwei partielle Isomorphismen mit 
+\begin_inset Formula $\left(\mathfrak{A}_{\mid\bar{a}},\bar{a}_{\mid A}\right)\cong\left(\mathfrak{B}_{\mid\bar{b}},\bar{b}_{\mid B}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\left(\mathfrak{A}'_{\mid\bar{a}},\bar{a}_{\mid A'}\right)\cong\left(\mathfrak{B}'_{\mid\bar{b}},\bar{b}_{\mid B'}\right)$
+\end_inset
+
+.
+ Nach Satz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:iso-closed-disjoint"
+
+\end_inset
+
+ ist der Isomorphismus abgeschlossen, so dass gilt:
+\begin_inset Formula 
+\[
+\left(\mathfrak{A}\uplus\mathfrak{A}'_{\mid\bar{a}},\bar{a}\right)\cong\left(\mathfrak{B}\uplus\mathfrak{B}'_{\mid\bar{b}},\bar{b}\right)
+\]
+
+\end_inset
+
+Damit hat Duplicator das Spiel auf 
+\begin_inset Formula $\left(\mathfrak{A}\uplus\mathfrak{A}',\mathfrak{B}\uplus\mathfrak{B}'\right)$
+\end_inset
+
+ gewonnen, und es folgt 
+\begin_inset Formula $\mathfrak{A}\uplus\mathfrak{A}'\equiv_{m}\mathfrak{B}\uplus\mathfrak{B}'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Die hier dargestellte Folgerung lässt sich allgemein auf jedes Paar von
+ 
+\begin_inset Formula $m$
+\end_inset
+
+-äquivalenten Strukturen erweitern, solange die Strukturen die gleiche Größe
+ haben.
+\end_layout
+
+\begin_layout Corollary
+Die Logik 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+ mit disjunktem Orakel kann nur Eigenschaften ausdrücken, die bezüglich
+ gleich großer Strukturen Hanf-lokal sind.
+\end_layout
+
+\begin_layout Standard
+Die Bedingung der gleichen Größe ist notwendig, denn offensichtlich ist
+ zum Beispiel die 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+-definierbare Klasse 
+\begin_inset Formula $\textsc{Even}$
+\end_inset
+
+ nicht Hanf-lokal.
+\end_layout
+
+\end_body
+\end_document

@@ -1,0 +1,2045 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrbook
+\use_default_options true
+\begin_modules
+theorems-ams
+theorems-chap
+theorems-ams-extended
+\end_modules
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language german
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Grundlegende Definitionen
+\end_layout
+
+\begin_layout Section
+Notation
+\end_layout
+
+\begin_layout Standard
+Zunächst legen wir einige Notationen und Abkürzungen fest.
+ Im folgenden bezeichne 
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+ die Menge der natürlichen Zahlen einschließlich 
+\begin_inset Formula $0$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ die Menge der reellen Zahlen, und 
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $\leqslant$
+\end_inset
+
+
+\begin_inset Quotes grd
+\end_inset
+
+ (wenn nicht anders definiert) die natürliche Ordnung von 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathbb{N}$
+\end_inset
+
+.
+ Mit 
+\begin_inset Quotes gld
+\end_inset
+
+ex.
+\begin_inset Quotes grd
+\end_inset
+
+, 
+\begin_inset Quotes gld
+\end_inset
+
+s.d.
+\begin_inset Quotes grd
+\end_inset
+
+ und 
+\begin_inset Quotes gld
+\end_inset
+
+f.a.
+\begin_inset Quotes grd
+\end_inset
+
+ kürzen wir gegebenenfalls 
+\begin_inset Quotes gld
+\end_inset
+
+es existiert
+\begin_inset Quotes grd
+\end_inset
+
+, 
+\begin_inset Quotes gld
+\end_inset
+
+so dass
+\begin_inset Quotes grd
+\end_inset
+
+ und 
+\begin_inset Quotes gld
+\end_inset
+
+für alle
+\begin_inset Quotes grd
+\end_inset
+
+ ab.
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "def:tupel"
+
+\end_inset
+
+Mengen und Tupel
+\end_layout
+
+\begin_layout Definition
+Mengen benennen wir im allgemeinen durch Großbuchstaben wie 
+\begin_inset Formula $A$
+\end_inset
+
+, 
+\begin_inset Formula $B$
+\end_inset
+
+, 
+\begin_inset Formula $U$
+\end_inset
+
+ oder 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Für eine Menge 
+\begin_inset Formula $A$
+\end_inset
+
+ bezeichne 
+\begin_inset Formula $2^{A}\coloneqq\left\{ A'\mid A'\subseteq A\right\} $
+\end_inset
+
+ die Menge aller Teilmengen von 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Tupel benennen wir durch Kleinbuchstaben mit Balken wie 
+\begin_inset Formula $\bar{a}$
+\end_inset
+
+, 
+\begin_inset Formula $\bar{b}$
+\end_inset
+
+, 
+\begin_inset Formula $\bar{u}$
+\end_inset
+
+ oder 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+.
+ Die Stelligkeit 
+\begin_inset Formula $\mathrm{ar}\left(\bar{x}\right)$
+\end_inset
+
+ eines Tupels 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ sei die Anzahl seiner Elemente, und ein 
+\begin_inset Formula $n$
+\end_inset
+
+-stelliges Tupel heiße kurz 
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $n$
+\end_inset
+
+-Tupel
+\begin_inset Quotes grd
+\end_inset
+
+.
+ Implizit gelte stets 
+\begin_inset Formula $\bar{x}=\left(x_{1},\cdots,x_{\left|\mathrm{ar}\left(x\right)\right|}\right)$
+\end_inset
+
+.
+ Die Menge aller 
+\begin_inset Formula $k$
+\end_inset
+
+-Tupel einer Menge 
+\begin_inset Formula $A$
+\end_inset
+
+ sei 
+\begin_inset Formula $A^{k}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Für ein 
+\begin_inset Formula $m$
+\end_inset
+
+-Tupel 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+ und ein 
+\begin_inset Formula $n$
+\end_inset
+
+-Tupel 
+\begin_inset Formula $\bar{y}$
+\end_inset
+
+ sei 
+\begin_inset Formula $\bar{x}\bar{y}$
+\end_inset
+
+ das 
+\begin_inset Formula $\left(m+n\right)$
+\end_inset
+
+-Tupel 
+\begin_inset Formula $\left(x_{1},\cdots,x_{m},y_{1},\cdots,y_{n}\right)$
+\end_inset
+
+.
+ Das 
+\begin_inset Formula $0$
+\end_inset
+
+-stellige Tupel wird durch 
+\begin_inset Formula $\left\langle \right\rangle $
+\end_inset
+
+ notiert.
+\end_layout
+
+\begin_layout Definition
+Für 
+\begin_inset Formula $\bar{a}\in A^{k}$
+\end_inset
+
+ und 
+\begin_inset Formula $A'\subseteq A$
+\end_inset
+
+ sei 
+\begin_inset Formula $\bar{a}_{\mid A'}$
+\end_inset
+
+ das Tupel, das aus 
+\begin_inset Formula $\bar{a}$
+\end_inset
+
+ entsteht, wenn die Elemente 
+\begin_inset Formula $a_{i}\in A\backslash A'$
+\end_inset
+
+ entfernt werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Intervall
+\end_layout
+
+\begin_layout Definition
+Ein endliches Intervall von natürlichen Zahlen wird durch 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ abgekürzt:
+\begin_inset Formula 
+\[
+\left[a,b\right]\coloneqq\left\{ i\in\mathbb{N}\mid a\leqslant i\leqslant b\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Ein Intervall von reellen Zahlen wird durch 
+\begin_inset Formula $\mathbb{R}_{\left[a,b\right]}$
+\end_inset
+
+ oder 
+\begin_inset Formula $\mathbb{R}_{\left[a,b\right[}$
+\end_inset
+
+ abgekürzt: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathbb{R}_{\left[a,b\right]} & \coloneqq & \left\{ i\in\mathbb{R}\mid a\leqslant i\leqslant b\right\} \\
+\mathbb{R}_{\left[a,b\right[} & \coloneqq & \left\{ i\in\mathbb{R}\mid a\leqslant i<b\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Als nächstes definieren wir Relationen als Mengen von Tupeln von Elementen
+ eines Universums.
+ 
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "def:relation"
+
+\end_inset
+
+Relation
+\end_layout
+
+\begin_layout Definition
+Für eine Menge 
+\begin_inset Formula $A$
+\end_inset
+
+ und 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+ sei 
+\begin_inset Formula $R\subseteq A^{k}$
+\end_inset
+
+ eine 
+\begin_inset Formula $k$
+\end_inset
+
+-stellige Relation über 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Für jede Relation 
+\begin_inset Formula $R\subseteq A^{k}$
+\end_inset
+
+ sei 
+\begin_inset Formula $\left[R\right]:A^{k}\rightarrow\left\{ 0,1\right\} $
+\end_inset
+
+ die folgende Funktion: 
+\begin_inset Formula 
+\[
+\left[R\right]\left(\bar{a}\right)\coloneqq\begin{cases}
+1 & \mathrm{falls}\,\,\bar{a}\in R\\
+0 & \mathrm{sonst}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für geordnete Mengen definieren wir die Operatoren 
+\begin_inset Formula $\min$
+\end_inset
+
+ und 
+\begin_inset Formula $\max$
+\end_inset
+
+, die das kleinste und größte Element (sofern vorhanden) einer Menge unter
+ einer bestimmten Ordnung bezeichnen.
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Minimum und Maximum
+\end_layout
+
+\begin_layout Definition
+Für eine Ordnung 
+\begin_inset Formula $\preceq$
+\end_inset
+
+ auf einer Menge 
+\begin_inset Formula $X$
+\end_inset
+
+ seien 
+\begin_inset Formula $\min_{\preceq}\left(X\right)\in X$
+\end_inset
+
+ und 
+\begin_inset Formula $\max_{\preceq}\left(X\right)\in X$
+\end_inset
+
+ diejenigen Elemente (sofern vorhanden), so dass für alle Elemente 
+\begin_inset Formula $z\in X$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\[
+\min_{\preceq}\left(X\right)\preceq z\preceq\max_{\preceq}\left(X\right)
+\]
+
+\end_inset
+
+Für 
+\begin_inset Formula $X\subseteq\mathbb{R}$
+\end_inset
+
+ wird die natürliche Ordnung 
+\begin_inset Formula $\leqslant$
+\end_inset
+
+ nicht explizit notiert.
+ Für eine Funktion 
+\begin_inset Formula $f:U\rightarrow\mathbb{R}$
+\end_inset
+
+ und eine Menge 
+\begin_inset Formula $X\subseteq U$
+\end_inset
+
+ bezeichnen 
+\begin_inset Formula $\min_{x\in X}f\left(x\right)\in\mathbb{R}$
+\end_inset
+
+ und 
+\begin_inset Formula $\max_{x\in X}f\left(x\right)\in\mathbb{R}$
+\end_inset
+
+ die folgende Abkürzungen:
+\begin_inset Formula 
+\begin{eqnarray*}
+\min_{x\in X}f\left(x\right) & \coloneqq & \min\left\{ f\left(x\right)\mid x\in X\right\} \\
+\max_{x\in X}f\left(x\right) & \coloneqq & \max\left\{ f\left(x\right)\mid x\in X\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+Umgekehrt bezeichnet 
+\begin_inset Formula $\min_{f}U$
+\end_inset
+
+ ein beliebiges Element 
+\begin_inset Formula $u\in U$
+\end_inset
+
+ mit dem minimalen Wert 
+\begin_inset Formula $f\left(u\right)=\min_{x\in U}f\left(x\right)$
+\end_inset
+
+, und 
+\begin_inset Formula $\max_{f}U$
+\end_inset
+
+ analog.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Asymptotische Klassen
+\end_layout
+
+\begin_layout Definition
+Für jede Funktion 
+\begin_inset Formula $f:\mathbb{N}\rightarrow\mathbb{R}$
+\end_inset
+
+ definieren wir die Funktionsklassen 
+\begin_inset Formula $\mathcal{O}\left(f\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\Omega\left(f\right)$
+\end_inset
+
+:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Es gelte 
+\begin_inset Formula $g\in\mathcal{O}\left(f\right)$
+\end_inset
+
+ genau dann wenn ein 
+\begin_inset Formula $n_{0},c\in\mathbb{N}$
+\end_inset
+
+ existieren, so dass für alle 
+\begin_inset Formula $n\geqslant n_{0}$
+\end_inset
+
+ gilt: 
+\begin_inset Formula $g\left(n\right)\leqslant c\cdot f\left(n\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Es gelte 
+\begin_inset Formula $g\in\Omega\left(f\right)$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $f\in\mathcal{O}\left(g\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Definition
+Für 
+\begin_inset Formula $f:\mathbb{R}\rightarrow\mathbb{R}$
+\end_inset
+
+ und eine Klasse 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+ sei 
+\begin_inset Formula $f\left(\mathcal{F}\right)\coloneqq\left\{ f\circ g\mid g\in\mathcal{F}\right\} $
+\end_inset
+
+.
+ Zum Beispiel ist 
+\begin_inset Formula $f\in2^{\mathcal{O}\left(n\right)}$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $f\in\mathcal{O}\left(2^{kn}\right)$
+\end_inset
+
+ für ein festes 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wir legen mehrere einfache Operationen für Abbildungen fest, darunter die
+ Verkettung, Vereinigung disjunkter Definitionsbereiche und Reduktion auf
+ einen Teilbereich.
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Abbildung
+\end_layout
+
+\begin_layout Definition
+Für eine Abbildung 
+\begin_inset Formula $\pi:A\rightarrow B$
+\end_inset
+
+ und 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ schreiben wir statt 
+\begin_inset Formula $\pi\left(a\right)$
+\end_inset
+
+ gegebenenfalls 
+\begin_inset Formula $\pi a$
+\end_inset
+
+ ohne Klammern.
+\end_layout
+
+\begin_layout Definition
+Jede Abbildung 
+\begin_inset Formula $\pi:A\rightarrow B$
+\end_inset
+
+ wird auf natürliche Weise auf Tupel, Teilmengen und Relationen von 
+\begin_inset Formula $A$
+\end_inset
+
+ erweitert:
+\begin_inset Formula 
+\begin{eqnarray*}
+\pi\left(x_{1},\cdots,x_{k}\right) & \coloneqq & \left(\pi x_{1},\cdots,\pi x_{n}\right)\\
+\pi\left\{ x_{1},\cdots,x_{n}\right\}  & \coloneqq & \left\{ \pi x_{1},\cdots,\pi x_{n}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Eine Abbildung 
+\begin_inset Formula $\pi:A\rightarrow B$
+\end_inset
+
+ mit 
+\begin_inset Formula $A=\left\{ a_{1},\cdots,a_{n}\right\} $
+\end_inset
+
+ schreiben wir gegebenenfalls extensional wie folgt auf.
+ Für ein Tupel 
+\begin_inset Formula $\bar{a}=\left(a_{1},\cdots,a_{n}\right)$
+\end_inset
+
+ kürzen wir diese Abbildung auch durch 
+\begin_inset Formula $\left(\bar{a}\mapsto\pi\bar{a}\right)$
+\end_inset
+
+ ab.
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\pi & \coloneqq & \left(\begin{array}{c}
+a_{1}\\
+\pi a_{1}
+\end{array}\cdots\begin{array}{c}
+a_{n}\\
+\pi a_{n}
+\end{array}\right)\\
+\pi & \coloneqq & \left(\bar{a}\mapsto\pi\bar{a}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Für zwei Abbildungen 
+\begin_inset Formula $\pi_{1}:B\rightarrow C$
+\end_inset
+
+ und 
+\begin_inset Formula $\pi_{2}:A\rightarrow B$
+\end_inset
+
+ sei 
+\begin_inset Formula $\pi_{1}\circ\pi_{2}:A\rightarrow C$
+\end_inset
+
+ (kurz 
+\begin_inset Formula $\pi_{1}\pi_{2}$
+\end_inset
+
+) die folgende Abbildung: 
+\begin_inset Formula 
+\[
+\pi_{1}\pi_{2}\coloneqq\left(\bar{a}\mapsto\pi_{1}\left(\pi_{2}\left(\bar{a}\right)\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Für zwei Abbildungen 
+\begin_inset Formula $\pi:A\rightarrow B$
+\end_inset
+
+ und 
+\begin_inset Formula $\pi':A'\rightarrow B'$
+\end_inset
+
+ mit disjunkten Definitionsbereichen 
+\begin_inset Formula $A\cap A'=\emptyset$
+\end_inset
+
+ sei 
+\begin_inset Formula $\pi''\coloneqq\pi\cup\pi'$
+\end_inset
+
+ die folgende Abbildung: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\pi'' & : & A\uplus A'\rightarrow B\cup B'\\
+\pi''x & \coloneqq & \begin{cases}
+\pi x & \mathrm{falls}\,\,x\in A\\
+\pi'x & \mathrm{falls}\,\,x\in A'
+\end{cases}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Für 
+\begin_inset Formula $\pi:A\rightarrow B$
+\end_inset
+
+ und 
+\begin_inset Formula $A'\subseteq A$
+\end_inset
+
+ sei 
+\begin_inset Formula $\pi_{\mid A'}:A'\rightarrow B$
+\end_inset
+
+ die Reduktion von 
+\begin_inset Formula $\pi$
+\end_inset
+
+ auf eine Teilmenge des Definitionsbereichs, und 
+\begin_inset Formula $\pi_{\backslash A'}:A\backslash A'\rightarrow B$
+\end_inset
+
+ die Reduktion auf das Komplement.
+\end_layout
+
+\begin_layout Definition
+Es sei 
+\begin_inset Formula $\mathbf{id}$
+\end_inset
+
+ die Identität mit 
+\begin_inset Formula $\mathbf{id}\left(a\right)=a$
+\end_inset
+
+ für alle Elemente 
+\begin_inset Formula $a$
+\end_inset
+
+.
+ Mit 
+\begin_inset Formula $\mathbf{id}_{X}$
+\end_inset
+
+ bezeichnen wir die Identitätsfunktion auf einer Menge 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Die Menge 
+\begin_inset Formula $\mathrm{Abb}\left(A,B\right)$
+\end_inset
+
+ bezeichne alle Funktionen 
+\begin_inset Formula $\pi:A\rightarrow B$
+\end_inset
+
+, und 
+\begin_inset Formula $\mathrm{Bij}\left(A,B\right)$
+\end_inset
+
+ bezeichne für endliche 
+\begin_inset Formula $\left|A\right|=\left|B\right|=n$
+\end_inset
+
+ alle 
+\begin_inset Formula $n!$
+\end_inset
+
+ bijektiven Abbildungen 
+\begin_inset Formula $\pi:A\rightleftarrows B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Permutation
+\end_layout
+
+\begin_layout Definition
+Eine Permutation von 
+\begin_inset Formula $U$
+\end_inset
+
+ ist eine bijektive Abbildung 
+\begin_inset Formula $\pi:U\rightleftarrows U$
+\end_inset
+
+.
+ Die Menge aller Permutationen 
+\begin_inset Formula $\mathrm{Bij}\left(U,U\right)$
+\end_inset
+
+ bezeichnen wir auch als 
+\begin_inset Formula $\mathrm{Sym}_{U}$
+\end_inset
+
+.
+ Diese bilden eine Symmetrie-Gruppe bezüglich der Verkettung 
+\begin_inset Formula $\circ$
+\end_inset
+
+ mit dem neutralen Element 
+\begin_inset Formula $\mathbf{id}_{U}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Es sei 
+\begin_inset Formula $\pi^{-1}$
+\end_inset
+
+ die inverse Abbildung mit 
+\begin_inset Formula $\pi^{-1}\pi=\pi\pi^{-1}=\mathbf{id}_{U}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Eine Transposition sei eine Permutation, die zwei Elemente 
+\begin_inset Formula $u_{i}$
+\end_inset
+
+ und 
+\begin_inset Formula $u_{j}$
+\end_inset
+
+ vertauscht und alle anderen Elemente fixiert.
+ Die Permutation 
+\begin_inset Formula $\left(\begin{array}{cc}
+u_{i} & u_{j}\\
+u_{j} & u_{i}
+\end{array}\right)\cup\mathbf{id}_{U\backslash\left\{ u_{i},u_{j}\right\} }$
+\end_inset
+
+ wird kurz durch 
+\begin_inset Formula $\left(u_{i}u_{j}\right)$
+\end_inset
+
+ notiert.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "def:orbit"
+
+\end_inset
+
+Orbit
+\end_layout
+
+\begin_layout Definition
+In einer Permutationsgruppe 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ sei 
+\begin_inset Formula $\mathrm{Orb}_{G}\left(u\right)\coloneqq\left\{ \pi u\mid\pi\in G\right\} $
+\end_inset
+
+ die Menge aller Elemente, auf die 
+\begin_inset Formula $u$
+\end_inset
+
+ abgebildet wird.
+\end_layout
+
+\begin_layout Section
+Endliche relationale Strukturen
+\end_layout
+
+\begin_layout Standard
+Wir betrachten Anfragen und Eigenschaften auf Graphen und allgemeinen endlichen
+ Strukturen über eine beliebige relationale Signatur 
+\begin_inset Formula $\sigma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Relationale Signaturen
+\end_layout
+
+\begin_layout Definition
+Eine relationale Signatur 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ ist eine Menge von Relationssymbolen.
+ Jedes Symbol 
+\begin_inset Formula $R\in\sigma$
+\end_inset
+
+ hat eine feste Stelligkeit 
+\begin_inset Formula $\mathrm{ar}\left(R\right)=k\in\mathbb{N}_{\geqslant1}$
+\end_inset
+
+.
+ Gegebenenfalls wird die Stelligkeit kompakt durch 
+\begin_inset Formula $R/k\in\sigma$
+\end_inset
+
+ beziehungsweise 
+\begin_inset Formula $\sigma=\left\{ R_{1}/k_{1},\cdots,R_{k}/k_{k}\right\} $
+\end_inset
+
+ notiert.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Endliche Strukturen
+\end_layout
+
+\begin_layout Definition
+Eine endliche 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}=\left(A,\left(R^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
+\end_inset
+
+ über einer Signatur 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ und einem endlichen nicht-leeren Universum 
+\begin_inset Formula $A$
+\end_inset
+
+ besteht aus einer Interpretation 
+\begin_inset Formula $R^{\mathfrak{A}}\subseteq A^{k}$
+\end_inset
+
+ für jedes Symbol 
+\begin_inset Formula $R/k\in\sigma$
+\end_inset
+
+.
+ Strukturen benennen wir im Allgemeinen durch die Frakturbuchstaben 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{B}$
+\end_inset
+
+.
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Für eine endliche Menge 
+\begin_inset Formula $U$
+\end_inset
+
+ sei 
+\begin_inset Formula $\mathbf{FIN}^{U}\left(\sigma\right)$
+\end_inset
+
+ die Menge aller 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen über dem Universum 
+\begin_inset Formula $U$
+\end_inset
+
+.
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Für 
+\begin_inset Formula $n\in\mathbb{N}_{\geqslant1}$
+\end_inset
+
+ seien 
+\begin_inset Formula $\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+\end_inset
+
+ die 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen über einem beliebigen Universum der Größe 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+Seien 
+\begin_inset Formula $\mathbf{FIN}\left(\sigma\right)\coloneqq\bigcup_{n\in\mathbb{N}_{\geqslant1}}\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
+\end_inset
+
+ die endlichen 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Die Signatur 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ kann in Ausnahmefällen unendlich sein; da wir jedoch nur endlich repräsentierba
+re 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfragen betrachten, können diese sich nur auf eine endlichen Menge von
+ Relationssymbolen 
+\begin_inset Formula $\sigma'\subseteq_{\mathrm{fin}}\sigma$
+\end_inset
+
+ beziehen.
+\end_layout
+
+\begin_layout Standard
+Wir formalisieren die Interpretation als eine Abbildung 
+\begin_inset Formula $\square^{\mathfrak{A}}:\sigma\rightarrow\bigcup_{k\in\mathbb{N}}2^{\left(A^{k}\right)}$
+\end_inset
+
+, die jedem Symbol eine Relation der entsprechenden Stelligkeit zuweist.
+ Daher kann die Interpretation gegebenenfalls auch explizit durch 
+\begin_inset Formula $\mathfrak{A}=\left(A,\square^{\mathfrak{A}}\right)$
+\end_inset
+
+ notiert werden, um die Zuordnung von Symbolen und Relationen zu verdeutlichen:
+ 
+\begin_inset Formula 
+\[
+\mathfrak{A}\coloneqq\left(A,\left(\begin{array}{c}
+R_{1}\\
+R_{1}^{\mathfrak{A}}
+\end{array}\cdots\begin{array}{c}
+R_{k}\\
+R_{k}^{\mathfrak{A}}
+\end{array}\right)\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Geordnete Strukturen
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ eine relationale Signatur, die nicht das zweistellige Symbol 
+\begin_inset Formula $\leqslant$
+\end_inset
+
+ enthält.
+\end_layout
+
+\begin_layout Definition
+Für 
+\begin_inset Formula $a,b\in\mathbb{N}$
+\end_inset
+
+ sei 
+\begin_inset Formula 
+\[
+\mathbf{FIN}_{\leqslant}^{\left[a,b\right]}\left(\sigma\right)\subseteq\mathbf{FIN}^{\left[a,b\right]}\left(\sigma\cup\left\{ \leqslant\right\} \right)
+\]
+
+\end_inset
+
+ die Menge der endlichen 
+\begin_inset Formula $\sigma\cup\left\{ \leqslant\right\} $
+\end_inset
+
+-Strukturen mit dem Universum 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+, wobei 
+\begin_inset Formula $\leqslant$
+\end_inset
+
+ durch die natürliche Ordnung von 
+\begin_inset Formula $\left[a,b\right]$
+\end_inset
+
+ interpretiert wird, und sei 
+\begin_inset Formula 
+\[
+\mathbf{FIN}_{\leqslant}^{a}\left(\sigma\right)\coloneqq\bigcup_{b\in\mathbb{N}}\mathbf{FIN}_{\leqslant}^{\left[a,b\right]}\left(\sigma\right)
+\]
+
+\end_inset
+
+ die Menge aller endlichen geordneten 
+\begin_inset Formula $\sigma\cup\left\{ \leqslant\right\} $
+\end_inset
+
+-Strukturen über Intervallen, die mit 
+\begin_inset Formula $a$
+\end_inset
+
+ beginnen (normalerweise mit 
+\begin_inset Formula $a\in\left\{ 0,1\right\} $
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Der Lesbarkeit halber verwenden wir die Infixnotation 
+\begin_inset Formula $a\leqslant b$
+\end_inset
+
+ anstelle von 
+\begin_inset Formula $\left(a,b\right)\in\leqslant$
+\end_inset
+
+ oder 
+\begin_inset Formula $\left[\leqslant\right]\left(a,b\right)$
+\end_inset
+
+.
+ Die Symbole 
+\begin_inset Formula $\dot{\leqslant}$
+\end_inset
+
+ und 
+\begin_inset Formula $\dot{=}$
+\end_inset
+
+ seien gleichbedeutend mit den Symbolen 
+\begin_inset Formula $\leqslant$
+\end_inset
+
+ und 
+\begin_inset Formula $=$
+\end_inset
+
+, und werden gegebenenfalls in Gleichungen wie 
+\begin_inset Formula $\varphi=x\dot{=}y$
+\end_inset
+
+ und 
+\begin_inset Formula $\varphi=x\dot{\leqslant}y$
+\end_inset
+
+ verwendet.
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "def:isomorphism"
+
+\end_inset
+
+Isomorphismus
+\end_layout
+
+\begin_layout Definition
+Für zwei 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{B}$
+\end_inset
+
+ sei eine bijektive Abbildung 
+\begin_inset Formula $\pi:A\rightleftarrows B$
+\end_inset
+
+ ein Isomorphismus, falls 
+\begin_inset Formula $\pi R^{\mathfrak{A}}=R^{\mathfrak{B}}$
+\end_inset
+
+ für alle Symbole 
+\begin_inset Formula $R\in\sigma$
+\end_inset
+
+ gilt.
+\end_layout
+
+\begin_layout Definition
+Die Abbildung 
+\begin_inset Formula $\pi$
+\end_inset
+
+ wird auf natürliche Weise auf Strukturen erweitert: 
+\begin_inset Formula 
+\[
+\pi\mathfrak{A}\coloneqq\left(\pi A,\left(\pi R^{\mathfrak{A}}\right)_{R\in\sigma}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Die Menge aller Isomorphismen bezeichnen wir mit 
+\begin_inset Formula $\mathrm{Bij}\left(\mathfrak{A},\mathfrak{B}\right)$
+\end_inset
+
+.
+ Zwei Strukturen heißen isomorph (kurz 
+\begin_inset Formula $\mathfrak{A}\cong\mathfrak{B}$
+\end_inset
+
+), falls 
+\begin_inset Formula $\mathrm{Bij}\left(\mathfrak{A},\mathfrak{B}\right)$
+\end_inset
+
+ nicht leer ist.
+ Wir schreiben 
+\begin_inset Formula $\left(\mathfrak{A},\bar{a}\right)\cong\left(\mathfrak{B},\bar{b}\right)$
+\end_inset
+
+, wenn insbesondere ein 
+\begin_inset Formula $\pi\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{B}\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $\pi\bar{a}=\bar{b}$
+\end_inset
+
+ existiert.
+\end_layout
+
+\begin_layout Definition
+Ein Automorphismus 
+\begin_inset Formula $\pi\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{A}\right)$
+\end_inset
+
+ sei ein Isomorphismus von 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ zu sich selbst.
+ Die Menge der Automorphismen 
+\begin_inset Formula $\mathrm{Bij}\left(\mathfrak{A},\mathfrak{A}\right)$
+\end_inset
+
+ nennen wir 
+\begin_inset Formula $\mathrm{Aut}_{\mathfrak{A}}$
+\end_inset
+
+; diese bilden (so wie die Permutationen einer Menge) eine Gruppe bezüglich
+ der Verkettung 
+\begin_inset Formula $\circ$
+\end_inset
+
+ und dem neutralen Element 
+\begin_inset Formula $\mathbf{id}_{A}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Der Orbit eines Elements 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ sei analog zu Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:orbit"
+
+\end_inset
+
+ die Menge 
+\begin_inset Formula $\mathrm{Orb}_{\mathfrak{A}}\left(a\right)\coloneqq\left\{ \pi a\mid\pi\in\mathrm{Aut}_{\mathfrak{A}}\right\} $
+\end_inset
+
+ aller Elemente, auf die 
+\begin_inset Formula $a$
+\end_inset
+
+ von einem Automorphismus abgebildet werden kann.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "def:disjoint-union"
+
+\end_inset
+
+Vereinigung von Strukturen
+\end_layout
+
+\begin_layout Definition
+Zwei Strukturen können vereinigt werden, wenn sie entweder disjunkte Signaturen
+ oder die gleiche Signatur besitzen.
+ Für eine 
+\begin_inset Formula $\sigma_{1}$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ und eine 
+\begin_inset Formula $\sigma_{2}$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{B}$
+\end_inset
+
+ gelte:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Wenn 
+\begin_inset Formula $\sigma_{1}\cap\sigma_{2}=\emptyset$
+\end_inset
+
+, so ist 
+\begin_inset Formula $\mathfrak{A}\cup\mathfrak{B}$
+\end_inset
+
+ die folgende 
+\begin_inset Formula $\left(\sigma_{1}\cup\sigma_{2}\right)$
+\end_inset
+
+-Struktur:
+\begin_inset Formula 
+\[
+\mathfrak{A}\cup\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\right)_{R\in\sigma_{1}},\left(R^{\mathfrak{B}}\right)_{R\in\sigma_{2}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Wenn 
+\begin_inset Formula $\sigma_{1}=\sigma_{2}=\sigma$
+\end_inset
+
+, so ist 
+\begin_inset Formula $\mathfrak{A}\cup\mathfrak{B}$
+\end_inset
+
+ die folgende 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur:
+\begin_inset Formula 
+\[
+\mathfrak{A}\cup\mathfrak{B}\coloneqq\left(A\cup B,\left(R^{\mathfrak{A}}\cup R^{\mathfrak{B}}\right)_{R\in\sigma}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Definition
+Falls die beiden Strukturen disjunkte Universen 
+\begin_inset Formula $A\cap B=\emptyset$
+\end_inset
+
+ haben, so heiße 
+\begin_inset Formula $\mathfrak{A}\cup\mathfrak{B}=\mathfrak{A}\uplus\mathfrak{B}$
+\end_inset
+
+ die 
+\series bold
+disjunkte Vereinigung
+\series default
+ der Strukturen.
+ Wenn sie disjunkte Signaturen und das gleiche Universum haben, so nennen
+ wir 
+\begin_inset Formula $\mathfrak{A}\cup\mathfrak{B}=\mathfrak{A}\oplus\mathfrak{B}$
+\end_inset
+
+ die 
+\series bold
+Konkatenation
+\series default
+ der Strukturen.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:iso-closed-disjoint"
+
+\end_inset
+
+Isomorphismen sind unter disjunkter Vereinigung abgeschlossen.
+\end_layout
+
+\begin_layout Proof
+Seien 
+\begin_inset Formula $\mathfrak{A},\mathfrak{A}'\in\mathbf{FIN}\left(\sigma_{1}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{B},\mathfrak{B}'\in\mathbf{FIN}\left(\sigma_{2}\right)$
+\end_inset
+
+ jeweils zwei Paare isomorpher Strukturen mit 
+\begin_inset Formula $\pi_{1}\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{A}'\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\pi_{2}\in\mathrm{Bij}\left(\mathfrak{B},\mathfrak{B}'\right)$
+\end_inset
+
+.
+ Sei ferner 
+\begin_inset Formula $A\cap B=A'\cap B'=\emptyset$
+\end_inset
+
+, und seien 
+\begin_inset Formula $\bar{a}\in A^{k},\bar{a}'\in A'^{k},\bar{b}\in B^{k'},\bar{b}\in B'^{k'}$
+\end_inset
+
+ vier Tupel mit 
+\begin_inset Formula $\pi_{1}\bar{a}=\bar{a}'$
+\end_inset
+
+ und 
+\begin_inset Formula $\pi_{2}\bar{b}=\bar{b}'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+So gilt für die Abbildung 
+\begin_inset Formula $\pi\coloneqq\pi_{1}\cup\pi_{2}:A\uplus A'\rightarrow B\uplus B'$
+\end_inset
+
+:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Wenn 
+\begin_inset Formula $\sigma_{1}\cap\sigma_{2}=\emptyset$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+\pi R^{\mathfrak{A}\uplus\mathfrak{B}} & = & \pi_{1}R^{\mathfrak{A}}=R^{\mathfrak{A}'}=R^{\mathfrak{A}'\uplus\mathfrak{B}'}\,\mathrm{für}\,R\in\sigma_{1}\\
+\pi R^{\mathfrak{A}\uplus\mathfrak{B}} & = & \pi_{2}R^{\mathfrak{B}}=R^{\mathfrak{B}'}=R^{\mathfrak{A}'\uplus\mathfrak{B}'}\,\mathrm{für}\,R\in\sigma_{2}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Wenn 
+\begin_inset Formula $\sigma_{1}=\sigma_{2}$
+\end_inset
+
+, dann gilt für alle 
+\begin_inset Formula $R\in\sigma_{1}$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\pi R^{\mathfrak{A}\cup\mathfrak{B}}=\pi_{1}R^{\mathfrak{A}}\uplus\pi_{2}R^{\mathfrak{B}}=R^{\mathfrak{A}'}\uplus R^{\mathfrak{B}'}=R^{\mathfrak{A}'\uplus\mathfrak{B}'}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Damit ist 
+\begin_inset Formula $\pi\left(\mathfrak{A}\uplus\mathfrak{B}\right)=\mathfrak{A}'\uplus\mathfrak{B}'$
+\end_inset
+
+ und 
+\begin_inset Formula $\pi\bar{a}\bar{b}=\bar{a}'\bar{b}'$
+\end_inset
+
+, und 
+\begin_inset Formula $\left(\mathfrak{A}\uplus\mathfrak{B},\bar{a}\bar{b}\right)\cong\left(\mathfrak{A}'\uplus\mathfrak{B}',\bar{a}'\bar{b}'\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "def:induced-structure"
+
+\end_inset
+
+Induzierte Teilstruktur
+\end_layout
+
+\begin_layout Definition
+Für eine Relation 
+\begin_inset Formula $R\subseteq A^{k}$
+\end_inset
+
+ und eine Teilmenge 
+\begin_inset Formula $A'\subseteq A$
+\end_inset
+
+ sei 
+\begin_inset Formula $R_{\mid A'}\coloneqq R\cap\left(A'\right)^{k}$
+\end_inset
+
+ die von 
+\begin_inset Formula $A'$
+\end_inset
+
+ induzierte Teilrelation.
+ Für eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ sei 
+\begin_inset Formula $\mathfrak{A}_{\mid A'}\coloneqq\left(A',\left(R_{\mid A'}^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
+\end_inset
+
+ die von der Teilmenge 
+\begin_inset Formula $A'$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ induzierte Teilstruktur.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "def:neighborhoods"
+
+\end_inset
+
+
+\begin_inset Formula $r$
+\end_inset
+
+-Nachbarschaft
+\series default
+ (siehe Abschnitt 2.4 von 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "EbbinghausFlum"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Definition
+Für eine Struktur 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ sei 
+\begin_inset Formula $\mathcal{G}\left(\mathfrak{A}\right)\in\mathbf{FIN}^{A}\left(\left\{ E\right\} \right)$
+\end_inset
+
+ der 
+\series bold
+Gaifman-Graph
+\series default
+ von 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+, der alle Knoten miteinander verbindet, die im gleichen Tupel vorkommen.
+ Insbesondere ist für jeden symmetrischen
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Der Gaifman-Graph ist ungerichtet, wird aber hier als symmetrische, gerichtete
+ 
+\begin_inset Formula $\left\{ E\right\} $
+\end_inset
+
+-Struktur modelliert.
+\end_layout
+
+\end_inset
+
+ Graphen 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\left\{ E\right\} \right)$
+\end_inset
+
+ offensichtlich 
+\begin_inset Formula $\mathcal{G}\left(\mathfrak{A}\right)=\mathfrak{A}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{G}\left(\mathfrak{A}\right) & = & \left(A,E^{\mathcal{G}\left(\mathfrak{A}\right)}\right)\\
+E^{\mathcal{G}\left(\mathfrak{A}\right)} & = & \left\{ \left(a_{i},a_{j}\right)\mid R/k\in\sigma,\,\bar{a}\in R^{\mathfrak{A}},\,i,j\in\left[1,k\right],\,i\neq j\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $\mathrm{dist}_{\mathfrak{A}}:A^{2}\rightarrow\mathbb{N\cup\left\{ \infty\right\} }$
+\end_inset
+
+ die minimale Distanz 
+\begin_inset Formula $\mathrm{dist}_{\mathfrak{A}}\left(a,b\right)$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{G}\left(\mathfrak{A}\right)$
+\end_inset
+
+ zwischen zwei Knoten 
+\begin_inset Formula $a,b\in A$
+\end_inset
+
+.
+ Für ein 
+\begin_inset Formula $r\in\mathbb{N}$
+\end_inset
+
+ sei nun 
+\begin_inset Formula $N_{r}^{\mathfrak{A}}\left(a\right)\coloneqq\left\{ b\in A\mid\mathrm{dist}_{\mathfrak{A}}\left(a,b\right)\leqslant r\right\} $
+\end_inset
+
+ die 
+\series bold
+
+\begin_inset Formula $r$
+\end_inset
+
+-Kugel
+\series default
+ um 
+\begin_inset Formula $a\in A$
+\end_inset
+
+.
+ Deren induzierte Teilstruktur 
+\begin_inset Formula $\mathcal{N}_{r}^{\mathfrak{A}}\left(a\right)=\mathfrak{A}_{\mid N_{r}\left(a\right)}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathfrak{A}$
+\end_inset
+
+ sei die 
+\series bold
+
+\begin_inset Formula $r$
+\end_inset
+
+-Umgebung
+\series default
+ von 
+\begin_inset Formula $a$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Für zwei Strukturen 
+\begin_inset Formula $\mathfrak{A},\mathfrak{B}\in\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ und zwei Elemente 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ schreiben wir 
+\begin_inset Formula $a\sim_{r}b$
+\end_inset
+
+ (
+\begin_inset Formula $a$
+\end_inset
+
+ ist 
+\series bold
+
+\begin_inset Formula $r$
+\end_inset
+
+-ähnlich
+\series default
+ zu 
+\begin_inset Formula $b$
+\end_inset
+
+), wenn ein Isomorphismus 
+\begin_inset Formula $\pi\in\mathrm{Bij}\left(\mathcal{N}_{r}^{\mathfrak{A}}\left(a\right),\mathcal{N}_{r}^{\mathfrak{B}}\left(b\right)\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $\pi a=b$
+\end_inset
+
+ existiert.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfragen
+\end_layout
+
+\begin_layout Definition
+Eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\series bold
+-Anfrage
+\series default
+ 
+\begin_inset Formula $q$
+\end_inset
+
+ mit der Stelligkeit 
+\begin_inset Formula $\mathrm{ar}\left(q\right)=k$
+\end_inset
+
+ sei eine Abbildung jeder endlichen 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ auf eine Relation 
+\begin_inset Formula $q\left(\mathfrak{A}\right)\subseteq A^{k}$
+\end_inset
+
+.
+ Eine 
+\begin_inset Formula $\sigma$
+\end_inset
+
+
+\series bold
+-Eigenschaft
+\series default
+ 
+\begin_inset Formula $S\subseteq\mathbf{FIN}\left(\sigma\right)$
+\end_inset
+
+ sei eine Menge von 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Strukturen und entspreche der 0-stelligen Anfrage 
+\begin_inset Formula $q_{S}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+q_{S}\left(\mathfrak{A}\right) & \coloneqq & \begin{cases}
+\left\{ \left\langle \right\rangle \right\}  & \mathrm{falls}\,\mathfrak{A}\in S\\
+\emptyset & \mathrm{sonst}
+\end{cases}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Per Definition sind alle 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfragen und 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Eigenschaften unter Isomorphismen abgeschlossen: Für 
+\begin_inset Formula $\mathfrak{A}\cong\mathfrak{B}$
+\end_inset
+
+ und 
+\begin_inset Formula $\pi\in\mathrm{Bij}\left(\mathfrak{A},\mathfrak{B}\right)$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\pi q\left(\mathfrak{A}\right)=q\left(\mathfrak{B}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{A}\in S\Leftrightarrow\mathfrak{B}\in S$
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document

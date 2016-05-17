@@ -1,0 +1,2358 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrbook
+\use_default_options true
+\begin_modules
+theorems-ams
+theorems-chap
+theorems-ams-extended
+\end_modules
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language german
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Schaltkreise
+\end_layout
+
+\begin_layout Section
+Grundlagen der Schaltkreise
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Boolesche Basis:
+\series default
+ 
+\end_layout
+
+\begin_layout Definition
+Eine boolesche Basis 
+\begin_inset Formula $\mathbb{B}$
+\end_inset
+
+ besteht aus beliebigen über Permutation der Eingabe abgeschlossenen Relationen
+ 
+\begin_inset Formula $\phi'\subseteq\left\{ 0,1\right\} ^{*}$
+\end_inset
+
+.
+ Wir definieren dafür der Einfachheit halber die Relation 
+\begin_inset Formula $\phi\subseteq\mathbb{N}^{2}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\phi\coloneqq\left\{ \left(i,j\right)\in\mathbb{N}^{2}\mid0^{i}1^{j}\in\phi'\right\} $
+\end_inset
+
+.
+ Als Beispiel seien die folgenden booleschen Junktoren gegeben: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathtt{AND} & \coloneqq & \left\{ 0\right\} \times\mathbb{N}\\
+\mathtt{OR} & \coloneqq & \mathbb{N}\times\left(\mathbb{N}\backslash\left\{ 0\right\} \right)\\
+\mathtt{MAJ} & \coloneqq & \left\{ \left(m,n\right)\in\mathbb{N}\times\mathbb{N}\mid m\leqslant n\right\} \\
+\mathtt{XOR} & \coloneqq & \mathbb{N}\times\left(\mathbb{N}\backslash2\mathbb{N}\right)\\
+\mathtt{NOR} & \coloneqq & \mathbb{N}\times\left\{ 0\right\} \\
+\mathtt{NAND} & \coloneqq & \left(\mathbb{N}\backslash\left\{ 0\right\} \right)\times\mathbb{N}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Im folgenden stehe 
+\begin_inset Formula $\mathbb{B}_{\mathrm{std}}\coloneqq\left\{ \mathtt{AND},\mathtt{OR}\right\} $
+\end_inset
+
+ für die Basis mit boolescher Konjunktion und Disjunktion, und 
+\begin_inset Formula $\mathbb{B}_{\mathrm{maj}}\coloneqq\mathbb{B}_{\mathrm{std}}\cup\left\{ \mathtt{MAJ}\right\} $
+\end_inset
+
+ für die Basis mit Konjunktion, Disjunktion und Majority.
+ Zu beachten ist, dass wir 
+\begin_inset Formula $\mathtt{NOT}$
+\end_inset
+
+ nicht in die boolesche Basis aufnehmen, da es als unärer Operator ein Spezialfa
+ll ist.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Schaltkreis
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $\mathbb{B}$
+\end_inset
+
+ eine boolesche Basis und 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ eine relationale Signatur.
+ Ein 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreis 
+\begin_inset Formula $\mathcal{C}\coloneqq\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ mit der Stelligkeit 
+\begin_inset Formula $k\coloneqq\mathrm{ar}\left(C\right)$
+\end_inset
+
+ besteht aus den folgenden Komponenten: 
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Ein azyklischer Graph mit den Knoten 
+\begin_inset Formula $G$
+\end_inset
+
+ (
+\begin_inset Quotes gld
+\end_inset
+
+Gates
+\begin_inset Quotes grd
+\end_inset
+
+) und den Kanten 
+\begin_inset Formula $W\subseteq G\times G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+eine Gate-Markierung 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+\Sigma:G & \rightarrow & \mathbb{B}\\
+ & \cup & \left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} \\
+ & \cup & \left\{ R\bar{t}\mid R\in\sigma,\bar{t}\in U^{\mathrm{ar}\left(R\right)}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+eine Ausgabefunktion
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+In Anderson und Dawar 2014
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AD2014"
+
+\end_inset
+
+ wird zusätzlich die Injektivität von 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ verlangt; hier können aber mehrere Tupel dem gleichen Output-Gate zugeteilt
+ werden.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\Omega:U^{k}\rightarrow G$
+\end_inset
+
+ (bei 
+\begin_inset Formula $k=0$
+\end_inset
+
+ ist 
+\begin_inset Formula $\Omega\left(\left\langle \right\rangle \right)\in G$
+\end_inset
+
+ ein einziges Output-Gate, und wird mit 
+\begin_inset Formula $\Omega=\Omega\left(\left\langle \right\rangle \right)$
+\end_inset
+
+ abgekürzt) und 
+\end_layout
+
+\begin_layout Enumerate
+ein Universum 
+\begin_inset Formula $U$
+\end_inset
+
+ (üblicherweise 
+\begin_inset Formula $U=\left[1,n\right]$
+\end_inset
+
+).
+\end_layout
+
+\end_deeper
+\begin_layout Definition
+Hierbei haben alle mit 
+\begin_inset Formula $\phi\in\mathbb{B}$
+\end_inset
+
+ markierten Gates mindestens einen
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Alle hier betrachteten Schaltkreise haben einen unbeschränkten Fan-In.
+\end_layout
+
+\end_inset
+
+ Vorgänger, alle mit 
+\begin_inset Formula $R\bar{x}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{0}$
+\end_inset
+
+ oder 
+\begin_inset Formula $\mathbf{1}$
+\end_inset
+
+ markierten Gates keinen
+\series bold
+ 
+\series default
+Vorgänger, und alle mit 
+\begin_inset Formula $\mathtt{NOT}$
+\end_inset
+
+ markierten Gates genau
+\series bold
+ 
+\series default
+einen
+\series bold
+ 
+\series default
+Vorgänger.
+\end_layout
+
+\begin_layout Definition
+Die mit 
+\begin_inset Formula $\mathbf{0}$
+\end_inset
+
+ oder 
+\begin_inset Formula $\mathbf{1}$
+\end_inset
+
+ markierten Gates heißen 
+\series bold
+Konstanten
+\series default
+, die mit 
+\begin_inset Formula $R\bar{x}$
+\end_inset
+
+ markierten Gates heißen 
+\series bold
+Inputs
+\series default
+, und die Gates im Bild von 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ heißen 
+\series bold
+Outputs
+\series default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:formal"
+
+\end_inset
+
+Formal definieren wir den 
+\begin_inset Formula $k$
+\end_inset
+
+-stelligen 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreis 
+\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ als eine relationale 
+\begin_inset Formula $\tau_{\sigma,\mathbb{B},k}$
+\end_inset
+
+-Struktur über dem Universum 
+\begin_inset Formula $G\uplus U$
+\end_inset
+
+, wobei gilt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\tau_{\sigma,\mathbb{B},k} & \coloneqq & \left\{ W/2,\left(\Sigma_{s}/1\right)_{s\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} },\left(\Sigma_{R}/1+k\right)_{R/k\in\sigma},\Omega/k+1\right\} \\
+W^{\mathcal{C}} & \coloneqq & W\\
+\Sigma_{s}^{\mathcal{C}} & \coloneqq & \left\{ g\in G\mid\Sigma\left(g\right)=s\right\} \,\mathrm{für}\,s\in\mathbb{B}\uplus\left\{ \mathbf{0},\mathbf{1},\mathtt{NOT}\right\} \\
+\Sigma_{R}^{\mathcal{C}} & \coloneqq & \left\{ g\bar{t}\mid\Sigma\left(g\right)=R\bar{t}\right\} \,\mathrm{für}\,R\in\sigma\\
+\Omega^{\mathcal{C}} & \coloneqq & \left\{ \bar{t}g\mid\Omega\left(\bar{t}\right)=g\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "def:circuit-eval"
+
+\end_inset
+
+Auswertung von Schaltkreisen
+\end_layout
+
+\begin_layout Definition
+Der 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreis 
+\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ wird auf einer 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Struktur 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$
+\end_inset
+
+ ausgewertet.
+ Die Auswertung ist eine Abbildung 
+\begin_inset Formula $\mathcal{C}\left[\mathfrak{A}\right]:G\rightarrow\left\{ 0,1\right\} $
+\end_inset
+
+, die jedem Gate 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ den Wert 
+\begin_inset Formula $0$
+\end_inset
+
+ oder 
+\begin_inset Formula $1$
+\end_inset
+
+ zuweist, und ist rekursiv wie folgt definiert:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Case
+Für 
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{t}$
+\end_inset
+
+ gilt 
+\begin_inset Formula 
+\[
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\coloneqq\left[R^{\mathfrak{A}}\right]\bar{t}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Für 
+\begin_inset Formula $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
+\end_inset
+
+ gilt
+\begin_inset Formula 
+\[
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\coloneqq\begin{cases}
+1 & \mathrm{falls}\,\,\Sigma\left(v\right)=\mathbf{1}\\
+0 & \mathrm{sonst}
+\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Für 
+\begin_inset Formula $\Sigma\left(g\right)=\mathtt{NOT}$
+\end_inset
+
+ und 
+\begin_inset Formula $\left(h,g\right)\in W$
+\end_inset
+
+ gilt 
+\begin_inset Formula 
+\[
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)\coloneqq1-\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Case
+Für 
+\begin_inset Formula $\Sigma\left(g\right)=\phi\in\mathbb{B}$
+\end_inset
+
+ gilt: 
+\begin_inset Formula 
+\begin{eqnarray*}
+j_{1} & \coloneqq & \sum_{\left(h,g\right)\in W}\mathcal{C}\left[\mathfrak{A}\right]\left(h\right)\\
+j_{0} & \coloneqq & \left|\left\{ h\mid\left(h,g\right)\in W\right\} \right|-j_{1}\\
+\\
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right) & \coloneqq & \left[\phi\right]\left(j_{0},j_{1}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Definition
+Für einen 
+\begin_inset Formula $k$
+\end_inset
+
+-stelligen Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ und ein Tupel 
+\begin_inset Formula $\bar{t}\in U^{k}$
+\end_inset
+
+ sei die Ausgabe von 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ der Wert des Outputs 
+\begin_inset Formula $\Omega\left(\bar{t}\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)\coloneqq\mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)
+\]
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Ferner sei 
+\begin_inset Formula $q_{\mathcal{C}}:\mathbf{FIN}^{U}\left(\sigma\right)\rightarrow U^{k}$
+\end_inset
+
+ die Abbildung einer Struktur auf die Relation der Tupel, für die 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ den Wert 
+\begin_inset Formula $1$
+\end_inset
+
+ ausgibt.
+ 
+\begin_inset Formula 
+\[
+q_{\mathcal{C}}\left(\mathfrak{A}\right)\coloneqq\left\{ \bar{t}\in U^{k}\mid\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)=1\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+Sei 
+\begin_inset Formula $\mathcal{C}_{4}=\left(G,W,\Sigma,\Omega,\left[4\right]\right)$
+\end_inset
+
+ (siehe Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:circuit"
+
+\end_inset
+
+) ein 
+\begin_inset Formula $1$
+\end_inset
+
+-stelliger 
+\begin_inset Formula $\left(\left\{ E\right\} ,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+-Schaltkreis, der alle Knoten eines gerichteten Graphen findet, die Teil
+ eines einfachen Kreises der Länge 
+\begin_inset Formula $2$
+\end_inset
+
+ sind.
+\end_layout
+
+\begin_layout Example*
+\begin_inset Formula 
+\begin{eqnarray*}
+G & \coloneqq & \left\{ g_{i,j}\mid i,j\in\left[4\right],\,i\neq j\right\} \\
+ & \cup & \left\{ g_{\left\{ i,j\right\} }\mid\left\{ i,j\right\} \subseteq\left[4\right],\,i\neq j\right\} \\
+ & \cup & \left\{ g_{i}\mid i\in\left[4\right]\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{eqnarray*}
+E & \coloneqq & \left\{ \left(g_{i,j},g_{\left\{ i,j\right\} }\right)\mid i,j\in\left[4\right],\,i\neq j\right\} \\
+ & \cup & \left\{ \left(g_{\left\{ i,j\right\} },g_{i}\right)\mid i,j\in\left[4\right],\,i\neq j\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Sigma\left(g\right)=\begin{cases}
+E\,i\,j & \mathrm{für}\,\,g=g_{i,j}\\
+\mathtt{AND} & \mathrm{für}\,\,g=g_{\left\{ i,j\right\} }\\
+\mathtt{OR} & \mathrm{für}\,\,g=g_{i}
+\end{cases}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Omega\left(i\right)\coloneqq g_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Example*
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Preview
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{every node}=[circle, draw=black,node distance=3em]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (E12) {$E 1 2$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E12] (E21) {$E 2 1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E21] (E13) {$E 1 3$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E13] (E31) {$E 3 1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E31] (E14) {$E 1 4$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E14] (E41) {$E 4 1$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E41] (E23) {$E 2 3$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E23] (E32) {$E 3 2$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E32] (E24) {$E 2 4$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E24] (E42) {$E 4 2$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E42] (E34) {$E 3 4$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=E34] (E43) {$E 4 3$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [below of=E41,node distance=7em] (14) {$
+\backslash
+wedge$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [left of=14,node distance=4em] (13) {$
+\backslash
+wedge$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [left of=13,node distance=4em] (12) {$
+\backslash
+wedge$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=14,node distance=4em] (23) {$
+\backslash
+wedge$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=23,node distance=4em] (24) {$
+\backslash
+wedge$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=24,node distance=4em] (34) {$
+\backslash
+wedge$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [below of=14,node distance=5em,label=below:$
+\backslash
+Omega
+\backslash
+left(2
+\backslash
+right)$] (2) {$
+\backslash
+vee$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [left of=2,label=below:$
+\backslash
+Omega
+\backslash
+left(1
+\backslash
+right)$] (1) {$
+\backslash
+vee$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=2,label=below:$
+\backslash
+Omega
+\backslash
+left(3
+\backslash
+right)$] (3) {$
+\backslash
+vee$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=3,label=below:$
+\backslash
+Omega
+\backslash
+left(4
+\backslash
+right)$] (4) {$
+\backslash
+vee$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path [->]
+\end_layout
+
+\begin_layout Plain Layout
+
+		(E12) edge (12) (E21) edge (12)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(E13) edge (13) (E31) edge (13)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(E14) edge (14) (E41) edge (14)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(E23) edge (23) (E32) edge (23)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(E24) edge (24) (E42) edge (24)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(E34) edge (34) (E43) edge (34)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+		(12) edge (1) (12) edge (2)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(13) edge (1) (13) edge (3)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(14) edge (1) (14) edge (4)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(23) edge (2) (23) edge (3)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(24) edge (2) (24) edge (4)
+\end_layout
+
+\begin_layout Plain Layout
+
+		(34) edge (3) (34) edge (4)
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+;
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:circuit"
+
+\end_inset
+
+Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{4}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Eigenschaften von Schaltkreisen
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Größe und Tiefe
+\end_layout
+
+\begin_layout Definition
+Die Größe 
+\begin_inset Formula $\left|\mathcal{C}\right|$
+\end_inset
+
+ eines Schaltkreises 
+\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ sei die Anzahl seiner Gates, 
+\begin_inset Formula $\left|G\right|$
+\end_inset
+
+.
+ Die Tiefe 
+\begin_inset Formula $T\left(\mathcal{C}\right)$
+\end_inset
+
+ sei die maximale Länge eines Wegs durch den Graphen 
+\begin_inset Formula $\left(G,W\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Invarianz
+\end_layout
+
+\begin_layout Definition
+Ein 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreis 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ mit dem Universum 
+\begin_inset Formula $U$
+\end_inset
+
+ heiße 
+\series bold
+invariant
+\series default
+, wenn für alle 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$
+\end_inset
+
+, alle 
+\begin_inset Formula $\bar{t}\in U^{\mathrm{ar}\left(\mathcal{C}\right)}$
+\end_inset
+
+, und jede Permutation 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\[
+\left\llbracket \mathcal{C}\right\rrbracket \left(\pi\mathfrak{A},\pi\bar{t}\right)=\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+In diesem Fall definieren wir für jede Struktur 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{\left(\left|U\right|\right)}\left(\sigma\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\bar{a}\in A^{\mathrm{ar}\left(\mathcal{C}\right)}$
+\end_inset
+
+ die Auswertung von 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ implizit als die Auswertung auf 
+\begin_inset Formula $\pi\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$
+\end_inset
+
+ mit einer beliebigen Bijektion 
+\begin_inset Formula $\pi:A\rightleftarrows U$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{a}\right)\coloneqq\left\llbracket \mathcal{C}\right\rrbracket \left(\pi\mathfrak{A},\pi\bar{a}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Symmetrie
+\end_layout
+
+\begin_layout Definition
+Für einen Schaltkreis 
+\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+, eine Permutation 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+\end_inset
+
+ und einen Automorphismus 
+\begin_inset Formula $\rho\in\mathrm{Aut}_{\mathcal{C}}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\rho_{\mid U}=\pi$
+\end_inset
+
+ nennen wir 
+\begin_inset Formula $\rho$
+\end_inset
+
+ von 
+\begin_inset Formula $\pi$
+\end_inset
+
+ 
+\series bold
+induziert
+\series default
+.
+ (Nach den formalen Definitionen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:formal"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:isomorphism"
+
+\end_inset
+
+ ist 
+\begin_inset Formula $\rho\in\mathrm{Aut}_{\mathcal{C}}\subseteq\mathrm{Sym}_{G\uplus U}$
+\end_inset
+
+ eine Permutation des Universums von 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+.) Wir können aus der formalen Definition des Schaltkreises als 
+\begin_inset Formula $\tau_{\sigma,\mathbb{B},k}$
+\end_inset
+
+-Struktur ableiten, dass ein von 
+\begin_inset Formula $\pi$
+\end_inset
+
+ induzierter Automorphismus 
+\begin_inset Formula $\rho$
+\end_inset
+
+ die folgenden Bedingungen erfüllt:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Die Kanten sind isomorph: 
+\begin_inset Formula $\rho W=W$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Für alle Inputs 
+\begin_inset Formula $g$
+\end_inset
+
+ mit 
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{x}$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\Sigma\left(\rho g\right)=R\,\bar{x'}$
+\end_inset
+
+, mit 
+\begin_inset Formula $\bar{x'}=\pi\bar{x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Für alle übrigen Gates gilt 
+\begin_inset Formula $\Sigma\left(\rho g\right)=\Sigma\left(g\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Für jedes Tupel 
+\begin_inset Formula $\bar{t}\in U^{k}$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\rho\Omega\left(\bar{x}\right)=\Omega\left(\pi\bar{t}\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\begin_layout Definition
+Ein Schaltkreis heiße 
+\series bold
+symmetrisch
+\series default
+, genau dann wenn jede Permutation des Universums 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+\end_inset
+
+ einen Automorphismus 
+\begin_inset Formula $\hat{\pi}\in\mathrm{Aut}_{\mathcal{C}}$
+\end_inset
+
+ des Schaltkreises induziert.
+ (In Zukunft betrachten wir der Einfachheit halber nur den Teil 
+\begin_inset Formula $\hat{\pi}_{\mid G}$
+\end_inset
+
+, der die Gates des Schaltkreises permutiert, da der Rest des Automorphismus
+ 
+\begin_inset Formula $\hat{\pi}=\hat{\pi}_{\mid G}\uplus\pi$
+\end_inset
+
+ lediglich die Permutation 
+\begin_inset Formula $\pi$
+\end_inset
+
+ ist.)
+\end_layout
+
+\begin_layout Proposition
+Symmetrie ist eine hinreichende, aber nicht notwendige, Bedingung für die
+ Invarianz eines Schaltkreises.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ ein symmetrischer 
+\begin_inset Formula $k$
+\end_inset
+
+-stelliger 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreis über 
+\begin_inset Formula $U$
+\end_inset
+
+, und 
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}^{U}\left(\sigma\right)$
+\end_inset
+
+.
+ Sei 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+\end_inset
+
+ eine beliebige Permutation, und sei 
+\begin_inset Formula $\bar{t}\in U^{k}$
+\end_inset
+
+ ein beliebiges Tupel.
+ Es ist zu zeigen, dass: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right) & = & \left\llbracket \mathcal{C}\right\rrbracket \left(\pi\mathfrak{A},\pi\bar{t}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Wegen der Symmetrie induziert 
+\begin_inset Formula $\pi$
+\end_inset
+
+ einen Automorphismus 
+\begin_inset Formula $\hat{\pi}$
+\end_inset
+
+ auf 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\hat{\pi}\left(W\right) & = & W\\
+\Sigma\left(\hat{\pi}g\right) & = & \begin{cases}
+R\pi\bar{x} & \mathrm{für}\,\,\Sigma\left(g\right)=R\bar{x}\\
+\Sigma\left(g\right) & \mathrm{sonst}
+\end{cases}\\
+\Omega\left(\pi\bar{x}\right) & = & \hat{\pi}\Omega\left(\bar{x}\right)\,\mathrm{für\,alle}\,\bar{x}\in U^{\mathrm{ar}\left(\mathcal{C}\right)}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Per Induktion über die Tiefe
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Die Tiefe 
+\begin_inset Formula $T:G\rightarrow\mathbb{N}$
+\end_inset
+
+ sei die maximale Länge eines Weges von einer Quelle zum Gate 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $T\left(g\right)$
+\end_inset
+
+ des Gates 
+\begin_inset Formula $g$
+\end_inset
+
+ wird gezeigt: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)=\mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}g\right) &  & \mathrm{für\,alle}\,g\in G
+\end{eqnarray*}
+
+\end_inset
+
+
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Induktionsanfang
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $T\left(g\right)=0$
+\end_inset
+
+: Sei 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ ein Input mit 
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{x}$
+\end_inset
+
+.
+ Per Definition von 
+\begin_inset Formula $\tau$
+\end_inset
+
+ und 
+\begin_inset Formula $\hat{\tau}$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\Sigma\left(\hat{\pi}g\right) & = & R\pi\bar{x}\\
+\pi\bar{x}\in\pi R^{\mathfrak{A}} & \Longleftrightarrow & \bar{x}\in\pi_{2}R^{\mathfrak{A}}
+\end{eqnarray*}
+
+\end_inset
+
+ Es folgt: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}g\right) & = & \left[\pi R^{\mathfrak{A}}\right]\left(\pi\bar{x}\right)\\
+ & = & \left[R^{\mathfrak{A}}\right]\left(\bar{x}\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]\left(g\right)
+\end{eqnarray*}
+
+\end_inset
+
+(Falls 
+\begin_inset Formula $\Sigma\left(g\right)\in\left\{ \mathbf{0},\mathbf{1}\right\} $
+\end_inset
+
+, folgt die Behauptung direkt aus 
+\begin_inset Formula $\Sigma\left(\hat{\pi}g\right)=\Sigma\left(g\right)$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Description
+Induktionsschritt
+\begin_inset space ~
+\end_inset
+
+
+\begin_inset Formula $n\mapsto n+1$
+\end_inset
+
+: 
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Description
+Annahme: Für alle Gates 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ mit Tiefe 
+\begin_inset Formula $T\left(g\right)\leqslant n$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+So gilt für jedes Gatter 
+\begin_inset Formula $g'\in G$
+\end_inset
+
+ mit 
+\begin_inset Formula $T\left(g'\right)=n+1$
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Enumerate
+Die Beschriftungen 
+\begin_inset Formula $\Sigma\left(\hat{\pi}g'\right)=\Sigma\left(g'\right)=\phi$
+\end_inset
+
+ sind gleich.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}g\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g\right)$
+\end_inset
+
+ für alle 
+\begin_inset Formula $\left(g,g'\right)\in W$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Es folgt 
+\begin_inset Formula $\mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}g'\right)=\mathcal{C}\left[\mathfrak{A}\right]\left(g'\right)$
+\end_inset
+
+.
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Proof
+Schließlich gilt für jedes Tupel 
+\begin_inset Formula $\bar{t}\in U^{\mathrm{ar}\left(\mathcal{C}\right)}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Proof
+\begin_inset Formula 
+\begin{eqnarray*}
+\left\llbracket \mathcal{C}\right\rrbracket \left(\pi\mathfrak{A},\pi\bar{t}\right) & = & \mathcal{C}\left[\pi\mathfrak{A}\right]\left(\Omega\left(\pi\bar{t}\right)\right)\\
+ & = & \mathcal{C}\left[\pi\mathfrak{A}\right]\left(\hat{\pi}\Omega\left(\bar{t}\right)\right)\\
+ & = & \mathcal{C}\left[\mathfrak{A}\right]\left(\Omega\left(\bar{t}\right)\right)=\left\llbracket \mathcal{C}\right\rrbracket \left(\mathfrak{A},\bar{t}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Damit ist der Schaltkreis invariant.
+\end_layout
+
+\begin_layout Proof
+Um die Umkehrrichtung zu widerlegen, wird als Gegenbeispiel der folgende
+ 
+\begin_inset Formula $0$
+\end_inset
+
+-stellige Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{2}$
+\end_inset
+
+ (siehe Abbildung 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:symm"
+
+\end_inset
+
+) über 
+\begin_inset Formula $U=\left\{ 1,2\right\} $
+\end_inset
+
+ angeführt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{C} & \coloneqq & \left(G,W,\Sigma,\Omega,U\right)\\
+G & \coloneqq & \left\{ g_{i,j}\mid i,j\in U\right\} \cup\left\{ g_{\wedge},g_{\wedge}'\right\} \\
+W & \coloneqq & \left\{ \left(g_{1,1},g_{\wedge}\right),\left(g_{1,2},g_{\wedge}\right),\left(g_{2,1},g_{\wedge}'\right),\left(g_{2,2},g_{\wedge}'\right),\left(g_{\wedge},g_{\wedge}'\right)\right\} \\
+\Sigma\left(g\right) & \coloneqq & \mathtt{AND}\\
+\Omega & \coloneqq & g_{\wedge}'
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Preview
+
+\begin_layout Standard
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikzstyle{every node}=[circle, draw=black]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [label=below:$
+\backslash
+Omega$] (C) {$
+\backslash
+wedge$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [above left of=C,node distance=6em] (B1) {$
+\backslash
+wedge$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [above left of=B1,node distance=6em] (A1) {$E12$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=A1,node distance=5.5em] (A2) {$E11$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=B1,node distance=5.5em] (A3) {$E22$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node [right of=A3,node distance=5.5em] (A4) {$E21$};
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+path [->] (A1) edge (B1) (A2) edge (B1) (A3) edge (C) (A4) edge (C)
+\end_layout
+
+\begin_layout Plain Layout
+
+			(B1) edge (C);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:symm"
+
+\end_inset
+
+Schaltkreis 
+\begin_inset Formula $\mathcal{C}_{2}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Der Schaltkreis ist invariant, und akzeptiert alle vollständigen 
+\begin_inset Formula $K_{2}$
+\end_inset
+
+-Graphen.
+ Er ist aber nicht symmetrisch: Die Permutation 
+\begin_inset Formula $\left(\begin{array}{cc}
+1 & 2\\
+2 & 1
+\end{array}\right)$
+\end_inset
+
+ induziert keinen Automorphismus.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "def:rigid"
+
+\end_inset
+
+Rigidität
+\end_layout
+
+\begin_layout Definition
+Ein Schaltkreis 
+\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ sei rigide, wenn er keine redundanten Gates besitzt.
+ Formal dürfen nicht 
+\begin_inset Formula $g,g'\in G$
+\end_inset
+
+ existieren, so dass:
+\begin_inset Formula 
+\begin{eqnarray*}
+\Sigma\left(g\right) & = & \Sigma\left(g'\right)\\
+\left\{ u\in G\mid\left(u,g\right)\in W\right\}  & = & \left\{ u\in G\mid\left(u,g'\right)\in W\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Insbesondere heißt dies, das der Schaltkreis höchstens zwei Konstanten 
+\begin_inset Formula $g_{0},g_{1}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\Sigma\left(g_{0}\right)=\mathbf{0}$
+\end_inset
+
+ und 
+\begin_inset Formula $\Sigma\left(g_{1}\right)=\mathbf{1}$
+\end_inset
+
+ enthält, und jede Input-Beschriftung 
+\begin_inset Formula $\Sigma\left(g\right)=R\bar{x}$
+\end_inset
+
+ nur einmal vorkommt.
+\end_layout
+
+\begin_layout Standard
+Die Rigidität ist hier analog zu der Arbeit von Anderson und Dawar
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AD2014"
+
+\end_inset
+
+ definiert, verlangt aber zusätzlich, dass zwei Gates nicht nur durch die
+ (hier nicht injektive) Output-Markierung 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ unterschieden werden.
+ Diese Einschränkung ist strenger, schränkt aber die Definition nicht bedeutend
+ ein:
+\end_layout
+
+\begin_layout Standard
+Für zwei Gates 
+\begin_inset Formula $g,g'\in G$
+\end_inset
+
+ mit den gleichen Vorgängern, der gleichen Markierung 
+\begin_inset Formula $\Sigma\left(g\right)=\Sigma\left(g'\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\Omega^{-1}\left(g\right)\neq\Omega^{-1}\left(g'\right)$
+\end_inset
+
+ erlaubt die nicht-injektive Definition von 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, dass 
+\begin_inset Formula $g'$
+\end_inset
+
+ entfernt wird und für alle 
+\begin_inset Formula $\bar{t}\in\Omega^{-1}\left(g'\right)$
+\end_inset
+
+ stattdessen 
+\begin_inset Formula $\Omega\left(\bar{t}\right)\coloneqq g$
+\end_inset
+
+ gesetzt wird.
+\end_layout
+
+\begin_layout Section
+Eigenschaften von Schaltkreisfamilien
+\end_layout
+
+\begin_layout Definition
+Eine 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-
+\series bold
+Schaltkreisfamilie
+\series default
+ 
+\begin_inset Formula $\bar{\mathcal{C}}=\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ sei eine Sequenz von invarianten Schaltkreisen 
+\begin_inset Formula $\mathcal{C}_{n}=\left(G_{n},W_{n},\Sigma_{n},\Omega_{n},U_{n}\right)$
+\end_inset
+
+ mit der gleichen Stelligkeit 
+\begin_inset Formula $\mathrm{ar}\left(\mathcal{C}_{n}\right)=k$
+\end_inset
+
+ und den Universen 
+\begin_inset Formula $U_{n}=\left[1,n\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Die von der Schaltkreisfamilie berechnete 
+\begin_inset Formula $\sigma$
+\end_inset
+
+-Anfrage 
+\begin_inset Formula $q_{\bar{\mathcal{C}}}$
+\end_inset
+
+ sei wie folgt: 
+\begin_inset Formula 
+\[
+q_{\bar{\mathcal{C}}}\left(\mathfrak{A}\right)\coloneqq q_{\mathcal{C}_{\left|A\right|}}\left(\mathfrak{A}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Für eine Komplexitätsklasse 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+ sei eine Schaltkreisfamilie 
+\begin_inset Formula $\bar{\mathcal{C}}$
+\end_inset
+
+ 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+-uniform, wenn die Berechnung einer Repräsentation von 
+\begin_inset Formula $\mathcal{C}_{n}$
+\end_inset
+
+ bei Eingabe des Worts 
+\begin_inset Formula $\overset{n}{\overbrace{1\cdots1}}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+ ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Beschränkte Größe
+\end_layout
+
+\begin_layout Definition
+Für eine Funktion 
+\begin_inset Formula $f:\mathbb{N}\rightarrow\mathbb{N}$
+\end_inset
+
+ habe eine Schaltkreisfamilie 
+\begin_inset Formula $\bar{\mathcal{C}}$
+\end_inset
+
+ 
+\begin_inset Formula $f$
+\end_inset
+
+-
+\series bold
+Größe
+\series default
+, wenn für ein 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ und alle 
+\begin_inset Formula $n\geqslant n_{0}$
+\end_inset
+
+ gilt, dass 
+\begin_inset Formula $\left|\mathcal{C}_{n}\right|\leqslant f\left(n\right)$
+\end_inset
+
+.
+ Für eine Klasse von Funktionen 
+\begin_inset Formula $\mathcal{F}\subseteq\mathrm{Abb}\left(\mathbb{N},\mathbb{N}\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $f\in\mathcal{F}$
+\end_inset
+
+ habe 
+\begin_inset Formula $\bar{C}$
+\end_inset
+
+ 
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+-Größe.
+\end_layout
+
+\begin_layout Definition
+Insbesondere sei 
+\begin_inset Formula $\mathrm{poly}\left(n\right)=n^{\mathcal{O}\left(1\right)}$
+\end_inset
+
+ die Klasse aller polynomiell beschränkten Funktionen.
+\end_layout
+
+\begin_layout Remark*
+Statt 
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-groß
+\begin_inset Quotes grd
+\end_inset
+
+ wird in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AD2014"
+
+\end_inset
+
+ der Begriff 
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $\mathrm{P}/\mathrm{poly}$
+\end_inset
+
+-uniform
+\begin_inset Quotes grd
+\end_inset
+
+ verwendet:
+\end_layout
+
+\begin_layout Remark*
+Eine 
+\begin_inset Formula $\mathrm{P/poly}$
+\end_inset
+
+-Turingmaschine arbeitet in Polynomialzeit und erhält für eine Eingabe der
+ Länge 
+\begin_inset Formula $n$
+\end_inset
+
+ eine polynomiell beschränkte Orakel-Eingabe 
+\begin_inset Formula $\Upsilon\left(n\right)\in\left\{ 0,1\right\} ^{f\left(n\right)}$
+\end_inset
+
+, 
+\begin_inset Formula $f\left(n\right)\in\mathrm{poly}\left(n\right)$
+\end_inset
+
+.
+ Unter Voraussetzung einer geeigneten Kodierung kann 
+\begin_inset Formula $\Upsilon\left(n\right)$
+\end_inset
+
+ jede 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-große Schaltkreisfamilie repräsentieren
+\begin_inset CommandInset citation
+LatexCommand cite
+key "arora-barak"
+
+\end_inset
+
+.
+ Daher sind die Begriffe 
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-groß
+\begin_inset Quotes grd
+\end_inset
+
+ und 
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+-uniform
+\begin_inset Quotes grd
+\end_inset
+
+ äquivalent.
+\end_layout
+
+\begin_layout Definition
+
+\series bold
+Beschränkte Tiefe
+\end_layout
+
+\begin_layout Definition
+Für eine Funktion 
+\begin_inset Formula $f:\mathbb{N}\rightarrow\mathbb{N}$
+\end_inset
+
+ habe eine Schaltkreisfamilie 
+\begin_inset Formula $\bar{\mathcal{C}}$
+\end_inset
+
+ 
+\begin_inset Formula $f$
+\end_inset
+
+-
+\series bold
+Tiefe
+\series default
+, wenn 
+\begin_inset Formula $T\left(\mathcal{C}_{n}\right)\leqslant f\left(n\right)$
+\end_inset
+
+ für ein 
+\begin_inset Formula $n_{0}\in\mathbb{N}$
+\end_inset
+
+ und alle 
+\begin_inset Formula $n\geqslant n_{0}$
+\end_inset
+
+.
+ Für eine Klasse 
+\begin_inset Formula $\mathcal{F}\subseteq\mathrm{Abb}\left(\mathbb{N},\mathbb{N}\right)$
+\end_inset
+
+ sei der Begriff 
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+-tief
+\begin_inset Quotes grd
+\end_inset
+
+ analog zu 
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $\mathcal{F}$
+\end_inset
+
+-groß
+\begin_inset Quotes grd
+\end_inset
+
+ definiert.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Benennung von Schaltkreisklassen
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ eine beliebige relationale Signatur.
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Mit 
+\begin_inset Formula $\mathrm{SBC}\left[\sigma\right]$
+\end_inset
+
+ bezeichnen wir die Klasse der Anfragen, die von einer symmetrischen
+\series bold
+ 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{std}}\right)$
+\end_inset
+
+
+\series default
+-Schaltkreisfamilie beschrieben werden.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\left(\mathrm{SBC}+\mathbf{MAJ}\right)\left[\sigma\right]$
+\end_inset
+
+ sei die Klasse der Anfragen, die von einer symmetrischen
+\series bold
+ 
+\begin_inset Formula $\left(\sigma,\mathbb{B}_{\mathrm{maj}}\right)$
+\end_inset
+
+
+\series default
+-Schaltkreisfamilie beschrieben werden.
+ (Zur Erinnerung: 
+\begin_inset Formula $\mathbb{B}_{\mathrm{maj}}=\mathbb{B}_{\mathrm{std}}\uplus\left\{ \mathtt{MAJ}\right\} $
+\end_inset
+
+, wobei 
+\begin_inset Formula $\mathtt{MAJ}$
+\end_inset
+
+ der Majority-Operator ist.)
+\end_layout
+
+\end_deeper
+\begin_layout Definition
+Für eine Komplexitätsklasse 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+ bezeichne 
+\begin_inset Formula $\mathrm{SBC}^{\mathcal{K}}$
+\end_inset
+
+ (beziehungsweise 
+\begin_inset Formula $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{\mathcal{K}}$
+\end_inset
+
+ die Klasse der Anfragen, die von einer entsprechenden 
+\begin_inset Formula $\mathcal{K}$
+\end_inset
+
+-uniformen Schaltkreisfamilie beschrieben werden.
+\end_layout
+
+\begin_layout Definition
+Für jede dieser Klassen schreiben wir 
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $\mathrm{SAC}^{0}$
+\end_inset
+
+
+\begin_inset Quotes grd
+\end_inset
+
+ anstelle von 
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $\mathrm{SBC}$
+\end_inset
+
+
+\begin_inset Quotes grd
+\end_inset
+
+, um die Klasse auf Schaltkreisfamilien mit konstanter Tiefe und 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-Größe zu beschränken.
+\end_layout
+
+\end_body
+\end_document

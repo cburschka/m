@@ -1,0 +1,431 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrbook
+\use_default_options true
+\begin_modules
+theorems-ams
+theorems-chap
+theorems-ams-extended
+\end_modules
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language german
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Einleitung
+\end_layout
+
+\begin_layout Standard
+Wir modellieren Graphen und Datenbanken als Strukturen, die ein Schema von
+ relationalen Prädikaten über einem endlichen Universum interpretieren.
+ Eine Datenbank-Anfrage in einem solchen Schema wird als Funktion modelliert,
+ die jede endliche Struktur auf eine Relation abbildet.
+\end_layout
+
+\begin_layout Standard
+Von besonderem Interesse ist die Datenkomplexität solcher Anfragen: Die
+ Zeit- und Platzkomplexität der Auswertung einer festen Anfrage in Abhängigkeit
+ von der Größe der eingegebenen Struktur.
+ Wir betrachten zwei Modelle, in denen alle beschreibbaren Anfragen eine
+ beschränkte Datenkomplexität besitzen:
+\end_layout
+
+\begin_layout Enumerate
+Klassen von booleschen Schaltkreisfamilien 
+\begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ (mit 
+\begin_inset Formula $\mathtt{AND}$
+\end_inset
+
+-, 
+\begin_inset Formula $\mathtt{OR}$
+\end_inset
+
+-, 
+\begin_inset Formula $\mathtt{NOT}$
+\end_inset
+
+-, und gegebenenfalls Majority-Gates).
+\end_layout
+
+\begin_layout Enumerate
+Formeln der Prädikatenlogik erster Stufe (beziehungsweise deren Erweiterungen).
+\end_layout
+
+\begin_layout Standard
+Boolesche Schaltkreise arbeiten per Definition auf einer geordneten Struktur.
+ Für ungeordnete Strukturen wird deshalb eine beliebige Ordnung gewählt
+ und gefordert, dass das Ergebnis bezüglich der Ordnung invariant ist.
+ Wir führen eine strukturelle Einschränkung (Symmetrie) der Schaltkreise
+ ein, die diese Invarianz garantiert.
+\end_layout
+
+\begin_layout Standard
+Die Schaltkreisfamilie besteht aus einer unendlichen Sequenz von Schaltkreisen
+ für jede Eingabegröße 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ ist.
+ Ohne Einschränkung kann eine solche Sequenz auch unentscheidbare Klassen
+ von natürlichen Zahlen kodieren.
+ In der Praxis ist es daher erwünscht, dass die Schaltkreise von einem effizient
+en Algorithmus berechnet werden: Ist zum Beispiel jeder Schaltkreis in Polynomia
+lzeit oder mit logarithmischem Platz (in Abhängigkeit von 
+\begin_inset Formula $n$
+\end_inset
+
+) berechenbar, dann nennen wir die Schaltkreisfamilie 
+\begin_inset Formula $P$
+\end_inset
+
+- beziehungsweise 
+\begin_inset Formula $\mathrm{LOGSPACE}$
+\end_inset
+
+-uniform.
+\end_layout
+
+\begin_layout Standard
+Die Logik erster Stufe ist in der Praxis zu eingeschränkt: Selbst einfache
+ Probleme wie die Frage, ob eine Struktur eine gerade Anzahl von Elementen
+ enthält, oder zwei Knoten durch einen Weg beliebiger Länge verbunden sind,
+ können nicht ausgedrückt werden.
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Libkin2012"
+
+\end_inset
+
+ Daher erweitern wir die Logik um Fixpunkt-Operatoren, numerische Prädikate
+ und Zähler.
+ Insbesondere betrachten wir Logiken, in denen die numerischen Prädikate
+ 
+\emph on
+disjunkt
+\emph default
+ von dem Universum der eigentlichen Struktur interpretiert werden, und weisen
+ nach, dass solche Logiken gerade die verschiedenen Klassen symmetrischer
+ Schaltkreisfamilien charakterisieren.
+\end_layout
+
+\begin_layout Standard
+Konkret ist die Klasse der symmetrischen 
+\begin_inset Formula $P$
+\end_inset
+
+-uniformen booleschen Schaltkreisfamilien 
+\begin_inset Formula $\mathrm{SBC}^{P}$
+\end_inset
+
+ äquivalent zu der Logik erster Stufe mit Fixpunkt-Operator und disjunktem
+ Ordnungsprädikat 
+\begin_inset Formula $\mathrm{FP}+\mathbf{ORD}$
+\end_inset
+
+.
+ Das Ergebnis wurde 2014 von Matthew Anderson und Anuj Dawar
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AD2014"
+
+\end_inset
+
+ veröffentlicht (nach einem verwandten Ergebnis für infinitäre Logik und
+ lokal polynomiell beschränkte Schaltkreise von Martin Otto in 1997
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Otto1997"
+
+\end_inset
+
+), und bildet die Grundlage dieser Arbeit.
+\end_layout
+
+\begin_layout Standard
+Die logische Zählerweiterung 
+\begin_inset Formula $\mathrm{FP}+C$
+\end_inset
+
+ charakterisiert die symmetrische 
+\begin_inset Formula $P$
+\end_inset
+
+-uniforme Schaltkreisklasse 
+\begin_inset Formula $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}$
+\end_inset
+
+ mit einem Majority-Gate, und die Erweiterung der Logik um beliebige numerische
+ Prädikate 
+\begin_inset Formula $\mathrm{FP}+\mathbf{ARB}$
+\end_inset
+
+ charakterisiert die 
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+-uniforme Klasse 
+\begin_inset Formula $\mathrm{SBC}^{P/\mathrm{poly}}$
+\end_inset
+
+.
+ Diese beiden Erweiterungen sind miteinander kombinierbar.
+\end_layout
+
+\begin_layout Theorem
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:fp"
+
+\end_inset
+
+Anderson und Dawar (2014)
+\end_layout
+
+\begin_layout Theorem
+Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen äquivalent
+:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\mathrm{FP}+\mathbf{ORD}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathrm{SBC}^{P}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathrm{FP}+\mathbf{ORD}+C$
+\end_inset
+
+ und 
+\begin_inset Formula $\left(\mathrm{SBC}+\mathbf{MAJ}\right)^{P}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathrm{FP}+\mathbf{ARB}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathrm{SBC}^{P/\mathrm{poly}}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Das obige Ergebnis wird für Schaltkreise konstanter Tiefe angepasst.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:fo"
+
+\end_inset
+
+Die folgenden Paare von Anfragenklassen sind auf endlichen Strukturen äquivalent
+:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $\mathrm{FO}+\mathbf{BIT}$
+\end_inset
+
+ und 
+\begin_inset Formula $\left(\mathrm{SAC}^{0}\right)^{\mathrm{LOGSPACE}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+ und 
+\begin_inset Formula $\left(\mathrm{SAC}^{0}\right)^{P/\mathrm{poly}}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Die Einschränkung auf symmetrische Schaltkreisfamilien bringt im Allgemeinen
+ eine Reduktion der Ausdrucksstärke mit sich.
+ So wird die Klasse 
+\begin_inset Formula $\mathrm{AC}^{0}$
+\end_inset
+
+ durch die invariante Logik 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FO}\oplus\mathbf{ARB}\right)$
+\end_inset
+
+ (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Immerman1987,Makowsky1997-FO"
+
+\end_inset
+
+), und 
+\begin_inset Formula $P/\mathrm{poly}$
+\end_inset
+
+ durch 
+\begin_inset Formula $\mathrm{inv}\left(\mathrm{FP}\oplus\mathbf{ARB}\right)$
+\end_inset
+
+ (
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Makowsky1997-FO,Makowsky1998-LFP"
+
+\end_inset
+
+) charakterisiert.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:fo-arb"
+
+\end_inset
+
+Für die 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+-Logik und die arb-invariante 
+\begin_inset Formula $\mathrm{FO}\oplus\mathbf{ARB}$
+\end_inset
+
+-Logik gilt:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Jede 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+-Formel beschreibt eine Anfrage, die durch eine arb-invariante 
+\begin_inset Formula $\mathrm{FO}\oplus\mathbf{ARB}$
+\end_inset
+
+-Formel definierbar ist.
+\end_layout
+
+\begin_layout Enumerate
+Es existiert eine Anfrage, die in der arb-invarianten 
+\begin_inset Formula $\mathrm{FO}\oplus\mathbf{ARB}$
+\end_inset
+
+-Logik, aber nicht 
+\begin_inset Formula $\mathrm{FO}+\mathbf{ARB}$
+\end_inset
+
+ definierbar ist.
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+Ähnliche Bezüge bestehen vermutlich auch zwischen den symmetrischen und
+ nicht-symmetrischen Teilen der übrigen betrachteten Schaltkreisklassen.
+\end_layout
+
+\end_body
+\end_document

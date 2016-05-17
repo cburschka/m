@@ -1,0 +1,1890 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass scrbook
+\use_default_options true
+\begin_modules
+theorems-ams
+theorems-chap
+theorems-ams-extended
+\end_modules
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language german
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Partitionen und Träger
+\end_layout
+
+\begin_layout Standard
+Unsere Konstruktion der logischen Formel aus einer Schaltkreisfamilie wird
+ voraussetzen, dass jedes Gate 
+\begin_inset Formula $g$
+\end_inset
+
+ unter allen Bijektionen 
+\begin_inset Formula $\pi:A\rightleftarrows U$
+\end_inset
+
+ ausgewertet wird.
+ Wir stehen zunächst vor dem Problem, dass es 
+\begin_inset Formula $\left|\mathrm{Bij}\left(A,U\right)\right|=n!\in\Omega\left(2^{n}\right)$
+\end_inset
+
+ solche Bijektionen gibt.
+ Um sie für jedes Gate auf eine 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-beschränkte Zahl zu reduzieren, möchten wir gerne nachweisen, dass die
+ 
+\begin_inset Formula $n!$
+\end_inset
+
+ Bijektionen bezüglich jedem Gate in 
+\begin_inset Formula $\frac{n!}{\left(n-k\right)!}$
+\end_inset
+
+ verschiedene Äquivalenzklassen der Größe 
+\begin_inset Formula $\left(n-k\right)!$
+\end_inset
+
+ (mit 
+\begin_inset Formula $k\in\mathcal{O}\left(1\right)$
+\end_inset
+
+) fallen (und einen effizienten Algorithmus finden, der die Repräsentanten
+ dieser Äquivalenzklassen erzeugt).
+\end_layout
+
+\begin_layout Standard
+In dem Ergebnis von Martin Otto in 1997
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Otto1997"
+
+\end_inset
+
+ setzt er eine lokale polynomielle Beschränkung der Orbits jedes Gates voraus,
+ und leitet für diese Schaltkreisfamilien eine Charakterisierung durch das
+ variablen-beschränkte Fragment der infinitären Logik (
+\begin_inset Formula $L_{\infty\omega}^{\omega}$
+\end_inset
+
+) her.
+\end_layout
+
+\begin_layout Standard
+Anderson und Dawar betrachten in 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AD2014"
+
+\end_inset
+
+ symmetrische Schaltkreisfamilien mit polynomieller Größe (und daher automatisch
+ polynomiell beschränkten Orbits).
+ Hier wird für jedes Gate nachgewiesen, dass sein Wert nur von 
+\begin_inset Formula $\mathcal{O}\left(1\right)$
+\end_inset
+
+ vielen Elementen des Universums 
+\begin_inset Formula $U$
+\end_inset
+
+ abhängt, und daraus eine Charakterisierung durch die Fixpunktlogik abgeleitet.
+\end_layout
+
+\begin_layout Standard
+Hierfür werden zunächst die Begriffe der Partition, des Stabilisators und
+ des Trägers eingeführt.
+\end_layout
+
+\begin_layout Section
+Partitionen einer Menge
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $U$
+\end_inset
+
+ ein beliebiges Universum.
+ Wir führen die 
+\series bold
+Partition 
+\series default
+als Zerlegung von 
+\begin_inset Formula $U$
+\end_inset
+
+ in disjunkte Teilmengen ein.
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $\mathcal{P}\coloneqq\left\{ P_{1},\cdots,P_{k}\right\} $
+\end_inset
+
+ eine Menge von disjunkten nicht-leeren Mengen.
+ Wir nennen 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ eine Partition von 
+\begin_inset Formula $U$
+\end_inset
+
+, wenn 
+\begin_inset Formula $\biguplus_{i=1}^{k}P_{i}=U$
+\end_inset
+
+.
+ Sei 
+\begin_inset Formula $\mathrm{Part}_{U}$
+\end_inset
+
+ die Menge aller Partitionen von 
+\begin_inset Formula $U$
+\end_inset
+
+.
+ Sei 
+\begin_inset Formula $\sim_{\mathcal{P}}$
+\end_inset
+
+ eine Äquivalenzrelation auf 
+\begin_inset Formula $U$
+\end_inset
+
+, deren Äquivalenzklassen von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ repräsentiert werden.
+\end_layout
+
+\begin_layout Standard
+Die Permutationen 
+\begin_inset Formula $\mathrm{Sym}_{U}$
+\end_inset
+
+ werden auf natürliche Weise auf 
+\begin_inset Formula $\mathcal{P}\in\mathrm{Part}_{U}$
+\end_inset
+
+ erweitert:
+\begin_inset Formula 
+\begin{eqnarray*}
+\pi\mathcal{P} & \coloneqq & \left\{ \pi P_{i}\mid P_{i}\in\mathcal{P}\right\} \in\mathrm{Part}_{U}
+\end{eqnarray*}
+
+\end_inset
+
+Als nächstes wird die 
+\series bold
+Feinheit
+\series default
+ als Relation auf 
+\begin_inset Formula $\mathrm{Part}_{U}$
+\end_inset
+
+ eingeführt.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:feinheit"
+
+\end_inset
+
+Sei 
+\begin_inset Formula $\mathcal{P}\preceq\mathcal{P}'$
+\end_inset
+
+ (
+\begin_inset Quotes gld
+\end_inset
+
+
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ ist mindestens so fein wie 
+\begin_inset Formula $\mathcal{P}'$
+\end_inset
+
+
+\begin_inset Quotes grd
+\end_inset
+
+) genau dann wenn jedes 
+\begin_inset Formula $P_{i}\in\mathcal{P}$
+\end_inset
+
+ eine Teilmenge eines 
+\begin_inset Formula $P'_{j}\in\mathcal{P}'$
+\end_inset
+
+ ist.
+\end_layout
+
+\begin_layout Definition
+Dies ist äquivalent zu der Teilmengenbeziehung von 
+\begin_inset Formula $\sim_{\mathcal{P}}$
+\end_inset
+
+ und 
+\begin_inset Formula $\sim_{\mathcal{P}'}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{P}\preceq\mathcal{P}' & \Leftrightarrow & \mathrm{f.a.}\,P\in\mathcal{P}\,\mathrm{ex.\,}P'\in\mathcal{P}'\,\mathrm{s.d.}\,P\subseteq P'\\
+ & \Leftrightarrow & \mathrm{f.a.}\,u,u'\in U\,\mathrm{gilt}\,u\sim_{\mathcal{P}}u'\,\Rightarrow u\sim_{\mathcal{P}'}u'\\
+ & \Leftrightarrow & \left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Genau wie die Teilmengenbeziehung der Äquivalenzrelation bildet 
+\begin_inset Formula $\preceq$
+\end_inset
+
+ eine Halbordnung auf 
+\begin_inset Formula $\mathrm{Part}_{U}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Daher bildet 
+\begin_inset Formula $\mathrm{Part}_{U}$
+\end_inset
+
+ einen vollständigen Verband (siehe 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Klein-Barmen1935"
+
+\end_inset
+
+) mit den folgenden Infimum- und Supremum-Operationen 
+\begin_inset Formula $\sqcap$
+\end_inset
+
+ und 
+\begin_inset Formula $\sqcup$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{A}\sqcap\mathcal{B} & \coloneqq & \max_{\preceq}\left\{ \mathcal{P}\in\mathrm{Part}_{U}\mid\mathcal{P}\preceq\mathcal{A}\,\mathrm{und}\,\mathcal{P}\preceq\mathcal{B}\right\} \\
+\mathcal{A}\sqcup\mathcal{B} & \coloneqq & \min_{\preceq}\left\{ \mathcal{P}\in\mathrm{Part}_{U}\mid\mathcal{A}\preceq\mathcal{P}\,\mathrm{und}\,\mathcal{B}\preceq\mathcal{P}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+(
+\begin_inset Formula $\mathcal{A}\sqcap\mathcal{B}$
+\end_inset
+
+ sei die gröbste feinere Partition als 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{B}$
+\end_inset
+
+, und 
+\begin_inset Formula $\mathcal{A}\sqcup\mathcal{B}$
+\end_inset
+
+ die feinste gröbere Partition als 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{B}$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:part-eq"
+
+\end_inset
+
+Wenn 
+\begin_inset Formula $\left[x\right]_{\sim}$
+\end_inset
+
+ die Äquivalenzklasse 
+\begin_inset Formula $\left\{ y\mid x\sim y\right\} $
+\end_inset
+
+ ist, und 
+\begin_inset Formula $\mathcal{P}_{1},\mathcal{P}_{2}\in\mathrm{Part}_{U}$
+\end_inset
+
+ wie folgt sind, 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathcal{P}_{1} & \coloneqq & \left\{ \left[x\right]_{\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}}\mid x\in U\right\} \\
+\mathcal{P}_{2} & \coloneqq & \left\{ \left[x\right]_{\sim^{*}}\mid x\in U\right\} \\
+ &  & \mathrm{wobei}\,\sim\coloneqq\left(\sim_{\mathcal{A}}\right)\cup\left(\sim_{\mathcal{B}}\right)
+\end{eqnarray*}
+
+\end_inset
+
+dann ist 
+\begin_inset Formula $\mathcal{P}_{1}=\mathcal{A}\sqcap\mathcal{B}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{P}_{2}=\mathcal{A}\sqcup\mathcal{B}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Die Eigenschaft 
+\begin_inset Formula $\mathcal{P}_{1}\preceq\mathcal{A},\mathcal{B}\preceq\mathcal{P}_{2}$
+\end_inset
+
+ folgt offensichtlich aus 
+\begin_inset Formula $\left(\sim_{\mathcal{A}}\cap\sim_{\mathcal{B}}\right)\subseteq\sim_{\mathcal{A}},\sim_{\mathcal{B}}\subseteq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)^{*}$
+\end_inset
+
+.
+ Ferner muss jede Relation 
+\begin_inset Formula $\sim_{\mathcal{P}}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{A}}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\left(\sim_{\mathcal{A}}\right)\subseteq\left(\sim_{\mathcal{B}}\right)$
+\end_inset
+
+ auch in 
+\begin_inset Formula $\left(\sim_{\mathcal{A}}\right)\cap\left(\sim_{\mathcal{B}}\right)$
+\end_inset
+
+ enthalten sein, und jede mit 
+\begin_inset Formula $\left(\sim_{\mathcal{P}}\right)\supseteq\left(\sim_{\mathcal{A}}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $\left(\sim_{\mathcal{P}}\right)\supseteq\left(\sim_{\mathcal{B}}\right)$
+\end_inset
+
+ muss auch 
+\begin_inset Formula $\left(\sim_{\mathcal{A}}\right)\cup\left(\sim_{\mathcal{B}}\right)$
+\end_inset
+
+ (und dessen Abschluss) enthalten.
+\end_layout
+
+\begin_layout Definition
+Die feinste und gröbste Partition von 
+\begin_inset Formula $U$
+\end_inset
+
+ seien 
+\begin_inset Formula $\mathcal{P}_{\min}\left(U\right)\coloneqq\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{P}_{\max}\left(U\right)\coloneqq\left\{ U\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Stabilisatoren einer Partition
+\end_layout
+
+\begin_layout Standard
+Wir führen die Stabilisatoren von Elementen, Teilmengen und Partitionen
+ eines Universums 
+\begin_inset Formula $U$
+\end_inset
+
+ ein.
+\end_layout
+
+\begin_layout Definition
+Der Stabilisator eines Elements 
+\begin_inset Formula $u\in U$
+\end_inset
+
+ in 
+\begin_inset Formula $U$
+\end_inset
+
+ sei die Untergruppe 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(u\right)\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ aller Permutationen, die 
+\begin_inset Formula $u$
+\end_inset
+
+ fixieren: 
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{U}\left(u\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\pi u=u\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Der Punktstabilisator
+\series bold
+ 
+\series default
+einer Teilmenge 
+\begin_inset Formula $X\subseteq U$
+\end_inset
+
+ in 
+\begin_inset Formula $U$
+\end_inset
+
+ sei die Untergruppe 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ der Permutationen, die jedes Element 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ fixieren:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{Stab}_{U}\left(X\right) & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi x=x\,\,\mathrm{f.a.}\,\,x\in X\right\} \\
+ & = & \bigcap_{x\in X}\mathrm{Stab}_{U}\left(x\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Der Mengenstabilisator von 
+\begin_inset Formula $X$
+\end_inset
+
+ in 
+\begin_inset Formula $U$
+\end_inset
+
+ sei die Untergruppe 
+\begin_inset Formula $\mathrm{Stab}_{U}\left\{ X\right\} \subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ der Permutationen, die die Menge 
+\begin_inset Formula $X$
+\end_inset
+
+ als ganzes fixieren.
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{Stab}_{U}\left\{ X\right\}  & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi X=X\right\} \\
+ & = & \bigcup_{\pi\in\mathrm{Sym}_{X}}\left(\pi\cup\mathbf{id}_{U\backslash X}\right)\left(\mathrm{Stab}_{U}\left(X\right)\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator parbreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Die obige Definition wird auf Partitionen 
+\begin_inset Formula $\mathcal{P}\in\mathrm{Part}_{U}$
+\end_inset
+
+ erweitert:
+\end_layout
+
+\begin_layout Definition
+Der Punktstabilisator
+\series bold
+ 
+\series default
+von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ in 
+\begin_inset Formula $U$
+\end_inset
+
+ sei die Untergruppe 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ aller Permutationen, die jede Menge 
+\begin_inset Formula $P_{i}\in\mathcal{P}$
+\end_inset
+
+ fixieren:
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{Stab}_{U}\left(\mathcal{P}\right) & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi P_{i}=P_{i}\,\mathrm{für}\,\mathrm{alle}\,P_{i}\in\mathcal{P}\right\} \\
+ & = & \bigcap_{P_{i}\in\mathcal{P}}\mathrm{Stab}_{U}\left\{ P_{i}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Der Mengenstabilisator von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ in 
+\begin_inset Formula $U$
+\end_inset
+
+ sei die Untergruppe 
+\begin_inset Formula $\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} \subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ aller Permutationen, die die Partition als ganzes fixieren: 
+\begin_inset Formula 
+\begin{eqnarray*}
+\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\}  & \coloneqq & \left\{ \pi\in\mathrm{Sym}_{U}\mid\pi\mathcal{P}=\mathcal{P}\right\} 
+\end{eqnarray*}
+
+\end_inset
+
+Diese Gruppe wird durch 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+\end_inset
+
+ und alle Permutationen von gleich-mächtigen Elementen von 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ erzeugt: Sei 
+\begin_inset Formula $\mathcal{P}_{\mid i}\coloneqq\left\{ P_{j}\in\mathcal{P}\mid\left|P_{j}\right|=i\right\} $
+\end_inset
+
+ für 
+\begin_inset Formula $i\in\left[1,\left|U\right|\right]$
+\end_inset
+
+, dann gilt: 
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{U}\left\{ \mathcal{P}\right\} =\bigcup_{\begin{subarray}{c}
+i\in\left[1,\left|U\right|\right]\\
+\pi\in\mathrm{Sym}_{\mathcal{P}_{\mid i}}
+\end{subarray}}\pi\mathrm{Stab}_{U}\left(\mathcal{P}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Die Feinheit von Partitionen ist äquivalent zu der Teilmengenbeziehung ihrer
+ Stabilisatoren.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:feinheit-stab"
+
+\end_inset
+
+Für zwei Partitionen 
+\begin_inset Formula $\mathcal{P},\mathcal{P}'\in\mathrm{Part}_{U}$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\mathcal{P}\preceq\mathcal{P}'$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+\end_inset
+
+ beliebig, so besteht 
+\begin_inset Formula $\pi$
+\end_inset
+
+ aus einer Folge von Transpositionen:
+\begin_inset Formula 
+\[
+\pi=\left(u_{1}v_{1}\right)\circ\cdots\circ\left(u_{k}v_{k}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Jede Transposition 
+\begin_inset Formula $\left(u_{i}v_{i}\right)$
+\end_inset
+
+ vertauscht Elemente einer Menge 
+\begin_inset Formula $P_{i}\in\mathcal{P}$
+\end_inset
+
+; daher gilt 
+\begin_inset Formula $u_{i}\sim_{\mathcal{P}}v_{i}$
+\end_inset
+
+.
+ Per Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:feinheit"
+
+\end_inset
+
+ gilt 
+\begin_inset Formula $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)$
+\end_inset
+
+, und daher 
+\begin_inset Formula $u_{i}\sim_{\mathcal{P}'}v_{i}$
+\end_inset
+
+ und 
+\begin_inset Formula $\left(u_{i}v_{i}\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
+\end_inset
+
+ für alle 
+\begin_inset Formula $i\in\left[1,k\right]$
+\end_inset
+
+.
+ Aus der Abgeschlossenheit des Stabilisators folgt 
+\begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Umgekehrt impliziert auch 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
+\end_inset
+
+, dass für jedes Paar 
+\begin_inset Formula $u\sim_{\mathcal{P}}v$
+\end_inset
+
+ die Transposition 
+\begin_inset Formula $\left(uv\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+\end_inset
+
+ auch in 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}'\right)$
+\end_inset
+
+ enthalten ist, und daher 
+\begin_inset Formula $u\sim_{\mathcal{P}'}v$
+\end_inset
+
+ gilt.
+ Aus 
+\begin_inset Formula $\left(\sim_{\mathcal{P}}\right)\subseteq\left(\sim_{\mathcal{P}'}\right)$
+\end_inset
+
+ folgt 
+\begin_inset Formula $\mathcal{P}\preceq\mathcal{P}'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Träger
+\end_layout
+
+\begin_layout Subsection
+Trägerpartitionen einer Permutationsgruppe
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset label
+LatexCommand label
+name "def:traeger"
+
+\end_inset
+
+Sei 
+\begin_inset Formula $G\subseteq\mathrm{\mathrm{Sym}}_{U}$
+\end_inset
+
+ eine Untergruppe und 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ eine Partition von 
+\begin_inset Formula $U$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ sei eine 
+\series bold
+Trägerpartition
+\series default
+ von
+\series bold
+ 
+\series default
+
+\begin_inset Formula $G$
+\end_inset
+
+ genau dann wenn 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Wenn die Partition 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ eine Trägerpartition von 
+\begin_inset Formula $G$
+\end_inset
+
+ ist, dann ist sie es auch von jeder Obermenge 
+\begin_inset Formula $G'\supseteq G$
+\end_inset
+
+.
+ Außerdem sind per Satz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:feinheit-stab"
+
+\end_inset
+
+ alle feineren 
+\begin_inset Formula $\mathcal{P}'\preceq\mathcal{P}$
+\end_inset
+
+ Trägerpartitionen von 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Somit ist 
+\begin_inset Formula $\mathcal{P}_{\min}=\left\{ \left\{ u_{1}\right\} ,\cdots,\left\{ u_{n}\right\} \right\} $
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}_{\min}\right)=\left\{ \mathbf{id}\right\} $
+\end_inset
+
+ eine triviale Trägerpartition jeder Untergruppe 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+, und alle 
+\begin_inset Formula $\mathcal{P}\in\mathrm{Part}_{U}$
+\end_inset
+
+ sind Trägerpartitionen der Gruppe 
+\begin_inset Formula $\mathrm{Sym}_{U}=\mathrm{Stab}_{U}\left(\mathcal{P}_{\max}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:traeger-abschluss"
+
+\end_inset
+
+Wenn 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{B}$
+\end_inset
+
+ Trägerpartitionen von 
+\begin_inset Formula $G$
+\end_inset
+
+ sind, so sind es auch 
+\begin_inset Formula $\mathcal{A}\sqcap\mathcal{B}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{A}\sqcup\mathcal{B}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Per Definition ist 
+\begin_inset Formula $\mathcal{A}\sqcap\mathcal{B}\preceq\mathcal{A}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{A}\sqcap\mathcal{B}\preceq\mathcal{B}$
+\end_inset
+
+, und daher folgt die Tatsache direkt aus Satz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:feinheit-stab"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Für 
+\begin_inset Formula $\mathcal{P}\coloneqq\mathcal{A}\sqcup\mathcal{B}$
+\end_inset
+
+ gilt:
+\begin_inset Separator latexpar
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Jede Permutation 
+\begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+\end_inset
+
+ ist eine Folge von Transpositionen 
+\begin_inset Formula $\pi=\left(u_{1}v_{1}\right)\circ\cdots\circ\left(u_{k}v_{k}\right)$
+\end_inset
+
+, so dass wir nur Transpositionen betrachten müssen.
+\end_layout
+
+\begin_layout Enumerate
+Die Äquivalenzrelation 
+\begin_inset Formula $\sim_{\mathcal{P}}$
+\end_inset
+
+ ist per Satz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:part-eq"
+
+\end_inset
+
+ die transitive Hülle von 
+\begin_inset Formula $\sim\coloneqq\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)$
+\end_inset
+
+.
+ Daher existiert für alle 
+\begin_inset Formula $u\sim_{\mathcal{P}}v$
+\end_inset
+
+ eine Folge von 
+\begin_inset Formula $\ell\leqslant\left|U\right|$
+\end_inset
+
+ Elementen 
+\begin_inset Formula $\bar{w}\in U^{\ell}$
+\end_inset
+
+ mit
+\begin_inset Formula 
+\[
+u\sim w_{1}\sim\cdots\sim w_{\ell}\sim v
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Proof
+Sei nun 
+\begin_inset Formula $\left(uv\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)$
+\end_inset
+
+ eine beliebige Transposition.
+ 
+\begin_inset Formula $\left(uv\right)$
+\end_inset
+
+ lässt sich mit dem entsprechenden 
+\begin_inset Formula $\bar{w}\in\left(U\backslash\left\{ u,v\right\} \right)^{*}$
+\end_inset
+
+ in die folgenden Transpositionen zerlegen:
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(uv\right) & = & \left(\begin{array}{c}
+u\\
+v
+\end{array}\left(\begin{array}{c}
+w_{i}\\
+w_{i}
+\end{array}\right)_{1\leqslant i\leqslant\ell}\begin{array}{c}
+v\\
+u
+\end{array}\right)\\
+ & = & \left(\begin{array}{c}
+w_{1}\\
+v
+\end{array}\left(\begin{array}{c}
+w_{i}\\
+w_{i-1}
+\end{array}\right)_{1<i\leqslant\ell}\begin{array}{c}
+v\\
+w_{\ell}
+\end{array}\right)\circ\left(\begin{array}{c}
+u\\
+w_{1}
+\end{array}\left(\begin{array}{c}
+w_{i}\\
+w_{i+1}
+\end{array}\right)_{1\leqslant i<\ell}\begin{array}{cc}
+w_{\ell} & v\\
+v & u
+\end{array}\right)\\
+ &  & \left(vw_{\ell}\right)\left(w_{\ell}w_{\ell-1}\right)\cdots\left(w_{2}w_{1}\right)\circ\left(uw_{1}\right)\left(w_{1}w_{2}\right)\cdots\left(w_{\ell-1}w_{\ell}\right)\left(w_{\ell}v\right)
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Weil 
+\begin_inset Formula $\sim=\left(\sim_{\mathcal{A}}\cup\sim_{\mathcal{B}}\right)$
+\end_inset
+
+, ist jede der Transpositionen entweder in 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{A}\right)$
+\end_inset
+
+ oder in 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{B}\right)$
+\end_inset
+
+ enthalten, und beide sind Teilmengen von 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Also ist 
+\begin_inset Formula $\left(uv\right)\in G$
+\end_inset
+
+, und es folgt 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Corollary
+Jede Gruppe 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ besitzt eine eindeutige gröbste Trägerpartition.
+\end_layout
+
+\begin_layout Proof
+Angenommen, 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{P}'$
+\end_inset
+
+ seien zwei gröbste Trägerpartitionen von 
+\begin_inset Formula $G$
+\end_inset
+
+.
+ Nun ist 
+\begin_inset Formula $\mathcal{P}\sqcup\mathcal{P}'$
+\end_inset
+
+ nach Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:traeger-abschluss"
+
+\end_inset
+
+ ebenfalls eine Trägerpartition von 
+\begin_inset Formula $G$
+\end_inset
+
+, und es gilt 
+\begin_inset Formula $\mathcal{P},\mathcal{P}'\preceq\mathcal{P}\sqcup\mathcal{P}'$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Da aber per Definition 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{P}'$
+\end_inset
+
+ aber per Definition gröbste Träger von 
+\begin_inset Formula $G$
+\end_inset
+
+ sind, muss 
+\begin_inset Formula $\mathcal{P}=\mathcal{P}\sqcup\mathcal{P}'=\mathcal{P}'$
+\end_inset
+
+ gelten.
+\end_layout
+
+\begin_layout Definition
+Für jede Gruppe 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ sei 
+\begin_inset Formula $\mathrm{SP}\left(G\right)$
+\end_inset
+
+ der gröbste Träger von 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Wir betrachten nun die Konjugations-Operation 
+\begin_inset Formula $\pi G\pi^{-1}$
+\end_inset
+
+ einer Permutation 
+\begin_inset Formula $\pi$
+\end_inset
+
+ auf einer Untergruppe 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+, und weisen nach, dass 
+\begin_inset Formula $\pi\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\pi G\pi^{-1}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "prop:konjugation"
+
+\end_inset
+
+Wenn eine Partition 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ ein Träger einer Gruppe 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ ist, dann ist 
+\begin_inset Formula $\pi\mathcal{P}$
+\end_inset
+
+ ein Träger von 
+\begin_inset Formula $\pi G\pi^{-1}$
+\end_inset
+
+ für alle 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Seien 
+\begin_inset Formula $\rho\in\mathrm{Stab}_{U}\left(\pi\mathcal{P}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $P_{i}\in\mathcal{P}$
+\end_inset
+
+ beliebig.
+ 
+\begin_inset Formula $\pi^{-1}\rho\pi$
+\end_inset
+
+ fixiert 
+\begin_inset Formula $P_{i}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{eqnarray*}
+\left(\pi^{-1}\rho\pi\right)P_{i} & = & \pi^{-1}\left(\rho\left(\pi P_{i}\right)\right)\\
+ & = & \pi^{-1}\pi P_{i}\\
+ & = & P_{i}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Daraus folgt 
+\begin_inset Formula $\left(\pi^{-1}\rho\pi\right)\in\mathrm{Stab}_{U}\left(\mathcal{P}\right)\subseteq G$
+\end_inset
+
+, und schließlich gilt:
+\begin_inset Formula 
+\begin{eqnarray*}
+\rho & = & \left(\pi\pi^{-1}\right)\rho\left(\pi\pi^{-1}\right)\\
+ & = & \pi\left(\pi^{-1}\rho\pi\right)\pi^{-1}\\
+ & \in & \pi G\pi^{-1}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Damit 
+\begin_inset Formula $\pi\mathcal{P}$
+\end_inset
+
+ ein Träger der konjugierten Gruppe 
+\begin_inset Formula $\pi G\pi^{-1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:sp-konjugation"
+
+\end_inset
+
+Für jede Gruppe 
+\begin_inset Formula $G\subseteq\mathrm{Sym}_{U}$
+\end_inset
+
+ und jede Permutation 
+\begin_inset Formula $\pi\in\mathrm{Sym}_{U}$
+\end_inset
+
+ ist 
+\begin_inset Formula $\pi\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\pi G\pi^{-1}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Nach Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:konjugation"
+
+\end_inset
+
+ ist 
+\begin_inset Formula $\pi\mathrm{SP}\left(G\right)$
+\end_inset
+
+ eine Trägerpartition von 
+\begin_inset Formula $\pi G\pi^{-1}$
+\end_inset
+
+, und daher gilt 
+\begin_inset Formula $\pi\mathrm{SP}\left(G\right)\preceq\mathrm{SP}\left(\pi G\pi^{-1}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Umgekehrt ist auch 
+\begin_inset Formula $\pi^{-1}\mathrm{SP}\left(\pi G\pi^{-1}\right)$
+\end_inset
+
+ eine Trägerpartition von 
+\begin_inset Formula $\pi^{-1}\pi G\pi\pi^{-1}=G$
+\end_inset
+
+.
+ Es folgt 
+\begin_inset Formula $\pi^{-1}\mathrm{SP}\left(\pi G\pi^{-1}\right)\preceq\mathrm{SP}\left(G\right)$
+\end_inset
+
+ und daher 
+\begin_inset Formula $\mathrm{SP}\left(\pi G\pi^{-1}\right)\preceq\pi\mathrm{SP}\left(G\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+Jede Gruppe 
+\begin_inset Formula $G$
+\end_inset
+
+ ist Obermenge des Punkt- und Teilmenge des Mengenstabilisators von 
+\begin_inset Formula $\mathrm{SP}\left(G\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{U}\left(\mathrm{SP}\left(G\right)\right)\subseteq G\subseteq\mathrm{Stab}_{U}\left\{ \mathrm{SP}\left(G\right)\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Per Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:traeger"
+
+\end_inset
+
+ gilt bereits 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathrm{SP}\left(G\right)\right)\subseteq G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Sei nun 
+\begin_inset Formula $\pi\in G$
+\end_inset
+
+ beliebig.
+ Weil 
+\begin_inset Formula $\pi G\pi^{-1}=G$
+\end_inset
+
+, folgt nach Korollar 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cor:sp-konjugation"
+
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\pi\mathrm{SP}\left(G\right)=\mathrm{SP}\left(\pi G\pi^{-1}\right)=\mathrm{SP}\left(G\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+Weil 
+\begin_inset Formula $\pi$
+\end_inset
+
+ die Partition 
+\begin_inset Formula $\mathrm{SP}\left(G\right)$
+\end_inset
+
+ auf sich selbst abbildet, gilt per Definition 
+\begin_inset Formula $\pi\in\mathrm{Stab}_{U}\left\{ \mathrm{SP}\left(G\right)\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Trägermengen im Schaltkreis
+\end_layout
+
+\begin_layout Standard
+Wir erweitern die Begriffe 
+\begin_inset Quotes gld
+\end_inset
+
+Stabilisator
+\begin_inset Quotes grd
+\end_inset
+
+ und 
+\begin_inset Quotes gld
+\end_inset
+
+Träger
+\begin_inset Quotes grd
+\end_inset
+
+ auf die Gates eines rigiden (Definition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "def:rigid"
+
+\end_inset
+
+), symmetrischen Schaltkreises.
+ 
+\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Für jedes Gate 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ sei der Stabilisator von 
+\begin_inset Formula $g$
+\end_inset
+
+ wie folgt definiert:
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{\mathcal{C}}\left(g\right)\coloneqq\left\{ \pi\in\mathrm{Sym}_{U}\mid\hat{\pi}g=g\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+Eine Menge 
+\begin_inset Formula $X\subseteq U$
+\end_inset
+
+ sei eine Trägermenge von 
+\begin_inset Formula $g$
+\end_inset
+
+, wenn jede Permutation, die die Elemente von 
+\begin_inset Formula $X$
+\end_inset
+
+ fixiert, einen Automorphismus in 
+\begin_inset Formula $\mathcal{C}$
+\end_inset
+
+ induziert, der 
+\begin_inset Formula $g$
+\end_inset
+
+ fixiert: 
+\begin_inset Formula 
+\[
+\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da für 
+\begin_inset Formula $X\subseteq X'$
+\end_inset
+
+ offensichtlich 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(X'\right)\subseteq\mathrm{Stab}_{U}\left(X\right)$
+\end_inset
+
+ gilt (je mehr Elemente fixiert werden, um so weniger Permutationen lassen
+ wir zu), ist hier vor allem die kleinste Trägermenge des Gates interessant.
+\end_layout
+
+\begin_layout Proposition
+Wenn 
+\begin_inset Formula $X,X'\subseteq U$
+\end_inset
+
+ zwei Trägermengen von 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ sind, dann ist 
+\begin_inset Formula $X\cap X'$
+\end_inset
+
+ ebenfalls eine Trägermenge von 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $\mathcal{P}\coloneqq\left\{ \left\{ x\right\} \mid x\in X\right\} \cup\left\{ U\backslash X\right\} $
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{P}'\coloneqq\left\{ \left\{ x\right\} \mid x\in X'\right\} \cup\left\{ U\backslash X'\right\} $
+\end_inset
+
+.
+ Offensichtlich gilt 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\right)=\mathrm{Stab}_{U}\left(X\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}'\right)=\mathrm{Stab}_{U}\left(X'\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Daher sind 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathcal{P}'$
+\end_inset
+
+ beide Trägerpartitionen von 
+\begin_inset Formula $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
+\end_inset
+
+.
+ Per Satz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "prop:traeger-abschluss"
+
+\end_inset
+
+ ist auch 
+\begin_inset Formula $\mathcal{P}\sqcup\mathcal{P}'=\left\{ \left\{ x\right\} \mid x\in X\cap X'\right\} \cup\left\{ U\backslash\left(X\cap X'\right)\right\} $
+\end_inset
+
+ eine Trägerpartition, und per 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}\sqcup\mathcal{P}'\right)=\mathrm{Stab}_{U}\left(X\cap X'\right)$
+\end_inset
+
+ ist auch 
+\begin_inset Formula $X\cap X'$
+\end_inset
+
+ eine Trägermenge von 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Corollary
+Jedes Gate 
+\begin_inset Formula $g\in G$
+\end_inset
+
+ besitzt eine eindeutige kleinste Trägermenge.
+\end_layout
+
+\begin_layout Proposition
+Sei 
+\begin_inset Formula $\mathcal{P}\coloneqq\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+\end_inset
+
+ die gröbste Trägerpartition des Stabilisators eines Gates 
+\begin_inset Formula $g$
+\end_inset
+
+, und sei 
+\begin_inset Formula $P_{\max}=\max_{\left|\cdot\right|}\mathcal{P}$
+\end_inset
+
+.
+ Dann ist 
+\begin_inset Formula $X\coloneqq U\backslash P_{\max}$
+\end_inset
+
+ die kleinste Trägermenge von 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Sei 
+\begin_inset Formula $X'$
+\end_inset
+
+ mit 
+\begin_inset Formula $\left|X'\right|<\left|X\right|$
+\end_inset
+
+ eine kleinere Trägermenge von 
+\begin_inset Formula $g$
+\end_inset
+
+.
+ Per Definition ist 
+\begin_inset Formula $\mathcal{P}'\coloneqq\left\{ \left\{ x\right\} \mid x\in X'\right\} \cup\left\{ U\backslash X'\right\} $
+\end_inset
+
+ eine Trägerpartition von 
+\begin_inset Formula $\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
+\end_inset
+
+, denn 
+\begin_inset Formula $\mathrm{Stab}_{U}\left(\mathcal{P}'\right)=\mathrm{Stab}_{U}\left(X'\right)\subseteq\mathrm{Stab}_{\mathcal{C}}\left(g\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Per Definition ist 
+\begin_inset Formula $U\backslash X=P_{\max}$
+\end_inset
+
+ eine größte Menge in 
+\begin_inset Formula $\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+\end_inset
+
+.
+ Per Annahme ist 
+\begin_inset Formula $\left|X'\right|<\left|X\right|$
+\end_inset
+
+ und daher 
+\begin_inset Formula $\left|U\backslash X'\right|>\left|U\backslash X\right|$
+\end_inset
+
+.
+ Weil aber 
+\begin_inset Formula $\mathcal{P}'\preceq\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+\end_inset
+
+ ist, muss 
+\begin_inset Formula $\mathrm{SP}\left(\mathrm{Stab}_{\mathcal{C}}\left(g\right)\right)$
+\end_inset
+
+ eine Obermenge von 
+\begin_inset Formula $U\backslash X'$
+\end_inset
+
+ als Element enthalten, und deren Größe ist mindestens 
+\begin_inset Formula $\left|U\backslash X'\right|>\left|U\backslash X\right|$
+\end_inset
+
+; es entsteht ein Widerspruch.
+\end_layout
+
+\begin_layout Definition
+Sei 
+\begin_inset Formula $\mathrm{sp}\left(g\right)$
+\end_inset
+
+ die kleinste Trägermenge von 
+\begin_inset Formula $g$
+\end_inset
+
+, und sei 
+\begin_inset Formula $\mathrm{sp}\left(\mathcal{C}\right)=\max_{g\in G}\left|\mathrm{sp}\left(g\right)\right|$
+\end_inset
+
+ die maximale Größe aller kleinsten Trägermengen.
+\end_layout
+
+\begin_layout Section
+Obere Schranken für die Größe von Trägern
+\end_layout
+
+\begin_layout Standard
+Das Ergebnis von Anderson und Dawar beruht auf einem Theorem, das eine konstante
+ obere Schranke 
+\begin_inset Formula $\mathrm{S}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$
+\end_inset
+
+ für jede symmetrischen Schaltkreisfamilie 
+\begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
+\end_inset
+
+ polynomieller Größe nachweist.
+ Diese konstante Größe führt zu einer polynomiell beschränkten Anzahl von
+ Permutationen 
+\begin_inset Formula $\left|\mathrm{Sym}_{\mathrm{S}\left(g\right)}\right|=\left|\mathrm{S}\left(g\right)\right|!\leqslant n^{\left|S\left(g\right)\right|}$
+\end_inset
+
+ jeder Trägermenge eines Gates.
+\end_layout
+
+\begin_layout Standard
+Wir stellen hierfür das sogenannte Support-Theorem vor:
+\end_layout
+
+\begin_layout Theorem
+
+\series bold
+\begin_inset CommandInset label
+LatexCommand label
+name "thm:Support-Theorem"
+
+\end_inset
+
+Support-Theorem
+\series default
+ (Theorem 21 aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AD2014"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Theorem
+Für 
+\begin_inset Formula $\epsilon\in\mathbb{R}_{\left[\frac{2}{3},1\right]}$
+\end_inset
+
+ und einen rigiden symmetrischen Schaltkreis 
+\begin_inset Formula $\mathcal{C}=\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $\left|U\right|>2^{\frac{56}{\epsilon^{2}}}$
+\end_inset
+
+, gilt: Wenn die maximalen Orbit-Größe mit 
+\begin_inset Formula $s\coloneqq\max_{g\in G}\mathrm{Orb}_{\mathcal{C}}\left(g\right)\leqslant2^{n^{1-\epsilon}}$
+\end_inset
+
+ subexponentiell ist, dann ist 
+\begin_inset Formula $\mathrm{sp}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Corollary
+\begin_inset CommandInset label
+LatexCommand label
+name "cor:korollar-23"
+
+\end_inset
+
+(Korollar 23 aus 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "AD2014"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Corollary
+Für jede symmetrische, rigide 
+\begin_inset Formula $\left(\sigma,\mathbb{B}\right)$
+\end_inset
+
+-Schaltkreisfamilie mit 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-Größe gilt 
+\begin_inset Formula $\mathrm{sp}\left(\mathcal{C}_{n}\right)\in\mathcal{O}\left(1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+Die 
+\begin_inset Formula $\mathrm{poly}\left(n\right)$
+\end_inset
+
+-Größe des Schaltkreises 
+\begin_inset Formula $\mathcal{C}_{n}=\left(G,W,\Sigma,\Omega,U\right)$
+\end_inset
+
+ impliziert für jedes 
+\begin_inset Formula $\epsilon<1$
+\end_inset
+
+ und hinreichend große 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ offensichtlich: 
+\begin_inset Formula 
+\[
+s\coloneqq\max_{g\in G}\mathrm{Orb}_{\mathcal{C}}\left(g\right)\leqslant\left|\mathcal{C}_{n}\right|\leqslant n^{c}<2^{n^{1-\epsilon}}
+\]
+
+\end_inset
+
+Damit ist 
+\begin_inset Formula $\mathrm{sp}\left(\mathcal{C}\right)\leqslant\frac{33}{\epsilon}\frac{\log s}{\log n}\leqslant\frac{33}{\epsilon}\frac{k\log n}{\log n}=\frac{33k}{\epsilon}\in\mathcal{O}\left(1\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_body
+\end_document
