@@ -570,7 +570,7 @@ Beide Strukturen bestehen aus
 \end_inset
 
  enthält einen Kreis der Länge 
-\begin_inset Formula $m^{m}-2$
+\begin_inset Formula $m^{m}-1$
 \end_inset
 
 , und 
@@ -718,7 +718,7 @@ x+18:1.5)
 
 	
 \backslash
-node (0:0) {$m^{m-1}$};
+node (0:0) {$m^m-1$};
 \end_layout
 
 \begin_layout Plain Layout

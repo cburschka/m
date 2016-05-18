@@ -99,7 +99,7 @@ E^{\mathfrak{A}} & \coloneqq & \left\{ \left(i,i+1\right)\mid i\in\left[1,m^{m}-
 E^{\mathfrak{B}} & \coloneqq & \left\{ \left(i,i+1\right)\mid i\in\left[1,m^{m}-1\right]\right\} \cup\left\{ \left(m^{m},1\right)\right\} 
 \end{eqnarray*}
 Beide Strukturen bestehen aus $2^{m^{m}}$ Knoten, $\mathfrak{A}$
-enthält einen Kreis der Länge $m^{m}-2$, und $\mathfrak{B}$ einen
+enthält einen Kreis der Länge $m^{m}-1$, und $\mathfrak{B}$ einen
 Kreis der Länge $m^{m}$. Damit gilt:
 \[
 \mathfrak{A}\in C,\,\mathfrak{B}\notin C
@@ -126,7 +126,7 @@ Satz von Hanf $m$-äquivalent.
     {
         (\x:1.5) node[g] {} edge[dotted] (\x+18:1.5)
     };
-	\node (0:0) {$m^{m-1}$};
+	\node (0:0) {$m^m-1$};
 	\begin{scope}[shift={(0,-4)},xscale=2]
 		\draw [dotted] (0,0) ellipse (2 and 2);
 		\draw plot [only marks, mark=*, mark size=0.1, domain=0:5, samples=75] ({rnd*360}:{1+rnd});
