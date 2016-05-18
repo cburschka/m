@@ -344,7 +344,7 @@ Für
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 
@@ -557,7 +557,7 @@ Umgekehrt bezeichnet
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 
@@ -887,7 +887,7 @@ Die Menge
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 
@@ -966,7 +966,7 @@ u_{j} & u_{i}
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 
@@ -1046,7 +1046,7 @@ Eine relationale Signatur
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 
@@ -1450,7 +1450,7 @@ reference "def:orbit"
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 
@@ -1683,7 +1683,7 @@ Damit ist
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 
@@ -1743,7 +1743,7 @@ Für eine Relation
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 
@@ -1934,7 +1934,7 @@ Für zwei Strukturen
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 

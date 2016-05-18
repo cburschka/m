@@ -147,7 +147,7 @@ ll ist.)
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 
@@ -361,7 +361,7 @@ Outputs
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 
@@ -410,7 +410,7 @@ W^{\mathcal{C}} & \coloneqq & W\\
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 
@@ -1078,7 +1078,7 @@ Die Größe
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 
@@ -1163,7 +1163,7 @@ In diesem Fall definieren wir für jede Struktur
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 
@@ -1806,7 +1806,7 @@ Der Schaltkreis ist invariant, und akzeptiert alle vollständigen
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 
@@ -1969,7 +1969,7 @@ q_{\bar{\mathcal{C}}}\left(\mathfrak{A}\right)\coloneqq q_{\mathcal{C}_{\left|A\
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 
@@ -2004,7 +2004,7 @@ Für eine Komplexitätsklasse
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 
@@ -2238,7 +2238,7 @@ Tiefe
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 
