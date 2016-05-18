@@ -609,7 +609,6 @@ Es gelte
 .
 \end_layout
 
-\begin_deeper
 \begin_layout Itemize
 Es gelte 
 \begin_inset Formula $g\in\Omega\left(f\right)$
@@ -622,7 +621,6 @@ Es gelte
 .
 \end_layout
 
-\end_deeper
 \begin_layout Definition
 Für 
 \begin_inset Formula $f:\mathbb{R}\rightarrow\mathbb{R}$
@@ -1518,7 +1516,6 @@ Wenn
 
 \end_layout
 
-\begin_deeper
 \begin_layout Enumerate
 Wenn 
 \begin_inset Formula $\sigma_{1}=\sigma_{2}=\sigma$
@@ -1543,7 +1540,6 @@ Wenn
 
 \end_layout
 
-\end_deeper
 \begin_layout Definition
 Falls die beiden Strukturen disjunkte Universen 
 \begin_inset Formula $A\cap B=\emptyset$
