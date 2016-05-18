@@ -1309,7 +1309,8 @@ Sei
 \begin_inset Formula $g,g'$
 \end_inset
 
- enthält, die aus jeder Äquivalenzklasse bezüglich 
+ mit gleicher Beschriftung enthält, die aus jeder Äquivalenzklasse bezüglich
+ 
 \begin_inset Formula $\sim^{*}$
 \end_inset
 
@@ -4781,11 +4782,7 @@ Sei
 \begin_inset Formula $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$
 \end_inset
 
- eine 
-\begin_inset Formula $k$
-\end_inset
-
--stellige, rigide, symmetrische, 
+ eine rigide, symmetrische, 
 \begin_inset Formula $P/\mathrm{poly}$
 \end_inset
 
@@ -4802,11 +4799,7 @@ Sei
 \begin_inset Formula $\left(\mathrm{LFP}+\mathbf{ARB}\right)\left[\sigma\right]$
 \end_inset
 
--Formel 
-\begin_inset Formula $\varphi$
-\end_inset
-
- (beziehungsweise für 
+-Formel (beziehungsweise für 
 \begin_inset Formula $\mathbb{B}=\mathbb{B}_{\mathrm{maj}}$
 \end_inset
 
@@ -4814,7 +4807,7 @@ Sei
 \begin_inset Formula $\left(\mathrm{LFP}+\mathbf{ARB}+C\right)\left[\sigma\right]$
 \end_inset
 
--Formel 
+-Formel) 
 \begin_inset Formula $\varphi$
 \end_inset
 

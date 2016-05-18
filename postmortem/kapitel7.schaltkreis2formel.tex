@@ -302,11 +302,11 @@ $\textsc{True}$
 \end{algorithm}
 
 Sei $\sim^{*}$ eine rekursive Erweiterung von $\sim$, die alle Paare
-von Gates $g,g'$ enthält, die aus jeder Äquivalenzklasse bezüglich
-$\sim^{*}$ die gleiche Anzahl Vorgänger besitzen. Ferner sei $\leqslant$
-eine implizite Ordnung der Gates $G$. Ein Gate $g\in G$, für das
-$g\not\sim^{*}g'$ für alle $g'<g$ gilt, nennen wir den Repräsentanten
-seiner Äquivalenzklasse.
+von Gates $g,g'$ mit gleicher Beschriftung enthält, die aus jeder
+Äquivalenzklasse bezüglich $\sim^{*}$ die gleiche Anzahl Vorgänger
+besitzen. Ferner sei $\leqslant$ eine implizite Ordnung der Gates
+$G$. Ein Gate $g\in G$, für das $g\not\sim^{*}g'$ für alle $g'<g$
+gilt, nennen wir den Repräsentanten seiner Äquivalenzklasse.
 
 Der beschriebene Algorithmus wird $\mathtt{Rigid}\left(g\right)$
 für jeden Repräsentanten $g\in G$ aufrufen. $\mathtt{Rigid}\left(g\right)$
@@ -1126,11 +1126,11 @@ die Formeln $\Phi$ (siehe Abschnitt \ref{subsec:circuit-def}) durch
 $\mathbf{ARB}$-Prädikate, die den Schaltkreis festlegen. Der Abschnitt
 \ref{subsec:circuit-eval} bleibt davon unberührt, und wir beweisen:
 \begin{lem}
-Sei $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine $k$-stellige,
-rigide, symmetrische, $P/\mathrm{poly}$-uniforme $\left(\sigma,\mathbb{B}\right)$-Multischaltkreisfamilie.
+Sei $\left(\mathcal{C}_{n}\right)_{n\in\mathbb{N}}$ eine rigide,
+symmetrische, $P/\mathrm{poly}$-uniforme $\left(\sigma,\mathbb{B}\right)$-Multischaltkreisfamilie.
 Für $\mathbb{B}=\mathbb{B}_{\mathrm{std}}$ existiert eine $\left(\mathrm{LFP}+\mathbf{ARB}\right)\left[\sigma\right]$-Formel
-$\varphi$ (beziehungsweise für $\mathbb{B}=\mathbb{B}_{\mathrm{maj}}$
-eine $\left(\mathrm{LFP}+\mathbf{ARB}+C\right)\left[\sigma\right]$-Formel
+(beziehungsweise für $\mathbb{B}=\mathbb{B}_{\mathrm{maj}}$ eine
+$\left(\mathrm{LFP}+\mathbf{ARB}+C\right)\left[\sigma\right]$-Formel)
 $\varphi$, so dass für $n\in\mathbb{N}$ und $\mathfrak{A}\in\mathbf{FIN}^{\left(n\right)}\left(\sigma\right)$
 die Formel $\varphi\left(\bar{x}\right)$ die gleiche Anfrage definiert
 wie $\mathcal{C}_{n}$.
