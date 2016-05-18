@@ -65,9 +65,7 @@ Funktion:
 \end{cases}
 \]
 \end{defn}
-Für geordnete Mengen definieren wir die Operatoren $\min$ und $\max$,
-die das kleinste und größte Element (sofern vorhanden) einer Menge
-unter einer bestimmten Ordnung bezeichnen.
+%
 \begin{defn}
 \textbf{Minimum und Maximum}
 
@@ -100,9 +98,7 @@ wir die Funktionsklassen $\mathcal{O}\left(f\right)$ und $\Omega\left(f\right)$:
 \begin{itemize}
 \item Es gelte $g\in\mathcal{O}\left(f\right)$ genau dann wenn ein $n_{0},c\in\mathbb{N}$
 existieren, so dass für alle $n\geqslant n_{0}$ gilt: $g\left(n\right)\leqslant c\cdot f\left(n\right)$.
-\begin{itemize}
 \item Es gelte $g\in\Omega\left(f\right)$ genau dann wenn $f\in\mathcal{O}\left(g\right)$.
-\end{itemize}
 \end{itemize}
 \begin{defn}
 Für $f:\mathbb{R}\rightarrow\mathbb{R}$ und eine Klasse $\mathcal{F}$
@@ -110,12 +106,13 @@ sei $f\left(\mathcal{F}\right)\coloneqq\left\{ f\circ g\mid g\in\mathcal{F}\righ
 Zum Beispiel ist $f\in2^{\mathcal{O}\left(n\right)}$ genau dann wenn
 $f\in\mathcal{O}\left(2^{kn}\right)$ für ein festes $k\in\mathbb{N}$.
 \end{defn}
+%
+\begin{defn}
+\textbf{Abbildung}
 
 Wir legen mehrere einfache Operationen für Abbildungen fest, darunter
 die Verkettung, Vereinigung disjunkter Definitionsbereiche und Reduktion
 auf einen Teilbereich.
-\begin{defn}
-\textbf{Abbildung}
 
 Für eine Abbildung $\pi:A\rightarrow B$ und $a\in A$ schreiben wir
 statt $\pi\left(a\right)$ gegebenenfalls $\pi a$ ohne Klammern.
@@ -380,18 +377,18 @@ induzierte Teilrelation. Für eine $\sigma$-Struktur $\mathfrak{A}$
 sei $\mathfrak{A}_{\mid A'}\coloneqq\left(A',\left(R_{\mid A'}^{\mathfrak{A}}\right)_{R\in\sigma}\right)$
 die von der Teilmenge $A'$ in $\mathfrak{A}$ induzierte Teilstruktur.
 \end{defn}
-
+%
 \begin{defn}
 \textbf{\label{def:neighborhoods}$r$-Nachbarschaft} (siehe Abschnitt
 2.4 von \cite{EbbinghausFlum})
 
 Für eine Struktur $\mathfrak{A}\in\mathbf{FIN}\left(\sigma\right)$
-sei $\mathcal{G}\left(\mathfrak{A}\right)\in\mathbf{FIN}^{A}\left(\left\{ E\right\} \right)$
+sei $\mathcal{G}\left(\mathfrak{A}\right)\in\mathbf{FIN}^{A}\left(E\right)$
 der \textbf{Gaifman-Graph} von $\mathfrak{A}$, der alle Knoten miteinander
 verbindet, die im gleichen Tupel vorkommen. Insbesondere ist für jeden
 symmetrischen\footnote{Der Gaifman-Graph ist ungerichtet, wird aber hier als symmetrische,
-gerichtete $\left\{ E\right\} $-Struktur modelliert.} Graphen $\mathfrak{A}\in\mathbf{FIN}\left(\left\{ E\right\} \right)$
-offensichtlich $\mathcal{G}\left(\mathfrak{A}\right)=\mathfrak{A}$.
+gerichtete $\left\{ E\right\} $-Struktur modelliert.} Graphen $\mathfrak{A}\in\mathbf{FIN}\left(E\right)$ offensichtlich
+$\mathcal{G}\left(\mathfrak{A}\right)=\mathfrak{A}$.
 \begin{eqnarray*}
 \mathcal{G}\left(\mathfrak{A}\right) & = & \left(A,E^{\mathcal{G}\left(\mathfrak{A}\right)}\right)\\
 E^{\mathcal{G}\left(\mathfrak{A}\right)} & = & \left\{ \left(a_{i},a_{j}\right)\mid R/k\in\sigma,\,\bar{a}\in R^{\mathfrak{A}},\,i,j\in\left[1,k\right],\,i\neq j\right\} 

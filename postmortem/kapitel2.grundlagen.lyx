@@ -456,16 +456,10 @@ Für eine Menge
 \end_layout
 
 \begin_layout Standard
-Für geordnete Mengen definieren wir die Operatoren 
-\begin_inset Formula $\min$
+\begin_inset Separator plain
 \end_inset
 
- und 
-\begin_inset Formula $\max$
-\end_inset
 
-, die das kleinste und größte Element (sofern vorhanden) einer Menge unter
- einer bestimmten Ordnung bezeichnen.
 \end_layout
 
 \begin_layout Definition
@@ -651,22 +645,22 @@ Für
 \end_layout
 
 \begin_layout Standard
-\begin_inset Separator parbreak
+\begin_inset Separator plain
 \end_inset
 
 
-\end_layout
-
-\begin_layout Standard
-Wir legen mehrere einfache Operationen für Abbildungen fest, darunter die
- Verkettung, Vereinigung disjunkter Definitionsbereiche und Reduktion auf
- einen Teilbereich.
 \end_layout
 
 \begin_layout Definition
 
 \series bold
 Abbildung
+\end_layout
+
+\begin_layout Definition
+Wir legen mehrere einfache Operationen für Abbildungen fest, darunter die
+ Verkettung, Vereinigung disjunkter Definitionsbereiche und Reduktion auf
+ einen Teilbereich.
 \end_layout
 
 \begin_layout Definition
@@ -1776,7 +1770,7 @@ Für eine Struktur
 \end_inset
 
  sei 
-\begin_inset Formula $\mathcal{G}\left(\mathfrak{A}\right)\in\mathbf{FIN}^{A}\left(\left\{ E\right\} \right)$
+\begin_inset Formula $\mathcal{G}\left(\mathfrak{A}\right)\in\mathbf{FIN}^{A}\left(E\right)$
 \end_inset
 
  der 
@@ -1804,7 +1798,7 @@ Der Gaifman-Graph ist ungerichtet, wird aber hier als symmetrische, gerichtete
 \end_inset
 
  Graphen 
-\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(\left\{ E\right\} \right)$
+\begin_inset Formula $\mathfrak{A}\in\mathbf{FIN}\left(E\right)$
 \end_inset
 
  offensichtlich 
